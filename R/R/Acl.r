@@ -47,7 +47,7 @@ Acl <- R6::R6Class(
       AclObject <- jsonlite::fromJSON(AclJson)
       if (!is.null(AclObject$`aclKey`)) {
         self$`aclKey` <- lapply(AclObject$`aclKey`, function(x) {
-          aclKeyObject <- Array$new()
+          aclKeyObject <- AclKey$new()
           aclKeyObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
           aclKeyObject
         })
@@ -72,7 +72,7 @@ Acl <- R6::R6Class(
     },
     fromJSONString = function(AclJson) {
       AclObject <- jsonlite::fromJSON(AclJson)
-      self$`aclKey` <- lapply(AclObject$`aclKey`, function(x) Array$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$`aclKey` <- lapply(AclObject$`aclKey`, function(x) AclKey$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       self$`aces` <- lapply(AclObject$`aces`, function(x) Ace$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )

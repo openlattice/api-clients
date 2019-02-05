@@ -9,7 +9,7 @@
 
 #' EntitySet Class
 #'
-#' @field name Entity set name
+#' @field name 
 #' @field id 
 #' @field title 
 #' @field contacts 
