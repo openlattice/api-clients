@@ -22,21 +22,23 @@ AclData <- R6::R6Class(
     `acl` = NULL,
     initialize = function(`action`, `acl`){
       if (!missing(`action`)) {
-        stopifnot(is.character(`action`), length(`action`) == 1)
+                stopifnot(is.character(`action`), length(`action`) == 1)
         self$`action` <- `action`
       }
       if (!missing(`acl`)) {
-        stopifnot(R6::is.R6(`acl`))
+                stopifnot(R6::is.R6(`acl`))
         self$`acl` <- `acl`
       }
     },
     toJSON = function() {
       AclDataObject <- list()
       if (!is.null(self$`action`)) {
-        AclDataObject[['action']] <- self$`action`
+        AclDataObject[['action']] <-
+                self$`action`
       }
       if (!is.null(self$`acl`)) {
-        AclDataObject[['acl']] <- self$`acl`$toJSON()
+        AclDataObject[['acl']] <-
+                self$`acl`$toJSON()
       }
 
       AclDataObject
@@ -44,29 +46,36 @@ AclData <- R6::R6Class(
     fromJSON = function(AclDataJson) {
       AclDataObject <- jsonlite::fromJSON(AclDataJson)
       if (!is.null(AclDataObject$`action`)) {
-        self$`action` <- AclDataObject$`action`
+                self$`action` <- AclDataObject$`action`
       }
       if (!is.null(AclDataObject$`acl`)) {
-        aclObject <- Acl$new()
-        aclObject$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = TRUE))
-        self$`acl` <- aclObject
+                aclObject <- Acl$new()
+                aclObject$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = TRUE))
+                self$`acl` <- aclObject
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "action": %s,
-           "acl": %s
+           "action":
+                      
+                      "%s"
+                  
+              ,
+           "acl":
+                  "%s"
+              
         }',
-        self$`action`,
-        self$`acl`$toJSON()
+                self$`action`,
+                self$`acl`$toJSON()
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(AclDataJson) {
       AclDataObject <- jsonlite::fromJSON(AclDataJson)
-      self$`action` <- AclDataObject$`action`
-      AclObject <- Acl$new()
-      self$`acl` <- AclObject$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = TRUE))
+              self$`action` <- AclDataObject$`action`
+              AclObject <- Acl$new()
+              self$`acl` <- AclObject$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = TRUE))
     }
   )
 )

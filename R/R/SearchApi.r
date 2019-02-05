@@ -59,11 +59,9 @@ SearchApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- NeighborEntityDetails$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -93,11 +91,9 @@ SearchApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- NeighborEntityDetailsCollection$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {

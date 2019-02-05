@@ -22,21 +22,23 @@ FullQualifiedName <- R6::R6Class(
     `namespace` = NULL,
     initialize = function(`name`, `namespace`){
       if (!missing(`name`)) {
-        stopifnot(is.character(`name`), length(`name`) == 1)
+                stopifnot(is.character(`name`), length(`name`) == 1)
         self$`name` <- `name`
       }
       if (!missing(`namespace`)) {
-        stopifnot(is.character(`namespace`), length(`namespace`) == 1)
+                stopifnot(is.character(`namespace`), length(`namespace`) == 1)
         self$`namespace` <- `namespace`
       }
     },
     toJSON = function() {
       FullQualifiedNameObject <- list()
       if (!is.null(self$`name`)) {
-        FullQualifiedNameObject[['name']] <- self$`name`
+        FullQualifiedNameObject[['name']] <-
+                self$`name`
       }
       if (!is.null(self$`namespace`)) {
-        FullQualifiedNameObject[['namespace']] <- self$`namespace`
+        FullQualifiedNameObject[['namespace']] <-
+                self$`namespace`
       }
 
       FullQualifiedNameObject
@@ -44,26 +46,35 @@ FullQualifiedName <- R6::R6Class(
     fromJSON = function(FullQualifiedNameJson) {
       FullQualifiedNameObject <- jsonlite::fromJSON(FullQualifiedNameJson)
       if (!is.null(FullQualifiedNameObject$`name`)) {
-        self$`name` <- FullQualifiedNameObject$`name`
+                self$`name` <- FullQualifiedNameObject$`name`
       }
       if (!is.null(FullQualifiedNameObject$`namespace`)) {
-        self$`namespace` <- FullQualifiedNameObject$`namespace`
+                self$`namespace` <- FullQualifiedNameObject$`namespace`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "name": %s,
-           "namespace": %s
+           "name":
+                      
+                      "%s"
+                  
+              ,
+           "namespace":
+                      
+                      "%s"
+                  
+              
         }',
-        self$`name`,
-        self$`namespace`
+                self$`name`,
+                self$`namespace`
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(FullQualifiedNameJson) {
       FullQualifiedNameObject <- jsonlite::fromJSON(FullQualifiedNameJson)
-      self$`name` <- FullQualifiedNameObject$`name`
-      self$`namespace` <- FullQualifiedNameObject$`namespace`
+              self$`name` <- FullQualifiedNameObject$`name`
+              self$`namespace` <- FullQualifiedNameObject$`namespace`
     }
   )
 )

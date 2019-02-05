@@ -22,21 +22,23 @@ NeighborDetails <- R6::R6Class(
     `ol.id` = NULL,
     initialize = function(`openlattice.@id`, `ol.id`){
       if (!missing(`openlattice.@id`)) {
-        stopifnot(is.character(`openlattice.@id`), length(`openlattice.@id`) == 1)
+                stopifnot(is.character(`openlattice.@id`), length(`openlattice.@id`) == 1)
         self$`openlattice.@id` <- `openlattice.@id`
       }
       if (!missing(`ol.id`)) {
-        stopifnot(is.character(`ol.id`), length(`ol.id`) == 1)
+                stopifnot(is.character(`ol.id`), length(`ol.id`) == 1)
         self$`ol.id` <- `ol.id`
       }
     },
     toJSON = function() {
       NeighborDetailsObject <- list()
       if (!is.null(self$`openlattice.@id`)) {
-        NeighborDetailsObject[['openlattice.@id']] <- self$`openlattice.@id`
+        NeighborDetailsObject[['openlattice.@id']] <-
+                self$`openlattice.@id`
       }
       if (!is.null(self$`ol.id`)) {
-        NeighborDetailsObject[['ol.id']] <- self$`ol.id`
+        NeighborDetailsObject[['ol.id']] <-
+                self$`ol.id`
       }
 
       NeighborDetailsObject
@@ -44,26 +46,35 @@ NeighborDetails <- R6::R6Class(
     fromJSON = function(NeighborDetailsJson) {
       NeighborDetailsObject <- jsonlite::fromJSON(NeighborDetailsJson)
       if (!is.null(NeighborDetailsObject$`openlattice.@id`)) {
-        self$`openlattice.@id` <- NeighborDetailsObject$`openlattice.@id`
+                self$`openlattice.@id` <- NeighborDetailsObject$`openlattice.@id`
       }
       if (!is.null(NeighborDetailsObject$`ol.id`)) {
-        self$`ol.id` <- NeighborDetailsObject$`ol.id`
+                self$`ol.id` <- NeighborDetailsObject$`ol.id`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "openlattice.@id": %s,
-           "ol.id": %s
+           "openlattice.@id":
+                      
+                      "%s"
+                  
+              ,
+           "ol.id":
+                      
+                      "%s"
+                  
+              
         }',
-        self$`openlattice.@id`,
-        self$`ol.id`
+                self$`openlattice.@id`,
+                self$`ol.id`
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(NeighborDetailsJson) {
       NeighborDetailsObject <- jsonlite::fromJSON(NeighborDetailsJson)
-      self$`openlattice.@id` <- NeighborDetailsObject$`openlattice.@id`
-      self$`ol.id` <- NeighborDetailsObject$`ol.id`
+              self$`openlattice.@id` <- NeighborDetailsObject$`openlattice.@id`
+              self$`ol.id` <- NeighborDetailsObject$`ol.id`
     }
   )
 )

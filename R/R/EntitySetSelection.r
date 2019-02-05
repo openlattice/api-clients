@@ -22,23 +22,25 @@ EntitySetSelection <- R6::R6Class(
     `properties` = NULL,
     initialize = function(`ids`, `properties`){
       if (!missing(`ids`)) {
-        stopifnot(is.list(`ids`), length(`ids`) != 0)
-        lapply(`ids`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`ids`), length(`ids`) != 0)
+                sapply(`ids`, function(x) stopifnot(is.character(x)))
         self$`ids` <- `ids`
       }
       if (!missing(`properties`)) {
-        stopifnot(is.list(`properties`), length(`properties`) != 0)
-        lapply(`properties`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`properties`), length(`properties`) != 0)
+                sapply(`properties`, function(x) stopifnot(is.character(x)))
         self$`properties` <- `properties`
       }
     },
     toJSON = function() {
       EntitySetSelectionObject <- list()
       if (!is.null(self$`ids`)) {
-        EntitySetSelectionObject[['ids']] <- self$`ids`
+        EntitySetSelectionObject[['ids']] <-
+                self$`ids`
       }
       if (!is.null(self$`properties`)) {
-        EntitySetSelectionObject[['properties']] <- self$`properties`
+        EntitySetSelectionObject[['properties']] <-
+                self$`properties`
       }
 
       EntitySetSelectionObject
@@ -46,26 +48,35 @@ EntitySetSelection <- R6::R6Class(
     fromJSON = function(EntitySetSelectionJson) {
       EntitySetSelectionObject <- jsonlite::fromJSON(EntitySetSelectionJson)
       if (!is.null(EntitySetSelectionObject$`ids`)) {
-        self$`ids` <- EntitySetSelectionObject$`ids`
+                self$`ids` <- EntitySetSelectionObject$`ids`
       }
       if (!is.null(EntitySetSelectionObject$`properties`)) {
-        self$`properties` <- EntitySetSelectionObject$`properties`
+                self$`properties` <- EntitySetSelectionObject$`properties`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "ids": [%s],
-           "properties": [%s]
+           "ids":
+                      
+                      ["%s"]
+                  
+              ,
+           "properties":
+                      
+                      ["%s"]
+                  
+              
         }',
-        lapply(self$`ids`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        lapply(self$`properties`, function(x) paste(paste0('"', x, '"'), sep=","))
+                paste0(self$`ids`, collapse='","'),
+                paste0(self$`properties`, collapse='","')
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(EntitySetSelectionJson) {
       EntitySetSelectionObject <- jsonlite::fromJSON(EntitySetSelectionJson)
-      self$`ids` <- EntitySetSelectionObject$`ids`
-      self$`properties` <- EntitySetSelectionObject$`properties`
+              self$`ids` <- EntitySetSelectionObject$`ids`
+              self$`properties` <- EntitySetSelectionObject$`properties`
     }
   )
 )

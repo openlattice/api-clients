@@ -24,30 +24,33 @@ EdmRequest <- R6::R6Class(
     `entityTypes` = NULL,
     initialize = function(`action`, `propertyTypes`, `entityTypes`){
       if (!missing(`action`)) {
-        stopifnot(is.character(`action`), length(`action`) == 1)
+                stopifnot(is.character(`action`), length(`action`) == 1)
         self$`action` <- `action`
       }
       if (!missing(`propertyTypes`)) {
-        stopifnot(is.list(`propertyTypes`), length(`propertyTypes`) != 0)
-        lapply(`propertyTypes`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`propertyTypes`), length(`propertyTypes`) != 0)
+                sapply(`propertyTypes`, function(x) stopifnot(is.character(x)))
         self$`propertyTypes` <- `propertyTypes`
       }
       if (!missing(`entityTypes`)) {
-        stopifnot(is.list(`entityTypes`), length(`entityTypes`) != 0)
-        lapply(`entityTypes`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`entityTypes`), length(`entityTypes`) != 0)
+                sapply(`entityTypes`, function(x) stopifnot(is.character(x)))
         self$`entityTypes` <- `entityTypes`
       }
     },
     toJSON = function() {
       EdmRequestObject <- list()
       if (!is.null(self$`action`)) {
-        EdmRequestObject[['action']] <- self$`action`
+        EdmRequestObject[['action']] <-
+                self$`action`
       }
       if (!is.null(self$`propertyTypes`)) {
-        EdmRequestObject[['propertyTypes']] <- self$`propertyTypes`
+        EdmRequestObject[['propertyTypes']] <-
+                self$`propertyTypes`
       }
       if (!is.null(self$`entityTypes`)) {
-        EdmRequestObject[['entityTypes']] <- self$`entityTypes`
+        EdmRequestObject[['entityTypes']] <-
+                self$`entityTypes`
       }
 
       EdmRequestObject
@@ -55,32 +58,45 @@ EdmRequest <- R6::R6Class(
     fromJSON = function(EdmRequestJson) {
       EdmRequestObject <- jsonlite::fromJSON(EdmRequestJson)
       if (!is.null(EdmRequestObject$`action`)) {
-        self$`action` <- EdmRequestObject$`action`
+                self$`action` <- EdmRequestObject$`action`
       }
       if (!is.null(EdmRequestObject$`propertyTypes`)) {
-        self$`propertyTypes` <- EdmRequestObject$`propertyTypes`
+                self$`propertyTypes` <- EdmRequestObject$`propertyTypes`
       }
       if (!is.null(EdmRequestObject$`entityTypes`)) {
-        self$`entityTypes` <- EdmRequestObject$`entityTypes`
+                self$`entityTypes` <- EdmRequestObject$`entityTypes`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "action": %s,
-           "propertyTypes": [%s],
-           "entityTypes": [%s]
+           "action":
+                      
+                      "%s"
+                  
+              ,
+           "propertyTypes":
+                      
+                      ["%s"]
+                  
+              ,
+           "entityTypes":
+                      
+                      ["%s"]
+                  
+              
         }',
-        self$`action`,
-        lapply(self$`propertyTypes`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        lapply(self$`entityTypes`, function(x) paste(paste0('"', x, '"'), sep=","))
+                self$`action`,
+                paste0(self$`propertyTypes`, collapse='","'),
+                paste0(self$`entityTypes`, collapse='","')
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(EdmRequestJson) {
       EdmRequestObject <- jsonlite::fromJSON(EdmRequestJson)
-      self$`action` <- EdmRequestObject$`action`
-      self$`propertyTypes` <- EdmRequestObject$`propertyTypes`
-      self$`entityTypes` <- EdmRequestObject$`entityTypes`
+              self$`action` <- EdmRequestObject$`action`
+              self$`propertyTypes` <- EdmRequestObject$`propertyTypes`
+              self$`entityTypes` <- EdmRequestObject$`entityTypes`
     }
   )
 )

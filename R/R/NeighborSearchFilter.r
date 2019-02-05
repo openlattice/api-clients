@@ -26,39 +26,43 @@ NeighborSearchFilter <- R6::R6Class(
     `edge` = NULL,
     initialize = function(`entityKeyIds`, `src`, `dst`, `edge`){
       if (!missing(`entityKeyIds`)) {
-        stopifnot(is.list(`entityKeyIds`), length(`entityKeyIds`) != 0)
-        lapply(`entityKeyIds`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`entityKeyIds`), length(`entityKeyIds`) != 0)
+                sapply(`entityKeyIds`, function(x) stopifnot(is.character(x)))
         self$`entityKeyIds` <- `entityKeyIds`
       }
       if (!missing(`src`)) {
-        stopifnot(is.list(`src`), length(`src`) != 0)
-        lapply(`src`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`src`), length(`src`) != 0)
+                sapply(`src`, function(x) stopifnot(is.character(x)))
         self$`src` <- `src`
       }
       if (!missing(`dst`)) {
-        stopifnot(is.list(`dst`), length(`dst`) != 0)
-        lapply(`dst`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`dst`), length(`dst`) != 0)
+                sapply(`dst`, function(x) stopifnot(is.character(x)))
         self$`dst` <- `dst`
       }
       if (!missing(`edge`)) {
-        stopifnot(is.list(`edge`), length(`edge`) != 0)
-        lapply(`edge`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`edge`), length(`edge`) != 0)
+                sapply(`edge`, function(x) stopifnot(is.character(x)))
         self$`edge` <- `edge`
       }
     },
     toJSON = function() {
       NeighborSearchFilterObject <- list()
       if (!is.null(self$`entityKeyIds`)) {
-        NeighborSearchFilterObject[['entityKeyIds']] <- self$`entityKeyIds`
+        NeighborSearchFilterObject[['entityKeyIds']] <-
+                self$`entityKeyIds`
       }
       if (!is.null(self$`src`)) {
-        NeighborSearchFilterObject[['src']] <- self$`src`
+        NeighborSearchFilterObject[['src']] <-
+                self$`src`
       }
       if (!is.null(self$`dst`)) {
-        NeighborSearchFilterObject[['dst']] <- self$`dst`
+        NeighborSearchFilterObject[['dst']] <-
+                self$`dst`
       }
       if (!is.null(self$`edge`)) {
-        NeighborSearchFilterObject[['edge']] <- self$`edge`
+        NeighborSearchFilterObject[['edge']] <-
+                self$`edge`
       }
 
       NeighborSearchFilterObject
@@ -66,38 +70,55 @@ NeighborSearchFilter <- R6::R6Class(
     fromJSON = function(NeighborSearchFilterJson) {
       NeighborSearchFilterObject <- jsonlite::fromJSON(NeighborSearchFilterJson)
       if (!is.null(NeighborSearchFilterObject$`entityKeyIds`)) {
-        self$`entityKeyIds` <- NeighborSearchFilterObject$`entityKeyIds`
+                self$`entityKeyIds` <- NeighborSearchFilterObject$`entityKeyIds`
       }
       if (!is.null(NeighborSearchFilterObject$`src`)) {
-        self$`src` <- NeighborSearchFilterObject$`src`
+                self$`src` <- NeighborSearchFilterObject$`src`
       }
       if (!is.null(NeighborSearchFilterObject$`dst`)) {
-        self$`dst` <- NeighborSearchFilterObject$`dst`
+                self$`dst` <- NeighborSearchFilterObject$`dst`
       }
       if (!is.null(NeighborSearchFilterObject$`edge`)) {
-        self$`edge` <- NeighborSearchFilterObject$`edge`
+                self$`edge` <- NeighborSearchFilterObject$`edge`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "entityKeyIds": [%s],
-           "src": [%s],
-           "dst": [%s],
-           "edge": [%s]
+           "entityKeyIds":
+                      
+                      ["%s"]
+                  
+              ,
+           "src":
+                      
+                      ["%s"]
+                  
+              ,
+           "dst":
+                      
+                      ["%s"]
+                  
+              ,
+           "edge":
+                      
+                      ["%s"]
+                  
+              
         }',
-        lapply(self$`entityKeyIds`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        lapply(self$`src`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        lapply(self$`dst`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        lapply(self$`edge`, function(x) paste(paste0('"', x, '"'), sep=","))
+                paste0(self$`entityKeyIds`, collapse='","'),
+                paste0(self$`src`, collapse='","'),
+                paste0(self$`dst`, collapse='","'),
+                paste0(self$`edge`, collapse='","')
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(NeighborSearchFilterJson) {
       NeighborSearchFilterObject <- jsonlite::fromJSON(NeighborSearchFilterJson)
-      self$`entityKeyIds` <- NeighborSearchFilterObject$`entityKeyIds`
-      self$`src` <- NeighborSearchFilterObject$`src`
-      self$`dst` <- NeighborSearchFilterObject$`dst`
-      self$`edge` <- NeighborSearchFilterObject$`edge`
+              self$`entityKeyIds` <- NeighborSearchFilterObject$`entityKeyIds`
+              self$`src` <- NeighborSearchFilterObject$`src`
+              self$`dst` <- NeighborSearchFilterObject$`dst`
+              self$`edge` <- NeighborSearchFilterObject$`edge`
     }
   )
 )

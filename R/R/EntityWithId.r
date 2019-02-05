@@ -20,14 +20,15 @@ EntityWithId <- R6::R6Class(
     `openlattice.@id` = NULL,
     initialize = function(`openlattice.@id`){
       if (!missing(`openlattice.@id`)) {
-        stopifnot(is.character(`openlattice.@id`), length(`openlattice.@id`) == 1)
+                stopifnot(is.character(`openlattice.@id`), length(`openlattice.@id`) == 1)
         self$`openlattice.@id` <- `openlattice.@id`
       }
     },
     toJSON = function() {
       EntityWithIdObject <- list()
       if (!is.null(self$`openlattice.@id`)) {
-        EntityWithIdObject[['openlattice.@id']] <- self$`openlattice.@id`
+        EntityWithIdObject[['openlattice.@id']] <-
+                self$`openlattice.@id`
       }
 
       EntityWithIdObject
@@ -35,20 +36,25 @@ EntityWithId <- R6::R6Class(
     fromJSON = function(EntityWithIdJson) {
       EntityWithIdObject <- jsonlite::fromJSON(EntityWithIdJson)
       if (!is.null(EntityWithIdObject$`openlattice.@id`)) {
-        self$`openlattice.@id` <- EntityWithIdObject$`openlattice.@id`
+                self$`openlattice.@id` <- EntityWithIdObject$`openlattice.@id`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "openlattice.@id": %s
+           "openlattice.@id":
+                      
+                      "%s"
+                  
+              
         }',
-        self$`openlattice.@id`
+                self$`openlattice.@id`
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(EntityWithIdJson) {
       EntityWithIdObject <- jsonlite::fromJSON(EntityWithIdJson)
-      self$`openlattice.@id` <- EntityWithIdObject$`openlattice.@id`
+              self$`openlattice.@id` <- EntityWithIdObject$`openlattice.@id`
     }
   )
 )
