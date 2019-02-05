@@ -81,9 +81,9 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DataApi* | [**clear_all_entities_from_entity_set**](docs/DataApi.md#clear_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/entities | Clears the Entity matching the given Entity id and all of its neighbor Entities
 *DataApi* | [**clear_entity_set**](docs/DataApi.md#clear_entity_set) | **DELETE** /datastore/data/set/{entitySetId} | Clears the data from a single entity set.
-*DataApi* | [**create_entities**](docs/DataApi.md#create_entities) | **POST** /datastore/data/set/{entitySetId} | Creates a list of new entities by UUID&#39;s
 *DataApi* | [**get_entity_set_size**](docs/DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 *DataApi* | [**load_entity_set_data**](docs/DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
+*DataApi* | [**load_filtered_entity_set_data**](docs/DataApi.md#load_filtered_entity_set_data) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUID&#39;s
 *DirectoryApi* | [**search_all_users_by_email**](docs/DirectoryApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 *EdmApi* | [**add_dst_entity_type_to_association_type**](docs/EdmApi.md#add_dst_entity_type_to_association_type) | **PUT** /datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId} | Update the AssociationType dst entity types for the given AssociationType UUID by adding the given EntityType UUID.
 *EdmApi* | [**add_property_type_to_entity_type**](docs/EdmApi.md#add_property_type_to_entity_type) | **PUT** /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId} | Updates the EntityType definition for the given EntityType UUID by adding the given PropertyType UUID.
