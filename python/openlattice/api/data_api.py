@@ -105,7 +105,7 @@ class DataApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/data/set/{entitySetId}/entities', 'DELETE',
@@ -195,7 +195,7 @@ class DataApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/data/set/{entitySetId}', 'DELETE',
@@ -301,7 +301,7 @@ class DataApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/data/set/{entitySetId}', 'POST',
@@ -395,7 +395,7 @@ class DataApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/data/{entitySetId}/count', 'GET',
@@ -489,7 +489,7 @@ class DataApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/data/set/{entitySetId}', 'GET',

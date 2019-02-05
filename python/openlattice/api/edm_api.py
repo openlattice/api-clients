@@ -113,7 +113,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId}', 'PUT',
@@ -211,7 +211,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}', 'PUT',
@@ -309,7 +309,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/association/type/{associationTypeId}/src/{entityTypeId}', 'PUT',
@@ -501,7 +501,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/schema/{namespace}/{name}', 'PUT',
@@ -595,7 +595,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/set', 'POST',
@@ -783,7 +783,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/property/type/', 'POST',
@@ -877,7 +877,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/schema', 'POST',
@@ -1057,7 +1057,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/set/{entitySetId}', 'DELETE',
@@ -1237,7 +1237,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/property/type/{propertyTypeId}', 'DELETE',
@@ -1327,7 +1327,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/property/type/{propertyTypeId}/force', 'DELETE',
@@ -1425,7 +1425,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}/force', 'DELETE',
@@ -1511,7 +1511,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/association/type/', 'GET',
@@ -1605,7 +1605,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/association/type/{associationTypeId}/available', 'GET',
@@ -1699,7 +1699,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/set/{entitySetId}/property/type', 'GET',
@@ -1785,7 +1785,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/set', 'GET',
@@ -1871,7 +1871,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/type/', 'GET',
@@ -1957,7 +1957,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/property/type/', 'GET',
@@ -2051,7 +2051,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/property/type/namespace/{namespace}', 'GET',
@@ -2137,7 +2137,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/summary', 'GET',
@@ -2231,7 +2231,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/association/type/{associationTypeId}', 'GET',
@@ -2325,7 +2325,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/association/type/{associationTypeId}/detailed', 'GET',
@@ -2509,7 +2509,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/diff/', 'POST',
@@ -2685,7 +2685,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/set/{entitySetId}', 'GET',
@@ -2779,7 +2779,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/ids/entity/set/{entitySetName}', 'GET',
@@ -2881,7 +2881,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/set/{entitySetId}/property/type/{propertyTypeId}/', 'GET',
@@ -3065,7 +3065,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/type/{entityTypeId}/hierarchy', 'PATCH',
@@ -3167,7 +3167,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/ids/entity/type/{namespace}/{name}', 'GET',
@@ -3261,7 +3261,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/property/type/{propertyTypeId}', 'GET',
@@ -3363,7 +3363,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/ids/property/type/{namespace}/{name}', 'GET',
@@ -3457,7 +3457,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/summary/{propertyTypeId}', 'GET',
@@ -3563,7 +3563,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/schema/{namespace}/{name}', 'GET',
@@ -3649,7 +3649,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/schema', 'GET',
@@ -3743,7 +3743,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/schema/{namespace}', 'GET',
@@ -3841,7 +3841,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId}', 'DELETE',
@@ -3939,7 +3939,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}', 'DELETE',
@@ -4037,7 +4037,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/association/type/{associationTypeId}/src/{entityTypeId}', 'DELETE',
@@ -4136,7 +4136,7 @@ class EdmApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/type/{entityTypeId}/property/type', 'PATCH',
@@ -4230,7 +4230,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/', 'PATCH',
@@ -4332,7 +4332,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/set/{entitySetId}', 'PATCH',
@@ -4442,7 +4442,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/set/{entitySetId}/property/type/{propertyTypeId}/', 'POST',
@@ -4544,7 +4544,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/entity/type/{entityTypeId}', 'PATCH',
@@ -4646,7 +4646,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/property/type/{propertyTypeId}', 'PATCH',
@@ -4756,7 +4756,7 @@ class EdmApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/edm/schema/{namespace}/{name}', 'PATCH',

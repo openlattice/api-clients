@@ -51,10 +51,15 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: openlattice_auth
+# Configure HTTP basic authorization: http_auth
 configuration = openlattice.Configuration()
 configuration.username = 'YOUR_USERNAME'
 configuration.password = 'YOUR_PASSWORD'
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
@@ -174,9 +179,15 @@ Class | Method | HTTP request | Description
 ## Documentation For Authorization
 
 
-## openlattice_auth
+## http_auth
 
 - **Type**: HTTP basic authentication
+
+## openlattice_auth
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
 
 
 ## Author

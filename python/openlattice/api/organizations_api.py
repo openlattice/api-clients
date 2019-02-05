@@ -101,7 +101,7 @@ class OrganizationsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['openlattice_auth']  # noqa: E501
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/datastore/organizations', 'GET',

@@ -213,12 +213,19 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         :return: The Auth Settings information dict.
         """
         return {
-            'openlattice_auth':
+            'http_auth':
                 {
                     'type': 'basic',
                     'in': 'header',
                     'key': 'Authorization',
                     'value': self.get_basic_auth_token()
+                },
+            'openlattice_auth':
+                {
+                    'type': 'api_key',
+                    'in': 'header',
+                    'key': 'Authorization',
+                    'value': self.get_api_key_with_prefix('Authorization')
                 },
 
         }
