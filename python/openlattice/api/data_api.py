@@ -213,37 +213,39 @@ class DataApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_entities(self, entity, **kwargs):  # noqa: E501
-        """Creates a list of new entities by UUID's  # noqa: E501
+    def create_entities(self, entity_set_id, entity_set_selection, **kwargs):  # noqa: E501
+        """Creates a list of new entities by UUID&#39;s  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_entities(entity, async_req=True)
+        >>> thread = api.create_entities(entity_set_id, entity_set_selection, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[Entity] entity: (required)
+        :param str entity_set_id: (required)
+        :param list[EntitySetSelection] entity_set_selection: (required)
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_entities_with_http_info(entity, **kwargs)  # noqa: E501
+            return self.create_entities_with_http_info(entity_set_id, entity_set_selection, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_entities_with_http_info(entity, **kwargs)  # noqa: E501
+            (data) = self.create_entities_with_http_info(entity_set_id, entity_set_selection, **kwargs)  # noqa: E501
             return data
 
-    def create_entities_with_http_info(self, entity, **kwargs):  # noqa: E501
-        """Creates a list of new entities by UUID's  # noqa: E501
+    def create_entities_with_http_info(self, entity_set_id, entity_set_selection, **kwargs):  # noqa: E501
+        """Creates a list of new entities by UUID&#39;s  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_entities_with_http_info(entity, async_req=True)
+        >>> thread = api.create_entities_with_http_info(entity_set_id, entity_set_selection, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[Entity] entity: (required)
+        :param str entity_set_id: (required)
+        :param list[EntitySetSelection] entity_set_selection: (required)
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -251,7 +253,7 @@ class DataApi(object):
 
         local_var_params = locals()
 
-        all_params = ['entity']  # noqa: E501
+        all_params = ['entity_set_id', 'entity_set_selection']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -265,14 +267,20 @@ class DataApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'entity' is set
-        if ('entity' not in local_var_params or
-                local_var_params['entity'] is None):
-            raise ValueError("Missing the required parameter `entity` when calling `create_entities`")  # noqa: E501
+        # verify the required parameter 'entity_set_id' is set
+        if ('entity_set_id' not in local_var_params or
+                local_var_params['entity_set_id'] is None):
+            raise ValueError("Missing the required parameter `entity_set_id` when calling `create_entities`")  # noqa: E501
+        # verify the required parameter 'entity_set_selection' is set
+        if ('entity_set_selection' not in local_var_params or
+                local_var_params['entity_set_selection'] is None):
+            raise ValueError("Missing the required parameter `entity_set_selection` when calling `create_entities`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'entity_set_id' in local_var_params:
+            path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
 
         query_params = []
 
@@ -282,8 +290,8 @@ class DataApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'entity' in local_var_params:
-            body_params = local_var_params['entity']
+        if 'entity_set_selection' in local_var_params:
+            body_params = local_var_params['entity_set_selection']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

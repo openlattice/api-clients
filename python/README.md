@@ -51,11 +51,10 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: openlattice_auth
+# Configure HTTP basic authorization: openlattice_auth
 configuration = openlattice.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
@@ -87,7 +86,7 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**create_association_type**](docs/EdmApi.md#create_association_type) | **POST** /datastore/edm/association/type/ | Creates a new AssociationType definition, if it doesn\&quot;t exist.
 *EdmApi* | [**create_empty_schema**](docs/EdmApi.md#create_empty_schema) | **PUT** /datastore/edm/schema/{namespace}/{name} | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
 *EdmApi* | [**create_entity_sets**](docs/EdmApi.md#create_entity_sets) | **POST** /datastore/edm/entity/set | Create new EntitySet definitions if they don\&quot;t exist.
-*EdmApi* | [**create_entity_type**](docs/EdmApi.md#create_entity_type) | **POST** /datastore/edm/entity/type/ | Creates a new EntityType definition, if it doesn\&quot;t exist.
+*EdmApi* | [**create_entity_type**](docs/EdmApi.md#create_entity_type) | **POST** /datastore/edm/entity/type/ | Creates a new EntityType definition, if it doesn&#39;t exist.
 *EdmApi* | [**create_property_type**](docs/EdmApi.md#create_property_type) | **POST** /datastore/edm/property/type/ | Creates a new PropertyType definition, if it doesn\&quot;t exist.
 *EdmApi* | [**create_schema_if_not_exists**](docs/EdmApi.md#create_schema_if_not_exists) | **POST** /datastore/edm/schema | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
 *EdmApi* | [**delete_association_type**](docs/EdmApi.md#delete_association_type) | **DELETE** /datastore/edm/association/type/{associationTypeId} | Delete the AssociationType definition for the given AssociationType UUID.
@@ -131,6 +130,7 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**update_entity_type_meta_data**](docs/EdmApi.md#update_entity_type_meta_data) | **PATCH** /datastore/edm/entity/type/{entityTypeId} | Updates the EntityType definition for the given EntityType UUID with the given metadata.
 *EdmApi* | [**update_property_type_meta_data**](docs/EdmApi.md#update_property_type_meta_data) | **PATCH** /datastore/edm/property/type/{propertyTypeId} | Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
 *EdmApi* | [**update_schema**](docs/EdmApi.md#update_schema) | **PATCH** /datastore/edm/schema/{namespace}/{name} | Edits the schema contents for a corresponding namespace and name.
+*OrganizationsApi* | [**get_organizations**](docs/OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organisations
 *PermissionsApi* | [**get_acl**](docs/PermissionsApi.md#get_acl) | **POST** /datastore/permissions | Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 *PermissionsApi* | [**update_acl**](docs/PermissionsApi.md#update_acl) | **PATCH** /datastore/permissions | Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
 *SearchApi* | [**execute_entity_neighbor_search**](docs/SearchApi.md#execute_entity_neighbor_search) | **GET** /datastore/search/{entitySetId}/{entityKeyId} | Executes a search for all neighbors of an entity that are connected by an association
@@ -152,7 +152,9 @@ Class | Method | HTTP request | Description
  - [EdmRequest](docs/EdmRequest.md)
  - [Entity](docs/Entity.md)
  - [EntitySet](docs/EntitySet.md)
+ - [EntitySetSelection](docs/EntitySetSelection.md)
  - [EntityType](docs/EntityType.md)
+ - [EntityWithId](docs/EntityWithId.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
  - [MetaDataUpdate](docs/MetaDataUpdate.md)
  - [NeighborDetails](docs/NeighborDetails.md)
@@ -160,10 +162,12 @@ Class | Method | HTTP request | Description
  - [NeighborEntityDetailsCollection](docs/NeighborEntityDetailsCollection.md)
  - [NeighborEntityDetailsDictionary](docs/NeighborEntityDetailsDictionary.md)
  - [NeighborSearchFilter](docs/NeighborSearchFilter.md)
+ - [Organization](docs/Organization.md)
  - [Principal](docs/Principal.md)
  - [PropertyTags](docs/PropertyTags.md)
  - [PropertyType](docs/PropertyType.md)
  - [PropertyUsageSummary](docs/PropertyUsageSummary.md)
+ - [Role](docs/Role.md)
  - [Schema](docs/Schema.md)
 
 
@@ -172,9 +176,7 @@ Class | Method | HTTP request | Description
 
 ## openlattice_auth
 
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
+- **Type**: HTTP basic authentication
 
 
 ## Author
