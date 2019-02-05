@@ -26,35 +26,39 @@ PropertyUsageSummary <- R6::R6Class(
     `count` = NULL,
     initialize = function(`entityTypeId`, `entitySetId`, `entitySetName`, `count`){
       if (!missing(`entityTypeId`)) {
-        stopifnot(is.character(`entityTypeId`), length(`entityTypeId`) == 1)
+                stopifnot(is.character(`entityTypeId`), length(`entityTypeId`) == 1)
         self$`entityTypeId` <- `entityTypeId`
       }
       if (!missing(`entitySetId`)) {
-        stopifnot(is.character(`entitySetId`), length(`entitySetId`) == 1)
+                stopifnot(is.character(`entitySetId`), length(`entitySetId`) == 1)
         self$`entitySetId` <- `entitySetId`
       }
       if (!missing(`entitySetName`)) {
-        stopifnot(is.character(`entitySetName`), length(`entitySetName`) == 1)
+                stopifnot(is.character(`entitySetName`), length(`entitySetName`) == 1)
         self$`entitySetName` <- `entitySetName`
       }
       if (!missing(`count`)) {
-        stopifnot(is.numeric(`count`), length(`count`) == 1)
+                stopifnot(is.numeric(`count`), length(`count`) == 1)
         self$`count` <- `count`
       }
     },
     toJSON = function() {
       PropertyUsageSummaryObject <- list()
       if (!is.null(self$`entityTypeId`)) {
-        PropertyUsageSummaryObject[['entityTypeId']] <- self$`entityTypeId`
+        PropertyUsageSummaryObject[['entityTypeId']] <-
+                self$`entityTypeId`
       }
       if (!is.null(self$`entitySetId`)) {
-        PropertyUsageSummaryObject[['entitySetId']] <- self$`entitySetId`
+        PropertyUsageSummaryObject[['entitySetId']] <-
+                self$`entitySetId`
       }
       if (!is.null(self$`entitySetName`)) {
-        PropertyUsageSummaryObject[['entitySetName']] <- self$`entitySetName`
+        PropertyUsageSummaryObject[['entitySetName']] <-
+                self$`entitySetName`
       }
       if (!is.null(self$`count`)) {
-        PropertyUsageSummaryObject[['count']] <- self$`count`
+        PropertyUsageSummaryObject[['count']] <-
+                self$`count`
       }
 
       PropertyUsageSummaryObject
@@ -62,38 +66,55 @@ PropertyUsageSummary <- R6::R6Class(
     fromJSON = function(PropertyUsageSummaryJson) {
       PropertyUsageSummaryObject <- jsonlite::fromJSON(PropertyUsageSummaryJson)
       if (!is.null(PropertyUsageSummaryObject$`entityTypeId`)) {
-        self$`entityTypeId` <- PropertyUsageSummaryObject$`entityTypeId`
+                self$`entityTypeId` <- PropertyUsageSummaryObject$`entityTypeId`
       }
       if (!is.null(PropertyUsageSummaryObject$`entitySetId`)) {
-        self$`entitySetId` <- PropertyUsageSummaryObject$`entitySetId`
+                self$`entitySetId` <- PropertyUsageSummaryObject$`entitySetId`
       }
       if (!is.null(PropertyUsageSummaryObject$`entitySetName`)) {
-        self$`entitySetName` <- PropertyUsageSummaryObject$`entitySetName`
+                self$`entitySetName` <- PropertyUsageSummaryObject$`entitySetName`
       }
       if (!is.null(PropertyUsageSummaryObject$`count`)) {
-        self$`count` <- PropertyUsageSummaryObject$`count`
+                self$`count` <- PropertyUsageSummaryObject$`count`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "entityTypeId": %s,
-           "entitySetId": %s,
-           "entitySetName": %s,
-           "count": %d
+           "entityTypeId":
+                      
+                      "%s"
+                  
+              ,
+           "entitySetId":
+                      
+                      "%s"
+                  
+              ,
+           "entitySetName":
+                      
+                      "%s"
+                  
+              ,
+           "count":
+                      %d
+                      
+                  
+              
         }',
-        self$`entityTypeId`,
-        self$`entitySetId`,
-        self$`entitySetName`,
-        self$`count`
+                self$`entityTypeId`,
+                self$`entitySetId`,
+                self$`entitySetName`,
+                self$`count`
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(PropertyUsageSummaryJson) {
       PropertyUsageSummaryObject <- jsonlite::fromJSON(PropertyUsageSummaryJson)
-      self$`entityTypeId` <- PropertyUsageSummaryObject$`entityTypeId`
-      self$`entitySetId` <- PropertyUsageSummaryObject$`entitySetId`
-      self$`entitySetName` <- PropertyUsageSummaryObject$`entitySetName`
-      self$`count` <- PropertyUsageSummaryObject$`count`
+              self$`entityTypeId` <- PropertyUsageSummaryObject$`entityTypeId`
+              self$`entitySetId` <- PropertyUsageSummaryObject$`entitySetId`
+              self$`entitySetName` <- PropertyUsageSummaryObject$`entitySetName`
+              self$`count` <- PropertyUsageSummaryObject$`count`
     }
   )
 )

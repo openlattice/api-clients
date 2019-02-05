@@ -24,30 +24,33 @@ Schema <- R6::R6Class(
     `fqn` = NULL,
     initialize = function(`entityTypes`, `propertyTypes`, `fqn`){
       if (!missing(`entityTypes`)) {
-        stopifnot(is.list(`entityTypes`), length(`entityTypes`) != 0)
-        lapply(`entityTypes`, function(x) stopifnot(R6::is.R6(x)))
+                stopifnot(is.vector(`entityTypes`), length(`entityTypes`) != 0)
+                sapply(`entityTypes`, function(x) stopifnot(R6::is.R6(x)))
         self$`entityTypes` <- `entityTypes`
       }
       if (!missing(`propertyTypes`)) {
-        stopifnot(is.list(`propertyTypes`), length(`propertyTypes`) != 0)
-        lapply(`propertyTypes`, function(x) stopifnot(R6::is.R6(x)))
+                stopifnot(is.vector(`propertyTypes`), length(`propertyTypes`) != 0)
+                sapply(`propertyTypes`, function(x) stopifnot(R6::is.R6(x)))
         self$`propertyTypes` <- `propertyTypes`
       }
       if (!missing(`fqn`)) {
-        stopifnot(R6::is.R6(`fqn`))
+                stopifnot(R6::is.R6(`fqn`))
         self$`fqn` <- `fqn`
       }
     },
     toJSON = function() {
       SchemaObject <- list()
       if (!is.null(self$`entityTypes`)) {
-        SchemaObject[['entityTypes']] <- lapply(self$`entityTypes`, function(x) x$toJSON())
+        SchemaObject[['entityTypes']] <-
+                sapply(self$`entityTypes`, function(x) x$toJSON())
       }
       if (!is.null(self$`propertyTypes`)) {
-        SchemaObject[['propertyTypes']] <- lapply(self$`propertyTypes`, function(x) x$toJSON())
+        SchemaObject[['propertyTypes']] <-
+                sapply(self$`propertyTypes`, function(x) x$toJSON())
       }
       if (!is.null(self$`fqn`)) {
-        SchemaObject[['fqn']] <- self$`fqn`$toJSON()
+        SchemaObject[['fqn']] <-
+                self$`fqn`$toJSON()
       }
 
       SchemaObject
@@ -55,43 +58,50 @@ Schema <- R6::R6Class(
     fromJSON = function(SchemaJson) {
       SchemaObject <- jsonlite::fromJSON(SchemaJson)
       if (!is.null(SchemaObject$`entityTypes`)) {
-        self$`entityTypes` <- lapply(SchemaObject$`entityTypes`, function(x) {
-          entityTypesObject <- EntityType$new()
-          entityTypesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-          entityTypesObject
-        })
+                self$`entityTypes` <- sapply(SchemaObject$`entityTypes`, function(x) {
+                  entityTypesObject <- EntityType$new()
+                  entityTypesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+                  entityTypesObject
+            })
       }
       if (!is.null(SchemaObject$`propertyTypes`)) {
-        self$`propertyTypes` <- lapply(SchemaObject$`propertyTypes`, function(x) {
-          propertyTypesObject <- PropertyType$new()
-          propertyTypesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-          propertyTypesObject
-        })
+                self$`propertyTypes` <- sapply(SchemaObject$`propertyTypes`, function(x) {
+                  propertyTypesObject <- PropertyType$new()
+                  propertyTypesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+                  propertyTypesObject
+            })
       }
       if (!is.null(SchemaObject$`fqn`)) {
-        fqnObject <- FullQualifiedName$new()
-        fqnObject$fromJSON(jsonlite::toJSON(SchemaObject$fqn, auto_unbox = TRUE))
-        self$`fqn` <- fqnObject
+                fqnObject <- FullQualifiedName$new()
+                fqnObject$fromJSON(jsonlite::toJSON(SchemaObject$fqn, auto_unbox = TRUE))
+                self$`fqn` <- fqnObject
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "entityTypes": [%s],
-           "propertyTypes": [%s],
-           "fqn": %s
+           "entityTypes":
+                  ["%s"]
+              ,
+           "propertyTypes":
+                  ["%s"]
+              ,
+           "fqn":
+                  "%s"
+              
         }',
-        lapply(self$`entityTypes`, function(x) paste(x$toJSON(), sep=",")),
-        lapply(self$`propertyTypes`, function(x) paste(x$toJSON(), sep=",")),
-        self$`fqn`$toJSON()
+                paste0(sapply(self$`entityTypes`, function(x) x$toJSON()), collapse='","'),
+                paste0(sapply(self$`propertyTypes`, function(x) x$toJSON()), collapse='","'),
+                self$`fqn`$toJSON()
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(SchemaJson) {
       SchemaObject <- jsonlite::fromJSON(SchemaJson)
-      self$`entityTypes` <- lapply(SchemaObject$`entityTypes`, function(x) EntityType$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
-      self$`propertyTypes` <- lapply(SchemaObject$`propertyTypes`, function(x) PropertyType$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
-      FullQualifiedNameObject <- FullQualifiedName$new()
-      self$`fqn` <- FullQualifiedNameObject$fromJSON(jsonlite::toJSON(SchemaObject$fqn, auto_unbox = TRUE))
+              self$`entityTypes` <- sapply(SchemaObject$`entityTypes`, function(x) EntityType$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+              self$`propertyTypes` <- sapply(SchemaObject$`propertyTypes`, function(x) PropertyType$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+              FullQualifiedNameObject <- FullQualifiedName$new()
+              self$`fqn` <- FullQualifiedNameObject$fromJSON(jsonlite::toJSON(SchemaObject$fqn, auto_unbox = TRUE))
     }
   )
 )

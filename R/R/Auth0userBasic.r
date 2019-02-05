@@ -28,44 +28,49 @@ Auth0userBasic <- R6::R6Class(
     `organization` = NULL,
     initialize = function(`userId`, `email`, `nickname`, `roles`, `organization`){
       if (!missing(`userId`)) {
-        stopifnot(is.character(`userId`), length(`userId`) == 1)
+                stopifnot(is.character(`userId`), length(`userId`) == 1)
         self$`userId` <- `userId`
       }
       if (!missing(`email`)) {
-        stopifnot(is.character(`email`), length(`email`) == 1)
+                stopifnot(is.character(`email`), length(`email`) == 1)
         self$`email` <- `email`
       }
       if (!missing(`nickname`)) {
-        stopifnot(is.character(`nickname`), length(`nickname`) == 1)
+                stopifnot(is.character(`nickname`), length(`nickname`) == 1)
         self$`nickname` <- `nickname`
       }
       if (!missing(`roles`)) {
-        stopifnot(is.list(`roles`), length(`roles`) != 0)
-        lapply(`roles`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`roles`), length(`roles`) != 0)
+                sapply(`roles`, function(x) stopifnot(is.character(x)))
         self$`roles` <- `roles`
       }
       if (!missing(`organization`)) {
-        stopifnot(is.list(`organization`), length(`organization`) != 0)
-        lapply(`organization`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`organization`), length(`organization`) != 0)
+                sapply(`organization`, function(x) stopifnot(is.character(x)))
         self$`organization` <- `organization`
       }
     },
     toJSON = function() {
       Auth0userBasicObject <- list()
       if (!is.null(self$`userId`)) {
-        Auth0userBasicObject[['userId']] <- self$`userId`
+        Auth0userBasicObject[['userId']] <-
+                self$`userId`
       }
       if (!is.null(self$`email`)) {
-        Auth0userBasicObject[['email']] <- self$`email`
+        Auth0userBasicObject[['email']] <-
+                self$`email`
       }
       if (!is.null(self$`nickname`)) {
-        Auth0userBasicObject[['nickname']] <- self$`nickname`
+        Auth0userBasicObject[['nickname']] <-
+                self$`nickname`
       }
       if (!is.null(self$`roles`)) {
-        Auth0userBasicObject[['roles']] <- self$`roles`
+        Auth0userBasicObject[['roles']] <-
+                self$`roles`
       }
       if (!is.null(self$`organization`)) {
-        Auth0userBasicObject[['organization']] <- self$`organization`
+        Auth0userBasicObject[['organization']] <-
+                self$`organization`
       }
 
       Auth0userBasicObject
@@ -73,44 +78,65 @@ Auth0userBasic <- R6::R6Class(
     fromJSON = function(Auth0userBasicJson) {
       Auth0userBasicObject <- jsonlite::fromJSON(Auth0userBasicJson)
       if (!is.null(Auth0userBasicObject$`userId`)) {
-        self$`userId` <- Auth0userBasicObject$`userId`
+                self$`userId` <- Auth0userBasicObject$`userId`
       }
       if (!is.null(Auth0userBasicObject$`email`)) {
-        self$`email` <- Auth0userBasicObject$`email`
+                self$`email` <- Auth0userBasicObject$`email`
       }
       if (!is.null(Auth0userBasicObject$`nickname`)) {
-        self$`nickname` <- Auth0userBasicObject$`nickname`
+                self$`nickname` <- Auth0userBasicObject$`nickname`
       }
       if (!is.null(Auth0userBasicObject$`roles`)) {
-        self$`roles` <- Auth0userBasicObject$`roles`
+                self$`roles` <- Auth0userBasicObject$`roles`
       }
       if (!is.null(Auth0userBasicObject$`organization`)) {
-        self$`organization` <- Auth0userBasicObject$`organization`
+                self$`organization` <- Auth0userBasicObject$`organization`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "userId": %s,
-           "email": %s,
-           "nickname": %s,
-           "roles": [%s],
-           "organization": [%s]
+           "userId":
+                      
+                      "%s"
+                  
+              ,
+           "email":
+                      
+                      "%s"
+                  
+              ,
+           "nickname":
+                      
+                      "%s"
+                  
+              ,
+           "roles":
+                      
+                      ["%s"]
+                  
+              ,
+           "organization":
+                      
+                      ["%s"]
+                  
+              
         }',
-        self$`userId`,
-        self$`email`,
-        self$`nickname`,
-        lapply(self$`roles`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        lapply(self$`organization`, function(x) paste(paste0('"', x, '"'), sep=","))
+                self$`userId`,
+                self$`email`,
+                self$`nickname`,
+                paste0(self$`roles`, collapse='","'),
+                paste0(self$`organization`, collapse='","')
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(Auth0userBasicJson) {
       Auth0userBasicObject <- jsonlite::fromJSON(Auth0userBasicJson)
-      self$`userId` <- Auth0userBasicObject$`userId`
-      self$`email` <- Auth0userBasicObject$`email`
-      self$`nickname` <- Auth0userBasicObject$`nickname`
-      self$`roles` <- Auth0userBasicObject$`roles`
-      self$`organization` <- Auth0userBasicObject$`organization`
+              self$`userId` <- Auth0userBasicObject$`userId`
+              self$`email` <- Auth0userBasicObject$`email`
+              self$`nickname` <- Auth0userBasicObject$`nickname`
+              self$`roles` <- Auth0userBasicObject$`roles`
+              self$`organization` <- Auth0userBasicObject$`organization`
     }
   )
 )

@@ -55,9 +55,9 @@ PermissionsApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -83,9 +83,9 @@ PermissionsApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {

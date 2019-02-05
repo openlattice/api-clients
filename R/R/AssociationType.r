@@ -26,17 +26,17 @@ AssociationType <- R6::R6Class(
     `bidirectional` = NULL,
     initialize = function(`entityType`, `src`, `dst`, `bidirectional`){
       if (!missing(`entityType`)) {
-        stopifnot(R6::is.R6(`entityType`))
+                stopifnot(R6::is.R6(`entityType`))
         self$`entityType` <- `entityType`
       }
       if (!missing(`src`)) {
-        stopifnot(is.list(`src`), length(`src`) != 0)
-        lapply(`src`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`src`), length(`src`) != 0)
+                sapply(`src`, function(x) stopifnot(is.character(x)))
         self$`src` <- `src`
       }
       if (!missing(`dst`)) {
-        stopifnot(is.list(`dst`), length(`dst`) != 0)
-        lapply(`dst`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`dst`), length(`dst`) != 0)
+                sapply(`dst`, function(x) stopifnot(is.character(x)))
         self$`dst` <- `dst`
       }
       if (!missing(`bidirectional`)) {
@@ -46,16 +46,20 @@ AssociationType <- R6::R6Class(
     toJSON = function() {
       AssociationTypeObject <- list()
       if (!is.null(self$`entityType`)) {
-        AssociationTypeObject[['entityType']] <- self$`entityType`$toJSON()
+        AssociationTypeObject[['entityType']] <-
+                self$`entityType`$toJSON()
       }
       if (!is.null(self$`src`)) {
-        AssociationTypeObject[['src']] <- self$`src`
+        AssociationTypeObject[['src']] <-
+                self$`src`
       }
       if (!is.null(self$`dst`)) {
-        AssociationTypeObject[['dst']] <- self$`dst`
+        AssociationTypeObject[['dst']] <-
+                self$`dst`
       }
       if (!is.null(self$`bidirectional`)) {
-        AssociationTypeObject[['bidirectional']] <- self$`bidirectional`
+        AssociationTypeObject[['bidirectional']] <-
+                self$`bidirectional`
       }
 
       AssociationTypeObject
@@ -63,41 +67,56 @@ AssociationType <- R6::R6Class(
     fromJSON = function(AssociationTypeJson) {
       AssociationTypeObject <- jsonlite::fromJSON(AssociationTypeJson)
       if (!is.null(AssociationTypeObject$`entityType`)) {
-        entityTypeObject <- EntityType$new()
-        entityTypeObject$fromJSON(jsonlite::toJSON(AssociationTypeObject$entityType, auto_unbox = TRUE))
-        self$`entityType` <- entityTypeObject
+                entityTypeObject <- EntityType$new()
+                entityTypeObject$fromJSON(jsonlite::toJSON(AssociationTypeObject$entityType, auto_unbox = TRUE))
+                self$`entityType` <- entityTypeObject
       }
       if (!is.null(AssociationTypeObject$`src`)) {
-        self$`src` <- AssociationTypeObject$`src`
+                self$`src` <- AssociationTypeObject$`src`
       }
       if (!is.null(AssociationTypeObject$`dst`)) {
-        self$`dst` <- AssociationTypeObject$`dst`
+                self$`dst` <- AssociationTypeObject$`dst`
       }
       if (!is.null(AssociationTypeObject$`bidirectional`)) {
-        self$`bidirectional` <- AssociationTypeObject$`bidirectional`
+                self$`bidirectional` <- AssociationTypeObject$`bidirectional`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "entityType": %s,
-           "src": [%s],
-           "dst": [%s],
-           "bidirectional": %s
+           "entityType":
+                  "%s"
+              ,
+           "src":
+                      
+                      ["%s"]
+                  
+              ,
+           "dst":
+                      
+                      ["%s"]
+                  
+              ,
+           "bidirectional":
+                      
+                      "%s"
+                  
+              
         }',
-        self$`entityType`$toJSON(),
-        lapply(self$`src`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        lapply(self$`dst`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        self$`bidirectional`
+                self$`entityType`$toJSON(),
+                paste0(self$`src`, collapse='","'),
+                paste0(self$`dst`, collapse='","'),
+                self$`bidirectional`
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(AssociationTypeJson) {
       AssociationTypeObject <- jsonlite::fromJSON(AssociationTypeJson)
-      EntityTypeObject <- EntityType$new()
-      self$`entityType` <- EntityTypeObject$fromJSON(jsonlite::toJSON(AssociationTypeObject$entityType, auto_unbox = TRUE))
-      self$`src` <- AssociationTypeObject$`src`
-      self$`dst` <- AssociationTypeObject$`dst`
-      self$`bidirectional` <- AssociationTypeObject$`bidirectional`
+              EntityTypeObject <- EntityType$new()
+              self$`entityType` <- EntityTypeObject$fromJSON(jsonlite::toJSON(AssociationTypeObject$entityType, auto_unbox = TRUE))
+              self$`src` <- AssociationTypeObject$`src`
+              self$`dst` <- AssociationTypeObject$`dst`
+              self$`bidirectional` <- AssociationTypeObject$`bidirectional`
     }
   )
 )

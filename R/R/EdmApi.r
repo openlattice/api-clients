@@ -203,9 +203,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -233,9 +233,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -263,9 +263,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -291,9 +291,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -321,9 +321,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -349,9 +349,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -377,9 +377,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -405,9 +405,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -433,9 +433,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -459,9 +459,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -485,9 +485,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -511,9 +511,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -537,9 +537,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -563,9 +563,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -593,9 +593,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -615,11 +615,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- AssociationType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -643,11 +641,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- AssociationType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -671,11 +667,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- PropertyType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -695,11 +689,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- EntitySet$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -719,11 +711,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- EntityType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -743,11 +733,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- PropertyType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -771,11 +759,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- PropertyType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -795,11 +781,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- PropertyUsageSummary$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -823,11 +807,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- AssociationType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -851,11 +833,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- AssociationType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -875,11 +855,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- EDM$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -905,11 +883,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- EDMdiff$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -929,9 +905,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -955,11 +931,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- EntitySet$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -983,11 +957,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- Character$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1015,11 +987,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- PropertyType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1043,11 +1013,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- EntityType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1071,9 +1039,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1101,11 +1069,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- Character$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1129,11 +1095,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- PropertyType$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1161,11 +1125,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- Character$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1189,11 +1151,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- PropertyUsageSummary$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1225,11 +1185,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- Schema$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1249,11 +1207,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- Schema$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1277,11 +1233,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- Schema$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1309,9 +1263,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1339,9 +1293,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1369,9 +1323,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1399,9 +1353,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1427,9 +1381,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1459,9 +1413,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1495,9 +1449,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1527,9 +1481,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1559,9 +1513,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1595,9 +1549,9 @@ EdmApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-      
+
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # void response, no need to return anything
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {

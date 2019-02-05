@@ -22,22 +22,24 @@ Ace <- R6::R6Class(
     `permissions` = NULL,
     initialize = function(`principal`, `permissions`){
       if (!missing(`principal`)) {
-        stopifnot(R6::is.R6(`principal`))
+                stopifnot(R6::is.R6(`principal`))
         self$`principal` <- `principal`
       }
       if (!missing(`permissions`)) {
-        stopifnot(is.list(`permissions`), length(`permissions`) != 0)
-        lapply(`permissions`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`permissions`), length(`permissions`) != 0)
+                sapply(`permissions`, function(x) stopifnot(is.character(x)))
         self$`permissions` <- `permissions`
       }
     },
     toJSON = function() {
       AceObject <- list()
       if (!is.null(self$`principal`)) {
-        AceObject[['principal']] <- self$`principal`$toJSON()
+        AceObject[['principal']] <-
+                self$`principal`$toJSON()
       }
       if (!is.null(self$`permissions`)) {
-        AceObject[['permissions']] <- self$`permissions`
+        AceObject[['permissions']] <-
+                self$`permissions`
       }
 
       AceObject
@@ -45,29 +47,36 @@ Ace <- R6::R6Class(
     fromJSON = function(AceJson) {
       AceObject <- jsonlite::fromJSON(AceJson)
       if (!is.null(AceObject$`principal`)) {
-        principalObject <- Principal$new()
-        principalObject$fromJSON(jsonlite::toJSON(AceObject$principal, auto_unbox = TRUE))
-        self$`principal` <- principalObject
+                principalObject <- Principal$new()
+                principalObject$fromJSON(jsonlite::toJSON(AceObject$principal, auto_unbox = TRUE))
+                self$`principal` <- principalObject
       }
       if (!is.null(AceObject$`permissions`)) {
-        self$`permissions` <- AceObject$`permissions`
+                self$`permissions` <- AceObject$`permissions`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "principal": %s,
-           "permissions": [%s]
+           "principal":
+                  "%s"
+              ,
+           "permissions":
+                      
+                      ["%s"]
+                  
+              
         }',
-        self$`principal`$toJSON(),
-        lapply(self$`permissions`, function(x) paste(paste0('"', x, '"'), sep=","))
+                self$`principal`$toJSON(),
+                paste0(self$`permissions`, collapse='","')
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(AceJson) {
       AceObject <- jsonlite::fromJSON(AceJson)
-      PrincipalObject <- Principal$new()
-      self$`principal` <- PrincipalObject$fromJSON(jsonlite::toJSON(AceObject$principal, auto_unbox = TRUE))
-      self$`permissions` <- AceObject$`permissions`
+              PrincipalObject <- Principal$new()
+              self$`principal` <- PrincipalObject$fromJSON(jsonlite::toJSON(AceObject$principal, auto_unbox = TRUE))
+              self$`permissions` <- AceObject$`permissions`
     }
   )
 )

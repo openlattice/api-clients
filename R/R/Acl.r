@@ -22,23 +22,25 @@ Acl <- R6::R6Class(
     `aces` = NULL,
     initialize = function(`aclKey`, `aces`){
       if (!missing(`aclKey`)) {
-        stopifnot(is.list(`aclKey`), length(`aclKey`) != 0)
-        lapply(`aclKey`, function(x) stopifnot(R6::is.R6(x)))
+                stopifnot(is.vector(`aclKey`), length(`aclKey`) != 0)
+                sapply(`aclKey`, function(x) stopifnot(R6::is.R6(x)))
         self$`aclKey` <- `aclKey`
       }
       if (!missing(`aces`)) {
-        stopifnot(is.list(`aces`), length(`aces`) != 0)
-        lapply(`aces`, function(x) stopifnot(R6::is.R6(x)))
+                stopifnot(is.vector(`aces`), length(`aces`) != 0)
+                sapply(`aces`, function(x) stopifnot(R6::is.R6(x)))
         self$`aces` <- `aces`
       }
     },
     toJSON = function() {
       AclObject <- list()
       if (!is.null(self$`aclKey`)) {
-        AclObject[['aclKey']] <- lapply(self$`aclKey`, function(x) x$toJSON())
+        AclObject[['aclKey']] <-
+                sapply(self$`aclKey`, function(x) x$toJSON())
       }
       if (!is.null(self$`aces`)) {
-        AclObject[['aces']] <- lapply(self$`aces`, function(x) x$toJSON())
+        AclObject[['aces']] <-
+                sapply(self$`aces`, function(x) x$toJSON())
       }
 
       AclObject
@@ -46,34 +48,39 @@ Acl <- R6::R6Class(
     fromJSON = function(AclJson) {
       AclObject <- jsonlite::fromJSON(AclJson)
       if (!is.null(AclObject$`aclKey`)) {
-        self$`aclKey` <- lapply(AclObject$`aclKey`, function(x) {
-          aclKeyObject <- AclKey$new()
-          aclKeyObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-          aclKeyObject
-        })
+                self$`aclKey` <- sapply(AclObject$`aclKey`, function(x) {
+                  aclKeyObject <- Array$new()
+                  aclKeyObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+                  aclKeyObject
+            })
       }
       if (!is.null(AclObject$`aces`)) {
-        self$`aces` <- lapply(AclObject$`aces`, function(x) {
-          acesObject <- Ace$new()
-          acesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-          acesObject
-        })
+                self$`aces` <- sapply(AclObject$`aces`, function(x) {
+                  acesObject <- Ace$new()
+                  acesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+                  acesObject
+            })
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "aclKey": [%s],
-           "aces": [%s]
+           "aclKey":
+                  ["%s"]
+              ,
+           "aces":
+                  ["%s"]
+              
         }',
-        lapply(self$`aclKey`, function(x) paste(x$toJSON(), sep=",")),
-        lapply(self$`aces`, function(x) paste(x$toJSON(), sep=","))
+                paste0(sapply(self$`aclKey`, function(x) x$toJSON()), collapse='","'),
+                paste0(sapply(self$`aces`, function(x) x$toJSON()), collapse='","')
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(AclJson) {
       AclObject <- jsonlite::fromJSON(AclJson)
-      self$`aclKey` <- lapply(AclObject$`aclKey`, function(x) AclKey$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
-      self$`aces` <- lapply(AclObject$`aces`, function(x) Ace$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+              self$`aclKey` <- sapply(AclObject$`aclKey`, function(x) Array$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+              self$`aces` <- sapply(AclObject$`aces`, function(x) Ace$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

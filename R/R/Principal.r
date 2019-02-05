@@ -22,22 +22,24 @@ Principal <- R6::R6Class(
     `id` = NULL,
     initialize = function(`type`, `id`){
       if (!missing(`type`)) {
-        stopifnot(is.character(`type`), length(`type`) == 1)
+                stopifnot(is.character(`type`), length(`type`) == 1)
         self$`type` <- `type`
       }
       if (!missing(`id`)) {
-        stopifnot(is.list(`id`), length(`id`) != 0)
-        lapply(`id`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`id`), length(`id`) != 0)
+                sapply(`id`, function(x) stopifnot(is.character(x)))
         self$`id` <- `id`
       }
     },
     toJSON = function() {
       PrincipalObject <- list()
       if (!is.null(self$`type`)) {
-        PrincipalObject[['type']] <- self$`type`
+        PrincipalObject[['type']] <-
+                self$`type`
       }
       if (!is.null(self$`id`)) {
-        PrincipalObject[['id']] <- self$`id`
+        PrincipalObject[['id']] <-
+                self$`id`
       }
 
       PrincipalObject
@@ -45,26 +47,35 @@ Principal <- R6::R6Class(
     fromJSON = function(PrincipalJson) {
       PrincipalObject <- jsonlite::fromJSON(PrincipalJson)
       if (!is.null(PrincipalObject$`type`)) {
-        self$`type` <- PrincipalObject$`type`
+                self$`type` <- PrincipalObject$`type`
       }
       if (!is.null(PrincipalObject$`id`)) {
-        self$`id` <- PrincipalObject$`id`
+                self$`id` <- PrincipalObject$`id`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "type": %s,
-           "id": [%s]
+           "type":
+                      
+                      "%s"
+                  
+              ,
+           "id":
+                      
+                      ["%s"]
+                  
+              
         }',
-        self$`type`,
-        lapply(self$`id`, function(x) paste(paste0('"', x, '"'), sep=","))
+                self$`type`,
+                paste0(self$`id`, collapse='","')
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(PrincipalJson) {
       PrincipalObject <- jsonlite::fromJSON(PrincipalJson)
-      self$`type` <- PrincipalObject$`type`
-      self$`id` <- PrincipalObject$`id`
+              self$`type` <- PrincipalObject$`type`
+              self$`id` <- PrincipalObject$`id`
     }
   )
 )

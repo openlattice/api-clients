@@ -38,80 +38,90 @@ EntityType <- R6::R6Class(
     `category` = NULL,
     initialize = function(`title`, `description`, `id`, `type`, `schemas`, `key`, `properties`, `propertyTags`, `basetype`, `category`){
       if (!missing(`title`)) {
-        stopifnot(is.character(`title`), length(`title`) == 1)
+                stopifnot(is.character(`title`), length(`title`) == 1)
         self$`title` <- `title`
       }
       if (!missing(`description`)) {
-        stopifnot(is.character(`description`), length(`description`) == 1)
+                stopifnot(is.character(`description`), length(`description`) == 1)
         self$`description` <- `description`
       }
       if (!missing(`id`)) {
-        stopifnot(is.character(`id`), length(`id`) == 1)
+                stopifnot(is.character(`id`), length(`id`) == 1)
         self$`id` <- `id`
       }
       if (!missing(`type`)) {
-        stopifnot(R6::is.R6(`type`))
+                stopifnot(R6::is.R6(`type`))
         self$`type` <- `type`
       }
       if (!missing(`schemas`)) {
-        stopifnot(is.list(`schemas`), length(`schemas`) != 0)
-        lapply(`schemas`, function(x) stopifnot(R6::is.R6(x)))
+                stopifnot(is.vector(`schemas`), length(`schemas`) != 0)
+                sapply(`schemas`, function(x) stopifnot(R6::is.R6(x)))
         self$`schemas` <- `schemas`
       }
       if (!missing(`key`)) {
-        stopifnot(is.list(`key`), length(`key`) != 0)
-        lapply(`key`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`key`), length(`key`) != 0)
+                sapply(`key`, function(x) stopifnot(is.character(x)))
         self$`key` <- `key`
       }
       if (!missing(`properties`)) {
-        stopifnot(is.list(`properties`), length(`properties`) != 0)
-        lapply(`properties`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`properties`), length(`properties`) != 0)
+                sapply(`properties`, function(x) stopifnot(is.character(x)))
         self$`properties` <- `properties`
       }
       if (!missing(`propertyTags`)) {
-        stopifnot(R6::is.R6(`propertyTags`))
+                stopifnot(R6::is.R6(`propertyTags`))
         self$`propertyTags` <- `propertyTags`
       }
       if (!missing(`basetype`)) {
-        stopifnot(is.character(`basetype`), length(`basetype`) == 1)
+                stopifnot(is.character(`basetype`), length(`basetype`) == 1)
         self$`basetype` <- `basetype`
       }
       if (!missing(`category`)) {
-        stopifnot(is.character(`category`), length(`category`) == 1)
+                stopifnot(is.character(`category`), length(`category`) == 1)
         self$`category` <- `category`
       }
     },
     toJSON = function() {
       EntityTypeObject <- list()
       if (!is.null(self$`title`)) {
-        EntityTypeObject[['title']] <- self$`title`
+        EntityTypeObject[['title']] <-
+                self$`title`
       }
       if (!is.null(self$`description`)) {
-        EntityTypeObject[['description']] <- self$`description`
+        EntityTypeObject[['description']] <-
+                self$`description`
       }
       if (!is.null(self$`id`)) {
-        EntityTypeObject[['id']] <- self$`id`
+        EntityTypeObject[['id']] <-
+                self$`id`
       }
       if (!is.null(self$`type`)) {
-        EntityTypeObject[['type']] <- self$`type`$toJSON()
+        EntityTypeObject[['type']] <-
+                self$`type`$toJSON()
       }
       if (!is.null(self$`schemas`)) {
-        EntityTypeObject[['schemas']] <- lapply(self$`schemas`, function(x) x$toJSON())
+        EntityTypeObject[['schemas']] <-
+                sapply(self$`schemas`, function(x) x$toJSON())
       }
       if (!is.null(self$`key`)) {
-        EntityTypeObject[['key']] <- self$`key`
+        EntityTypeObject[['key']] <-
+                self$`key`
       }
       if (!is.null(self$`properties`)) {
-        EntityTypeObject[['properties']] <- self$`properties`
+        EntityTypeObject[['properties']] <-
+                self$`properties`
       }
       if (!is.null(self$`propertyTags`)) {
-        EntityTypeObject[['propertyTags']] <- self$`propertyTags`$toJSON()
+        EntityTypeObject[['propertyTags']] <-
+                self$`propertyTags`$toJSON()
       }
       if (!is.null(self$`basetype`)) {
-        EntityTypeObject[['basetype']] <- self$`basetype`
+        EntityTypeObject[['basetype']] <-
+                self$`basetype`
       }
       if (!is.null(self$`category`)) {
-        EntityTypeObject[['category']] <- self$`category`
+        EntityTypeObject[['category']] <-
+                self$`category`
       }
 
       EntityTypeObject
@@ -119,84 +129,119 @@ EntityType <- R6::R6Class(
     fromJSON = function(EntityTypeJson) {
       EntityTypeObject <- jsonlite::fromJSON(EntityTypeJson)
       if (!is.null(EntityTypeObject$`title`)) {
-        self$`title` <- EntityTypeObject$`title`
+                self$`title` <- EntityTypeObject$`title`
       }
       if (!is.null(EntityTypeObject$`description`)) {
-        self$`description` <- EntityTypeObject$`description`
+                self$`description` <- EntityTypeObject$`description`
       }
       if (!is.null(EntityTypeObject$`id`)) {
-        self$`id` <- EntityTypeObject$`id`
+                self$`id` <- EntityTypeObject$`id`
       }
       if (!is.null(EntityTypeObject$`type`)) {
-        typeObject <- FullQualifiedName$new()
-        typeObject$fromJSON(jsonlite::toJSON(EntityTypeObject$type, auto_unbox = TRUE))
-        self$`type` <- typeObject
+                typeObject <- FullQualifiedName$new()
+                typeObject$fromJSON(jsonlite::toJSON(EntityTypeObject$type, auto_unbox = TRUE))
+                self$`type` <- typeObject
       }
       if (!is.null(EntityTypeObject$`schemas`)) {
-        self$`schemas` <- lapply(EntityTypeObject$`schemas`, function(x) {
-          schemasObject <- FullQualifiedName$new()
-          schemasObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-          schemasObject
-        })
+                self$`schemas` <- sapply(EntityTypeObject$`schemas`, function(x) {
+                  schemasObject <- FullQualifiedName$new()
+                  schemasObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+                  schemasObject
+            })
       }
       if (!is.null(EntityTypeObject$`key`)) {
-        self$`key` <- EntityTypeObject$`key`
+                self$`key` <- EntityTypeObject$`key`
       }
       if (!is.null(EntityTypeObject$`properties`)) {
-        self$`properties` <- EntityTypeObject$`properties`
+                self$`properties` <- EntityTypeObject$`properties`
       }
       if (!is.null(EntityTypeObject$`propertyTags`)) {
-        propertyTagsObject <- Character$new()
-        propertyTagsObject$fromJSON(jsonlite::toJSON(EntityTypeObject$propertyTags, auto_unbox = TRUE))
-        self$`propertyTags` <- propertyTagsObject
+                propertyTagsObject <- character$new()
+                propertyTagsObject$fromJSON(jsonlite::toJSON(EntityTypeObject$propertyTags, auto_unbox = TRUE))
+                self$`propertyTags` <- propertyTagsObject
       }
       if (!is.null(EntityTypeObject$`basetype`)) {
-        self$`basetype` <- EntityTypeObject$`basetype`
+                self$`basetype` <- EntityTypeObject$`basetype`
       }
       if (!is.null(EntityTypeObject$`category`)) {
-        self$`category` <- EntityTypeObject$`category`
+                self$`category` <- EntityTypeObject$`category`
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "title": %s,
-           "description": %s,
-           "id": %s,
-           "type": %s,
-           "schemas": [%s],
-           "key": [%s],
-           "properties": [%s],
-           "propertyTags": %s,
-           "basetype": %s,
-           "category": %s
+           "title":
+                      
+                      "%s"
+                  
+              ,
+           "description":
+                      
+                      "%s"
+                  
+              ,
+           "id":
+                      
+                      "%s"
+                  
+              ,
+           "type":
+                  "%s"
+              ,
+           "schemas":
+                  ["%s"]
+              ,
+           "key":
+                      
+                      ["%s"]
+                  
+              ,
+           "properties":
+                      
+                      ["%s"]
+                  
+              ,
+           "propertyTags":
+                  "%s"
+              ,
+           "basetype":
+                      
+                      "%s"
+                  
+              ,
+           "category":
+                      
+                      "%s"
+                  
+              
         }',
-        self$`title`,
-        self$`description`,
-        self$`id`,
-        self$`type`$toJSON(),
-        lapply(self$`schemas`, function(x) paste(x$toJSON(), sep=",")),
-        lapply(self$`key`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        lapply(self$`properties`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        self$`propertyTags`$toJSON(),
-        self$`basetype`,
-        self$`category`
+                self$`title`,
+                self$`description`,
+                self$`id`,
+                self$`type`$toJSON(),
+                paste0(sapply(self$`schemas`, function(x) x$toJSON()), collapse='","'),
+                paste0(self$`key`, collapse='","'),
+                paste0(self$`properties`, collapse='","'),
+                self$`propertyTags`$toJSON(),
+                self$`basetype`,
+                self$`category`
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(EntityTypeJson) {
       EntityTypeObject <- jsonlite::fromJSON(EntityTypeJson)
-      self$`title` <- EntityTypeObject$`title`
-      self$`description` <- EntityTypeObject$`description`
-      self$`id` <- EntityTypeObject$`id`
-      FullQualifiedNameObject <- FullQualifiedName$new()
-      self$`type` <- FullQualifiedNameObject$fromJSON(jsonlite::toJSON(EntityTypeObject$type, auto_unbox = TRUE))
-      self$`schemas` <- lapply(EntityTypeObject$`schemas`, function(x) FullQualifiedName$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
-      self$`key` <- EntityTypeObject$`key`
-      self$`properties` <- EntityTypeObject$`properties`
-      CharacterObject <- Character$new()
-      self$`propertyTags` <- CharacterObject$fromJSON(jsonlite::toJSON(EntityTypeObject$propertyTags, auto_unbox = TRUE))
-      self$`basetype` <- EntityTypeObject$`basetype`
-      self$`category` <- EntityTypeObject$`category`
+              self$`title` <- EntityTypeObject$`title`
+              self$`description` <- EntityTypeObject$`description`
+              self$`id` <- EntityTypeObject$`id`
+              FullQualifiedNameObject <- FullQualifiedName$new()
+              self$`type` <- FullQualifiedNameObject$fromJSON(jsonlite::toJSON(EntityTypeObject$type, auto_unbox = TRUE))
+              self$`schemas` <- sapply(EntityTypeObject$`schemas`, function(x) FullQualifiedName$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+              self$`key` <- EntityTypeObject$`key`
+              self$`properties` <- EntityTypeObject$`properties`
+              characterObject <- character$new()
+              self$`propertyTags` <- characterObject$fromJSON(jsonlite::toJSON(EntityTypeObject$propertyTags, auto_unbox = TRUE))
+              self$`basetype` <- EntityTypeObject$`basetype`
+              self$`category` <- EntityTypeObject$`category`
     }
   )
 )

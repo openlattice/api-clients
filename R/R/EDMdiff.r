@@ -22,21 +22,23 @@ EDMdiff <- R6::R6Class(
     `diff` = NULL,
     initialize = function(`conflicts`, `diff`){
       if (!missing(`conflicts`)) {
-        stopifnot(R6::is.R6(`conflicts`))
+                stopifnot(R6::is.R6(`conflicts`))
         self$`conflicts` <- `conflicts`
       }
       if (!missing(`diff`)) {
-        stopifnot(R6::is.R6(`diff`))
+                stopifnot(R6::is.R6(`diff`))
         self$`diff` <- `diff`
       }
     },
     toJSON = function() {
       EDMdiffObject <- list()
       if (!is.null(self$`conflicts`)) {
-        EDMdiffObject[['conflicts']] <- self$`conflicts`$toJSON()
+        EDMdiffObject[['conflicts']] <-
+                self$`conflicts`$toJSON()
       }
       if (!is.null(self$`diff`)) {
-        EDMdiffObject[['diff']] <- self$`diff`$toJSON()
+        EDMdiffObject[['diff']] <-
+                self$`diff`$toJSON()
       }
 
       EDMdiffObject
@@ -44,32 +46,37 @@ EDMdiff <- R6::R6Class(
     fromJSON = function(EDMdiffJson) {
       EDMdiffObject <- jsonlite::fromJSON(EDMdiffJson)
       if (!is.null(EDMdiffObject$`conflicts`)) {
-        conflictsObject <- EDM$new()
-        conflictsObject$fromJSON(jsonlite::toJSON(EDMdiffObject$conflicts, auto_unbox = TRUE))
-        self$`conflicts` <- conflictsObject
+                conflictsObject <- EDM$new()
+                conflictsObject$fromJSON(jsonlite::toJSON(EDMdiffObject$conflicts, auto_unbox = TRUE))
+                self$`conflicts` <- conflictsObject
       }
       if (!is.null(EDMdiffObject$`diff`)) {
-        diffObject <- EDM$new()
-        diffObject$fromJSON(jsonlite::toJSON(EDMdiffObject$diff, auto_unbox = TRUE))
-        self$`diff` <- diffObject
+                diffObject <- EDM$new()
+                diffObject$fromJSON(jsonlite::toJSON(EDMdiffObject$diff, auto_unbox = TRUE))
+                self$`diff` <- diffObject
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "conflicts": %s,
-           "diff": %s
+           "conflicts":
+                  "%s"
+              ,
+           "diff":
+                  "%s"
+              
         }',
-        self$`conflicts`$toJSON(),
-        self$`diff`$toJSON()
+                self$`conflicts`$toJSON(),
+                self$`diff`$toJSON()
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(EDMdiffJson) {
       EDMdiffObject <- jsonlite::fromJSON(EDMdiffJson)
-      EDMObject <- EDM$new()
-      self$`conflicts` <- EDMObject$fromJSON(jsonlite::toJSON(EDMdiffObject$conflicts, auto_unbox = TRUE))
-      EDMObject <- EDM$new()
-      self$`diff` <- EDMObject$fromJSON(jsonlite::toJSON(EDMdiffObject$diff, auto_unbox = TRUE))
+              EDMObject <- EDM$new()
+              self$`conflicts` <- EDMObject$fromJSON(jsonlite::toJSON(EDMdiffObject$conflicts, auto_unbox = TRUE))
+              EDMObject <- EDM$new()
+              self$`diff` <- EDMObject$fromJSON(jsonlite::toJSON(EDMdiffObject$diff, auto_unbox = TRUE))
     }
   )
 )

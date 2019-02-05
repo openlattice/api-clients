@@ -38,28 +38,28 @@ MetaDataUpdate <- R6::R6Class(
     `propertyTags` = NULL,
     initialize = function(`name`, `title`, `contacts`, `description`, `linking`, `linked_entity_sets`, `external`, `pii`, `defaultShow`, `propertyTags`){
       if (!missing(`name`)) {
-        stopifnot(is.character(`name`), length(`name`) == 1)
+                stopifnot(is.character(`name`), length(`name`) == 1)
         self$`name` <- `name`
       }
       if (!missing(`title`)) {
-        stopifnot(is.character(`title`), length(`title`) == 1)
+                stopifnot(is.character(`title`), length(`title`) == 1)
         self$`title` <- `title`
       }
       if (!missing(`contacts`)) {
-        stopifnot(is.list(`contacts`), length(`contacts`) != 0)
-        lapply(`contacts`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`contacts`), length(`contacts`) != 0)
+                sapply(`contacts`, function(x) stopifnot(is.character(x)))
         self$`contacts` <- `contacts`
       }
       if (!missing(`description`)) {
-        stopifnot(is.character(`description`), length(`description`) == 1)
+                stopifnot(is.character(`description`), length(`description`) == 1)
         self$`description` <- `description`
       }
       if (!missing(`linking`)) {
         self$`linking` <- `linking`
       }
       if (!missing(`linked_entity_sets`)) {
-        stopifnot(is.list(`linked_entity_sets`), length(`linked_entity_sets`) != 0)
-        lapply(`linked_entity_sets`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.vector(`linked_entity_sets`), length(`linked_entity_sets`) != 0)
+                sapply(`linked_entity_sets`, function(x) stopifnot(is.character(x)))
         self$`linked_entity_sets` <- `linked_entity_sets`
       }
       if (!missing(`external`)) {
@@ -72,41 +72,51 @@ MetaDataUpdate <- R6::R6Class(
         self$`defaultShow` <- `defaultShow`
       }
       if (!missing(`propertyTags`)) {
-        stopifnot(R6::is.R6(`propertyTags`))
+                stopifnot(R6::is.R6(`propertyTags`))
         self$`propertyTags` <- `propertyTags`
       }
     },
     toJSON = function() {
       MetaDataUpdateObject <- list()
       if (!is.null(self$`name`)) {
-        MetaDataUpdateObject[['name']] <- self$`name`
+        MetaDataUpdateObject[['name']] <-
+                self$`name`
       }
       if (!is.null(self$`title`)) {
-        MetaDataUpdateObject[['title']] <- self$`title`
+        MetaDataUpdateObject[['title']] <-
+                self$`title`
       }
       if (!is.null(self$`contacts`)) {
-        MetaDataUpdateObject[['contacts']] <- self$`contacts`
+        MetaDataUpdateObject[['contacts']] <-
+                self$`contacts`
       }
       if (!is.null(self$`description`)) {
-        MetaDataUpdateObject[['description']] <- self$`description`
+        MetaDataUpdateObject[['description']] <-
+                self$`description`
       }
       if (!is.null(self$`linking`)) {
-        MetaDataUpdateObject[['linking']] <- self$`linking`
+        MetaDataUpdateObject[['linking']] <-
+                self$`linking`
       }
       if (!is.null(self$`linked_entity_sets`)) {
-        MetaDataUpdateObject[['linked_entity_sets']] <- self$`linked_entity_sets`
+        MetaDataUpdateObject[['linked_entity_sets']] <-
+                self$`linked_entity_sets`
       }
       if (!is.null(self$`external`)) {
-        MetaDataUpdateObject[['external']] <- self$`external`
+        MetaDataUpdateObject[['external']] <-
+                self$`external`
       }
       if (!is.null(self$`pii`)) {
-        MetaDataUpdateObject[['pii']] <- self$`pii`
+        MetaDataUpdateObject[['pii']] <-
+                self$`pii`
       }
       if (!is.null(self$`defaultShow`)) {
-        MetaDataUpdateObject[['defaultShow']] <- self$`defaultShow`
+        MetaDataUpdateObject[['defaultShow']] <-
+                self$`defaultShow`
       }
       if (!is.null(self$`propertyTags`)) {
-        MetaDataUpdateObject[['propertyTags']] <- self$`propertyTags`$toJSON()
+        MetaDataUpdateObject[['propertyTags']] <-
+                self$`propertyTags`$toJSON()
       }
 
       MetaDataUpdateObject
@@ -114,77 +124,116 @@ MetaDataUpdate <- R6::R6Class(
     fromJSON = function(MetaDataUpdateJson) {
       MetaDataUpdateObject <- jsonlite::fromJSON(MetaDataUpdateJson)
       if (!is.null(MetaDataUpdateObject$`name`)) {
-        self$`name` <- MetaDataUpdateObject$`name`
+                self$`name` <- MetaDataUpdateObject$`name`
       }
       if (!is.null(MetaDataUpdateObject$`title`)) {
-        self$`title` <- MetaDataUpdateObject$`title`
+                self$`title` <- MetaDataUpdateObject$`title`
       }
       if (!is.null(MetaDataUpdateObject$`contacts`)) {
-        self$`contacts` <- MetaDataUpdateObject$`contacts`
+                self$`contacts` <- MetaDataUpdateObject$`contacts`
       }
       if (!is.null(MetaDataUpdateObject$`description`)) {
-        self$`description` <- MetaDataUpdateObject$`description`
+                self$`description` <- MetaDataUpdateObject$`description`
       }
       if (!is.null(MetaDataUpdateObject$`linking`)) {
-        self$`linking` <- MetaDataUpdateObject$`linking`
+                self$`linking` <- MetaDataUpdateObject$`linking`
       }
       if (!is.null(MetaDataUpdateObject$`linked_entity_sets`)) {
-        self$`linked_entity_sets` <- MetaDataUpdateObject$`linked_entity_sets`
+                self$`linked_entity_sets` <- MetaDataUpdateObject$`linked_entity_sets`
       }
       if (!is.null(MetaDataUpdateObject$`external`)) {
-        self$`external` <- MetaDataUpdateObject$`external`
+                self$`external` <- MetaDataUpdateObject$`external`
       }
       if (!is.null(MetaDataUpdateObject$`pii`)) {
-        self$`pii` <- MetaDataUpdateObject$`pii`
+                self$`pii` <- MetaDataUpdateObject$`pii`
       }
       if (!is.null(MetaDataUpdateObject$`defaultShow`)) {
-        self$`defaultShow` <- MetaDataUpdateObject$`defaultShow`
+                self$`defaultShow` <- MetaDataUpdateObject$`defaultShow`
       }
       if (!is.null(MetaDataUpdateObject$`propertyTags`)) {
-        propertyTagsObject <- Character$new()
-        propertyTagsObject$fromJSON(jsonlite::toJSON(MetaDataUpdateObject$propertyTags, auto_unbox = TRUE))
-        self$`propertyTags` <- propertyTagsObject
+                propertyTagsObject <- character$new()
+                propertyTagsObject$fromJSON(jsonlite::toJSON(MetaDataUpdateObject$propertyTags, auto_unbox = TRUE))
+                self$`propertyTags` <- propertyTagsObject
       }
     },
     toJSONString = function() {
-       sprintf(
+       outstring <- sprintf(
         '{
-           "name": %s,
-           "title": %s,
-           "contacts": [%s],
-           "description": %s,
-           "linking": %s,
-           "linked_entity_sets": [%s],
-           "external": %s,
-           "pii": %s,
-           "defaultShow": %s,
-           "propertyTags": %s
+           "name":
+                      
+                      "%s"
+                  
+              ,
+           "title":
+                      
+                      "%s"
+                  
+              ,
+           "contacts":
+                      
+                      ["%s"]
+                  
+              ,
+           "description":
+                      
+                      "%s"
+                  
+              ,
+           "linking":
+                      
+                      "%s"
+                  
+              ,
+           "linked_entity_sets":
+                      
+                      ["%s"]
+                  
+              ,
+           "external":
+                      
+                      "%s"
+                  
+              ,
+           "pii":
+                      
+                      "%s"
+                  
+              ,
+           "defaultShow":
+                      
+                      "%s"
+                  
+              ,
+           "propertyTags":
+                  "%s"
+              
         }',
-        self$`name`,
-        self$`title`,
-        lapply(self$`contacts`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        self$`description`,
-        self$`linking`,
-        lapply(self$`linked_entity_sets`, function(x) paste(paste0('"', x, '"'), sep=",")),
-        self$`external`,
-        self$`pii`,
-        self$`defaultShow`,
-        self$`propertyTags`$toJSON()
+                self$`name`,
+                self$`title`,
+                paste0(self$`contacts`, collapse='","'),
+                self$`description`,
+                self$`linking`,
+                paste0(self$`linked_entity_sets`, collapse='","'),
+                self$`external`,
+                self$`pii`,
+                self$`defaultShow`,
+                self$`propertyTags`$toJSON()
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(MetaDataUpdateJson) {
       MetaDataUpdateObject <- jsonlite::fromJSON(MetaDataUpdateJson)
-      self$`name` <- MetaDataUpdateObject$`name`
-      self$`title` <- MetaDataUpdateObject$`title`
-      self$`contacts` <- MetaDataUpdateObject$`contacts`
-      self$`description` <- MetaDataUpdateObject$`description`
-      self$`linking` <- MetaDataUpdateObject$`linking`
-      self$`linked_entity_sets` <- MetaDataUpdateObject$`linked_entity_sets`
-      self$`external` <- MetaDataUpdateObject$`external`
-      self$`pii` <- MetaDataUpdateObject$`pii`
-      self$`defaultShow` <- MetaDataUpdateObject$`defaultShow`
-      CharacterObject <- Character$new()
-      self$`propertyTags` <- CharacterObject$fromJSON(jsonlite::toJSON(MetaDataUpdateObject$propertyTags, auto_unbox = TRUE))
+              self$`name` <- MetaDataUpdateObject$`name`
+              self$`title` <- MetaDataUpdateObject$`title`
+              self$`contacts` <- MetaDataUpdateObject$`contacts`
+              self$`description` <- MetaDataUpdateObject$`description`
+              self$`linking` <- MetaDataUpdateObject$`linking`
+              self$`linked_entity_sets` <- MetaDataUpdateObject$`linked_entity_sets`
+              self$`external` <- MetaDataUpdateObject$`external`
+              self$`pii` <- MetaDataUpdateObject$`pii`
+              self$`defaultShow` <- MetaDataUpdateObject$`defaultShow`
+              characterObject <- character$new()
+              self$`propertyTags` <- characterObject$fromJSON(jsonlite::toJSON(MetaDataUpdateObject$propertyTags, auto_unbox = TRUE))
     }
   )
 )
