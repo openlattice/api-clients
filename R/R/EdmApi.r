@@ -36,7 +36,7 @@
 #' create_entity_sets Create new EntitySet definitions if they don\&quot;t exist.
 #'
 #'
-#' create_entity_type Creates a new EntityType definition, if it doesn\&quot;t exist.
+#' create_entity_type Creates a new EntityType definition, if it doesn&#39;t exist.
 #'
 #'
 #' create_property_type Creates a new PropertyType definition, if it doesn\&quot;t exist.
@@ -1261,12 +1261,16 @@ EdmApi <- R6::R6Class(
       }
 
     },
-    get_schemas_in_namespace = function(...){
+    get_schemas_in_namespace = function(namespace, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
       urlPath <- "/datastore/edm/schema/{namespace}"
+      if (!missing(`namespace`)) {
+        urlPath <- gsub(paste0("\\{", "namespace", "\\}"), `namespace`, urlPath)
+      }
+
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
                                  queryParams = queryParams,

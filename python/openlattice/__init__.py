@@ -21,6 +21,7 @@ __version__ = "0.1"
 from openlattice.api.data_api import DataApi
 from openlattice.api.directory_api import DirectoryApi
 from openlattice.api.edm_api import EdmApi
+from openlattice.api.organizations_api import OrganizationsApi
 from openlattice.api.permissions_api import PermissionsApi
 from openlattice.api.search_api import SearchApi
 
@@ -41,7 +42,9 @@ from openlattice.models.ed_mdiff import EDMdiff
 from openlattice.models.edm_request import EdmRequest
 from openlattice.models.entity import Entity
 from openlattice.models.entity_set import EntitySet
+from openlattice.models.entity_set_selection import EntitySetSelection
 from openlattice.models.entity_type import EntityType
+from openlattice.models.entity_with_id import EntityWithId
 from openlattice.models.full_qualified_name import FullQualifiedName
 from openlattice.models.meta_data_update import MetaDataUpdate
 from openlattice.models.neighbor_details import NeighborDetails
@@ -49,8 +52,10 @@ from openlattice.models.neighbor_entity_details import NeighborEntityDetails
 from openlattice.models.neighbor_entity_details_collection import NeighborEntityDetailsCollection
 from openlattice.models.neighbor_entity_details_dictionary import NeighborEntityDetailsDictionary
 from openlattice.models.neighbor_search_filter import NeighborSearchFilter
+from openlattice.models.organization import Organization
 from openlattice.models.principal import Principal
 from openlattice.models.property_tags import PropertyTags
 from openlattice.models.property_type import PropertyType
 from openlattice.models.property_usage_summary import PropertyUsageSummary
+from openlattice.models.role import Role
 from openlattice.models.schema import Schema

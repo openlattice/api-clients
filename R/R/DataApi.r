@@ -24,13 +24,13 @@
 #' clear_entity_set Clears the data from a single entity set.
 #'
 #'
-#' create_entities Creates a list of new entities by UUID&#39;s
-#'
-#'
 #' get_entity_set_size Gets the number of entities in an entity set.
 #'
 #'
 #' load_entity_set_data Gets an iterable containing the entity data, using property type FQNs as key
+#'
+#'
+#' load_filtered_entity_set_data Gets a list of entities by UUID&#39;s
 #'
 #' }
 #'
@@ -100,36 +100,6 @@ DataApi <- R6::R6Class(
       }
 
     },
-    create_entities = function(request_body, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`request_body`)) {
-        body <- `request_body`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/data/set/{entitySetId}"
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-      
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- Character$new()
-        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-        Response$new(returnObject, resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
     get_entity_set_size = function(entity_set_id, ...){
       args <- list(...)
       queryParams <- list()
@@ -176,7 +146,41 @@ DataApi <- R6::R6Class(
                                  ...)
       
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        returnObject <- Map$new()
+        returnObject <- Entity$new()
+        result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+        Response$new(returnObject, resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    load_filtered_entity_set_data = function(entity_set_id, entity_set_selection, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`entity_set_selection`)) {
+        body <- `entity_set_selection`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/data/set/{entitySetId}"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+      
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        returnObject <- Entity$new()
         result <- returnObject$fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
         Response$new(returnObject, resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

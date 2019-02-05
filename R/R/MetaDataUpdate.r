@@ -9,7 +9,7 @@
 
 #' MetaDataUpdate Class
 #'
-#' @field name Entity set name
+#' @field name 
 #' @field title 
 #' @field contacts 
 #' @field description 
