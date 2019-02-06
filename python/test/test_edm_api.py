@@ -74,7 +74,7 @@ class TestEdmApi(unittest.TestCase):
     def test_create_entity_type(self):
         """Test case for create_entity_type
 
-        Creates a new EntityType definition, if it doesn\"t exist.  # noqa: E501
+        Creates a new EntityType definition, if it doesn't exist.  # noqa: E501
         """
         pass
 

@@ -108,7 +108,7 @@ class DataApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/data/set/{entitySetId}/entities', 'DELETE',
+            '/datastore/data/set/{entitySetId}/all', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -317,7 +317,7 @@ class DataApi(object):
 
         :param async_req bool
         :param str entity_set_id: (required)
-        :return: list[Entity]
+        :return: list[dict]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -338,7 +338,7 @@ class DataApi(object):
 
         :param async_req bool
         :param str entity_set_id: (required)
-        :return: list[Entity]
+        :return: list[dict]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -393,7 +393,7 @@ class DataApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Entity]',  # noqa: E501
+            response_type='list[dict]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -402,7 +402,7 @@ class DataApi(object):
             collection_formats=collection_formats)
 
     def load_filtered_entity_set_data(self, entity_set_id, entity_set_selection, **kwargs):  # noqa: E501
-        """Gets a list of entities by UUID&#39;s  # noqa: E501
+        """Gets a list of entities by UUID's  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -412,7 +412,7 @@ class DataApi(object):
         :param async_req bool
         :param str entity_set_id: (required)
         :param list[EntitySetSelection] entity_set_selection: (required)
-        :return: list[Entity]
+        :return: list[dict]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -424,7 +424,7 @@ class DataApi(object):
             return data
 
     def load_filtered_entity_set_data_with_http_info(self, entity_set_id, entity_set_selection, **kwargs):  # noqa: E501
-        """Gets a list of entities by UUID&#39;s  # noqa: E501
+        """Gets a list of entities by UUID's  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -434,7 +434,7 @@ class DataApi(object):
         :param async_req bool
         :param str entity_set_id: (required)
         :param list[EntitySetSelection] entity_set_selection: (required)
-        :return: list[Entity]
+        :return: list[dict]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -499,7 +499,7 @@ class DataApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[Entity]',  # noqa: E501
+            response_type='list[dict]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

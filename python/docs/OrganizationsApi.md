@@ -1,16 +1,16 @@
-# openlattice.DirectoryApi
+# openlattice.OrganizationsApi
 
 All URIs are relative to *https://api.openlattice.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**search_all_users_by_email**](DirectoryApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
+[**get_organizations**](OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organisations
 
 
-# **search_all_users_by_email**
-> dict(str, Auth0userBasic) search_all_users_by_email(email_address)
+# **get_organizations**
+> list[Organization] get_organizations()
 
-Get the user id for the given email address.
+Get all organisations
 
 ### Example
 
@@ -31,15 +31,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.DirectoryApi(openlattice.ApiClient(configuration))
-email_address = 'email_address_example' # str | 
+api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
 
 try:
-    # Get the user id for the given email address.
-    api_response = api_instance.search_all_users_by_email(email_address)
+    # Get all organisations
+    api_response = api_instance.get_organizations()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DirectoryApi->search_all_users_by_email: %s\n" % e)
+    print("Exception when calling OrganizationsApi->get_organizations: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -59,26 +58,22 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.DirectoryApi(openlattice.ApiClient(configuration))
-email_address = 'email_address_example' # str | 
+api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
 
 try:
-    # Get the user id for the given email address.
-    api_response = api_instance.search_all_users_by_email(email_address)
+    # Get all organisations
+    api_response = api_instance.get_organizations()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DirectoryApi->search_all_users_by_email: %s\n" % e)
+    print("Exception when calling OrganizationsApi->get_organizations: %s\n" % e)
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **email_address** | **str**|  | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**dict(str, Auth0userBasic)**](Auth0userBasic.md)
+[**list[Organization]**](Organization.md)
 
 ### Authorization
 

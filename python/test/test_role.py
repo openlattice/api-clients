@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openlattice
-from openlattice.models.neighbor_entity_details_collection import NeighborEntityDetailsCollection  # noqa: E501
+from openlattice.models.role import Role  # noqa: E501
 from openlattice.rest import ApiException
 
 
-class TestNeighborEntityDetailsCollection(unittest.TestCase):
-    """NeighborEntityDetailsCollection unit test stubs"""
+class TestRole(unittest.TestCase):
+    """Role unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestNeighborEntityDetailsCollection(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testNeighborEntityDetailsCollection(self):
-        """Test NeighborEntityDetailsCollection"""
+    def testRole(self):
+        """Test Role"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openlattice.models.neighbor_entity_details_collection.NeighborEntityDetailsCollection()  # noqa: E501
+        # model = openlattice.models.role.Role()  # noqa: E501
         pass
 
 

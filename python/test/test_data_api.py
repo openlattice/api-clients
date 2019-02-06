@@ -43,13 +43,6 @@ class TestDataApi(unittest.TestCase):
         """
         pass
 
-    def test_create_entities(self):
-        """Test case for create_entities
-
-        Creates a list of new entities by UUID's  # noqa: E501
-        """
-        pass
-
     def test_get_entity_set_size(self):
         """Test case for get_entity_set_size
 
@@ -61,6 +54,13 @@ class TestDataApi(unittest.TestCase):
         """Test case for load_entity_set_data
 
         Gets an iterable containing the entity data, using property type FQNs as key  # noqa: E501
+        """
+        pass
+
+    def test_load_filtered_entity_set_data(self):
+        """Test case for load_filtered_entity_set_data
+
+        Gets a list of entities by UUID's  # noqa: E501
         """
         pass
 

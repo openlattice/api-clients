@@ -16,23 +16,24 @@ from __future__ import absolute_import
 import unittest
 
 import openlattice
-from openlattice.models.property_tags import PropertyTags  # noqa: E501
+from openlattice.api.organizations_api import OrganizationsApi  # noqa: E501
 from openlattice.rest import ApiException
 
 
-class TestPropertyTags(unittest.TestCase):
-    """PropertyTags unit test stubs"""
+class TestOrganizationsApi(unittest.TestCase):
+    """OrganizationsApi unit test stubs"""
 
     def setUp(self):
-        pass
+        self.api = openlattice.api.organizations_api.OrganizationsApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def testPropertyTags(self):
-        """Test PropertyTags"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = openlattice.models.property_tags.PropertyTags()  # noqa: E501
+    def test_get_organizations(self):
+        """Test case for get_organizations
+
+        Get all organisations  # noqa: E501
+        """
         pass
 
 
