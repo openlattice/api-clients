@@ -48,10 +48,14 @@ DataApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    clear_all_entities_from_entity_set = function(entity_set_id, ...){
+    clear_all_entities_from_entity_set = function(entity_set_id, type, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
+
+      if (!missing(`type`)) {
+        queryParams['type'] <- type
+      }
 
       urlPath <- "/datastore/data/set/{entitySetId}/all"
       if (!missing(`entity_set_id`)) {
