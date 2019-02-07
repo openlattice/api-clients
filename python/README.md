@@ -51,12 +51,11 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 
-# Configure HTTP basic authorization: http_auth
 configuration = openlattice.Configuration()
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
-configuration = openlattice.Configuration()
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -79,7 +78,7 @@ All URIs are relative to *https://api.openlattice.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DataApi* | [**clear_all_entities_from_entity_set**](docs/DataApi.md#clear_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/entities | Clears the Entity matching the given Entity id and all of its neighbor Entities
+*DataApi* | [**clear_all_entities_from_entity_set**](docs/DataApi.md#clear_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
 *DataApi* | [**clear_entity_set**](docs/DataApi.md#clear_entity_set) | **DELETE** /datastore/data/set/{entitySetId} | Clears the data from a single entity set.
 *DataApi* | [**get_entity_set_size**](docs/DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 *DataApi* | [**load_entity_set_data**](docs/DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
@@ -147,15 +146,11 @@ Class | Method | HTTP request | Description
  - [Ace](docs/Ace.md)
  - [Acl](docs/Acl.md)
  - [AclData](docs/AclData.md)
- - [AclKey](docs/AclKey.md)
- - [AllPropertyUsageSummary](docs/AllPropertyUsageSummary.md)
  - [AssociationType](docs/AssociationType.md)
  - [Auth0userBasic](docs/Auth0userBasic.md)
- - [Auth0userBasicMap](docs/Auth0userBasicMap.md)
  - [EDM](docs/EDM.md)
  - [EDMdiff](docs/EDMdiff.md)
  - [EdmRequest](docs/EdmRequest.md)
- - [Entity](docs/Entity.md)
  - [EntitySet](docs/EntitySet.md)
  - [EntitySetSelection](docs/EntitySetSelection.md)
  - [EntityType](docs/EntityType.md)
@@ -164,12 +159,9 @@ Class | Method | HTTP request | Description
  - [MetaDataUpdate](docs/MetaDataUpdate.md)
  - [NeighborDetails](docs/NeighborDetails.md)
  - [NeighborEntityDetails](docs/NeighborEntityDetails.md)
- - [NeighborEntityDetailsCollection](docs/NeighborEntityDetailsCollection.md)
- - [NeighborEntityDetailsDictionary](docs/NeighborEntityDetailsDictionary.md)
  - [NeighborSearchFilter](docs/NeighborSearchFilter.md)
  - [Organization](docs/Organization.md)
  - [Principal](docs/Principal.md)
- - [PropertyTags](docs/PropertyTags.md)
  - [PropertyType](docs/PropertyType.md)
  - [PropertyUsageSummary](docs/PropertyUsageSummary.md)
  - [Role](docs/Role.md)
@@ -181,7 +173,8 @@ Class | Method | HTTP request | Description
 
 ## http_auth
 
-- **Type**: HTTP basic authentication
+- **Type**: Bearer authentication (JWT)
+
 
 ## openlattice_auth
 

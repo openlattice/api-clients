@@ -53,7 +53,7 @@ DataApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/data/set/{entitySetId}/entities"
+      urlPath <- "/datastore/data/set/{entitySetId}/all"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }

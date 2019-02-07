@@ -32,7 +32,7 @@ class Acl(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'acl_key': 'list[AclKey]',
+        'acl_key': 'list[list]',
         'aces': 'list[Ace]'
     }
 
@@ -59,7 +59,7 @@ class Acl(object):
 
 
         :return: The acl_key of this Acl.  # noqa: E501
-        :rtype: list[AclKey]
+        :rtype: list[list]
         """
         return self._acl_key
 
@@ -69,7 +69,7 @@ class Acl(object):
 
 
         :param acl_key: The acl_key of this Acl.  # noqa: E501
-        :type: list[AclKey]
+        :type: list[list]
         """
 
         self._acl_key = acl_key

@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openlattice
-from openlattice.models.acl_key import AclKey  # noqa: E501
+from openlattice.models.organization import Organization  # noqa: E501
 from openlattice.rest import ApiException
 
 
-class TestAclKey(unittest.TestCase):
-    """AclKey unit test stubs"""
+class TestOrganization(unittest.TestCase):
+    """Organization unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestAclKey(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testAclKey(self):
-        """Test AclKey"""
+    def testOrganization(self):
+        """Test Organization"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openlattice.models.acl_key.AclKey()  # noqa: E501
+        # model = openlattice.models.organization.Organization()  # noqa: E501
         pass
 
 

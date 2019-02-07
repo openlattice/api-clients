@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openlattice
-from openlattice.models.all_property_usage_summary import AllPropertyUsageSummary  # noqa: E501
+from openlattice.models.entity_set_selection import EntitySetSelection  # noqa: E501
 from openlattice.rest import ApiException
 
 
-class TestAllPropertyUsageSummary(unittest.TestCase):
-    """AllPropertyUsageSummary unit test stubs"""
+class TestEntitySetSelection(unittest.TestCase):
+    """EntitySetSelection unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestAllPropertyUsageSummary(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testAllPropertyUsageSummary(self):
-        """Test AllPropertyUsageSummary"""
+    def testEntitySetSelection(self):
+        """Test EntitySetSelection"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openlattice.models.all_property_usage_summary.AllPropertyUsageSummary()  # noqa: E501
+        # model = openlattice.models.entity_set_selection.EntitySetSelection()  # noqa: E501
         pass
 
 

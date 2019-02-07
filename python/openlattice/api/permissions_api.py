@@ -42,7 +42,7 @@ class PermissionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AclKey acl_key: (required)
+        :param list[str] acl_key: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -63,7 +63,7 @@ class PermissionsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param AclKey acl_key: (required)
+        :param list[str] acl_key: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -97,6 +97,7 @@ class PermissionsApi(object):
         query_params = []
         if 'acl_key' in local_var_params:
             query_params.append(('aclKey', local_var_params['acl_key']))  # noqa: E501
+            collection_formats['aclKey'] = 'multi'  # noqa: E501
 
         header_params = {}
 

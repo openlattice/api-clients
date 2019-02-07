@@ -15,16 +15,47 @@ Executes a search for all neighbors of an entity that are connected by an associ
 
 ### Example
 
-* Api Key Authentication (openlattice_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: openlattice_auth
 configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openlattice.SearchApi(openlattice.ApiClient(configuration))
+entity_set_id = 'entity_set_id_example' # str | 
+entity_key_id = 'entity_key_id_example' # str | 
+
+try:
+    # Executes a search for all neighbors of an entity that are connected by an association
+    api_response = api_instance.execute_entity_neighbor_search(entity_set_id, entity_key_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->execute_entity_neighbor_search: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -55,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[openlattice_auth](../README.md#openlattice_auth)
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
 
 ### HTTP request headers
 
@@ -65,22 +96,53 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **execute_filtered_entity_neighbor_search**
-> dict(str, NeighborEntityDetailsCollection) execute_filtered_entity_neighbor_search(entity_set_id, neighbor_search_filter)
+> dict(str, list) execute_filtered_entity_neighbor_search(entity_set_id, neighbor_search_filter)
 
 Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
 
 ### Example
 
-* Api Key Authentication (openlattice_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: openlattice_auth
 configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openlattice.SearchApi(openlattice.ApiClient(configuration))
+entity_set_id = 'entity_set_id_example' # str | 
+neighbor_search_filter = openlattice.NeighborSearchFilter() # NeighborSearchFilter | 
+
+try:
+    # Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
+    api_response = api_instance.execute_filtered_entity_neighbor_search(entity_set_id, neighbor_search_filter)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->execute_filtered_entity_neighbor_search: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
@@ -107,11 +169,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**dict(str, NeighborEntityDetailsCollection)**](NeighborEntityDetailsCollection.md)
+**dict(str, list)**
 
 ### Authorization
 
-[openlattice_auth](../README.md#openlattice_auth)
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
 
 ### HTTP request headers
 

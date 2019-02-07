@@ -328,7 +328,7 @@ class EdmApi(object):
             collection_formats=collection_formats)
 
     def create_association_type(self, association_type, **kwargs):  # noqa: E501
-        """Creates a new AssociationType definition, if it doesn\&quot;t exist.  # noqa: E501
+        """Creates a new AssociationType definition, if it doesn\"t exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -349,7 +349,7 @@ class EdmApi(object):
             return data
 
     def create_association_type_with_http_info(self, association_type, **kwargs):  # noqa: E501
-        """Creates a new AssociationType definition, if it doesn\&quot;t exist.  # noqa: E501
+        """Creates a new AssociationType definition, if it doesn\"t exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -422,7 +422,7 @@ class EdmApi(object):
             collection_formats=collection_formats)
 
     def create_empty_schema(self, namespace, name, **kwargs):  # noqa: E501
-        """Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.  # noqa: E501
+        """Creates an empty schema, if it doesn't exist. If schema exists then no action is taken.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -444,7 +444,7 @@ class EdmApi(object):
             return data
 
     def create_empty_schema_with_http_info(self, namespace, name, **kwargs):  # noqa: E501
-        """Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.  # noqa: E501
+        """Creates an empty schema, if it doesn't exist. If schema exists then no action is taken.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -520,7 +520,7 @@ class EdmApi(object):
             collection_formats=collection_formats)
 
     def create_entity_sets(self, entity_set, **kwargs):  # noqa: E501
-        """Create new EntitySet definitions if they don\&quot;t exist.  # noqa: E501
+        """Create new EntitySet definitions if they don\"t exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -541,7 +541,7 @@ class EdmApi(object):
             return data
 
     def create_entity_sets_with_http_info(self, entity_set, **kwargs):  # noqa: E501
-        """Create new EntitySet definitions if they don\&quot;t exist.  # noqa: E501
+        """Create new EntitySet definitions if they don\"t exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -614,7 +614,7 @@ class EdmApi(object):
             collection_formats=collection_formats)
 
     def create_entity_type(self, entity_type, **kwargs):  # noqa: E501
-        """Creates a new EntityType definition, if it doesn&#39;t exist.  # noqa: E501
+        """Creates a new EntityType definition, if it doesn't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -635,7 +635,7 @@ class EdmApi(object):
             return data
 
     def create_entity_type_with_http_info(self, entity_type, **kwargs):  # noqa: E501
-        """Creates a new EntityType definition, if it doesn&#39;t exist.  # noqa: E501
+        """Creates a new EntityType definition, if it doesn't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -708,7 +708,7 @@ class EdmApi(object):
             collection_formats=collection_formats)
 
     def create_property_type(self, property_type, **kwargs):  # noqa: E501
-        """Creates a new PropertyType definition, if it doesn\&quot;t exist.  # noqa: E501
+        """Creates a new PropertyType definition, if it doesn\"t exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -729,7 +729,7 @@ class EdmApi(object):
             return data
 
     def create_property_type_with_http_info(self, property_type, **kwargs):  # noqa: E501
-        """Creates a new PropertyType definition, if it doesn\&quot;t exist.  # noqa: E501
+        """Creates a new PropertyType definition, if it doesn\"t exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -802,7 +802,7 @@ class EdmApi(object):
             collection_formats=collection_formats)
 
     def create_schema_if_not_exists(self, schema, **kwargs):  # noqa: E501
-        """Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.  # noqa: E501
+        """Creates an empty schema, if it doesn't exist. If schema exists then no action is taken.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -823,7 +823,7 @@ class EdmApi(object):
             return data
 
     def create_schema_if_not_exists_with_http_info(self, schema, **kwargs):  # noqa: E501
-        """Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.  # noqa: E501
+        """Creates an empty schema, if it doesn't exist. If schema exists then no action is taken.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
