@@ -63,11 +63,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
-type = 'type_example' # str | 
 
 try:
     # Clears the Entity matching the given Entity id and all of its neighbor Entities
-    api_instance.clear_all_entities_from_entity_set(entity_set_id, type)
+    api_instance.clear_all_entities_from_entity_set(entity_set_id)
 except ApiException as e:
     print("Exception when calling DataApi->clear_all_entities_from_entity_set: %s\n" % e)
 
@@ -79,7 +78,7 @@ All URIs are relative to *https://api.openlattice.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DataApi* | [**clear_all_entities_from_entity_set**](docs/DataApi.md#clear_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
+*DataApi* | [**clear_all_entities_from_entity_set**](docs/DataApi.md#clear_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/entities | Clears the Entity matching the given Entity id and all of its neighbor Entities
 *DataApi* | [**clear_entity_set**](docs/DataApi.md#clear_entity_set) | **DELETE** /datastore/data/set/{entitySetId} | Clears the data from a single entity set.
 *DataApi* | [**get_entity_set_size**](docs/DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 *DataApi* | [**load_entity_set_data**](docs/DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
@@ -135,7 +134,30 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**update_entity_type_meta_data**](docs/EdmApi.md#update_entity_type_meta_data) | **PATCH** /datastore/edm/entity/type/{entityTypeId} | Updates the EntityType definition for the given EntityType UUID with the given metadata.
 *EdmApi* | [**update_property_type_meta_data**](docs/EdmApi.md#update_property_type_meta_data) | **PATCH** /datastore/edm/property/type/{propertyTypeId} | Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
 *EdmApi* | [**update_schema**](docs/EdmApi.md#update_schema) | **PATCH** /datastore/edm/schema/{namespace}/{name} | Edits the schema contents for a corresponding namespace and name.
+*OrganizationsApi* | [**add_member**](docs/OrganizationsApi.md#add_member) | **PUT** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
+*OrganizationsApi* | [**add_role_to_user**](docs/OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
+*OrganizationsApi* | [**assemble_entity_sets**](docs/OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entitySets/assemble | Materializes entity sets into the organization database.
+*OrganizationsApi* | [**create_organization_if_not_exists**](docs/OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Create an organisation if it doesn&#39;t exist.
+*OrganizationsApi* | [**create_role**](docs/OrganizationsApi.md#create_role) | **POST** /datastore/organizations/role | Create role
+*OrganizationsApi* | [**delete_role**](docs/OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
+*OrganizationsApi* | [**destroy_organization**](docs/OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organisation from the organizationId
+*OrganizationsApi* | [**get_all_users_of_role**](docs/OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
+*OrganizationsApi* | [**get_auto_approved_email_domains**](docs/OrganizationsApi.md#get_auto_approved_email_domains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
+*OrganizationsApi* | [**get_flagged_organization_entity_sets**](docs/OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entitySets | Get the entity sets for an organization for a certain flag
+*OrganizationsApi* | [**get_members**](docs/OrganizationsApi.md#get_members) | **GET** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
+*OrganizationsApi* | [**get_organization**](docs/OrganizationsApi.md#get_organization) | **GET** /datastore/organizations/{organizationId} | Get an organisation from the organizationId
+*OrganizationsApi* | [**get_organization_entity_sets**](docs/OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entitySets | Get the entity sets for an organization for a certain filter
 *OrganizationsApi* | [**get_organizations**](docs/OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organisations
+*OrganizationsApi* | [**get_role**](docs/OrganizationsApi.md#get_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
+*OrganizationsApi* | [**get_roles**](docs/OrganizationsApi.md#get_roles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
+*OrganizationsApi* | [**remove_auto_approved_email_domains**](docs/OrganizationsApi.md#remove_auto_approved_email_domains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
+*OrganizationsApi* | [**remove_member**](docs/OrganizationsApi.md#remove_member) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
+*OrganizationsApi* | [**remove_role_from_user**](docs/OrganizationsApi.md#remove_role_from_user) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Remove a role from a user
+*OrganizationsApi* | [**set_auto_approved_email_domain**](docs/OrganizationsApi.md#set_auto_approved_email_domain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
+*OrganizationsApi* | [**update_description**](docs/OrganizationsApi.md#update_description) | **PUT** /datastore/organizations/{organizationId}/description | Update the organisation description
+*OrganizationsApi* | [**update_role_description**](docs/OrganizationsApi.md#update_role_description) | **POST** /datastore/organizations/{organizationId}/principals/roles/{roleId}/description | Update role description for an organization from a roleId
+*OrganizationsApi* | [**update_role_title**](docs/OrganizationsApi.md#update_role_title) | **POST** /datastore/organizations/{organizationId}/principals/roles/{roleId}/title | Update role title for an organization from a roleId
+*OrganizationsApi* | [**update_title**](docs/OrganizationsApi.md#update_title) | **PUT** /datastore/organizations/{organizationId}/title | Update the organisation title
 *PermissionsApi* | [**get_acl**](docs/PermissionsApi.md#get_acl) | **POST** /datastore/permissions | Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 *PermissionsApi* | [**update_acl**](docs/PermissionsApi.md#update_acl) | **PATCH** /datastore/permissions | Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
 *SearchApi* | [**execute_entity_neighbor_search**](docs/SearchApi.md#execute_entity_neighbor_search) | **GET** /datastore/search/{entitySetId}/{entityKeyId} | Executes a search for all neighbors of an entity that are connected by an association
@@ -162,11 +184,13 @@ Class | Method | HTTP request | Description
  - [NeighborEntityDetails](docs/NeighborEntityDetails.md)
  - [NeighborSearchFilter](docs/NeighborSearchFilter.md)
  - [Organization](docs/Organization.md)
+ - [OrganizationMember](docs/OrganizationMember.md)
  - [Principal](docs/Principal.md)
  - [PropertyType](docs/PropertyType.md)
  - [PropertyUsageSummary](docs/PropertyUsageSummary.md)
  - [Role](docs/Role.md)
  - [Schema](docs/Schema.md)
+ - [SecurablePrincipal](docs/SecurablePrincipal.md)
 
 
 ## Documentation For Authorization

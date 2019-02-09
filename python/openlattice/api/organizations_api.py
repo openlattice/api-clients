@@ -33,6 +33,1276 @@ class OrganizationsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def add_member(self, organization_id, user_id, **kwargs):  # noqa: E501
+        """Add member to an organization  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_member(organization_id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str user_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_member_with_http_info(organization_id, user_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_member_with_http_info(organization_id, user_id, **kwargs)  # noqa: E501
+            return data
+
+    def add_member_with_http_info(self, organization_id, user_id, **kwargs):  # noqa: E501
+        """Add member to an organization  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_member_with_http_info(organization_id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str user_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'user_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_member" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `add_member`")  # noqa: E501
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in local_var_params or
+                local_var_params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `add_member`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/members/{userId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def add_role_to_user(self, organization_id, role_id, user_id, **kwargs):  # noqa: E501
+        """Add a role to a user  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_role_to_user(organization_id, role_id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :param str user_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_role_to_user_with_http_info(organization_id, role_id, user_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_role_to_user_with_http_info(organization_id, role_id, user_id, **kwargs)  # noqa: E501
+            return data
+
+    def add_role_to_user_with_http_info(self, organization_id, role_id, user_id, **kwargs):  # noqa: E501
+        """Add a role to a user  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_role_to_user_with_http_info(organization_id, role_id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :param str user_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'role_id', 'user_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_role_to_user" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `add_role_to_user`")  # noqa: E501
+        # verify the required parameter 'role_id' is set
+        if ('role_id' not in local_var_params or
+                local_var_params['role_id'] is None):
+            raise ValueError("Missing the required parameter `role_id` when calling `add_role_to_user`")  # noqa: E501
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in local_var_params or
+                local_var_params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `add_role_to_user`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+        if 'role_id' in local_var_params:
+            path_params['roleId'] = local_var_params['role_id']  # noqa: E501
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def assemble_entity_sets(self, organization_id, request_body, **kwargs):  # noqa: E501
+        """Materializes entity sets into the organization database.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.assemble_entity_sets(organization_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param list[str] request_body: (required)
+        :return: list[dict]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.assemble_entity_sets_with_http_info(organization_id, request_body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.assemble_entity_sets_with_http_info(organization_id, request_body, **kwargs)  # noqa: E501
+            return data
+
+    def assemble_entity_sets_with_http_info(self, organization_id, request_body, **kwargs):  # noqa: E501
+        """Materializes entity sets into the organization database.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.assemble_entity_sets_with_http_info(organization_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param list[str] request_body: (required)
+        :return: list[dict]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'request_body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method assemble_entity_sets" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `assemble_entity_sets`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if ('request_body' not in local_var_params or
+                local_var_params['request_body'] is None):
+            raise ValueError("Missing the required parameter `request_body` when calling `assemble_entity_sets`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/entitySets/assemble', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[dict]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_organization_if_not_exists(self, organization, **kwargs):  # noqa: E501
+        """Create an organisation if it doesn't exist.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_organization_if_not_exists(organization, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Organization organization: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_organization_if_not_exists_with_http_info(organization, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_organization_if_not_exists_with_http_info(organization, **kwargs)  # noqa: E501
+            return data
+
+    def create_organization_if_not_exists_with_http_info(self, organization, **kwargs):  # noqa: E501
+        """Create an organisation if it doesn't exist.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_organization_if_not_exists_with_http_info(organization, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Organization organization: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_organization_if_not_exists" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization' is set
+        if ('organization' not in local_var_params or
+                local_var_params['organization'] is None):
+            raise ValueError("Missing the required parameter `organization` when calling `create_organization_if_not_exists`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'organization' in local_var_params:
+            body_params = local_var_params['organization']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_role(self, role, **kwargs):  # noqa: E501
+        """Create role  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_role(role, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Role role: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_role_with_http_info(role, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_role_with_http_info(role, **kwargs)  # noqa: E501
+            return data
+
+    def create_role_with_http_info(self, role, **kwargs):  # noqa: E501
+        """Create role  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_role_with_http_info(role, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Role role: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['role']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_role" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'role' is set
+        if ('role' not in local_var_params or
+                local_var_params['role'] is None):
+            raise ValueError("Missing the required parameter `role` when calling `create_role`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'role' in local_var_params:
+            body_params = local_var_params['role']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/role', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_role(self, organization_id, role_id, **kwargs):  # noqa: E501
+        """Remove role for an organization  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_role(organization_id, role_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_role_with_http_info(organization_id, role_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_role_with_http_info(organization_id, role_id, **kwargs)  # noqa: E501
+            return data
+
+    def delete_role_with_http_info(self, organization_id, role_id, **kwargs):  # noqa: E501
+        """Remove role for an organization  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_role_with_http_info(organization_id, role_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'role_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_role" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `delete_role`")  # noqa: E501
+        # verify the required parameter 'role_id' is set
+        if ('role_id' not in local_var_params or
+                local_var_params['role_id'] is None):
+            raise ValueError("Missing the required parameter `role_id` when calling `delete_role`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+        if 'role_id' in local_var_params:
+            path_params['roleId'] = local_var_params['role_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/roles/{roleId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def destroy_organization(self, organization_id, **kwargs):  # noqa: E501
+        """Remove an organisation from the organizationId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.destroy_organization(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.destroy_organization_with_http_info(organization_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.destroy_organization_with_http_info(organization_id, **kwargs)  # noqa: E501
+            return data
+
+    def destroy_organization_with_http_info(self, organization_id, **kwargs):  # noqa: E501
+        """Remove an organisation from the organizationId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.destroy_organization_with_http_info(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method destroy_organization" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `destroy_organization`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_all_users_of_role(self, organization_id, role_id, **kwargs):  # noqa: E501
+        """Get members of a role for an organization from a roleId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_users_of_role(organization_id, role_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :return: list[Componentsauth0userBasic]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_all_users_of_role_with_http_info(organization_id, role_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_all_users_of_role_with_http_info(organization_id, role_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_all_users_of_role_with_http_info(self, organization_id, role_id, **kwargs):  # noqa: E501
+        """Get members of a role for an organization from a roleId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_users_of_role_with_http_info(organization_id, role_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :return: list[Componentsauth0userBasic]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'role_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_all_users_of_role" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_all_users_of_role`")  # noqa: E501
+        # verify the required parameter 'role_id' is set
+        if ('role_id' not in local_var_params or
+                local_var_params['role_id'] is None):
+            raise ValueError("Missing the required parameter `role_id` when calling `get_all_users_of_role`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+        if 'role_id' in local_var_params:
+            path_params['roleId'] = local_var_params['role_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/roles/{roleId}/members/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Componentsauth0userBasic]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_auto_approved_email_domains(self, organization_id, **kwargs):  # noqa: E501
+        """Get auto-approved email domains  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auto_approved_email_domains(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: list[str]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_auto_approved_email_domains_with_http_info(organization_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_auto_approved_email_domains_with_http_info(organization_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_auto_approved_email_domains_with_http_info(self, organization_id, **kwargs):  # noqa: E501
+        """Get auto-approved email domains  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_auto_approved_email_domains_with_http_info(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: list[str]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_auto_approved_email_domains" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_auto_approved_email_domains`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/email-domains', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[str]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_flagged_organization_entity_sets(self, organization_id, request_body, **kwargs):  # noqa: E501
+        """Get the entity sets for an organization for a certain flag  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_flagged_organization_entity_sets(organization_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param dict(str, list[str]) request_body: (required)
+        :return: list[dict]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_flagged_organization_entity_sets_with_http_info(organization_id, request_body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_flagged_organization_entity_sets_with_http_info(organization_id, request_body, **kwargs)  # noqa: E501
+            return data
+
+    def get_flagged_organization_entity_sets_with_http_info(self, organization_id, request_body, **kwargs):  # noqa: E501
+        """Get the entity sets for an organization for a certain flag  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_flagged_organization_entity_sets_with_http_info(organization_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param dict(str, list[str]) request_body: (required)
+        :return: list[dict]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'request_body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_flagged_organization_entity_sets" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_flagged_organization_entity_sets`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if ('request_body' not in local_var_params or
+                local_var_params['request_body'] is None):
+            raise ValueError("Missing the required parameter `request_body` when calling `get_flagged_organization_entity_sets`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/entitySets', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[dict]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_members(self, organization_id, **kwargs):  # noqa: E501
+        """Get members of a certain organization  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_members(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: list[ComponentsorganizationMember]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_members_with_http_info(organization_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_members_with_http_info(organization_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_members_with_http_info(self, organization_id, **kwargs):  # noqa: E501
+        """Get members of a certain organization  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_members_with_http_info(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: list[ComponentsorganizationMember]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_members" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_members`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/members', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[ComponentsorganizationMember]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_organization(self, organization_id, **kwargs):  # noqa: E501
+        """Get an organisation from the organizationId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_organization(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: Organization
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_organization_with_http_info(organization_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_organization_with_http_info(organization_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_organization_with_http_info(self, organization_id, **kwargs):  # noqa: E501
+        """Get an organisation from the organizationId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_organization_with_http_info(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: Organization
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_organization" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_organization`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Organization',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_organization_entity_sets(self, organization_id, **kwargs):  # noqa: E501
+        """Get the entity sets for an organization for a certain filter  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_organization_entity_sets(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: list[dict]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_organization_entity_sets_with_http_info(organization_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_organization_entity_sets_with_http_info(organization_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_organization_entity_sets_with_http_info(self, organization_id, **kwargs):  # noqa: E501
+        """Get the entity sets for an organization for a certain filter  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_organization_entity_sets_with_http_info(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: list[dict]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_organization_entity_sets" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_organization_entity_sets`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/entitySets', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[dict]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_organizations(self, **kwargs):  # noqa: E501
         """Get all organisations  # noqa: E501
 
@@ -112,6 +1382,1034 @@ class OrganizationsApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='list[Organization]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_role(self, organization_id, role_id, **kwargs):  # noqa: E501
+        """Get role for an organization from a roleId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_role(organization_id, role_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :return: list[Componentsrole]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_role_with_http_info(organization_id, role_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_role_with_http_info(organization_id, role_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_role_with_http_info(self, organization_id, role_id, **kwargs):  # noqa: E501
+        """Get role for an organization from a roleId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_role_with_http_info(organization_id, role_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :return: list[Componentsrole]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'role_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_role" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_role`")  # noqa: E501
+        # verify the required parameter 'role_id' is set
+        if ('role_id' not in local_var_params or
+                local_var_params['role_id'] is None):
+            raise ValueError("Missing the required parameter `role_id` when calling `get_role`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+        if 'role_id' in local_var_params:
+            path_params['roleId'] = local_var_params['role_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/roles/{roleId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Componentsrole]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_roles(self, organization_id, **kwargs):  # noqa: E501
+        """Get roles for an organization  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_roles(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: list[Componentsrole]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_roles_with_http_info(organization_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_roles_with_http_info(organization_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_roles_with_http_info(self, organization_id, **kwargs):  # noqa: E501
+        """Get roles for an organization  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_roles_with_http_info(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: list[Componentsrole]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_roles" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_roles`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/roles', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[Componentsrole]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def remove_auto_approved_email_domains(self, organization_id, request_body, **kwargs):  # noqa: E501
+        """Remove auto-approved email domains  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_auto_approved_email_domains(organization_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param list[str] request_body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.remove_auto_approved_email_domains_with_http_info(organization_id, request_body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.remove_auto_approved_email_domains_with_http_info(organization_id, request_body, **kwargs)  # noqa: E501
+            return data
+
+    def remove_auto_approved_email_domains_with_http_info(self, organization_id, request_body, **kwargs):  # noqa: E501
+        """Remove auto-approved email domains  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_auto_approved_email_domains_with_http_info(organization_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param list[str] request_body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'request_body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_auto_approved_email_domains" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `remove_auto_approved_email_domains`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if ('request_body' not in local_var_params or
+                local_var_params['request_body'] is None):
+            raise ValueError("Missing the required parameter `request_body` when calling `remove_auto_approved_email_domains`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/email-domains', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def remove_member(self, organization_id, user_id, **kwargs):  # noqa: E501
+        """Remove member from an organization  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_member(organization_id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str user_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.remove_member_with_http_info(organization_id, user_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.remove_member_with_http_info(organization_id, user_id, **kwargs)  # noqa: E501
+            return data
+
+    def remove_member_with_http_info(self, organization_id, user_id, **kwargs):  # noqa: E501
+        """Remove member from an organization  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_member_with_http_info(organization_id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str user_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'user_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_member" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `remove_member`")  # noqa: E501
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in local_var_params or
+                local_var_params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `remove_member`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/members/{userId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def remove_role_from_user(self, organization_id, role_id, user_id, **kwargs):  # noqa: E501
+        """Remove a role from a user  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_role_from_user(organization_id, role_id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :param str user_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.remove_role_from_user_with_http_info(organization_id, role_id, user_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.remove_role_from_user_with_http_info(organization_id, role_id, user_id, **kwargs)  # noqa: E501
+            return data
+
+    def remove_role_from_user_with_http_info(self, organization_id, role_id, user_id, **kwargs):  # noqa: E501
+        """Remove a role from a user  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_role_from_user_with_http_info(organization_id, role_id, user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :param str user_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'role_id', 'user_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_role_from_user" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `remove_role_from_user`")  # noqa: E501
+        # verify the required parameter 'role_id' is set
+        if ('role_id' not in local_var_params or
+                local_var_params['role_id'] is None):
+            raise ValueError("Missing the required parameter `role_id` when calling `remove_role_from_user`")  # noqa: E501
+        # verify the required parameter 'user_id' is set
+        if ('user_id' not in local_var_params or
+                local_var_params['user_id'] is None):
+            raise ValueError("Missing the required parameter `user_id` when calling `remove_role_from_user`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+        if 'role_id' in local_var_params:
+            path_params['roleId'] = local_var_params['role_id']  # noqa: E501
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def set_auto_approved_email_domain(self, organization_id, request_body, **kwargs):  # noqa: E501
+        """Set auto-approved email domains  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_auto_approved_email_domain(organization_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param list[str] request_body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.set_auto_approved_email_domain_with_http_info(organization_id, request_body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.set_auto_approved_email_domain_with_http_info(organization_id, request_body, **kwargs)  # noqa: E501
+            return data
+
+    def set_auto_approved_email_domain_with_http_info(self, organization_id, request_body, **kwargs):  # noqa: E501
+        """Set auto-approved email domains  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.set_auto_approved_email_domain_with_http_info(organization_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param list[str] request_body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'request_body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method set_auto_approved_email_domain" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `set_auto_approved_email_domain`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if ('request_body' not in local_var_params or
+                local_var_params['request_body'] is None):
+            raise ValueError("Missing the required parameter `request_body` when calling `set_auto_approved_email_domain`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/email-domains', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_description(self, organization_id, body, **kwargs):  # noqa: E501
+        """Update the organisation description  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_description(organization_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_description_with_http_info(organization_id, body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_description_with_http_info(organization_id, body, **kwargs)  # noqa: E501
+            return data
+
+    def update_description_with_http_info(self, organization_id, body, **kwargs):  # noqa: E501
+        """Update the organisation description  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_description_with_http_info(organization_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_description" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `update_description`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if ('body' not in local_var_params or
+                local_var_params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `update_description`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/description', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_role_description(self, organization_id, role_id, body, **kwargs):  # noqa: E501
+        """Update role description for an organization from a roleId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_role_description(organization_id, role_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :param str body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_role_description_with_http_info(organization_id, role_id, body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_role_description_with_http_info(organization_id, role_id, body, **kwargs)  # noqa: E501
+            return data
+
+    def update_role_description_with_http_info(self, organization_id, role_id, body, **kwargs):  # noqa: E501
+        """Update role description for an organization from a roleId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_role_description_with_http_info(organization_id, role_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :param str body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'role_id', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_role_description" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `update_role_description`")  # noqa: E501
+        # verify the required parameter 'role_id' is set
+        if ('role_id' not in local_var_params or
+                local_var_params['role_id'] is None):
+            raise ValueError("Missing the required parameter `role_id` when calling `update_role_description`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if ('body' not in local_var_params or
+                local_var_params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `update_role_description`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+        if 'role_id' in local_var_params:
+            path_params['roleId'] = local_var_params['role_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/roles/{roleId}/description', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_role_title(self, organization_id, role_id, body, **kwargs):  # noqa: E501
+        """Update role title for an organization from a roleId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_role_title(organization_id, role_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :param str body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_role_title_with_http_info(organization_id, role_id, body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_role_title_with_http_info(organization_id, role_id, body, **kwargs)  # noqa: E501
+            return data
+
+    def update_role_title_with_http_info(self, organization_id, role_id, body, **kwargs):  # noqa: E501
+        """Update role title for an organization from a roleId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_role_title_with_http_info(organization_id, role_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str role_id: (required)
+        :param str body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'role_id', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_role_title" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `update_role_title`")  # noqa: E501
+        # verify the required parameter 'role_id' is set
+        if ('role_id' not in local_var_params or
+                local_var_params['role_id'] is None):
+            raise ValueError("Missing the required parameter `role_id` when calling `update_role_title`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if ('body' not in local_var_params or
+                local_var_params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `update_role_title`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+        if 'role_id' in local_var_params:
+            path_params['roleId'] = local_var_params['role_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/principals/roles/{roleId}/title', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_title(self, organization_id, body, **kwargs):  # noqa: E501
+        """Update the organisation title  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_title(organization_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_title_with_http_info(organization_id, body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_title_with_http_info(organization_id, body, **kwargs)  # noqa: E501
+            return data
+
+    def update_title_with_http_info(self, organization_id, body, **kwargs):  # noqa: E501
+        """Update the organisation title  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_title_with_http_info(organization_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :param str body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_title" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `update_title`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if ('body' not in local_var_params or
+                local_var_params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `update_title`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/title', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

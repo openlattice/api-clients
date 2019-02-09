@@ -33,8 +33,10 @@ from openlattice.models.neighbor_details import NeighborDetails
 from openlattice.models.neighbor_entity_details import NeighborEntityDetails
 from openlattice.models.neighbor_search_filter import NeighborSearchFilter
 from openlattice.models.organization import Organization
+from openlattice.models.organization_member import OrganizationMember
 from openlattice.models.principal import Principal
 from openlattice.models.property_type import PropertyType
 from openlattice.models.property_usage_summary import PropertyUsageSummary
 from openlattice.models.role import Role
 from openlattice.models.schema import Schema
+from openlattice.models.securable_principal import SecurablePrincipal

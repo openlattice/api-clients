@@ -33,39 +33,37 @@ class DataApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def clear_all_entities_from_entity_set(self, entity_set_id, type, **kwargs):  # noqa: E501
+    def clear_all_entities_from_entity_set(self, entity_set_id, **kwargs):  # noqa: E501
         """Clears the Entity matching the given Entity id and all of its neighbor Entities  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.clear_all_entities_from_entity_set(entity_set_id, type, async_req=True)
+        >>> thread = api.clear_all_entities_from_entity_set(entity_set_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str entity_set_id: (required)
-        :param str type: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.clear_all_entities_from_entity_set_with_http_info(entity_set_id, type, **kwargs)  # noqa: E501
+            return self.clear_all_entities_from_entity_set_with_http_info(entity_set_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.clear_all_entities_from_entity_set_with_http_info(entity_set_id, type, **kwargs)  # noqa: E501
+            (data) = self.clear_all_entities_from_entity_set_with_http_info(entity_set_id, **kwargs)  # noqa: E501
             return data
 
-    def clear_all_entities_from_entity_set_with_http_info(self, entity_set_id, type, **kwargs):  # noqa: E501
+    def clear_all_entities_from_entity_set_with_http_info(self, entity_set_id, **kwargs):  # noqa: E501
         """Clears the Entity matching the given Entity id and all of its neighbor Entities  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.clear_all_entities_from_entity_set_with_http_info(entity_set_id, type, async_req=True)
+        >>> thread = api.clear_all_entities_from_entity_set_with_http_info(entity_set_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str entity_set_id: (required)
-        :param str type: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -73,7 +71,7 @@ class DataApi(object):
 
         local_var_params = locals()
 
-        all_params = ['entity_set_id', 'type']  # noqa: E501
+        all_params = ['entity_set_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -91,10 +89,6 @@ class DataApi(object):
         if ('entity_set_id' not in local_var_params or
                 local_var_params['entity_set_id'] is None):
             raise ValueError("Missing the required parameter `entity_set_id` when calling `clear_all_entities_from_entity_set`")  # noqa: E501
-        # verify the required parameter 'type' is set
-        if ('type' not in local_var_params or
-                local_var_params['type'] is None):
-            raise ValueError("Missing the required parameter `type` when calling `clear_all_entities_from_entity_set`")  # noqa: E501
 
         collection_formats = {}
 
@@ -103,8 +97,6 @@ class DataApi(object):
             path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
 
         query_params = []
-        if 'type' in local_var_params:
-            query_params.append(('type', local_var_params['type']))  # noqa: E501
 
         header_params = {}
 
@@ -116,7 +108,7 @@ class DataApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/data/set/{entitySetId}/all', 'DELETE',
+            '/datastore/data/set/{entitySetId}/entities', 'DELETE',
             path_params,
             query_params,
             header_params,

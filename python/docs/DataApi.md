@@ -4,7 +4,7 @@ All URIs are relative to *https://api.openlattice.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**clear_all_entities_from_entity_set**](DataApi.md#clear_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
+[**clear_all_entities_from_entity_set**](DataApi.md#clear_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/entities | Clears the Entity matching the given Entity id and all of its neighbor Entities
 [**clear_entity_set**](DataApi.md#clear_entity_set) | **DELETE** /datastore/data/set/{entitySetId} | Clears the data from a single entity set.
 [**get_entity_set_size**](DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 [**load_entity_set_data**](DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **clear_all_entities_from_entity_set**
-> clear_all_entities_from_entity_set(entity_set_id, type)
+> clear_all_entities_from_entity_set(entity_set_id)
 
 Clears the Entity matching the given Entity id and all of its neighbor Entities
 
@@ -37,11 +37,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
-type = 'type_example' # str | 
 
 try:
     # Clears the Entity matching the given Entity id and all of its neighbor Entities
-    api_instance.clear_all_entities_from_entity_set(entity_set_id, type)
+    api_instance.clear_all_entities_from_entity_set(entity_set_id)
 except ApiException as e:
     print("Exception when calling DataApi->clear_all_entities_from_entity_set: %s\n" % e)
 ```
@@ -65,11 +64,10 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
-type = 'type_example' # str | 
 
 try:
     # Clears the Entity matching the given Entity id and all of its neighbor Entities
-    api_instance.clear_all_entities_from_entity_set(entity_set_id, type)
+    api_instance.clear_all_entities_from_entity_set(entity_set_id)
 except ApiException as e:
     print("Exception when calling DataApi->clear_all_entities_from_entity_set: %s\n" % e)
 ```
@@ -79,7 +77,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_set_id** | [**str**](.md)|  | 
- **type** | **str**|  | 
 
 ### Return type
 
