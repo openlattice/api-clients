@@ -36,7 +36,7 @@ class Organization(object):
         'principal': 'Principal',
         'title': 'str',
         'description': 'str',
-        'auto_approved_emails': 'list[str]',
+        'emails': 'list[str]',
         'members': 'list[Principal]',
         'roles': 'list[Role]',
         'apps': 'list[str]'
@@ -47,20 +47,20 @@ class Organization(object):
         'principal': 'principal',
         'title': 'title',
         'description': 'description',
-        'auto_approved_emails': 'autoApprovedEmails',
+        'emails': 'emails',
         'members': 'members',
         'roles': 'roles',
         'apps': 'apps'
     }
 
-    def __init__(self, id=None, principal=None, title=None, description=None, auto_approved_emails=None, members=None, roles=None, apps=None):  # noqa: E501
+    def __init__(self, id=None, principal=None, title=None, description=None, emails=None, members=None, roles=None, apps=None):  # noqa: E501
         """Organization - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
         self._principal = None
         self._title = None
         self._description = None
-        self._auto_approved_emails = None
+        self._emails = None
         self._members = None
         self._roles = None
         self._apps = None
@@ -74,8 +74,8 @@ class Organization(object):
             self.title = title
         if description is not None:
             self.description = description
-        if auto_approved_emails is not None:
-            self.auto_approved_emails = auto_approved_emails
+        if emails is not None:
+            self.emails = emails
         if members is not None:
             self.members = members
         if roles is not None:
@@ -168,25 +168,25 @@ class Organization(object):
         self._description = description
 
     @property
-    def auto_approved_emails(self):
-        """Gets the auto_approved_emails of this Organization.  # noqa: E501
+    def emails(self):
+        """Gets the emails of this Organization.  # noqa: E501
 
 
-        :return: The auto_approved_emails of this Organization.  # noqa: E501
+        :return: The emails of this Organization.  # noqa: E501
         :rtype: list[str]
         """
-        return self._auto_approved_emails
+        return self._emails
 
-    @auto_approved_emails.setter
-    def auto_approved_emails(self, auto_approved_emails):
-        """Sets the auto_approved_emails of this Organization.
+    @emails.setter
+    def emails(self, emails):
+        """Sets the emails of this Organization.
 
 
-        :param auto_approved_emails: The auto_approved_emails of this Organization.  # noqa: E501
+        :param emails: The emails of this Organization.  # noqa: E501
         :type: list[str]
         """
 
-        self._auto_approved_emails = auto_approved_emails
+        self._emails = emails
 
     @property
     def members(self):

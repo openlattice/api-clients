@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_organization_if_not_exists**
-> create_organization_if_not_exists(organization)
+> str create_organization_if_not_exists(organization)
 
 Create an organisation if it doesn't exist.
 
@@ -319,7 +319,8 @@ organization = openlattice.Organization() # Organization |
 
 try:
     # Create an organisation if it doesn't exist.
-    api_instance.create_organization_if_not_exists(organization)
+    api_response = api_instance.create_organization_if_not_exists(organization)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->create_organization_if_not_exists: %s\n" % e)
 ```
@@ -346,7 +347,8 @@ organization = openlattice.Organization() # Organization |
 
 try:
     # Create an organisation if it doesn't exist.
-    api_instance.create_organization_if_not_exists(organization)
+    api_response = api_instance.create_organization_if_not_exists(organization)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->create_organization_if_not_exists: %s\n" % e)
 ```
@@ -359,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**str**
 
 ### Authorization
 
@@ -368,7 +370,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1298,7 +1300,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_roles**
-> list[Componentsrole] get_roles(organization_id)
+> list[Role] get_roles(organization_id)
 
 Get roles for an organization
 
@@ -1368,7 +1370,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Componentsrole]**](Componentsrole.md)
+[**list[Role]**](Role.md)
 
 ### Authorization
 

@@ -13,7 +13,7 @@
 #' @field principal 
 #' @field title 
 #' @field description 
-#' @field autoApprovedEmails 
+#' @field emails 
 #' @field members 
 #' @field roles 
 #' @field apps 
@@ -28,11 +28,11 @@ Organization <- R6::R6Class(
     `principal` = NULL,
     `title` = NULL,
     `description` = NULL,
-    `autoApprovedEmails` = NULL,
+    `emails` = NULL,
     `members` = NULL,
     `roles` = NULL,
     `apps` = NULL,
-    initialize = function(`id`, `principal`, `title`, `description`, `autoApprovedEmails`, `members`, `roles`, `apps`){
+    initialize = function(`id`, `principal`, `title`, `description`, `emails`, `members`, `roles`, `apps`){
       if (!missing(`id`)) {
                 stopifnot(is.character(`id`), length(`id`) == 1)
         self$`id` <- `id`
@@ -49,10 +49,10 @@ Organization <- R6::R6Class(
                 stopifnot(is.character(`description`), length(`description`) == 1)
         self$`description` <- `description`
       }
-      if (!missing(`autoApprovedEmails`)) {
-                stopifnot(is.vector(`autoApprovedEmails`), length(`autoApprovedEmails`) != 0)
-                sapply(`autoApprovedEmails`, function(x) stopifnot(is.character(x)))
-        self$`autoApprovedEmails` <- `autoApprovedEmails`
+      if (!missing(`emails`)) {
+                stopifnot(is.vector(`emails`), length(`emails`) != 0)
+                sapply(`emails`, function(x) stopifnot(is.character(x)))
+        self$`emails` <- `emails`
       }
       if (!missing(`members`)) {
                 stopifnot(is.vector(`members`), length(`members`) != 0)
@@ -88,9 +88,9 @@ Organization <- R6::R6Class(
         OrganizationObject[['description']] <-
                 self$`description`
       }
-      if (!is.null(self$`autoApprovedEmails`)) {
-        OrganizationObject[['autoApprovedEmails']] <-
-                self$`autoApprovedEmails`
+      if (!is.null(self$`emails`)) {
+        OrganizationObject[['emails']] <-
+                self$`emails`
       }
       if (!is.null(self$`members`)) {
         OrganizationObject[['members']] <-
@@ -123,8 +123,8 @@ Organization <- R6::R6Class(
       if (!is.null(OrganizationObject$`description`)) {
                 self$`description` <- OrganizationObject$`description`
       }
-      if (!is.null(OrganizationObject$`autoApprovedEmails`)) {
-                self$`autoApprovedEmails` <- OrganizationObject$`autoApprovedEmails`
+      if (!is.null(OrganizationObject$`emails`)) {
+                self$`emails` <- OrganizationObject$`emails`
       }
       if (!is.null(OrganizationObject$`members`)) {
                 self$`members` <- sapply(OrganizationObject$`members`, function(x) {
@@ -165,7 +165,7 @@ Organization <- R6::R6Class(
                       "%s"
                   
               ,
-           "autoApprovedEmails":
+           "emails":
                       
                       ["%s"]
                   
@@ -186,7 +186,7 @@ Organization <- R6::R6Class(
                 self$`principal`$toJSON(),
                 self$`title`,
                 self$`description`,
-                paste0(self$`autoApprovedEmails`, collapse='","'),
+                paste0(self$`emails`, collapse='","'),
                 paste0(sapply(self$`members`, function(x) x$toJSON()), collapse='","'),
                 paste0(sapply(self$`roles`, function(x) x$toJSON()), collapse='","'),
                 paste0(self$`apps`, collapse='","')
@@ -200,7 +200,7 @@ Organization <- R6::R6Class(
               self$`principal` <- PrincipalObject$fromJSON(jsonlite::toJSON(OrganizationObject$principal, auto_unbox = TRUE))
               self$`title` <- OrganizationObject$`title`
               self$`description` <- OrganizationObject$`description`
-              self$`autoApprovedEmails` <- OrganizationObject$`autoApprovedEmails`
+              self$`emails` <- OrganizationObject$`emails`
               self$`members` <- sapply(OrganizationObject$`members`, function(x) Principal$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
               self$`roles` <- sapply(OrganizationObject$`roles`, function(x) Role$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
               self$`apps` <- OrganizationObject$`apps`

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **principal** | [**Principal**](Principal.md) |  | [optional] 
 **title** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**auto_approved_emails** | **list[str]** |  | [optional] 
+**emails** | **list[str]** |  | [optional] 
 **members** | [**list[Principal]**](Principal.md) |  | [optional] 
 **roles** | [**list[Role]**](Role.md) |  | [optional] 
 **apps** | **list[str]** |  | [optional] 

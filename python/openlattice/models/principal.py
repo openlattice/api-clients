@@ -33,7 +33,7 @@ class Principal(object):
     """
     openapi_types = {
         'type': 'str',
-        'id': 'list[str]'
+        'id': 'str'
     }
 
     attribute_map = {
@@ -80,7 +80,7 @@ class Principal(object):
 
 
         :return: The id of this Principal.  # noqa: E501
-        :rtype: list[str]
+        :rtype: str
         """
         return self._id
 
@@ -90,7 +90,7 @@ class Principal(object):
 
 
         :param id: The id of this Principal.  # noqa: E501
-        :type: list[str]
+        :type: str
         """
 
         self._id = id
