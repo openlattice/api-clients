@@ -1,6 +1,7 @@
 export(EdmApi)
 export(AssociationType)
 export(OrganizationsApi)
+export(PrincipalApi)
 export(Principal)
 export(EDM)
 export(EntitySet)

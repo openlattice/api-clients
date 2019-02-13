@@ -14,6 +14,7 @@
 #' @field principal 
 #' @field title 
 #' @field description 
+#' @field @class 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -26,7 +27,8 @@ Role <- R6::R6Class(
     `principal` = NULL,
     `title` = NULL,
     `description` = NULL,
-    initialize = function(`id`, `organizationId`, `principal`, `title`, `description`){
+    `@class` = NULL,
+    initialize = function(`id`, `organizationId`, `principal`, `title`, `description`, `@class`){
       if (!missing(`id`)) {
                 stopifnot(is.character(`id`), length(`id`) == 1)
         self$`id` <- `id`
@@ -46,6 +48,10 @@ Role <- R6::R6Class(
       if (!missing(`description`)) {
                 stopifnot(is.character(`description`), length(`description`) == 1)
         self$`description` <- `description`
+      }
+      if (!missing(`@class`)) {
+                stopifnot(is.character(`@class`), length(`@class`) == 1)
+        self$`@class` <- `@class`
       }
     },
     toJSON = function() {
@@ -70,6 +76,10 @@ Role <- R6::R6Class(
         RoleObject[['description']] <-
                 self$`description`
       }
+      if (!is.null(self$`@class`)) {
+        RoleObject[['@class']] <-
+                self$`@class`
+      }
 
       RoleObject
     },
@@ -91,6 +101,9 @@ Role <- R6::R6Class(
       }
       if (!is.null(RoleObject$`description`)) {
                 self$`description` <- RoleObject$`description`
+      }
+      if (!is.null(RoleObject$`@class`)) {
+                self$`@class` <- RoleObject$`@class`
       }
     },
     toJSONString = function() {
@@ -118,13 +131,19 @@ Role <- R6::R6Class(
                       
                       "%s"
                   
+              ,
+           "@class":
+                      
+                      "%s"
+                  
               
         }',
                 self$`id`,
                 self$`organizationId`,
                 self$`principal`$toJSON(),
                 self$`title`,
-                self$`description`
+                self$`description`,
+                self$`@class`
       )
       gsub("[\r\n]| ", "", outstring)
     },
@@ -136,6 +155,7 @@ Role <- R6::R6Class(
               self$`principal` <- PrincipalObject$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = TRUE))
               self$`title` <- RoleObject$`title`
               self$`description` <- RoleObject$`description`
+              self$`@class` <- RoleObject$`@class`
     }
   )
 )

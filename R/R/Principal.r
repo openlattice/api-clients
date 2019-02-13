@@ -26,8 +26,7 @@ Principal <- R6::R6Class(
         self$`type` <- `type`
       }
       if (!missing(`id`)) {
-                stopifnot(is.vector(`id`), length(`id`) != 0)
-                sapply(`id`, function(x) stopifnot(is.character(x)))
+                stopifnot(is.character(`id`), length(`id`) == 1)
         self$`id` <- `id`
       }
     },
@@ -63,12 +62,12 @@ Principal <- R6::R6Class(
               ,
            "id":
                       
-                      ["%s"]
+                      "%s"
                   
               
         }',
                 self$`type`,
-                paste0(self$`id`, collapse='","')
+                self$`id`
       )
       gsub("[\r\n]| ", "", outstring)
     },
