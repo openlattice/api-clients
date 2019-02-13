@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**add_role_to_user**](OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
 [**assemble_entity_sets**](OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entitySets/assemble | Materializes entity sets into the organization database.
 [**create_organization_if_not_exists**](OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Create an organisation if it doesn&#39;t exist.
-[**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/role | Create role
+[**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Create role
 [**delete_role**](OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroy_organization**](OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organisation from the organizationId
 [**get_all_users_of_role**](OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_role**
-> create_role(role)
+> str create_role(role)
 
 Create role
 
@@ -403,7 +403,8 @@ role = openlattice.Role() # Role |
 
 try:
     # Create role
-    api_instance.create_role(role)
+    api_response = api_instance.create_role(role)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->create_role: %s\n" % e)
 ```
@@ -430,7 +431,8 @@ role = openlattice.Role() # Role |
 
 try:
     # Create role
-    api_instance.create_role(role)
+    api_response = api_instance.create_role(role)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->create_role: %s\n" % e)
 ```
@@ -443,7 +445,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**str**
 
 ### Authorization
 
@@ -452,7 +454,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

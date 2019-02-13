@@ -35,26 +35,29 @@ class Auth0userBasic(object):
         'user_id': 'str',
         'email': 'str',
         'nickname': 'str',
+        'username': 'str',
         'roles': 'list[str]',
-        'organization': 'list[str]'
+        'comopenlatticeorganization': 'list[str]'
     }
 
     attribute_map = {
-        'user_id': 'userId',
+        'user_id': 'user_id',
         'email': 'email',
         'nickname': 'nickname',
+        'username': 'username',
         'roles': 'roles',
-        'organization': 'organization'
+        'comopenlatticeorganization': 'com/openlattice/organization'
     }
 
-    def __init__(self, user_id=None, email=None, nickname=None, roles=None, organization=None):  # noqa: E501
+    def __init__(self, user_id=None, email=None, nickname=None, username=None, roles=None, comopenlatticeorganization=None):  # noqa: E501
         """Auth0userBasic - a model defined in OpenAPI"""  # noqa: E501
 
         self._user_id = None
         self._email = None
         self._nickname = None
+        self._username = None
         self._roles = None
-        self._organization = None
+        self._comopenlatticeorganization = None
         self.discriminator = None
 
         if user_id is not None:
@@ -63,10 +66,12 @@ class Auth0userBasic(object):
             self.email = email
         if nickname is not None:
             self.nickname = nickname
+        if username is not None:
+            self.username = username
         if roles is not None:
             self.roles = roles
-        if organization is not None:
-            self.organization = organization
+        if comopenlatticeorganization is not None:
+            self.comopenlatticeorganization = comopenlatticeorganization
 
     @property
     def user_id(self):
@@ -132,6 +137,27 @@ class Auth0userBasic(object):
         self._nickname = nickname
 
     @property
+    def username(self):
+        """Gets the username of this Auth0userBasic.  # noqa: E501
+
+
+        :return: The username of this Auth0userBasic.  # noqa: E501
+        :rtype: str
+        """
+        return self._username
+
+    @username.setter
+    def username(self, username):
+        """Sets the username of this Auth0userBasic.
+
+
+        :param username: The username of this Auth0userBasic.  # noqa: E501
+        :type: str
+        """
+
+        self._username = username
+
+    @property
     def roles(self):
         """Gets the roles of this Auth0userBasic.  # noqa: E501
 
@@ -153,25 +179,25 @@ class Auth0userBasic(object):
         self._roles = roles
 
     @property
-    def organization(self):
-        """Gets the organization of this Auth0userBasic.  # noqa: E501
+    def comopenlatticeorganization(self):
+        """Gets the comopenlatticeorganization of this Auth0userBasic.  # noqa: E501
 
 
-        :return: The organization of this Auth0userBasic.  # noqa: E501
+        :return: The comopenlatticeorganization of this Auth0userBasic.  # noqa: E501
         :rtype: list[str]
         """
-        return self._organization
+        return self._comopenlatticeorganization
 
-    @organization.setter
-    def organization(self, organization):
-        """Sets the organization of this Auth0userBasic.
+    @comopenlatticeorganization.setter
+    def comopenlatticeorganization(self, comopenlatticeorganization):
+        """Sets the comopenlatticeorganization of this Auth0userBasic.
 
 
-        :param organization: The organization of this Auth0userBasic.  # noqa: E501
+        :param comopenlatticeorganization: The comopenlatticeorganization of this Auth0userBasic.  # noqa: E501
         :type: list[str]
         """
 
-        self._organization = organization
+        self._comopenlatticeorganization = comopenlatticeorganization
 
     def to_dict(self):
         """Returns the model properties as a dict"""

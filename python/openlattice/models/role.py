@@ -36,7 +36,8 @@ class Role(object):
         'organization_id': 'str',
         'principal': 'Principal',
         'title': 'str',
-        'description': 'str'
+        'description': 'str',
+        '_class': 'str'
     }
 
     attribute_map = {
@@ -44,10 +45,11 @@ class Role(object):
         'organization_id': 'organizationId',
         'principal': 'principal',
         'title': 'title',
-        'description': 'description'
+        'description': 'description',
+        '_class': '@class'
     }
 
-    def __init__(self, id=None, organization_id=None, principal=None, title=None, description=None):  # noqa: E501
+    def __init__(self, id=None, organization_id=None, principal=None, title=None, description=None, _class=None):  # noqa: E501
         """Role - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
@@ -55,6 +57,7 @@ class Role(object):
         self._principal = None
         self._title = None
         self._description = None
+        self.__class = None
         self.discriminator = None
 
         if id is not None:
@@ -67,6 +70,8 @@ class Role(object):
             self.title = title
         if description is not None:
             self.description = description
+        if _class is not None:
+            self._class = _class
 
     @property
     def id(self):
@@ -172,6 +177,33 @@ class Role(object):
         """
 
         self._description = description
+
+    @property
+    def _class(self):
+        """Gets the _class of this Role.  # noqa: E501
+
+
+        :return: The _class of this Role.  # noqa: E501
+        :rtype: str
+        """
+        return self.__class
+
+    @_class.setter
+    def _class(self, _class):
+        """Sets the _class of this Role.
+
+
+        :param _class: The _class of this Role.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["com.openlattice.organization.roles.Role"]  # noqa: E501
+        if _class not in allowed_values:
+            raise ValueError(
+                "Invalid value for `_class` ({0}), must be one of {1}"  # noqa: E501
+                .format(_class, allowed_values)
+            )
+
+        self.__class = _class
 
     def to_dict(self):
         """Returns the model properties as a dict"""
