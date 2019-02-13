@@ -32,42 +32,14 @@ class EntityWithId(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'openlattice_id': 'str'
     }
 
     attribute_map = {
-        'openlattice_id': 'openlattice.@id'
     }
 
-    def __init__(self, openlattice_id=None):  # noqa: E501
+    def __init__(self):  # noqa: E501
         """EntityWithId - a model defined in OpenAPI"""  # noqa: E501
-
-        self._openlattice_id = None
         self.discriminator = None
-
-        if openlattice_id is not None:
-            self.openlattice_id = openlattice_id
-
-    @property
-    def openlattice_id(self):
-        """Gets the openlattice_id of this EntityWithId.  # noqa: E501
-
-
-        :return: The openlattice_id of this EntityWithId.  # noqa: E501
-        :rtype: str
-        """
-        return self._openlattice_id
-
-    @openlattice_id.setter
-    def openlattice_id(self, openlattice_id):
-        """Sets the openlattice_id of this EntityWithId.
-
-
-        :param openlattice_id: The openlattice_id of this EntityWithId.  # noqa: E501
-        :type: str
-        """
-
-        self._openlattice_id = openlattice_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

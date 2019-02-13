@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**get_all_users**](PrincipalApi.md#get_all_users) | **GET** /datastore/principals/users/ | Get all users.
 [**get_current_roles**](PrincipalApi.md#get_current_roles) | **GET** /datastore/principals/roles/current/ | Get current roles.
 [**get_db_access_credentials**](PrincipalApi.md#get_db_access_credentials) | **GET** /datastore/principals/db | Get the db access credentials.
-[**get_user**](PrincipalApi.md#get_user) | **GET** /datastore/principals/users/&quot;{userId}&quot; | Get the user for the given id.
+[**get_user**](PrincipalApi.md#get_user) | **GET** /datastore/principals/users/{userId} | Get the user for the given id.
 [**search_all_users_by_email**](PrincipalApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 
 
@@ -315,7 +315,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**str**](.md)|  | 
+ **user_id** | **str**|  | 
 
 ### Return type
 

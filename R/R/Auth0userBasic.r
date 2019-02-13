@@ -9,11 +9,12 @@
 
 #' Auth0userBasic Class
 #'
-#' @field userId 
+#' @field user_id 
 #' @field email 
 #' @field nickname 
+#' @field username 
 #' @field roles 
-#' @field organization 
+#' @field com/openlattice/organization 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -21,15 +22,16 @@
 Auth0userBasic <- R6::R6Class(
   'Auth0userBasic',
   public = list(
-    `userId` = NULL,
+    `user_id` = NULL,
     `email` = NULL,
     `nickname` = NULL,
+    `username` = NULL,
     `roles` = NULL,
-    `organization` = NULL,
-    initialize = function(`userId`, `email`, `nickname`, `roles`, `organization`){
-      if (!missing(`userId`)) {
-                stopifnot(is.character(`userId`), length(`userId`) == 1)
-        self$`userId` <- `userId`
+    `com/openlattice/organization` = NULL,
+    initialize = function(`user_id`, `email`, `nickname`, `username`, `roles`, `com/openlattice/organization`){
+      if (!missing(`user_id`)) {
+                stopifnot(is.character(`user_id`), length(`user_id`) == 1)
+        self$`user_id` <- `user_id`
       }
       if (!missing(`email`)) {
                 stopifnot(is.character(`email`), length(`email`) == 1)
@@ -39,22 +41,26 @@ Auth0userBasic <- R6::R6Class(
                 stopifnot(is.character(`nickname`), length(`nickname`) == 1)
         self$`nickname` <- `nickname`
       }
+      if (!missing(`username`)) {
+                stopifnot(is.character(`username`), length(`username`) == 1)
+        self$`username` <- `username`
+      }
       if (!missing(`roles`)) {
                 stopifnot(is.vector(`roles`), length(`roles`) != 0)
                 sapply(`roles`, function(x) stopifnot(is.character(x)))
         self$`roles` <- `roles`
       }
-      if (!missing(`organization`)) {
-                stopifnot(is.vector(`organization`), length(`organization`) != 0)
-                sapply(`organization`, function(x) stopifnot(is.character(x)))
-        self$`organization` <- `organization`
+      if (!missing(`com/openlattice/organization`)) {
+                stopifnot(is.vector(`com/openlattice/organization`), length(`com/openlattice/organization`) != 0)
+                sapply(`com/openlattice/organization`, function(x) stopifnot(is.character(x)))
+        self$`com/openlattice/organization` <- `com/openlattice/organization`
       }
     },
     toJSON = function() {
       Auth0userBasicObject <- list()
-      if (!is.null(self$`userId`)) {
-        Auth0userBasicObject[['userId']] <-
-                self$`userId`
+      if (!is.null(self$`user_id`)) {
+        Auth0userBasicObject[['user_id']] <-
+                self$`user_id`
       }
       if (!is.null(self$`email`)) {
         Auth0userBasicObject[['email']] <-
@@ -64,21 +70,25 @@ Auth0userBasic <- R6::R6Class(
         Auth0userBasicObject[['nickname']] <-
                 self$`nickname`
       }
+      if (!is.null(self$`username`)) {
+        Auth0userBasicObject[['username']] <-
+                self$`username`
+      }
       if (!is.null(self$`roles`)) {
         Auth0userBasicObject[['roles']] <-
                 self$`roles`
       }
-      if (!is.null(self$`organization`)) {
-        Auth0userBasicObject[['organization']] <-
-                self$`organization`
+      if (!is.null(self$`com/openlattice/organization`)) {
+        Auth0userBasicObject[['com/openlattice/organization']] <-
+                self$`com/openlattice/organization`
       }
 
       Auth0userBasicObject
     },
     fromJSON = function(Auth0userBasicJson) {
       Auth0userBasicObject <- jsonlite::fromJSON(Auth0userBasicJson)
-      if (!is.null(Auth0userBasicObject$`userId`)) {
-                self$`userId` <- Auth0userBasicObject$`userId`
+      if (!is.null(Auth0userBasicObject$`user_id`)) {
+                self$`user_id` <- Auth0userBasicObject$`user_id`
       }
       if (!is.null(Auth0userBasicObject$`email`)) {
                 self$`email` <- Auth0userBasicObject$`email`
@@ -86,17 +96,20 @@ Auth0userBasic <- R6::R6Class(
       if (!is.null(Auth0userBasicObject$`nickname`)) {
                 self$`nickname` <- Auth0userBasicObject$`nickname`
       }
+      if (!is.null(Auth0userBasicObject$`username`)) {
+                self$`username` <- Auth0userBasicObject$`username`
+      }
       if (!is.null(Auth0userBasicObject$`roles`)) {
                 self$`roles` <- Auth0userBasicObject$`roles`
       }
-      if (!is.null(Auth0userBasicObject$`organization`)) {
-                self$`organization` <- Auth0userBasicObject$`organization`
+      if (!is.null(Auth0userBasicObject$`com/openlattice/organization`)) {
+                self$`com/openlattice/organization` <- Auth0userBasicObject$`com/openlattice/organization`
       }
     },
     toJSONString = function() {
        outstring <- sprintf(
         '{
-           "userId":
+           "user_id":
                       
                       "%s"
                   
@@ -111,32 +124,39 @@ Auth0userBasic <- R6::R6Class(
                       "%s"
                   
               ,
+           "username":
+                      
+                      "%s"
+                  
+              ,
            "roles":
                       
                       ["%s"]
                   
               ,
-           "organization":
+           "com/openlattice/organization":
                       
                       ["%s"]
                   
               
         }',
-                self$`userId`,
+                self$`user_id`,
                 self$`email`,
                 self$`nickname`,
+                self$`username`,
                 paste0(self$`roles`, collapse='","'),
-                paste0(self$`organization`, collapse='","')
+                paste0(self$`com/openlattice/organization`, collapse='","')
       )
       gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(Auth0userBasicJson) {
       Auth0userBasicObject <- jsonlite::fromJSON(Auth0userBasicJson)
-              self$`userId` <- Auth0userBasicObject$`userId`
+              self$`user_id` <- Auth0userBasicObject$`user_id`
               self$`email` <- Auth0userBasicObject$`email`
               self$`nickname` <- Auth0userBasicObject$`nickname`
+              self$`username` <- Auth0userBasicObject$`username`
               self$`roles` <- Auth0userBasicObject$`roles`
-              self$`organization` <- Auth0userBasicObject$`organization`
+              self$`com/openlattice/organization` <- Auth0userBasicObject$`com/openlattice/organization`
     }
   )
 )
