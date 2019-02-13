@@ -451,7 +451,7 @@ class OrganizationsApi(object):
 
         :param async_req bool
         :param Role role: (required)
-        :return: None
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -472,7 +472,7 @@ class OrganizationsApi(object):
 
         :param async_req bool
         :param Role role: (required)
-        :return: None
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -512,6 +512,10 @@ class OrganizationsApi(object):
         body_params = None
         if 'role' in local_var_params:
             body_params = local_var_params['role']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -520,14 +524,14 @@ class OrganizationsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/organizations/role', 'POST',
+            '/datastore/organizations/roles', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='str',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

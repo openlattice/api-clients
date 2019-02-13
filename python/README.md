@@ -65,10 +65,10 @@ api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 
 try:
-    # Clears the Entity matching the given Entity id and all of its neighbor Entities
-    api_instance.clear_all_entities_from_entity_set(entity_set_id)
+    # Clears the data from a single entity set.
+    api_instance.clear_entity_set(entity_set_id)
 except ApiException as e:
-    print("Exception when calling DataApi->clear_all_entities_from_entity_set: %s\n" % e)
+    print("Exception when calling DataApi->clear_entity_set: %s\n" % e)
 
 ```
 
@@ -78,8 +78,8 @@ All URIs are relative to *https://api.openlattice.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DataApi* | [**clear_all_entities_from_entity_set**](docs/DataApi.md#clear_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/entities | Clears the Entity matching the given Entity id and all of its neighbor Entities
 *DataApi* | [**clear_entity_set**](docs/DataApi.md#clear_entity_set) | **DELETE** /datastore/data/set/{entitySetId} | Clears the data from a single entity set.
+*DataApi* | [**delete_all_entities_from_entity_set**](docs/DataApi.md#delete_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
 *DataApi* | [**get_entity_set_size**](docs/DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 *DataApi* | [**load_entity_set_data**](docs/DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
 *DataApi* | [**load_filtered_entity_set_data**](docs/DataApi.md#load_filtered_entity_set_data) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUID&#39;s
@@ -137,7 +137,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**add_role_to_user**](docs/OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
 *OrganizationsApi* | [**assemble_entity_sets**](docs/OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entitySets/assemble | Materializes entity sets into the organization database.
 *OrganizationsApi* | [**create_organization_if_not_exists**](docs/OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Create an organisation if it doesn&#39;t exist.
-*OrganizationsApi* | [**create_role**](docs/OrganizationsApi.md#create_role) | **POST** /datastore/organizations/role | Create role
+*OrganizationsApi* | [**create_role**](docs/OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Create role
 *OrganizationsApi* | [**delete_role**](docs/OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 *OrganizationsApi* | [**destroy_organization**](docs/OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organisation from the organizationId
 *OrganizationsApi* | [**get_all_users_of_role**](docs/OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
@@ -162,7 +162,7 @@ Class | Method | HTTP request | Description
 *PrincipalApi* | [**get_all_users**](docs/PrincipalApi.md#get_all_users) | **GET** /datastore/principals/users/ | Get all users.
 *PrincipalApi* | [**get_current_roles**](docs/PrincipalApi.md#get_current_roles) | **GET** /datastore/principals/roles/current/ | Get current roles.
 *PrincipalApi* | [**get_db_access_credentials**](docs/PrincipalApi.md#get_db_access_credentials) | **GET** /datastore/principals/db | Get the db access credentials.
-*PrincipalApi* | [**get_user**](docs/PrincipalApi.md#get_user) | **GET** /datastore/principals/users/&quot;{userId}&quot; | Get the user for the given id.
+*PrincipalApi* | [**get_user**](docs/PrincipalApi.md#get_user) | **GET** /datastore/principals/users/{userId} | Get the user for the given id.
 *PrincipalApi* | [**search_all_users_by_email**](docs/PrincipalApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 *SearchApi* | [**execute_entity_neighbor_search**](docs/SearchApi.md#execute_entity_neighbor_search) | **GET** /datastore/search/{entitySetId}/{entityKeyId} | Executes a search for all neighbors of an entity that are connected by an association
 *SearchApi* | [**execute_filtered_entity_neighbor_search**](docs/SearchApi.md#execute_filtered_entity_neighbor_search) | **POST** /datastore/search/{entitySetId}/neighbors/advanced | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association

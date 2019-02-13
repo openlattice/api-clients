@@ -370,7 +370,7 @@ class PrincipalApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/principals/users/"{userId}"', 'GET',
+            '/datastore/principals/users/{userId}', 'GET',
             path_params,
             query_params,
             header_params,
