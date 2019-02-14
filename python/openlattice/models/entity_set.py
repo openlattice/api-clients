@@ -40,7 +40,8 @@ class EntitySet(object):
         'description': 'str',
         'linking': 'bool',
         'linked_entity_sets': 'list[str]',
-        'external': 'bool'
+        'external': 'bool',
+        'organization_id': 'str'
     }
 
     attribute_map = {
@@ -52,10 +53,11 @@ class EntitySet(object):
         'description': 'description',
         'linking': 'linking',
         'linked_entity_sets': 'linked_entity_sets',
-        'external': 'external'
+        'external': 'external',
+        'organization_id': 'organizationId'
     }
 
-    def __init__(self, name=None, id=None, title=None, contacts=None, entity_type_id=None, description=None, linking=None, linked_entity_sets=None, external=None):  # noqa: E501
+    def __init__(self, name=None, id=None, title=None, contacts=None, entity_type_id=None, description=None, linking=None, linked_entity_sets=None, external=None, organization_id=None):  # noqa: E501
         """EntitySet - a model defined in OpenAPI"""  # noqa: E501
 
         self._name = None
@@ -67,6 +69,7 @@ class EntitySet(object):
         self._linking = None
         self._linked_entity_sets = None
         self._external = None
+        self._organization_id = None
         self.discriminator = None
 
         if name is not None:
@@ -87,6 +90,8 @@ class EntitySet(object):
             self.linked_entity_sets = linked_entity_sets
         if external is not None:
             self.external = external
+        if organization_id is not None:
+            self.organization_id = organization_id
 
     @property
     def name(self):
@@ -276,6 +281,27 @@ class EntitySet(object):
         """
 
         self._external = external
+
+    @property
+    def organization_id(self):
+        """Gets the organization_id of this EntitySet.  # noqa: E501
+
+
+        :return: The organization_id of this EntitySet.  # noqa: E501
+        :rtype: str
+        """
+        return self._organization_id
+
+    @organization_id.setter
+    def organization_id(self, organization_id):
+        """Sets the organization_id of this EntitySet.
+
+
+        :param organization_id: The organization_id of this EntitySet.  # noqa: E501
+        :type: str
+        """
+
+        self._organization_id = organization_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

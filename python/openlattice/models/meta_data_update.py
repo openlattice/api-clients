@@ -41,7 +41,8 @@ class MetaDataUpdate(object):
         'external': 'bool',
         'pii': 'bool',
         'default_show': 'bool',
-        'property_tags': 'dict(str, list[str])'
+        'property_tags': 'dict(str, list[str])',
+        'organization_id': 'str'
     }
 
     attribute_map = {
@@ -54,10 +55,11 @@ class MetaDataUpdate(object):
         'external': 'external',
         'pii': 'pii',
         'default_show': 'defaultShow',
-        'property_tags': 'propertyTags'
+        'property_tags': 'propertyTags',
+        'organization_id': 'organizationId'
     }
 
-    def __init__(self, name=None, title=None, contacts=None, description=None, linking=None, linked_entity_sets=None, external=None, pii=None, default_show=None, property_tags=None):  # noqa: E501
+    def __init__(self, name=None, title=None, contacts=None, description=None, linking=None, linked_entity_sets=None, external=None, pii=None, default_show=None, property_tags=None, organization_id=None):  # noqa: E501
         """MetaDataUpdate - a model defined in OpenAPI"""  # noqa: E501
 
         self._name = None
@@ -70,6 +72,7 @@ class MetaDataUpdate(object):
         self._pii = None
         self._default_show = None
         self._property_tags = None
+        self._organization_id = None
         self.discriminator = None
 
         if name is not None:
@@ -92,6 +95,8 @@ class MetaDataUpdate(object):
             self.default_show = default_show
         if property_tags is not None:
             self.property_tags = property_tags
+        if organization_id is not None:
+            self.organization_id = organization_id
 
     @property
     def name(self):
@@ -302,6 +307,27 @@ class MetaDataUpdate(object):
         """
 
         self._property_tags = property_tags
+
+    @property
+    def organization_id(self):
+        """Gets the organization_id of this MetaDataUpdate.  # noqa: E501
+
+
+        :return: The organization_id of this MetaDataUpdate.  # noqa: E501
+        :rtype: str
+        """
+        return self._organization_id
+
+    @organization_id.setter
+    def organization_id(self, organization_id):
+        """Sets the organization_id of this MetaDataUpdate.
+
+
+        :param organization_id: The organization_id of this MetaDataUpdate.  # noqa: E501
+        :type: str
+        """
+
+        self._organization_id = organization_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

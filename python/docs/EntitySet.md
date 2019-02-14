@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **linking** | **bool** |  | [optional] 
 **linked_entity_sets** | **list[str]** |  | [optional] 
 **external** | **bool** |  | [optional] 
+**organization_id** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
