@@ -15,11 +15,14 @@
 from __future__ import absolute_import
 
 # import models into model package
+from openlattice.models.access_check import AccessCheck
 from openlattice.models.ace import Ace
 from openlattice.models.acl import Acl
 from openlattice.models.acl_data import AclData
 from openlattice.models.association_type import AssociationType
 from openlattice.models.auth0user_basic import Auth0userBasic
+from openlattice.models.authorization import Authorization
+from openlattice.models.authorized_objects_search_result import AuthorizedObjectsSearchResult
 from openlattice.models.edm import EDM
 from openlattice.models.ed_mdiff import EDMdiff
 from openlattice.models.edm_request import EdmRequest

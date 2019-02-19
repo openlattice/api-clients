@@ -1,17 +1,17 @@
-# openlattice.PermissionsApi
+# openlattice.AuthorizationsApi
 
 All URIs are relative to *https://api.openlattice.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_acl**](PermissionsApi.md#get_acl) | **POST** /datastore/permissions | Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
-[**update_acl**](PermissionsApi.md#update_acl) | **PATCH** /datastore/permissions | Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
+[**check_authorizations**](AuthorizationsApi.md#check_authorizations) | **POST** /datastore/authorizations | Check authorizations
+[**get_accessible_objects**](AuthorizationsApi.md#get_accessible_objects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 
 
-# **get_acl**
-> get_acl(request_body)
+# **check_authorizations**
+> list[Authorization] check_authorizations(access_check)
 
-Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
+Check authorizations
 
 ### Example
 
@@ -32,14 +32,15 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.PermissionsApi(openlattice.ApiClient(configuration))
-request_body = NULL # list[str] | 
+api_instance = openlattice.AuthorizationsApi(openlattice.ApiClient(configuration))
+access_check = openlattice.AccessCheck() # AccessCheck | 
 
 try:
-    # Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
-    api_instance.get_acl(request_body)
+    # Check authorizations
+    api_response = api_instance.check_authorizations(access_check)
+    pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PermissionsApi->get_acl: %s\n" % e)
+    print("Exception when calling AuthorizationsApi->check_authorizations: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -59,25 +60,26 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.PermissionsApi(openlattice.ApiClient(configuration))
-request_body = NULL # list[str] | 
+api_instance = openlattice.AuthorizationsApi(openlattice.ApiClient(configuration))
+access_check = openlattice.AccessCheck() # AccessCheck | 
 
 try:
-    # Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
-    api_instance.get_acl(request_body)
+    # Check authorizations
+    api_response = api_instance.check_authorizations(access_check)
+    pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PermissionsApi->get_acl: %s\n" % e)
+    print("Exception when calling AuthorizationsApi->check_authorizations: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request_body** | [**list[str]**](list.md)|  | 
+ **access_check** | [**AccessCheck**](AccessCheck.md)|  | 
 
 ### Return type
 
-void (empty response body)
+[**list[Authorization]**](Authorization.md)
 
 ### Authorization
 
@@ -86,14 +88,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_acl**
-> update_acl(acl_data)
+# **get_accessible_objects**
+> list[AuthorizedObjectsSearchResult] get_accessible_objects(object_type=object_type, permission=permission, paging_token=paging_token)
 
-Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
+Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 
 ### Example
 
@@ -114,14 +116,17 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.PermissionsApi(openlattice.ApiClient(configuration))
-acl_data = openlattice.AclData() # AclData | 
+api_instance = openlattice.AuthorizationsApi(openlattice.ApiClient(configuration))
+object_type = 'object_type_example' # str |  (optional)
+permission = 'permission_example' # str |  (optional)
+paging_token = 'paging_token_example' # str |  (optional)
 
 try:
-    # Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
-    api_instance.update_acl(acl_data)
+    # Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
+    api_response = api_instance.get_accessible_objects(object_type=object_type, permission=permission, paging_token=paging_token)
+    pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PermissionsApi->update_acl: %s\n" % e)
+    print("Exception when calling AuthorizationsApi->get_accessible_objects: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -141,25 +146,30 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.PermissionsApi(openlattice.ApiClient(configuration))
-acl_data = openlattice.AclData() # AclData | 
+api_instance = openlattice.AuthorizationsApi(openlattice.ApiClient(configuration))
+object_type = 'object_type_example' # str |  (optional)
+permission = 'permission_example' # str |  (optional)
+paging_token = 'paging_token_example' # str |  (optional)
 
 try:
-    # Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
-    api_instance.update_acl(acl_data)
+    # Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
+    api_response = api_instance.get_accessible_objects(object_type=object_type, permission=permission, paging_token=paging_token)
+    pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PermissionsApi->update_acl: %s\n" % e)
+    print("Exception when calling AuthorizationsApi->get_accessible_objects: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **acl_data** | [**AclData**](AclData.md)|  | 
+ **object_type** | **str**|  | [optional] 
+ **permission** | **str**|  | [optional] 
+ **paging_token** | **str**|  | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**list[AuthorizedObjectsSearchResult]**](AuthorizedObjectsSearchResult.md)
 
 ### Authorization
 
@@ -167,8 +177,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

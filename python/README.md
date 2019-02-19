@@ -61,14 +61,15 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
+api_instance = openlattice.AuthorizationsApi(openlattice.ApiClient(configuration))
+access_check = openlattice.AccessCheck() # AccessCheck | 
 
 try:
-    # Clears the data from a single entity set.
-    api_instance.clear_entity_set(entity_set_id)
+    # Check authorizations
+    api_response = api_instance.check_authorizations(access_check)
+    pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DataApi->clear_entity_set: %s\n" % e)
+    print("Exception when calling AuthorizationsApi->check_authorizations: %s\n" % e)
 
 ```
 
@@ -78,6 +79,8 @@ All URIs are relative to *https://api.openlattice.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AuthorizationsApi* | [**check_authorizations**](docs/AuthorizationsApi.md#check_authorizations) | **POST** /datastore/authorizations | Check authorizations
+*AuthorizationsApi* | [**get_accessible_objects**](docs/AuthorizationsApi.md#get_accessible_objects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 *DataApi* | [**clear_entity_set**](docs/DataApi.md#clear_entity_set) | **DELETE** /datastore/data/set/{entitySetId} | Clears the data from a single entity set.
 *DataApi* | [**delete_all_entities_from_entity_set**](docs/DataApi.md#delete_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
 *DataApi* | [**get_entity_set_size**](docs/DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
@@ -170,11 +173,14 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AccessCheck](docs/AccessCheck.md)
  - [Ace](docs/Ace.md)
  - [Acl](docs/Acl.md)
  - [AclData](docs/AclData.md)
  - [AssociationType](docs/AssociationType.md)
  - [Auth0userBasic](docs/Auth0userBasic.md)
+ - [Authorization](docs/Authorization.md)
+ - [AuthorizedObjectsSearchResult](docs/AuthorizedObjectsSearchResult.md)
  - [EDM](docs/EDM.md)
  - [EDMdiff](docs/EDMdiff.md)
  - [EdmRequest](docs/EdmRequest.md)

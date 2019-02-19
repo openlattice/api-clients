@@ -18,6 +18,7 @@ from __future__ import absolute_import
 __version__ = "0.1"
 
 # import apis into sdk package
+from openlattice.api.authorizations_api import AuthorizationsApi
 from openlattice.api.data_api import DataApi
 from openlattice.api.edm_api import EdmApi
 from openlattice.api.organizations_api import OrganizationsApi
@@ -29,11 +30,14 @@ from openlattice.api.search_api import SearchApi
 from openlattice.api_client import ApiClient
 from openlattice.configuration import Configuration
 # import models into sdk package
+from openlattice.models.access_check import AccessCheck
 from openlattice.models.ace import Ace
 from openlattice.models.acl import Acl
 from openlattice.models.acl_data import AclData
 from openlattice.models.association_type import AssociationType
 from openlattice.models.auth0user_basic import Auth0userBasic
+from openlattice.models.authorization import Authorization
+from openlattice.models.authorized_objects_search_result import AuthorizedObjectsSearchResult
 from openlattice.models.edm import EDM
 from openlattice.models.ed_mdiff import EDMdiff
 from openlattice.models.edm_request import EdmRequest
