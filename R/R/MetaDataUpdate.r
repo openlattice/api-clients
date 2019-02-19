@@ -19,6 +19,7 @@
 #' @field pii 
 #' @field defaultShow 
 #' @field propertyTags 
+#' @field organizationId 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -36,7 +37,8 @@ MetaDataUpdate <- R6::R6Class(
     `pii` = NULL,
     `defaultShow` = NULL,
     `propertyTags` = NULL,
-    initialize = function(`name`, `title`, `contacts`, `description`, `linking`, `linked_entity_sets`, `external`, `pii`, `defaultShow`, `propertyTags`){
+    `organizationId` = NULL,
+    initialize = function(`name`, `title`, `contacts`, `description`, `linking`, `linked_entity_sets`, `external`, `pii`, `defaultShow`, `propertyTags`, `organizationId`){
       if (!missing(`name`)) {
                 stopifnot(is.character(`name`), length(`name`) == 1)
         self$`name` <- `name`
@@ -74,6 +76,10 @@ MetaDataUpdate <- R6::R6Class(
       if (!missing(`propertyTags`)) {
                 stopifnot(R6::is.R6(`propertyTags`))
         self$`propertyTags` <- `propertyTags`
+      }
+      if (!missing(`organizationId`)) {
+                stopifnot(is.character(`organizationId`), length(`organizationId`) == 1)
+        self$`organizationId` <- `organizationId`
       }
     },
     toJSON = function() {
@@ -118,6 +124,10 @@ MetaDataUpdate <- R6::R6Class(
         MetaDataUpdateObject[['propertyTags']] <-
                 self$`propertyTags`$toJSON()
       }
+      if (!is.null(self$`organizationId`)) {
+        MetaDataUpdateObject[['organizationId']] <-
+                self$`organizationId`
+      }
 
       MetaDataUpdateObject
     },
@@ -154,6 +164,9 @@ MetaDataUpdate <- R6::R6Class(
                 propertyTagsObject <- character$new()
                 propertyTagsObject$fromJSON(jsonlite::toJSON(MetaDataUpdateObject$propertyTags, auto_unbox = TRUE))
                 self$`propertyTags` <- propertyTagsObject
+      }
+      if (!is.null(MetaDataUpdateObject$`organizationId`)) {
+                self$`organizationId` <- MetaDataUpdateObject$`organizationId`
       }
     },
     toJSONString = function() {
@@ -206,6 +219,11 @@ MetaDataUpdate <- R6::R6Class(
               ,
            "propertyTags":
                   "%s"
+              ,
+           "organizationId":
+                      
+                      "%s"
+                  
               
         }',
                 self$`name`,
@@ -217,7 +235,8 @@ MetaDataUpdate <- R6::R6Class(
                 self$`external`,
                 self$`pii`,
                 self$`defaultShow`,
-                self$`propertyTags`$toJSON()
+                self$`propertyTags`$toJSON(),
+                self$`organizationId`
       )
       gsub("[\r\n]| ", "", outstring)
     },
@@ -234,6 +253,7 @@ MetaDataUpdate <- R6::R6Class(
               self$`defaultShow` <- MetaDataUpdateObject$`defaultShow`
               characterObject <- character$new()
               self$`propertyTags` <- characterObject$fromJSON(jsonlite::toJSON(MetaDataUpdateObject$propertyTags, auto_unbox = TRUE))
+              self$`organizationId` <- MetaDataUpdateObject$`organizationId`
     }
   )
 )

@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **load_entity_set_data**
-> list[dict(str, str)] load_entity_set_data(entity_set_id)
+> list[dict(str, list[str])] load_entity_set_data(entity_set_id)
 
 Gets an iterable containing the entity data, using property type FQNs as key
 
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list[dict(str, str)]**
+**list[dict(str, list[str])]**
 
 ### Authorization
 

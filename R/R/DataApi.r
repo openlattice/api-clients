@@ -18,10 +18,10 @@
 #' @section Methods:
 #' \describe{
 #'
-#' clear_all_entities_from_entity_set Clears the Entity matching the given Entity id and all of its neighbor Entities
-#'
-#'
 #' clear_entity_set Clears the data from a single entity set.
+#'
+#'
+#' delete_all_entities_from_entity_set Clears the Entity matching the given Entity id and all of its neighbor Entities
 #'
 #'
 #' get_entity_set_size Gets the number of entities in an entity set.
@@ -48,12 +48,12 @@ DataApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    clear_all_entities_from_entity_set = function(entity_set_id, ...){
+    clear_entity_set = function(entity_set_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/data/set/{entitySetId}/entities"
+      urlPath <- "/datastore/data/set/{entitySetId}"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
@@ -74,12 +74,16 @@ DataApi <- R6::R6Class(
       }
 
     },
-    clear_entity_set = function(entity_set_id, ...){
+    delete_all_entities_from_entity_set = function(entity_set_id, type, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/data/set/{entitySetId}"
+      if (!missing(`type`)) {
+        queryParams['type'] <- type
+      }
+
+      urlPath <- "/datastore/data/set/{entitySetId}/all"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }

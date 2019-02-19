@@ -204,7 +204,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **assemble_entity_sets**
-> list[dict] assemble_entity_sets(organization_id, request_body)
+> list[dict(str, list[str])] assemble_entity_sets(organization_id, request_body)
 
 Materializes entity sets into the organization database.
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list[dict]**
+**list[dict(str, list[str])]**
 
 ### Authorization
 
@@ -626,7 +626,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_users_of_role**
-> list[Componentsauth0userBasic] get_all_users_of_role(organization_id, role_id)
+> list[Auth0userBasic] get_all_users_of_role(organization_id, role_id)
 
 Get members of a role for an organization from a roleId
 
@@ -699,7 +699,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Componentsauth0userBasic]**](Componentsauth0userBasic.md)
+[**list[Auth0userBasic]**](Auth0userBasic.md)
 
 ### Authorization
 
@@ -797,7 +797,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_flagged_organization_entity_sets**
-> list[dict] get_flagged_organization_entity_sets(organization_id, request_body)
+> list[dict(str, list[str])] get_flagged_organization_entity_sets(organization_id, request_body)
 
 Get the entity sets for an organization for a certain flag
 
@@ -870,7 +870,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list[dict]**
+**list[dict(str, list[str])]**
 
 ### Authorization
 
@@ -884,7 +884,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members**
-> list[ComponentsorganizationMember] get_members(organization_id)
+> list[OrganizationMember] get_members(organization_id)
 
 Get members of a certain organization
 
@@ -954,7 +954,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[ComponentsorganizationMember]**](ComponentsorganizationMember.md)
+[**list[OrganizationMember]**](OrganizationMember.md)
 
 ### Authorization
 
@@ -1052,7 +1052,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_entity_sets**
-> list[dict] get_organization_entity_sets(organization_id)
+> list[dict(str, list[str])] get_organization_entity_sets(organization_id)
 
 Get the entity sets for an organization for a certain filter
 
@@ -1122,7 +1122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list[dict]**
+**list[dict(str, list[str])]**
 
 ### Authorization
 
@@ -1215,7 +1215,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_role**
-> list[Componentsrole] get_role(organization_id, role_id)
+> list[Role] get_role(organization_id, role_id)
 
 Get role for an organization from a roleId
 
@@ -1288,7 +1288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Componentsrole]**](Componentsrole.md)
+[**list[Role]**](Role.md)
 
 ### Authorization
 

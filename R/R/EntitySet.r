@@ -18,6 +18,7 @@
 #' @field linking 
 #' @field linked_entity_sets 
 #' @field external 
+#' @field organizationId 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -34,7 +35,8 @@ EntitySet <- R6::R6Class(
     `linking` = NULL,
     `linked_entity_sets` = NULL,
     `external` = NULL,
-    initialize = function(`name`, `id`, `title`, `contacts`, `entityTypeId`, `description`, `linking`, `linked_entity_sets`, `external`){
+    `organizationId` = NULL,
+    initialize = function(`name`, `id`, `title`, `contacts`, `entityTypeId`, `description`, `linking`, `linked_entity_sets`, `external`, `organizationId`){
       if (!missing(`name`)) {
                 stopifnot(is.character(`name`), length(`name`) == 1)
         self$`name` <- `name`
@@ -70,6 +72,10 @@ EntitySet <- R6::R6Class(
       }
       if (!missing(`external`)) {
         self$`external` <- `external`
+      }
+      if (!missing(`organizationId`)) {
+                stopifnot(is.character(`organizationId`), length(`organizationId`) == 1)
+        self$`organizationId` <- `organizationId`
       }
     },
     toJSON = function() {
@@ -110,6 +116,10 @@ EntitySet <- R6::R6Class(
         EntitySetObject[['external']] <-
                 self$`external`
       }
+      if (!is.null(self$`organizationId`)) {
+        EntitySetObject[['organizationId']] <-
+                self$`organizationId`
+      }
 
       EntitySetObject
     },
@@ -141,6 +151,9 @@ EntitySet <- R6::R6Class(
       }
       if (!is.null(EntitySetObject$`external`)) {
                 self$`external` <- EntitySetObject$`external`
+      }
+      if (!is.null(EntitySetObject$`organizationId`)) {
+                self$`organizationId` <- EntitySetObject$`organizationId`
       }
     },
     toJSONString = function() {
@@ -190,6 +203,11 @@ EntitySet <- R6::R6Class(
                       
                       "%s"
                   
+              ,
+           "organizationId":
+                      
+                      "%s"
+                  
               
         }',
                 self$`name`,
@@ -200,7 +218,8 @@ EntitySet <- R6::R6Class(
                 self$`description`,
                 self$`linking`,
                 paste0(self$`linked_entity_sets`, collapse='","'),
-                self$`external`
+                self$`external`,
+                self$`organizationId`
       )
       gsub("[\r\n]| ", "", outstring)
     },
@@ -215,6 +234,7 @@ EntitySet <- R6::R6Class(
               self$`linking` <- EntitySetObject$`linking`
               self$`linked_entity_sets` <- EntitySetObject$`linked_entity_sets`
               self$`external` <- EntitySetObject$`external`
+              self$`organizationId` <- EntitySetObject$`organizationId`
     }
   )
 )
