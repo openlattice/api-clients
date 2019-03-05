@@ -20,13 +20,14 @@ Authorization <- R6::R6Class(
   public = list(
     `aclKey` = NULL,
     `permissions` = NULL,
-    initialize = function(`aclKey`, `permissions`){
-      if (!missing(`aclKey`)) {
-                stopifnot(is.vector(`aclKey`), length(`aclKey`) != 0)
-                sapply(`aclKey`, function(x) stopifnot(is.character(x)))
+    initialize = function(`aclKey`=NULL, `permissions`=NULL, ...){
+      local.optional.var <- list(...)
+      if (!is.null(`aclKey`)) {
+        stopifnot(is.vector(`aclKey`), length(`aclKey`) != 0)
+        sapply(`aclKey`, function(x) stopifnot(is.character(x)))
         self$`aclKey` <- `aclKey`
       }
-      if (!missing(`permissions`)) {
+      if (!is.null(`permissions`)) {
         self$`permissions` <- `permissions`
       }
     },
@@ -34,11 +35,11 @@ Authorization <- R6::R6Class(
       AuthorizationObject <- list()
       if (!is.null(self$`aclKey`)) {
         AuthorizationObject[['aclKey']] <-
-                self$`aclKey`
+          self$`aclKey`
       }
       if (!is.null(self$`permissions`)) {
         AuthorizationObject[['permissions']] <-
-                self$`permissions`
+          self$`permissions`
       }
 
       AuthorizationObject
@@ -46,35 +47,29 @@ Authorization <- R6::R6Class(
     fromJSON = function(AuthorizationJson) {
       AuthorizationObject <- jsonlite::fromJSON(AuthorizationJson)
       if (!is.null(AuthorizationObject$`aclKey`)) {
-                self$`aclKey` <- AuthorizationObject$`aclKey`
+        self$`aclKey` <- AuthorizationObject$`aclKey`
       }
       if (!is.null(AuthorizationObject$`permissions`)) {
-                self$`permissions` <- AuthorizationObject$`permissions`
+        self$`permissions` <- AuthorizationObject$`permissions`
       }
     },
     toJSONString = function() {
-       outstring <- sprintf(
+      sprintf(
         '{
            "aclKey":
-                      
-                      ["%s"]
-                  
-              ,
+             [%s],
            "permissions":
-                      
-                      "%s"
-                  
-              
+             "%s"
         }',
-                paste0(self$`aclKey`, collapse='","'),
-                self$`permissions`
+        paste(unlist(lapply(self$`aclKey`, function(x) paste0('"', x, '"'))), collapse=","),
+        self$`permissions`
       )
-      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(AuthorizationJson) {
       AuthorizationObject <- jsonlite::fromJSON(AuthorizationJson)
-              self$`aclKey` <- AuthorizationObject$`aclKey`
-              self$`permissions` <- AuthorizationObject$`permissions`
+      self$`aclKey` <- lapply(AuthorizationObject$`aclKey`, function (x) x)
+      self$`permissions` <- AuthorizationObject$`permissions`
+      self
     }
   )
 )

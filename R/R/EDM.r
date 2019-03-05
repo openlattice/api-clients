@@ -28,34 +28,35 @@ EDM <- R6::R6Class(
     `propertyTypes` = NULL,
     `entityTypes` = NULL,
     `associationTypes` = NULL,
-    initialize = function(`version`, `namespaces`, `schemas`, `propertyTypes`, `entityTypes`, `associationTypes`){
-      if (!missing(`version`)) {
-                stopifnot(is.character(`version`), length(`version`) == 1)
+    initialize = function(`version`=NULL, `namespaces`=NULL, `schemas`=NULL, `propertyTypes`=NULL, `entityTypes`=NULL, `associationTypes`=NULL, ...){
+      local.optional.var <- list(...)
+      if (!is.null(`version`)) {
+        stopifnot(is.character(`version`), length(`version`) == 1)
         self$`version` <- `version`
       }
-      if (!missing(`namespaces`)) {
-                stopifnot(is.vector(`namespaces`), length(`namespaces`) != 0)
-                sapply(`namespaces`, function(x) stopifnot(is.character(x)))
+      if (!is.null(`namespaces`)) {
+        stopifnot(is.vector(`namespaces`), length(`namespaces`) != 0)
+        sapply(`namespaces`, function(x) stopifnot(is.character(x)))
         self$`namespaces` <- `namespaces`
       }
-      if (!missing(`schemas`)) {
-                stopifnot(is.vector(`schemas`), length(`schemas`) != 0)
-                sapply(`schemas`, function(x) stopifnot(R6::is.R6(x)))
+      if (!is.null(`schemas`)) {
+        stopifnot(is.vector(`schemas`), length(`schemas`) != 0)
+        sapply(`schemas`, function(x) stopifnot(R6::is.R6(x)))
         self$`schemas` <- `schemas`
       }
-      if (!missing(`propertyTypes`)) {
-                stopifnot(is.vector(`propertyTypes`), length(`propertyTypes`) != 0)
-                sapply(`propertyTypes`, function(x) stopifnot(R6::is.R6(x)))
+      if (!is.null(`propertyTypes`)) {
+        stopifnot(is.vector(`propertyTypes`), length(`propertyTypes`) != 0)
+        sapply(`propertyTypes`, function(x) stopifnot(R6::is.R6(x)))
         self$`propertyTypes` <- `propertyTypes`
       }
-      if (!missing(`entityTypes`)) {
-                stopifnot(is.vector(`entityTypes`), length(`entityTypes`) != 0)
-                sapply(`entityTypes`, function(x) stopifnot(R6::is.R6(x)))
+      if (!is.null(`entityTypes`)) {
+        stopifnot(is.vector(`entityTypes`), length(`entityTypes`) != 0)
+        sapply(`entityTypes`, function(x) stopifnot(R6::is.R6(x)))
         self$`entityTypes` <- `entityTypes`
       }
-      if (!missing(`associationTypes`)) {
-                stopifnot(is.vector(`associationTypes`), length(`associationTypes`) != 0)
-                sapply(`associationTypes`, function(x) stopifnot(R6::is.R6(x)))
+      if (!is.null(`associationTypes`)) {
+        stopifnot(is.vector(`associationTypes`), length(`associationTypes`) != 0)
+        sapply(`associationTypes`, function(x) stopifnot(R6::is.R6(x)))
         self$`associationTypes` <- `associationTypes`
       }
     },
@@ -63,27 +64,27 @@ EDM <- R6::R6Class(
       EDMObject <- list()
       if (!is.null(self$`version`)) {
         EDMObject[['version']] <-
-                self$`version`
+          self$`version`
       }
       if (!is.null(self$`namespaces`)) {
         EDMObject[['namespaces']] <-
-                self$`namespaces`
+          self$`namespaces`
       }
       if (!is.null(self$`schemas`)) {
         EDMObject[['schemas']] <-
-                sapply(self$`schemas`, function(x) x$toJSON())
+          sapply(self$`schemas`, function(x) x$toJSON())
       }
       if (!is.null(self$`propertyTypes`)) {
         EDMObject[['propertyTypes']] <-
-                sapply(self$`propertyTypes`, function(x) x$toJSON())
+          sapply(self$`propertyTypes`, function(x) x$toJSON())
       }
       if (!is.null(self$`entityTypes`)) {
         EDMObject[['entityTypes']] <-
-                sapply(self$`entityTypes`, function(x) x$toJSON())
+          sapply(self$`entityTypes`, function(x) x$toJSON())
       }
       if (!is.null(self$`associationTypes`)) {
         EDMObject[['associationTypes']] <-
-                sapply(self$`associationTypes`, function(x) x$toJSON())
+          sapply(self$`associationTypes`, function(x) x$toJSON())
       }
 
       EDMObject
@@ -91,83 +92,97 @@ EDM <- R6::R6Class(
     fromJSON = function(EDMJson) {
       EDMObject <- jsonlite::fromJSON(EDMJson)
       if (!is.null(EDMObject$`version`)) {
-                self$`version` <- EDMObject$`version`
+        self$`version` <- EDMObject$`version`
       }
       if (!is.null(EDMObject$`namespaces`)) {
-                self$`namespaces` <- EDMObject$`namespaces`
+        self$`namespaces` <- EDMObject$`namespaces`
       }
       if (!is.null(EDMObject$`schemas`)) {
-                self$`schemas` <- sapply(EDMObject$`schemas`, function(x) {
-                  schemasObject <- Schema$new()
-                  schemasObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-                  schemasObject
-            })
+        self$`schemas` <- sapply(EDMObject$`schemas`, function(x) {
+          schemasObject <- Schema$new()
+          schemasObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+          schemasObject
+        })
       }
       if (!is.null(EDMObject$`propertyTypes`)) {
-                self$`propertyTypes` <- sapply(EDMObject$`propertyTypes`, function(x) {
-                  propertyTypesObject <- PropertyType$new()
-                  propertyTypesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-                  propertyTypesObject
-            })
+        self$`propertyTypes` <- sapply(EDMObject$`propertyTypes`, function(x) {
+          propertyTypesObject <- PropertyType$new()
+          propertyTypesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+          propertyTypesObject
+        })
       }
       if (!is.null(EDMObject$`entityTypes`)) {
-                self$`entityTypes` <- sapply(EDMObject$`entityTypes`, function(x) {
-                  entityTypesObject <- EntityType$new()
-                  entityTypesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-                  entityTypesObject
-            })
+        self$`entityTypes` <- sapply(EDMObject$`entityTypes`, function(x) {
+          entityTypesObject <- EntityType$new()
+          entityTypesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+          entityTypesObject
+        })
       }
       if (!is.null(EDMObject$`associationTypes`)) {
-                self$`associationTypes` <- sapply(EDMObject$`associationTypes`, function(x) {
-                  associationTypesObject <- AssociationType$new()
-                  associationTypesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-                  associationTypesObject
-            })
+        self$`associationTypes` <- sapply(EDMObject$`associationTypes`, function(x) {
+          associationTypesObject <- AssociationType$new()
+          associationTypesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+          associationTypesObject
+        })
       }
     },
     toJSONString = function() {
-       outstring <- sprintf(
+      sprintf(
         '{
            "version":
-                      
-                      "%s"
-                  
-              ,
+             "%s",
            "namespaces":
-                      
-                      ["%s"]
-                  
-              ,
+             [%s],
            "schemas":
-                  ["%s"]
-              ,
+             [%s],
            "propertyTypes":
-                  ["%s"]
-              ,
+             [%s],
            "entityTypes":
-                  ["%s"]
-              ,
+             [%s],
            "associationTypes":
-                  ["%s"]
-              
+             [%s]
         }',
-                self$`version`,
-                paste0(self$`namespaces`, collapse='","'),
-                paste0(sapply(self$`schemas`, function(x) x$toJSON()), collapse='","'),
-                paste0(sapply(self$`propertyTypes`, function(x) x$toJSON()), collapse='","'),
-                paste0(sapply(self$`entityTypes`, function(x) x$toJSON()), collapse='","'),
-                paste0(sapply(self$`associationTypes`, function(x) x$toJSON()), collapse='","')
+        self$`version`,
+        paste(unlist(lapply(self$`namespaces`, function(x) paste0('"', x, '"'))), collapse=","),
+        paste(unlist(lapply(self$`schemas`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE))), collapse=","),
+        paste(unlist(lapply(self$`propertyTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE))), collapse=","),
+        paste(unlist(lapply(self$`entityTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE))), collapse=","),
+        paste(unlist(lapply(self$`associationTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE))), collapse=",")
       )
-      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(EDMJson) {
       EDMObject <- jsonlite::fromJSON(EDMJson)
-              self$`version` <- EDMObject$`version`
-              self$`namespaces` <- EDMObject$`namespaces`
-              self$`schemas` <- sapply(EDMObject$`schemas`, function(x) Schema$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
-              self$`propertyTypes` <- sapply(EDMObject$`propertyTypes`, function(x) PropertyType$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
-              self$`entityTypes` <- sapply(EDMObject$`entityTypes`, function(x) EntityType$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
-              self$`associationTypes` <- sapply(EDMObject$`associationTypes`, function(x) AssociationType$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+      self$`version` <- EDMObject$`version`
+      self$`namespaces` <- lapply(EDMObject$`namespaces`, function (x) x)
+      data.frame <- EDMObject$`schemas`
+      self$`schemas` <- vector("list", length = nrow(data.frame))
+      for (row in 1:nrow(data.frame)) {
+          schemas.node <- Schema$new()
+          schemas.node$fromJSON(jsonlite::toJSON(data.frame[row,,drop = TRUE], auto_unbox = TRUE))
+          self$`schemas`[[row]] <- schemas.node
+      }
+      data.frame <- EDMObject$`propertyTypes`
+      self$`propertyTypes` <- vector("list", length = nrow(data.frame))
+      for (row in 1:nrow(data.frame)) {
+          propertyTypes.node <- PropertyType$new()
+          propertyTypes.node$fromJSON(jsonlite::toJSON(data.frame[row,,drop = TRUE], auto_unbox = TRUE))
+          self$`propertyTypes`[[row]] <- propertyTypes.node
+      }
+      data.frame <- EDMObject$`entityTypes`
+      self$`entityTypes` <- vector("list", length = nrow(data.frame))
+      for (row in 1:nrow(data.frame)) {
+          entityTypes.node <- EntityType$new()
+          entityTypes.node$fromJSON(jsonlite::toJSON(data.frame[row,,drop = TRUE], auto_unbox = TRUE))
+          self$`entityTypes`[[row]] <- entityTypes.node
+      }
+      data.frame <- EDMObject$`associationTypes`
+      self$`associationTypes` <- vector("list", length = nrow(data.frame))
+      for (row in 1:nrow(data.frame)) {
+          associationTypes.node <- AssociationType$new()
+          associationTypes.node$fromJSON(jsonlite::toJSON(data.frame[row,,drop = TRUE], auto_unbox = TRUE))
+          self$`associationTypes`[[row]] <- associationTypes.node
+      }
+      self
     }
   )
 )

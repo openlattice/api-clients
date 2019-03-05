@@ -33,7 +33,7 @@ class AuthorizedObjectsSearchResult(object):
     """
     openapi_types = {
         'paging_token': 'str',
-        'authorized_objects': 'list[str]'
+        'authorized_objects': 'list[list[str]]'
     }
 
     attribute_map = {
@@ -80,7 +80,7 @@ class AuthorizedObjectsSearchResult(object):
 
 
         :return: The authorized_objects of this AuthorizedObjectsSearchResult.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[list[str]]
         """
         return self._authorized_objects
 
@@ -90,7 +90,7 @@ class AuthorizedObjectsSearchResult(object):
 
 
         :param authorized_objects: The authorized_objects of this AuthorizedObjectsSearchResult.  # noqa: E501
-        :type: list[str]
+        :type: list[list[str]]
         """
 
         self._authorized_objects = authorized_objects

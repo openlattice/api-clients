@@ -29,17 +29,17 @@ class TestDataApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_clear_all_entities_from_entity_set(self):
+        """Test case for clear_all_entities_from_entity_set
+
+        Clears the Entity matching the given Entity id and all of its neighbor Entities  # noqa: E501
+        """
+        pass
+
     def test_clear_entity_set(self):
         """Test case for clear_entity_set
 
         Clears the data from a single entity set.  # noqa: E501
-        """
-        pass
-
-    def test_delete_all_entities_from_entity_set(self):
-        """Test case for delete_all_entities_from_entity_set
-
-        Clears the Entity matching the given Entity id and all of its neighbor Entities  # noqa: E501
         """
         pass
 

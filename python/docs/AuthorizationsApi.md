@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_accessible_objects**
-> list[AuthorizedObjectsSearchResult] get_accessible_objects(object_type=object_type, permission=permission, paging_token=paging_token)
+> AuthorizedObjectsSearchResult get_accessible_objects(object_type=object_type, permission=permission, paging_token=paging_token)
 
 Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[AuthorizedObjectsSearchResult]**](AuthorizedObjectsSearchResult.md)
+[**AuthorizedObjectsSearchResult**](AuthorizedObjectsSearchResult.md)
 
 ### Authorization
 

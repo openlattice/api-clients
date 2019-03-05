@@ -28,29 +28,30 @@ Role <- R6::R6Class(
     `title` = NULL,
     `description` = NULL,
     `@class` = NULL,
-    initialize = function(`id`, `organizationId`, `principal`, `title`, `description`, `@class`){
-      if (!missing(`id`)) {
-                stopifnot(is.character(`id`), length(`id`) == 1)
+    initialize = function(`id`=NULL, `organizationId`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, `@class`=NULL, ...){
+      local.optional.var <- list(...)
+      if (!is.null(`id`)) {
+        stopifnot(is.character(`id`), length(`id`) == 1)
         self$`id` <- `id`
       }
-      if (!missing(`organizationId`)) {
-                stopifnot(is.character(`organizationId`), length(`organizationId`) == 1)
+      if (!is.null(`organizationId`)) {
+        stopifnot(is.character(`organizationId`), length(`organizationId`) == 1)
         self$`organizationId` <- `organizationId`
       }
-      if (!missing(`principal`)) {
-                stopifnot(R6::is.R6(`principal`))
+      if (!is.null(`principal`)) {
+        stopifnot(R6::is.R6(`principal`))
         self$`principal` <- `principal`
       }
-      if (!missing(`title`)) {
-                stopifnot(is.character(`title`), length(`title`) == 1)
+      if (!is.null(`title`)) {
+        stopifnot(is.character(`title`), length(`title`) == 1)
         self$`title` <- `title`
       }
-      if (!missing(`description`)) {
-                stopifnot(is.character(`description`), length(`description`) == 1)
+      if (!is.null(`description`)) {
+        stopifnot(is.character(`description`), length(`description`) == 1)
         self$`description` <- `description`
       }
-      if (!missing(`@class`)) {
-                stopifnot(is.character(`@class`), length(`@class`) == 1)
+      if (!is.null(`@class`)) {
+        stopifnot(is.character(`@class`), length(`@class`) == 1)
         self$`@class` <- `@class`
       }
     },
@@ -58,27 +59,27 @@ Role <- R6::R6Class(
       RoleObject <- list()
       if (!is.null(self$`id`)) {
         RoleObject[['id']] <-
-                self$`id`
+          self$`id`
       }
       if (!is.null(self$`organizationId`)) {
         RoleObject[['organizationId']] <-
-                self$`organizationId`
+          self$`organizationId`
       }
       if (!is.null(self$`principal`)) {
         RoleObject[['principal']] <-
-                self$`principal`$toJSON()
+          self$`principal`$toJSON()
       }
       if (!is.null(self$`title`)) {
         RoleObject[['title']] <-
-                self$`title`
+          self$`title`
       }
       if (!is.null(self$`description`)) {
         RoleObject[['description']] <-
-                self$`description`
+          self$`description`
       }
       if (!is.null(self$`@class`)) {
         RoleObject[['@class']] <-
-                self$`@class`
+          self$`@class`
       }
 
       RoleObject
@@ -86,76 +87,59 @@ Role <- R6::R6Class(
     fromJSON = function(RoleJson) {
       RoleObject <- jsonlite::fromJSON(RoleJson)
       if (!is.null(RoleObject$`id`)) {
-                self$`id` <- RoleObject$`id`
+        self$`id` <- RoleObject$`id`
       }
       if (!is.null(RoleObject$`organizationId`)) {
-                self$`organizationId` <- RoleObject$`organizationId`
+        self$`organizationId` <- RoleObject$`organizationId`
       }
       if (!is.null(RoleObject$`principal`)) {
-                principalObject <- Principal$new()
-                principalObject$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = TRUE))
-                self$`principal` <- principalObject
+        principalObject <- Principal$new()
+        principalObject$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = TRUE))
+        self$`principal` <- principalObject
       }
       if (!is.null(RoleObject$`title`)) {
-                self$`title` <- RoleObject$`title`
+        self$`title` <- RoleObject$`title`
       }
       if (!is.null(RoleObject$`description`)) {
-                self$`description` <- RoleObject$`description`
+        self$`description` <- RoleObject$`description`
       }
       if (!is.null(RoleObject$`@class`)) {
-                self$`@class` <- RoleObject$`@class`
+        self$`@class` <- RoleObject$`@class`
       }
     },
     toJSONString = function() {
-       outstring <- sprintf(
+      sprintf(
         '{
            "id":
-                      
-                      "%s"
-                  
-              ,
+             "%s",
            "organizationId":
-                      
-                      "%s"
-                  
-              ,
+             "%s",
            "principal":
-                  "%s"
-              ,
+             %s,
            "title":
-                      
-                      "%s"
-                  
-              ,
+             "%s",
            "description":
-                      
-                      "%s"
-                  
-              ,
+             "%s",
            "@class":
-                      
-                      "%s"
-                  
-              
+             "%s"
         }',
-                self$`id`,
-                self$`organizationId`,
-                self$`principal`$toJSON(),
-                self$`title`,
-                self$`description`,
-                self$`@class`
+        self$`id`,
+        self$`organizationId`,
+        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=TRUE),
+        self$`title`,
+        self$`description`,
+        self$`@class`
       )
-      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(RoleJson) {
       RoleObject <- jsonlite::fromJSON(RoleJson)
-              self$`id` <- RoleObject$`id`
-              self$`organizationId` <- RoleObject$`organizationId`
-              PrincipalObject <- Principal$new()
-              self$`principal` <- PrincipalObject$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = TRUE))
-              self$`title` <- RoleObject$`title`
-              self$`description` <- RoleObject$`description`
-              self$`@class` <- RoleObject$`@class`
+      self$`id` <- RoleObject$`id`
+      self$`organizationId` <- RoleObject$`organizationId`
+      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = TRUE))
+      self$`title` <- RoleObject$`title`
+      self$`description` <- RoleObject$`description`
+      self$`@class` <- RoleObject$`@class`
+      self
     }
   )
 )

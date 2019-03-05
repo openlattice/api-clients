@@ -20,13 +20,14 @@ Principal <- R6::R6Class(
   public = list(
     `type` = NULL,
     `id` = NULL,
-    initialize = function(`type`, `id`){
-      if (!missing(`type`)) {
-                stopifnot(is.character(`type`), length(`type`) == 1)
+    initialize = function(`type`=NULL, `id`=NULL, ...){
+      local.optional.var <- list(...)
+      if (!is.null(`type`)) {
+        stopifnot(is.character(`type`), length(`type`) == 1)
         self$`type` <- `type`
       }
-      if (!missing(`id`)) {
-                stopifnot(is.character(`id`), length(`id`) == 1)
+      if (!is.null(`id`)) {
+        stopifnot(is.character(`id`), length(`id`) == 1)
         self$`id` <- `id`
       }
     },
@@ -34,11 +35,11 @@ Principal <- R6::R6Class(
       PrincipalObject <- list()
       if (!is.null(self$`type`)) {
         PrincipalObject[['type']] <-
-                self$`type`
+          self$`type`
       }
       if (!is.null(self$`id`)) {
         PrincipalObject[['id']] <-
-                self$`id`
+          self$`id`
       }
 
       PrincipalObject
@@ -46,35 +47,29 @@ Principal <- R6::R6Class(
     fromJSON = function(PrincipalJson) {
       PrincipalObject <- jsonlite::fromJSON(PrincipalJson)
       if (!is.null(PrincipalObject$`type`)) {
-                self$`type` <- PrincipalObject$`type`
+        self$`type` <- PrincipalObject$`type`
       }
       if (!is.null(PrincipalObject$`id`)) {
-                self$`id` <- PrincipalObject$`id`
+        self$`id` <- PrincipalObject$`id`
       }
     },
     toJSONString = function() {
-       outstring <- sprintf(
+      sprintf(
         '{
            "type":
-                      
-                      "%s"
-                  
-              ,
+             "%s",
            "id":
-                      
-                      "%s"
-                  
-              
+             "%s"
         }',
-                self$`type`,
-                self$`id`
+        self$`type`,
+        self$`id`
       )
-      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(PrincipalJson) {
       PrincipalObject <- jsonlite::fromJSON(PrincipalJson)
-              self$`type` <- PrincipalObject$`type`
-              self$`id` <- PrincipalObject$`id`
+      self$`type` <- PrincipalObject$`type`
+      self$`id` <- PrincipalObject$`id`
+      self
     }
   )
 )
