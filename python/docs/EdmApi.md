@@ -2550,8 +2550,8 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-namespace = openlattice # str |  (default to 'openlattice')
-name = myentitytype # str |  (default to 'myentitytype')
+namespace = openlattice # str | 
+name = myentitytype # str | 
 
 try:
     # Gets the EntityType UUID for the given EntityType FQN.
@@ -2579,8 +2579,8 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-namespace = openlattice # str |  (default to 'openlattice')
-name = myentitytype # str |  (default to 'myentitytype')
+namespace = openlattice # str | 
+name = myentitytype # str | 
 
 try:
     # Gets the EntityType UUID for the given EntityType FQN.
@@ -2594,8 +2594,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **namespace** | **str**|  | [default to &#39;openlattice&#39;]
- **name** | **str**|  | [default to &#39;myentitytype&#39;]
+ **namespace** | **str**|  | 
+ **name** | **str**|  | 
 
 ### Return type
 
@@ -3716,7 +3716,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_entity_type_meta_data**
-> update_entity_type_meta_data(entity_type_id, entity_type)
+> update_entity_type_meta_data(entity_type_id, meta_data_update)
 
 Updates the EntityType definition for the given EntityType UUID with the given metadata.
 
@@ -3741,11 +3741,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 entity_type_id = 'entity_type_id_example' # str | 
-entity_type = openlattice.EntityType() # EntityType | 
+meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
 
 try:
     # Updates the EntityType definition for the given EntityType UUID with the given metadata.
-    api_instance.update_entity_type_meta_data(entity_type_id, entity_type)
+    api_instance.update_entity_type_meta_data(entity_type_id, meta_data_update)
 except ApiException as e:
     print("Exception when calling EdmApi->update_entity_type_meta_data: %s\n" % e)
 ```
@@ -3769,11 +3769,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 entity_type_id = 'entity_type_id_example' # str | 
-entity_type = openlattice.EntityType() # EntityType | 
+meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
 
 try:
     # Updates the EntityType definition for the given EntityType UUID with the given metadata.
-    api_instance.update_entity_type_meta_data(entity_type_id, entity_type)
+    api_instance.update_entity_type_meta_data(entity_type_id, meta_data_update)
 except ApiException as e:
     print("Exception when calling EdmApi->update_entity_type_meta_data: %s\n" % e)
 ```
@@ -3783,7 +3783,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_type_id** | [**str**](.md)|  | 
- **entity_type** | [**EntityType**](EntityType.md)|  | 
+ **meta_data_update** | [**MetaDataUpdate**](MetaDataUpdate.md)|  | 
 
 ### Return type
 
@@ -3801,7 +3801,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_property_type_meta_data**
-> update_property_type_meta_data(property_type_id, property_type)
+> update_property_type_meta_data(property_type_id, meta_data_update)
 
 Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
 
@@ -3826,11 +3826,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 property_type_id = 'property_type_id_example' # str | 
-property_type = openlattice.PropertyType() # PropertyType | 
+meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
 
 try:
     # Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
-    api_instance.update_property_type_meta_data(property_type_id, property_type)
+    api_instance.update_property_type_meta_data(property_type_id, meta_data_update)
 except ApiException as e:
     print("Exception when calling EdmApi->update_property_type_meta_data: %s\n" % e)
 ```
@@ -3854,11 +3854,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 property_type_id = 'property_type_id_example' # str | 
-property_type = openlattice.PropertyType() # PropertyType | 
+meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
 
 try:
     # Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
-    api_instance.update_property_type_meta_data(property_type_id, property_type)
+    api_instance.update_property_type_meta_data(property_type_id, meta_data_update)
 except ApiException as e:
     print("Exception when calling EdmApi->update_property_type_meta_data: %s\n" % e)
 ```
@@ -3868,7 +3868,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **property_type_id** | [**str**](.md)|  | 
- **property_type** | [**PropertyType**](PropertyType.md)|  | 
+ **meta_data_update** | [**MetaDataUpdate**](MetaDataUpdate.md)|  | 
 
 ### Return type
 

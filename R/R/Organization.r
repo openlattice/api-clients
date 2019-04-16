@@ -32,42 +32,41 @@ Organization <- R6::R6Class(
     `members` = NULL,
     `roles` = NULL,
     `apps` = NULL,
-    initialize = function(`id`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, `emails`=NULL, `members`=NULL, `roles`=NULL, `apps`=NULL, ...){
-      local.optional.var <- list(...)
-      if (!is.null(`id`)) {
-        stopifnot(is.character(`id`), length(`id`) == 1)
+    initialize = function(`id`, `principal`, `title`, `description`, `emails`, `members`, `roles`, `apps`){
+      if (!missing(`id`)) {
+                stopifnot(is.character(`id`), length(`id`) == 1)
         self$`id` <- `id`
       }
-      if (!is.null(`principal`)) {
-        stopifnot(R6::is.R6(`principal`))
+      if (!missing(`principal`)) {
+                stopifnot(R6::is.R6(`principal`))
         self$`principal` <- `principal`
       }
-      if (!is.null(`title`)) {
-        stopifnot(is.character(`title`), length(`title`) == 1)
+      if (!missing(`title`)) {
+                stopifnot(is.character(`title`), length(`title`) == 1)
         self$`title` <- `title`
       }
-      if (!is.null(`description`)) {
-        stopifnot(is.character(`description`), length(`description`) == 1)
+      if (!missing(`description`)) {
+                stopifnot(is.character(`description`), length(`description`) == 1)
         self$`description` <- `description`
       }
-      if (!is.null(`emails`)) {
-        stopifnot(is.vector(`emails`), length(`emails`) != 0)
-        sapply(`emails`, function(x) stopifnot(is.character(x)))
+      if (!missing(`emails`)) {
+                stopifnot(is.vector(`emails`), length(`emails`) != 0)
+                sapply(`emails`, function(x) stopifnot(is.character(x)))
         self$`emails` <- `emails`
       }
-      if (!is.null(`members`)) {
-        stopifnot(is.vector(`members`), length(`members`) != 0)
-        sapply(`members`, function(x) stopifnot(R6::is.R6(x)))
+      if (!missing(`members`)) {
+                stopifnot(is.vector(`members`), length(`members`) != 0)
+                sapply(`members`, function(x) stopifnot(R6::is.R6(x)))
         self$`members` <- `members`
       }
-      if (!is.null(`roles`)) {
-        stopifnot(is.vector(`roles`), length(`roles`) != 0)
-        sapply(`roles`, function(x) stopifnot(R6::is.R6(x)))
+      if (!missing(`roles`)) {
+                stopifnot(is.vector(`roles`), length(`roles`) != 0)
+                sapply(`roles`, function(x) stopifnot(R6::is.R6(x)))
         self$`roles` <- `roles`
       }
-      if (!is.null(`apps`)) {
-        stopifnot(is.vector(`apps`), length(`apps`) != 0)
-        sapply(`apps`, function(x) stopifnot(is.character(x)))
+      if (!missing(`apps`)) {
+                stopifnot(is.vector(`apps`), length(`apps`) != 0)
+                sapply(`apps`, function(x) stopifnot(is.character(x)))
         self$`apps` <- `apps`
       }
     },
@@ -75,35 +74,35 @@ Organization <- R6::R6Class(
       OrganizationObject <- list()
       if (!is.null(self$`id`)) {
         OrganizationObject[['id']] <-
-          self$`id`
+                self$`id`
       }
       if (!is.null(self$`principal`)) {
         OrganizationObject[['principal']] <-
-          self$`principal`$toJSON()
+                self$`principal`$toJSON()
       }
       if (!is.null(self$`title`)) {
         OrganizationObject[['title']] <-
-          self$`title`
+                self$`title`
       }
       if (!is.null(self$`description`)) {
         OrganizationObject[['description']] <-
-          self$`description`
+                self$`description`
       }
       if (!is.null(self$`emails`)) {
         OrganizationObject[['emails']] <-
-          self$`emails`
+                self$`emails`
       }
       if (!is.null(self$`members`)) {
         OrganizationObject[['members']] <-
-          sapply(self$`members`, function(x) x$toJSON())
+                sapply(self$`members`, function(x) x$toJSON())
       }
       if (!is.null(self$`roles`)) {
         OrganizationObject[['roles']] <-
-          sapply(self$`roles`, function(x) x$toJSON())
+                sapply(self$`roles`, function(x) x$toJSON())
       }
       if (!is.null(self$`apps`)) {
         OrganizationObject[['apps']] <-
-          self$`apps`
+                self$`apps`
       }
 
       OrganizationObject
@@ -111,93 +110,100 @@ Organization <- R6::R6Class(
     fromJSON = function(OrganizationJson) {
       OrganizationObject <- jsonlite::fromJSON(OrganizationJson)
       if (!is.null(OrganizationObject$`id`)) {
-        self$`id` <- OrganizationObject$`id`
+                self$`id` <- OrganizationObject$`id`
       }
       if (!is.null(OrganizationObject$`principal`)) {
-        principalObject <- Principal$new()
-        principalObject$fromJSON(jsonlite::toJSON(OrganizationObject$principal, auto_unbox = TRUE))
-        self$`principal` <- principalObject
+                principalObject <- Principal$new()
+                principalObject$fromJSON(jsonlite::toJSON(OrganizationObject$principal, auto_unbox = TRUE))
+                self$`principal` <- principalObject
       }
       if (!is.null(OrganizationObject$`title`)) {
-        self$`title` <- OrganizationObject$`title`
+                self$`title` <- OrganizationObject$`title`
       }
       if (!is.null(OrganizationObject$`description`)) {
-        self$`description` <- OrganizationObject$`description`
+                self$`description` <- OrganizationObject$`description`
       }
       if (!is.null(OrganizationObject$`emails`)) {
-        self$`emails` <- OrganizationObject$`emails`
+                self$`emails` <- OrganizationObject$`emails`
       }
       if (!is.null(OrganizationObject$`members`)) {
-        self$`members` <- sapply(OrganizationObject$`members`, function(x) {
-          membersObject <- Principal$new()
-          membersObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-          membersObject
-        })
+                self$`members` <- sapply(OrganizationObject$`members`, function(x) {
+                  membersObject <- Principal$new()
+                  membersObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+                  membersObject
+            })
       }
       if (!is.null(OrganizationObject$`roles`)) {
-        self$`roles` <- sapply(OrganizationObject$`roles`, function(x) {
-          rolesObject <- Role$new()
-          rolesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-          rolesObject
-        })
+                self$`roles` <- sapply(OrganizationObject$`roles`, function(x) {
+                  rolesObject <- Role$new()
+                  rolesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+                  rolesObject
+            })
       }
       if (!is.null(OrganizationObject$`apps`)) {
-        self$`apps` <- OrganizationObject$`apps`
+                self$`apps` <- OrganizationObject$`apps`
       }
     },
     toJSONString = function() {
-      sprintf(
+       outstring <- sprintf(
         '{
            "id":
-             "%s",
+                      
+                      "%s"
+                  
+              ,
            "principal":
-             %s,
+                  "%s"
+              ,
            "title":
-             "%s",
+                      
+                      "%s"
+                  
+              ,
            "description":
-             "%s",
+                      
+                      "%s"
+                  
+              ,
            "emails":
-             [%s],
+                      
+                      ["%s"]
+                  
+              ,
            "members":
-             [%s],
+                  ["%s"]
+              ,
            "roles":
-             [%s],
+                  ["%s"]
+              ,
            "apps":
-             [%s]
+                      
+                      ["%s"]
+                  
+              
         }',
-        self$`id`,
-        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=TRUE),
-        self$`title`,
-        self$`description`,
-        paste(unlist(lapply(self$`emails`, function(x) paste0('"', x, '"'))), collapse=","),
-        paste(unlist(lapply(self$`members`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE))), collapse=","),
-        paste(unlist(lapply(self$`roles`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE))), collapse=","),
-        paste(unlist(lapply(self$`apps`, function(x) paste0('"', x, '"'))), collapse=",")
+                self$`id`,
+                self$`principal`$toJSON(),
+                self$`title`,
+                self$`description`,
+                paste0(self$`emails`, collapse='","'),
+                paste0(sapply(self$`members`, function(x) x$toJSON()), collapse='","'),
+                paste0(sapply(self$`roles`, function(x) x$toJSON()), collapse='","'),
+                paste0(self$`apps`, collapse='","')
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(OrganizationJson) {
       OrganizationObject <- jsonlite::fromJSON(OrganizationJson)
-      self$`id` <- OrganizationObject$`id`
-      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(OrganizationObject$principal, auto_unbox = TRUE))
-      self$`title` <- OrganizationObject$`title`
-      self$`description` <- OrganizationObject$`description`
-      self$`emails` <- lapply(OrganizationObject$`emails`, function (x) x)
-      data.frame <- OrganizationObject$`members`
-      self$`members` <- vector("list", length = nrow(data.frame))
-      for (row in 1:nrow(data.frame)) {
-          members.node <- Principal$new()
-          members.node$fromJSON(jsonlite::toJSON(data.frame[row,,drop = TRUE], auto_unbox = TRUE))
-          self$`members`[[row]] <- members.node
-      }
-      data.frame <- OrganizationObject$`roles`
-      self$`roles` <- vector("list", length = nrow(data.frame))
-      for (row in 1:nrow(data.frame)) {
-          roles.node <- Role$new()
-          roles.node$fromJSON(jsonlite::toJSON(data.frame[row,,drop = TRUE], auto_unbox = TRUE))
-          self$`roles`[[row]] <- roles.node
-      }
-      self$`apps` <- lapply(OrganizationObject$`apps`, function (x) x)
-      self
+              self$`id` <- OrganizationObject$`id`
+              PrincipalObject <- Principal$new()
+              self$`principal` <- PrincipalObject$fromJSON(jsonlite::toJSON(OrganizationObject$principal, auto_unbox = TRUE))
+              self$`title` <- OrganizationObject$`title`
+              self$`description` <- OrganizationObject$`description`
+              self$`emails` <- OrganizationObject$`emails`
+              self$`members` <- sapply(OrganizationObject$`members`, function(x) Principal$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+              self$`roles` <- sapply(OrganizationObject$`roles`, function(x) Role$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+              self$`apps` <- OrganizationObject$`apps`
     }
   )
 )

@@ -4460,39 +4460,39 @@ class EdmApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_entity_type_meta_data(self, entity_type_id, entity_type, **kwargs):  # noqa: E501
+    def update_entity_type_meta_data(self, entity_type_id, meta_data_update, **kwargs):  # noqa: E501
         """Updates the EntityType definition for the given EntityType UUID with the given metadata.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_entity_type_meta_data(entity_type_id, entity_type, async_req=True)
+        >>> thread = api.update_entity_type_meta_data(entity_type_id, meta_data_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str entity_type_id: (required)
-        :param EntityType entity_type: (required)
+        :param MetaDataUpdate meta_data_update: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_entity_type_meta_data_with_http_info(entity_type_id, entity_type, **kwargs)  # noqa: E501
+            return self.update_entity_type_meta_data_with_http_info(entity_type_id, meta_data_update, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_entity_type_meta_data_with_http_info(entity_type_id, entity_type, **kwargs)  # noqa: E501
+            (data) = self.update_entity_type_meta_data_with_http_info(entity_type_id, meta_data_update, **kwargs)  # noqa: E501
             return data
 
-    def update_entity_type_meta_data_with_http_info(self, entity_type_id, entity_type, **kwargs):  # noqa: E501
+    def update_entity_type_meta_data_with_http_info(self, entity_type_id, meta_data_update, **kwargs):  # noqa: E501
         """Updates the EntityType definition for the given EntityType UUID with the given metadata.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_entity_type_meta_data_with_http_info(entity_type_id, entity_type, async_req=True)
+        >>> thread = api.update_entity_type_meta_data_with_http_info(entity_type_id, meta_data_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str entity_type_id: (required)
-        :param EntityType entity_type: (required)
+        :param MetaDataUpdate meta_data_update: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4500,7 +4500,7 @@ class EdmApi(object):
 
         local_var_params = locals()
 
-        all_params = ['entity_type_id', 'entity_type']  # noqa: E501
+        all_params = ['entity_type_id', 'meta_data_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4518,10 +4518,10 @@ class EdmApi(object):
         if ('entity_type_id' not in local_var_params or
                 local_var_params['entity_type_id'] is None):
             raise ValueError("Missing the required parameter `entity_type_id` when calling `update_entity_type_meta_data`")  # noqa: E501
-        # verify the required parameter 'entity_type' is set
-        if ('entity_type' not in local_var_params or
-                local_var_params['entity_type'] is None):
-            raise ValueError("Missing the required parameter `entity_type` when calling `update_entity_type_meta_data`")  # noqa: E501
+        # verify the required parameter 'meta_data_update' is set
+        if ('meta_data_update' not in local_var_params or
+                local_var_params['meta_data_update'] is None):
+            raise ValueError("Missing the required parameter `meta_data_update` when calling `update_entity_type_meta_data`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4537,8 +4537,8 @@ class EdmApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'entity_type' in local_var_params:
-            body_params = local_var_params['entity_type']
+        if 'meta_data_update' in local_var_params:
+            body_params = local_var_params['meta_data_update']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -4562,39 +4562,39 @@ class EdmApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_property_type_meta_data(self, property_type_id, property_type, **kwargs):  # noqa: E501
+    def update_property_type_meta_data(self, property_type_id, meta_data_update, **kwargs):  # noqa: E501
         """Updates the PropertyType definition for the given PropertyType UUID with the given metadata.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_property_type_meta_data(property_type_id, property_type, async_req=True)
+        >>> thread = api.update_property_type_meta_data(property_type_id, meta_data_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str property_type_id: (required)
-        :param PropertyType property_type: (required)
+        :param MetaDataUpdate meta_data_update: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_property_type_meta_data_with_http_info(property_type_id, property_type, **kwargs)  # noqa: E501
+            return self.update_property_type_meta_data_with_http_info(property_type_id, meta_data_update, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_property_type_meta_data_with_http_info(property_type_id, property_type, **kwargs)  # noqa: E501
+            (data) = self.update_property_type_meta_data_with_http_info(property_type_id, meta_data_update, **kwargs)  # noqa: E501
             return data
 
-    def update_property_type_meta_data_with_http_info(self, property_type_id, property_type, **kwargs):  # noqa: E501
+    def update_property_type_meta_data_with_http_info(self, property_type_id, meta_data_update, **kwargs):  # noqa: E501
         """Updates the PropertyType definition for the given PropertyType UUID with the given metadata.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_property_type_meta_data_with_http_info(property_type_id, property_type, async_req=True)
+        >>> thread = api.update_property_type_meta_data_with_http_info(property_type_id, meta_data_update, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str property_type_id: (required)
-        :param PropertyType property_type: (required)
+        :param MetaDataUpdate meta_data_update: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4602,7 +4602,7 @@ class EdmApi(object):
 
         local_var_params = locals()
 
-        all_params = ['property_type_id', 'property_type']  # noqa: E501
+        all_params = ['property_type_id', 'meta_data_update']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4620,10 +4620,10 @@ class EdmApi(object):
         if ('property_type_id' not in local_var_params or
                 local_var_params['property_type_id'] is None):
             raise ValueError("Missing the required parameter `property_type_id` when calling `update_property_type_meta_data`")  # noqa: E501
-        # verify the required parameter 'property_type' is set
-        if ('property_type' not in local_var_params or
-                local_var_params['property_type'] is None):
-            raise ValueError("Missing the required parameter `property_type` when calling `update_property_type_meta_data`")  # noqa: E501
+        # verify the required parameter 'meta_data_update' is set
+        if ('meta_data_update' not in local_var_params or
+                local_var_params['meta_data_update'] is None):
+            raise ValueError("Missing the required parameter `meta_data_update` when calling `update_property_type_meta_data`")  # noqa: E501
 
         collection_formats = {}
 
@@ -4639,8 +4639,8 @@ class EdmApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'property_type' in local_var_params:
-            body_params = local_var_params['property_type']
+        if 'meta_data_update' in local_var_params:
+            body_params = local_var_params['meta_data_update']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501

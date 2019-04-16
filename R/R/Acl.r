@@ -20,16 +20,15 @@ Acl <- R6::R6Class(
   public = list(
     `aclKey` = NULL,
     `aces` = NULL,
-    initialize = function(`aclKey`=NULL, `aces`=NULL, ...){
-      local.optional.var <- list(...)
-      if (!is.null(`aclKey`)) {
-        stopifnot(is.vector(`aclKey`), length(`aclKey`) != 0)
-        sapply(`aclKey`, function(x) stopifnot(R6::is.R6(x)))
+    initialize = function(`aclKey`, `aces`){
+      if (!missing(`aclKey`)) {
+                stopifnot(is.vector(`aclKey`), length(`aclKey`) != 0)
+                sapply(`aclKey`, function(x) stopifnot(is.character(x)))
         self$`aclKey` <- `aclKey`
       }
-      if (!is.null(`aces`)) {
-        stopifnot(is.vector(`aces`), length(`aces`) != 0)
-        sapply(`aces`, function(x) stopifnot(R6::is.R6(x)))
+      if (!missing(`aces`)) {
+                stopifnot(is.vector(`aces`), length(`aces`) != 0)
+                sapply(`aces`, function(x) stopifnot(R6::is.R6(x)))
         self$`aces` <- `aces`
       }
     },
@@ -37,11 +36,11 @@ Acl <- R6::R6Class(
       AclObject <- list()
       if (!is.null(self$`aclKey`)) {
         AclObject[['aclKey']] <-
-          sapply(self$`aclKey`, function(x) x$toJSON())
+                self$`aclKey`
       }
       if (!is.null(self$`aces`)) {
         AclObject[['aces']] <-
-          sapply(self$`aces`, function(x) x$toJSON())
+                sapply(self$`aces`, function(x) x$toJSON())
       }
 
       AclObject
@@ -49,49 +48,37 @@ Acl <- R6::R6Class(
     fromJSON = function(AclJson) {
       AclObject <- jsonlite::fromJSON(AclJson)
       if (!is.null(AclObject$`aclKey`)) {
-        self$`aclKey` <- sapply(AclObject$`aclKey`, function(x) {
-          aclKeyObject <- character$new()
-          aclKeyObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-          aclKeyObject
-        })
+                self$`aclKey` <- AclObject$`aclKey`
       }
       if (!is.null(AclObject$`aces`)) {
-        self$`aces` <- sapply(AclObject$`aces`, function(x) {
-          acesObject <- Ace$new()
-          acesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
-          acesObject
-        })
+                self$`aces` <- sapply(AclObject$`aces`, function(x) {
+                  acesObject <- Ace$new()
+                  acesObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+                  acesObject
+            })
       }
     },
     toJSONString = function() {
-      sprintf(
+       outstring <- sprintf(
         '{
            "aclKey":
-             [%s],
+                      
+                      ["%s"]
+                  
+              ,
            "aces":
-             [%s]
+                  ["%s"]
+              
         }',
-        paste(unlist(lapply(self$`aclKey`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE))), collapse=","),
-        paste(unlist(lapply(self$`aces`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE))), collapse=",")
+                paste0(self$`aclKey`, collapse='","'),
+                paste0(sapply(self$`aces`, function(x) x$toJSON()), collapse='","')
       )
+      gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(AclJson) {
       AclObject <- jsonlite::fromJSON(AclJson)
-      data.frame <- AclObject$`aclKey`
-      self$`aclKey` <- vector("list", length = nrow(data.frame))
-      for (row in 1:nrow(data.frame)) {
-          aclKey.node <- character$new()
-          aclKey.node$fromJSON(jsonlite::toJSON(data.frame[row,,drop = TRUE], auto_unbox = TRUE))
-          self$`aclKey`[[row]] <- aclKey.node
-      }
-      data.frame <- AclObject$`aces`
-      self$`aces` <- vector("list", length = nrow(data.frame))
-      for (row in 1:nrow(data.frame)) {
-          aces.node <- Ace$new()
-          aces.node$fromJSON(jsonlite::toJSON(data.frame[row,,drop = TRUE], auto_unbox = TRUE))
-          self$`aces`[[row]] <- aces.node
-      }
-      self
+              self$`aclKey` <- AclObject$`aclKey`
+              self$`aces` <- sapply(AclObject$`aces`, function(x) Ace$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )
