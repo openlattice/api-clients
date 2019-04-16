@@ -27,7 +27,7 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
       }
       if (!missing(`authorizedObjects`)) {
                 stopifnot(is.vector(`authorizedObjects`), length(`authorizedObjects`) != 0)
-                sapply(`authorizedObjects`, function(x) stopifnot(is.character(x)))
+                sapply(`authorizedObjects`, function(x) stopifnot(R6::is.R6(x)))
         self$`authorizedObjects` <- `authorizedObjects`
       }
     },
@@ -39,7 +39,7 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
       }
       if (!is.null(self$`authorizedObjects`)) {
         AuthorizedObjectsSearchResultObject[['authorizedObjects']] <-
-                self$`authorizedObjects`
+                sapply(self$`authorizedObjects`, function(x) x$toJSON())
       }
 
       AuthorizedObjectsSearchResultObject
@@ -50,7 +50,11 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
                 self$`pagingToken` <- AuthorizedObjectsSearchResultObject$`pagingToken`
       }
       if (!is.null(AuthorizedObjectsSearchResultObject$`authorizedObjects`)) {
-                self$`authorizedObjects` <- AuthorizedObjectsSearchResultObject$`authorizedObjects`
+                self$`authorizedObjects` <- sapply(AuthorizedObjectsSearchResultObject$`authorizedObjects`, function(x) {
+                  authorizedObjectsObject <- character$new()
+                  authorizedObjectsObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+                  authorizedObjectsObject
+            })
       }
     },
     toJSONString = function() {
@@ -62,20 +66,18 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
                   
               ,
            "authorizedObjects":
-                      
-                      ["%s"]
-                  
+                  ["%s"]
               
         }',
                 self$`pagingToken`,
-                paste0(self$`authorizedObjects`, collapse='","')
+                paste0(sapply(self$`authorizedObjects`, function(x) x$toJSON()), collapse='","')
       )
       gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(AuthorizedObjectsSearchResultJson) {
       AuthorizedObjectsSearchResultObject <- jsonlite::fromJSON(AuthorizedObjectsSearchResultJson)
               self$`pagingToken` <- AuthorizedObjectsSearchResultObject$`pagingToken`
-              self$`authorizedObjects` <- AuthorizedObjectsSearchResultObject$`authorizedObjects`
+              self$`authorizedObjects` <- sapply(AuthorizedObjectsSearchResultObject$`authorizedObjects`, function(x) character$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
     }
   )
 )

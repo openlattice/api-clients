@@ -1459,13 +1459,13 @@ EdmApi <- R6::R6Class(
       }
 
     },
-    update_entity_type_meta_data = function(entity_type_id, entity_type, ...){
+    update_entity_type_meta_data = function(entity_type_id, meta_data_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`entity_type`)) {
-        body <- `entity_type`$toJSONString()
+      if (!missing(`meta_data_update`)) {
+        body <- `meta_data_update`$toJSONString()
       } else {
         body <- NULL
       }
@@ -1491,13 +1491,13 @@ EdmApi <- R6::R6Class(
       }
 
     },
-    update_property_type_meta_data = function(property_type_id, property_type, ...){
+    update_property_type_meta_data = function(property_type_id, meta_data_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`property_type`)) {
-        body <- `property_type`$toJSONString()
+      if (!missing(`meta_data_update`)) {
+        body <- `meta_data_update`$toJSONString()
       } else {
         body <- NULL
       }

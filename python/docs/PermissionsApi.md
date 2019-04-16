@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_acl**
-> get_acl(request_body)
+> Acl get_acl(request_body)
 
 Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 
@@ -37,7 +37,8 @@ request_body = NULL # list[str] |
 
 try:
     # Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
-    api_instance.get_acl(request_body)
+    api_response = api_instance.get_acl(request_body)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling PermissionsApi->get_acl: %s\n" % e)
 ```
@@ -64,7 +65,8 @@ request_body = NULL # list[str] |
 
 try:
     # Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
-    api_instance.get_acl(request_body)
+    api_response = api_instance.get_acl(request_body)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling PermissionsApi->get_acl: %s\n" % e)
 ```
@@ -77,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**Acl**](Acl.md)
 
 ### Authorization
 
@@ -86,7 +88,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
