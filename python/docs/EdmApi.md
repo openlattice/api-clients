@@ -2784,7 +2784,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_property_usage_summary**
-> PropertyUsageSummary get_property_usage_summary(property_type_id)
+> list[PropertyUsageSummary] get_property_usage_summary(property_type_id)
 
 Get Property Usage Summary for property with given ID.
 
@@ -2854,7 +2854,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PropertyUsageSummary**](PropertyUsageSummary.md)
+[**list[PropertyUsageSummary]**](PropertyUsageSummary.md)
 
 ### Authorization
 
