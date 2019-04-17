@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **title** | **str** |  | [optional] 
 **contacts** | **list[str]** |  | [optional] 
 **description** | **str** |  | [optional] 
+**type** | [**FullQualifiedName**](FullQualifiedName.md) |  | [optional] 
 **linking** | **bool** |  | [optional] 
 **linked_entity_sets** | **list[str]** |  | [optional] 
 **external** | **bool** |  | [optional] 

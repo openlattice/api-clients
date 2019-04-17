@@ -13,6 +13,7 @@
 #' @field title 
 #' @field contacts 
 #' @field description 
+#' @field type 
 #' @field linking 
 #' @field linked_entity_sets 
 #' @field external 
@@ -31,6 +32,7 @@ MetaDataUpdate <- R6::R6Class(
     `title` = NULL,
     `contacts` = NULL,
     `description` = NULL,
+    `type` = NULL,
     `linking` = NULL,
     `linked_entity_sets` = NULL,
     `external` = NULL,
@@ -38,7 +40,7 @@ MetaDataUpdate <- R6::R6Class(
     `defaultShow` = NULL,
     `propertyTags` = NULL,
     `organizationId` = NULL,
-    initialize = function(`name`, `title`, `contacts`, `description`, `linking`, `linked_entity_sets`, `external`, `pii`, `defaultShow`, `propertyTags`, `organizationId`){
+    initialize = function(`name`, `title`, `contacts`, `description`, `type`, `linking`, `linked_entity_sets`, `external`, `pii`, `defaultShow`, `propertyTags`, `organizationId`){
       if (!missing(`name`)) {
                 stopifnot(is.character(`name`), length(`name`) == 1)
         self$`name` <- `name`
@@ -55,6 +57,10 @@ MetaDataUpdate <- R6::R6Class(
       if (!missing(`description`)) {
                 stopifnot(is.character(`description`), length(`description`) == 1)
         self$`description` <- `description`
+      }
+      if (!missing(`type`)) {
+                stopifnot(R6::is.R6(`type`))
+        self$`type` <- `type`
       }
       if (!missing(`linking`)) {
         self$`linking` <- `linking`
@@ -100,6 +106,10 @@ MetaDataUpdate <- R6::R6Class(
         MetaDataUpdateObject[['description']] <-
                 self$`description`
       }
+      if (!is.null(self$`type`)) {
+        MetaDataUpdateObject[['type']] <-
+                self$`type`$toJSON()
+      }
       if (!is.null(self$`linking`)) {
         MetaDataUpdateObject[['linking']] <-
                 self$`linking`
@@ -144,6 +154,11 @@ MetaDataUpdate <- R6::R6Class(
       }
       if (!is.null(MetaDataUpdateObject$`description`)) {
                 self$`description` <- MetaDataUpdateObject$`description`
+      }
+      if (!is.null(MetaDataUpdateObject$`type`)) {
+                typeObject <- FullQualifiedName$new()
+                typeObject$fromJSON(jsonlite::toJSON(MetaDataUpdateObject$type, auto_unbox = TRUE))
+                self$`type` <- typeObject
       }
       if (!is.null(MetaDataUpdateObject$`linking`)) {
                 self$`linking` <- MetaDataUpdateObject$`linking`
@@ -192,6 +207,9 @@ MetaDataUpdate <- R6::R6Class(
                       "%s"
                   
               ,
+           "type":
+                  "%s"
+              ,
            "linking":
                       
                       "%s"
@@ -230,6 +248,7 @@ MetaDataUpdate <- R6::R6Class(
                 self$`title`,
                 paste0(self$`contacts`, collapse='","'),
                 self$`description`,
+                self$`type`$toJSON(),
                 self$`linking`,
                 paste0(self$`linked_entity_sets`, collapse='","'),
                 self$`external`,
@@ -246,6 +265,8 @@ MetaDataUpdate <- R6::R6Class(
               self$`title` <- MetaDataUpdateObject$`title`
               self$`contacts` <- MetaDataUpdateObject$`contacts`
               self$`description` <- MetaDataUpdateObject$`description`
+              FullQualifiedNameObject <- FullQualifiedName$new()
+              self$`type` <- FullQualifiedNameObject$fromJSON(jsonlite::toJSON(MetaDataUpdateObject$type, auto_unbox = TRUE))
               self$`linking` <- MetaDataUpdateObject$`linking`
               self$`linked_entity_sets` <- MetaDataUpdateObject$`linked_entity_sets`
               self$`external` <- MetaDataUpdateObject$`external`

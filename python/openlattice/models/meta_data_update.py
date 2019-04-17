@@ -36,6 +36,7 @@ class MetaDataUpdate(object):
         'title': 'str',
         'contacts': 'list[str]',
         'description': 'str',
+        'type': 'FullQualifiedName',
         'linking': 'bool',
         'linked_entity_sets': 'list[str]',
         'external': 'bool',
@@ -50,6 +51,7 @@ class MetaDataUpdate(object):
         'title': 'title',
         'contacts': 'contacts',
         'description': 'description',
+        'type': 'type',
         'linking': 'linking',
         'linked_entity_sets': 'linked_entity_sets',
         'external': 'external',
@@ -59,13 +61,14 @@ class MetaDataUpdate(object):
         'organization_id': 'organizationId'
     }
 
-    def __init__(self, name=None, title=None, contacts=None, description=None, linking=None, linked_entity_sets=None, external=None, pii=None, default_show=None, property_tags=None, organization_id=None):  # noqa: E501
+    def __init__(self, name=None, title=None, contacts=None, description=None, type=None, linking=None, linked_entity_sets=None, external=None, pii=None, default_show=None, property_tags=None, organization_id=None):  # noqa: E501
         """MetaDataUpdate - a model defined in OpenAPI"""  # noqa: E501
 
         self._name = None
         self._title = None
         self._contacts = None
         self._description = None
+        self._type = None
         self._linking = None
         self._linked_entity_sets = None
         self._external = None
@@ -83,6 +86,8 @@ class MetaDataUpdate(object):
             self.contacts = contacts
         if description is not None:
             self.description = description
+        if type is not None:
+            self.type = type
         if linking is not None:
             self.linking = linking
         if linked_entity_sets is not None:
@@ -181,6 +186,27 @@ class MetaDataUpdate(object):
         """
 
         self._description = description
+
+    @property
+    def type(self):
+        """Gets the type of this MetaDataUpdate.  # noqa: E501
+
+
+        :return: The type of this MetaDataUpdate.  # noqa: E501
+        :rtype: FullQualifiedName
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this MetaDataUpdate.
+
+
+        :param type: The type of this MetaDataUpdate.  # noqa: E501
+        :type: FullQualifiedName
+        """
+
+        self._type = type
 
     @property
     def linking(self):
