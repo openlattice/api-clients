@@ -113,7 +113,6 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**get_association_type_details**](docs/EdmApi.md#get_association_type_details) | **GET** /datastore/edm/association/type/{associationTypeId}/detailed | Get details about the AssociationType for the given AssociationType UUID.
 *EdmApi* | [**get_entity_data_model**](docs/EdmApi.md#get_entity_data_model) | **GET** /datastore/edm/ | Gets the entity data model, including namespaces, schemas, entity types, association types, and property types.
 *EdmApi* | [**get_entity_data_model_diff**](docs/EdmApi.md#get_entity_data_model_diff) | **POST** /datastore/edm/diff/ | Gets the changes between the existing entity data model and the entity data model passed in, including schemas, association types, entity types, and property types.
-*EdmApi* | [**get_entity_data_model_version**](docs/EdmApi.md#get_entity_data_model_version) | **GET** /datastore/edm/version/ | Returns the current entity data model version.
 *EdmApi* | [**get_entity_set**](docs/EdmApi.md#get_entity_set) | **GET** /datastore/edm/entity/set/{entitySetId} | Get the EntitySet definition for the given EntitySet UUID.
 *EdmApi* | [**get_entity_set_id**](docs/EdmApi.md#get_entity_set_id) | **GET** /datastore/edm/ids/entity/set/{entitySetName} | Gets the EntitySet UUID for the given EntitySet name.
 *EdmApi* | [**get_entity_set_property_metadata**](docs/EdmApi.md#get_entity_set_property_metadata) | **GET** /datastore/edm/entity/set/{entitySetId}/property/type/{propertyTypeId}/ | Get specified property type metadata for an entity set.
@@ -168,6 +167,7 @@ Class | Method | HTTP request | Description
 *PrincipalApi* | [**get_user**](docs/PrincipalApi.md#get_user) | **GET** /datastore/principals/users/{userId} | Get the user for the given id.
 *PrincipalApi* | [**search_all_users_by_email**](docs/PrincipalApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 *SearchApi* | [**execute_entity_neighbor_search**](docs/SearchApi.md#execute_entity_neighbor_search) | **GET** /datastore/search/{entitySetId}/{entityKeyId} | Executes a search for all neighbors of an entity that are connected by an association
+*SearchApi* | [**execute_filtered_entity_neighbor_id_search**](docs/SearchApi.md#execute_filtered_entity_neighbor_id_search) | **POST** /datastore/search/{entitySetId}/neighbors/advanced/ids | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 *SearchApi* | [**execute_filtered_entity_neighbor_search**](docs/SearchApi.md#execute_filtered_entity_neighbor_search) | **POST** /datastore/search/{entitySetId}/neighbors/advanced | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
 
 
@@ -187,11 +187,11 @@ Class | Method | HTTP request | Description
  - [EntitySet](docs/EntitySet.md)
  - [EntitySetSelection](docs/EntitySetSelection.md)
  - [EntityType](docs/EntityType.md)
- - [EntityWithId](docs/EntityWithId.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
  - [MetaDataUpdate](docs/MetaDataUpdate.md)
  - [NeighborDetails](docs/NeighborDetails.md)
  - [NeighborEntityDetails](docs/NeighborEntityDetails.md)
+ - [NeighborEntityIds](docs/NeighborEntityIds.md)
  - [NeighborSearchFilter](docs/NeighborSearchFilter.md)
  - [Organization](docs/Organization.md)
  - [OrganizationMember](docs/OrganizationMember.md)

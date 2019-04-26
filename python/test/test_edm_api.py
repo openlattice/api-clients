@@ -218,13 +218,6 @@ class TestEdmApi(unittest.TestCase):
         """
         pass
 
-    def test_get_entity_data_model_version(self):
-        """Test case for get_entity_data_model_version
-
-        Returns the current entity data model version.  # noqa: E501
-        """
-        pass
-
     def test_get_entity_set(self):
         """Test case for get_entity_set
 

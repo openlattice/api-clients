@@ -44,11 +44,11 @@ from openlattice.models.edm_request import EdmRequest
 from openlattice.models.entity_set import EntitySet
 from openlattice.models.entity_set_selection import EntitySetSelection
 from openlattice.models.entity_type import EntityType
-from openlattice.models.entity_with_id import EntityWithId
 from openlattice.models.full_qualified_name import FullQualifiedName
 from openlattice.models.meta_data_update import MetaDataUpdate
 from openlattice.models.neighbor_details import NeighborDetails
 from openlattice.models.neighbor_entity_details import NeighborEntityDetails
+from openlattice.models.neighbor_entity_ids import NeighborEntityIds
 from openlattice.models.neighbor_search_filter import NeighborSearchFilter
 from openlattice.models.organization import Organization
 from openlattice.models.organization_member import OrganizationMember

@@ -31,7 +31,6 @@ Method | HTTP request | Description
 [**get_association_type_details**](EdmApi.md#get_association_type_details) | **GET** /datastore/edm/association/type/{associationTypeId}/detailed | Get details about the AssociationType for the given AssociationType UUID.
 [**get_entity_data_model**](EdmApi.md#get_entity_data_model) | **GET** /datastore/edm/ | Gets the entity data model, including namespaces, schemas, entity types, association types, and property types.
 [**get_entity_data_model_diff**](EdmApi.md#get_entity_data_model_diff) | **POST** /datastore/edm/diff/ | Gets the changes between the existing entity data model and the entity data model passed in, including schemas, association types, entity types, and property types.
-[**get_entity_data_model_version**](EdmApi.md#get_entity_data_model_version) | **GET** /datastore/edm/version/ | Returns the current entity data model version.
 [**get_entity_set**](EdmApi.md#get_entity_set) | **GET** /datastore/edm/entity/set/{entitySetId} | Get the EntitySet definition for the given EntitySet UUID.
 [**get_entity_set_id**](EdmApi.md#get_entity_set_id) | **GET** /datastore/edm/ids/entity/set/{entitySetName} | Gets the EntitySet UUID for the given EntitySet name.
 [**get_entity_set_property_metadata**](EdmApi.md#get_entity_set_property_metadata) | **GET** /datastore/edm/entity/set/{entitySetId}/property/type/{propertyTypeId}/ | Get specified property type metadata for an entity set.
@@ -2096,48 +2095,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_entity_data_model_version**
-> get_entity_data_model_version()
-
-Returns the current entity data model version.
-
-### Example
-
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi()
-
-try:
-    # Returns the current entity data model version.
-    api_instance.get_entity_data_model_version()
-except ApiException as e:
-    print("Exception when calling EdmApi->get_entity_data_model_version: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

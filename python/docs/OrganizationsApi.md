@@ -1215,7 +1215,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_role**
-> list[Role] get_role(organization_id, role_id)
+> Role get_role(organization_id, role_id)
 
 Get role for an organization from a roleId
 
@@ -1288,7 +1288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Role]**](Role.md)
+[**Role**](Role.md)
 
 ### Authorization
 

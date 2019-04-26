@@ -9,7 +9,6 @@
 
 #' EDM Class
 #'
-#' @field version 
 #' @field namespaces 
 #' @field schemas 
 #' @field propertyTypes 
@@ -22,17 +21,12 @@
 EDM <- R6::R6Class(
   'EDM',
   public = list(
-    `version` = NULL,
     `namespaces` = NULL,
     `schemas` = NULL,
     `propertyTypes` = NULL,
     `entityTypes` = NULL,
     `associationTypes` = NULL,
-    initialize = function(`version`, `namespaces`, `schemas`, `propertyTypes`, `entityTypes`, `associationTypes`){
-      if (!missing(`version`)) {
-                stopifnot(is.character(`version`), length(`version`) == 1)
-        self$`version` <- `version`
-      }
+    initialize = function(`namespaces`, `schemas`, `propertyTypes`, `entityTypes`, `associationTypes`){
       if (!missing(`namespaces`)) {
                 stopifnot(is.vector(`namespaces`), length(`namespaces`) != 0)
                 sapply(`namespaces`, function(x) stopifnot(is.character(x)))
@@ -61,10 +55,6 @@ EDM <- R6::R6Class(
     },
     toJSON = function() {
       EDMObject <- list()
-      if (!is.null(self$`version`)) {
-        EDMObject[['version']] <-
-                self$`version`
-      }
       if (!is.null(self$`namespaces`)) {
         EDMObject[['namespaces']] <-
                 self$`namespaces`
@@ -90,9 +80,6 @@ EDM <- R6::R6Class(
     },
     fromJSON = function(EDMJson) {
       EDMObject <- jsonlite::fromJSON(EDMJson)
-      if (!is.null(EDMObject$`version`)) {
-                self$`version` <- EDMObject$`version`
-      }
       if (!is.null(EDMObject$`namespaces`)) {
                 self$`namespaces` <- EDMObject$`namespaces`
       }
@@ -128,11 +115,6 @@ EDM <- R6::R6Class(
     toJSONString = function() {
        outstring <- sprintf(
         '{
-           "version":
-                      
-                      "%s"
-                  
-              ,
            "namespaces":
                       
                       ["%s"]
@@ -151,7 +133,6 @@ EDM <- R6::R6Class(
                   ["%s"]
               
         }',
-                self$`version`,
                 paste0(self$`namespaces`, collapse='","'),
                 paste0(sapply(self$`schemas`, function(x) x$toJSON()), collapse='","'),
                 paste0(sapply(self$`propertyTypes`, function(x) x$toJSON()), collapse='","'),
@@ -162,7 +143,6 @@ EDM <- R6::R6Class(
     },
     fromJSONString = function(EDMJson) {
       EDMObject <- jsonlite::fromJSON(EDMJson)
-              self$`version` <- EDMObject$`version`
               self$`namespaces` <- EDMObject$`namespaces`
               self$`schemas` <- sapply(EDMObject$`schemas`, function(x) Schema$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
               self$`propertyTypes` <- sapply(EDMObject$`propertyTypes`, function(x) PropertyType$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))

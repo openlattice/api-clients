@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openlattice
-from openlattice.models.entity_with_id import EntityWithId  # noqa: E501
+from openlattice.models.neighbor_entity_ids import NeighborEntityIds  # noqa: E501
 from openlattice.rest import ApiException
 
 
-class TestEntityWithId(unittest.TestCase):
-    """EntityWithId unit test stubs"""
+class TestNeighborEntityIds(unittest.TestCase):
+    """NeighborEntityIds unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestEntityWithId(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEntityWithId(self):
-        """Test EntityWithId"""
+    def testNeighborEntityIds(self):
+        """Test NeighborEntityIds"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openlattice.models.entity_with_id.EntityWithId()  # noqa: E501
+        # model = openlattice.models.neighbor_entity_ids.NeighborEntityIds()  # noqa: E501
         pass
 
 

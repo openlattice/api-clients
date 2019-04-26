@@ -32,7 +32,6 @@ class EDM(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'version': 'str',
         'namespaces': 'list[str]',
         'schemas': 'list[Schema]',
         'property_types': 'list[PropertyType]',
@@ -41,7 +40,6 @@ class EDM(object):
     }
 
     attribute_map = {
-        'version': 'version',
         'namespaces': 'namespaces',
         'schemas': 'schemas',
         'property_types': 'propertyTypes',
@@ -49,10 +47,9 @@ class EDM(object):
         'association_types': 'associationTypes'
     }
 
-    def __init__(self, version=None, namespaces=None, schemas=None, property_types=None, entity_types=None, association_types=None):  # noqa: E501
+    def __init__(self, namespaces=None, schemas=None, property_types=None, entity_types=None, association_types=None):  # noqa: E501
         """EDM - a model defined in OpenAPI"""  # noqa: E501
 
-        self._version = None
         self._namespaces = None
         self._schemas = None
         self._property_types = None
@@ -60,8 +57,6 @@ class EDM(object):
         self._association_types = None
         self.discriminator = None
 
-        if version is not None:
-            self.version = version
         if namespaces is not None:
             self.namespaces = namespaces
         if schemas is not None:
@@ -72,27 +67,6 @@ class EDM(object):
             self.entity_types = entity_types
         if association_types is not None:
             self.association_types = association_types
-
-    @property
-    def version(self):
-        """Gets the version of this EDM.  # noqa: E501
-
-
-        :return: The version of this EDM.  # noqa: E501
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """Sets the version of this EDM.
-
-
-        :param version: The version of this EDM.  # noqa: E501
-        :type: str
-        """
-
-        self._version = version
 
     @property
     def namespaces(self):
