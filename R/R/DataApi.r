@@ -18,10 +18,13 @@
 #' @section Methods:
 #' \describe{
 #'
-#' clear_entity_set Clears the data from a single entity set.
+#' create_assocations Creates a new set of associations.
 #'
 #'
 #' delete_all_entities_from_entity_set Clears the Entity matching the given Entity id and all of its neighbor Entities
+#'
+#'
+#' delete_entities Deletes multiple entities from an entity set.
 #'
 #'
 #' get_entity_set_size Gets the number of entities in an entity set.
@@ -48,25 +51,27 @@ DataApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    clear_entity_set = function(entity_set_id, ...){
+    create_assocations = function(data_edge, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/data/set/{entitySetId}"
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      if (!missing(`data_edge`)) {
+        body <- `data_edge`$toJSONString()
+      } else {
+        body <- NULL
       }
 
+      urlPath <- "/datastore/data/associations/"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "DELETE",
+                                 method = "POST",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-            # void response, no need to return anything
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -97,6 +102,42 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
             # void response, no need to return anything
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    delete_entities = function(entity_set_id, type, request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`type`)) {
+        queryParams['type'] <- type
+      }
+
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/data/set/{entitySetId}"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {

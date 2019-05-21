@@ -13,7 +13,7 @@
 #' @field associationDetails 
 #' @field neighborEntitySet 
 #' @field neighborId 
-#' @field neighbourDetails 
+#' @field neighborDetails 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,8 +25,8 @@ NeighborEntityDetails <- R6::R6Class(
     `associationDetails` = NULL,
     `neighborEntitySet` = NULL,
     `neighborId` = NULL,
-    `neighbourDetails` = NULL,
-    initialize = function(`associationEntitySet`, `associationDetails`, `neighborEntitySet`, `neighborId`, `neighbourDetails`){
+    `neighborDetails` = NULL,
+    initialize = function(`associationEntitySet`, `associationDetails`, `neighborEntitySet`, `neighborId`, `neighborDetails`){
       if (!missing(`associationEntitySet`)) {
                 stopifnot(R6::is.R6(`associationEntitySet`))
         self$`associationEntitySet` <- `associationEntitySet`
@@ -43,9 +43,9 @@ NeighborEntityDetails <- R6::R6Class(
                 stopifnot(is.character(`neighborId`), length(`neighborId`) == 1)
         self$`neighborId` <- `neighborId`
       }
-      if (!missing(`neighbourDetails`)) {
-                stopifnot(R6::is.R6(`neighbourDetails`))
-        self$`neighbourDetails` <- `neighbourDetails`
+      if (!missing(`neighborDetails`)) {
+                stopifnot(R6::is.R6(`neighborDetails`))
+        self$`neighborDetails` <- `neighborDetails`
       }
     },
     toJSON = function() {
@@ -66,9 +66,9 @@ NeighborEntityDetails <- R6::R6Class(
         NeighborEntityDetailsObject[['neighborId']] <-
                 self$`neighborId`
       }
-      if (!is.null(self$`neighbourDetails`)) {
-        NeighborEntityDetailsObject[['neighbourDetails']] <-
-                self$`neighbourDetails`$toJSON()
+      if (!is.null(self$`neighborDetails`)) {
+        NeighborEntityDetailsObject[['neighborDetails']] <-
+                self$`neighborDetails`$toJSON()
       }
 
       NeighborEntityDetailsObject
@@ -81,7 +81,7 @@ NeighborEntityDetails <- R6::R6Class(
                 self$`associationEntitySet` <- associationEntitySetObject
       }
       if (!is.null(NeighborEntityDetailsObject$`associationDetails`)) {
-                associationDetailsObject <- NeighborDetails$new()
+                associationDetailsObject <- character$new()
                 associationDetailsObject$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$associationDetails, auto_unbox = TRUE))
                 self$`associationDetails` <- associationDetailsObject
       }
@@ -93,10 +93,10 @@ NeighborEntityDetails <- R6::R6Class(
       if (!is.null(NeighborEntityDetailsObject$`neighborId`)) {
                 self$`neighborId` <- NeighborEntityDetailsObject$`neighborId`
       }
-      if (!is.null(NeighborEntityDetailsObject$`neighbourDetails`)) {
-                neighbourDetailsObject <- NeighborDetails$new()
-                neighbourDetailsObject$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$neighbourDetails, auto_unbox = TRUE))
-                self$`neighbourDetails` <- neighbourDetailsObject
+      if (!is.null(NeighborEntityDetailsObject$`neighborDetails`)) {
+                neighborDetailsObject <- character$new()
+                neighborDetailsObject$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$neighborDetails, auto_unbox = TRUE))
+                self$`neighborDetails` <- neighborDetailsObject
       }
     },
     toJSONString = function() {
@@ -116,7 +116,7 @@ NeighborEntityDetails <- R6::R6Class(
                       "%s"
                   
               ,
-           "neighbourDetails":
+           "neighborDetails":
                   "%s"
               
         }',
@@ -124,7 +124,7 @@ NeighborEntityDetails <- R6::R6Class(
                 self$`associationDetails`$toJSON(),
                 self$`neighborEntitySet`$toJSON(),
                 self$`neighborId`,
-                self$`neighbourDetails`$toJSON()
+                self$`neighborDetails`$toJSON()
       )
       gsub("[\r\n]| ", "", outstring)
     },
@@ -132,13 +132,13 @@ NeighborEntityDetails <- R6::R6Class(
       NeighborEntityDetailsObject <- jsonlite::fromJSON(NeighborEntityDetailsJson)
               EntitySetObject <- EntitySet$new()
               self$`associationEntitySet` <- EntitySetObject$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$associationEntitySet, auto_unbox = TRUE))
-              NeighborDetailsObject <- NeighborDetails$new()
-              self$`associationDetails` <- NeighborDetailsObject$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$associationDetails, auto_unbox = TRUE))
+              characterObject <- character$new()
+              self$`associationDetails` <- characterObject$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$associationDetails, auto_unbox = TRUE))
               EntitySetObject <- EntitySet$new()
               self$`neighborEntitySet` <- EntitySetObject$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$neighborEntitySet, auto_unbox = TRUE))
               self$`neighborId` <- NeighborEntityDetailsObject$`neighborId`
-              NeighborDetailsObject <- NeighborDetails$new()
-              self$`neighbourDetails` <- NeighborDetailsObject$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$neighbourDetails, auto_unbox = TRUE))
+              characterObject <- character$new()
+              self$`neighborDetails` <- characterObject$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$neighborDetails, auto_unbox = TRUE))
     }
   )
 )

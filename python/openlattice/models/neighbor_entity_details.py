@@ -33,10 +33,10 @@ class NeighborEntityDetails(object):
     """
     openapi_types = {
         'association_entity_set': 'EntitySet',
-        'association_details': 'NeighborDetails',
+        'association_details': 'dict(str, list[str])',
         'neighbor_entity_set': 'EntitySet',
         'neighbor_id': 'str',
-        'neighbour_details': 'NeighborDetails'
+        'neighbor_details': 'dict(str, list[str])'
     }
 
     attribute_map = {
@@ -44,17 +44,17 @@ class NeighborEntityDetails(object):
         'association_details': 'associationDetails',
         'neighbor_entity_set': 'neighborEntitySet',
         'neighbor_id': 'neighborId',
-        'neighbour_details': 'neighbourDetails'
+        'neighbor_details': 'neighborDetails'
     }
 
-    def __init__(self, association_entity_set=None, association_details=None, neighbor_entity_set=None, neighbor_id=None, neighbour_details=None):  # noqa: E501
+    def __init__(self, association_entity_set=None, association_details=None, neighbor_entity_set=None, neighbor_id=None, neighbor_details=None):  # noqa: E501
         """NeighborEntityDetails - a model defined in OpenAPI"""  # noqa: E501
 
         self._association_entity_set = None
         self._association_details = None
         self._neighbor_entity_set = None
         self._neighbor_id = None
-        self._neighbour_details = None
+        self._neighbor_details = None
         self.discriminator = None
 
         if association_entity_set is not None:
@@ -65,8 +65,8 @@ class NeighborEntityDetails(object):
             self.neighbor_entity_set = neighbor_entity_set
         if neighbor_id is not None:
             self.neighbor_id = neighbor_id
-        if neighbour_details is not None:
-            self.neighbour_details = neighbour_details
+        if neighbor_details is not None:
+            self.neighbor_details = neighbor_details
 
     @property
     def association_entity_set(self):
@@ -95,7 +95,7 @@ class NeighborEntityDetails(object):
 
 
         :return: The association_details of this NeighborEntityDetails.  # noqa: E501
-        :rtype: NeighborDetails
+        :rtype: dict(str, list[str])
         """
         return self._association_details
 
@@ -105,7 +105,7 @@ class NeighborEntityDetails(object):
 
 
         :param association_details: The association_details of this NeighborEntityDetails.  # noqa: E501
-        :type: NeighborDetails
+        :type: dict(str, list[str])
         """
 
         self._association_details = association_details
@@ -153,25 +153,25 @@ class NeighborEntityDetails(object):
         self._neighbor_id = neighbor_id
 
     @property
-    def neighbour_details(self):
-        """Gets the neighbour_details of this NeighborEntityDetails.  # noqa: E501
+    def neighbor_details(self):
+        """Gets the neighbor_details of this NeighborEntityDetails.  # noqa: E501
 
 
-        :return: The neighbour_details of this NeighborEntityDetails.  # noqa: E501
-        :rtype: NeighborDetails
+        :return: The neighbor_details of this NeighborEntityDetails.  # noqa: E501
+        :rtype: dict(str, list[str])
         """
-        return self._neighbour_details
+        return self._neighbor_details
 
-    @neighbour_details.setter
-    def neighbour_details(self, neighbour_details):
-        """Sets the neighbour_details of this NeighborEntityDetails.
+    @neighbor_details.setter
+    def neighbor_details(self, neighbor_details):
+        """Sets the neighbor_details of this NeighborEntityDetails.
 
 
-        :param neighbour_details: The neighbour_details of this NeighborEntityDetails.  # noqa: E501
-        :type: NeighborDetails
+        :param neighbor_details: The neighbor_details of this NeighborEntityDetails.  # noqa: E501
+        :type: dict(str, list[str])
         """
 
-        self._neighbour_details = neighbour_details
+        self._neighbor_details = neighbor_details
 
     def to_dict(self):
         """Returns the model properties as a dict"""
