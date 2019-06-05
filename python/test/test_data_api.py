@@ -29,10 +29,10 @@ class TestDataApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_assocations(self):
-        """Test case for create_assocations
+    def test_clear_entity_set(self):
+        """Test case for clear_entity_set
 
-        Creates a new set of associations.  # noqa: E501
+        Clears the data from a single entity set.  # noqa: E501
         """
         pass
 
@@ -40,13 +40,6 @@ class TestDataApi(unittest.TestCase):
         """Test case for delete_all_entities_from_entity_set
 
         Clears the Entity matching the given Entity id and all of its neighbor Entities  # noqa: E501
-        """
-        pass
-
-    def test_delete_entities(self):
-        """Test case for delete_entities
-
-        Deletes multiple entities from an entity set.  # noqa: E501
         """
         pass
 

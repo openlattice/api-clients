@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openlattice
-from openlattice.models.association import Association  # noqa: E501
+from openlattice.models.neighbor_details import NeighborDetails  # noqa: E501
 from openlattice.rest import ApiException
 
 
-class TestAssociation(unittest.TestCase):
-    """Association unit test stubs"""
+class TestNeighborDetails(unittest.TestCase):
+    """NeighborDetails unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestAssociation(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testAssociation(self):
-        """Test Association"""
+    def testNeighborDetails(self):
+        """Test NeighborDetails"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openlattice.models.association.Association()  # noqa: E501
+        # model = openlattice.models.neighbor_details.NeighborDetails()  # noqa: E501
         pass
 
 

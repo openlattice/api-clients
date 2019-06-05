@@ -29,13 +29,6 @@ class TestSearchApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_execute_advanced_entity_set_data_query(self):
-        """Test case for execute_advanced_entity_set_data_query
-
-        Executes a search over the data of a given entity set to find rows that match the search term  # noqa: E501
-        """
-        pass
-
     def test_execute_entity_neighbor_search(self):
         """Test case for execute_entity_neighbor_search
 
