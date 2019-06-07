@@ -180,7 +180,7 @@ OrganizationsApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/organizations/{organizationId}/entitySets/assemble"
+      urlPath <- "/datastore/organizations/{organizationId}/entity-sets/assemble"
       if (!missing(`organization_id`)) {
         urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), `organization_id`, urlPath)
       }
@@ -380,7 +380,7 @@ OrganizationsApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/organizations/{organizationId}/entitySets"
+      urlPath <- "/datastore/organizations/{organizationId}/entity-sets"
       if (!missing(`organization_id`)) {
         urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), `organization_id`, urlPath)
       }
@@ -458,7 +458,7 @@ OrganizationsApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/organizations/{organizationId}/entitySets"
+      urlPath <- "/datastore/organizations/{organizationId}/entity-sets"
       if (!missing(`organization_id`)) {
         urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), `organization_id`, urlPath)
       }

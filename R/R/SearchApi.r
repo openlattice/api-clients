@@ -18,9 +18,6 @@
 #' @section Methods:
 #' \describe{
 #'
-#' execute_advanced_entity_set_data_query Executes a search over the data of a given entity set to find rows that match the search term
-#'
-#'
 #' execute_entity_neighbor_search Executes a search for all neighbors of an entity that are connected by an association
 #'
 #'
@@ -44,38 +41,6 @@ SearchApi <- R6::R6Class(
       else {
         self$apiClient <- ApiClient$new()
       }
-    },
-    execute_advanced_entity_set_data_query = function(entity_set_id, advanced_search, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`advanced_search`)) {
-        body <- `advanced_search`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/search/advanced/{entitySetId}"
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
-      }
-
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
     },
     execute_entity_neighbor_search = function(entity_set_id, entity_key_id, ...){
       args <- list(...)
