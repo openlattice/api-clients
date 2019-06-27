@@ -91,7 +91,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_current_roles**
-> SecurablePrincipal get_current_roles()
+> list[SecurablePrincipal] get_current_roles()
 
 Get current roles.
 
@@ -156,7 +156,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**SecurablePrincipal**](SecurablePrincipal.md)
+[**list[SecurablePrincipal]**](SecurablePrincipal.md)
 
 ### Authorization
 
