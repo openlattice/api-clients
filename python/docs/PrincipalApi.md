@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_all_users**](PrincipalApi.md#get_all_users) | **GET** /datastore/principals/users/ | Get all users.
 [**get_current_roles**](PrincipalApi.md#get_current_roles) | **GET** /datastore/principals/roles/current/ | Get current roles.
-[**get_db_access_credentials**](PrincipalApi.md#get_db_access_credentials) | **GET** /datastore/principals/db | Get the db access credentials.
+[**get_materialized_view_account**](PrincipalApi.md#get_materialized_view_account) | **GET** /datastore/principals/db | Get the db access credentials.
 [**get_user**](PrincipalApi.md#get_user) | **GET** /datastore/principals/users/{userId} | Get the user for the given id.
 [**search_all_users_by_email**](PrincipalApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 
@@ -169,8 +169,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_db_access_credentials**
-> str get_db_access_credentials()
+# **get_materialized_view_account**
+> MaterializedViewAccount get_materialized_view_account()
 
 Get the db access credentials.
 
@@ -197,10 +197,10 @@ api_instance = openlattice.PrincipalApi(openlattice.ApiClient(configuration))
 
 try:
     # Get the db access credentials.
-    api_response = api_instance.get_db_access_credentials()
+    api_response = api_instance.get_materialized_view_account()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PrincipalApi->get_db_access_credentials: %s\n" % e)
+    print("Exception when calling PrincipalApi->get_materialized_view_account: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -224,10 +224,10 @@ api_instance = openlattice.PrincipalApi(openlattice.ApiClient(configuration))
 
 try:
     # Get the db access credentials.
-    api_response = api_instance.get_db_access_credentials()
+    api_response = api_instance.get_materialized_view_account()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PrincipalApi->get_db_access_credentials: %s\n" % e)
+    print("Exception when calling PrincipalApi->get_materialized_view_account: %s\n" % e)
 ```
 
 ### Parameters
@@ -235,7 +235,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**str**
+[**MaterializedViewAccount**](MaterializedViewAccount.md)
 
 ### Authorization
 

@@ -247,8 +247,8 @@ class OrganizationsApi(object):
 
         :param async_req bool
         :param str organization_id: (required)
-        :param list[str] request_body: (required)
-        :return: list[dict(str, list[str])]
+        :param dict(str, int) request_body: (required)
+        :return: dict(str, list[str])
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -269,8 +269,8 @@ class OrganizationsApi(object):
 
         :param async_req bool
         :param str organization_id: (required)
-        :param list[str] request_body: (required)
-        :return: list[dict(str, list[str])]
+        :param dict(str, int) request_body: (required)
+        :return: dict(str, list[str])
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -328,14 +328,14 @@ class OrganizationsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/organizations/{organizationId}/entitySets/assemble', 'POST',
+            '/datastore/organizations/{organizationId}/entity-sets/assemble', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[dict(str, list[str])]',  # noqa: E501
+            response_type='dict(str, list[str])',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1014,7 +1014,7 @@ class OrganizationsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/organizations/{organizationId}/entitySets', 'POST',
+            '/datastore/organizations/{organizationId}/entity-sets', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1296,7 +1296,7 @@ class OrganizationsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/organizations/{organizationId}/entitySets', 'GET',
+            '/datastore/organizations/{organizationId}/entity-sets', 'GET',
             path_params,
             query_params,
             header_params,

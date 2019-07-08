@@ -143,17 +143,17 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**update_schema**](docs/EdmApi.md#update_schema) | **PATCH** /datastore/edm/schema/{namespace}/{name} | Edits the schema contents for a corresponding namespace and name.
 *OrganizationsApi* | [**add_member**](docs/OrganizationsApi.md#add_member) | **PUT** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
 *OrganizationsApi* | [**add_role_to_user**](docs/OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
-*OrganizationsApi* | [**assemble_entity_sets**](docs/OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entitySets/assemble | Materializes entity sets into the organization database.
+*OrganizationsApi* | [**assemble_entity_sets**](docs/OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets/assemble | Materializes entity sets into the organization database.
 *OrganizationsApi* | [**create_organization_if_not_exists**](docs/OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Create an organisation if it doesn&#39;t exist.
 *OrganizationsApi* | [**create_role**](docs/OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Create role
 *OrganizationsApi* | [**delete_role**](docs/OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 *OrganizationsApi* | [**destroy_organization**](docs/OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organisation from the organizationId
 *OrganizationsApi* | [**get_all_users_of_role**](docs/OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 *OrganizationsApi* | [**get_auto_approved_email_domains**](docs/OrganizationsApi.md#get_auto_approved_email_domains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
-*OrganizationsApi* | [**get_flagged_organization_entity_sets**](docs/OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entitySets | Get the entity sets for an organization for a certain flag
+*OrganizationsApi* | [**get_flagged_organization_entity_sets**](docs/OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
 *OrganizationsApi* | [**get_members**](docs/OrganizationsApi.md#get_members) | **GET** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
 *OrganizationsApi* | [**get_organization**](docs/OrganizationsApi.md#get_organization) | **GET** /datastore/organizations/{organizationId} | Get an organisation from the organizationId
-*OrganizationsApi* | [**get_organization_entity_sets**](docs/OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entitySets | Get the entity sets for an organization for a certain filter
+*OrganizationsApi* | [**get_organization_entity_sets**](docs/OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain filter
 *OrganizationsApi* | [**get_organizations**](docs/OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organisations
 *OrganizationsApi* | [**get_role**](docs/OrganizationsApi.md#get_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 *OrganizationsApi* | [**get_roles**](docs/OrganizationsApi.md#get_roles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
@@ -169,7 +169,7 @@ Class | Method | HTTP request | Description
 *PermissionsApi* | [**update_acl**](docs/PermissionsApi.md#update_acl) | **PATCH** /datastore/permissions | Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
 *PrincipalApi* | [**get_all_users**](docs/PrincipalApi.md#get_all_users) | **GET** /datastore/principals/users/ | Get all users.
 *PrincipalApi* | [**get_current_roles**](docs/PrincipalApi.md#get_current_roles) | **GET** /datastore/principals/roles/current/ | Get current roles.
-*PrincipalApi* | [**get_db_access_credentials**](docs/PrincipalApi.md#get_db_access_credentials) | **GET** /datastore/principals/db | Get the db access credentials.
+*PrincipalApi* | [**get_materialized_view_account**](docs/PrincipalApi.md#get_materialized_view_account) | **GET** /datastore/principals/db | Get the db access credentials.
 *PrincipalApi* | [**get_user**](docs/PrincipalApi.md#get_user) | **GET** /datastore/principals/users/{userId} | Get the user for the given id.
 *PrincipalApi* | [**search_all_users_by_email**](docs/PrincipalApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 *SearchApi* | [**execute_advanced_entity_set_data_query**](docs/SearchApi.md#execute_advanced_entity_set_data_query) | **POST** /datastore/search/advanced/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
@@ -204,6 +204,7 @@ Class | Method | HTTP request | Description
  - [EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
  - [IntegrationResults](docs/IntegrationResults.md)
+ - [MaterializedViewAccount](docs/MaterializedViewAccount.md)
  - [MetaDataUpdate](docs/MetaDataUpdate.md)
  - [NeighborEntityDetails](docs/NeighborEntityDetails.md)
  - [NeighborEntityIds](docs/NeighborEntityIds.md)

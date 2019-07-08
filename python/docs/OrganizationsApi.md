@@ -6,17 +6,17 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_member**](OrganizationsApi.md#add_member) | **PUT** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
 [**add_role_to_user**](OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
-[**assemble_entity_sets**](OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entitySets/assemble | Materializes entity sets into the organization database.
+[**assemble_entity_sets**](OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets/assemble | Materializes entity sets into the organization database.
 [**create_organization_if_not_exists**](OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Create an organisation if it doesn&#39;t exist.
 [**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Create role
 [**delete_role**](OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroy_organization**](OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organisation from the organizationId
 [**get_all_users_of_role**](OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**get_auto_approved_email_domains**](OrganizationsApi.md#get_auto_approved_email_domains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
-[**get_flagged_organization_entity_sets**](OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entitySets | Get the entity sets for an organization for a certain flag
+[**get_flagged_organization_entity_sets**](OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
 [**get_members**](OrganizationsApi.md#get_members) | **GET** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
 [**get_organization**](OrganizationsApi.md#get_organization) | **GET** /datastore/organizations/{organizationId} | Get an organisation from the organizationId
-[**get_organization_entity_sets**](OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entitySets | Get the entity sets for an organization for a certain filter
+[**get_organization_entity_sets**](OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain filter
 [**get_organizations**](OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organisations
 [**get_role**](OrganizationsApi.md#get_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 [**get_roles**](OrganizationsApi.md#get_roles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
@@ -204,7 +204,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **assemble_entity_sets**
-> list[dict(str, list[str])] assemble_entity_sets(organization_id, request_body)
+> dict(str, list[str]) assemble_entity_sets(organization_id, request_body)
 
 Materializes entity sets into the organization database.
 
@@ -229,7 +229,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
 organization_id = 'organization_id_example' # str | 
-request_body = NULL # list[str] | 
+request_body = {'key': 56} # dict(str, int) | 
 
 try:
     # Materializes entity sets into the organization database.
@@ -258,7 +258,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
 organization_id = 'organization_id_example' # str | 
-request_body = NULL # list[str] | 
+request_body = {'key': 56} # dict(str, int) | 
 
 try:
     # Materializes entity sets into the organization database.
@@ -273,11 +273,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | [**str**](.md)|  | 
- **request_body** | [**list[str]**](list.md)|  | 
+ **request_body** | [**dict(str, int)**](int.md)|  | 
 
 ### Return type
 
-**list[dict(str, list[str])]**
+**dict(str, list[str])**
 
 ### Authorization
 
