@@ -32,87 +32,71 @@ class EntitySet(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'name': 'str',
         'id': 'str',
-        'title': 'str',
-        'contacts': 'list[str]',
         'entity_type_id': 'str',
+        'name': 'str',
+        'title': 'str',
         'description': 'str',
+        'contacts': 'list[str]',
         'linking': 'bool',
         'linked_entity_sets': 'list[str]',
-        'external': 'bool',
-        'organization_id': 'str'
+        'organization_id': 'str',
+        'flags': 'list[str]',
+        'partitions': 'list[int]'
     }
 
     attribute_map = {
-        'name': 'name',
         'id': 'id',
-        'title': 'title',
-        'contacts': 'contacts',
         'entity_type_id': 'entityTypeId',
+        'name': 'name',
+        'title': 'title',
         'description': 'description',
+        'contacts': 'contacts',
         'linking': 'linking',
-        'linked_entity_sets': 'linked_entity_sets',
-        'external': 'external',
-        'organization_id': 'organizationId'
+        'linked_entity_sets': 'linkedEntitySets',
+        'organization_id': 'organizationId',
+        'flags': 'flags',
+        'partitions': 'partitions'
     }
 
-    def __init__(self, name=None, id=None, title=None, contacts=None, entity_type_id=None, description=None, linking=None, linked_entity_sets=None, external=None, organization_id=None):  # noqa: E501
+    def __init__(self, id=None, entity_type_id=None, name=None, title=None, description=None, contacts=None, linking=None, linked_entity_sets=None, organization_id=None, flags=None, partitions=None):  # noqa: E501
         """EntitySet - a model defined in OpenAPI"""  # noqa: E501
 
-        self._name = None
         self._id = None
-        self._title = None
-        self._contacts = None
         self._entity_type_id = None
+        self._name = None
+        self._title = None
         self._description = None
+        self._contacts = None
         self._linking = None
         self._linked_entity_sets = None
-        self._external = None
         self._organization_id = None
+        self._flags = None
+        self._partitions = None
         self.discriminator = None
 
-        if name is not None:
-            self.name = name
         if id is not None:
             self.id = id
-        if title is not None:
-            self.title = title
-        if contacts is not None:
-            self.contacts = contacts
         if entity_type_id is not None:
             self.entity_type_id = entity_type_id
+        if name is not None:
+            self.name = name
+        if title is not None:
+            self.title = title
         if description is not None:
             self.description = description
+        if contacts is not None:
+            self.contacts = contacts
         if linking is not None:
             self.linking = linking
         if linked_entity_sets is not None:
             self.linked_entity_sets = linked_entity_sets
-        if external is not None:
-            self.external = external
         if organization_id is not None:
             self.organization_id = organization_id
-
-    @property
-    def name(self):
-        """Gets the name of this EntitySet.  # noqa: E501
-
-
-        :return: The name of this EntitySet.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this EntitySet.
-
-
-        :param name: The name of this EntitySet.  # noqa: E501
-        :type: str
-        """
-
-        self._name = name
+        if flags is not None:
+            self.flags = flags
+        if partitions is not None:
+            self.partitions = partitions
 
     @property
     def id(self):
@@ -136,48 +120,6 @@ class EntitySet(object):
         self._id = id
 
     @property
-    def title(self):
-        """Gets the title of this EntitySet.  # noqa: E501
-
-
-        :return: The title of this EntitySet.  # noqa: E501
-        :rtype: str
-        """
-        return self._title
-
-    @title.setter
-    def title(self, title):
-        """Sets the title of this EntitySet.
-
-
-        :param title: The title of this EntitySet.  # noqa: E501
-        :type: str
-        """
-
-        self._title = title
-
-    @property
-    def contacts(self):
-        """Gets the contacts of this EntitySet.  # noqa: E501
-
-
-        :return: The contacts of this EntitySet.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._contacts
-
-    @contacts.setter
-    def contacts(self, contacts):
-        """Sets the contacts of this EntitySet.
-
-
-        :param contacts: The contacts of this EntitySet.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._contacts = contacts
-
-    @property
     def entity_type_id(self):
         """Gets the entity_type_id of this EntitySet.  # noqa: E501
 
@@ -199,6 +141,48 @@ class EntitySet(object):
         self._entity_type_id = entity_type_id
 
     @property
+    def name(self):
+        """Gets the name of this EntitySet.  # noqa: E501
+
+
+        :return: The name of this EntitySet.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this EntitySet.
+
+
+        :param name: The name of this EntitySet.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def title(self):
+        """Gets the title of this EntitySet.  # noqa: E501
+
+
+        :return: The title of this EntitySet.  # noqa: E501
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this EntitySet.
+
+
+        :param title: The title of this EntitySet.  # noqa: E501
+        :type: str
+        """
+
+        self._title = title
+
+    @property
     def description(self):
         """Gets the description of this EntitySet.  # noqa: E501
 
@@ -218,6 +202,27 @@ class EntitySet(object):
         """
 
         self._description = description
+
+    @property
+    def contacts(self):
+        """Gets the contacts of this EntitySet.  # noqa: E501
+
+
+        :return: The contacts of this EntitySet.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._contacts
+
+    @contacts.setter
+    def contacts(self, contacts):
+        """Sets the contacts of this EntitySet.
+
+
+        :param contacts: The contacts of this EntitySet.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._contacts = contacts
 
     @property
     def linking(self):
@@ -262,27 +267,6 @@ class EntitySet(object):
         self._linked_entity_sets = linked_entity_sets
 
     @property
-    def external(self):
-        """Gets the external of this EntitySet.  # noqa: E501
-
-
-        :return: The external of this EntitySet.  # noqa: E501
-        :rtype: bool
-        """
-        return self._external
-
-    @external.setter
-    def external(self, external):
-        """Sets the external of this EntitySet.
-
-
-        :param external: The external of this EntitySet.  # noqa: E501
-        :type: bool
-        """
-
-        self._external = external
-
-    @property
     def organization_id(self):
         """Gets the organization_id of this EntitySet.  # noqa: E501
 
@@ -302,6 +286,55 @@ class EntitySet(object):
         """
 
         self._organization_id = organization_id
+
+    @property
+    def flags(self):
+        """Gets the flags of this EntitySet.  # noqa: E501
+
+
+        :return: The flags of this EntitySet.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._flags
+
+    @flags.setter
+    def flags(self, flags):
+        """Sets the flags of this EntitySet.
+
+
+        :param flags: The flags of this EntitySet.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["ASSOCIATION", "AUDIT", "EXTERNAL", "LINKING"]  # noqa: E501
+        if not set(flags).issubset(set(allowed_values)):
+            raise ValueError(
+                "Invalid values for `flags` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(flags) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._flags = flags
+
+    @property
+    def partitions(self):
+        """Gets the partitions of this EntitySet.  # noqa: E501
+
+
+        :return: The partitions of this EntitySet.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._partitions
+
+    @partitions.setter
+    def partitions(self, partitions):
+        """Sets the partitions of this EntitySet.
+
+
+        :param partitions: The partitions of this EntitySet.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._partitions = partitions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -252,7 +252,7 @@ class SearchApi(object):
         :param async_req bool
         :param str entity_set_id: (required)
         :param NeighborSearchFilter neighbor_search_filter: (required)
-        :return: dict(str, dict(str, dict(str, list[NeighborEntityIds])))
+        :return: dict(str, dict(str, list[NeighborEntityDetailsReduced]))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -274,7 +274,7 @@ class SearchApi(object):
         :param async_req bool
         :param str entity_set_id: (required)
         :param NeighborSearchFilter neighbor_search_filter: (required)
-        :return: dict(str, dict(str, dict(str, list[NeighborEntityIds])))
+        :return: dict(str, dict(str, list[NeighborEntityDetailsReduced]))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -339,7 +339,7 @@ class SearchApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='dict(str, dict(str, dict(str, list[NeighborEntityIds])))',  # noqa: E501
+            response_type='dict(str, dict(str, list[NeighborEntityDetailsReduced]))',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

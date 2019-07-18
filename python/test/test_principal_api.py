@@ -43,8 +43,8 @@ class TestPrincipalApi(unittest.TestCase):
         """
         pass
 
-    def test_get_materialized_view_account(self):
-        """Test case for get_materialized_view_account
+    def test_get_db_access_credentials(self):
+        """Test case for get_db_access_credentials
 
         Get the db access credentials.  # noqa: E501
         """

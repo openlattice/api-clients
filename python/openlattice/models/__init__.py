@@ -34,13 +34,12 @@ from openlattice.models.edm_request import EdmRequest
 from openlattice.models.entity import Entity
 from openlattice.models.entity_key import EntityKey
 from openlattice.models.entity_set import EntitySet
+from openlattice.models.entity_set_property_meta_data import EntitySetPropertyMetaData
 from openlattice.models.entity_set_selection import EntitySetSelection
 from openlattice.models.entity_type import EntityType
-from openlattice.models.entity_type_property_metadata import EntityTypePropertyMetadata
 from openlattice.models.full_qualified_name import FullQualifiedName
 from openlattice.models.integration_results import IntegrationResults
-from openlattice.models.materialized_view_account import MaterializedViewAccount
-from openlattice.models.meta_data_update import MetaDataUpdate
+from openlattice.models.metadata_update import MetadataUpdate
 from openlattice.models.neighbor_entity_details import NeighborEntityDetails
 from openlattice.models.neighbor_entity_ids import NeighborEntityIds
 from openlattice.models.neighbor_search_filter import NeighborSearchFilter
@@ -53,3 +52,4 @@ from openlattice.models.role import Role
 from openlattice.models.schema import Schema
 from openlattice.models.search_details import SearchDetails
 from openlattice.models.securable_principal import SecurablePrincipal
+from openlattice.models.sms_entity_set_information import SmsEntitySetInformation

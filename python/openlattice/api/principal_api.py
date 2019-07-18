@@ -205,36 +205,36 @@ class PrincipalApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_materialized_view_account(self, **kwargs):  # noqa: E501
+    def get_db_access_credentials(self, **kwargs):  # noqa: E501
         """Get the db access credentials.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_materialized_view_account(async_req=True)
+        >>> thread = api.get_db_access_credentials(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :return: MaterializedViewAccount
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_materialized_view_account_with_http_info(**kwargs)  # noqa: E501
+            return self.get_db_access_credentials_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.get_materialized_view_account_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.get_db_access_credentials_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def get_materialized_view_account_with_http_info(self, **kwargs):  # noqa: E501
+    def get_db_access_credentials_with_http_info(self, **kwargs):  # noqa: E501
         """Get the db access credentials.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_materialized_view_account_with_http_info(async_req=True)
+        >>> thread = api.get_db_access_credentials_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :return: MaterializedViewAccount
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -251,7 +251,7 @@ class PrincipalApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_materialized_view_account" % key
+                    " to method get_db_access_credentials" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -283,7 +283,7 @@ class PrincipalApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MaterializedViewAccount',  # noqa: E501
+            response_type='str',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

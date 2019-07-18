@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **execute_filtered_entity_neighbor_id_search**
-> dict(str, dict(str, dict(str, list[NeighborEntityIds]))) execute_filtered_entity_neighbor_id_search(entity_set_id, neighbor_search_filter)
+> dict(str, dict(str, list[NeighborEntityDetailsReduced])) execute_filtered_entity_neighbor_id_search(entity_set_id, neighbor_search_filter)
 
 Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**dict(str, dict(str, dict(str, list[NeighborEntityIds])))**
+**dict(str, dict(str, list[NeighborEntityDetailsReduced]))**
 
 ### Authorization
 

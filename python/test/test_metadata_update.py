@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openlattice
-from openlattice.models.entity_type_property_metadata import EntityTypePropertyMetadata  # noqa: E501
+from openlattice.models.metadata_update import MetadataUpdate  # noqa: E501
 from openlattice.rest import ApiException
 
 
-class TestEntityTypePropertyMetadata(unittest.TestCase):
-    """EntityTypePropertyMetadata unit test stubs"""
+class TestMetadataUpdate(unittest.TestCase):
+    """MetadataUpdate unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestEntityTypePropertyMetadata(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEntityTypePropertyMetadata(self):
-        """Test EntityTypePropertyMetadata"""
+    def testMetadataUpdate(self):
+        """Test MetadataUpdate"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openlattice.models.entity_type_property_metadata.EntityTypePropertyMetadata()  # noqa: E501
+        # model = openlattice.models.metadata_update.MetadataUpdate()  # noqa: E501
         pass
 
 

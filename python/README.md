@@ -94,21 +94,16 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**add_src_entity_type_to_association_type**](docs/EdmApi.md#add_src_entity_type_to_association_type) | **PUT** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
 *EdmApi* | [**create_association_type**](docs/EdmApi.md#create_association_type) | **POST** /datastore/edm/association/type/ | Creates a new AssociationType definition, if it doesn\&quot;t exist.
 *EdmApi* | [**create_empty_schema**](docs/EdmApi.md#create_empty_schema) | **PUT** /datastore/edm/schema/{namespace}/{name} | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-*EdmApi* | [**create_entity_sets**](docs/EdmApi.md#create_entity_sets) | **POST** /datastore/edm/entity/set | Create new EntitySet definitions if they don\&quot;t exist.
 *EdmApi* | [**create_entity_type**](docs/EdmApi.md#create_entity_type) | **POST** /datastore/edm/entity/type/ | Creates a new EntityType definition, if it doesn&#39;t exist.
 *EdmApi* | [**create_property_type**](docs/EdmApi.md#create_property_type) | **POST** /datastore/edm/property/type/ | Creates a new PropertyType definition, if it doesn\&quot;t exist.
 *EdmApi* | [**create_schema_if_not_exists**](docs/EdmApi.md#create_schema_if_not_exists) | **POST** /datastore/edm/schema | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
 *EdmApi* | [**delete_association_type**](docs/EdmApi.md#delete_association_type) | **DELETE** /datastore/edm/association/type/{associationTypeId} | Delete the AssociationType definition for the given AssociationType UUID.
-*EdmApi* | [**delete_entity_set**](docs/EdmApi.md#delete_entity_set) | **DELETE** /datastore/edm/entity/set/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
 *EdmApi* | [**delete_entity_type**](docs/EdmApi.md#delete_entity_type) | **DELETE** /datastore/edm/entity/type/{entityTypeId} | Deletes the EntityType definition for the given EntityType UUID.
 *EdmApi* | [**delete_property_type**](docs/EdmApi.md#delete_property_type) | **DELETE** /datastore/edm/property/type/{propertyTypeId} | Deletes the PropertyType definition for the given PropertyType UUID.
 *EdmApi* | [**force_delete_property_type**](docs/EdmApi.md#force_delete_property_type) | **DELETE** /datastore/edm/property/type/{propertyTypeId}/force | Deletes the PropertyType definition for the given PropertyType UUID regardless of whether or not there is data associated with it.
 *EdmApi* | [**force_remove_property_type_from_entity_type**](docs/EdmApi.md#force_remove_property_type_from_entity_type) | **DELETE** /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}/force | Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID, regardless of whether or not there is data associated with the entity type.
 *EdmApi* | [**get_all_association_entity_types**](docs/EdmApi.md#get_all_association_entity_types) | **GET** /datastore/edm/association/type/ | Gets all association EntityType definitions.
 *EdmApi* | [**get_all_available_association_types**](docs/EdmApi.md#get_all_available_association_types) | **GET** /datastore/edm/association/type/{associationTypeId}/available | Get all available associations for the given AssociationType UUID.
-*EdmApi* | [**get_all_entity_set_property_metadata**](docs/EdmApi.md#get_all_entity_set_property_metadata) | **GET** /datastore/edm/entity/set/{entitySetId}/property/type | Get all property type metadata for an entity set.
-*EdmApi* | [**get_all_entity_sets**](docs/EdmApi.md#get_all_entity_sets) | **GET** /datastore/edm/entity/set | Get all EntitySet definitions.
-*EdmApi* | [**get_all_entity_type_property_metadata**](docs/EdmApi.md#get_all_entity_type_property_metadata) | **GET** /datastore/edm/entity/type/{entityTypeId}/property/type | Get all EntityType propertyType metadata
 *EdmApi* | [**get_all_entity_types**](docs/EdmApi.md#get_all_entity_types) | **GET** /datastore/edm/entity/type/ | Gets all EntityType definitions.
 *EdmApi* | [**get_all_property_types**](docs/EdmApi.md#get_all_property_types) | **GET** /datastore/edm/property/type/ | Gets all PropertyType definitions.
 *EdmApi* | [**get_all_property_types_in_namespace**](docs/EdmApi.md#get_all_property_types_in_namespace) | **GET** /datastore/edm/property/type/namespace/{namespace} | Gets all PropertyType definitions under the given namespace.
@@ -117,13 +112,9 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**get_association_type_details**](docs/EdmApi.md#get_association_type_details) | **GET** /datastore/edm/association/type/{associationTypeId}/detailed | Get details about the AssociationType for the given AssociationType UUID.
 *EdmApi* | [**get_entity_data_model**](docs/EdmApi.md#get_entity_data_model) | **GET** /datastore/edm/ | Gets the entity data model, including namespaces, schemas, entity types, association types, and property types.
 *EdmApi* | [**get_entity_data_model_diff**](docs/EdmApi.md#get_entity_data_model_diff) | **POST** /datastore/edm/diff/ | Gets the changes between the existing entity data model and the entity data model passed in, including schemas, association types, entity types, and property types.
-*EdmApi* | [**get_entity_set**](docs/EdmApi.md#get_entity_set) | **GET** /datastore/edm/entity/set/{entitySetId} | Get the EntitySet definition for the given EntitySet UUID.
-*EdmApi* | [**get_entity_set_id**](docs/EdmApi.md#get_entity_set_id) | **GET** /datastore/edm/ids/entity/set/{entitySetName} | Gets the EntitySet UUID for the given EntitySet name.
-*EdmApi* | [**get_entity_set_property_metadata**](docs/EdmApi.md#get_entity_set_property_metadata) | **GET** /datastore/edm/entity/set/{entitySetId}/property/type/{propertyTypeId}/ | Get specified property type metadata for an entity set.
 *EdmApi* | [**get_entity_type**](docs/EdmApi.md#get_entity_type) | **GET** /datastore/edm/entity/type/{entityTypeId} | Gets the EntityType definition for the given EntityType UUID.
 *EdmApi* | [**get_entity_type_hierarchy**](docs/EdmApi.md#get_entity_type_hierarchy) | **PATCH** /datastore/edm/entity/type/{entityTypeId}/hierarchy | Get the EntityType hierarchy for the given EntityType UUID.
 *EdmApi* | [**get_entity_type_id**](docs/EdmApi.md#get_entity_type_id) | **GET** /datastore/edm/ids/entity/type/{namespace}/{name} | Gets the EntityType UUID for the given EntityType FQN.
-*EdmApi* | [**get_entity_type_property_metadata**](docs/EdmApi.md#get_entity_type_property_metadata) | **GET** /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId} | Get EntityType propertyType metadata
 *EdmApi* | [**get_property_type**](docs/EdmApi.md#get_property_type) | **GET** /datastore/edm/property/type/{propertyTypeId} | Gets the PropertyType definition for the given PropertyType UUID.
 *EdmApi* | [**get_property_type_id**](docs/EdmApi.md#get_property_type_id) | **GET** /datastore/edm/ids/property/type/{namespace}/{name} | Gets the PropertyType UUID for the given PropertyType FQN.
 *EdmApi* | [**get_property_usage_summary**](docs/EdmApi.md#get_property_usage_summary) | **GET** /datastore/edm/summary/{propertyTypeId} | Get Property Usage Summary for property with given ID.
@@ -135,25 +126,38 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**remove_src_entity_type_from_association_type**](docs/EdmApi.md#remove_src_entity_type_from_association_type) | **DELETE** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Updates the AssociationType src entity types for the given AssociationType UUID by removing the given EntityType UUID.
 *EdmApi* | [**reorder_property_types_in_entity_type**](docs/EdmApi.md#reorder_property_types_in_entity_type) | **PATCH** /datastore/edm/entity/type/{entityTypeId}/property/type | Updates the EntityType definition for the given EntityType UUID by reordering its properties as specified by the provided list.
 *EdmApi* | [**update_entity_data_model**](docs/EdmApi.md#update_entity_data_model) | **PATCH** /datastore/edm/ | Updates the entity data model, including schemas, entity types, association types, and property types.
-*EdmApi* | [**update_entity_set_meta_data**](docs/EdmApi.md#update_entity_set_meta_data) | **PATCH** /datastore/edm/entity/set/{entitySetId} | Updates the EntityType definition for the given EntitySet UUID with the given metadata.
-*EdmApi* | [**update_entity_set_property_metadata**](docs/EdmApi.md#update_entity_set_property_metadata) | **POST** /datastore/edm/entity/set/{entitySetId}/property/type/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 *EdmApi* | [**update_entity_type_meta_data**](docs/EdmApi.md#update_entity_type_meta_data) | **PATCH** /datastore/edm/entity/type/{entityTypeId} | Updates the EntityType definition for the given EntityType UUID with the given metadata.
-*EdmApi* | [**update_entity_type_property_metadata**](docs/EdmApi.md#update_entity_type_property_metadata) | **POST** /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId} | Update EntityType Property metadata
 *EdmApi* | [**update_property_type_meta_data**](docs/EdmApi.md#update_property_type_meta_data) | **PATCH** /datastore/edm/property/type/{propertyTypeId} | Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
 *EdmApi* | [**update_schema**](docs/EdmApi.md#update_schema) | **PATCH** /datastore/edm/schema/{namespace}/{name} | Edits the schema contents for a corresponding namespace and name.
+*EntitySetsEdmApi* | [**add_entity_sets_to_linking_entity_set**](docs/EntitySetsEdmApi.md#add_entity_sets_to_linking_entity_set) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
+*EntitySetsEdmApi* | [**add_entity_sets_to_linking_entity_sets**](docs/EntitySetsEdmApi.md#add_entity_sets_to_linking_entity_sets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
+*EntitySetsEdmApi* | [**create_entity_sets**](docs/EntitySetsEdmApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don\&quot;t exist.
+*EntitySetsEdmApi* | [**delete_entity_set**](docs/EntitySetsEdmApi.md#delete_entity_set) | **DELETE** /datastore/entity-sets/all/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
+*EntitySetsEdmApi* | [**get_all_entity_set_property_metadata**](docs/EntitySetsEdmApi.md#get_all_entity_set_property_metadata) | **GET** /datastore/entity-sets/all/{entitySetId}/metadata | Get all entity set property metadata.
+*EntitySetsEdmApi* | [**get_all_entity_sets**](docs/EntitySetsEdmApi.md#get_all_entity_sets) | **GET** /datastore/entity-sets | Get all EntitySet definitions.
+*EntitySetsEdmApi* | [**get_entity_set**](docs/EntitySetsEdmApi.md#get_entity_set) | **GET** /datastore/entity-sets/all/{entitySetId} | Get the EntitySet definition for the given EntitySet UUID.
+*EntitySetsEdmApi* | [**get_entity_set_id**](docs/EntitySetsEdmApi.md#get_entity_set_id) | **GET** /datastore/entity-sets/ids/{entitySetName} | Gets the EntitySet UUID for the given EntitySet name.
+*EntitySetsEdmApi* | [**get_entity_set_ids**](docs/EntitySetsEdmApi.md#get_entity_set_ids) | **POST** /datastore/entity-sets/ids/ | Get IDs for entity sets given their names.
+*EntitySetsEdmApi* | [**get_entity_set_property_metadata**](docs/EntitySetsEdmApi.md#get_entity_set_property_metadata) | **GET** /datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/ | Get specified property type metadata for an entity set.
+*EntitySetsEdmApi* | [**get_property_metadata_for_entity_sets**](docs/EntitySetsEdmApi.md#get_property_metadata_for_entity_sets) | **POST** /datastore/entity-sets/all/metadata | Get property metadata for entity sets.
+*EntitySetsEdmApi* | [**get_property_types_for_entity_set**](docs/EntitySetsEdmApi.md#get_property_types_for_entity_set) | **GET** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
+*EntitySetsEdmApi* | [**remove_entity_sets_from_linking_entity_set**](docs/EntitySetsEdmApi.md#remove_entity_sets_from_linking_entity_set) | **DELETE** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
+*EntitySetsEdmApi* | [**remove_entity_sets_from_linking_entity_sets**](docs/EntitySetsEdmApi.md#remove_entity_sets_from_linking_entity_sets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
+*EntitySetsEdmApi* | [**update_entity_set_meta_data**](docs/EntitySetsEdmApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
+*EntitySetsEdmApi* | [**update_entity_set_property_metadata**](docs/EntitySetsEdmApi.md#update_entity_set_property_metadata) | **POST** /datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 *OrganizationsApi* | [**add_member**](docs/OrganizationsApi.md#add_member) | **PUT** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
 *OrganizationsApi* | [**add_role_to_user**](docs/OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
-*OrganizationsApi* | [**assemble_entity_sets**](docs/OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets/assemble | Materializes entity sets into the organization database.
+*OrganizationsApi* | [**assemble_entity_sets**](docs/OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entitySets/assemble | Materializes entity sets into the organization database.
 *OrganizationsApi* | [**create_organization_if_not_exists**](docs/OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Create an organisation if it doesn&#39;t exist.
 *OrganizationsApi* | [**create_role**](docs/OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Create role
 *OrganizationsApi* | [**delete_role**](docs/OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 *OrganizationsApi* | [**destroy_organization**](docs/OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organisation from the organizationId
 *OrganizationsApi* | [**get_all_users_of_role**](docs/OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 *OrganizationsApi* | [**get_auto_approved_email_domains**](docs/OrganizationsApi.md#get_auto_approved_email_domains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
-*OrganizationsApi* | [**get_flagged_organization_entity_sets**](docs/OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
+*OrganizationsApi* | [**get_flagged_organization_entity_sets**](docs/OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entitySets | Get the entity sets for an organization for a certain flag
 *OrganizationsApi* | [**get_members**](docs/OrganizationsApi.md#get_members) | **GET** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
 *OrganizationsApi* | [**get_organization**](docs/OrganizationsApi.md#get_organization) | **GET** /datastore/organizations/{organizationId} | Get an organisation from the organizationId
-*OrganizationsApi* | [**get_organization_entity_sets**](docs/OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain filter
+*OrganizationsApi* | [**get_organization_entity_sets**](docs/OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entitySets | Get the entity sets for an organization for a certain filter
 *OrganizationsApi* | [**get_organizations**](docs/OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organisations
 *OrganizationsApi* | [**get_role**](docs/OrganizationsApi.md#get_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 *OrganizationsApi* | [**get_roles**](docs/OrganizationsApi.md#get_roles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
@@ -169,7 +173,7 @@ Class | Method | HTTP request | Description
 *PermissionsApi* | [**update_acl**](docs/PermissionsApi.md#update_acl) | **PATCH** /datastore/permissions | Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
 *PrincipalApi* | [**get_all_users**](docs/PrincipalApi.md#get_all_users) | **GET** /datastore/principals/users/ | Get all users.
 *PrincipalApi* | [**get_current_roles**](docs/PrincipalApi.md#get_current_roles) | **GET** /datastore/principals/roles/current/ | Get current roles.
-*PrincipalApi* | [**get_materialized_view_account**](docs/PrincipalApi.md#get_materialized_view_account) | **GET** /datastore/principals/db | Get the db access credentials.
+*PrincipalApi* | [**get_db_access_credentials**](docs/PrincipalApi.md#get_db_access_credentials) | **GET** /datastore/principals/db | Get the db access credentials.
 *PrincipalApi* | [**get_user**](docs/PrincipalApi.md#get_user) | **GET** /datastore/principals/users/{userId} | Get the user for the given id.
 *PrincipalApi* | [**search_all_users_by_email**](docs/PrincipalApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 *SearchApi* | [**execute_advanced_entity_set_data_query**](docs/SearchApi.md#execute_advanced_entity_set_data_query) | **POST** /datastore/search/advanced/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
@@ -199,13 +203,12 @@ Class | Method | HTTP request | Description
  - [Entity](docs/Entity.md)
  - [EntityKey](docs/EntityKey.md)
  - [EntitySet](docs/EntitySet.md)
+ - [EntitySetPropertyMetaData](docs/EntitySetPropertyMetaData.md)
  - [EntitySetSelection](docs/EntitySetSelection.md)
  - [EntityType](docs/EntityType.md)
- - [EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
  - [IntegrationResults](docs/IntegrationResults.md)
- - [MaterializedViewAccount](docs/MaterializedViewAccount.md)
- - [MetaDataUpdate](docs/MetaDataUpdate.md)
+ - [MetadataUpdate](docs/MetadataUpdate.md)
  - [NeighborEntityDetails](docs/NeighborEntityDetails.md)
  - [NeighborEntityIds](docs/NeighborEntityIds.md)
  - [NeighborSearchFilter](docs/NeighborSearchFilter.md)
@@ -218,6 +221,7 @@ Class | Method | HTTP request | Description
  - [Schema](docs/Schema.md)
  - [SearchDetails](docs/SearchDetails.md)
  - [SecurablePrincipal](docs/SecurablePrincipal.md)
+ - [SmsEntitySetInformation](docs/SmsEntitySetInformation.md)
 
 
 ## Documentation For Authorization

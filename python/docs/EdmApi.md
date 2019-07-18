@@ -9,21 +9,16 @@ Method | HTTP request | Description
 [**add_src_entity_type_to_association_type**](EdmApi.md#add_src_entity_type_to_association_type) | **PUT** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
 [**create_association_type**](EdmApi.md#create_association_type) | **POST** /datastore/edm/association/type/ | Creates a new AssociationType definition, if it doesn\&quot;t exist.
 [**create_empty_schema**](EdmApi.md#create_empty_schema) | **PUT** /datastore/edm/schema/{namespace}/{name} | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-[**create_entity_sets**](EdmApi.md#create_entity_sets) | **POST** /datastore/edm/entity/set | Create new EntitySet definitions if they don\&quot;t exist.
 [**create_entity_type**](EdmApi.md#create_entity_type) | **POST** /datastore/edm/entity/type/ | Creates a new EntityType definition, if it doesn&#39;t exist.
 [**create_property_type**](EdmApi.md#create_property_type) | **POST** /datastore/edm/property/type/ | Creates a new PropertyType definition, if it doesn\&quot;t exist.
 [**create_schema_if_not_exists**](EdmApi.md#create_schema_if_not_exists) | **POST** /datastore/edm/schema | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
 [**delete_association_type**](EdmApi.md#delete_association_type) | **DELETE** /datastore/edm/association/type/{associationTypeId} | Delete the AssociationType definition for the given AssociationType UUID.
-[**delete_entity_set**](EdmApi.md#delete_entity_set) | **DELETE** /datastore/edm/entity/set/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
 [**delete_entity_type**](EdmApi.md#delete_entity_type) | **DELETE** /datastore/edm/entity/type/{entityTypeId} | Deletes the EntityType definition for the given EntityType UUID.
 [**delete_property_type**](EdmApi.md#delete_property_type) | **DELETE** /datastore/edm/property/type/{propertyTypeId} | Deletes the PropertyType definition for the given PropertyType UUID.
 [**force_delete_property_type**](EdmApi.md#force_delete_property_type) | **DELETE** /datastore/edm/property/type/{propertyTypeId}/force | Deletes the PropertyType definition for the given PropertyType UUID regardless of whether or not there is data associated with it.
 [**force_remove_property_type_from_entity_type**](EdmApi.md#force_remove_property_type_from_entity_type) | **DELETE** /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}/force | Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID, regardless of whether or not there is data associated with the entity type.
 [**get_all_association_entity_types**](EdmApi.md#get_all_association_entity_types) | **GET** /datastore/edm/association/type/ | Gets all association EntityType definitions.
 [**get_all_available_association_types**](EdmApi.md#get_all_available_association_types) | **GET** /datastore/edm/association/type/{associationTypeId}/available | Get all available associations for the given AssociationType UUID.
-[**get_all_entity_set_property_metadata**](EdmApi.md#get_all_entity_set_property_metadata) | **GET** /datastore/edm/entity/set/{entitySetId}/property/type | Get all property type metadata for an entity set.
-[**get_all_entity_sets**](EdmApi.md#get_all_entity_sets) | **GET** /datastore/edm/entity/set | Get all EntitySet definitions.
-[**get_all_entity_type_property_metadata**](EdmApi.md#get_all_entity_type_property_metadata) | **GET** /datastore/edm/entity/type/{entityTypeId}/property/type | Get all EntityType propertyType metadata
 [**get_all_entity_types**](EdmApi.md#get_all_entity_types) | **GET** /datastore/edm/entity/type/ | Gets all EntityType definitions.
 [**get_all_property_types**](EdmApi.md#get_all_property_types) | **GET** /datastore/edm/property/type/ | Gets all PropertyType definitions.
 [**get_all_property_types_in_namespace**](EdmApi.md#get_all_property_types_in_namespace) | **GET** /datastore/edm/property/type/namespace/{namespace} | Gets all PropertyType definitions under the given namespace.
@@ -32,13 +27,9 @@ Method | HTTP request | Description
 [**get_association_type_details**](EdmApi.md#get_association_type_details) | **GET** /datastore/edm/association/type/{associationTypeId}/detailed | Get details about the AssociationType for the given AssociationType UUID.
 [**get_entity_data_model**](EdmApi.md#get_entity_data_model) | **GET** /datastore/edm/ | Gets the entity data model, including namespaces, schemas, entity types, association types, and property types.
 [**get_entity_data_model_diff**](EdmApi.md#get_entity_data_model_diff) | **POST** /datastore/edm/diff/ | Gets the changes between the existing entity data model and the entity data model passed in, including schemas, association types, entity types, and property types.
-[**get_entity_set**](EdmApi.md#get_entity_set) | **GET** /datastore/edm/entity/set/{entitySetId} | Get the EntitySet definition for the given EntitySet UUID.
-[**get_entity_set_id**](EdmApi.md#get_entity_set_id) | **GET** /datastore/edm/ids/entity/set/{entitySetName} | Gets the EntitySet UUID for the given EntitySet name.
-[**get_entity_set_property_metadata**](EdmApi.md#get_entity_set_property_metadata) | **GET** /datastore/edm/entity/set/{entitySetId}/property/type/{propertyTypeId}/ | Get specified property type metadata for an entity set.
 [**get_entity_type**](EdmApi.md#get_entity_type) | **GET** /datastore/edm/entity/type/{entityTypeId} | Gets the EntityType definition for the given EntityType UUID.
 [**get_entity_type_hierarchy**](EdmApi.md#get_entity_type_hierarchy) | **PATCH** /datastore/edm/entity/type/{entityTypeId}/hierarchy | Get the EntityType hierarchy for the given EntityType UUID.
 [**get_entity_type_id**](EdmApi.md#get_entity_type_id) | **GET** /datastore/edm/ids/entity/type/{namespace}/{name} | Gets the EntityType UUID for the given EntityType FQN.
-[**get_entity_type_property_metadata**](EdmApi.md#get_entity_type_property_metadata) | **GET** /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId} | Get EntityType propertyType metadata
 [**get_property_type**](EdmApi.md#get_property_type) | **GET** /datastore/edm/property/type/{propertyTypeId} | Gets the PropertyType definition for the given PropertyType UUID.
 [**get_property_type_id**](EdmApi.md#get_property_type_id) | **GET** /datastore/edm/ids/property/type/{namespace}/{name} | Gets the PropertyType UUID for the given PropertyType FQN.
 [**get_property_usage_summary**](EdmApi.md#get_property_usage_summary) | **GET** /datastore/edm/summary/{propertyTypeId} | Get Property Usage Summary for property with given ID.
@@ -50,10 +41,7 @@ Method | HTTP request | Description
 [**remove_src_entity_type_from_association_type**](EdmApi.md#remove_src_entity_type_from_association_type) | **DELETE** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Updates the AssociationType src entity types for the given AssociationType UUID by removing the given EntityType UUID.
 [**reorder_property_types_in_entity_type**](EdmApi.md#reorder_property_types_in_entity_type) | **PATCH** /datastore/edm/entity/type/{entityTypeId}/property/type | Updates the EntityType definition for the given EntityType UUID by reordering its properties as specified by the provided list.
 [**update_entity_data_model**](EdmApi.md#update_entity_data_model) | **PATCH** /datastore/edm/ | Updates the entity data model, including schemas, entity types, association types, and property types.
-[**update_entity_set_meta_data**](EdmApi.md#update_entity_set_meta_data) | **PATCH** /datastore/edm/entity/set/{entitySetId} | Updates the EntityType definition for the given EntitySet UUID with the given metadata.
-[**update_entity_set_property_metadata**](EdmApi.md#update_entity_set_property_metadata) | **POST** /datastore/edm/entity/set/{entitySetId}/property/type/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 [**update_entity_type_meta_data**](EdmApi.md#update_entity_type_meta_data) | **PATCH** /datastore/edm/entity/type/{entityTypeId} | Updates the EntityType definition for the given EntityType UUID with the given metadata.
-[**update_entity_type_property_metadata**](EdmApi.md#update_entity_type_property_metadata) | **POST** /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId} | Update EntityType Property metadata
 [**update_property_type_meta_data**](EdmApi.md#update_property_type_meta_data) | **PATCH** /datastore/edm/property/type/{propertyTypeId} | Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
 [**update_schema**](EdmApi.md#update_schema) | **PATCH** /datastore/edm/schema/{namespace}/{name} | Edits the schema contents for a corresponding namespace and name.
 
@@ -444,88 +432,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_entity_sets**
-> create_entity_sets(entity_set)
-
-Create new EntitySet definitions if they don\"t exist.
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set = NULL # list[EntitySet] | 
-
-try:
-    # Create new EntitySet definitions if they don\"t exist.
-    api_instance.create_entity_sets(entity_set)
-except ApiException as e:
-    print("Exception when calling EdmApi->create_entity_sets: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set = NULL # list[EntitySet] | 
-
-try:
-    # Create new EntitySet definitions if they don\"t exist.
-    api_instance.create_entity_sets(entity_set)
-except ApiException as e:
-    print("Exception when calling EdmApi->create_entity_sets: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_set** | [**list[EntitySet]**](list.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **create_entity_type**
 > create_entity_type(entity_type)
 
@@ -774,88 +680,6 @@ void (empty response body)
 ### Authorization
 
 No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **delete_entity_set**
-> delete_entity_set(entity_set_id)
-
-Deletes the EntitySet definition for the given EntitySet UUID.
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-
-try:
-    # Deletes the EntitySet definition for the given EntitySet UUID.
-    api_instance.delete_entity_set(entity_set_id)
-except ApiException as e:
-    print("Exception when calling EdmApi->delete_entity_set: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-
-try:
-    # Deletes the EntitySet definition for the given EntitySet UUID.
-    api_instance.delete_entity_set(entity_set_id)
-except ApiException as e:
-    print("Exception when calling EdmApi->delete_entity_set: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_set_id** | [**str**](.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
 
 ### HTTP request headers
 
@@ -1310,253 +1134,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**list[AssociationType]**](AssociationType.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_all_entity_set_property_metadata**
-> list[PropertyType] get_all_entity_set_property_metadata(entity_set_id)
-
-Get all property type metadata for an entity set.
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-
-try:
-    # Get all property type metadata for an entity set.
-    api_response = api_instance.get_all_entity_set_property_metadata(entity_set_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_all_entity_set_property_metadata: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-
-try:
-    # Get all property type metadata for an entity set.
-    api_response = api_instance.get_all_entity_set_property_metadata(entity_set_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_all_entity_set_property_metadata: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_set_id** | [**str**](.md)|  | 
-
-### Return type
-
-[**list[PropertyType]**](PropertyType.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_all_entity_sets**
-> list[EntitySet] get_all_entity_sets()
-
-Get all EntitySet definitions.
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-
-try:
-    # Get all EntitySet definitions.
-    api_response = api_instance.get_all_entity_sets()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_all_entity_sets: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-
-try:
-    # Get all EntitySet definitions.
-    api_response = api_instance.get_all_entity_sets()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_all_entity_sets: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**list[EntitySet]**](EntitySet.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_all_entity_type_property_metadata**
-> dict(str, EntityTypePropertyMetadata) get_all_entity_type_property_metadata(entity_type_id)
-
-Get all EntityType propertyType metadata
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_type_id = 'entity_type_id_example' # str | 
-
-try:
-    # Get all EntityType propertyType metadata
-    api_response = api_instance.get_all_entity_type_property_metadata(entity_type_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_all_entity_type_property_metadata: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_type_id = 'entity_type_id_example' # str | 
-
-try:
-    # Get all EntityType propertyType metadata
-    api_response = api_instance.get_all_entity_type_property_metadata(entity_type_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_all_entity_type_property_metadata: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_type_id** | [**str**](.md)|  | 
-
-### Return type
-
-[**dict(str, EntityTypePropertyMetadata)**](EntityTypePropertyMetadata.md)
 
 ### Authorization
 
@@ -2185,261 +1762,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_entity_set**
-> EntitySet get_entity_set(entity_set_id)
-
-Get the EntitySet definition for the given EntitySet UUID.
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-
-try:
-    # Get the EntitySet definition for the given EntitySet UUID.
-    api_response = api_instance.get_entity_set(entity_set_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_entity_set: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-
-try:
-    # Get the EntitySet definition for the given EntitySet UUID.
-    api_response = api_instance.get_entity_set(entity_set_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_entity_set: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_set_id** | [**str**](.md)|  | 
-
-### Return type
-
-[**EntitySet**](EntitySet.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_entity_set_id**
-> str get_entity_set_id(entity_set_name)
-
-Gets the EntitySet UUID for the given EntitySet name.
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_name = 'entity_set_name_example' # str | 
-
-try:
-    # Gets the EntitySet UUID for the given EntitySet name.
-    api_response = api_instance.get_entity_set_id(entity_set_name)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_entity_set_id: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_name = 'entity_set_name_example' # str | 
-
-try:
-    # Gets the EntitySet UUID for the given EntitySet name.
-    api_response = api_instance.get_entity_set_id(entity_set_name)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_entity_set_id: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_set_name** | **str**|  | 
-
-### Return type
-
-**str**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_entity_set_property_metadata**
-> PropertyType get_entity_set_property_metadata(entity_set_id, property_type_id)
-
-Get specified property type metadata for an entity set.
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-property_type_id = 'property_type_id_example' # str | 
-
-try:
-    # Get specified property type metadata for an entity set.
-    api_response = api_instance.get_entity_set_property_metadata(entity_set_id, property_type_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_entity_set_property_metadata: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-property_type_id = 'property_type_id_example' # str | 
-
-try:
-    # Get specified property type metadata for an entity set.
-    api_response = api_instance.get_entity_set_property_metadata(entity_set_id, property_type_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_entity_set_property_metadata: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_set_id** | [**str**](.md)|  | 
- **property_type_id** | [**str**](.md)|  | 
-
-### Return type
-
-[**PropertyType**](PropertyType.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_entity_type**
 > EntityType get_entity_type(entity_type_id)
 
@@ -2644,93 +1966,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **str**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_entity_type_property_metadata**
-> EntityTypePropertyMetadata get_entity_type_property_metadata(entity_type_id, property_type_id)
-
-Get EntityType propertyType metadata
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_type_id = 'entity_type_id_example' # str | 
-property_type_id = 'property_type_id_example' # str | 
-
-try:
-    # Get EntityType propertyType metadata
-    api_response = api_instance.get_entity_type_property_metadata(entity_type_id, property_type_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_entity_type_property_metadata: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_type_id = 'entity_type_id_example' # str | 
-property_type_id = 'property_type_id_example' # str | 
-
-try:
-    # Get EntityType propertyType metadata
-    api_response = api_instance.get_entity_type_property_metadata(entity_type_id, property_type_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EdmApi->get_entity_type_property_metadata: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_type_id** | [**str**](.md)|  | 
- **property_type_id** | [**str**](.md)|  | 
-
-### Return type
-
-[**EntityTypePropertyMetadata**](EntityTypePropertyMetadata.md)
 
 ### Authorization
 
@@ -3673,181 +2908,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_entity_set_meta_data**
-> update_entity_set_meta_data(entity_set_id, meta_data_update)
-
-Updates the EntityType definition for the given EntitySet UUID with the given metadata.
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
-
-try:
-    # Updates the EntityType definition for the given EntitySet UUID with the given metadata.
-    api_instance.update_entity_set_meta_data(entity_set_id, meta_data_update)
-except ApiException as e:
-    print("Exception when calling EdmApi->update_entity_set_meta_data: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
-
-try:
-    # Updates the EntityType definition for the given EntitySet UUID with the given metadata.
-    api_instance.update_entity_set_meta_data(entity_set_id, meta_data_update)
-except ApiException as e:
-    print("Exception when calling EdmApi->update_entity_set_meta_data: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_set_id** | [**str**](.md)|  | 
- **meta_data_update** | [**MetaDataUpdate**](MetaDataUpdate.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **update_entity_set_property_metadata**
-> update_entity_set_property_metadata(entity_set_id, property_type_id, property_type)
-
-Updates the property type metadata for the given entity set.
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-property_type_id = 'property_type_id_example' # str | 
-property_type = openlattice.PropertyType() # PropertyType | 
-
-try:
-    # Updates the property type metadata for the given entity set.
-    api_instance.update_entity_set_property_metadata(entity_set_id, property_type_id, property_type)
-except ApiException as e:
-    print("Exception when calling EdmApi->update_entity_set_property_metadata: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-property_type_id = 'property_type_id_example' # str | 
-property_type = openlattice.PropertyType() # PropertyType | 
-
-try:
-    # Updates the property type metadata for the given entity set.
-    api_instance.update_entity_set_property_metadata(entity_set_id, property_type_id, property_type)
-except ApiException as e:
-    print("Exception when calling EdmApi->update_entity_set_property_metadata: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_set_id** | [**str**](.md)|  | 
- **property_type_id** | [**str**](.md)|  | 
- **property_type** | [**PropertyType**](PropertyType.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **update_entity_type_meta_data**
-> update_entity_type_meta_data(entity_type_id, meta_data_update)
+> update_entity_type_meta_data(entity_type_id, metadata_update)
 
 Updates the EntityType definition for the given EntityType UUID with the given metadata.
 
@@ -3872,11 +2934,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 entity_type_id = 'entity_type_id_example' # str | 
-meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
+metadata_update = openlattice.MetadataUpdate() # MetadataUpdate | 
 
 try:
     # Updates the EntityType definition for the given EntityType UUID with the given metadata.
-    api_instance.update_entity_type_meta_data(entity_type_id, meta_data_update)
+    api_instance.update_entity_type_meta_data(entity_type_id, metadata_update)
 except ApiException as e:
     print("Exception when calling EdmApi->update_entity_type_meta_data: %s\n" % e)
 ```
@@ -3900,11 +2962,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 entity_type_id = 'entity_type_id_example' # str | 
-meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
+metadata_update = openlattice.MetadataUpdate() # MetadataUpdate | 
 
 try:
     # Updates the EntityType definition for the given EntityType UUID with the given metadata.
-    api_instance.update_entity_type_meta_data(entity_type_id, meta_data_update)
+    api_instance.update_entity_type_meta_data(entity_type_id, metadata_update)
 except ApiException as e:
     print("Exception when calling EdmApi->update_entity_type_meta_data: %s\n" % e)
 ```
@@ -3914,95 +2976,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_type_id** | [**str**](.md)|  | 
- **meta_data_update** | [**MetaDataUpdate**](MetaDataUpdate.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **update_entity_type_property_metadata**
-> update_entity_type_property_metadata(entity_type_id, property_type_id, meta_data_update)
-
-Update EntityType Property metadata
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_type_id = 'entity_type_id_example' # str | 
-property_type_id = 'property_type_id_example' # str | 
-meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
-
-try:
-    # Update EntityType Property metadata
-    api_instance.update_entity_type_property_metadata(entity_type_id, property_type_id, meta_data_update)
-except ApiException as e:
-    print("Exception when calling EdmApi->update_entity_type_property_metadata: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
-entity_type_id = 'entity_type_id_example' # str | 
-property_type_id = 'property_type_id_example' # str | 
-meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
-
-try:
-    # Update EntityType Property metadata
-    api_instance.update_entity_type_property_metadata(entity_type_id, property_type_id, meta_data_update)
-except ApiException as e:
-    print("Exception when calling EdmApi->update_entity_type_property_metadata: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entity_type_id** | [**str**](.md)|  | 
- **property_type_id** | [**str**](.md)|  | 
- **meta_data_update** | [**MetaDataUpdate**](MetaDataUpdate.md)|  | 
+ **metadata_update** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
 
 ### Return type
 
@@ -4020,7 +2994,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_property_type_meta_data**
-> update_property_type_meta_data(property_type_id, meta_data_update)
+> update_property_type_meta_data(property_type_id, metadata_update)
 
 Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
 
@@ -4045,11 +3019,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 property_type_id = 'property_type_id_example' # str | 
-meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
+metadata_update = openlattice.MetadataUpdate() # MetadataUpdate | 
 
 try:
     # Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
-    api_instance.update_property_type_meta_data(property_type_id, meta_data_update)
+    api_instance.update_property_type_meta_data(property_type_id, metadata_update)
 except ApiException as e:
     print("Exception when calling EdmApi->update_property_type_meta_data: %s\n" % e)
 ```
@@ -4073,11 +3047,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 property_type_id = 'property_type_id_example' # str | 
-meta_data_update = openlattice.MetaDataUpdate() # MetaDataUpdate | 
+metadata_update = openlattice.MetadataUpdate() # MetadataUpdate | 
 
 try:
     # Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
-    api_instance.update_property_type_meta_data(property_type_id, meta_data_update)
+    api_instance.update_property_type_meta_data(property_type_id, metadata_update)
 except ApiException as e:
     print("Exception when calling EdmApi->update_property_type_meta_data: %s\n" % e)
 ```
@@ -4087,7 +3061,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **property_type_id** | [**str**](.md)|  | 
- **meta_data_update** | [**MetaDataUpdate**](MetaDataUpdate.md)|  | 
+ **metadata_update** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
 
 ### Return type
 
