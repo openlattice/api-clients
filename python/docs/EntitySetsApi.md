@@ -1,25 +1,25 @@
-# openlattice.EntitySetsEdmApi
+# openlattice.EntitySetsApi
 
 All URIs are relative to *https://api.openlattice.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_entity_sets_to_linking_entity_set**](EntitySetsEdmApi.md#add_entity_sets_to_linking_entity_set) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
-[**add_entity_sets_to_linking_entity_sets**](EntitySetsEdmApi.md#add_entity_sets_to_linking_entity_sets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
-[**create_entity_sets**](EntitySetsEdmApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don\&quot;t exist.
-[**delete_entity_set**](EntitySetsEdmApi.md#delete_entity_set) | **DELETE** /datastore/entity-sets/all/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
-[**get_all_entity_set_property_metadata**](EntitySetsEdmApi.md#get_all_entity_set_property_metadata) | **GET** /datastore/entity-sets/all/{entitySetId}/metadata | Get all entity set property metadata.
-[**get_all_entity_sets**](EntitySetsEdmApi.md#get_all_entity_sets) | **GET** /datastore/entity-sets | Get all EntitySet definitions.
-[**get_entity_set**](EntitySetsEdmApi.md#get_entity_set) | **GET** /datastore/entity-sets/all/{entitySetId} | Get the EntitySet definition for the given EntitySet UUID.
-[**get_entity_set_id**](EntitySetsEdmApi.md#get_entity_set_id) | **GET** /datastore/entity-sets/ids/{entitySetName} | Gets the EntitySet UUID for the given EntitySet name.
-[**get_entity_set_ids**](EntitySetsEdmApi.md#get_entity_set_ids) | **POST** /datastore/entity-sets/ids/ | Get IDs for entity sets given their names.
-[**get_entity_set_property_metadata**](EntitySetsEdmApi.md#get_entity_set_property_metadata) | **GET** /datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/ | Get specified property type metadata for an entity set.
-[**get_property_metadata_for_entity_sets**](EntitySetsEdmApi.md#get_property_metadata_for_entity_sets) | **POST** /datastore/entity-sets/all/metadata | Get property metadata for entity sets.
-[**get_property_types_for_entity_set**](EntitySetsEdmApi.md#get_property_types_for_entity_set) | **GET** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
-[**remove_entity_sets_from_linking_entity_set**](EntitySetsEdmApi.md#remove_entity_sets_from_linking_entity_set) | **DELETE** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
-[**remove_entity_sets_from_linking_entity_sets**](EntitySetsEdmApi.md#remove_entity_sets_from_linking_entity_sets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
-[**update_entity_set_meta_data**](EntitySetsEdmApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
-[**update_entity_set_property_metadata**](EntitySetsEdmApi.md#update_entity_set_property_metadata) | **POST** /datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
+[**add_entity_sets_to_linking_entity_set**](EntitySetsApi.md#add_entity_sets_to_linking_entity_set) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
+[**add_entity_sets_to_linking_entity_sets**](EntitySetsApi.md#add_entity_sets_to_linking_entity_sets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
+[**create_entity_sets**](EntitySetsApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don\&quot;t exist.
+[**delete_entity_set**](EntitySetsApi.md#delete_entity_set) | **DELETE** /datastore/entity-sets/all/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
+[**get_all_entity_set_property_metadata**](EntitySetsApi.md#get_all_entity_set_property_metadata) | **GET** /datastore/entity-sets/all/{entitySetId}/metadata | Get all entity set property metadata.
+[**get_all_entity_sets**](EntitySetsApi.md#get_all_entity_sets) | **GET** /datastore/entity-sets | Get all EntitySet definitions.
+[**get_entity_set**](EntitySetsApi.md#get_entity_set) | **GET** /datastore/entity-sets/all/{entitySetId} | Get the EntitySet definition for the given EntitySet UUID.
+[**get_entity_set_id**](EntitySetsApi.md#get_entity_set_id) | **GET** /datastore/entity-sets/ids/{entitySetName} | Gets the EntitySet UUID for the given EntitySet name.
+[**get_entity_set_ids**](EntitySetsApi.md#get_entity_set_ids) | **POST** /datastore/entity-sets/ids/ | Get IDs for entity sets given their names.
+[**get_entity_set_property_metadata**](EntitySetsApi.md#get_entity_set_property_metadata) | **GET** /datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/ | Get specified property type metadata for an entity set.
+[**get_property_metadata_for_entity_sets**](EntitySetsApi.md#get_property_metadata_for_entity_sets) | **POST** /datastore/entity-sets/all/metadata | Get property metadata for entity sets.
+[**get_property_types_for_entity_set**](EntitySetsApi.md#get_property_types_for_entity_set) | **GET** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
+[**remove_entity_sets_from_linking_entity_set**](EntitySetsApi.md#remove_entity_sets_from_linking_entity_set) | **DELETE** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
+[**remove_entity_sets_from_linking_entity_sets**](EntitySetsApi.md#remove_entity_sets_from_linking_entity_sets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
+[**update_entity_set_meta_data**](EntitySetsApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
+[**update_entity_set_property_metadata**](EntitySetsApi.md#update_entity_set_property_metadata) | **POST** /datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 
 
 # **add_entity_sets_to_linking_entity_set**
@@ -46,7 +46,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 linking_entity_set_id = 'linking_entity_set_id_example' # str | 
 request_body = NULL # list[str] |  (optional)
 
@@ -55,7 +55,7 @@ try:
     api_response = api_instance.add_entity_sets_to_linking_entity_set(linking_entity_set_id, request_body=request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->add_entity_sets_to_linking_entity_set: %s\n" % e)
+    print("Exception when calling EntitySetsApi->add_entity_sets_to_linking_entity_set: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -75,7 +75,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 linking_entity_set_id = 'linking_entity_set_id_example' # str | 
 request_body = NULL # list[str] |  (optional)
 
@@ -84,7 +84,7 @@ try:
     api_response = api_instance.add_entity_sets_to_linking_entity_set(linking_entity_set_id, request_body=request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->add_entity_sets_to_linking_entity_set: %s\n" % e)
+    print("Exception when calling EntitySetsApi->add_entity_sets_to_linking_entity_set: %s\n" % e)
 ```
 
 ### Parameters
@@ -133,7 +133,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 linking_entity_set_id = 'linking_entity_set_id_example' # str | 
 request_body = NULL # dict(str, list[str]) | 
 
@@ -142,7 +142,7 @@ try:
     api_response = api_instance.add_entity_sets_to_linking_entity_sets(linking_entity_set_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->add_entity_sets_to_linking_entity_sets: %s\n" % e)
+    print("Exception when calling EntitySetsApi->add_entity_sets_to_linking_entity_sets: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -162,7 +162,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 linking_entity_set_id = 'linking_entity_set_id_example' # str | 
 request_body = NULL # dict(str, list[str]) | 
 
@@ -171,7 +171,7 @@ try:
     api_response = api_instance.add_entity_sets_to_linking_entity_sets(linking_entity_set_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->add_entity_sets_to_linking_entity_sets: %s\n" % e)
+    print("Exception when calling EntitySetsApi->add_entity_sets_to_linking_entity_sets: %s\n" % e)
 ```
 
 ### Parameters
@@ -220,14 +220,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set = NULL # list[EntitySet] | 
 
 try:
     # Create new EntitySet definitions if they don\"t exist.
     api_instance.create_entity_sets(entity_set)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->create_entity_sets: %s\n" % e)
+    print("Exception when calling EntitySetsApi->create_entity_sets: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -247,14 +247,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set = NULL # list[EntitySet] | 
 
 try:
     # Create new EntitySet definitions if they don\"t exist.
     api_instance.create_entity_sets(entity_set)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->create_entity_sets: %s\n" % e)
+    print("Exception when calling EntitySetsApi->create_entity_sets: %s\n" % e)
 ```
 
 ### Parameters
@@ -302,14 +302,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 
 try:
     # Deletes the EntitySet definition for the given EntitySet UUID.
     api_instance.delete_entity_set(entity_set_id)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->delete_entity_set: %s\n" % e)
+    print("Exception when calling EntitySetsApi->delete_entity_set: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -329,14 +329,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 
 try:
     # Deletes the EntitySet definition for the given EntitySet UUID.
     api_instance.delete_entity_set(entity_set_id)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->delete_entity_set: %s\n" % e)
+    print("Exception when calling EntitySetsApi->delete_entity_set: %s\n" % e)
 ```
 
 ### Parameters
@@ -384,7 +384,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 
 try:
@@ -392,7 +392,7 @@ try:
     api_response = api_instance.get_all_entity_set_property_metadata(entity_set_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_all_entity_set_property_metadata: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_all_entity_set_property_metadata: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -412,7 +412,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 
 try:
@@ -420,7 +420,7 @@ try:
     api_response = api_instance.get_all_entity_set_property_metadata(entity_set_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_all_entity_set_property_metadata: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_all_entity_set_property_metadata: %s\n" % e)
 ```
 
 ### Parameters
@@ -468,14 +468,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 
 try:
     # Get all EntitySet definitions.
     api_response = api_instance.get_all_entity_sets()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_all_entity_sets: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_all_entity_sets: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -495,14 +495,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 
 try:
     # Get all EntitySet definitions.
     api_response = api_instance.get_all_entity_sets()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_all_entity_sets: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_all_entity_sets: %s\n" % e)
 ```
 
 ### Parameters
@@ -547,7 +547,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 
 try:
@@ -555,7 +555,7 @@ try:
     api_response = api_instance.get_entity_set(entity_set_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_entity_set: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_entity_set: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -575,7 +575,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 
 try:
@@ -583,7 +583,7 @@ try:
     api_response = api_instance.get_entity_set(entity_set_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_entity_set: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_entity_set: %s\n" % e)
 ```
 
 ### Parameters
@@ -631,7 +631,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_name = 'entity_set_name_example' # str | 
 
 try:
@@ -639,7 +639,7 @@ try:
     api_response = api_instance.get_entity_set_id(entity_set_name)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_entity_set_id: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_entity_set_id: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -659,7 +659,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_name = 'entity_set_name_example' # str | 
 
 try:
@@ -667,7 +667,7 @@ try:
     api_response = api_instance.get_entity_set_id(entity_set_name)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_entity_set_id: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_entity_set_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -715,7 +715,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 request_body = NULL # list[str] |  (optional)
 
 try:
@@ -723,7 +723,7 @@ try:
     api_response = api_instance.get_entity_set_ids(request_body=request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_entity_set_ids: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_entity_set_ids: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -743,7 +743,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 request_body = NULL # list[str] |  (optional)
 
 try:
@@ -751,7 +751,7 @@ try:
     api_response = api_instance.get_entity_set_ids(request_body=request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_entity_set_ids: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_entity_set_ids: %s\n" % e)
 ```
 
 ### Parameters
@@ -799,7 +799,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 property_type_id = 'property_type_id_example' # str | 
 
@@ -808,7 +808,7 @@ try:
     api_response = api_instance.get_entity_set_property_metadata(entity_set_id, property_type_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_entity_set_property_metadata: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_entity_set_property_metadata: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -828,7 +828,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 property_type_id = 'property_type_id_example' # str | 
 
@@ -837,7 +837,7 @@ try:
     api_response = api_instance.get_entity_set_property_metadata(entity_set_id, property_type_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_entity_set_property_metadata: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_entity_set_property_metadata: %s\n" % e)
 ```
 
 ### Parameters
@@ -886,7 +886,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 request_body = NULL # list[str] |  (optional)
 
 try:
@@ -894,7 +894,7 @@ try:
     api_response = api_instance.get_property_metadata_for_entity_sets(request_body=request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_property_metadata_for_entity_sets: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_property_metadata_for_entity_sets: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -914,7 +914,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 request_body = NULL # list[str] |  (optional)
 
 try:
@@ -922,7 +922,7 @@ try:
     api_response = api_instance.get_property_metadata_for_entity_sets(request_body=request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_property_metadata_for_entity_sets: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_property_metadata_for_entity_sets: %s\n" % e)
 ```
 
 ### Parameters
@@ -970,7 +970,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 
 try:
@@ -978,7 +978,7 @@ try:
     api_response = api_instance.get_property_types_for_entity_set(entity_set_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_property_types_for_entity_set: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_property_types_for_entity_set: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -998,7 +998,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 
 try:
@@ -1006,7 +1006,7 @@ try:
     api_response = api_instance.get_property_types_for_entity_set(entity_set_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->get_property_types_for_entity_set: %s\n" % e)
+    print("Exception when calling EntitySetsApi->get_property_types_for_entity_set: %s\n" % e)
 ```
 
 ### Parameters
@@ -1054,7 +1054,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 linking_entity_set_id = 'linking_entity_set_id_example' # str | 
 request_body = NULL # list[str] |  (optional)
 
@@ -1063,7 +1063,7 @@ try:
     api_response = api_instance.remove_entity_sets_from_linking_entity_set(linking_entity_set_id, request_body=request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->remove_entity_sets_from_linking_entity_set: %s\n" % e)
+    print("Exception when calling EntitySetsApi->remove_entity_sets_from_linking_entity_set: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -1083,7 +1083,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 linking_entity_set_id = 'linking_entity_set_id_example' # str | 
 request_body = NULL # list[str] |  (optional)
 
@@ -1092,7 +1092,7 @@ try:
     api_response = api_instance.remove_entity_sets_from_linking_entity_set(linking_entity_set_id, request_body=request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->remove_entity_sets_from_linking_entity_set: %s\n" % e)
+    print("Exception when calling EntitySetsApi->remove_entity_sets_from_linking_entity_set: %s\n" % e)
 ```
 
 ### Parameters
@@ -1141,7 +1141,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 linking_entity_set_id = 'linking_entity_set_id_example' # str | 
 request_body = NULL # dict(str, list[str]) | 
 
@@ -1150,7 +1150,7 @@ try:
     api_response = api_instance.remove_entity_sets_from_linking_entity_sets(linking_entity_set_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->remove_entity_sets_from_linking_entity_sets: %s\n" % e)
+    print("Exception when calling EntitySetsApi->remove_entity_sets_from_linking_entity_sets: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -1170,7 +1170,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 linking_entity_set_id = 'linking_entity_set_id_example' # str | 
 request_body = NULL # dict(str, list[str]) | 
 
@@ -1179,7 +1179,7 @@ try:
     api_response = api_instance.remove_entity_sets_from_linking_entity_sets(linking_entity_set_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->remove_entity_sets_from_linking_entity_sets: %s\n" % e)
+    print("Exception when calling EntitySetsApi->remove_entity_sets_from_linking_entity_sets: %s\n" % e)
 ```
 
 ### Parameters
@@ -1228,7 +1228,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 metadata_update = openlattice.MetadataUpdate() # MetadataUpdate | 
 
@@ -1237,7 +1237,7 @@ try:
     api_response = api_instance.update_entity_set_meta_data(entity_set_id, metadata_update)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->update_entity_set_meta_data: %s\n" % e)
+    print("Exception when calling EntitySetsApi->update_entity_set_meta_data: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -1257,7 +1257,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 metadata_update = openlattice.MetadataUpdate() # MetadataUpdate | 
 
@@ -1266,7 +1266,7 @@ try:
     api_response = api_instance.update_entity_set_meta_data(entity_set_id, metadata_update)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->update_entity_set_meta_data: %s\n" % e)
+    print("Exception when calling EntitySetsApi->update_entity_set_meta_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -1315,7 +1315,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 property_type_id = 'property_type_id_example' # str | 
 metadata_update = openlattice.MetadataUpdate() # MetadataUpdate | 
@@ -1324,7 +1324,7 @@ try:
     # Updates the property type metadata for the given entity set.
     api_instance.update_entity_set_property_metadata(entity_set_id, property_type_id, metadata_update)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->update_entity_set_property_metadata: %s\n" % e)
+    print("Exception when calling EntitySetsApi->update_entity_set_property_metadata: %s\n" % e)
 ```
 
 * Api Key Authentication (openlattice_auth):
@@ -1344,7 +1344,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.EntitySetsEdmApi(openlattice.ApiClient(configuration))
+api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set_id = 'entity_set_id_example' # str | 
 property_type_id = 'property_type_id_example' # str | 
 metadata_update = openlattice.MetadataUpdate() # MetadataUpdate | 
@@ -1353,7 +1353,7 @@ try:
     # Updates the property type metadata for the given entity set.
     api_instance.update_entity_set_property_metadata(entity_set_id, property_type_id, metadata_update)
 except ApiException as e:
-    print("Exception when calling EntitySetsEdmApi->update_entity_set_property_metadata: %s\n" % e)
+    print("Exception when calling EntitySetsApi->update_entity_set_property_metadata: %s\n" % e)
 ```
 
 ### Parameters

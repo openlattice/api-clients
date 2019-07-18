@@ -16,15 +16,15 @@ from __future__ import absolute_import
 import unittest
 
 import openlattice
-from openlattice.api.entity_sets_edm_api import EntitySetsEdmApi  # noqa: E501
+from openlattice.api.entity_sets_api import EntitySetsApi  # noqa: E501
 from openlattice.rest import ApiException
 
 
-class TestEntitySetsEdmApi(unittest.TestCase):
-    """EntitySetsEdmApi unit test stubs"""
+class TestEntitySetsApi(unittest.TestCase):
+    """EntitySetsApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice.api.entity_sets_edm_api.EntitySetsEdmApi()  # noqa: E501
+        self.api = openlattice.api.entity_sets_api.EntitySetsApi()  # noqa: E501
 
     def tearDown(self):
         pass
