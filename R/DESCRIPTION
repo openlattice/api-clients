@@ -1,12 +1,14 @@
 Package: openlattice
 Title: R Package Client for OpenLattice API
 Version: 0.1
-Authors@R: person("OpenAPI Generator community", email = "team@openapitools.org", role = c("aut", "cre"))
-Description: OpenLattice API
-Depends: R (>= 3.3.3)
+Authors@R: person("Joke Durnez", email = "joke@openlattice.com", role = c("aut", "cre"))
+Description: API-clients for the OpenLattice data platform.
+Depends: R (>= 3.3.0)
 Encoding: UTF-8
-License: Unlicense
 LazyData: true
 Suggests: testthat
-Imports: jsonlite, httr, R6
-RoxygenNote: 6.0.1.9000
+Imports: jsonlite, R6, httr, openssl
+RoxygenNote: 6.1.1
+Author: Joke Durnez [aut, cre]
+Maintainer: Joke Durnez <joke@openlattice.com>
+License: Apache License 2.0 | file LICENSE
