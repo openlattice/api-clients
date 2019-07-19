@@ -191,7 +191,7 @@
 EdmApi <- R6::R6Class(
   'EdmApi',
   public = list(
-    userAgent = "OpenAPI-Generator/0.1/r",
+    userAgent = "OpenAPI-Generator/0.1.0/r",
     apiClient = NULL,
     initialize = function(apiClient){
       if (!missing(apiClient)) {
