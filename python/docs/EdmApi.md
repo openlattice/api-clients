@@ -9,9 +9,9 @@ Method | HTTP request | Description
 [**add_entity_sets_to_linking_entity_sets**](EdmApi.md#add_entity_sets_to_linking_entity_sets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
 [**add_property_type_to_entity_type**](EdmApi.md#add_property_type_to_entity_type) | **PUT** /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId} | Updates the EntityType definition for the given EntityType UUID by adding the given PropertyType UUID.
 [**add_src_entity_type_to_association_type**](EdmApi.md#add_src_entity_type_to_association_type) | **PUT** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
-[**create_association_type**](EdmApi.md#create_association_type) | **POST** /datastore/edm/association/type/ | Creates a new AssociationType definition, if it doesn\&quot;t exist.
+[**create_association_type**](EdmApi.md#create_association_type) | **POST** /datastore/edm/association/type/ | Creates a new AssociationType definition, if it doesn&#39;t exist.
 [**create_empty_schema**](EdmApi.md#create_empty_schema) | **PUT** /datastore/edm/schema/{namespace}/{name} | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-[**create_entity_sets**](EdmApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don\&quot;t exist.
+[**create_entity_sets**](EdmApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don&#39;t exist.
 [**create_entity_type**](EdmApi.md#create_entity_type) | **POST** /datastore/edm/entity/type/ | Creates a new EntityType definition, if it doesn&#39;t exist.
 [**create_property_type**](EdmApi.md#create_property_type) | **POST** /datastore/edm/property/type/ | Creates a new PropertyType definition, if it doesn\&quot;t exist.
 [**create_schema_if_not_exists**](EdmApi.md#create_schema_if_not_exists) | **POST** /datastore/edm/schema | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
@@ -55,7 +55,7 @@ Method | HTTP request | Description
 [**remove_src_entity_type_from_association_type**](EdmApi.md#remove_src_entity_type_from_association_type) | **DELETE** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Updates the AssociationType src entity types for the given AssociationType UUID by removing the given EntityType UUID.
 [**reorder_property_types_in_entity_type**](EdmApi.md#reorder_property_types_in_entity_type) | **PATCH** /datastore/edm/entity/type/{entityTypeId}/property/type | Updates the EntityType definition for the given EntityType UUID by reordering its properties as specified by the provided list.
 [**update_entity_data_model**](EdmApi.md#update_entity_data_model) | **PATCH** /datastore/edm/ | Updates the entity data model, including schemas, entity types, association types, and property types.
-[**update_entity_set_meta_data**](EdmApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
+[**update_entity_set_meta_data**](EdmApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 [**update_entity_set_property_metadata**](EdmApi.md#update_entity_set_property_metadata) | **POST** /datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 [**update_entity_type_meta_data**](EdmApi.md#update_entity_type_meta_data) | **PATCH** /datastore/edm/entity/type/{entityTypeId} | Updates the EntityType definition for the given EntityType UUID with the given metadata.
 [**update_property_type_meta_data**](EdmApi.md#update_property_type_meta_data) | **PATCH** /datastore/edm/property/type/{propertyTypeId} | Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
@@ -494,7 +494,7 @@ void (empty response body)
 # **create_association_type**
 > create_association_type(association_type)
 
-Creates a new AssociationType definition, if it doesn\"t exist.
+Creates a new AssociationType definition, if it doesn't exist.
 
 ### Example
 
@@ -510,7 +510,7 @@ api_instance = openlattice.EdmApi()
 association_type = NULL # list[AssociationType] | 
 
 try:
-    # Creates a new AssociationType definition, if it doesn\"t exist.
+    # Creates a new AssociationType definition, if it doesn't exist.
     api_instance.create_association_type(association_type)
 except ApiException as e:
     print("Exception when calling EdmApi->create_association_type: %s\n" % e)
@@ -625,7 +625,7 @@ void (empty response body)
 # **create_entity_sets**
 > create_entity_sets(entity_set)
 
-Create new EntitySet definitions if they don\"t exist.
+Create new EntitySet definitions if they don't exist.
 
 ### Example
 
@@ -650,7 +650,7 @@ api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 entity_set = NULL # list[EntitySet] | 
 
 try:
-    # Create new EntitySet definitions if they don\"t exist.
+    # Create new EntitySet definitions if they don't exist.
     api_instance.create_entity_sets(entity_set)
 except ApiException as e:
     print("Exception when calling EdmApi->create_entity_sets: %s\n" % e)
@@ -677,7 +677,7 @@ api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 entity_set = NULL # list[EntitySet] | 
 
 try:
-    # Create new EntitySet definitions if they don\"t exist.
+    # Create new EntitySet definitions if they don't exist.
     api_instance.create_entity_sets(entity_set)
 except ApiException as e:
     print("Exception when calling EdmApi->create_entity_sets: %s\n" % e)

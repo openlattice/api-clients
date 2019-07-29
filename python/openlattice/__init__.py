@@ -56,6 +56,7 @@ from openlattice.models.entity_set_selection import EntitySetSelection
 from openlattice.models.entity_type import EntityType
 from openlattice.models.full_qualified_name import FullQualifiedName
 from openlattice.models.integration_results import IntegrationResults
+from openlattice.models.materialized_view_account import MaterializedViewAccount
 from openlattice.models.metadata_update import MetadataUpdate
 from openlattice.models.neighbor_entity_details import NeighborEntityDetails
 from openlattice.models.neighbor_entity_ids import NeighborEntityIds

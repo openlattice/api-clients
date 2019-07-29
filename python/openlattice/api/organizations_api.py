@@ -247,8 +247,8 @@ class OrganizationsApi(object):
 
         :param async_req bool
         :param str organization_id: (required)
-        :param list[str] request_body: (required)
-        :return: list[dict(str, list[str])]
+        :param dict(str, int) request_body: (required)
+        :return: dict(str, list[str])
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -269,8 +269,8 @@ class OrganizationsApi(object):
 
         :param async_req bool
         :param str organization_id: (required)
-        :param list[str] request_body: (required)
-        :return: list[dict(str, list[str])]
+        :param dict(str, int) request_body: (required)
+        :return: dict(str, list[str])
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -328,14 +328,14 @@ class OrganizationsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/organizations/{organizationId}/entitySets/assemble', 'POST',
+            '/datastore/organizations/{organizationId}/entity-sets/assemble', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[dict(str, list[str])]',  # noqa: E501
+            response_type='dict(str, list[str])',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -344,7 +344,7 @@ class OrganizationsApi(object):
             collection_formats=collection_formats)
 
     def create_organization_if_not_exists(self, organization, **kwargs):  # noqa: E501
-        """Create an organisation if it doesn't exist.  # noqa: E501
+        """Create an organization if it doesn't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -365,7 +365,7 @@ class OrganizationsApi(object):
             return data
 
     def create_organization_if_not_exists_with_http_info(self, organization, **kwargs):  # noqa: E501
-        """Create an organisation if it doesn't exist.  # noqa: E501
+        """Create an organization if it doesn't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -638,7 +638,7 @@ class OrganizationsApi(object):
             collection_formats=collection_formats)
 
     def destroy_organization(self, organization_id, **kwargs):  # noqa: E501
-        """Remove an organisation from the organizationId  # noqa: E501
+        """Remove an organization from the organizationId  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -659,7 +659,7 @@ class OrganizationsApi(object):
             return data
 
     def destroy_organization_with_http_info(self, organization_id, **kwargs):  # noqa: E501
-        """Remove an organisation from the organizationId  # noqa: E501
+        """Remove an organization from the organizationId  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1014,7 +1014,7 @@ class OrganizationsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/organizations/{organizationId}/entitySets', 'POST',
+            '/datastore/organizations/{organizationId}/entity-sets', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1124,7 +1124,7 @@ class OrganizationsApi(object):
             collection_formats=collection_formats)
 
     def get_organization(self, organization_id, **kwargs):  # noqa: E501
-        """Get an organisation from the organizationId  # noqa: E501
+        """Get an organization from the organizationId  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1145,7 +1145,7 @@ class OrganizationsApi(object):
             return data
 
     def get_organization_with_http_info(self, organization_id, **kwargs):  # noqa: E501
-        """Get an organisation from the organizationId  # noqa: E501
+        """Get an organization from the organizationId  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1296,7 +1296,7 @@ class OrganizationsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/organizations/{organizationId}/entitySets', 'GET',
+            '/datastore/organizations/{organizationId}/entity-sets', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1312,7 +1312,7 @@ class OrganizationsApi(object):
             collection_formats=collection_formats)
 
     def get_organizations(self, **kwargs):  # noqa: E501
-        """Get all organisations  # noqa: E501
+        """Get all organizations  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1332,7 +1332,7 @@ class OrganizationsApi(object):
             return data
 
     def get_organizations_with_http_info(self, **kwargs):  # noqa: E501
-        """Get all organisations  # noqa: E501
+        """Get all organizations  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2002,7 +2002,7 @@ class OrganizationsApi(object):
             collection_formats=collection_formats)
 
     def update_description(self, organization_id, body, **kwargs):  # noqa: E501
-        """Update the organisation description  # noqa: E501
+        """Update the organization description  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2024,7 +2024,7 @@ class OrganizationsApi(object):
             return data
 
     def update_description_with_http_info(self, organization_id, body, **kwargs):  # noqa: E501
-        """Update the organisation description  # noqa: E501
+        """Update the organization description  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2324,7 +2324,7 @@ class OrganizationsApi(object):
             collection_formats=collection_formats)
 
     def update_title(self, organization_id, body, **kwargs):  # noqa: E501
-        """Update the organisation title  # noqa: E501
+        """Update the organization title  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2346,7 +2346,7 @@ class OrganizationsApi(object):
             return data
 
     def update_title_with_http_info(self, organization_id, body, **kwargs):  # noqa: E501
-        """Update the organisation title  # noqa: E501
+        """Update the organization title  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

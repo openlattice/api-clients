@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_entity_sets_to_linking_entity_set**](EntitySetsApi.md#add_entity_sets_to_linking_entity_set) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
 [**add_entity_sets_to_linking_entity_sets**](EntitySetsApi.md#add_entity_sets_to_linking_entity_sets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
-[**create_entity_sets**](EntitySetsApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don\&quot;t exist.
+[**create_entity_sets**](EntitySetsApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don&#39;t exist.
 [**delete_entity_set**](EntitySetsApi.md#delete_entity_set) | **DELETE** /datastore/entity-sets/all/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
 [**get_all_entity_set_property_metadata**](EntitySetsApi.md#get_all_entity_set_property_metadata) | **GET** /datastore/entity-sets/all/{entitySetId}/metadata | Get all entity set property metadata.
 [**get_all_entity_sets**](EntitySetsApi.md#get_all_entity_sets) | **GET** /datastore/entity-sets | Get all EntitySet definitions.
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**get_property_types_for_entity_set**](EntitySetsApi.md#get_property_types_for_entity_set) | **GET** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
 [**remove_entity_sets_from_linking_entity_set**](EntitySetsApi.md#remove_entity_sets_from_linking_entity_set) | **DELETE** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
 [**remove_entity_sets_from_linking_entity_sets**](EntitySetsApi.md#remove_entity_sets_from_linking_entity_sets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
-[**update_entity_set_meta_data**](EntitySetsApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
+[**update_entity_set_meta_data**](EntitySetsApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 [**update_entity_set_property_metadata**](EntitySetsApi.md#update_entity_set_property_metadata) | **POST** /datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 
 
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 # **create_entity_sets**
 > create_entity_sets(entity_set)
 
-Create new EntitySet definitions if they don\"t exist.
+Create new EntitySet definitions if they don't exist.
 
 ### Example
 
@@ -224,7 +224,7 @@ api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set = NULL # list[EntitySet] | 
 
 try:
-    # Create new EntitySet definitions if they don\"t exist.
+    # Create new EntitySet definitions if they don't exist.
     api_instance.create_entity_sets(entity_set)
 except ApiException as e:
     print("Exception when calling EntitySetsApi->create_entity_sets: %s\n" % e)
@@ -251,7 +251,7 @@ api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set = NULL # list[EntitySet] | 
 
 try:
-    # Create new EntitySet definitions if they don\"t exist.
+    # Create new EntitySet definitions if they don't exist.
     api_instance.create_entity_sets(entity_set)
 except ApiException as e:
     print("Exception when calling EntitySetsApi->create_entity_sets: %s\n" % e)

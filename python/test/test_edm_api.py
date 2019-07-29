@@ -67,7 +67,7 @@ class TestEdmApi(unittest.TestCase):
     def test_create_association_type(self):
         """Test case for create_association_type
 
-        Creates a new AssociationType definition, if it doesn\"t exist.  # noqa: E501
+        Creates a new AssociationType definition, if it doesn't exist.  # noqa: E501
         """
         pass
 
@@ -81,7 +81,7 @@ class TestEdmApi(unittest.TestCase):
     def test_create_entity_sets(self):
         """Test case for create_entity_sets
 
-        Create new EntitySet definitions if they don\"t exist.  # noqa: E501
+        Create new EntitySet definitions if they don't exist.  # noqa: E501
         """
         pass
 

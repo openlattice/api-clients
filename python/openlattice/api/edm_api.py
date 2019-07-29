@@ -536,7 +536,7 @@ class EdmApi(object):
             collection_formats=collection_formats)
 
     def create_association_type(self, association_type, **kwargs):  # noqa: E501
-        """Creates a new AssociationType definition, if it doesn\"t exist.  # noqa: E501
+        """Creates a new AssociationType definition, if it doesn't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -557,7 +557,7 @@ class EdmApi(object):
             return data
 
     def create_association_type_with_http_info(self, association_type, **kwargs):  # noqa: E501
-        """Creates a new AssociationType definition, if it doesn\"t exist.  # noqa: E501
+        """Creates a new AssociationType definition, if it doesn't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -728,7 +728,7 @@ class EdmApi(object):
             collection_formats=collection_formats)
 
     def create_entity_sets(self, entity_set, **kwargs):  # noqa: E501
-        """Create new EntitySet definitions if they don\"t exist.  # noqa: E501
+        """Create new EntitySet definitions if they don't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -749,7 +749,7 @@ class EdmApi(object):
             return data
 
     def create_entity_sets_with_http_info(self, entity_set, **kwargs):  # noqa: E501
-        """Create new EntitySet definitions if they don\"t exist.  # noqa: E501
+        """Create new EntitySet definitions if they don't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4955,7 +4955,7 @@ class EdmApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/entity-sets/{entitySetId}/metadata/', 'PATCH',
+            '/datastore/entity-sets/all/{entitySetId}/metadata/', 'PATCH',
             path_params,
             query_params,
             header_params,

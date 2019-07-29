@@ -53,7 +53,7 @@ class TestOrganizationsApi(unittest.TestCase):
     def test_create_organization_if_not_exists(self):
         """Test case for create_organization_if_not_exists
 
-        Create an organisation if it doesn't exist.  # noqa: E501
+        Create an organization if it doesn't exist.  # noqa: E501
         """
         pass
 
@@ -74,7 +74,7 @@ class TestOrganizationsApi(unittest.TestCase):
     def test_destroy_organization(self):
         """Test case for destroy_organization
 
-        Remove an organisation from the organizationId  # noqa: E501
+        Remove an organization from the organizationId  # noqa: E501
         """
         pass
 
@@ -109,7 +109,7 @@ class TestOrganizationsApi(unittest.TestCase):
     def test_get_organization(self):
         """Test case for get_organization
 
-        Get an organisation from the organizationId  # noqa: E501
+        Get an organization from the organizationId  # noqa: E501
         """
         pass
 
@@ -123,7 +123,7 @@ class TestOrganizationsApi(unittest.TestCase):
     def test_get_organizations(self):
         """Test case for get_organizations
 
-        Get all organisations  # noqa: E501
+        Get all organizations  # noqa: E501
         """
         pass
 
@@ -172,7 +172,7 @@ class TestOrganizationsApi(unittest.TestCase):
     def test_update_description(self):
         """Test case for update_description
 
-        Update the organisation description  # noqa: E501
+        Update the organization description  # noqa: E501
         """
         pass
 
@@ -193,7 +193,7 @@ class TestOrganizationsApi(unittest.TestCase):
     def test_update_title(self):
         """Test case for update_title
 
-        Update the organisation title  # noqa: E501
+        Update the organization title  # noqa: E501
         """
         pass
 
