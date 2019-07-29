@@ -7,27 +7,27 @@ Method | HTTP request | Description
 [**add_member**](OrganizationsApi.md#add_member) | **PUT** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
 [**add_role_to_user**](OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
 [**assemble_entity_sets**](OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets/assemble | Materializes entity sets into the organization database.
-[**create_organization_if_not_exists**](OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Create an organisation if it doesn&#39;t exist.
+[**create_organization_if_not_exists**](OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Create an organization if it doesn&#39;t exist.
 [**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Create role
 [**delete_role**](OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
-[**destroy_organization**](OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organisation from the organizationId
+[**destroy_organization**](OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
 [**get_all_users_of_role**](OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**get_auto_approved_email_domains**](OrganizationsApi.md#get_auto_approved_email_domains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**get_flagged_organization_entity_sets**](OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
 [**get_members**](OrganizationsApi.md#get_members) | **GET** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
-[**get_organization**](OrganizationsApi.md#get_organization) | **GET** /datastore/organizations/{organizationId} | Get an organisation from the organizationId
+[**get_organization**](OrganizationsApi.md#get_organization) | **GET** /datastore/organizations/{organizationId} | Get an organization from the organizationId
 [**get_organization_entity_sets**](OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain filter
-[**get_organizations**](OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organisations
+[**get_organizations**](OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organizations
 [**get_role**](OrganizationsApi.md#get_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 [**get_roles**](OrganizationsApi.md#get_roles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
 [**remove_auto_approved_email_domains**](OrganizationsApi.md#remove_auto_approved_email_domains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 [**remove_member**](OrganizationsApi.md#remove_member) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
 [**remove_role_from_user**](OrganizationsApi.md#remove_role_from_user) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Remove a role from a user
 [**set_auto_approved_email_domain**](OrganizationsApi.md#set_auto_approved_email_domain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
-[**update_description**](OrganizationsApi.md#update_description) | **PUT** /datastore/organizations/{organizationId}/description | Update the organisation description
+[**update_description**](OrganizationsApi.md#update_description) | **PUT** /datastore/organizations/{organizationId}/description | Update the organization description
 [**update_role_description**](OrganizationsApi.md#update_role_description) | **POST** /datastore/organizations/{organizationId}/principals/roles/{roleId}/description | Update role description for an organization from a roleId
 [**update_role_title**](OrganizationsApi.md#update_role_title) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/title | Update role title for an organization from a roleId
-[**update_title**](OrganizationsApi.md#update_title) | **PUT** /datastore/organizations/{organizationId}/title | Update the organisation title
+[**update_title**](OrganizationsApi.md#update_title) | **PUT** /datastore/organizations/{organizationId}/title | Update the organization title
 
 
 # **add_member**
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 # **create_organization_if_not_exists**
 > str create_organization_if_not_exists(organization)
 
-Create an organisation if it doesn't exist.
+Create an organization if it doesn't exist.
 
 ### Example
 
@@ -318,7 +318,7 @@ api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration)
 organization = openlattice.Organization() # Organization | 
 
 try:
-    # Create an organisation if it doesn't exist.
+    # Create an organization if it doesn't exist.
     api_response = api_instance.create_organization_if_not_exists(organization)
     pprint(api_response)
 except ApiException as e:
@@ -346,7 +346,7 @@ api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration)
 organization = openlattice.Organization() # Organization | 
 
 try:
-    # Create an organisation if it doesn't exist.
+    # Create an organization if it doesn't exist.
     api_response = api_instance.create_organization_if_not_exists(organization)
     pprint(api_response)
 except ApiException as e:
@@ -546,7 +546,7 @@ void (empty response body)
 # **destroy_organization**
 > destroy_organization(organization_id)
 
-Remove an organisation from the organizationId
+Remove an organization from the organizationId
 
 ### Example
 
@@ -571,7 +571,7 @@ api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration)
 organization_id = 'organization_id_example' # str | 
 
 try:
-    # Remove an organisation from the organizationId
+    # Remove an organization from the organizationId
     api_instance.destroy_organization(organization_id)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->destroy_organization: %s\n" % e)
@@ -598,7 +598,7 @@ api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration)
 organization_id = 'organization_id_example' # str | 
 
 try:
-    # Remove an organisation from the organizationId
+    # Remove an organization from the organizationId
     api_instance.destroy_organization(organization_id)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->destroy_organization: %s\n" % e)
@@ -970,7 +970,7 @@ Name | Type | Description  | Notes
 # **get_organization**
 > Organization get_organization(organization_id)
 
-Get an organisation from the organizationId
+Get an organization from the organizationId
 
 ### Example
 
@@ -995,7 +995,7 @@ api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration)
 organization_id = 'organization_id_example' # str | 
 
 try:
-    # Get an organisation from the organizationId
+    # Get an organization from the organizationId
     api_response = api_instance.get_organization(organization_id)
     pprint(api_response)
 except ApiException as e:
@@ -1023,7 +1023,7 @@ api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration)
 organization_id = 'organization_id_example' # str | 
 
 try:
-    # Get an organisation from the organizationId
+    # Get an organization from the organizationId
     api_response = api_instance.get_organization(organization_id)
     pprint(api_response)
 except ApiException as e:
@@ -1138,7 +1138,7 @@ Name | Type | Description  | Notes
 # **get_organizations**
 > list[Organization] get_organizations()
 
-Get all organisations
+Get all organizations
 
 ### Example
 
@@ -1162,7 +1162,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
 
 try:
-    # Get all organisations
+    # Get all organizations
     api_response = api_instance.get_organizations()
     pprint(api_response)
 except ApiException as e:
@@ -1189,7 +1189,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
 
 try:
-    # Get all organisations
+    # Get all organizations
     api_response = api_instance.get_organizations()
     pprint(api_response)
 except ApiException as e:
@@ -1731,7 +1731,7 @@ void (empty response body)
 # **update_description**
 > update_description(organization_id, body)
 
-Update the organisation description
+Update the organization description
 
 ### Example
 
@@ -1757,7 +1757,7 @@ organization_id = 'organization_id_example' # str |
 body = 'body_example' # str | 
 
 try:
-    # Update the organisation description
+    # Update the organization description
     api_instance.update_description(organization_id, body)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->update_description: %s\n" % e)
@@ -1785,7 +1785,7 @@ organization_id = 'organization_id_example' # str |
 body = 'body_example' # str | 
 
 try:
-    # Update the organisation description
+    # Update the organization description
     api_instance.update_description(organization_id, body)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->update_description: %s\n" % e)
@@ -1992,7 +1992,7 @@ void (empty response body)
 # **update_title**
 > update_title(organization_id, body)
 
-Update the organisation title
+Update the organization title
 
 ### Example
 
@@ -2018,7 +2018,7 @@ organization_id = 'organization_id_example' # str |
 body = 'body_example' # str | 
 
 try:
-    # Update the organisation title
+    # Update the organization title
     api_instance.update_title(organization_id, body)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->update_title: %s\n" % e)
@@ -2046,7 +2046,7 @@ organization_id = 'organization_id_example' # str |
 body = 'body_example' # str | 
 
 try:
-    # Update the organisation title
+    # Update the organization title
     api_instance.update_title(organization_id, body)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->update_title: %s\n" % e)

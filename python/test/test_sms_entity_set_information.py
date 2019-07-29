@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import openlattice
-from openlattice.models.meta_data_update import MetaDataUpdate  # noqa: E501
+from openlattice.models.sms_entity_set_information import SmsEntitySetInformation  # noqa: E501
 from openlattice.rest import ApiException
 
 
-class TestMetaDataUpdate(unittest.TestCase):
-    """MetaDataUpdate unit test stubs"""
+class TestSmsEntitySetInformation(unittest.TestCase):
+    """SmsEntitySetInformation unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestMetaDataUpdate(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testMetaDataUpdate(self):
-        """Test MetaDataUpdate"""
+    def testSmsEntitySetInformation(self):
+        """Test SmsEntitySetInformation"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openlattice.models.meta_data_update.MetaDataUpdate()  # noqa: E501
+        # model = openlattice.models.sms_entity_set_information.SmsEntitySetInformation()  # noqa: E501
         pass
 
 

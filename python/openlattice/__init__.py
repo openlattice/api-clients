@@ -15,13 +15,14 @@
 
 from __future__ import absolute_import
 
-__version__ = "0.1"
+__version__ = "0.1.0"
 
 # import apis into sdk package
 from openlattice.api.authorizations_api import AuthorizationsApi
 from openlattice.api.data_api import DataApi
 from openlattice.api.data_integrations_api import DataIntegrationsApi
 from openlattice.api.edm_api import EdmApi
+from openlattice.api.entity_sets_api import EntitySetsApi
 from openlattice.api.organizations_api import OrganizationsApi
 from openlattice.api.permissions_api import PermissionsApi
 from openlattice.api.principal_api import PrincipalApi
@@ -50,13 +51,13 @@ from openlattice.models.edm_request import EdmRequest
 from openlattice.models.entity import Entity
 from openlattice.models.entity_key import EntityKey
 from openlattice.models.entity_set import EntitySet
+from openlattice.models.entity_set_property_meta_data import EntitySetPropertyMetaData
 from openlattice.models.entity_set_selection import EntitySetSelection
 from openlattice.models.entity_type import EntityType
-from openlattice.models.entity_type_property_metadata import EntityTypePropertyMetadata
 from openlattice.models.full_qualified_name import FullQualifiedName
 from openlattice.models.integration_results import IntegrationResults
 from openlattice.models.materialized_view_account import MaterializedViewAccount
-from openlattice.models.meta_data_update import MetaDataUpdate
+from openlattice.models.metadata_update import MetadataUpdate
 from openlattice.models.neighbor_entity_details import NeighborEntityDetails
 from openlattice.models.neighbor_entity_ids import NeighborEntityIds
 from openlattice.models.neighbor_search_filter import NeighborSearchFilter
@@ -69,3 +70,4 @@ from openlattice.models.role import Role
 from openlattice.models.schema import Schema
 from openlattice.models.search_details import SearchDetails
 from openlattice.models.securable_principal import SecurablePrincipal
+from openlattice.models.sms_entity_set_information import SmsEntitySetInformation

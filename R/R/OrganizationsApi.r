@@ -27,7 +27,7 @@
 #' assemble_entity_sets Materializes entity sets into the organization database.
 #'
 #'
-#' create_organization_if_not_exists Create an organisation if it doesn&#39;t exist.
+#' create_organization_if_not_exists Create an organization if it doesn&#39;t exist.
 #'
 #'
 #' create_role Create role
@@ -36,7 +36,7 @@
 #' delete_role Remove role for an organization
 #'
 #'
-#' destroy_organization Remove an organisation from the organizationId
+#' destroy_organization Remove an organization from the organizationId
 #'
 #'
 #' get_all_users_of_role Get members of a role for an organization from a roleId
@@ -51,13 +51,13 @@
 #' get_members Get members of a certain organization
 #'
 #'
-#' get_organization Get an organisation from the organizationId
+#' get_organization Get an organization from the organizationId
 #'
 #'
 #' get_organization_entity_sets Get the entity sets for an organization for a certain filter
 #'
 #'
-#' get_organizations Get all organisations
+#' get_organizations Get all organizations
 #'
 #'
 #' get_role Get role for an organization from a roleId
@@ -78,7 +78,7 @@
 #' set_auto_approved_email_domain Set auto-approved email domains
 #'
 #'
-#' update_description Update the organisation description
+#' update_description Update the organization description
 #'
 #'
 #' update_role_description Update role description for an organization from a roleId
@@ -87,7 +87,7 @@
 #' update_role_title Update role title for an organization from a roleId
 #'
 #'
-#' update_title Update the organisation title
+#' update_title Update the organization title
 #'
 #' }
 #'
@@ -95,7 +95,7 @@
 OrganizationsApi <- R6::R6Class(
   'OrganizationsApi',
   public = list(
-    userAgent = "OpenAPI-Generator/0.1/r",
+    userAgent = "OpenAPI-Generator/0.1.0/r",
     apiClient = NULL,
     initialize = function(apiClient){
       if (!missing(apiClient)) {

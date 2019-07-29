@@ -17,6 +17,8 @@
 #' @field members 
 #' @field roles 
 #' @field apps 
+#' @field smsEntitySetInfo 
+#' @field partitions 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -32,7 +34,9 @@ Organization <- R6::R6Class(
     `members` = NULL,
     `roles` = NULL,
     `apps` = NULL,
-    initialize = function(`id`, `principal`, `title`, `description`, `emails`, `members`, `roles`, `apps`){
+    `smsEntitySetInfo` = NULL,
+    `partitions` = NULL,
+    initialize = function(`id`, `principal`, `title`, `description`, `emails`, `members`, `roles`, `apps`, `smsEntitySetInfo`, `partitions`){
       if (!missing(`id`)) {
                 stopifnot(is.character(`id`), length(`id`) == 1)
         self$`id` <- `id`
@@ -69,6 +73,16 @@ Organization <- R6::R6Class(
                 sapply(`apps`, function(x) stopifnot(is.character(x)))
         self$`apps` <- `apps`
       }
+      if (!missing(`smsEntitySetInfo`)) {
+                stopifnot(is.vector(`smsEntitySetInfo`), length(`smsEntitySetInfo`) != 0)
+                sapply(`smsEntitySetInfo`, function(x) stopifnot(R6::is.R6(x)))
+        self$`smsEntitySetInfo` <- `smsEntitySetInfo`
+      }
+      if (!missing(`partitions`)) {
+                stopifnot(is.vector(`partitions`), length(`partitions`) != 0)
+                sapply(`partitions`, function(x) stopifnot(is.character(x)))
+        self$`partitions` <- `partitions`
+      }
     },
     toJSON = function() {
       OrganizationObject <- list()
@@ -103,6 +117,14 @@ Organization <- R6::R6Class(
       if (!is.null(self$`apps`)) {
         OrganizationObject[['apps']] <-
                 self$`apps`
+      }
+      if (!is.null(self$`smsEntitySetInfo`)) {
+        OrganizationObject[['smsEntitySetInfo']] <-
+                sapply(self$`smsEntitySetInfo`, function(x) x$toJSON())
+      }
+      if (!is.null(self$`partitions`)) {
+        OrganizationObject[['partitions']] <-
+                self$`partitions`
       }
 
       OrganizationObject
@@ -143,6 +165,16 @@ Organization <- R6::R6Class(
       if (!is.null(OrganizationObject$`apps`)) {
                 self$`apps` <- OrganizationObject$`apps`
       }
+      if (!is.null(OrganizationObject$`smsEntitySetInfo`)) {
+                self$`smsEntitySetInfo` <- sapply(OrganizationObject$`smsEntitySetInfo`, function(x) {
+                  smsEntitySetInfoObject <- SmsEntitySetInformation$new()
+                  smsEntitySetInfoObject$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE))
+                  smsEntitySetInfoObject
+            })
+      }
+      if (!is.null(OrganizationObject$`partitions`)) {
+                self$`partitions` <- OrganizationObject$`partitions`
+      }
     },
     toJSONString = function() {
        outstring <- sprintf(
@@ -180,6 +212,14 @@ Organization <- R6::R6Class(
                       
                       ["%s"]
                   
+              ,
+           "smsEntitySetInfo":
+                  ["%s"]
+              ,
+           "partitions":
+                      
+                      ["%s"]
+                  
               
         }',
                 self$`id`,
@@ -189,7 +229,9 @@ Organization <- R6::R6Class(
                 paste0(self$`emails`, collapse='","'),
                 paste0(sapply(self$`members`, function(x) x$toJSON()), collapse='","'),
                 paste0(sapply(self$`roles`, function(x) x$toJSON()), collapse='","'),
-                paste0(self$`apps`, collapse='","')
+                paste0(self$`apps`, collapse='","'),
+                paste0(sapply(self$`smsEntitySetInfo`, function(x) x$toJSON()), collapse='","'),
+                paste0(self$`partitions`, collapse='","')
       )
       gsub("[\r\n]| ", "", outstring)
     },
@@ -204,6 +246,8 @@ Organization <- R6::R6Class(
               self$`members` <- sapply(OrganizationObject$`members`, function(x) Principal$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
               self$`roles` <- sapply(OrganizationObject$`roles`, function(x) Role$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
               self$`apps` <- OrganizationObject$`apps`
+              self$`smsEntitySetInfo` <- sapply(OrganizationObject$`smsEntitySetInfo`, function(x) SmsEntitySetInformation$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
+              self$`partitions` <- OrganizationObject$`partitions`
     }
   )
 )

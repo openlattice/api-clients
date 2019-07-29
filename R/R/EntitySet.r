@@ -9,16 +9,17 @@
 
 #' EntitySet Class
 #'
-#' @field name 
 #' @field id 
-#' @field title 
-#' @field contacts 
 #' @field entityTypeId 
+#' @field name 
+#' @field title 
 #' @field description 
+#' @field contacts 
 #' @field linking 
-#' @field linked_entity_sets 
-#' @field external 
+#' @field linkedEntitySets 
 #' @field organizationId 
+#' @field flags 
+#' @field partitions 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -26,145 +27,165 @@
 EntitySet <- R6::R6Class(
   'EntitySet',
   public = list(
-    `name` = NULL,
     `id` = NULL,
-    `title` = NULL,
-    `contacts` = NULL,
     `entityTypeId` = NULL,
+    `name` = NULL,
+    `title` = NULL,
     `description` = NULL,
+    `contacts` = NULL,
     `linking` = NULL,
-    `linked_entity_sets` = NULL,
-    `external` = NULL,
+    `linkedEntitySets` = NULL,
     `organizationId` = NULL,
-    initialize = function(`name`, `id`, `title`, `contacts`, `entityTypeId`, `description`, `linking`, `linked_entity_sets`, `external`, `organizationId`){
-      if (!missing(`name`)) {
-                stopifnot(is.character(`name`), length(`name`) == 1)
-        self$`name` <- `name`
-      }
+    `flags` = NULL,
+    `partitions` = NULL,
+    initialize = function(`id`, `entityTypeId`, `name`, `title`, `description`, `contacts`, `linking`, `linkedEntitySets`, `organizationId`, `flags`, `partitions`){
       if (!missing(`id`)) {
                 stopifnot(is.character(`id`), length(`id`) == 1)
         self$`id` <- `id`
       }
+      if (!missing(`entityTypeId`)) {
+                stopifnot(is.character(`entityTypeId`), length(`entityTypeId`) == 1)
+        self$`entityTypeId` <- `entityTypeId`
+      }
+      if (!missing(`name`)) {
+                stopifnot(is.character(`name`), length(`name`) == 1)
+        self$`name` <- `name`
+      }
       if (!missing(`title`)) {
                 stopifnot(is.character(`title`), length(`title`) == 1)
         self$`title` <- `title`
+      }
+      if (!missing(`description`)) {
+                stopifnot(is.character(`description`), length(`description`) == 1)
+        self$`description` <- `description`
       }
       if (!missing(`contacts`)) {
                 stopifnot(is.vector(`contacts`), length(`contacts`) != 0)
                 sapply(`contacts`, function(x) stopifnot(is.character(x)))
         self$`contacts` <- `contacts`
       }
-      if (!missing(`entityTypeId`)) {
-                stopifnot(is.character(`entityTypeId`), length(`entityTypeId`) == 1)
-        self$`entityTypeId` <- `entityTypeId`
-      }
-      if (!missing(`description`)) {
-                stopifnot(is.character(`description`), length(`description`) == 1)
-        self$`description` <- `description`
-      }
       if (!missing(`linking`)) {
         self$`linking` <- `linking`
       }
-      if (!missing(`linked_entity_sets`)) {
-                stopifnot(is.vector(`linked_entity_sets`), length(`linked_entity_sets`) != 0)
-                sapply(`linked_entity_sets`, function(x) stopifnot(is.character(x)))
-        self$`linked_entity_sets` <- `linked_entity_sets`
-      }
-      if (!missing(`external`)) {
-        self$`external` <- `external`
+      if (!missing(`linkedEntitySets`)) {
+                stopifnot(is.vector(`linkedEntitySets`), length(`linkedEntitySets`) != 0)
+                sapply(`linkedEntitySets`, function(x) stopifnot(is.character(x)))
+        self$`linkedEntitySets` <- `linkedEntitySets`
       }
       if (!missing(`organizationId`)) {
                 stopifnot(is.character(`organizationId`), length(`organizationId`) == 1)
         self$`organizationId` <- `organizationId`
       }
+      if (!missing(`flags`)) {
+                stopifnot(is.vector(`flags`), length(`flags`) != 0)
+                sapply(`flags`, function(x) stopifnot(is.character(x)))
+        self$`flags` <- `flags`
+      }
+      if (!missing(`partitions`)) {
+                stopifnot(is.vector(`partitions`), length(`partitions`) != 0)
+                sapply(`partitions`, function(x) stopifnot(is.character(x)))
+        self$`partitions` <- `partitions`
+      }
     },
     toJSON = function() {
       EntitySetObject <- list()
-      if (!is.null(self$`name`)) {
-        EntitySetObject[['name']] <-
-                self$`name`
-      }
       if (!is.null(self$`id`)) {
         EntitySetObject[['id']] <-
                 self$`id`
-      }
-      if (!is.null(self$`title`)) {
-        EntitySetObject[['title']] <-
-                self$`title`
-      }
-      if (!is.null(self$`contacts`)) {
-        EntitySetObject[['contacts']] <-
-                self$`contacts`
       }
       if (!is.null(self$`entityTypeId`)) {
         EntitySetObject[['entityTypeId']] <-
                 self$`entityTypeId`
       }
+      if (!is.null(self$`name`)) {
+        EntitySetObject[['name']] <-
+                self$`name`
+      }
+      if (!is.null(self$`title`)) {
+        EntitySetObject[['title']] <-
+                self$`title`
+      }
       if (!is.null(self$`description`)) {
         EntitySetObject[['description']] <-
                 self$`description`
+      }
+      if (!is.null(self$`contacts`)) {
+        EntitySetObject[['contacts']] <-
+                self$`contacts`
       }
       if (!is.null(self$`linking`)) {
         EntitySetObject[['linking']] <-
                 self$`linking`
       }
-      if (!is.null(self$`linked_entity_sets`)) {
-        EntitySetObject[['linked_entity_sets']] <-
-                self$`linked_entity_sets`
-      }
-      if (!is.null(self$`external`)) {
-        EntitySetObject[['external']] <-
-                self$`external`
+      if (!is.null(self$`linkedEntitySets`)) {
+        EntitySetObject[['linkedEntitySets']] <-
+                self$`linkedEntitySets`
       }
       if (!is.null(self$`organizationId`)) {
         EntitySetObject[['organizationId']] <-
                 self$`organizationId`
+      }
+      if (!is.null(self$`flags`)) {
+        EntitySetObject[['flags']] <-
+                self$`flags`
+      }
+      if (!is.null(self$`partitions`)) {
+        EntitySetObject[['partitions']] <-
+                self$`partitions`
       }
 
       EntitySetObject
     },
     fromJSON = function(EntitySetJson) {
       EntitySetObject <- jsonlite::fromJSON(EntitySetJson)
-      if (!is.null(EntitySetObject$`name`)) {
-                self$`name` <- EntitySetObject$`name`
-      }
       if (!is.null(EntitySetObject$`id`)) {
                 self$`id` <- EntitySetObject$`id`
-      }
-      if (!is.null(EntitySetObject$`title`)) {
-                self$`title` <- EntitySetObject$`title`
-      }
-      if (!is.null(EntitySetObject$`contacts`)) {
-                self$`contacts` <- EntitySetObject$`contacts`
       }
       if (!is.null(EntitySetObject$`entityTypeId`)) {
                 self$`entityTypeId` <- EntitySetObject$`entityTypeId`
       }
+      if (!is.null(EntitySetObject$`name`)) {
+                self$`name` <- EntitySetObject$`name`
+      }
+      if (!is.null(EntitySetObject$`title`)) {
+                self$`title` <- EntitySetObject$`title`
+      }
       if (!is.null(EntitySetObject$`description`)) {
                 self$`description` <- EntitySetObject$`description`
+      }
+      if (!is.null(EntitySetObject$`contacts`)) {
+                self$`contacts` <- EntitySetObject$`contacts`
       }
       if (!is.null(EntitySetObject$`linking`)) {
                 self$`linking` <- EntitySetObject$`linking`
       }
-      if (!is.null(EntitySetObject$`linked_entity_sets`)) {
-                self$`linked_entity_sets` <- EntitySetObject$`linked_entity_sets`
-      }
-      if (!is.null(EntitySetObject$`external`)) {
-                self$`external` <- EntitySetObject$`external`
+      if (!is.null(EntitySetObject$`linkedEntitySets`)) {
+                self$`linkedEntitySets` <- EntitySetObject$`linkedEntitySets`
       }
       if (!is.null(EntitySetObject$`organizationId`)) {
                 self$`organizationId` <- EntitySetObject$`organizationId`
+      }
+      if (!is.null(EntitySetObject$`flags`)) {
+                self$`flags` <- EntitySetObject$`flags`
+      }
+      if (!is.null(EntitySetObject$`partitions`)) {
+                self$`partitions` <- EntitySetObject$`partitions`
       }
     },
     toJSONString = function() {
        outstring <- sprintf(
         '{
-           "name":
+           "id":
                       
                       "%s"
                   
               ,
-           "id":
+           "entityTypeId":
+                      
+                      "%s"
+                  
+              ,
+           "name":
                       
                       "%s"
                   
@@ -174,19 +195,14 @@ EntitySet <- R6::R6Class(
                       "%s"
                   
               ,
-           "contacts":
-                      
-                      ["%s"]
-                  
-              ,
-           "entityTypeId":
-                      
-                      "%s"
-                  
-              ,
            "description":
                       
                       "%s"
+                  
+              ,
+           "contacts":
+                      
+                      ["%s"]
                   
               ,
            "linking":
@@ -194,47 +210,54 @@ EntitySet <- R6::R6Class(
                       "%s"
                   
               ,
-           "linked_entity_sets":
+           "linkedEntitySets":
                       
                       ["%s"]
-                  
-              ,
-           "external":
-                      
-                      "%s"
                   
               ,
            "organizationId":
                       
                       "%s"
                   
+              ,
+           "flags":
+                      
+                      ["%s"]
+                  
+              ,
+           "partitions":
+                      
+                      ["%s"]
+                  
               
         }',
-                self$`name`,
                 self$`id`,
-                self$`title`,
-                paste0(self$`contacts`, collapse='","'),
                 self$`entityTypeId`,
+                self$`name`,
+                self$`title`,
                 self$`description`,
+                paste0(self$`contacts`, collapse='","'),
                 self$`linking`,
-                paste0(self$`linked_entity_sets`, collapse='","'),
-                self$`external`,
-                self$`organizationId`
+                paste0(self$`linkedEntitySets`, collapse='","'),
+                self$`organizationId`,
+                paste0(self$`flags`, collapse='","'),
+                paste0(self$`partitions`, collapse='","')
       )
       gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(EntitySetJson) {
       EntitySetObject <- jsonlite::fromJSON(EntitySetJson)
-              self$`name` <- EntitySetObject$`name`
               self$`id` <- EntitySetObject$`id`
-              self$`title` <- EntitySetObject$`title`
-              self$`contacts` <- EntitySetObject$`contacts`
               self$`entityTypeId` <- EntitySetObject$`entityTypeId`
+              self$`name` <- EntitySetObject$`name`
+              self$`title` <- EntitySetObject$`title`
               self$`description` <- EntitySetObject$`description`
+              self$`contacts` <- EntitySetObject$`contacts`
               self$`linking` <- EntitySetObject$`linking`
-              self$`linked_entity_sets` <- EntitySetObject$`linked_entity_sets`
-              self$`external` <- EntitySetObject$`external`
+              self$`linkedEntitySets` <- EntitySetObject$`linkedEntitySets`
               self$`organizationId` <- EntitySetObject$`organizationId`
+              self$`flags` <- EntitySetObject$`flags`
+              self$`partitions` <- EntitySetObject$`partitions`
     }
   )
 )

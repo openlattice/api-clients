@@ -39,7 +39,9 @@ class Organization(object):
         'emails': 'list[str]',
         'members': 'list[Principal]',
         'roles': 'list[Role]',
-        'apps': 'list[str]'
+        'apps': 'list[str]',
+        'sms_entity_set_info': 'list[SmsEntitySetInformation]',
+        'partitions': 'list[int]'
     }
 
     attribute_map = {
@@ -50,10 +52,12 @@ class Organization(object):
         'emails': 'emails',
         'members': 'members',
         'roles': 'roles',
-        'apps': 'apps'
+        'apps': 'apps',
+        'sms_entity_set_info': 'smsEntitySetInfo',
+        'partitions': 'partitions'
     }
 
-    def __init__(self, id=None, principal=None, title=None, description=None, emails=None, members=None, roles=None, apps=None):  # noqa: E501
+    def __init__(self, id=None, principal=None, title=None, description=None, emails=None, members=None, roles=None, apps=None, sms_entity_set_info=None, partitions=None):  # noqa: E501
         """Organization - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None
@@ -64,6 +68,8 @@ class Organization(object):
         self._members = None
         self._roles = None
         self._apps = None
+        self._sms_entity_set_info = None
+        self._partitions = None
         self.discriminator = None
 
         if id is not None:
@@ -82,6 +88,10 @@ class Organization(object):
             self.roles = roles
         if apps is not None:
             self.apps = apps
+        if sms_entity_set_info is not None:
+            self.sms_entity_set_info = sms_entity_set_info
+        if partitions is not None:
+            self.partitions = partitions
 
     @property
     def id(self):
@@ -250,6 +260,48 @@ class Organization(object):
         """
 
         self._apps = apps
+
+    @property
+    def sms_entity_set_info(self):
+        """Gets the sms_entity_set_info of this Organization.  # noqa: E501
+
+
+        :return: The sms_entity_set_info of this Organization.  # noqa: E501
+        :rtype: list[SmsEntitySetInformation]
+        """
+        return self._sms_entity_set_info
+
+    @sms_entity_set_info.setter
+    def sms_entity_set_info(self, sms_entity_set_info):
+        """Sets the sms_entity_set_info of this Organization.
+
+
+        :param sms_entity_set_info: The sms_entity_set_info of this Organization.  # noqa: E501
+        :type: list[SmsEntitySetInformation]
+        """
+
+        self._sms_entity_set_info = sms_entity_set_info
+
+    @property
+    def partitions(self):
+        """Gets the partitions of this Organization.  # noqa: E501
+
+
+        :return: The partitions of this Organization.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._partitions
+
+    @partitions.setter
+    def partitions(self, partitions):
+        """Sets the partitions of this Organization.
+
+
+        :param partitions: The partitions of this Organization.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._partitions = partitions
 
     def to_dict(self):
         """Returns the model properties as a dict"""
