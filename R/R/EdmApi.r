@@ -21,19 +21,25 @@
 #' add_dst_entity_type_to_association_type Update the AssociationType dst entity types for the given AssociationType UUID by adding the given EntityType UUID.
 #'
 #'
+#' add_entity_sets_to_linking_entity_set Adds the entity sets as linked entity sets to the linking entity set
+#'
+#'
+#' add_entity_sets_to_linking_entity_sets Adds the entity sets as linked entity sets to the linking entity sets
+#'
+#'
 #' add_property_type_to_entity_type Updates the EntityType definition for the given EntityType UUID by adding the given PropertyType UUID.
 #'
 #'
 #' add_src_entity_type_to_association_type Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
 #'
 #'
-#' create_association_type Creates a new AssociationType definition, if it doesn\&quot;t exist.
+#' create_association_type Creates a new AssociationType definition, if it doesn&#39;t exist.
 #'
 #'
 #' create_empty_schema Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
 #'
 #'
-#' create_entity_sets Create new EntitySet definitions if they don\&quot;t exist.
+#' create_entity_sets Create new EntitySet definitions if they don&#39;t exist.
 #'
 #'
 #' create_entity_type Creates a new EntityType definition, if it doesn&#39;t exist.
@@ -69,13 +75,10 @@
 #' get_all_available_association_types Get all available associations for the given AssociationType UUID.
 #'
 #'
-#' get_all_entity_set_property_metadata Get all property type metadata for an entity set.
+#' get_all_entity_set_property_metadata Get all entity set property metadata.
 #'
 #'
 #' get_all_entity_sets Get all EntitySet definitions.
-#'
-#'
-#' get_all_entity_type_property_metadata Get all EntityType propertyType metadata
 #'
 #'
 #' get_all_entity_types Gets all EntityType definitions.
@@ -108,6 +111,9 @@
 #' get_entity_set_id Gets the EntitySet UUID for the given EntitySet name.
 #'
 #'
+#' get_entity_set_ids Get IDs for entity sets given their names.
+#'
+#'
 #' get_entity_set_property_metadata Get specified property type metadata for an entity set.
 #'
 #'
@@ -120,13 +126,16 @@
 #' get_entity_type_id Gets the EntityType UUID for the given EntityType FQN.
 #'
 #'
-#' get_entity_type_property_metadata Get EntityType propertyType metadata
+#' get_property_metadata_for_entity_sets Get property metadata for entity sets.
 #'
 #'
 #' get_property_type Gets the PropertyType definition for the given PropertyType UUID.
 #'
 #'
 #' get_property_type_id Gets the PropertyType UUID for the given PropertyType FQN.
+#'
+#'
+#' get_property_types_for_entity_set Get all Property Types for entity set
 #'
 #'
 #' get_property_usage_summary Get Property Usage Summary for property with given ID.
@@ -144,6 +153,12 @@
 #' remove_dst_entity_type_from_association_type Updates the AssociationType dst entity types for the given AssociationType UUID by removing the given EntityType UUID.
 #'
 #'
+#' remove_entity_sets_from_linking_entity_set Removes/unlinks the linked entity sets from the linking entity set
+#'
+#'
+#' remove_entity_sets_from_linking_entity_sets Removes/unlinks the linked entity sets from the linking entity set
+#'
+#'
 #' remove_property_type_from_entity_type Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID.
 #'
 #'
@@ -156,16 +171,13 @@
 #' update_entity_data_model Updates the entity data model, including schemas, entity types, association types, and property types.
 #'
 #'
-#' update_entity_set_meta_data Updates the EntityType definition for the given EntitySet UUID with the given metadata.
+#' update_entity_set_meta_data Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 #'
 #'
 #' update_entity_set_property_metadata Updates the property type metadata for the given entity set.
 #'
 #'
 #' update_entity_type_meta_data Updates the EntityType definition for the given EntityType UUID with the given metadata.
-#'
-#'
-#' update_entity_type_property_metadata Update EntityType Property metadata
 #'
 #'
 #' update_property_type_meta_data Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
@@ -179,7 +191,7 @@
 EdmApi <- R6::R6Class(
   'EdmApi',
   public = list(
-    userAgent = "OpenAPI-Generator/0.1/r",
+    userAgent = "OpenAPI-Generator/0.1.0/r",
     apiClient = NULL,
     initialize = function(apiClient){
       if (!missing(apiClient)) {
@@ -212,6 +224,70 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
             # void response, no need to return anything
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    add_entity_sets_to_linking_entity_set = function(linking_entity_set_id, request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/entity-sets/linking/{linkingEntitySetId}"
+      if (!missing(`linking_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), `linking_entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    add_entity_sets_to_linking_entity_sets = function(linking_entity_set_id, request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/entity-sets/linking/"
+      if (!missing(`linking_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), `linking_entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PUT",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -348,7 +424,7 @@ EdmApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/edm/entity/set"
+      urlPath <- "/datastore/entity-sets"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
                                  queryParams = queryParams,
@@ -480,7 +556,7 @@ EdmApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/edm/entity/set/{entitySetId}"
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
@@ -662,7 +738,7 @@ EdmApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/edm/entity/set/{entitySetId}/property/type"
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}/metadata"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
@@ -688,33 +764,7 @@ EdmApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/edm/entity/set"
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
-    get_all_entity_type_property_metadata = function(entity_type_id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      urlPath <- "/datastore/edm/entity/type/{entityTypeId}/property/type"
-      if (!missing(`entity_type_id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), `entity_type_id`, urlPath)
-      }
-
+      urlPath <- "/datastore/entity-sets"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
                                  queryParams = queryParams,
@@ -930,7 +980,7 @@ EdmApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/edm/entity/set/{entitySetId}"
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
@@ -956,7 +1006,7 @@ EdmApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/edm/ids/entity/set/{entitySetName}"
+      urlPath <- "/datastore/entity-sets/ids/{entitySetName}"
       if (!missing(`entity_set_name`)) {
         urlPath <- gsub(paste0("\\{", "entitySetName", "\\}"), `entity_set_name`, urlPath)
       }
@@ -977,12 +1027,40 @@ EdmApi <- R6::R6Class(
       }
 
     },
+    get_entity_set_ids = function(request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/entity-sets/ids/"
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
     get_entity_set_property_metadata = function(entity_set_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/edm/entity/set/{entitySetId}/property/type/{propertyTypeId}/"
+      urlPath <- "/datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
@@ -1089,22 +1167,20 @@ EdmApi <- R6::R6Class(
       }
 
     },
-    get_entity_type_property_metadata = function(entity_type_id, property_type_id, ...){
+    get_property_metadata_for_entity_sets = function(request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}"
-      if (!missing(`entity_type_id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), `entity_type_id`, urlPath)
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
       }
 
-      if (!missing(`property_type_id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), `property_type_id`, urlPath)
-      }
-
+      urlPath <- "/datastore/entity-sets/all/metadata"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
+                                 method = "POST",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,
@@ -1157,6 +1233,32 @@ EdmApi <- R6::R6Class(
 
       if (!missing(`name`)) {
         urlPath <- gsub(paste0("\\{", "name", "\\}"), `name`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    get_property_types_for_entity_set = function(entity_set_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -1313,6 +1415,70 @@ EdmApi <- R6::R6Class(
       }
 
     },
+    remove_entity_sets_from_linking_entity_set = function(linking_entity_set_id, request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/entity-sets/linking/{linkingEntitySetId}"
+      if (!missing(`linking_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), `linking_entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    remove_entity_sets_from_linking_entity_sets = function(linking_entity_set_id, request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/entity-sets/linking/"
+      if (!missing(`linking_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), `linking_entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
     remove_property_type_from_entity_type = function(entity_type_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
@@ -1431,18 +1597,18 @@ EdmApi <- R6::R6Class(
       }
 
     },
-    update_entity_set_meta_data = function(entity_set_id, meta_data_update, ...){
+    update_entity_set_meta_data = function(entity_set_id, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`meta_data_update`)) {
-        body <- `meta_data_update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- `metadata_update`$toJSONString()
       } else {
         body <- NULL
       }
 
-      urlPath <- "/datastore/edm/entity/set/{entitySetId}"
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}/metadata/"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
@@ -1455,7 +1621,7 @@ EdmApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-            # void response, no need to return anything
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1463,18 +1629,18 @@ EdmApi <- R6::R6Class(
       }
 
     },
-    update_entity_set_property_metadata = function(entity_set_id, property_type_id, property_type, ...){
+    update_entity_set_property_metadata = function(entity_set_id, property_type_id, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`property_type`)) {
-        body <- `property_type`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- `metadata_update`$toJSONString()
       } else {
         body <- NULL
       }
 
-      urlPath <- "/datastore/edm/entity/set/{entitySetId}/property/type/{propertyTypeId}/"
+      urlPath <- "/datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
@@ -1499,13 +1665,13 @@ EdmApi <- R6::R6Class(
       }
 
     },
-    update_entity_type_meta_data = function(entity_type_id, meta_data_update, ...){
+    update_entity_type_meta_data = function(entity_type_id, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`meta_data_update`)) {
-        body <- `meta_data_update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- `metadata_update`$toJSONString()
       } else {
         body <- NULL
       }
@@ -1531,49 +1697,13 @@ EdmApi <- R6::R6Class(
       }
 
     },
-    update_entity_type_property_metadata = function(entity_type_id, property_type_id, meta_data_update, ...){
+    update_property_type_meta_data = function(property_type_id, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`meta_data_update`)) {
-        body <- `meta_data_update`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}"
-      if (!missing(`entity_type_id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), `entity_type_id`, urlPath)
-      }
-
-      if (!missing(`property_type_id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), `property_type_id`, urlPath)
-      }
-
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-            # void response, no need to return anything
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
-    update_property_type_meta_data = function(property_type_id, meta_data_update, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`meta_data_update`)) {
-        body <- `meta_data_update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- `metadata_update`$toJSONString()
       } else {
         body <- NULL
       }
