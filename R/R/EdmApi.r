@@ -33,13 +33,13 @@
 #' add_src_entity_type_to_association_type Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
 #'
 #'
-#' create_association_type Creates a new AssociationType definition, if it doesn\&quot;t exist.
+#' create_association_type Creates a new AssociationType definition, if it doesn&#39;t exist.
 #'
 #'
 #' create_empty_schema Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
 #'
 #'
-#' create_entity_sets Create new EntitySet definitions if they don\&quot;t exist.
+#' create_entity_sets Create new EntitySet definitions if they don&#39;t exist.
 #'
 #'
 #' create_entity_type Creates a new EntityType definition, if it doesn&#39;t exist.
@@ -1608,7 +1608,7 @@ EdmApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/entity-sets/{entitySetId}/metadata/"
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}/metadata/"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }

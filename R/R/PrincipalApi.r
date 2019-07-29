@@ -24,7 +24,7 @@
 #' get_current_roles Get current roles.
 #'
 #'
-#' get_db_access_credentials Get the db access credentials.
+#' get_materialized_view_account Get the db access credentials.
 #'
 #'
 #' get_user Get the user for the given id.
@@ -92,7 +92,7 @@ PrincipalApi <- R6::R6Class(
       }
 
     },
-    get_db_access_credentials = function(...){
+    get_materialized_view_account = function(...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()

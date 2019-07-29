@@ -24,7 +24,7 @@
 #' add_entity_sets_to_linking_entity_sets Adds the entity sets as linked entity sets to the linking entity sets
 #'
 #'
-#' create_entity_sets Create new EntitySet definitions if they don\&quot;t exist.
+#' create_entity_sets Create new EntitySet definitions if they don&#39;t exist.
 #'
 #'
 #' delete_entity_set Deletes the EntitySet definition for the given EntitySet UUID.
@@ -486,7 +486,7 @@ EntitySetsApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/entity-sets/{entitySetId}/metadata/"
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}/metadata/"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
