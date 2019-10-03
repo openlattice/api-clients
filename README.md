@@ -33,21 +33,21 @@ with open("R/NAMESPACE", "r+") as fl:
 
 ## To build the packages from the openlattice.yaml-file
 
-    APIDIR="$HOME/Documents/openlattice/api/"
-    CLIENTDIR="$HOME/Documents/projects/projectsOngoing/api-clients/"
-    rm -rf $APIDIR/build/openapi/*
-    rm -rf $CLIENTDIR/R
-    rm -rf $CLIENTDIR/python
-    rm -rf $CLIENTDIR/javascript
+APIDIR="$HOME/Documents/openlattice/api/"
+CLIENTDIR="$HOME/Documents/projects/projectsOngoing/api-clients/"
+rm -rf $APIDIR/build/openapi/*
+rm -rf $CLIENTDIR/R
+rm -rf $CLIENTDIR/python
+rm -rf $CLIENTDIR/javascript
 
-    cd $APIDIR
-    docker run -it -v $APIDIR:$APIDIR openapitools/openapi-generator-cli:0.1 generate -i $APIDIR/openlattice.yaml -g python -o $APIDIR/build/openapi/python -c $APIDIR/oas-config.json
+cd $APIDIR
+docker run -it -v $APIDIR:$APIDIR openapitools/joke generate -i $APIDIR/openlattice.yaml -g python -o $APIDIR/build/openapi/python -c $APIDIR/oas-config.json
 
-    docker run -it -v $APIDIR:$APIDIR openapitools/joke generate -i $APIDIR/openlattice.yaml -g r -o $APIDIR/build/openapi/R -c $APIDIR/oas-config.json
+docker run -it -v $APIDIR:$APIDIR openapitools/joke generate -i $APIDIR/openlattice.yaml -g r -o $APIDIR/build/openapi/R -c $APIDIR/oas-config.json
 
-    rsync -azP $APIDIR/build/openapi/ $CLIENTDIR
-    
-    cd $CLIENTDIR
+rsync -azP $APIDIR/build/openapi/ $CLIENTDIR
 
-    cd $CLIENTDIR/python
-    python setup.py install
+cd $CLIENTDIR
+
+cd $CLIENTDIR/python
+python setup.py install
