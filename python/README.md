@@ -52,8 +52,9 @@ from openlattice.rest import ApiException
 from pprint import pprint
 
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -246,8 +247,7 @@ Class | Method | HTTP request | Description
 
 ## http_auth
 
-- **Type**: Bearer authentication (JWT)
-
+- **Type**: HTTP basic authentication
 
 ## openlattice_auth
 

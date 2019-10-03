@@ -29,7 +29,7 @@ Adds the entity sets as linked entity sets to the linking entity set
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -37,13 +37,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -58,16 +54,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->add_entity_sets_to_linking_entity_set: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -116,7 +110,7 @@ Adds the entity sets as linked entity sets to the linking entity sets
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -124,13 +118,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -145,16 +135,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->add_entity_sets_to_linking_entity_sets: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -203,7 +191,7 @@ Create new EntitySet definitions if they don't exist.
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -211,13 +199,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -230,16 +214,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->create_entity_sets: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -285,7 +267,7 @@ Deletes the EntitySet definition for the given EntitySet UUID.
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -293,13 +275,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -312,16 +290,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->delete_entity_set: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -367,7 +343,7 @@ Get all entity set property metadata.
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -375,13 +351,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -395,16 +367,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->get_all_entity_set_property_metadata: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -451,7 +421,7 @@ Get all EntitySet definitions.
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -459,13 +429,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -478,16 +444,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->get_all_entity_sets: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -530,7 +494,7 @@ Get the EntitySet definition for the given EntitySet UUID.
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -538,13 +502,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -558,16 +518,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->get_entity_set: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -614,7 +572,7 @@ Gets the EntitySet UUID for the given EntitySet name.
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -622,13 +580,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -642,16 +596,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->get_entity_set_id: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -698,7 +650,7 @@ Get IDs for entity sets given their names.
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -706,13 +658,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -726,16 +674,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->get_entity_set_ids: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -782,7 +728,7 @@ Get specified property type metadata for an entity set.
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -790,13 +736,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -811,16 +753,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->get_entity_set_property_metadata: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -869,7 +809,7 @@ Get property metadata for entity sets.
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -877,13 +817,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -897,16 +833,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->get_property_metadata_for_entity_sets: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -953,7 +887,7 @@ Get all Property Types for entity set
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -961,13 +895,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -981,16 +911,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->get_property_types_for_entity_set: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -1037,7 +965,7 @@ Removes/unlinks the linked entity sets from the linking entity set
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -1045,13 +973,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -1066,16 +990,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->remove_entity_sets_from_linking_entity_set: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -1124,7 +1046,7 @@ Removes/unlinks the linked entity sets from the linking entity set
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -1132,13 +1054,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -1153,16 +1071,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->remove_entity_sets_from_linking_entity_sets: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -1211,7 +1127,7 @@ Updates the EntitySet definition for the given EntitySet UUID with the given met
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -1219,13 +1135,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -1240,16 +1152,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->update_entity_set_meta_data: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
@@ -1298,7 +1208,7 @@ Updates the property type metadata for the given entity set.
 
 ### Example
 
-* Bearer (JWT) Authentication (http_auth):
+* Basic Authentication (http_auth): 
 ```python
 from __future__ import print_function
 import time
@@ -1306,13 +1216,9 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
@@ -1327,16 +1233,14 @@ except ApiException as e:
     print("Exception when calling EntitySetsApi->update_entity_set_property_metadata: %s\n" % e)
 ```
 
-* Api Key Authentication (openlattice_auth):
+
+* Api Key Authentication (openlattice_auth): 
 ```python
 from __future__ import print_function
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
