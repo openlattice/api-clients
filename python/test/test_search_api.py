@@ -43,6 +43,13 @@ class TestSearchApi(unittest.TestCase):
         """
         pass
 
+    def test_execute_entity_set_data_query(self):
+        """Test case for execute_entity_set_data_query
+
+        Executes a search over the data of a given entity set to find rows that match the search term  # noqa: E501
+        """
+        pass
+
     def test_execute_filtered_entity_neighbor_id_search(self):
         """Test case for execute_filtered_entity_neighbor_id_search
 
@@ -54,6 +61,13 @@ class TestSearchApi(unittest.TestCase):
         """Test case for execute_filtered_entity_neighbor_search
 
         Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association  # noqa: E501
+        """
+        pass
+
+    def test_search_entity_set_data(self):
+        """Test case for search_entity_set_data
+
+        Executes a search over the data of a given entity set to find rows that match the search term  # noqa: E501
         """
         pass
 

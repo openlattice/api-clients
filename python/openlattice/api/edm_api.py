@@ -2011,6 +2011,100 @@ class EdmApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_all_entity_type_property_metadata(self, entity_type_id, **kwargs):  # noqa: E501
+        """Get all EntityType propertyType metadata  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_entity_type_property_metadata(entity_type_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_type_id: (required)
+        :return: dict(str, EntityTypePropertyMetadata)
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_all_entity_type_property_metadata_with_http_info(entity_type_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_all_entity_type_property_metadata_with_http_info(entity_type_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_all_entity_type_property_metadata_with_http_info(self, entity_type_id, **kwargs):  # noqa: E501
+        """Get all EntityType propertyType metadata  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_all_entity_type_property_metadata_with_http_info(entity_type_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_type_id: (required)
+        :return: dict(str, EntityTypePropertyMetadata)
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_type_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_all_entity_type_property_metadata" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_type_id' is set
+        if ('entity_type_id' not in local_var_params or
+                local_var_params['entity_type_id'] is None):
+            raise ValueError("Missing the required parameter `entity_type_id` when calling `get_all_entity_type_property_metadata`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_type_id' in local_var_params:
+            path_params['entityTypeId'] = local_var_params['entity_type_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/edm/entity/type/{entityTypeId}/property/type', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='dict(str, EntityTypePropertyMetadata)',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_all_entity_types(self, **kwargs):  # noqa: E501
         """Gets all EntityType definitions.  # noqa: E501
 
@@ -3398,6 +3492,108 @@ class EdmApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_entity_type_property_metadata(self, entity_type_id, property_type_id, **kwargs):  # noqa: E501
+        """Get EntityType propertyType metadata  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_entity_type_property_metadata(entity_type_id, property_type_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_type_id: (required)
+        :param str property_type_id: (required)
+        :return: EntityTypePropertyMetadata
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_entity_type_property_metadata_with_http_info(entity_type_id, property_type_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_entity_type_property_metadata_with_http_info(entity_type_id, property_type_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_entity_type_property_metadata_with_http_info(self, entity_type_id, property_type_id, **kwargs):  # noqa: E501
+        """Get EntityType propertyType metadata  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_entity_type_property_metadata_with_http_info(entity_type_id, property_type_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_type_id: (required)
+        :param str property_type_id: (required)
+        :return: EntityTypePropertyMetadata
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_type_id', 'property_type_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_entity_type_property_metadata" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_type_id' is set
+        if ('entity_type_id' not in local_var_params or
+                local_var_params['entity_type_id'] is None):
+            raise ValueError("Missing the required parameter `entity_type_id` when calling `get_entity_type_property_metadata`")  # noqa: E501
+        # verify the required parameter 'property_type_id' is set
+        if ('property_type_id' not in local_var_params or
+                local_var_params['property_type_id'] is None):
+            raise ValueError("Missing the required parameter `property_type_id` when calling `get_entity_type_property_metadata`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_type_id' in local_var_params:
+            path_params['entityTypeId'] = local_var_params['entity_type_id']  # noqa: E501
+        if 'property_type_id' in local_var_params:
+            path_params['propertyTypeId'] = local_var_params['property_type_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EntityTypePropertyMetadata',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5168,6 +5364,104 @@ class EdmApi(object):
 
         return self.api_client.call_api(
             '/datastore/edm/entity/type/{entityTypeId}', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_entity_type_property_metadata(self, entity_type_id, property_type_id, **kwargs):  # noqa: E501
+        """Update EntityType Property metadata  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_entity_type_property_metadata(entity_type_id, property_type_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_type_id: (required)
+        :param str property_type_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_entity_type_property_metadata_with_http_info(entity_type_id, property_type_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_entity_type_property_metadata_with_http_info(entity_type_id, property_type_id, **kwargs)  # noqa: E501
+            return data
+
+    def update_entity_type_property_metadata_with_http_info(self, entity_type_id, property_type_id, **kwargs):  # noqa: E501
+        """Update EntityType Property metadata  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_entity_type_property_metadata_with_http_info(entity_type_id, property_type_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_type_id: (required)
+        :param str property_type_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_type_id', 'property_type_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_entity_type_property_metadata" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_type_id' is set
+        if ('entity_type_id' not in local_var_params or
+                local_var_params['entity_type_id'] is None):
+            raise ValueError("Missing the required parameter `entity_type_id` when calling `update_entity_type_property_metadata`")  # noqa: E501
+        # verify the required parameter 'property_type_id' is set
+        if ('property_type_id' not in local_var_params or
+                local_var_params['property_type_id'] is None):
+            raise ValueError("Missing the required parameter `property_type_id` when calling `update_entity_type_property_metadata`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_type_id' in local_var_params:
+            path_params['entityTypeId'] = local_var_params['entity_type_id']  # noqa: E501
+        if 'property_type_id' in local_var_params:
+            path_params['propertyTypeId'] = local_var_params['property_type_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}', 'POST',
             path_params,
             query_params,
             header_params,

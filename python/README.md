@@ -62,15 +62,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = openlattice.AuthorizationsApi(openlattice.ApiClient(configuration))
-access_check = openlattice.AccessCheck() # AccessCheck | 
+api_instance = openlattice.AdminApi(openlattice.ApiClient(configuration))
 
 try:
-    # Check authorizations
-    api_response = api_instance.check_authorizations(access_check)
+    # Clears all the data currently being indexed in the queue.
+    api_response = api_instance.clear_indexing_queue()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AuthorizationsApi->check_authorizations: %s\n" % e)
+    print("Exception when calling AdminApi->clear_indexing_queue: %s\n" % e)
 
 ```
 
@@ -80,6 +79,10 @@ All URIs are relative to *https://api.openlattice.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AdminApi* | [**clear_indexing_queue**](docs/AdminApi.md#clear_indexing_queue) | **DELETE** /indexer/index/reindex | Clears all the data currently being indexed in the queue.
+*AdminApi* | [**get_indexing_state**](docs/AdminApi.md#get_indexing_state) | **GET** /indexer/index/reindex | Retrieve the current state of reindexing jobs
+*AdminApi* | [**reindex**](docs/AdminApi.md#reindex) | **POST** /indexer/index/reindex | Merge job descriptions for performing a partial or full reindex of provided entity sets.
+*AdminApi* | [**update_reindex**](docs/AdminApi.md#update_reindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 *AuthorizationsApi* | [**check_authorizations**](docs/AuthorizationsApi.md#check_authorizations) | **POST** /datastore/authorizations | Check authorizations
 *AuthorizationsApi* | [**get_accessible_objects**](docs/AuthorizationsApi.md#get_accessible_objects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 *DataApi* | [**create_associations**](docs/DataApi.md#create_associations) | **POST** /datastore/data/associations/ | Creates a new set of associations.
@@ -111,6 +114,7 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**get_all_available_association_types**](docs/EdmApi.md#get_all_available_association_types) | **GET** /datastore/edm/association/type/{associationTypeId}/available | Get all available associations for the given AssociationType UUID.
 *EdmApi* | [**get_all_entity_set_property_metadata**](docs/EdmApi.md#get_all_entity_set_property_metadata) | **GET** /datastore/entity-sets/all/{entitySetId}/metadata | Get all entity set property metadata.
 *EdmApi* | [**get_all_entity_sets**](docs/EdmApi.md#get_all_entity_sets) | **GET** /datastore/entity-sets | Get all EntitySet definitions.
+*EdmApi* | [**get_all_entity_type_property_metadata**](docs/EdmApi.md#get_all_entity_type_property_metadata) | **GET** /datastore/edm/entity/type/{entityTypeId}/property/type | Get all EntityType propertyType metadata
 *EdmApi* | [**get_all_entity_types**](docs/EdmApi.md#get_all_entity_types) | **GET** /datastore/edm/entity/type/ | Gets all EntityType definitions.
 *EdmApi* | [**get_all_property_types**](docs/EdmApi.md#get_all_property_types) | **GET** /datastore/edm/property/type/ | Gets all PropertyType definitions.
 *EdmApi* | [**get_all_property_types_in_namespace**](docs/EdmApi.md#get_all_property_types_in_namespace) | **GET** /datastore/edm/property/type/namespace/{namespace} | Gets all PropertyType definitions under the given namespace.
@@ -126,6 +130,7 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**get_entity_type**](docs/EdmApi.md#get_entity_type) | **GET** /datastore/edm/entity/type/{entityTypeId} | Gets the EntityType definition for the given EntityType UUID.
 *EdmApi* | [**get_entity_type_hierarchy**](docs/EdmApi.md#get_entity_type_hierarchy) | **PATCH** /datastore/edm/entity/type/{entityTypeId}/hierarchy | Get the EntityType hierarchy for the given EntityType UUID.
 *EdmApi* | [**get_entity_type_id**](docs/EdmApi.md#get_entity_type_id) | **GET** /datastore/edm/ids/entity/type/{namespace}/{name} | Gets the EntityType UUID for the given EntityType FQN.
+*EdmApi* | [**get_entity_type_property_metadata**](docs/EdmApi.md#get_entity_type_property_metadata) | **GET** /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId} | Get EntityType propertyType metadata
 *EdmApi* | [**get_property_metadata_for_entity_sets**](docs/EdmApi.md#get_property_metadata_for_entity_sets) | **POST** /datastore/entity-sets/all/metadata | Get property metadata for entity sets.
 *EdmApi* | [**get_property_type**](docs/EdmApi.md#get_property_type) | **GET** /datastore/edm/property/type/{propertyTypeId} | Gets the PropertyType definition for the given PropertyType UUID.
 *EdmApi* | [**get_property_type_id**](docs/EdmApi.md#get_property_type_id) | **GET** /datastore/edm/ids/property/type/{namespace}/{name} | Gets the PropertyType UUID for the given PropertyType FQN.
@@ -144,6 +149,7 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**update_entity_set_meta_data**](docs/EdmApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 *EdmApi* | [**update_entity_set_property_metadata**](docs/EdmApi.md#update_entity_set_property_metadata) | **POST** /datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 *EdmApi* | [**update_entity_type_meta_data**](docs/EdmApi.md#update_entity_type_meta_data) | **PATCH** /datastore/edm/entity/type/{entityTypeId} | Updates the EntityType definition for the given EntityType UUID with the given metadata.
+*EdmApi* | [**update_entity_type_property_metadata**](docs/EdmApi.md#update_entity_type_property_metadata) | **POST** /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId} | Update EntityType Property metadata
 *EdmApi* | [**update_property_type_meta_data**](docs/EdmApi.md#update_property_type_meta_data) | **PATCH** /datastore/edm/property/type/{propertyTypeId} | Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
 *EdmApi* | [**update_schema**](docs/EdmApi.md#update_schema) | **PATCH** /datastore/edm/schema/{namespace}/{name} | Edits the schema contents for a corresponding namespace and name.
 *EntitySetsApi* | [**add_entity_sets_to_linking_entity_set**](docs/EntitySetsApi.md#add_entity_sets_to_linking_entity_set) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
@@ -162,6 +168,12 @@ Class | Method | HTTP request | Description
 *EntitySetsApi* | [**remove_entity_sets_from_linking_entity_sets**](docs/EntitySetsApi.md#remove_entity_sets_from_linking_entity_sets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
 *EntitySetsApi* | [**update_entity_set_meta_data**](docs/EntitySetsApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 *EntitySetsApi* | [**update_entity_set_property_metadata**](docs/EntitySetsApi.md#update_entity_set_property_metadata) | **POST** /datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
+*LinkingApi* | [**add_linking_feedback**](docs/LinkingApi.md#add_linking_feedback) | **PUT** /linker/linkingfeedback | Submits feedbacks for a given linking entity set and linking id in a batch format.
+*LinkingApi* | [**delete_linking_feedback**](docs/LinkingApi.md#delete_linking_feedback) | **DELETE** /linker/linkingfeedback | Deletes linking feedback
+*LinkingApi* | [**get_all_linking_feedback**](docs/LinkingApi.md#get_all_linking_feedback) | **GET** /linker/linkingfeedback/all | Returns all feedback submitted
+*LinkingApi* | [**get_all_linking_feedback_with_features**](docs/LinkingApi.md#get_all_linking_feedback_with_features) | **GET** /linker/linkingfeedback/features/all | Returns all feedback submitted walong with the features of pairwise entities
+*LinkingApi* | [**get_linking_feedback_with_features**](docs/LinkingApi.md#get_linking_feedback_with_features) | **POST** /linker/linkingfeedback/features | Returns the feedback on the given entity pair along with their features
+*LinkingApi* | [**get_linking_feedbacks_on_entity**](docs/LinkingApi.md#get_linking_feedbacks_on_entity) | **POST** /linker/linkingfeedback/entity | Returns positive/negative/all linking feedbacks on the given entity.
 *OrganizationsApi* | [**add_member**](docs/OrganizationsApi.md#add_member) | **PUT** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
 *OrganizationsApi* | [**add_role_to_user**](docs/OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
 *OrganizationsApi* | [**assemble_entity_sets**](docs/OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets/assemble | Materializes entity sets into the organization database.
@@ -195,8 +207,10 @@ Class | Method | HTTP request | Description
 *PrincipalApi* | [**search_all_users_by_email**](docs/PrincipalApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 *SearchApi* | [**execute_advanced_entity_set_data_query**](docs/SearchApi.md#execute_advanced_entity_set_data_query) | **POST** /datastore/search/advanced/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
 *SearchApi* | [**execute_entity_neighbor_search**](docs/SearchApi.md#execute_entity_neighbor_search) | **GET** /datastore/search/{entitySetId}/{entityKeyId} | Executes a search for all neighbors of an entity that are connected by an association
+*SearchApi* | [**execute_entity_set_data_query**](docs/SearchApi.md#execute_entity_set_data_query) | **POST** /datastore/search/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
 *SearchApi* | [**execute_filtered_entity_neighbor_id_search**](docs/SearchApi.md#execute_filtered_entity_neighbor_id_search) | **POST** /datastore/search/{entitySetId}/neighbors/advanced/ids | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 *SearchApi* | [**execute_filtered_entity_neighbor_search**](docs/SearchApi.md#execute_filtered_entity_neighbor_search) | **POST** /datastore/search/{entitySetId}/neighbors/advanced | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
+*SearchApi* | [**search_entity_set_data**](docs/SearchApi.md#search_entity_set_data) | **PATCH** /datastore/search | Executes a search over the data of a given entity set to find rows that match the search term
 
 
 ## Documentation For Models
@@ -212,19 +226,28 @@ Class | Method | HTTP request | Description
  - [Authorization](docs/Authorization.md)
  - [AuthorizedObjectsSearchResult](docs/AuthorizedObjectsSearchResult.md)
  - [BulkDataCreation](docs/BulkDataCreation.md)
+ - [Constraint](docs/Constraint.md)
+ - [ConstraintGroup](docs/ConstraintGroup.md)
  - [DataEdge](docs/DataEdge.md)
  - [DataSearchResult](docs/DataSearchResult.md)
  - [EDM](docs/EDM.md)
  - [EDMdiff](docs/EDMdiff.md)
  - [EdmRequest](docs/EdmRequest.md)
  - [Entity](docs/Entity.md)
+ - [EntityDataKey](docs/EntityDataKey.md)
  - [EntityKey](docs/EntityKey.md)
+ - [EntityKeyPair](docs/EntityKeyPair.md)
+ - [EntityLinkingFeatures](docs/EntityLinkingFeatures.md)
+ - [EntityLinkingFeedback](docs/EntityLinkingFeedback.md)
  - [EntitySet](docs/EntitySet.md)
  - [EntitySetPropertyMetaData](docs/EntitySetPropertyMetaData.md)
  - [EntitySetSelection](docs/EntitySetSelection.md)
  - [EntityType](docs/EntityType.md)
+ - [EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
+ - [IndexingState](docs/IndexingState.md)
  - [IntegrationResults](docs/IntegrationResults.md)
+ - [LinkingFeedback](docs/LinkingFeedback.md)
  - [MaterializedViewAccount](docs/MaterializedViewAccount.md)
  - [MetadataUpdate](docs/MetadataUpdate.md)
  - [NeighborEntityDetails](docs/NeighborEntityDetails.md)
@@ -237,9 +260,12 @@ Class | Method | HTTP request | Description
  - [PropertyUsageSummary](docs/PropertyUsageSummary.md)
  - [Role](docs/Role.md)
  - [Schema](docs/Schema.md)
+ - [SearchConstraints](docs/SearchConstraints.md)
  - [SearchDetails](docs/SearchDetails.md)
+ - [SearchTerm](docs/SearchTerm.md)
  - [SecurablePrincipal](docs/SecurablePrincipal.md)
  - [SmsEntitySetInformation](docs/SmsEntitySetInformation.md)
+ - [SortDefinition](docs/SortDefinition.md)
 
 
 ## Documentation For Authorization

@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**execute_advanced_entity_set_data_query**](SearchApi.md#execute_advanced_entity_set_data_query) | **POST** /datastore/search/advanced/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
 [**execute_entity_neighbor_search**](SearchApi.md#execute_entity_neighbor_search) | **GET** /datastore/search/{entitySetId}/{entityKeyId} | Executes a search for all neighbors of an entity that are connected by an association
+[**execute_entity_set_data_query**](SearchApi.md#execute_entity_set_data_query) | **POST** /datastore/search/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
 [**execute_filtered_entity_neighbor_id_search**](SearchApi.md#execute_filtered_entity_neighbor_id_search) | **POST** /datastore/search/{entitySetId}/neighbors/advanced/ids | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 [**execute_filtered_entity_neighbor_search**](SearchApi.md#execute_filtered_entity_neighbor_search) | **POST** /datastore/search/{entitySetId}/neighbors/advanced | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
+[**search_entity_set_data**](SearchApi.md#search_entity_set_data) | **PATCH** /datastore/search | Executes a search over the data of a given entity set to find rows that match the search term
 
 
 # **execute_advanced_entity_set_data_query**
@@ -172,8 +174,89 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **execute_entity_set_data_query**
+> DataSearchResult execute_entity_set_data_query(entity_set_id, search_term)
+
+Executes a search over the data of a given entity set to find rows that match the search term
+
+### Example
+
+* Basic Authentication (http_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = openlattice.SearchApi(openlattice.ApiClient(configuration))
+entity_set_id = 'entity_set_id_example' # str | 
+search_term = openlattice.SearchTerm() # SearchTerm | A JSON object that contains three parameters, \"start\", which specifies the hit number to start returning results on for paging, \"maxHits\", which specifies the maximum number of hits to return, and \"searchTerm\", which is the search term results will match on.
+
+try:
+    # Executes a search over the data of a given entity set to find rows that match the search term
+    api_response = api_instance.execute_entity_set_data_query(entity_set_id, search_term)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->execute_entity_set_data_query: %s\n" % e)
+```
+
+
+* Api Key Authentication (openlattice_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openlattice.SearchApi(openlattice.ApiClient(configuration))
+entity_set_id = 'entity_set_id_example' # str | 
+search_term = openlattice.SearchTerm() # SearchTerm | A JSON object that contains three parameters, \"start\", which specifies the hit number to start returning results on for paging, \"maxHits\", which specifies the maximum number of hits to return, and \"searchTerm\", which is the search term results will match on.
+
+try:
+    # Executes a search over the data of a given entity set to find rows that match the search term
+    api_response = api_instance.execute_entity_set_data_query(entity_set_id, search_term)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->execute_entity_set_data_query: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity_set_id** | [**str**](.md)|  | 
+ **search_term** | [**SearchTerm**](SearchTerm.md)| A JSON object that contains three parameters, \&quot;start\&quot;, which specifies the hit number to start returning results on for paging, \&quot;maxHits\&quot;, which specifies the maximum number of hits to return, and \&quot;searchTerm\&quot;, which is the search term results will match on. | 
+
+### Return type
+
+[**DataSearchResult**](DataSearchResult.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **execute_filtered_entity_neighbor_id_search**
-> dict(str, dict(str, list[NeighborEntityIds])) execute_filtered_entity_neighbor_id_search(entity_set_id, neighbor_search_filter)
+> dict(str, dict(str, dict(str, list[NeighborEntityIds]))) execute_filtered_entity_neighbor_id_search(entity_set_id, neighbor_search_filter)
 
 Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 
@@ -240,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**dict(str, dict(str, list[NeighborEntityIds]))**
+**dict(str, dict(str, dict(str, list[NeighborEntityIds])))**
 
 ### Authorization
 
@@ -322,6 +405,84 @@ Name | Type | Description  | Notes
 ### Return type
 
 **dict(str, list[NeighborEntityDetails])**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_entity_set_data**
+> DataSearchResult search_entity_set_data(search_constraints)
+
+Executes a search over the data of a given entity set to find rows that match the search term
+
+### Example
+
+* Basic Authentication (http_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = openlattice.SearchApi(openlattice.ApiClient(configuration))
+search_constraints = openlattice.SearchConstraints() # SearchConstraints | 
+
+try:
+    # Executes a search over the data of a given entity set to find rows that match the search term
+    api_response = api_instance.search_entity_set_data(search_constraints)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_entity_set_data: %s\n" % e)
+```
+
+
+* Api Key Authentication (openlattice_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openlattice.SearchApi(openlattice.ApiClient(configuration))
+search_constraints = openlattice.SearchConstraints() # SearchConstraints | 
+
+try:
+    # Executes a search over the data of a given entity set to find rows that match the search term
+    api_response = api_instance.search_entity_set_data(search_constraints)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SearchApi->search_entity_set_data: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **search_constraints** | [**SearchConstraints**](SearchConstraints.md)|  | 
+
+### Return type
+
+[**DataSearchResult**](DataSearchResult.md)
 
 ### Authorization
 

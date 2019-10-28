@@ -176,6 +176,13 @@ class TestEdmApi(unittest.TestCase):
         """
         pass
 
+    def test_get_all_entity_type_property_metadata(self):
+        """Test case for get_all_entity_type_property_metadata
+
+        Get all EntityType propertyType metadata  # noqa: E501
+        """
+        pass
+
     def test_get_all_entity_types(self):
         """Test case for get_all_entity_types
 
@@ -278,6 +285,13 @@ class TestEdmApi(unittest.TestCase):
         """Test case for get_entity_type_id
 
         Gets the EntityType UUID for the given EntityType FQN.  # noqa: E501
+        """
+        pass
+
+    def test_get_entity_type_property_metadata(self):
+        """Test case for get_entity_type_property_metadata
+
+        Get EntityType propertyType metadata  # noqa: E501
         """
         pass
 
@@ -404,6 +418,13 @@ class TestEdmApi(unittest.TestCase):
         """Test case for update_entity_type_meta_data
 
         Updates the EntityType definition for the given EntityType UUID with the given metadata.  # noqa: E501
+        """
+        pass
+
+    def test_update_entity_type_property_metadata(self):
+        """Test case for update_entity_type_property_metadata
+
+        Update EntityType Property metadata  # noqa: E501
         """
         pass
 
