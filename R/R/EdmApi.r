@@ -81,6 +81,9 @@
 #' get_all_entity_sets Get all EntitySet definitions.
 #'
 #'
+#' get_all_entity_type_property_metadata Get all EntityType propertyType metadata
+#'
+#'
 #' get_all_entity_types Gets all EntityType definitions.
 #'
 #'
@@ -124,6 +127,9 @@
 #'
 #'
 #' get_entity_type_id Gets the EntityType UUID for the given EntityType FQN.
+#'
+#'
+#' get_entity_type_property_metadata Get EntityType propertyType metadata
 #'
 #'
 #' get_property_metadata_for_entity_sets Get property metadata for entity sets.
@@ -178,6 +184,9 @@
 #'
 #'
 #' update_entity_type_meta_data Updates the EntityType definition for the given EntityType UUID with the given metadata.
+#'
+#'
+#' update_entity_type_property_metadata Update EntityType Property metadata
 #'
 #'
 #' update_property_type_meta_data Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
@@ -781,6 +790,32 @@ EdmApi <- R6::R6Class(
       }
 
     },
+    get_all_entity_type_property_metadata = function(entity_type_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/edm/entity/type/{entityTypeId}/property/type"
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), `entity_type_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
     get_all_entity_types = function(...){
       args <- list(...)
       queryParams <- list()
@@ -1149,6 +1184,36 @@ EdmApi <- R6::R6Class(
 
       if (!missing(`name`)) {
         urlPath <- gsub(paste0("\\{", "name", "\\}"), `name`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    get_entity_type_property_metadata = function(entity_type_id, property_type_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}"
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), `entity_type_id`, urlPath)
+      }
+
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), `property_type_id`, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -1683,6 +1748,36 @@ EdmApi <- R6::R6Class(
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "PATCH",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+            # void response, no need to return anything
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    update_entity_type_property_metadata = function(entity_type_id, property_type_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}"
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), `entity_type_id`, urlPath)
+      }
+
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), `property_type_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,
