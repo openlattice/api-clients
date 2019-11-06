@@ -36,6 +36,13 @@ class TestDataApi(unittest.TestCase):
         """
         pass
 
+    def test_create_entities(self):
+        """Test case for create_entities
+
+        Creates a new set of entities.  # noqa: E501
+        """
+        pass
+
     def test_delete_all_entities_from_entity_set(self):
         """Test case for delete_all_entities_from_entity_set
 
@@ -47,6 +54,13 @@ class TestDataApi(unittest.TestCase):
         """Test case for delete_entities
 
         Deletes multiple entities from an entity set.  # noqa: E501
+        """
+        pass
+
+    def test_get_entity(self):
+        """Test case for get_entity
+
+        Loads a single entity by its entityKeyId and entitySetId  # noqa: E501
         """
         pass
 
@@ -68,6 +82,13 @@ class TestDataApi(unittest.TestCase):
         """Test case for load_filtered_entity_set_data
 
         Gets a list of entities by UUIDs  # noqa: E501
+        """
+        pass
+
+    def test_update_entities_in_entity_set(self):
+        """Test case for update_entities_in_entity_set
+
+        Perform one of the following bulk update operations on entities (type = Merge) adds new properties without affecting existing data, (type = PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type = Replace) replaces all entity data with the supplied properties.  # noqa: E501
         """
         pass
 
