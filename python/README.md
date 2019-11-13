@@ -82,6 +82,8 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**clear_indexing_queue**](docs/AdminApi.md#clear_indexing_queue) | **DELETE** /indexer/index/reindex | Clears all the data currently being indexed in the queue.
 *AdminApi* | [**get_indexing_state**](docs/AdminApi.md#get_indexing_state) | **GET** /indexer/index/reindex | Retrieve the current state of reindexing jobs
 *AdminApi* | [**reindex**](docs/AdminApi.md#reindex) | **POST** /indexer/index/reindex | Merge job descriptions for performing a partial or full reindex of provided entity sets.
+*AdminApi* | [**reload_cache**](docs/AdminApi.md#reload_cache) | **GET** /datastore/admin/reload/cache | Reload all the in memory caches
+*AdminApi* | [**reload_specific_cache**](docs/AdminApi.md#reload_specific_cache) | **GET** /datastore/admin/reload/cache/{name} | Reload the in memory caches for the specified name
 *AdminApi* | [**update_reindex**](docs/AdminApi.md#update_reindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 *AuthorizationsApi* | [**check_authorizations**](docs/AuthorizationsApi.md#check_authorizations) | **POST** /datastore/authorizations | Check authorizations
 *AuthorizationsApi* | [**get_accessible_objects**](docs/AuthorizationsApi.md#get_accessible_objects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
