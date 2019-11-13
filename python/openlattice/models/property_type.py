@@ -38,7 +38,7 @@ class PropertyType(object):
         'description': 'str',
         'schemas': 'list[FullQualifiedName]',
         'datatype': 'str',
-        'pii_field': 'bool',
+        'pii': 'bool',
         'multi_valued': 'bool',
         'analyzer': 'str'
     }
@@ -50,12 +50,12 @@ class PropertyType(object):
         'description': 'description',
         'schemas': 'schemas',
         'datatype': 'datatype',
-        'pii_field': 'piiField',
+        'pii': 'pii',
         'multi_valued': 'multiValued',
         'analyzer': 'analyzer'
     }
 
-    def __init__(self, title=None, id=None, type=None, description=None, schemas=None, datatype=None, pii_field=None, multi_valued=None, analyzer=None):  # noqa: E501
+    def __init__(self, title=None, id=None, type=None, description=None, schemas=None, datatype=None, pii=None, multi_valued=None, analyzer=None):  # noqa: E501
         """PropertyType - a model defined in OpenAPI"""  # noqa: E501
 
         self._title = None
@@ -64,7 +64,7 @@ class PropertyType(object):
         self._description = None
         self._schemas = None
         self._datatype = None
-        self._pii_field = None
+        self._pii = None
         self._multi_valued = None
         self._analyzer = None
         self.discriminator = None
@@ -81,8 +81,8 @@ class PropertyType(object):
             self.schemas = schemas
         if datatype is not None:
             self.datatype = datatype
-        if pii_field is not None:
-            self.pii_field = pii_field
+        if pii is not None:
+            self.pii = pii
         if multi_valued is not None:
             self.multi_valued = multi_valued
         if analyzer is not None:
@@ -215,25 +215,25 @@ class PropertyType(object):
         self._datatype = datatype
 
     @property
-    def pii_field(self):
-        """Gets the pii_field of this PropertyType.  # noqa: E501
+    def pii(self):
+        """Gets the pii of this PropertyType.  # noqa: E501
 
 
-        :return: The pii_field of this PropertyType.  # noqa: E501
+        :return: The pii of this PropertyType.  # noqa: E501
         :rtype: bool
         """
-        return self._pii_field
+        return self._pii
 
-    @pii_field.setter
-    def pii_field(self, pii_field):
-        """Sets the pii_field of this PropertyType.
+    @pii.setter
+    def pii(self, pii):
+        """Sets the pii of this PropertyType.
 
 
-        :param pii_field: The pii_field of this PropertyType.  # noqa: E501
+        :param pii: The pii of this PropertyType.  # noqa: E501
         :type: bool
         """
 
-        self._pii_field = pii_field
+        self._pii = pii
 
     @property
     def multi_valued(self):

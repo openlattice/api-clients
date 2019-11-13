@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**clear_indexing_queue**](AdminApi.md#clear_indexing_queue) | **DELETE** /indexer/index/reindex | Clears all the data currently being indexed in the queue.
 [**get_indexing_state**](AdminApi.md#get_indexing_state) | **GET** /indexer/index/reindex | Retrieve the current state of reindexing jobs
 [**reindex**](AdminApi.md#reindex) | **POST** /indexer/index/reindex | Merge job descriptions for performing a partial or full reindex of provided entity sets.
+[**reload_cache**](AdminApi.md#reload_cache) | **GET** /datastore/admin/reload/cache | Reload all the in memory caches
+[**reload_specific_cache**](AdminApi.md#reload_specific_cache) | **GET** /datastore/admin/reload/cache/{name} | Reload the in memory caches for the specified name
 [**update_reindex**](AdminApi.md#update_reindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 
 
@@ -231,6 +233,153 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reload_cache**
+> reload_cache()
+
+Reload all the in memory caches
+
+### Example
+
+* Basic Authentication (http_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = openlattice.AdminApi(openlattice.ApiClient(configuration))
+
+try:
+    # Reload all the in memory caches
+    api_instance.reload_cache()
+except ApiException as e:
+    print("Exception when calling AdminApi->reload_cache: %s\n" % e)
+```
+
+
+* Api Key Authentication (openlattice_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openlattice.AdminApi(openlattice.ApiClient(configuration))
+
+try:
+    # Reload all the in memory caches
+    api_instance.reload_cache()
+except ApiException as e:
+    print("Exception when calling AdminApi->reload_cache: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reload_specific_cache**
+> reload_specific_cache(name)
+
+Reload the in memory caches for the specified name
+
+### Example
+
+* Basic Authentication (http_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = openlattice.AdminApi(openlattice.ApiClient(configuration))
+name = 'name_example' # str | 
+
+try:
+    # Reload the in memory caches for the specified name
+    api_instance.reload_specific_cache(name)
+except ApiException as e:
+    print("Exception when calling AdminApi->reload_specific_cache: %s\n" % e)
+```
+
+
+* Api Key Authentication (openlattice_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openlattice.AdminApi(openlattice.ApiClient(configuration))
+name = 'name_example' # str | 
+
+try:
+    # Reload the in memory caches for the specified name
+    api_instance.reload_specific_cache(name)
+except ApiException as e:
+    print("Exception when calling AdminApi->reload_specific_cache: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

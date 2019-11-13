@@ -50,6 +50,20 @@ class TestAdminApi(unittest.TestCase):
         """
         pass
 
+    def test_reload_cache(self):
+        """Test case for reload_cache
+
+        Reload all the in memory caches  # noqa: E501
+        """
+        pass
+
+    def test_reload_specific_cache(self):
+        """Test case for reload_specific_cache
+
+        Reload the in memory caches for the specified name  # noqa: E501
+        """
+        pass
+
     def test_update_reindex(self):
         """Test case for update_reindex
 

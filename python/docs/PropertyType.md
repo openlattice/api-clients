@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **description** | **str** |  | [optional] 
 **schemas** | [**list[FullQualifiedName]**](FullQualifiedName.md) |  | [optional] 
 **datatype** | **str** |  | [optional] 
-**pii_field** | **bool** |  | [optional] 
+**pii** | **bool** |  | [optional] 
 **multi_valued** | **bool** |  | [optional] 
 **analyzer** | **str** |  | [optional] 
 
