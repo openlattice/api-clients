@@ -974,7 +974,7 @@ class EntitySetsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/', 'GET',
+            '/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1586,7 +1586,7 @@ class EntitySetsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/', 'POST',
+            '/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/', 'POST',
             path_params,
             query_params,
             header_params,

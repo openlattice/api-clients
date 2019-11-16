@@ -332,7 +332,7 @@ EntitySetsApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/"
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
@@ -518,7 +518,7 @@ EntitySetsApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/"
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }

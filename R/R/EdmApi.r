@@ -27,6 +27,9 @@
 #' add_entity_sets_to_linking_entity_sets Adds the entity sets as linked entity sets to the linking entity sets
 #'
 #'
+#' add_primary_key_to_entity_type Adds a primary key with a given ID to an entity type with a given ID.
+#'
+#'
 #' add_property_type_to_entity_type Updates the EntityType definition for the given EntityType UUID by adding the given PropertyType UUID.
 #'
 #'
@@ -165,6 +168,9 @@
 #' remove_entity_sets_from_linking_entity_sets Removes/unlinks the linked entity sets from the linking entity set
 #'
 #'
+#' remove_primary_key_from_entity_type Removes a primary key with a given ID from an entity type with a given ID.
+#'
+#'
 #' remove_property_type_from_entity_type Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID.
 #'
 #'
@@ -297,6 +303,36 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
                 jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    add_primary_key_to_entity_type = function(entity_type_id, property_type_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId}"
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), `entity_type_id`, urlPath)
+      }
+
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), `property_type_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PUT",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -1095,7 +1131,7 @@ EdmApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- character()
 
-      urlPath <- "/datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/"
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
@@ -1544,6 +1580,36 @@ EdmApi <- R6::R6Class(
       }
 
     },
+    remove_primary_key_from_entity_type = function(entity_type_id, property_type_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId}"
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), `entity_type_id`, urlPath)
+      }
+
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), `property_type_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+            # void response, no need to return anything
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
     remove_property_type_from_entity_type = function(entity_type_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
@@ -1705,7 +1771,7 @@ EdmApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/"
+      urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**property_tags** | **dict(str, list[str])** |  | [optional] 
+**property_tags** | **list[str]** |  | [optional] 
 **default_show** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

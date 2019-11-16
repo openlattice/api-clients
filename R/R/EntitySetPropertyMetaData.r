@@ -34,7 +34,8 @@ EntitySetPropertyMetaData <- R6::R6Class(
         self$`description` <- `description`
       }
       if (!missing(`propertyTags`)) {
-                stopifnot(R6::is.R6(`propertyTags`))
+                stopifnot(is.vector(`propertyTags`), length(`propertyTags`) != 0)
+                sapply(`propertyTags`, function(x) stopifnot(is.character(x)))
         self$`propertyTags` <- `propertyTags`
       }
       if (!missing(`defaultShow`)) {
@@ -53,7 +54,7 @@ EntitySetPropertyMetaData <- R6::R6Class(
       }
       if (!is.null(self$`propertyTags`)) {
         EntitySetPropertyMetaDataObject[['propertyTags']] <-
-                self$`propertyTags`$toJSON()
+                self$`propertyTags`
       }
       if (!is.null(self$`defaultShow`)) {
         EntitySetPropertyMetaDataObject[['defaultShow']] <-
@@ -71,9 +72,7 @@ EntitySetPropertyMetaData <- R6::R6Class(
                 self$`description` <- EntitySetPropertyMetaDataObject$`description`
       }
       if (!is.null(EntitySetPropertyMetaDataObject$`propertyTags`)) {
-                propertyTagsObject <- character$new()
-                propertyTagsObject$fromJSON(jsonlite::toJSON(EntitySetPropertyMetaDataObject$propertyTags, auto_unbox = TRUE))
-                self$`propertyTags` <- propertyTagsObject
+                self$`propertyTags` <- EntitySetPropertyMetaDataObject$`propertyTags`
       }
       if (!is.null(EntitySetPropertyMetaDataObject$`defaultShow`)) {
                 self$`defaultShow` <- EntitySetPropertyMetaDataObject$`defaultShow`
@@ -93,7 +92,9 @@ EntitySetPropertyMetaData <- R6::R6Class(
                   
               ,
            "propertyTags":
-                  "%s"
+                      
+                      ["%s"]
+                  
               ,
            "defaultShow":
                       
@@ -103,7 +104,7 @@ EntitySetPropertyMetaData <- R6::R6Class(
         }',
                 self$`title`,
                 self$`description`,
-                self$`propertyTags`$toJSON(),
+                paste0(self$`propertyTags`, collapse='","'),
                 self$`defaultShow`
       )
       gsub("[\r\n]| ", "", outstring)
@@ -112,8 +113,7 @@ EntitySetPropertyMetaData <- R6::R6Class(
       EntitySetPropertyMetaDataObject <- jsonlite::fromJSON(EntitySetPropertyMetaDataJson)
               self$`title` <- EntitySetPropertyMetaDataObject$`title`
               self$`description` <- EntitySetPropertyMetaDataObject$`description`
-              characterObject <- character$new()
-              self$`propertyTags` <- characterObject$fromJSON(jsonlite::toJSON(EntitySetPropertyMetaDataObject$propertyTags, auto_unbox = TRUE))
+              self$`propertyTags` <- EntitySetPropertyMetaDataObject$`propertyTags`
               self$`defaultShow` <- EntitySetPropertyMetaDataObject$`defaultShow`
     }
   )
