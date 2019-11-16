@@ -339,6 +339,104 @@ class EdmApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def add_primary_key_to_entity_type(self, entity_type_id, property_type_id, **kwargs):  # noqa: E501
+        """Adds a primary key with a given ID to an entity type with a given ID.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_primary_key_to_entity_type(entity_type_id, property_type_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_type_id: (required)
+        :param str property_type_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_primary_key_to_entity_type_with_http_info(entity_type_id, property_type_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_primary_key_to_entity_type_with_http_info(entity_type_id, property_type_id, **kwargs)  # noqa: E501
+            return data
+
+    def add_primary_key_to_entity_type_with_http_info(self, entity_type_id, property_type_id, **kwargs):  # noqa: E501
+        """Adds a primary key with a given ID to an entity type with a given ID.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_primary_key_to_entity_type_with_http_info(entity_type_id, property_type_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_type_id: (required)
+        :param str property_type_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_type_id', 'property_type_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_primary_key_to_entity_type" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_type_id' is set
+        if ('entity_type_id' not in local_var_params or
+                local_var_params['entity_type_id'] is None):
+            raise ValueError("Missing the required parameter `entity_type_id` when calling `add_primary_key_to_entity_type`")  # noqa: E501
+        # verify the required parameter 'property_type_id' is set
+        if ('property_type_id' not in local_var_params or
+                local_var_params['property_type_id'] is None):
+            raise ValueError("Missing the required parameter `property_type_id` when calling `add_primary_key_to_entity_type`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_type_id' in local_var_params:
+            path_params['entityTypeId'] = local_var_params['entity_type_id']  # noqa: E501
+        if 'property_type_id' in local_var_params:
+            path_params['propertyTypeId'] = local_var_params['property_type_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def add_property_type_to_entity_type(self, entity_type_id, property_type_id, **kwargs):  # noqa: E501
         """Updates the EntityType definition for the given EntityType UUID by adding the given PropertyType UUID.  # noqa: E501
 
@@ -3198,7 +3296,7 @@ class EdmApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/', 'GET',
+            '/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/', 'GET',
             path_params,
             query_params,
             header_params,
@@ -4671,6 +4769,104 @@ class EdmApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def remove_primary_key_from_entity_type(self, entity_type_id, property_type_id, **kwargs):  # noqa: E501
+        """Removes a primary key with a given ID from an entity type with a given ID.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_primary_key_from_entity_type(entity_type_id, property_type_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_type_id: (required)
+        :param str property_type_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.remove_primary_key_from_entity_type_with_http_info(entity_type_id, property_type_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.remove_primary_key_from_entity_type_with_http_info(entity_type_id, property_type_id, **kwargs)  # noqa: E501
+            return data
+
+    def remove_primary_key_from_entity_type_with_http_info(self, entity_type_id, property_type_id, **kwargs):  # noqa: E501
+        """Removes a primary key with a given ID from an entity type with a given ID.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.remove_primary_key_from_entity_type_with_http_info(entity_type_id, property_type_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_type_id: (required)
+        :param str property_type_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_type_id', 'property_type_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method remove_primary_key_from_entity_type" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_type_id' is set
+        if ('entity_type_id' not in local_var_params or
+                local_var_params['entity_type_id'] is None):
+            raise ValueError("Missing the required parameter `entity_type_id` when calling `remove_primary_key_from_entity_type`")  # noqa: E501
+        # verify the required parameter 'property_type_id' is set
+        if ('property_type_id' not in local_var_params or
+                local_var_params['property_type_id'] is None):
+            raise ValueError("Missing the required parameter `property_type_id` when calling `remove_primary_key_from_entity_type`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_type_id' in local_var_params:
+            path_params['entityTypeId'] = local_var_params['entity_type_id']  # noqa: E501
+        if 'property_type_id' in local_var_params:
+            path_params['propertyTypeId'] = local_var_params['property_type_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def remove_property_type_from_entity_type(self, entity_type_id, property_type_id, **kwargs):  # noqa: E501
         """Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID.  # noqa: E501
 
@@ -5261,7 +5457,7 @@ class EdmApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/entity-sets/{entitySetId}/properties/{propertyTypeId}/', 'POST',
+            '/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/', 'POST',
             path_params,
             query_params,
             header_params,

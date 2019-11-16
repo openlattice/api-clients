@@ -50,6 +50,13 @@ class TestEdmApi(unittest.TestCase):
         """
         pass
 
+    def test_add_primary_key_to_entity_type(self):
+        """Test case for add_primary_key_to_entity_type
+
+        Adds a primary key with a given ID to an entity type with a given ID.  # noqa: E501
+        """
+        pass
+
     def test_add_property_type_to_entity_type(self):
         """Test case for add_property_type_to_entity_type
 
@@ -369,6 +376,13 @@ class TestEdmApi(unittest.TestCase):
         """Test case for remove_entity_sets_from_linking_entity_sets
 
         Removes/unlinks the linked entity sets from the linking entity set  # noqa: E501
+        """
+        pass
+
+    def test_remove_primary_key_from_entity_type(self):
+        """Test case for remove_primary_key_from_entity_type
+
+        Removes a primary key with a given ID from an entity type with a given ID.  # noqa: E501
         """
         pass
 

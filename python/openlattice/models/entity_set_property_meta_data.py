@@ -34,7 +34,7 @@ class EntitySetPropertyMetaData(object):
     openapi_types = {
         'title': 'str',
         'description': 'str',
-        'property_tags': 'dict(str, list[str])',
+        'property_tags': 'list[str]',
         'default_show': 'bool'
     }
 
@@ -111,7 +111,7 @@ class EntitySetPropertyMetaData(object):
 
 
         :return: The property_tags of this EntitySetPropertyMetaData.  # noqa: E501
-        :rtype: dict(str, list[str])
+        :rtype: list[str]
         """
         return self._property_tags
 
@@ -121,7 +121,7 @@ class EntitySetPropertyMetaData(object):
 
 
         :param property_tags: The property_tags of this EntitySetPropertyMetaData.  # noqa: E501
-        :type: dict(str, list[str])
+        :type: list[str]
         """
 
         self._property_tags = property_tags
