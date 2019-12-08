@@ -57,6 +57,9 @@
 #' get_organization_entity_sets Get the entity sets for an organization for a certain filter
 #'
 #'
+#' get_organization_integration_account Get the integrations account for an organization from the organizationId
+#'
+#'
 #' get_organizations Get all organizations
 #'
 #'
@@ -459,6 +462,32 @@ OrganizationsApi <- R6::R6Class(
       headerParams <- character()
 
       urlPath <- "/datastore/organizations/{organizationId}/entity-sets"
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), `organization_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    get_organization_integration_account = function(organization_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/organizations/{organizationId}/integration"
       if (!missing(`organization_id`)) {
         urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), `organization_id`, urlPath)
       }

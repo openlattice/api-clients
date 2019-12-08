@@ -42,6 +42,9 @@
 #' load_filtered_entity_set_data Gets a list of entities by UUIDs
 #'
 #'
+#' load_linked_entity_set_breakdown Loads a linked entity set breakdown with the selected linked entities and properties.
+#'
+#'
 #' update_entities_in_entity_set Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
 #'
 #' }
@@ -282,6 +285,38 @@ DataApi <- R6::R6Class(
       urlPath <- "/datastore/data/set/{entitySetId}"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    load_linked_entity_set_breakdown = function(linked_entity_set_id, entity_set_selection, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`entity_set_selection`)) {
+        body <- `entity_set_selection`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/data/set/{linkedEntitySetId}/detailed"
+      if (!missing(`linked_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkedEntitySetId", "\\}"), `linked_entity_set_id`, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),

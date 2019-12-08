@@ -15,7 +15,7 @@
 #' @field description 
 #' @field schemas 
 #' @field datatype 
-#' @field pii 
+#' @field piiField 
 #' @field multiValued 
 #' @field analyzer 
 #'
@@ -31,10 +31,10 @@ PropertyType <- R6::R6Class(
     `description` = NULL,
     `schemas` = NULL,
     `datatype` = NULL,
-    `pii` = NULL,
+    `piiField` = NULL,
     `multiValued` = NULL,
     `analyzer` = NULL,
-    initialize = function(`title`, `id`, `type`, `description`, `schemas`, `datatype`, `pii`, `multiValued`, `analyzer`){
+    initialize = function(`title`, `id`, `type`, `description`, `schemas`, `datatype`, `piiField`, `multiValued`, `analyzer`){
       if (!missing(`title`)) {
                 stopifnot(is.character(`title`), length(`title`) == 1)
         self$`title` <- `title`
@@ -60,8 +60,8 @@ PropertyType <- R6::R6Class(
                 stopifnot(is.character(`datatype`), length(`datatype`) == 1)
         self$`datatype` <- `datatype`
       }
-      if (!missing(`pii`)) {
-        self$`pii` <- `pii`
+      if (!missing(`piiField`)) {
+        self$`piiField` <- `piiField`
       }
       if (!missing(`multiValued`)) {
         self$`multiValued` <- `multiValued`
@@ -97,9 +97,9 @@ PropertyType <- R6::R6Class(
         PropertyTypeObject[['datatype']] <-
                 self$`datatype`
       }
-      if (!is.null(self$`pii`)) {
-        PropertyTypeObject[['pii']] <-
-                self$`pii`
+      if (!is.null(self$`piiField`)) {
+        PropertyTypeObject[['piiField']] <-
+                self$`piiField`
       }
       if (!is.null(self$`multiValued`)) {
         PropertyTypeObject[['multiValued']] <-
@@ -138,8 +138,8 @@ PropertyType <- R6::R6Class(
       if (!is.null(PropertyTypeObject$`datatype`)) {
                 self$`datatype` <- PropertyTypeObject$`datatype`
       }
-      if (!is.null(PropertyTypeObject$`pii`)) {
-                self$`pii` <- PropertyTypeObject$`pii`
+      if (!is.null(PropertyTypeObject$`piiField`)) {
+                self$`piiField` <- PropertyTypeObject$`piiField`
       }
       if (!is.null(PropertyTypeObject$`multiValued`)) {
                 self$`multiValued` <- PropertyTypeObject$`multiValued`
@@ -177,7 +177,7 @@ PropertyType <- R6::R6Class(
                       "%s"
                   
               ,
-           "pii":
+           "piiField":
                       
                       "%s"
                   
@@ -199,7 +199,7 @@ PropertyType <- R6::R6Class(
                 self$`description`,
                 paste0(sapply(self$`schemas`, function(x) x$toJSON()), collapse='","'),
                 self$`datatype`,
-                self$`pii`,
+                self$`piiField`,
                 self$`multiValued`,
                 self$`analyzer`
       )
@@ -214,7 +214,7 @@ PropertyType <- R6::R6Class(
               self$`description` <- PropertyTypeObject$`description`
               self$`schemas` <- sapply(PropertyTypeObject$`schemas`, function(x) FullQualifiedName$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
               self$`datatype` <- PropertyTypeObject$`datatype`
-              self$`pii` <- PropertyTypeObject$`pii`
+              self$`piiField` <- PropertyTypeObject$`piiField`
               self$`multiValued` <- PropertyTypeObject$`multiValued`
               self$`analyzer` <- PropertyTypeObject$`analyzer`
     }
