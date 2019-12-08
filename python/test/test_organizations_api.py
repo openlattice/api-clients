@@ -120,6 +120,13 @@ class TestOrganizationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_organization_integration_account(self):
+        """Test case for get_organization_integration_account
+
+        Get the integrations account for an organization from the organizationId  # noqa: E501
+        """
+        pass
+
     def test_get_organizations(self):
         """Test case for get_organizations
 

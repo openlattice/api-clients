@@ -85,6 +85,13 @@ class TestDataApi(unittest.TestCase):
         """
         pass
 
+    def test_load_linked_entity_set_breakdown(self):
+        """Test case for load_linked_entity_set_breakdown
+
+        Loads a linked entity set breakdown with the selected linked entities and properties.  # noqa: E501
+        """
+        pass
+
     def test_update_entities_in_entity_set(self):
         """Test case for update_entities_in_entity_set
 

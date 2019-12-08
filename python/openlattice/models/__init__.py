@@ -46,6 +46,7 @@ from openlattice.models.entity_type import EntityType
 from openlattice.models.entity_type_property_metadata import EntityTypePropertyMetadata
 from openlattice.models.full_qualified_name import FullQualifiedName
 from openlattice.models.indexing_state import IndexingState
+from openlattice.models.inline_response200 import InlineResponse200
 from openlattice.models.integration_results import IntegrationResults
 from openlattice.models.linking_feedback import LinkingFeedback
 from openlattice.models.materialized_view_account import MaterializedViewAccount
@@ -54,6 +55,9 @@ from openlattice.models.neighbor_entity_details import NeighborEntityDetails
 from openlattice.models.neighbor_entity_ids import NeighborEntityIds
 from openlattice.models.neighbor_search_filter import NeighborSearchFilter
 from openlattice.models.organization import Organization
+from openlattice.models.organization_external_database_column import OrganizationExternalDatabaseColumn
+from openlattice.models.organization_external_database_table import OrganizationExternalDatabaseTable
+from openlattice.models.organization_external_database_table_columns_pair import OrganizationExternalDatabaseTableColumnsPair
 from openlattice.models.organization_member import OrganizationMember
 from openlattice.models.principal import Principal
 from openlattice.models.property_type import PropertyType

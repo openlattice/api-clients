@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**get_members**](OrganizationsApi.md#get_members) | **GET** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
 [**get_organization**](OrganizationsApi.md#get_organization) | **GET** /datastore/organizations/{organizationId} | Get an organization from the organizationId
 [**get_organization_entity_sets**](OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain filter
+[**get_organization_integration_account**](OrganizationsApi.md#get_organization_integration_account) | **GET** /datastore/organizations/{organizationId}/integration | Get the integrations account for an organization from the organizationId
 [**get_organizations**](OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organizations
 [**get_role**](OrganizationsApi.md#get_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 [**get_roles**](OrganizationsApi.md#get_roles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
@@ -1045,6 +1046,84 @@ Name | Type | Description  | Notes
 ### Return type
 
 **dict(str, list[str])**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_organization_integration_account**
+> InlineResponse200 get_organization_integration_account(organization_id)
+
+Get the integrations account for an organization from the organizationId
+
+### Example
+
+* Basic Authentication (http_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
+organization_id = 'organization_id_example' # str | 
+
+try:
+    # Get the integrations account for an organization from the organizationId
+    api_response = api_instance.get_organization_integration_account(organization_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrganizationsApi->get_organization_integration_account: %s\n" % e)
+```
+
+
+* Api Key Authentication (openlattice_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
+organization_id = 'organization_id_example' # str | 
+
+try:
+    # Get the integrations account for an organization from the organizationId
+    api_response = api_instance.get_organization_integration_account(organization_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling OrganizationsApi->get_organization_integration_account: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**str**](.md)|  | 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

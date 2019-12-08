@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**get_entity_set_size**](DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 [**load_entity_set_data**](DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
 [**load_filtered_entity_set_data**](DataApi.md#load_filtered_entity_set_data) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
+[**load_linked_entity_set_breakdown**](DataApi.md#load_linked_entity_set_breakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
 [**update_entities_in_entity_set**](DataApi.md#update_entities_in_entity_set) | **PUT** /datastore/data/set/{entitySetId} | Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
 
 
@@ -643,6 +644,87 @@ Name | Type | Description  | Notes
 ### Return type
 
 **list[dict(str, list[str])]**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **load_linked_entity_set_breakdown**
+> dict(str, dict(str, dict(str, dict(str, list[str])))) load_linked_entity_set_breakdown(linked_entity_set_id, entity_set_selection)
+
+Loads a linked entity set breakdown with the selected linked entities and properties.
+
+### Example
+
+* Basic Authentication (http_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
+linked_entity_set_id = 'linked_entity_set_id_example' # str | 
+entity_set_selection = NULL # list[EntitySetSelection] | 
+
+try:
+    # Loads a linked entity set breakdown with the selected linked entities and properties.
+    api_response = api_instance.load_linked_entity_set_breakdown(linked_entity_set_id, entity_set_selection)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->load_linked_entity_set_breakdown: %s\n" % e)
+```
+
+
+* Api Key Authentication (openlattice_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
+linked_entity_set_id = 'linked_entity_set_id_example' # str | 
+entity_set_selection = NULL # list[EntitySetSelection] | 
+
+try:
+    # Loads a linked entity set breakdown with the selected linked entities and properties.
+    api_response = api_instance.load_linked_entity_set_breakdown(linked_entity_set_id, entity_set_selection)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataApi->load_linked_entity_set_breakdown: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **linked_entity_set_id** | [**str**](.md)|  | 
+ **entity_set_selection** | [**list[EntitySetSelection]**](list.md)|  | 
+
+### Return type
+
+**dict(str, dict(str, dict(str, dict(str, list[str]))))**
 
 ### Authorization
 

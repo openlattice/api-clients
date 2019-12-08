@@ -1311,6 +1311,100 @@ class OrganizationsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_organization_integration_account(self, organization_id, **kwargs):  # noqa: E501
+        """Get the integrations account for an organization from the organizationId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_organization_integration_account(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: InlineResponse200
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_organization_integration_account_with_http_info(organization_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_organization_integration_account_with_http_info(organization_id, **kwargs)  # noqa: E501
+            return data
+
+    def get_organization_integration_account_with_http_info(self, organization_id, **kwargs):  # noqa: E501
+        """Get the integrations account for an organization from the organizationId  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_organization_integration_account_with_http_info(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str organization_id: (required)
+        :return: InlineResponse200
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['organization_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_organization_integration_account" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if ('organization_id' not in local_var_params or
+                local_var_params['organization_id'] is None):
+            raise ValueError("Missing the required parameter `organization_id` when calling `get_organization_integration_account`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/{organizationId}/integration', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse200',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_organizations(self, **kwargs):  # noqa: E501
         """Get all organizations  # noqa: E501
 

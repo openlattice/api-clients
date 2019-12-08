@@ -53,3 +53,6 @@ cd $CLIENTDIR
 
 cd $CLIENTDIR/python
 python setup.py install
+
+
+

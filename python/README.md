@@ -82,8 +82,6 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**clear_indexing_queue**](docs/AdminApi.md#clear_indexing_queue) | **DELETE** /indexer/index/reindex | Clears all the data currently being indexed in the queue.
 *AdminApi* | [**get_indexing_state**](docs/AdminApi.md#get_indexing_state) | **GET** /indexer/index/reindex | Retrieve the current state of reindexing jobs
 *AdminApi* | [**reindex**](docs/AdminApi.md#reindex) | **POST** /indexer/index/reindex | Merge job descriptions for performing a partial or full reindex of provided entity sets.
-*AdminApi* | [**reload_cache**](docs/AdminApi.md#reload_cache) | **GET** /datastore/admin/reload/cache | Reload all the in memory caches
-*AdminApi* | [**reload_specific_cache**](docs/AdminApi.md#reload_specific_cache) | **GET** /datastore/admin/reload/cache/{name} | Reload the in memory caches for the specified name
 *AdminApi* | [**update_reindex**](docs/AdminApi.md#update_reindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 *AuthorizationsApi* | [**check_authorizations**](docs/AuthorizationsApi.md#check_authorizations) | **POST** /datastore/authorizations | Check authorizations
 *AuthorizationsApi* | [**get_accessible_objects**](docs/AuthorizationsApi.md#get_accessible_objects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
@@ -95,9 +93,13 @@ Class | Method | HTTP request | Description
 *DataApi* | [**get_entity_set_size**](docs/DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 *DataApi* | [**load_entity_set_data**](docs/DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
 *DataApi* | [**load_filtered_entity_set_data**](docs/DataApi.md#load_filtered_entity_set_data) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
+*DataApi* | [**load_linked_entity_set_breakdown**](docs/DataApi.md#load_linked_entity_set_breakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
 *DataApi* | [**update_entities_in_entity_set**](docs/DataApi.md#update_entities_in_entity_set) | **PUT** /datastore/data/set/{entitySetId} | Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
 *DataIntegrationsApi* | [**get_entity_key_ids**](docs/DataIntegrationsApi.md#get_entity_key_ids) | **POST** /datastore/integration/entityKeyIds | Get entity key IDs
 *DataIntegrationsApi* | [**integrate_entity_and_association_data**](docs/DataIntegrationsApi.md#integrate_entity_and_association_data) | **POST** /datastore/integration | Integrate entity and association data
+*DatasetApi* | [**get_external_database_table_with_columns**](docs/DatasetApi.md#get_external_database_table_with_columns) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
+*DatasetApi* | [**get_external_database_tables**](docs/DatasetApi.md#get_external_database_tables) | **GET** /datastore/organization-database/{organizationId}/external-database-table | Gets all OrganizationExternalDatabaseTable objects for an organization
+*DatasetApi* | [**get_external_database_tables_with_columns**](docs/DatasetApi.md#get_external_database_tables_with_columns) | **GET** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
 *EdmApi* | [**add_dst_entity_type_to_association_type**](docs/EdmApi.md#add_dst_entity_type_to_association_type) | **PUT** /datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId} | Update the AssociationType dst entity types for the given AssociationType UUID by adding the given EntityType UUID.
 *EdmApi* | [**add_entity_sets_to_linking_entity_set**](docs/EdmApi.md#add_entity_sets_to_linking_entity_set) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
 *EdmApi* | [**add_entity_sets_to_linking_entity_sets**](docs/EdmApi.md#add_entity_sets_to_linking_entity_sets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
@@ -194,6 +196,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**get_members**](docs/OrganizationsApi.md#get_members) | **GET** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
 *OrganizationsApi* | [**get_organization**](docs/OrganizationsApi.md#get_organization) | **GET** /datastore/organizations/{organizationId} | Get an organization from the organizationId
 *OrganizationsApi* | [**get_organization_entity_sets**](docs/OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain filter
+*OrganizationsApi* | [**get_organization_integration_account**](docs/OrganizationsApi.md#get_organization_integration_account) | **GET** /datastore/organizations/{organizationId}/integration | Get the integrations account for an organization from the organizationId
 *OrganizationsApi* | [**get_organizations**](docs/OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organizations
 *OrganizationsApi* | [**get_role**](docs/OrganizationsApi.md#get_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 *OrganizationsApi* | [**get_roles**](docs/OrganizationsApi.md#get_roles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
@@ -253,6 +256,7 @@ Class | Method | HTTP request | Description
  - [EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
  - [IndexingState](docs/IndexingState.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
  - [IntegrationResults](docs/IntegrationResults.md)
  - [LinkingFeedback](docs/LinkingFeedback.md)
  - [MaterializedViewAccount](docs/MaterializedViewAccount.md)
@@ -261,6 +265,9 @@ Class | Method | HTTP request | Description
  - [NeighborEntityIds](docs/NeighborEntityIds.md)
  - [NeighborSearchFilter](docs/NeighborSearchFilter.md)
  - [Organization](docs/Organization.md)
+ - [OrganizationExternalDatabaseColumn](docs/OrganizationExternalDatabaseColumn.md)
+ - [OrganizationExternalDatabaseTable](docs/OrganizationExternalDatabaseTable.md)
+ - [OrganizationExternalDatabaseTableColumnsPair](docs/OrganizationExternalDatabaseTableColumnsPair.md)
  - [OrganizationMember](docs/OrganizationMember.md)
  - [Principal](docs/Principal.md)
  - [PropertyType](docs/PropertyType.md)
