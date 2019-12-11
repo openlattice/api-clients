@@ -24,7 +24,7 @@
 #' add_entity_sets_to_linking_entity_sets Adds the entity sets as linked entity sets to the linking entity sets
 #'
 #'
-#' create_entity_sets Create new EntitySet definitions if they don&#39;t exist.
+#' create_entity_sets Creates new EntitySet definitions if they don&#39;t exist.
 #'
 #'
 #' delete_entity_set Deletes the EntitySet definition for the given EntitySet UUID.

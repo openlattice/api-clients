@@ -88,7 +88,7 @@ class TestEdmApi(unittest.TestCase):
     def test_create_entity_sets(self):
         """Test case for create_entity_sets
 
-        Create new EntitySet definitions if they don't exist.  # noqa: E501
+        Creates new EntitySet definitions if they don't exist.  # noqa: E501
         """
         pass
 
@@ -116,7 +116,7 @@ class TestEdmApi(unittest.TestCase):
     def test_delete_association_type(self):
         """Test case for delete_association_type
 
-        Delete the AssociationType definition for the given AssociationType UUID.  # noqa: E501
+        Deletes the AssociationType definition for the given AssociationType UUID.  # noqa: E501
         """
         pass
 

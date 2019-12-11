@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_external_database_table_with_columns**
-> dict(str, list[OrganizationExternalDatabaseTableColumnsPair]) get_external_database_table_with_columns(organization_id, table_id)
+> dict(str, OrganizationExternalDatabaseTableColumnsPair) get_external_database_table_with_columns(organization_id, table_id)
 
 Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**dict(str, list[OrganizationExternalDatabaseTableColumnsPair])**
+[**dict(str, OrganizationExternalDatabaseTableColumnsPair)**](OrganizationExternalDatabaseTableColumnsPair.md)
 
 ### Authorization
 

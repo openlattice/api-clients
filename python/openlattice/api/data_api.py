@@ -33,6 +33,104 @@ class DataApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def create_association_set(self, data_edge_key, **kwargs):  # noqa: E501
+        """Creates a new set of associations.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_association_set(data_edge_key, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[DataEdgeKey] data_edge_key: (required)
+        :return: int
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_association_set_with_http_info(data_edge_key, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_association_set_with_http_info(data_edge_key, **kwargs)  # noqa: E501
+            return data
+
+    def create_association_set_with_http_info(self, data_edge_key, **kwargs):  # noqa: E501
+        """Creates a new set of associations.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_association_set_with_http_info(data_edge_key, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[DataEdgeKey] data_edge_key: (required)
+        :return: int
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['data_edge_key']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_association_set" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'data_edge_key' is set
+        if ('data_edge_key' not in local_var_params or
+                local_var_params['data_edge_key'] is None):
+            raise ValueError("Missing the required parameter `data_edge_key` when calling `create_association_set`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data_edge_key' in local_var_params:
+            body_params = local_var_params['data_edge_key']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/data/association', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='int',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_associations(self, data_edge, **kwargs):  # noqa: E501
         """Creates a new set of associations.  # noqa: E501
 
@@ -116,7 +214,7 @@ class DataApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/data/associations/', 'POST',
+            '/datastore/data/association', 'POST',
             path_params,
             query_params,
             header_params,
@@ -230,6 +328,104 @@ class DataApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='list[str]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_entity_and_association_data(self, data_graph, **kwargs):  # noqa: E501
+        """Creates entities and assocations  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_entity_and_association_data(data_graph, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DataGraph data_graph: (required)
+        :return: DataGraphIds
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_entity_and_association_data_with_http_info(data_graph, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_entity_and_association_data_with_http_info(data_graph, **kwargs)  # noqa: E501
+            return data
+
+    def create_entity_and_association_data_with_http_info(self, data_graph, **kwargs):  # noqa: E501
+        """Creates entities and assocations  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_entity_and_association_data_with_http_info(data_graph, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DataGraph data_graph: (required)
+        :return: DataGraphIds
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['data_graph']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_entity_and_association_data" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'data_graph' is set
+        if ('data_graph' not in local_var_params or
+                local_var_params['data_graph'] is None):
+            raise ValueError("Missing the required parameter `data_graph` when calling `create_entity_and_association_data`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data_graph' in local_var_params:
+            body_params = local_var_params['data_graph']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/data', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DataGraphIds',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -442,6 +638,344 @@ class DataApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='int',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_entities_and_neighbors(self, entity_set_id, type, entity_neighbors_filter, **kwargs):  # noqa: E501
+        """Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_entities_and_neighbors(entity_set_id, type, entity_neighbors_filter, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param str type: (required)
+        :param list[EntityNeighborsFilter] entity_neighbors_filter: (required)
+        :return: int
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_entities_and_neighbors_with_http_info(entity_set_id, type, entity_neighbors_filter, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_entities_and_neighbors_with_http_info(entity_set_id, type, entity_neighbors_filter, **kwargs)  # noqa: E501
+            return data
+
+    def delete_entities_and_neighbors_with_http_info(self, entity_set_id, type, entity_neighbors_filter, **kwargs):  # noqa: E501
+        """Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_entities_and_neighbors_with_http_info(entity_set_id, type, entity_neighbors_filter, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param str type: (required)
+        :param list[EntityNeighborsFilter] entity_neighbors_filter: (required)
+        :return: int
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_set_id', 'type', 'entity_neighbors_filter']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_entities_and_neighbors" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_set_id' is set
+        if ('entity_set_id' not in local_var_params or
+                local_var_params['entity_set_id'] is None):
+            raise ValueError("Missing the required parameter `entity_set_id` when calling `delete_entities_and_neighbors`")  # noqa: E501
+        # verify the required parameter 'type' is set
+        if ('type' not in local_var_params or
+                local_var_params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `delete_entities_and_neighbors`")  # noqa: E501
+        # verify the required parameter 'entity_neighbors_filter' is set
+        if ('entity_neighbors_filter' not in local_var_params or
+                local_var_params['entity_neighbors_filter'] is None):
+            raise ValueError("Missing the required parameter `entity_neighbors_filter` when calling `delete_entities_and_neighbors`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_set_id' in local_var_params:
+            path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
+
+        query_params = []
+        if 'type' in local_var_params:
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'entity_neighbors_filter' in local_var_params:
+            body_params = local_var_params['entity_neighbors_filter']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/data/set/{entitySetId}/neighbors', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='int',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_entity(self, entity_set_id, entity_key_id, type, **kwargs):  # noqa: E501
+        """Deletes a single entity from an entity set.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_entity(entity_set_id, entity_key_id, type, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param str entity_key_id: (required)
+        :param str type: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_entity_with_http_info(entity_set_id, entity_key_id, type, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_entity_with_http_info(entity_set_id, entity_key_id, type, **kwargs)  # noqa: E501
+            return data
+
+    def delete_entity_with_http_info(self, entity_set_id, entity_key_id, type, **kwargs):  # noqa: E501
+        """Deletes a single entity from an entity set.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_entity_with_http_info(entity_set_id, entity_key_id, type, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param str entity_key_id: (required)
+        :param str type: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_set_id', 'entity_key_id', 'type']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_entity" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_set_id' is set
+        if ('entity_set_id' not in local_var_params or
+                local_var_params['entity_set_id'] is None):
+            raise ValueError("Missing the required parameter `entity_set_id` when calling `delete_entity`")  # noqa: E501
+        # verify the required parameter 'entity_key_id' is set
+        if ('entity_key_id' not in local_var_params or
+                local_var_params['entity_key_id'] is None):
+            raise ValueError("Missing the required parameter `entity_key_id` when calling `delete_entity`")  # noqa: E501
+        # verify the required parameter 'type' is set
+        if ('type' not in local_var_params or
+                local_var_params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `delete_entity`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_set_id' in local_var_params:
+            path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
+        if 'entity_key_id' in local_var_params:
+            path_params['entityKeyId'] = local_var_params['entity_key_id']  # noqa: E501
+
+        query_params = []
+        if 'type' in local_var_params:
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/data/{entitySetId}/{entityKeyId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_entity_properties(self, entity_set_id, entity_key_id, type, request_body, **kwargs):  # noqa: E501
+        """Deletes properties from an entity.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_entity_properties(entity_set_id, entity_key_id, type, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param str entity_key_id: (required)
+        :param str type: (required)
+        :param list[str] request_body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_entity_properties_with_http_info(entity_set_id, entity_key_id, type, request_body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_entity_properties_with_http_info(entity_set_id, entity_key_id, type, request_body, **kwargs)  # noqa: E501
+            return data
+
+    def delete_entity_properties_with_http_info(self, entity_set_id, entity_key_id, type, request_body, **kwargs):  # noqa: E501
+        """Deletes properties from an entity.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_entity_properties_with_http_info(entity_set_id, entity_key_id, type, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param str entity_key_id: (required)
+        :param str type: (required)
+        :param list[str] request_body: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_set_id', 'entity_key_id', 'type', 'request_body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_entity_properties" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_set_id' is set
+        if ('entity_set_id' not in local_var_params or
+                local_var_params['entity_set_id'] is None):
+            raise ValueError("Missing the required parameter `entity_set_id` when calling `delete_entity_properties`")  # noqa: E501
+        # verify the required parameter 'entity_key_id' is set
+        if ('entity_key_id' not in local_var_params or
+                local_var_params['entity_key_id'] is None):
+            raise ValueError("Missing the required parameter `entity_key_id` when calling `delete_entity_properties`")  # noqa: E501
+        # verify the required parameter 'type' is set
+        if ('type' not in local_var_params or
+                local_var_params['type'] is None):
+            raise ValueError("Missing the required parameter `type` when calling `delete_entity_properties`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if ('request_body' not in local_var_params or
+                local_var_params['request_body'] is None):
+            raise ValueError("Missing the required parameter `request_body` when calling `delete_entity_properties`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_set_id' in local_var_params:
+            path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
+        if 'entity_key_id' in local_var_params:
+            path_params['entityKeyId'] = local_var_params['entity_key_id']  # noqa: E501
+
+        query_params = []
+        if 'type' in local_var_params:
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/data/{entitySetId}/{entityKeyId}/properties', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -944,6 +1478,218 @@ class DataApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='dict(str, dict(str, dict(str, dict(str, list[str]))))',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def replace_association_data(self, partial, request_body, **kwargs):  # noqa: E501
+        """Replaces Association Data  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.replace_association_data(partial, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param bool partial: (required)
+        :param dict(str, dict(str, DataEdge)) request_body: (required)
+        :return: int
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.replace_association_data_with_http_info(partial, request_body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.replace_association_data_with_http_info(partial, request_body, **kwargs)  # noqa: E501
+            return data
+
+    def replace_association_data_with_http_info(self, partial, request_body, **kwargs):  # noqa: E501
+        """Replaces Association Data  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.replace_association_data_with_http_info(partial, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param bool partial: (required)
+        :param dict(str, dict(str, DataEdge)) request_body: (required)
+        :return: int
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['partial', 'request_body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method replace_association_data" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'partial' is set
+        if ('partial' not in local_var_params or
+                local_var_params['partial'] is None):
+            raise ValueError("Missing the required parameter `partial` when calling `replace_association_data`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if ('request_body' not in local_var_params or
+                local_var_params['request_body'] is None):
+            raise ValueError("Missing the required parameter `request_body` when calling `replace_association_data`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'partial' in local_var_params:
+            query_params.append(('partial', local_var_params['partial']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/data/association', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='int',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def replace_entity_properties(self, entity_set_id, request_body, **kwargs):  # noqa: E501
+        """Replaces Entity Properties  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.replace_entity_properties(entity_set_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param dict(str, dict(str, list[dict(str, str)])) request_body: (required)
+        :return: int
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.replace_entity_properties_with_http_info(entity_set_id, request_body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.replace_entity_properties_with_http_info(entity_set_id, request_body, **kwargs)  # noqa: E501
+            return data
+
+    def replace_entity_properties_with_http_info(self, entity_set_id, request_body, **kwargs):  # noqa: E501
+        """Replaces Entity Properties  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.replace_entity_properties_with_http_info(entity_set_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param dict(str, dict(str, list[dict(str, str)])) request_body: (required)
+        :return: int
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_set_id', 'request_body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method replace_entity_properties" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_set_id' is set
+        if ('entity_set_id' not in local_var_params or
+                local_var_params['entity_set_id'] is None):
+            raise ValueError("Missing the required parameter `entity_set_id` when calling `replace_entity_properties`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if ('request_body' not in local_var_params or
+                local_var_params['request_body'] is None):
+            raise ValueError("Missing the required parameter `request_body` when calling `replace_entity_properties`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_set_id' in local_var_params:
+            path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/data/set/{entitySetId}', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='int',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

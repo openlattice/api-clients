@@ -28,7 +28,11 @@ from openlattice.models.authorized_objects_search_result import AuthorizedObject
 from openlattice.models.bulk_data_creation import BulkDataCreation
 from openlattice.models.constraint import Constraint
 from openlattice.models.constraint_group import ConstraintGroup
+from openlattice.models.data_association import DataAssociation
 from openlattice.models.data_edge import DataEdge
+from openlattice.models.data_edge_key import DataEdgeKey
+from openlattice.models.data_graph import DataGraph
+from openlattice.models.data_graph_ids import DataGraphIds
 from openlattice.models.data_search_result import DataSearchResult
 from openlattice.models.edm import EDM
 from openlattice.models.ed_mdiff import EDMdiff
@@ -39,6 +43,7 @@ from openlattice.models.entity_key import EntityKey
 from openlattice.models.entity_key_pair import EntityKeyPair
 from openlattice.models.entity_linking_features import EntityLinkingFeatures
 from openlattice.models.entity_linking_feedback import EntityLinkingFeedback
+from openlattice.models.entity_neighbors_filter import EntityNeighborsFilter
 from openlattice.models.entity_set import EntitySet
 from openlattice.models.entity_set_property_meta_data import EntitySetPropertyMetaData
 from openlattice.models.entity_set_selection import EntitySetSelection
@@ -64,8 +69,10 @@ from openlattice.models.property_type import PropertyType
 from openlattice.models.property_usage_summary import PropertyUsageSummary
 from openlattice.models.role import Role
 from openlattice.models.schema import Schema
+from openlattice.models.search import Search
 from openlattice.models.search_constraints import SearchConstraints
 from openlattice.models.search_details import SearchDetails
+from openlattice.models.search_result import SearchResult
 from openlattice.models.search_term import SearchTerm
 from openlattice.models.securable_principal import SecurablePrincipal
 from openlattice.models.sms_entity_set_information import SmsEntitySetInformation

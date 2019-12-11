@@ -24,13 +24,25 @@
 #' execute_entity_neighbor_search Executes a search for all neighbors of an entity that are connected by an association
 #'
 #'
+#' execute_entity_neighbor_search_bulk Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
+#'
+#'
 #' execute_entity_set_data_query Executes a search over the data of a given entity set to find rows that match the search term
+#'
+#'
+#' execute_entity_set_keyword_query The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
 #'
 #'
 #' execute_filtered_entity_neighbor_id_search Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 #'
 #'
 #' execute_filtered_entity_neighbor_search Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
+#'
+#'
+#' get_entity_sets Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
+#'
+#'
+#' get_popular_entity_set Get the most popular entity sets.
 #'
 #'
 #' search_entity_set_data Executes a search over the data of a given entity set to find rows that match the search term
@@ -113,6 +125,38 @@ SearchApi <- R6::R6Class(
       }
 
     },
+    execute_entity_neighbor_search_bulk = function(entity_set_id, request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search/{entitySetId}/neighbors"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
     execute_entity_set_data_query = function(entity_set_id, search_term, ...){
       args <- list(...)
       queryParams <- list()
@@ -129,6 +173,34 @@ SearchApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
 
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    execute_entity_set_keyword_query = function(search, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`search`)) {
+        body <- `search`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
                                  queryParams = queryParams,
@@ -195,6 +267,58 @@ SearchApi <- R6::R6Class(
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    get_entity_sets = function(start, num_results, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/search/entity-sets/{start}/{numResults}"
+      if (!missing(`start`)) {
+        urlPath <- gsub(paste0("\\{", "start", "\\}"), `start`, urlPath)
+      }
+
+      if (!missing(`num_results`)) {
+        urlPath <- gsub(paste0("\\{", "numResults", "\\}"), `num_results`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    get_popular_entity_set = function(...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/search/popular"
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,

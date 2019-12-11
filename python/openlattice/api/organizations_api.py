@@ -344,7 +344,7 @@ class OrganizationsApi(object):
             collection_formats=collection_formats)
 
     def create_organization_if_not_exists(self, organization, **kwargs):  # noqa: E501
-        """Create an organization if it doesn't exist.  # noqa: E501
+        """Creates an organization if it doesn't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -365,7 +365,7 @@ class OrganizationsApi(object):
             return data
 
     def create_organization_if_not_exists_with_http_info(self, organization, **kwargs):  # noqa: E501
-        """Create an organization if it doesn't exist.  # noqa: E501
+        """Creates an organization if it doesn't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -442,7 +442,7 @@ class OrganizationsApi(object):
             collection_formats=collection_formats)
 
     def create_role(self, role, **kwargs):  # noqa: E501
-        """Create role  # noqa: E501
+        """Creates role  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -463,7 +463,7 @@ class OrganizationsApi(object):
             return data
 
     def create_role_with_http_info(self, role, **kwargs):  # noqa: E501
-        """Create role  # noqa: E501
+        """Creates role  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

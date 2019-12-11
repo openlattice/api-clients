@@ -42,7 +42,7 @@
 #' create_empty_schema Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
 #'
 #'
-#' create_entity_sets Create new EntitySet definitions if they don&#39;t exist.
+#' create_entity_sets Creates new EntitySet definitions if they don&#39;t exist.
 #'
 #'
 #' create_entity_type Creates a new EntityType definition, if it doesn&#39;t exist.
@@ -54,7 +54,7 @@
 #' create_schema_if_not_exists Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
 #'
 #'
-#' delete_association_type Delete the AssociationType definition for the given AssociationType UUID.
+#' delete_association_type Deletes the AssociationType definition for the given AssociationType UUID.
 #'
 #'
 #' delete_entity_set Deletes the EntitySet definition for the given EntitySet UUID.

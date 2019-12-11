@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_entity_sets_to_linking_entity_set**](EntitySetsApi.md#add_entity_sets_to_linking_entity_set) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
 [**add_entity_sets_to_linking_entity_sets**](EntitySetsApi.md#add_entity_sets_to_linking_entity_sets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
-[**create_entity_sets**](EntitySetsApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don&#39;t exist.
+[**create_entity_sets**](EntitySetsApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Creates new EntitySet definitions if they don&#39;t exist.
 [**delete_entity_set**](EntitySetsApi.md#delete_entity_set) | **DELETE** /datastore/entity-sets/all/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
 [**get_all_entity_set_property_metadata**](EntitySetsApi.md#get_all_entity_set_property_metadata) | **GET** /datastore/entity-sets/all/{entitySetId}/metadata | Get all entity set property metadata.
 [**get_all_entity_sets**](EntitySetsApi.md#get_all_entity_sets) | **GET** /datastore/entity-sets | Get all EntitySet definitions.
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 # **create_entity_sets**
 > create_entity_sets(entity_set)
 
-Create new EntitySet definitions if they don't exist.
+Creates new EntitySet definitions if they don't exist.
 
 ### Example
 
@@ -208,7 +208,7 @@ api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set = NULL # list[EntitySet] | 
 
 try:
-    # Create new EntitySet definitions if they don't exist.
+    # Creates new EntitySet definitions if they don't exist.
     api_instance.create_entity_sets(entity_set)
 except ApiException as e:
     print("Exception when calling EntitySetsApi->create_entity_sets: %s\n" % e)
@@ -233,7 +233,7 @@ api_instance = openlattice.EntitySetsApi(openlattice.ApiClient(configuration))
 entity_set = NULL # list[EntitySet] | 
 
 try:
-    # Create new EntitySet definitions if they don't exist.
+    # Creates new EntitySet definitions if they don't exist.
     api_instance.create_entity_sets(entity_set)
 except ApiException as e:
     print("Exception when calling EntitySetsApi->create_entity_sets: %s\n" % e)

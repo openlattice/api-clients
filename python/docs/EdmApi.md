@@ -12,11 +12,11 @@ Method | HTTP request | Description
 [**add_src_entity_type_to_association_type**](EdmApi.md#add_src_entity_type_to_association_type) | **PUT** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
 [**create_association_type**](EdmApi.md#create_association_type) | **POST** /datastore/edm/association/type/ | Creates a new AssociationType definition, if it doesn&#39;t exist.
 [**create_empty_schema**](EdmApi.md#create_empty_schema) | **PUT** /datastore/edm/schema/{namespace}/{name} | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-[**create_entity_sets**](EdmApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don&#39;t exist.
+[**create_entity_sets**](EdmApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Creates new EntitySet definitions if they don&#39;t exist.
 [**create_entity_type**](EdmApi.md#create_entity_type) | **POST** /datastore/edm/entity/type/ | Creates a new EntityType definition, if it doesn&#39;t exist.
 [**create_property_type**](EdmApi.md#create_property_type) | **POST** /datastore/edm/property/type/ | Creates a new PropertyType definition, if it doesn\&quot;t exist.
 [**create_schema_if_not_exists**](EdmApi.md#create_schema_if_not_exists) | **POST** /datastore/edm/schema | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-[**delete_association_type**](EdmApi.md#delete_association_type) | **DELETE** /datastore/edm/association/type/{associationTypeId} | Delete the AssociationType definition for the given AssociationType UUID.
+[**delete_association_type**](EdmApi.md#delete_association_type) | **DELETE** /datastore/edm/association/type/{associationTypeId} | Deletes the AssociationType definition for the given AssociationType UUID.
 [**delete_entity_set**](EdmApi.md#delete_entity_set) | **DELETE** /datastore/entity-sets/all/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
 [**delete_entity_type**](EdmApi.md#delete_entity_type) | **DELETE** /datastore/edm/entity/type/{entityTypeId} | Deletes the EntityType definition for the given EntityType UUID.
 [**delete_property_type**](EdmApi.md#delete_property_type) | **DELETE** /datastore/edm/property/type/{propertyTypeId} | Deletes the PropertyType definition for the given PropertyType UUID.
@@ -672,7 +672,7 @@ void (empty response body)
 # **create_entity_sets**
 > create_entity_sets(entity_set)
 
-Create new EntitySet definitions if they don't exist.
+Creates new EntitySet definitions if they don't exist.
 
 ### Example
 
@@ -693,7 +693,7 @@ api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 entity_set = NULL # list[EntitySet] | 
 
 try:
-    # Create new EntitySet definitions if they don't exist.
+    # Creates new EntitySet definitions if they don't exist.
     api_instance.create_entity_sets(entity_set)
 except ApiException as e:
     print("Exception when calling EdmApi->create_entity_sets: %s\n" % e)
@@ -718,7 +718,7 @@ api_instance = openlattice.EdmApi(openlattice.ApiClient(configuration))
 entity_set = NULL # list[EntitySet] | 
 
 try:
-    # Create new EntitySet definitions if they don't exist.
+    # Creates new EntitySet definitions if they don't exist.
     api_instance.create_entity_sets(entity_set)
 except ApiException as e:
     print("Exception when calling EdmApi->create_entity_sets: %s\n" % e)
@@ -945,7 +945,7 @@ void (empty response body)
 # **delete_association_type**
 > delete_association_type(association_type_id)
 
-Delete the AssociationType definition for the given AssociationType UUID.
+Deletes the AssociationType definition for the given AssociationType UUID.
 
 ### Example
 ```python
@@ -960,7 +960,7 @@ api_instance = openlattice.EdmApi()
 association_type_id = 'association_type_id_example' # str | 
 
 try:
-    # Delete the AssociationType definition for the given AssociationType UUID.
+    # Deletes the AssociationType definition for the given AssociationType UUID.
     api_instance.delete_association_type(association_type_id)
 except ApiException as e:
     print("Exception when calling EdmApi->delete_association_type: %s\n" % e)
