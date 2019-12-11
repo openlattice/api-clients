@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**add_member**](OrganizationsApi.md#add_member) | **PUT** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
 [**add_role_to_user**](OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
 [**assemble_entity_sets**](OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets/assemble | Materializes entity sets into the organization database.
-[**create_organization_if_not_exists**](OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Create an organization if it doesn&#39;t exist.
-[**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Create role
+[**create_organization_if_not_exists**](OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Creates an organization if it doesn&#39;t exist.
+[**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Creates role
 [**delete_role**](OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroy_organization**](OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
 [**get_all_users_of_role**](OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 # **create_organization_if_not_exists**
 > str create_organization_if_not_exists(organization)
 
-Create an organization if it doesn't exist.
+Creates an organization if it doesn't exist.
 
 ### Example
 
@@ -297,7 +297,7 @@ api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration)
 organization = openlattice.Organization() # Organization | 
 
 try:
-    # Create an organization if it doesn't exist.
+    # Creates an organization if it doesn't exist.
     api_response = api_instance.create_organization_if_not_exists(organization)
     pprint(api_response)
 except ApiException as e:
@@ -323,7 +323,7 @@ api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration)
 organization = openlattice.Organization() # Organization | 
 
 try:
-    # Create an organization if it doesn't exist.
+    # Creates an organization if it doesn't exist.
     api_response = api_instance.create_organization_if_not_exists(organization)
     pprint(api_response)
 except ApiException as e:
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 # **create_role**
 > str create_role(role)
 
-Create role
+Creates role
 
 ### Example
 
@@ -375,7 +375,7 @@ api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration)
 role = openlattice.Role() # Role | 
 
 try:
-    # Create role
+    # Creates role
     api_response = api_instance.create_role(role)
     pprint(api_response)
 except ApiException as e:
@@ -401,7 +401,7 @@ api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration)
 role = openlattice.Role() # Role | 
 
 try:
-    # Create role
+    # Creates role
     api_response = api_instance.create_role(role)
     pprint(api_response)
 except ApiException as e:

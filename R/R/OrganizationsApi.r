@@ -27,10 +27,10 @@
 #' assemble_entity_sets Materializes entity sets into the organization database.
 #'
 #'
-#' create_organization_if_not_exists Create an organization if it doesn&#39;t exist.
+#' create_organization_if_not_exists Creates an organization if it doesn&#39;t exist.
 #'
 #'
-#' create_role Create role
+#' create_role Creates role
 #'
 #'
 #' delete_role Remove role for an organization

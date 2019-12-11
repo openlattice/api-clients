@@ -43,10 +43,24 @@ class TestSearchApi(unittest.TestCase):
         """
         pass
 
+    def test_execute_entity_neighbor_search_bulk(self):
+        """Test case for execute_entity_neighbor_search_bulk
+
+        Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association  # noqa: E501
+        """
+        pass
+
     def test_execute_entity_set_data_query(self):
         """Test case for execute_entity_set_data_query
 
         Executes a search over the data of a given entity set to find rows that match the search term  # noqa: E501
+        """
+        pass
+
+    def test_execute_entity_set_keyword_query(self):
+        """Test case for execute_entity_set_keyword_query
+
+        The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.  # noqa: E501
         """
         pass
 
@@ -61,6 +75,20 @@ class TestSearchApi(unittest.TestCase):
         """Test case for execute_filtered_entity_neighbor_search
 
         Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association  # noqa: E501
+        """
+        pass
+
+    def test_get_entity_sets(self):
+        """Test case for get_entity_sets
+
+        Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.  # noqa: E501
+        """
+        pass
+
+    def test_get_popular_entity_set(self):
+        """Test case for get_popular_entity_set
+
+        Get the most popular entity sets.  # noqa: E501
         """
         pass
 

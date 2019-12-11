@@ -18,16 +18,31 @@
 #' @section Methods:
 #' \describe{
 #'
+#' create_association_set Creates a new set of associations.
+#'
+#'
 #' create_associations Creates a new set of associations.
 #'
 #'
 #' create_entities Creates a new set of entities.
 #'
 #'
+#' create_entity_and_association_data Creates entities and assocations
+#'
+#'
 #' delete_all_entities_from_entity_set Clears the Entity matching the given Entity id and all of its neighbor Entities
 #'
 #'
 #' delete_entities Deletes multiple entities from an entity set.
+#'
+#'
+#' delete_entities_and_neighbors Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
+#'
+#'
+#' delete_entity Deletes a single entity from an entity set.
+#'
+#'
+#' delete_entity_properties Deletes properties from an entity.
 #'
 #'
 #' get_entity Loads a single entity by its entityKeyId and entitySetId
@@ -43,6 +58,12 @@
 #'
 #'
 #' load_linked_entity_set_breakdown Loads a linked entity set breakdown with the selected linked entities and properties.
+#'
+#'
+#' replace_association_data Replaces Association Data
+#'
+#'
+#' replace_entity_properties Replaces Entity Properties
 #'
 #'
 #' update_entities_in_entity_set Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
@@ -63,6 +84,34 @@ DataApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
+    create_association_set = function(data_edge_key, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`data_edge_key`)) {
+        body <- `data_edge_key`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/data/association"
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PUT",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
     create_associations = function(data_edge, ...){
       args <- list(...)
       queryParams <- list()
@@ -74,7 +123,7 @@ DataApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/data/associations/"
+      urlPath <- "/datastore/data/association"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
                                  queryParams = queryParams,
@@ -107,6 +156,34 @@ DataApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
 
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    create_entity_and_association_data = function(data_graph, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`data_graph`)) {
+        body <- `data_graph`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/data"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
                                  queryParams = queryParams,
@@ -182,6 +259,116 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
                 jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    delete_entities_and_neighbors = function(entity_set_id, type, entity_neighbors_filter, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`type`)) {
+        queryParams['type'] <- type
+      }
+
+      if (!missing(`entity_neighbors_filter`)) {
+        body <- `entity_neighbors_filter`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/data/set/{entitySetId}/neighbors"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    delete_entity = function(entity_set_id, entity_key_id, type, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`type`)) {
+        queryParams['type'] <- type
+      }
+
+      urlPath <- "/datastore/data/{entitySetId}/{entityKeyId}"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      }
+
+      if (!missing(`entity_key_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), `entity_key_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+            # void response, no need to return anything
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    delete_entity_properties = function(entity_set_id, entity_key_id, type, request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`type`)) {
+        queryParams['type'] <- type
+      }
+
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/data/{entitySetId}/{entityKeyId}/properties"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      }
+
+      if (!missing(`entity_key_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), `entity_key_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "DELETE",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
@@ -321,6 +508,70 @@ DataApi <- R6::R6Class(
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    replace_association_data = function(partial, request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`partial`)) {
+        queryParams['partial'] <- partial
+      }
+
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/data/association"
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PATCH",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    replace_entity_properties = function(entity_set_id, request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      if (!missing(`request_body`)) {
+        body <- `request_body`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/data/set/{entitySetId}"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PATCH",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,

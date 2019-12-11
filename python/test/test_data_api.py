@@ -29,6 +29,13 @@ class TestDataApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_association_set(self):
+        """Test case for create_association_set
+
+        Creates a new set of associations.  # noqa: E501
+        """
+        pass
+
     def test_create_associations(self):
         """Test case for create_associations
 
@@ -43,6 +50,13 @@ class TestDataApi(unittest.TestCase):
         """
         pass
 
+    def test_create_entity_and_association_data(self):
+        """Test case for create_entity_and_association_data
+
+        Creates entities and assocations  # noqa: E501
+        """
+        pass
+
     def test_delete_all_entities_from_entity_set(self):
         """Test case for delete_all_entities_from_entity_set
 
@@ -54,6 +68,27 @@ class TestDataApi(unittest.TestCase):
         """Test case for delete_entities
 
         Deletes multiple entities from an entity set.  # noqa: E501
+        """
+        pass
+
+    def test_delete_entities_and_neighbors(self):
+        """Test case for delete_entities_and_neighbors
+
+        Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.  # noqa: E501
+        """
+        pass
+
+    def test_delete_entity(self):
+        """Test case for delete_entity
+
+        Deletes a single entity from an entity set.  # noqa: E501
+        """
+        pass
+
+    def test_delete_entity_properties(self):
+        """Test case for delete_entity_properties
+
+        Deletes properties from an entity.  # noqa: E501
         """
         pass
 
@@ -89,6 +124,20 @@ class TestDataApi(unittest.TestCase):
         """Test case for load_linked_entity_set_breakdown
 
         Loads a linked entity set breakdown with the selected linked entities and properties.  # noqa: E501
+        """
+        pass
+
+    def test_replace_association_data(self):
+        """Test case for replace_association_data
+
+        Replaces Association Data  # noqa: E501
+        """
+        pass
+
+    def test_replace_entity_properties(self):
+        """Test case for replace_entity_properties
+
+        Replaces Entity Properties  # noqa: E501
         """
         pass
 

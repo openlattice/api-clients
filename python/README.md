@@ -85,15 +85,22 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**update_reindex**](docs/AdminApi.md#update_reindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 *AuthorizationsApi* | [**check_authorizations**](docs/AuthorizationsApi.md#check_authorizations) | **POST** /datastore/authorizations | Check authorizations
 *AuthorizationsApi* | [**get_accessible_objects**](docs/AuthorizationsApi.md#get_accessible_objects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
-*DataApi* | [**create_associations**](docs/DataApi.md#create_associations) | **POST** /datastore/data/associations/ | Creates a new set of associations.
+*DataApi* | [**create_association_set**](docs/DataApi.md#create_association_set) | **PUT** /datastore/data/association | Creates a new set of associations.
+*DataApi* | [**create_associations**](docs/DataApi.md#create_associations) | **POST** /datastore/data/association | Creates a new set of associations.
 *DataApi* | [**create_entities**](docs/DataApi.md#create_entities) | **POST** /datastore/data/set | Creates a new set of entities.
+*DataApi* | [**create_entity_and_association_data**](docs/DataApi.md#create_entity_and_association_data) | **POST** /datastore/data | Creates entities and assocations
 *DataApi* | [**delete_all_entities_from_entity_set**](docs/DataApi.md#delete_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
 *DataApi* | [**delete_entities**](docs/DataApi.md#delete_entities) | **DELETE** /datastore/data/set/{entitySetId} | Deletes multiple entities from an entity set.
+*DataApi* | [**delete_entities_and_neighbors**](docs/DataApi.md#delete_entities_and_neighbors) | **POST** /datastore/data/set/{entitySetId}/neighbors | Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
+*DataApi* | [**delete_entity**](docs/DataApi.md#delete_entity) | **DELETE** /datastore/data/{entitySetId}/{entityKeyId} | Deletes a single entity from an entity set.
+*DataApi* | [**delete_entity_properties**](docs/DataApi.md#delete_entity_properties) | **DELETE** /datastore/data/{entitySetId}/{entityKeyId}/properties | Deletes properties from an entity.
 *DataApi* | [**get_entity**](docs/DataApi.md#get_entity) | **GET** /datastore/data/{entitySetId}/{entityKeyId} | Loads a single entity by its entityKeyId and entitySetId
 *DataApi* | [**get_entity_set_size**](docs/DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 *DataApi* | [**load_entity_set_data**](docs/DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
 *DataApi* | [**load_filtered_entity_set_data**](docs/DataApi.md#load_filtered_entity_set_data) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 *DataApi* | [**load_linked_entity_set_breakdown**](docs/DataApi.md#load_linked_entity_set_breakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
+*DataApi* | [**replace_association_data**](docs/DataApi.md#replace_association_data) | **PATCH** /datastore/data/association | Replaces Association Data
+*DataApi* | [**replace_entity_properties**](docs/DataApi.md#replace_entity_properties) | **PATCH** /datastore/data/set/{entitySetId} | Replaces Entity Properties
 *DataApi* | [**update_entities_in_entity_set**](docs/DataApi.md#update_entities_in_entity_set) | **PUT** /datastore/data/set/{entitySetId} | Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
 *DataIntegrationsApi* | [**get_entity_key_ids**](docs/DataIntegrationsApi.md#get_entity_key_ids) | **POST** /datastore/integration/entityKeyIds | Get entity key IDs
 *DataIntegrationsApi* | [**integrate_entity_and_association_data**](docs/DataIntegrationsApi.md#integrate_entity_and_association_data) | **POST** /datastore/integration | Integrate entity and association data
@@ -108,11 +115,11 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**add_src_entity_type_to_association_type**](docs/EdmApi.md#add_src_entity_type_to_association_type) | **PUT** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
 *EdmApi* | [**create_association_type**](docs/EdmApi.md#create_association_type) | **POST** /datastore/edm/association/type/ | Creates a new AssociationType definition, if it doesn&#39;t exist.
 *EdmApi* | [**create_empty_schema**](docs/EdmApi.md#create_empty_schema) | **PUT** /datastore/edm/schema/{namespace}/{name} | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-*EdmApi* | [**create_entity_sets**](docs/EdmApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don&#39;t exist.
+*EdmApi* | [**create_entity_sets**](docs/EdmApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Creates new EntitySet definitions if they don&#39;t exist.
 *EdmApi* | [**create_entity_type**](docs/EdmApi.md#create_entity_type) | **POST** /datastore/edm/entity/type/ | Creates a new EntityType definition, if it doesn&#39;t exist.
 *EdmApi* | [**create_property_type**](docs/EdmApi.md#create_property_type) | **POST** /datastore/edm/property/type/ | Creates a new PropertyType definition, if it doesn\&quot;t exist.
 *EdmApi* | [**create_schema_if_not_exists**](docs/EdmApi.md#create_schema_if_not_exists) | **POST** /datastore/edm/schema | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-*EdmApi* | [**delete_association_type**](docs/EdmApi.md#delete_association_type) | **DELETE** /datastore/edm/association/type/{associationTypeId} | Delete the AssociationType definition for the given AssociationType UUID.
+*EdmApi* | [**delete_association_type**](docs/EdmApi.md#delete_association_type) | **DELETE** /datastore/edm/association/type/{associationTypeId} | Deletes the AssociationType definition for the given AssociationType UUID.
 *EdmApi* | [**delete_entity_set**](docs/EdmApi.md#delete_entity_set) | **DELETE** /datastore/entity-sets/all/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
 *EdmApi* | [**delete_entity_type**](docs/EdmApi.md#delete_entity_type) | **DELETE** /datastore/edm/entity/type/{entityTypeId} | Deletes the EntityType definition for the given EntityType UUID.
 *EdmApi* | [**delete_property_type**](docs/EdmApi.md#delete_property_type) | **DELETE** /datastore/edm/property/type/{propertyTypeId} | Deletes the PropertyType definition for the given PropertyType UUID.
@@ -163,7 +170,7 @@ Class | Method | HTTP request | Description
 *EdmApi* | [**update_schema**](docs/EdmApi.md#update_schema) | **PATCH** /datastore/edm/schema/{namespace}/{name} | Edits the schema contents for a corresponding namespace and name.
 *EntitySetsApi* | [**add_entity_sets_to_linking_entity_set**](docs/EntitySetsApi.md#add_entity_sets_to_linking_entity_set) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
 *EntitySetsApi* | [**add_entity_sets_to_linking_entity_sets**](docs/EntitySetsApi.md#add_entity_sets_to_linking_entity_sets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
-*EntitySetsApi* | [**create_entity_sets**](docs/EntitySetsApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Create new EntitySet definitions if they don&#39;t exist.
+*EntitySetsApi* | [**create_entity_sets**](docs/EntitySetsApi.md#create_entity_sets) | **POST** /datastore/entity-sets | Creates new EntitySet definitions if they don&#39;t exist.
 *EntitySetsApi* | [**delete_entity_set**](docs/EntitySetsApi.md#delete_entity_set) | **DELETE** /datastore/entity-sets/all/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
 *EntitySetsApi* | [**get_all_entity_set_property_metadata**](docs/EntitySetsApi.md#get_all_entity_set_property_metadata) | **GET** /datastore/entity-sets/all/{entitySetId}/metadata | Get all entity set property metadata.
 *EntitySetsApi* | [**get_all_entity_sets**](docs/EntitySetsApi.md#get_all_entity_sets) | **GET** /datastore/entity-sets | Get all EntitySet definitions.
@@ -186,8 +193,8 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**add_member**](docs/OrganizationsApi.md#add_member) | **PUT** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
 *OrganizationsApi* | [**add_role_to_user**](docs/OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
 *OrganizationsApi* | [**assemble_entity_sets**](docs/OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets/assemble | Materializes entity sets into the organization database.
-*OrganizationsApi* | [**create_organization_if_not_exists**](docs/OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Create an organization if it doesn&#39;t exist.
-*OrganizationsApi* | [**create_role**](docs/OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Create role
+*OrganizationsApi* | [**create_organization_if_not_exists**](docs/OrganizationsApi.md#create_organization_if_not_exists) | **POST** /datastore/organizations | Creates an organization if it doesn&#39;t exist.
+*OrganizationsApi* | [**create_role**](docs/OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Creates role
 *OrganizationsApi* | [**delete_role**](docs/OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 *OrganizationsApi* | [**destroy_organization**](docs/OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
 *OrganizationsApi* | [**get_all_users_of_role**](docs/OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
@@ -217,9 +224,13 @@ Class | Method | HTTP request | Description
 *PrincipalApi* | [**search_all_users_by_email**](docs/PrincipalApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 *SearchApi* | [**execute_advanced_entity_set_data_query**](docs/SearchApi.md#execute_advanced_entity_set_data_query) | **POST** /datastore/search/advanced/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
 *SearchApi* | [**execute_entity_neighbor_search**](docs/SearchApi.md#execute_entity_neighbor_search) | **GET** /datastore/search/{entitySetId}/{entityKeyId} | Executes a search for all neighbors of an entity that are connected by an association
+*SearchApi* | [**execute_entity_neighbor_search_bulk**](docs/SearchApi.md#execute_entity_neighbor_search_bulk) | **POST** /datastore/search/{entitySetId}/neighbors | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
 *SearchApi* | [**execute_entity_set_data_query**](docs/SearchApi.md#execute_entity_set_data_query) | **POST** /datastore/search/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
+*SearchApi* | [**execute_entity_set_keyword_query**](docs/SearchApi.md#execute_entity_set_keyword_query) | **POST** /datastore/search | The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
 *SearchApi* | [**execute_filtered_entity_neighbor_id_search**](docs/SearchApi.md#execute_filtered_entity_neighbor_id_search) | **POST** /datastore/search/{entitySetId}/neighbors/advanced/ids | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 *SearchApi* | [**execute_filtered_entity_neighbor_search**](docs/SearchApi.md#execute_filtered_entity_neighbor_search) | **POST** /datastore/search/{entitySetId}/neighbors/advanced | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
+*SearchApi* | [**get_entity_sets**](docs/SearchApi.md#get_entity_sets) | **GET** /datastore/search/entity-sets/{start}/{numResults} | Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
+*SearchApi* | [**get_popular_entity_set**](docs/SearchApi.md#get_popular_entity_set) | **GET** /datastore/search/popular | Get the most popular entity sets.
 *SearchApi* | [**search_entity_set_data**](docs/SearchApi.md#search_entity_set_data) | **PATCH** /datastore/search | Executes a search over the data of a given entity set to find rows that match the search term
 
 
@@ -238,7 +249,11 @@ Class | Method | HTTP request | Description
  - [BulkDataCreation](docs/BulkDataCreation.md)
  - [Constraint](docs/Constraint.md)
  - [ConstraintGroup](docs/ConstraintGroup.md)
+ - [DataAssociation](docs/DataAssociation.md)
  - [DataEdge](docs/DataEdge.md)
+ - [DataEdgeKey](docs/DataEdgeKey.md)
+ - [DataGraph](docs/DataGraph.md)
+ - [DataGraphIds](docs/DataGraphIds.md)
  - [DataSearchResult](docs/DataSearchResult.md)
  - [EDM](docs/EDM.md)
  - [EDMdiff](docs/EDMdiff.md)
@@ -249,6 +264,7 @@ Class | Method | HTTP request | Description
  - [EntityKeyPair](docs/EntityKeyPair.md)
  - [EntityLinkingFeatures](docs/EntityLinkingFeatures.md)
  - [EntityLinkingFeedback](docs/EntityLinkingFeedback.md)
+ - [EntityNeighborsFilter](docs/EntityNeighborsFilter.md)
  - [EntitySet](docs/EntitySet.md)
  - [EntitySetPropertyMetaData](docs/EntitySetPropertyMetaData.md)
  - [EntitySetSelection](docs/EntitySetSelection.md)
@@ -274,8 +290,10 @@ Class | Method | HTTP request | Description
  - [PropertyUsageSummary](docs/PropertyUsageSummary.md)
  - [Role](docs/Role.md)
  - [Schema](docs/Schema.md)
+ - [Search](docs/Search.md)
  - [SearchConstraints](docs/SearchConstraints.md)
  - [SearchDetails](docs/SearchDetails.md)
+ - [SearchResult](docs/SearchResult.md)
  - [SearchTerm](docs/SearchTerm.md)
  - [SecurablePrincipal](docs/SecurablePrincipal.md)
  - [SmsEntitySetInformation](docs/SmsEntitySetInformation.md)

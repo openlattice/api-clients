@@ -44,7 +44,7 @@ class DatasetApi(object):
         :param async_req bool
         :param str organization_id: (required)
         :param str table_id: (required)
-        :return: dict(str, list[OrganizationExternalDatabaseTableColumnsPair])
+        :return: dict(str, OrganizationExternalDatabaseTableColumnsPair)
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -66,7 +66,7 @@ class DatasetApi(object):
         :param async_req bool
         :param str organization_id: (required)
         :param str table_id: (required)
-        :return: dict(str, list[OrganizationExternalDatabaseTableColumnsPair])
+        :return: dict(str, OrganizationExternalDatabaseTableColumnsPair)
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -127,7 +127,7 @@ class DatasetApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='dict(str, list[OrganizationExternalDatabaseTableColumnsPair])',  # noqa: E501
+            response_type='dict(str, OrganizationExternalDatabaseTableColumnsPair)',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

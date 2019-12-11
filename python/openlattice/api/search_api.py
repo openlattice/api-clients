@@ -241,6 +241,112 @@ class SearchApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def execute_entity_neighbor_search_bulk(self, entity_set_id, request_body, **kwargs):  # noqa: E501
+        """Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.execute_entity_neighbor_search_bulk(entity_set_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param list[str] request_body: (required)
+        :return: dict(str, list[NeighborEntityDetails])
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.execute_entity_neighbor_search_bulk_with_http_info(entity_set_id, request_body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.execute_entity_neighbor_search_bulk_with_http_info(entity_set_id, request_body, **kwargs)  # noqa: E501
+            return data
+
+    def execute_entity_neighbor_search_bulk_with_http_info(self, entity_set_id, request_body, **kwargs):  # noqa: E501
+        """Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.execute_entity_neighbor_search_bulk_with_http_info(entity_set_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param list[str] request_body: (required)
+        :return: dict(str, list[NeighborEntityDetails])
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_set_id', 'request_body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method execute_entity_neighbor_search_bulk" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_set_id' is set
+        if ('entity_set_id' not in local_var_params or
+                local_var_params['entity_set_id'] is None):
+            raise ValueError("Missing the required parameter `entity_set_id` when calling `execute_entity_neighbor_search_bulk`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if ('request_body' not in local_var_params or
+                local_var_params['request_body'] is None):
+            raise ValueError("Missing the required parameter `request_body` when calling `execute_entity_neighbor_search_bulk`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_set_id' in local_var_params:
+            path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/search/{entitySetId}/neighbors', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='dict(str, list[NeighborEntityDetails])',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def execute_entity_set_data_query(self, entity_set_id, search_term, **kwargs):  # noqa: E501
         """Executes a search over the data of a given entity set to find rows that match the search term  # noqa: E501
 
@@ -340,6 +446,104 @@ class SearchApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='DataSearchResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def execute_entity_set_keyword_query(self, search, **kwargs):  # noqa: E501
+        """The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.execute_entity_set_keyword_query(search, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Search search: (required)
+        :return: dict(str, dict(str, dict(str, list[NeighborEntityIds])))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.execute_entity_set_keyword_query_with_http_info(search, **kwargs)  # noqa: E501
+        else:
+            (data) = self.execute_entity_set_keyword_query_with_http_info(search, **kwargs)  # noqa: E501
+            return data
+
+    def execute_entity_set_keyword_query_with_http_info(self, search, **kwargs):  # noqa: E501
+        """The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.execute_entity_set_keyword_query_with_http_info(search, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param Search search: (required)
+        :return: dict(str, dict(str, dict(str, list[NeighborEntityIds])))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['search']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method execute_entity_set_keyword_query" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'search' is set
+        if ('search' not in local_var_params or
+                local_var_params['search'] is None):
+            raise ValueError("Missing the required parameter `search` when calling `execute_entity_set_keyword_query`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'search' in local_var_params:
+            body_params = local_var_params['search']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/search', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='dict(str, dict(str, dict(str, list[NeighborEntityIds])))',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -552,6 +756,194 @@ class SearchApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='dict(str, list[NeighborEntityDetails])',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_entity_sets(self, start, num_results, **kwargs):  # noqa: E501
+        """Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_entity_sets(start, num_results, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int start: The first result number to return (required)
+        :param int num_results: The total number of results to return (required)
+        :return: list[SearchResult]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_entity_sets_with_http_info(start, num_results, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_entity_sets_with_http_info(start, num_results, **kwargs)  # noqa: E501
+            return data
+
+    def get_entity_sets_with_http_info(self, start, num_results, **kwargs):  # noqa: E501
+        """Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_entity_sets_with_http_info(start, num_results, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int start: The first result number to return (required)
+        :param int num_results: The total number of results to return (required)
+        :return: list[SearchResult]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['start', 'num_results']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_entity_sets" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'start' is set
+        if ('start' not in local_var_params or
+                local_var_params['start'] is None):
+            raise ValueError("Missing the required parameter `start` when calling `get_entity_sets`")  # noqa: E501
+        # verify the required parameter 'num_results' is set
+        if ('num_results' not in local_var_params or
+                local_var_params['num_results'] is None):
+            raise ValueError("Missing the required parameter `num_results` when calling `get_entity_sets`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'start' in local_var_params:
+            path_params['start'] = local_var_params['start']  # noqa: E501
+        if 'num_results' in local_var_params:
+            path_params['numResults'] = local_var_params['num_results']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/search/entity-sets/{start}/{numResults}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[SearchResult]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_popular_entity_set(self, **kwargs):  # noqa: E501
+        """Get the most popular entity sets.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_popular_entity_set(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: list[EntitySet]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_popular_entity_set_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_popular_entity_set_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_popular_entity_set_with_http_info(self, **kwargs):  # noqa: E501
+        """Get the most popular entity sets.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_popular_entity_set_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: list[EntitySet]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_popular_entity_set" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/search/popular', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[EntitySet]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

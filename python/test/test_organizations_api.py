@@ -53,14 +53,14 @@ class TestOrganizationsApi(unittest.TestCase):
     def test_create_organization_if_not_exists(self):
         """Test case for create_organization_if_not_exists
 
-        Create an organization if it doesn't exist.  # noqa: E501
+        Creates an organization if it doesn't exist.  # noqa: E501
         """
         pass
 
     def test_create_role(self):
         """Test case for create_role
 
-        Create role  # noqa: E501
+        Creates role  # noqa: E501
         """
         pass
 

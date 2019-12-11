@@ -826,7 +826,7 @@ class EdmApi(object):
             collection_formats=collection_formats)
 
     def create_entity_sets(self, entity_set, **kwargs):  # noqa: E501
-        """Create new EntitySet definitions if they don't exist.  # noqa: E501
+        """Creates new EntitySet definitions if they don't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -847,7 +847,7 @@ class EdmApi(object):
             return data
 
     def create_entity_sets_with_http_info(self, entity_set, **kwargs):  # noqa: E501
-        """Create new EntitySet definitions if they don't exist.  # noqa: E501
+        """Creates new EntitySet definitions if they don't exist.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1202,7 +1202,7 @@ class EdmApi(object):
             collection_formats=collection_formats)
 
     def delete_association_type(self, association_type_id, **kwargs):  # noqa: E501
-        """Delete the AssociationType definition for the given AssociationType UUID.  # noqa: E501
+        """Deletes the AssociationType definition for the given AssociationType UUID.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1223,7 +1223,7 @@ class EdmApi(object):
             return data
 
     def delete_association_type_with_http_info(self, association_type_id, **kwargs):  # noqa: E501
-        """Delete the AssociationType definition for the given AssociationType UUID.  # noqa: E501
+        """Deletes the AssociationType definition for the given AssociationType UUID.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

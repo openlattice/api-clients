@@ -1,11 +1,13 @@
-# DataEdge
+# Search
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**src** | [**EntityDataKey**](EntityDataKey.md) |  | [optional] 
-**dst** | [**EntityDataKey**](EntityDataKey.md) |  | [optional] 
-**edge** | [**EntityDataKey**](EntityDataKey.md) |  | [optional] 
+**keyword** | **str** |  | [optional] 
+**entity_type_id** | **str** |  | [optional] 
+**property_type_ids** | **list[str]** |  | [optional] 
+**start** | **int** |  | [optional] 
+**max_hits** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
