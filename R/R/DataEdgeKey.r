@@ -11,7 +11,7 @@
 #'
 #' @field src 
 #' @field dst 
-#' @field data 
+#' @field edge 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -21,33 +21,34 @@ DataEdgeKey <- R6::R6Class(
   public = list(
     `src` = NULL,
     `dst` = NULL,
-    `data` = NULL,
-    initialize = function(`src`, `dst`, `data`){
+    `edge` = NULL,
+    initialize = function(`src`, `dst`, `edge`){
       if (!missing(`src`)) {
-                stopifnot(is.character(`src`), length(`src`) == 1)
+                stopifnot(R6::is.R6(`src`))
         self$`src` <- `src`
       }
       if (!missing(`dst`)) {
-                stopifnot(is.character(`dst`), length(`dst`) == 1)
+                stopifnot(R6::is.R6(`dst`))
         self$`dst` <- `dst`
       }
-      if (!missing(`data`)) {
-        self$`data` <- `data`
+      if (!missing(`edge`)) {
+                stopifnot(R6::is.R6(`edge`))
+        self$`edge` <- `edge`
       }
     },
     toJSON = function() {
       DataEdgeKeyObject <- list()
       if (!is.null(self$`src`)) {
         DataEdgeKeyObject[['src']] <-
-                self$`src`
+                self$`src`$toJSON()
       }
       if (!is.null(self$`dst`)) {
         DataEdgeKeyObject[['dst']] <-
-                self$`dst`
+                self$`dst`$toJSON()
       }
-      if (!is.null(self$`data`)) {
-        DataEdgeKeyObject[['data']] <-
-                self$`data`
+      if (!is.null(self$`edge`)) {
+        DataEdgeKeyObject[['edge']] <-
+                self$`edge`$toJSON()
       }
 
       DataEdgeKeyObject
@@ -55,45 +56,48 @@ DataEdgeKey <- R6::R6Class(
     fromJSON = function(DataEdgeKeyJson) {
       DataEdgeKeyObject <- jsonlite::fromJSON(DataEdgeKeyJson)
       if (!is.null(DataEdgeKeyObject$`src`)) {
-                self$`src` <- DataEdgeKeyObject$`src`
+                srcObject <- EntityDataKey$new()
+                srcObject$fromJSON(jsonlite::toJSON(DataEdgeKeyObject$src, auto_unbox = TRUE))
+                self$`src` <- srcObject
       }
       if (!is.null(DataEdgeKeyObject$`dst`)) {
-                self$`dst` <- DataEdgeKeyObject$`dst`
+                dstObject <- EntityDataKey$new()
+                dstObject$fromJSON(jsonlite::toJSON(DataEdgeKeyObject$dst, auto_unbox = TRUE))
+                self$`dst` <- dstObject
       }
-      if (!is.null(DataEdgeKeyObject$`data`)) {
-                self$`data` <- DataEdgeKeyObject$`data`
+      if (!is.null(DataEdgeKeyObject$`edge`)) {
+                edgeObject <- EntityDataKey$new()
+                edgeObject$fromJSON(jsonlite::toJSON(DataEdgeKeyObject$edge, auto_unbox = TRUE))
+                self$`edge` <- edgeObject
       }
     },
     toJSONString = function() {
        outstring <- sprintf(
         '{
            "src":
-                      
-                      "%s"
-                  
+                  "%s"
               ,
            "dst":
-                      
-                      "%s"
-                  
+                  "%s"
               ,
-           "data":
-                      
-                      "%s"
-                  
+           "edge":
+                  "%s"
               
         }',
-                self$`src`,
-                self$`dst`,
-                self$`data`
+                self$`src`$toJSON(),
+                self$`dst`$toJSON(),
+                self$`edge`$toJSON()
       )
       gsub("[\r\n]| ", "", outstring)
     },
     fromJSONString = function(DataEdgeKeyJson) {
       DataEdgeKeyObject <- jsonlite::fromJSON(DataEdgeKeyJson)
-              self$`src` <- DataEdgeKeyObject$`src`
-              self$`dst` <- DataEdgeKeyObject$`dst`
-              self$`data` <- DataEdgeKeyObject$`data`
+              EntityDataKeyObject <- EntityDataKey$new()
+              self$`src` <- EntityDataKeyObject$fromJSON(jsonlite::toJSON(DataEdgeKeyObject$src, auto_unbox = TRUE))
+              EntityDataKeyObject <- EntityDataKey$new()
+              self$`dst` <- EntityDataKeyObject$fromJSON(jsonlite::toJSON(DataEdgeKeyObject$dst, auto_unbox = TRUE))
+              EntityDataKeyObject <- EntityDataKey$new()
+              self$`edge` <- EntityDataKeyObject$fromJSON(jsonlite::toJSON(DataEdgeKeyObject$edge, auto_unbox = TRUE))
     }
   )
 )

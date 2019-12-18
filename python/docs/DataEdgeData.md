@@ -1,11 +1,9 @@
-# DataEdge
+# DataEdgeData
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**src** | [**EntityDataKey**](EntityDataKey.md) |  | [optional] 
-**dst** | [**EntityDataKey**](EntityDataKey.md) |  | [optional] 
-**data** | [**DataEdgeData**](DataEdgeData.md) |  | [optional] 
+**additional_properties** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -69,6 +69,9 @@
 #' get_roles Get roles for an organization
 #'
 #'
+#' refresh_data_changes Refreshes the requested materialized entity set with data changes in the organization.
+#'
+#'
 #' remove_auto_approved_email_domains Remove auto-approved email domains
 #'
 #'
@@ -79,6 +82,9 @@
 #'
 #'
 #' set_auto_approved_email_domain Set auto-approved email domains
+#'
+#'
+#' synchronize_edm_changes Synchronizes EDM changes to the requested materialized entity set in the organization.
 #'
 #'
 #' update_description Update the organization description
@@ -586,6 +592,36 @@ OrganizationsApi <- R6::R6Class(
       }
 
     },
+    refresh_data_changes = function(organization_id, entity_set_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/organizations/{organizationId}/{entitySetId}/refresh"
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), `organization_id`, urlPath)
+      }
+
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+            # void response, no need to return anything
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
     remove_auto_approved_email_domains = function(organization_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
@@ -700,6 +736,36 @@ OrganizationsApi <- R6::R6Class(
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "PUT",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+            # void response, no need to return anything
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    synchronize_edm_changes = function(organization_id, entity_set_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/organizations/{organizationId}/{entitySetId}/synchronize"
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), `organization_id`, urlPath)
+      }
+
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      }
+
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,

@@ -30,6 +30,7 @@ from openlattice.models.constraint import Constraint
 from openlattice.models.constraint_group import ConstraintGroup
 from openlattice.models.data_association import DataAssociation
 from openlattice.models.data_edge import DataEdge
+from openlattice.models.data_edge_data import DataEdgeData
 from openlattice.models.data_edge_key import DataEdgeKey
 from openlattice.models.data_graph import DataGraph
 from openlattice.models.data_graph_ids import DataGraphIds
@@ -51,6 +52,7 @@ from openlattice.models.entity_type import EntityType
 from openlattice.models.entity_type_property_metadata import EntityTypePropertyMetadata
 from openlattice.models.full_qualified_name import FullQualifiedName
 from openlattice.models.indexing_state import IndexingState
+from openlattice.models.inline_object import InlineObject
 from openlattice.models.inline_response200 import InlineResponse200
 from openlattice.models.integration_results import IntegrationResults
 from openlattice.models.linking_feedback import LinkingFeedback
