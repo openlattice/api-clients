@@ -34,29 +34,29 @@ class DataEdge(object):
     openapi_types = {
         'src': 'EntityDataKey',
         'dst': 'EntityDataKey',
-        'edge': 'EntityDataKey'
+        'data': 'DataEdgeData'
     }
 
     attribute_map = {
         'src': 'src',
         'dst': 'dst',
-        'edge': 'edge'
+        'data': 'data'
     }
 
-    def __init__(self, src=None, dst=None, edge=None):  # noqa: E501
+    def __init__(self, src=None, dst=None, data=None):  # noqa: E501
         """DataEdge - a model defined in OpenAPI"""  # noqa: E501
 
         self._src = None
         self._dst = None
-        self._edge = None
+        self._data = None
         self.discriminator = None
 
         if src is not None:
             self.src = src
         if dst is not None:
             self.dst = dst
-        if edge is not None:
-            self.edge = edge
+        if data is not None:
+            self.data = data
 
     @property
     def src(self):
@@ -101,25 +101,25 @@ class DataEdge(object):
         self._dst = dst
 
     @property
-    def edge(self):
-        """Gets the edge of this DataEdge.  # noqa: E501
+    def data(self):
+        """Gets the data of this DataEdge.  # noqa: E501
 
 
-        :return: The edge of this DataEdge.  # noqa: E501
-        :rtype: EntityDataKey
+        :return: The data of this DataEdge.  # noqa: E501
+        :rtype: DataEdgeData
         """
-        return self._edge
+        return self._data
 
-    @edge.setter
-    def edge(self, edge):
-        """Sets the edge of this DataEdge.
+    @data.setter
+    def data(self, data):
+        """Sets the data of this DataEdge.
 
 
-        :param edge: The edge of this DataEdge.  # noqa: E501
-        :type: EntityDataKey
+        :param data: The data of this DataEdge.  # noqa: E501
+        :type: DataEdgeData
         """
 
-        self._edge = edge
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

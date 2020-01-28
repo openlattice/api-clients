@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **index_type** | **str** |  | [optional] 
 **organization_id** | **str** |  | [optional] 
 **partitions** | **list[int]** |  | [optional] 
+**enum_values** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,9 +9,11 @@ Name | Type | Description | Notes
 **description** | **str** |  | [optional] 
 **schemas** | [**list[FullQualifiedName]**](FullQualifiedName.md) |  | [optional] 
 **datatype** | **str** |  | [optional] 
-**pii_field** | **bool** |  | [optional] 
+**pii** | **bool** |  | [optional] 
 **multi_valued** | **bool** |  | [optional] 
 **analyzer** | **str** |  | [optional] 
+**enum_values** | **list[str]** |  | [optional] 
+**index_type** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

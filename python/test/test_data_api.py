@@ -29,15 +29,15 @@ class TestDataApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_association_set(self):
-        """Test case for create_association_set
+    def test_create_associations(self):
+        """Test case for create_associations
 
         Creates a new set of associations.  # noqa: E501
         """
         pass
 
-    def test_create_associations(self):
-        """Test case for create_associations
+    def test_create_edges(self):
+        """Test case for create_edges
 
         Creates a new set of associations.  # noqa: E501
         """
@@ -99,6 +99,13 @@ class TestDataApi(unittest.TestCase):
         """
         pass
 
+    def test_get_entity_property_values(self):
+        """Test case for get_entity_property_values
+
+        Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId  # noqa: E501
+        """
+        pass
+
     def test_get_entity_set_size(self):
         """Test case for get_entity_set_size
 
@@ -113,17 +120,17 @@ class TestDataApi(unittest.TestCase):
         """
         pass
 
-    def test_load_filtered_entity_set_data(self):
-        """Test case for load_filtered_entity_set_data
-
-        Gets a list of entities by UUIDs  # noqa: E501
-        """
-        pass
-
     def test_load_linked_entity_set_breakdown(self):
         """Test case for load_linked_entity_set_breakdown
 
         Loads a linked entity set breakdown with the selected linked entities and properties.  # noqa: E501
+        """
+        pass
+
+    def test_load_selected_entity_set_data(self):
+        """Test case for load_selected_entity_set_data
+
+        Gets a list of entities by UUIDs  # noqa: E501
         """
         pass
 

@@ -148,6 +148,13 @@ class TestOrganizationsApi(unittest.TestCase):
         """
         pass
 
+    def test_refresh_data_changes(self):
+        """Test case for refresh_data_changes
+
+        Refreshes the requested materialized entity set with data changes in the organization.  # noqa: E501
+        """
+        pass
+
     def test_remove_auto_approved_email_domains(self):
         """Test case for remove_auto_approved_email_domains
 
@@ -173,6 +180,13 @@ class TestOrganizationsApi(unittest.TestCase):
         """Test case for set_auto_approved_email_domain
 
         Set auto-approved email domains  # noqa: E501
+        """
+        pass
+
+    def test_synchronize_edm_changes(self):
+        """Test case for synchronize_edm_changes
+
+        Synchronizes EDM changes to the requested materialized entity set in the organization.  # noqa: E501
         """
         pass
 

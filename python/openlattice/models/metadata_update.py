@@ -43,7 +43,8 @@ class MetadataUpdate(object):
         'property_tags': 'dict(str, list[str])',
         'index_type': 'str',
         'organization_id': 'str',
-        'partitions': 'list[int]'
+        'partitions': 'list[int]',
+        'enum_values': 'list[str]'
     }
 
     attribute_map = {
@@ -58,10 +59,11 @@ class MetadataUpdate(object):
         'property_tags': 'propertyTags',
         'index_type': 'indexType',
         'organization_id': 'organizationId',
-        'partitions': 'partitions'
+        'partitions': 'partitions',
+        'enum_values': 'enumValues'
     }
 
-    def __init__(self, title=None, description=None, name=None, contacts=None, type=None, pii=None, default_show=None, url=None, property_tags=None, index_type=None, organization_id=None, partitions=None):  # noqa: E501
+    def __init__(self, title=None, description=None, name=None, contacts=None, type=None, pii=None, default_show=None, url=None, property_tags=None, index_type=None, organization_id=None, partitions=None, enum_values=None):  # noqa: E501
         """MetadataUpdate - a model defined in OpenAPI"""  # noqa: E501
 
         self._title = None
@@ -76,6 +78,7 @@ class MetadataUpdate(object):
         self._index_type = None
         self._organization_id = None
         self._partitions = None
+        self._enum_values = None
         self.discriminator = None
 
         if title is not None:
@@ -102,6 +105,8 @@ class MetadataUpdate(object):
             self.organization_id = organization_id
         if partitions is not None:
             self.partitions = partitions
+        if enum_values is not None:
+            self.enum_values = enum_values
 
     @property
     def title(self):
@@ -360,6 +365,27 @@ class MetadataUpdate(object):
         """
 
         self._partitions = partitions
+
+    @property
+    def enum_values(self):
+        """Gets the enum_values of this MetadataUpdate.  # noqa: E501
+
+
+        :return: The enum_values of this MetadataUpdate.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._enum_values
+
+    @enum_values.setter
+    def enum_values(self, enum_values):
+        """Sets the enum_values of this MetadataUpdate.
+
+
+        :param enum_values: The enum_values of this MetadataUpdate.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._enum_values = enum_values
 
     def to_dict(self):
         """Returns the model properties as a dict"""

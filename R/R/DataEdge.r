@@ -11,7 +11,7 @@
 #'
 #' @field src 
 #' @field dst 
-#' @field edge 
+#' @field data 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -21,8 +21,8 @@ DataEdge <- R6::R6Class(
   public = list(
     `src` = NULL,
     `dst` = NULL,
-    `edge` = NULL,
-    initialize = function(`src`, `dst`, `edge`){
+    `data` = NULL,
+    initialize = function(`src`, `dst`, `data`){
       if (!missing(`src`)) {
                 stopifnot(R6::is.R6(`src`))
         self$`src` <- `src`
@@ -31,9 +31,9 @@ DataEdge <- R6::R6Class(
                 stopifnot(R6::is.R6(`dst`))
         self$`dst` <- `dst`
       }
-      if (!missing(`edge`)) {
-                stopifnot(R6::is.R6(`edge`))
-        self$`edge` <- `edge`
+      if (!missing(`data`)) {
+                stopifnot(R6::is.R6(`data`))
+        self$`data` <- `data`
       }
     },
     toJSON = function() {
@@ -46,9 +46,9 @@ DataEdge <- R6::R6Class(
         DataEdgeObject[['dst']] <-
                 self$`dst`$toJSON()
       }
-      if (!is.null(self$`edge`)) {
-        DataEdgeObject[['edge']] <-
-                self$`edge`$toJSON()
+      if (!is.null(self$`data`)) {
+        DataEdgeObject[['data']] <-
+                self$`data`$toJSON()
       }
 
       DataEdgeObject
@@ -65,10 +65,10 @@ DataEdge <- R6::R6Class(
                 dstObject$fromJSON(jsonlite::toJSON(DataEdgeObject$dst, auto_unbox = TRUE))
                 self$`dst` <- dstObject
       }
-      if (!is.null(DataEdgeObject$`edge`)) {
-                edgeObject <- EntityDataKey$new()
-                edgeObject$fromJSON(jsonlite::toJSON(DataEdgeObject$edge, auto_unbox = TRUE))
-                self$`edge` <- edgeObject
+      if (!is.null(DataEdgeObject$`data`)) {
+                dataObject <- DataEdgeData$new()
+                dataObject$fromJSON(jsonlite::toJSON(DataEdgeObject$data, auto_unbox = TRUE))
+                self$`data` <- dataObject
       }
     },
     toJSONString = function() {
@@ -80,13 +80,13 @@ DataEdge <- R6::R6Class(
            "dst":
                   "%s"
               ,
-           "edge":
+           "data":
                   "%s"
               
         }',
                 self$`src`$toJSON(),
                 self$`dst`$toJSON(),
-                self$`edge`$toJSON()
+                self$`data`$toJSON()
       )
       gsub("[\r\n]| ", "", outstring)
     },
@@ -96,8 +96,8 @@ DataEdge <- R6::R6Class(
               self$`src` <- EntityDataKeyObject$fromJSON(jsonlite::toJSON(DataEdgeObject$src, auto_unbox = TRUE))
               EntityDataKeyObject <- EntityDataKey$new()
               self$`dst` <- EntityDataKeyObject$fromJSON(jsonlite::toJSON(DataEdgeObject$dst, auto_unbox = TRUE))
-              EntityDataKeyObject <- EntityDataKey$new()
-              self$`edge` <- EntityDataKeyObject$fromJSON(jsonlite::toJSON(DataEdgeObject$edge, auto_unbox = TRUE))
+              DataEdgeDataObject <- DataEdgeData$new()
+              self$`data` <- DataEdgeDataObject$fromJSON(jsonlite::toJSON(DataEdgeObject$data, auto_unbox = TRUE))
     }
   )
 )
