@@ -15,9 +15,11 @@
 #' @field description 
 #' @field schemas 
 #' @field datatype 
-#' @field piiField 
+#' @field pii 
 #' @field multiValued 
 #' @field analyzer 
+#' @field enumValues 
+#' @field indexType 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -31,10 +33,12 @@ PropertyType <- R6::R6Class(
     `description` = NULL,
     `schemas` = NULL,
     `datatype` = NULL,
-    `piiField` = NULL,
+    `pii` = NULL,
     `multiValued` = NULL,
     `analyzer` = NULL,
-    initialize = function(`title`, `id`, `type`, `description`, `schemas`, `datatype`, `piiField`, `multiValued`, `analyzer`){
+    `enumValues` = NULL,
+    `indexType` = NULL,
+    initialize = function(`title`, `id`, `type`, `description`, `schemas`, `datatype`, `pii`, `multiValued`, `analyzer`, `enumValues`, `indexType`){
       if (!missing(`title`)) {
                 stopifnot(is.character(`title`), length(`title`) == 1)
         self$`title` <- `title`
@@ -60,8 +64,8 @@ PropertyType <- R6::R6Class(
                 stopifnot(is.character(`datatype`), length(`datatype`) == 1)
         self$`datatype` <- `datatype`
       }
-      if (!missing(`piiField`)) {
-        self$`piiField` <- `piiField`
+      if (!missing(`pii`)) {
+        self$`pii` <- `pii`
       }
       if (!missing(`multiValued`)) {
         self$`multiValued` <- `multiValued`
@@ -69,6 +73,15 @@ PropertyType <- R6::R6Class(
       if (!missing(`analyzer`)) {
                 stopifnot(is.character(`analyzer`), length(`analyzer`) == 1)
         self$`analyzer` <- `analyzer`
+      }
+      if (!missing(`enumValues`)) {
+                stopifnot(is.vector(`enumValues`), length(`enumValues`) != 0)
+                sapply(`enumValues`, function(x) stopifnot(is.character(x)))
+        self$`enumValues` <- `enumValues`
+      }
+      if (!missing(`indexType`)) {
+                stopifnot(is.character(`indexType`), length(`indexType`) == 1)
+        self$`indexType` <- `indexType`
       }
     },
     toJSON = function() {
@@ -97,9 +110,9 @@ PropertyType <- R6::R6Class(
         PropertyTypeObject[['datatype']] <-
                 self$`datatype`
       }
-      if (!is.null(self$`piiField`)) {
-        PropertyTypeObject[['piiField']] <-
-                self$`piiField`
+      if (!is.null(self$`pii`)) {
+        PropertyTypeObject[['pii']] <-
+                self$`pii`
       }
       if (!is.null(self$`multiValued`)) {
         PropertyTypeObject[['multiValued']] <-
@@ -108,6 +121,14 @@ PropertyType <- R6::R6Class(
       if (!is.null(self$`analyzer`)) {
         PropertyTypeObject[['analyzer']] <-
                 self$`analyzer`
+      }
+      if (!is.null(self$`enumValues`)) {
+        PropertyTypeObject[['enumValues']] <-
+                self$`enumValues`
+      }
+      if (!is.null(self$`indexType`)) {
+        PropertyTypeObject[['indexType']] <-
+                self$`indexType`
       }
 
       PropertyTypeObject
@@ -138,14 +159,20 @@ PropertyType <- R6::R6Class(
       if (!is.null(PropertyTypeObject$`datatype`)) {
                 self$`datatype` <- PropertyTypeObject$`datatype`
       }
-      if (!is.null(PropertyTypeObject$`piiField`)) {
-                self$`piiField` <- PropertyTypeObject$`piiField`
+      if (!is.null(PropertyTypeObject$`pii`)) {
+                self$`pii` <- PropertyTypeObject$`pii`
       }
       if (!is.null(PropertyTypeObject$`multiValued`)) {
                 self$`multiValued` <- PropertyTypeObject$`multiValued`
       }
       if (!is.null(PropertyTypeObject$`analyzer`)) {
                 self$`analyzer` <- PropertyTypeObject$`analyzer`
+      }
+      if (!is.null(PropertyTypeObject$`enumValues`)) {
+                self$`enumValues` <- PropertyTypeObject$`enumValues`
+      }
+      if (!is.null(PropertyTypeObject$`indexType`)) {
+                self$`indexType` <- PropertyTypeObject$`indexType`
       }
     },
     toJSONString = function() {
@@ -177,7 +204,7 @@ PropertyType <- R6::R6Class(
                       "%s"
                   
               ,
-           "piiField":
+           "pii":
                       
                       "%s"
                   
@@ -191,6 +218,16 @@ PropertyType <- R6::R6Class(
                       
                       "%s"
                   
+              ,
+           "enumValues":
+                      
+                      ["%s"]
+                  
+              ,
+           "indexType":
+                      
+                      "%s"
+                  
               
         }',
                 self$`title`,
@@ -199,9 +236,11 @@ PropertyType <- R6::R6Class(
                 self$`description`,
                 paste0(sapply(self$`schemas`, function(x) x$toJSON()), collapse='","'),
                 self$`datatype`,
-                self$`piiField`,
+                self$`pii`,
                 self$`multiValued`,
-                self$`analyzer`
+                self$`analyzer`,
+                paste0(self$`enumValues`, collapse='","'),
+                self$`indexType`
       )
       gsub("[\r\n]| ", "", outstring)
     },
@@ -214,9 +253,11 @@ PropertyType <- R6::R6Class(
               self$`description` <- PropertyTypeObject$`description`
               self$`schemas` <- sapply(PropertyTypeObject$`schemas`, function(x) FullQualifiedName$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
               self$`datatype` <- PropertyTypeObject$`datatype`
-              self$`piiField` <- PropertyTypeObject$`piiField`
+              self$`pii` <- PropertyTypeObject$`pii`
               self$`multiValued` <- PropertyTypeObject$`multiValued`
               self$`analyzer` <- PropertyTypeObject$`analyzer`
+              self$`enumValues` <- PropertyTypeObject$`enumValues`
+              self$`indexType` <- PropertyTypeObject$`indexType`
     }
   )
 )

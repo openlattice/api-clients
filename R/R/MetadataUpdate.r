@@ -21,6 +21,7 @@
 #' @field indexType 
 #' @field organizationId 
 #' @field partitions 
+#' @field enumValues 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -40,7 +41,8 @@ MetadataUpdate <- R6::R6Class(
     `indexType` = NULL,
     `organizationId` = NULL,
     `partitions` = NULL,
-    initialize = function(`title`, `description`, `name`, `contacts`, `type`, `pii`, `defaultShow`, `url`, `propertyTags`, `indexType`, `organizationId`, `partitions`){
+    `enumValues` = NULL,
+    initialize = function(`title`, `description`, `name`, `contacts`, `type`, `pii`, `defaultShow`, `url`, `propertyTags`, `indexType`, `organizationId`, `partitions`, `enumValues`){
       if (!missing(`title`)) {
                 stopifnot(is.character(`title`), length(`title`) == 1)
         self$`title` <- `title`
@@ -88,6 +90,11 @@ MetadataUpdate <- R6::R6Class(
                 stopifnot(is.vector(`partitions`), length(`partitions`) != 0)
                 sapply(`partitions`, function(x) stopifnot(is.character(x)))
         self$`partitions` <- `partitions`
+      }
+      if (!missing(`enumValues`)) {
+                stopifnot(is.vector(`enumValues`), length(`enumValues`) != 0)
+                sapply(`enumValues`, function(x) stopifnot(is.character(x)))
+        self$`enumValues` <- `enumValues`
       }
     },
     toJSON = function() {
@@ -140,6 +147,10 @@ MetadataUpdate <- R6::R6Class(
         MetadataUpdateObject[['partitions']] <-
                 self$`partitions`
       }
+      if (!is.null(self$`enumValues`)) {
+        MetadataUpdateObject[['enumValues']] <-
+                self$`enumValues`
+      }
 
       MetadataUpdateObject
     },
@@ -184,6 +195,9 @@ MetadataUpdate <- R6::R6Class(
       }
       if (!is.null(MetadataUpdateObject$`partitions`)) {
                 self$`partitions` <- MetadataUpdateObject$`partitions`
+      }
+      if (!is.null(MetadataUpdateObject$`enumValues`)) {
+                self$`enumValues` <- MetadataUpdateObject$`enumValues`
       }
     },
     toJSONString = function() {
@@ -244,6 +258,11 @@ MetadataUpdate <- R6::R6Class(
                       
                       ["%s"]
                   
+              ,
+           "enumValues":
+                      
+                      ["%s"]
+                  
               
         }',
                 self$`title`,
@@ -257,7 +276,8 @@ MetadataUpdate <- R6::R6Class(
                 self$`propertyTags`$toJSON(),
                 self$`indexType`,
                 self$`organizationId`,
-                paste0(self$`partitions`, collapse='","')
+                paste0(self$`partitions`, collapse='","'),
+                paste0(self$`enumValues`, collapse='","')
       )
       gsub("[\r\n]| ", "", outstring)
     },
@@ -277,6 +297,7 @@ MetadataUpdate <- R6::R6Class(
               self$`indexType` <- MetadataUpdateObject$`indexType`
               self$`organizationId` <- MetadataUpdateObject$`organizationId`
               self$`partitions` <- MetadataUpdateObject$`partitions`
+              self$`enumValues` <- MetadataUpdateObject$`enumValues`
     }
   )
 )

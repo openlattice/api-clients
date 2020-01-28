@@ -99,6 +99,13 @@ class TestDataApi(unittest.TestCase):
         """
         pass
 
+    def test_get_entity_property_values(self):
+        """Test case for get_entity_property_values
+
+        Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId  # noqa: E501
+        """
+        pass
+
     def test_get_entity_set_size(self):
         """Test case for get_entity_set_size
 

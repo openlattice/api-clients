@@ -38,9 +38,11 @@ class PropertyType(object):
         'description': 'str',
         'schemas': 'list[FullQualifiedName]',
         'datatype': 'str',
-        'pii_field': 'bool',
+        'pii': 'bool',
         'multi_valued': 'bool',
-        'analyzer': 'str'
+        'analyzer': 'str',
+        'enum_values': 'list[str]',
+        'index_type': 'str'
     }
 
     attribute_map = {
@@ -50,12 +52,14 @@ class PropertyType(object):
         'description': 'description',
         'schemas': 'schemas',
         'datatype': 'datatype',
-        'pii_field': 'piiField',
+        'pii': 'pii',
         'multi_valued': 'multiValued',
-        'analyzer': 'analyzer'
+        'analyzer': 'analyzer',
+        'enum_values': 'enumValues',
+        'index_type': 'indexType'
     }
 
-    def __init__(self, title=None, id=None, type=None, description=None, schemas=None, datatype=None, pii_field=None, multi_valued=None, analyzer=None):  # noqa: E501
+    def __init__(self, title=None, id=None, type=None, description=None, schemas=None, datatype=None, pii=None, multi_valued=None, analyzer=None, enum_values=None, index_type=None):  # noqa: E501
         """PropertyType - a model defined in OpenAPI"""  # noqa: E501
 
         self._title = None
@@ -64,9 +68,11 @@ class PropertyType(object):
         self._description = None
         self._schemas = None
         self._datatype = None
-        self._pii_field = None
+        self._pii = None
         self._multi_valued = None
         self._analyzer = None
+        self._enum_values = None
+        self._index_type = None
         self.discriminator = None
 
         if title is not None:
@@ -81,12 +87,16 @@ class PropertyType(object):
             self.schemas = schemas
         if datatype is not None:
             self.datatype = datatype
-        if pii_field is not None:
-            self.pii_field = pii_field
+        if pii is not None:
+            self.pii = pii
         if multi_valued is not None:
             self.multi_valued = multi_valued
         if analyzer is not None:
             self.analyzer = analyzer
+        if enum_values is not None:
+            self.enum_values = enum_values
+        if index_type is not None:
+            self.index_type = index_type
 
     @property
     def title(self):
@@ -211,29 +221,35 @@ class PropertyType(object):
         :param datatype: The datatype of this PropertyType.  # noqa: E501
         :type: str
         """
+        allowed_values = ["Binary", "Boolean", "Byte", "SByte", "Date", "DateTimeOffset", "TimeOfDay", "Duration", "Decimal", "Single", "Double", "Guid", "Int16", "Int32", "Int64", "String", "Stream", "Geography", "GeographyPoint", "GeographyLineString", "GeographyPolygon", "GeographyMultiPoint", "GeographyMultiLineString", "GeographyMultiPolygon", "GeographyCollection", "Geometry", "GeometryPoint", "GeometryLineString", "GeometryPolygon", "GeometryMultiPoint", "GeometryMultiLineString", "GeometryMultiPolygon", "GeometryCollection"]  # noqa: E501
+        if datatype not in allowed_values:
+            raise ValueError(
+                "Invalid value for `datatype` ({0}), must be one of {1}"  # noqa: E501
+                .format(datatype, allowed_values)
+            )
 
         self._datatype = datatype
 
     @property
-    def pii_field(self):
-        """Gets the pii_field of this PropertyType.  # noqa: E501
+    def pii(self):
+        """Gets the pii of this PropertyType.  # noqa: E501
 
 
-        :return: The pii_field of this PropertyType.  # noqa: E501
+        :return: The pii of this PropertyType.  # noqa: E501
         :rtype: bool
         """
-        return self._pii_field
+        return self._pii
 
-    @pii_field.setter
-    def pii_field(self, pii_field):
-        """Sets the pii_field of this PropertyType.
+    @pii.setter
+    def pii(self, pii):
+        """Sets the pii of this PropertyType.
 
 
-        :param pii_field: The pii_field of this PropertyType.  # noqa: E501
+        :param pii: The pii of this PropertyType.  # noqa: E501
         :type: bool
         """
 
-        self._pii_field = pii_field
+        self._pii = pii
 
     @property
     def multi_valued(self):
@@ -274,8 +290,62 @@ class PropertyType(object):
         :param analyzer: The analyzer of this PropertyType.  # noqa: E501
         :type: str
         """
+        allowed_values = ["NONE", "METAPHONE", "STANDARD", "NOT_ANALYZED"]  # noqa: E501
+        if analyzer not in allowed_values:
+            raise ValueError(
+                "Invalid value for `analyzer` ({0}), must be one of {1}"  # noqa: E501
+                .format(analyzer, allowed_values)
+            )
 
         self._analyzer = analyzer
+
+    @property
+    def enum_values(self):
+        """Gets the enum_values of this PropertyType.  # noqa: E501
+
+
+        :return: The enum_values of this PropertyType.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._enum_values
+
+    @enum_values.setter
+    def enum_values(self, enum_values):
+        """Sets the enum_values of this PropertyType.
+
+
+        :param enum_values: The enum_values of this PropertyType.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._enum_values = enum_values
+
+    @property
+    def index_type(self):
+        """Gets the index_type of this PropertyType.  # noqa: E501
+
+
+        :return: The index_type of this PropertyType.  # noqa: E501
+        :rtype: str
+        """
+        return self._index_type
+
+    @index_type.setter
+    def index_type(self, index_type):
+        """Sets the index_type of this PropertyType.
+
+
+        :param index_type: The index_type of this PropertyType.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["BTREE", "HASH", "GIN", "NONE"]  # noqa: E501
+        if index_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `index_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(index_type, allowed_values)
+            )
+
+        self._index_type = index_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
