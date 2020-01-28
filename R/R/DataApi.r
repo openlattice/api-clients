@@ -18,10 +18,10 @@
 #' @section Methods:
 #' \describe{
 #'
-#' create_association_set Creates a new set of associations.
-#'
-#'
 #' create_associations Creates a new set of associations.
+#'
+#'
+#' create_edges Creates a new set of associations.
 #'
 #'
 #' create_entities Creates a new set of entities.
@@ -54,10 +54,10 @@
 #' load_entity_set_data Gets an iterable containing the entity data, using property type FQNs as key
 #'
 #'
-#' load_filtered_entity_set_data Gets a list of entities by UUIDs
-#'
-#'
 #' load_linked_entity_set_breakdown Loads a linked entity set breakdown with the selected linked entities and properties.
+#'
+#'
+#' load_selected_entity_set_data Gets a list of entities by UUIDs
 #'
 #'
 #' replace_association_data Replaces Association Data
@@ -84,20 +84,20 @@ DataApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    create_association_set = function(data_edge_key, ...){
+    create_associations = function(inline_object, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`data_edge_key`)) {
-        body <- `data_edge_key`$toJSONString()
+      if (!missing(`inline_object`)) {
+        body <- `inline_object`$toJSONString()
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/data/association"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "PUT",
+                                 method = "POST",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,
@@ -112,20 +112,20 @@ DataApi <- R6::R6Class(
       }
 
     },
-    create_associations = function(data_edge, ...){
+    create_edges = function(data_edge_key, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
 
-      if (!missing(`data_edge`)) {
-        body <- `data_edge`$toJSONString()
+      if (!missing(`data_edge_key`)) {
+        body <- `data_edge_key`$toJSONString()
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/data/association"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
+                                 method = "PUT",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,
@@ -458,7 +458,7 @@ DataApi <- R6::R6Class(
       }
 
     },
-    load_filtered_entity_set_data = function(entity_set_id, entity_set_selection, ...){
+    load_linked_entity_set_breakdown = function(linked_entity_set_id, entity_set_selection, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
@@ -469,9 +469,9 @@ DataApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/data/set/{entitySetId}"
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
+      urlPath <- "/datastore/data/set/{linkedEntitySetId}/detailed"
+      if (!missing(`linked_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkedEntitySetId", "\\}"), `linked_entity_set_id`, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
@@ -490,7 +490,7 @@ DataApi <- R6::R6Class(
       }
 
     },
-    load_linked_entity_set_breakdown = function(linked_entity_set_id, entity_set_selection, ...){
+    load_selected_entity_set_data = function(entity_set_id, entity_set_selection, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
@@ -501,9 +501,9 @@ DataApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/data/set/{linkedEntitySetId}/detailed"
-      if (!missing(`linked_entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "linkedEntitySetId", "\\}"), `linked_entity_set_id`, urlPath)
+      urlPath <- "/datastore/data/set/{entitySetId}"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
 
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),

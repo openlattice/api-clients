@@ -85,8 +85,8 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**update_reindex**](docs/AdminApi.md#update_reindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 *AuthorizationsApi* | [**check_authorizations**](docs/AuthorizationsApi.md#check_authorizations) | **POST** /datastore/authorizations | Check authorizations
 *AuthorizationsApi* | [**get_accessible_objects**](docs/AuthorizationsApi.md#get_accessible_objects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
-*DataApi* | [**create_association_set**](docs/DataApi.md#create_association_set) | **PUT** /datastore/data/association | Creates a new set of associations.
 *DataApi* | [**create_associations**](docs/DataApi.md#create_associations) | **POST** /datastore/data/association | Creates a new set of associations.
+*DataApi* | [**create_edges**](docs/DataApi.md#create_edges) | **PUT** /datastore/data/association | Creates a new set of associations.
 *DataApi* | [**create_entities**](docs/DataApi.md#create_entities) | **POST** /datastore/data/set | Creates a new set of entities.
 *DataApi* | [**create_entity_and_association_data**](docs/DataApi.md#create_entity_and_association_data) | **POST** /datastore/data | Creates entities and assocations
 *DataApi* | [**delete_all_entities_from_entity_set**](docs/DataApi.md#delete_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
@@ -97,8 +97,8 @@ Class | Method | HTTP request | Description
 *DataApi* | [**get_entity**](docs/DataApi.md#get_entity) | **GET** /datastore/data/{entitySetId}/{entityKeyId} | Loads a single entity by its entityKeyId and entitySetId
 *DataApi* | [**get_entity_set_size**](docs/DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 *DataApi* | [**load_entity_set_data**](docs/DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
-*DataApi* | [**load_filtered_entity_set_data**](docs/DataApi.md#load_filtered_entity_set_data) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 *DataApi* | [**load_linked_entity_set_breakdown**](docs/DataApi.md#load_linked_entity_set_breakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
+*DataApi* | [**load_selected_entity_set_data**](docs/DataApi.md#load_selected_entity_set_data) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 *DataApi* | [**replace_association_data**](docs/DataApi.md#replace_association_data) | **PATCH** /datastore/data/association | Replaces Association Data
 *DataApi* | [**replace_entity_properties**](docs/DataApi.md#replace_entity_properties) | **PATCH** /datastore/data/set/{entitySetId} | Replaces Entity Properties
 *DataApi* | [**update_entities_in_entity_set**](docs/DataApi.md#update_entities_in_entity_set) | **PUT** /datastore/data/set/{entitySetId} | Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
@@ -207,10 +207,12 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**get_organizations**](docs/OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organizations
 *OrganizationsApi* | [**get_role**](docs/OrganizationsApi.md#get_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 *OrganizationsApi* | [**get_roles**](docs/OrganizationsApi.md#get_roles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
+*OrganizationsApi* | [**refresh_data_changes**](docs/OrganizationsApi.md#refresh_data_changes) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/refresh | Refreshes the requested materialized entity set with data changes in the organization.
 *OrganizationsApi* | [**remove_auto_approved_email_domains**](docs/OrganizationsApi.md#remove_auto_approved_email_domains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 *OrganizationsApi* | [**remove_member**](docs/OrganizationsApi.md#remove_member) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
 *OrganizationsApi* | [**remove_role_from_user**](docs/OrganizationsApi.md#remove_role_from_user) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Remove a role from a user
 *OrganizationsApi* | [**set_auto_approved_email_domain**](docs/OrganizationsApi.md#set_auto_approved_email_domain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
+*OrganizationsApi* | [**synchronize_edm_changes**](docs/OrganizationsApi.md#synchronize_edm_changes) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
 *OrganizationsApi* | [**update_description**](docs/OrganizationsApi.md#update_description) | **PUT** /datastore/organizations/{organizationId}/description | Update the organization description
 *OrganizationsApi* | [**update_role_description**](docs/OrganizationsApi.md#update_role_description) | **POST** /datastore/organizations/{organizationId}/principals/roles/{roleId}/description | Update role description for an organization from a roleId
 *OrganizationsApi* | [**update_role_title**](docs/OrganizationsApi.md#update_role_title) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/title | Update role title for an organization from a roleId
@@ -251,6 +253,7 @@ Class | Method | HTTP request | Description
  - [ConstraintGroup](docs/ConstraintGroup.md)
  - [DataAssociation](docs/DataAssociation.md)
  - [DataEdge](docs/DataEdge.md)
+ - [DataEdgeData](docs/DataEdgeData.md)
  - [DataEdgeKey](docs/DataEdgeKey.md)
  - [DataGraph](docs/DataGraph.md)
  - [DataGraphIds](docs/DataGraphIds.md)
@@ -272,6 +275,7 @@ Class | Method | HTTP request | Description
  - [EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
  - [IndexingState](docs/IndexingState.md)
+ - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [IntegrationResults](docs/IntegrationResults.md)
  - [LinkingFeedback](docs/LinkingFeedback.md)

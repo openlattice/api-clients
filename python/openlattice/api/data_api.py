@@ -33,12 +33,110 @@ class DataApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_association_set(self, data_edge_key, **kwargs):  # noqa: E501
+    def create_associations(self, inline_object, **kwargs):  # noqa: E501
         """Creates a new set of associations.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_association_set(data_edge_key, async_req=True)
+        >>> thread = api.create_associations(inline_object, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param InlineObject inline_object: (required)
+        :return: dict(str, list[str])
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_associations_with_http_info(inline_object, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_associations_with_http_info(inline_object, **kwargs)  # noqa: E501
+            return data
+
+    def create_associations_with_http_info(self, inline_object, **kwargs):  # noqa: E501
+        """Creates a new set of associations.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_associations_with_http_info(inline_object, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param InlineObject inline_object: (required)
+        :return: dict(str, list[str])
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['inline_object']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_associations" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'inline_object' is set
+        if ('inline_object' not in local_var_params or
+                local_var_params['inline_object'] is None):
+            raise ValueError("Missing the required parameter `inline_object` when calling `create_associations`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'inline_object' in local_var_params:
+            body_params = local_var_params['inline_object']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/data/association', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='dict(str, list[str])',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_edges(self, data_edge_key, **kwargs):  # noqa: E501
+        """Creates a new set of associations.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_edges(data_edge_key, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -49,17 +147,17 @@ class DataApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_association_set_with_http_info(data_edge_key, **kwargs)  # noqa: E501
+            return self.create_edges_with_http_info(data_edge_key, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_association_set_with_http_info(data_edge_key, **kwargs)  # noqa: E501
+            (data) = self.create_edges_with_http_info(data_edge_key, **kwargs)  # noqa: E501
             return data
 
-    def create_association_set_with_http_info(self, data_edge_key, **kwargs):  # noqa: E501
+    def create_edges_with_http_info(self, data_edge_key, **kwargs):  # noqa: E501
         """Creates a new set of associations.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_association_set_with_http_info(data_edge_key, async_req=True)
+        >>> thread = api.create_edges_with_http_info(data_edge_key, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -81,14 +179,14 @@ class DataApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_association_set" % key
+                    " to method create_edges" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'data_edge_key' is set
         if ('data_edge_key' not in local_var_params or
                 local_var_params['data_edge_key'] is None):
-            raise ValueError("Missing the required parameter `data_edge_key` when calling `create_association_set`")  # noqa: E501
+            raise ValueError("Missing the required parameter `data_edge_key` when calling `create_edges`")  # noqa: E501
 
         collection_formats = {}
 
@@ -124,104 +222,6 @@ class DataApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='int',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def create_associations(self, data_edge, **kwargs):  # noqa: E501
-        """Creates a new set of associations.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_associations(data_edge, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param list[dict] data_edge: (required)
-        :return: dict(str, object)
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_associations_with_http_info(data_edge, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_associations_with_http_info(data_edge, **kwargs)  # noqa: E501
-            return data
-
-    def create_associations_with_http_info(self, data_edge, **kwargs):  # noqa: E501
-        """Creates a new set of associations.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_associations_with_http_info(data_edge, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param list[dict] data_edge: (required)
-        :return: dict(str, object)
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['data_edge']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_associations" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'data_edge' is set
-        if ('data_edge' not in local_var_params or
-                local_var_params['data_edge'] is None):
-            raise ValueError("Missing the required parameter `data_edge` when calling `create_associations`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'data_edge' in local_var_params:
-            body_params = local_var_params['data_edge']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/datastore/data/association', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='dict(str, object)',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1273,112 +1273,6 @@ class DataApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def load_filtered_entity_set_data(self, entity_set_id, entity_set_selection, **kwargs):  # noqa: E501
-        """Gets a list of entities by UUIDs  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.load_filtered_entity_set_data(entity_set_id, entity_set_selection, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str entity_set_id: (required)
-        :param list[EntitySetSelection] entity_set_selection: (required)
-        :return: list[dict(str, list[str])]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.load_filtered_entity_set_data_with_http_info(entity_set_id, entity_set_selection, **kwargs)  # noqa: E501
-        else:
-            (data) = self.load_filtered_entity_set_data_with_http_info(entity_set_id, entity_set_selection, **kwargs)  # noqa: E501
-            return data
-
-    def load_filtered_entity_set_data_with_http_info(self, entity_set_id, entity_set_selection, **kwargs):  # noqa: E501
-        """Gets a list of entities by UUIDs  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.load_filtered_entity_set_data_with_http_info(entity_set_id, entity_set_selection, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str entity_set_id: (required)
-        :param list[EntitySetSelection] entity_set_selection: (required)
-        :return: list[dict(str, list[str])]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['entity_set_id', 'entity_set_selection']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method load_filtered_entity_set_data" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'entity_set_id' is set
-        if ('entity_set_id' not in local_var_params or
-                local_var_params['entity_set_id'] is None):
-            raise ValueError("Missing the required parameter `entity_set_id` when calling `load_filtered_entity_set_data`")  # noqa: E501
-        # verify the required parameter 'entity_set_selection' is set
-        if ('entity_set_selection' not in local_var_params or
-                local_var_params['entity_set_selection'] is None):
-            raise ValueError("Missing the required parameter `entity_set_selection` when calling `load_filtered_entity_set_data`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'entity_set_id' in local_var_params:
-            path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'entity_set_selection' in local_var_params:
-            body_params = local_var_params['entity_set_selection']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/datastore/data/set/{entitySetId}', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[dict(str, list[str])]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def load_linked_entity_set_breakdown(self, linked_entity_set_id, entity_set_selection, **kwargs):  # noqa: E501
         """Loads a linked entity set breakdown with the selected linked entities and properties.  # noqa: E501
 
@@ -1478,6 +1372,112 @@ class DataApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='dict(str, dict(str, dict(str, dict(str, list[str]))))',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def load_selected_entity_set_data(self, entity_set_id, entity_set_selection, **kwargs):  # noqa: E501
+        """Gets a list of entities by UUIDs  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.load_selected_entity_set_data(entity_set_id, entity_set_selection, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param list[EntitySetSelection] entity_set_selection: (required)
+        :return: list[dict(str, list[str])]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.load_selected_entity_set_data_with_http_info(entity_set_id, entity_set_selection, **kwargs)  # noqa: E501
+        else:
+            (data) = self.load_selected_entity_set_data_with_http_info(entity_set_id, entity_set_selection, **kwargs)  # noqa: E501
+            return data
+
+    def load_selected_entity_set_data_with_http_info(self, entity_set_id, entity_set_selection, **kwargs):  # noqa: E501
+        """Gets a list of entities by UUIDs  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.load_selected_entity_set_data_with_http_info(entity_set_id, entity_set_selection, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str entity_set_id: (required)
+        :param list[EntitySetSelection] entity_set_selection: (required)
+        :return: list[dict(str, list[str])]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['entity_set_id', 'entity_set_selection']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method load_selected_entity_set_data" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_set_id' is set
+        if ('entity_set_id' not in local_var_params or
+                local_var_params['entity_set_id'] is None):
+            raise ValueError("Missing the required parameter `entity_set_id` when calling `load_selected_entity_set_data`")  # noqa: E501
+        # verify the required parameter 'entity_set_selection' is set
+        if ('entity_set_selection' not in local_var_params or
+                local_var_params['entity_set_selection'] is None):
+            raise ValueError("Missing the required parameter `entity_set_selection` when calling `load_selected_entity_set_data`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_set_id' in local_var_params:
+            path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'entity_set_selection' in local_var_params:
+            body_params = local_var_params['entity_set_selection']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/data/set/{entitySetId}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[dict(str, list[str])]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
