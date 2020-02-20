@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_materialized_view_account**](PrincipalApi.md#get_materialized_view_account) | **GET** /datastore/principals/db | Get the db access credentials.
 [**get_user**](PrincipalApi.md#get_user) | **GET** /datastore/principals/users/{userId} | Get the user for the given id.
 [**search_all_users_by_email**](PrincipalApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
+[**sync_calling_user**](PrincipalApi.md#sync_calling_user) | **GET** /datastore/principals/sync/ | Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
 
 
 # **get_all_users**
@@ -383,6 +384,77 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sync_calling_user**
+> sync_calling_user()
+
+Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
+
+### Example
+
+* Basic Authentication (http_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure HTTP basic authorization: http_auth
+configuration.username = 'YOUR_USERNAME'
+configuration.password = 'YOUR_PASSWORD'
+
+# create an instance of the API class
+api_instance = openlattice.PrincipalApi(openlattice.ApiClient(configuration))
+
+try:
+    # Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
+    api_instance.sync_calling_user()
+except ApiException as e:
+    print("Exception when calling PrincipalApi->sync_calling_user: %s\n" % e)
+```
+
+
+* Api Key Authentication (openlattice_auth): 
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = openlattice.PrincipalApi(openlattice.ApiClient(configuration))
+
+try:
+    # Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
+    api_instance.sync_calling_user()
+except ApiException as e:
+    print("Exception when calling PrincipalApi->sync_calling_user: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

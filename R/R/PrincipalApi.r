@@ -32,6 +32,9 @@
 #'
 #' search_all_users_by_email Get the user id for the given email address.
 #'
+#'
+#' sync_calling_user Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
+#'
 #' }
 #'
 #' @export
@@ -159,6 +162,28 @@ PrincipalApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
                 jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        Response$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        Response$new("API server error", resp)
+      }
+
+    },
+    sync_calling_user = function(...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- character()
+
+      urlPath <- "/datastore/principals/sync/"
+      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+            # void response, no need to return anything
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
         Response$new("API client error", resp)
       } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {

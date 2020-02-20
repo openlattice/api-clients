@@ -20,7 +20,6 @@ __version__ = "0.1.0"
 # import apis into sdk package
 from openlattice.api.admin_api import AdminApi
 from openlattice.api.authorizations_api import AuthorizationsApi
-from openlattice.api.collections_api import CollectionsApi
 from openlattice.api.data_api import DataApi
 from openlattice.api.data_integrations_api import DataIntegrationsApi
 from openlattice.api.dataset_api import DatasetApi
@@ -47,7 +46,6 @@ from openlattice.models.auth0user_basic import Auth0userBasic
 from openlattice.models.authorization import Authorization
 from openlattice.models.authorized_objects_search_result import AuthorizedObjectsSearchResult
 from openlattice.models.bulk_data_creation import BulkDataCreation
-from openlattice.models.collection_template_type import CollectionTemplateType
 from openlattice.models.constraint import Constraint
 from openlattice.models.constraint_group import ConstraintGroup
 from openlattice.models.data_association import DataAssociation
@@ -68,11 +66,9 @@ from openlattice.models.entity_linking_features import EntityLinkingFeatures
 from openlattice.models.entity_linking_feedback import EntityLinkingFeedback
 from openlattice.models.entity_neighbors_filter import EntityNeighborsFilter
 from openlattice.models.entity_set import EntitySet
-from openlattice.models.entity_set_collection import EntitySetCollection
 from openlattice.models.entity_set_property_meta_data import EntitySetPropertyMetaData
 from openlattice.models.entity_set_selection import EntitySetSelection
 from openlattice.models.entity_type import EntityType
-from openlattice.models.entity_type_collection import EntityTypeCollection
 from openlattice.models.entity_type_property_metadata import EntityTypePropertyMetadata
 from openlattice.models.full_qualified_name import FullQualifiedName
 from openlattice.models.indexing_state import IndexingState

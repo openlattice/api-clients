@@ -64,6 +64,13 @@ class TestPrincipalApi(unittest.TestCase):
         """
         pass
 
+    def test_sync_calling_user(self):
+        """Test case for sync_calling_user
+
+        Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -478,3 +478,85 @@ class PrincipalApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+    def sync_calling_user(self, **kwargs):  # noqa: E501
+        """Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sync_calling_user(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.sync_calling_user_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.sync_calling_user_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def sync_calling_user_with_http_info(self, **kwargs):  # noqa: E501
+        """Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sync_calling_user_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method sync_calling_user" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/principals/sync/', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
