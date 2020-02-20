@@ -2482,7 +2482,7 @@ class OrganizationsApi(object):
             body_params = local_var_params['body']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
@@ -2592,7 +2592,7 @@ class OrganizationsApi(object):
             body_params = local_var_params['body']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501

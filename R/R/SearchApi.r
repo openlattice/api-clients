@@ -21,22 +21,10 @@
 #' execute_advanced_entity_set_data_query Executes a search over the data of a given entity set to find rows that match the search term
 #'
 #'
-#' execute_app_search Executes a search over all apps to find ones that match the given search term
-#'
-#'
-#' execute_app_type_search Executes a search over all app types to find ones that match the given search term
-#'
-#'
-#' execute_association_type_search Executes a search over all association types to find ones that match the given search term
-#'
-#'
 #' execute_entity_neighbor_search Executes a search for all neighbors of an entity that are connected by an association
 #'
 #'
 #' execute_entity_neighbor_search_bulk Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
-#'
-#'
-#' execute_entity_set_collection_search Executes a search over all EntitySetCollections to find ones that match the given search term
 #'
 #'
 #' execute_entity_set_data_query Executes a search over the data of a given entity set to find rows that match the search term
@@ -45,25 +33,10 @@
 #' execute_entity_set_keyword_query The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
 #'
 #'
-#' execute_entity_type_collection_search Executes a search over all EntityTypeCollections to find ones that match the given search term
-#'
-#'
-#' execute_entity_type_search Executes a search over all entity types to find ones that match the given search term
-#'
-#'
 #' execute_filtered_entity_neighbor_id_search Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 #'
 #'
 #' execute_filtered_entity_neighbor_search Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
-#'
-#'
-#' execute_fqn_property_type_search Executes a search over all property types to find ones that match the given name and namespace, including partial matches
-#'
-#'
-#' execute_organization_search Executes a search over all organizations to find ones that match the given search term
-#'
-#'
-#' execute_property_type_search Executes a search over all property types to find ones that match the given search term
 #'
 #'
 #' get_entity_sets Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
@@ -106,90 +79,6 @@ SearchApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
 
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
-    execute_app_search = function(search_term, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`search_term`)) {
-        body <- `search_term`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/search/app"
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
-    execute_app_type_search = function(search_term, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`search_term`)) {
-        body <- `search_term`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/search/app_types"
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
-    execute_association_type_search = function(search_term, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`search_term`)) {
-        body <- `search_term`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/search/association_types"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
                                  queryParams = queryParams,
@@ -268,34 +157,6 @@ SearchApi <- R6::R6Class(
       }
 
     },
-    execute_entity_set_collection_search = function(search_term, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`search_term`)) {
-        body <- `search_term`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/search/entity_sets/collections"
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
     execute_entity_set_data_query = function(entity_set_id, search_term, ...){
       args <- list(...)
       queryParams <- list()
@@ -340,62 +201,6 @@ SearchApi <- R6::R6Class(
       }
 
       urlPath <- "/datastore/search"
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
-    execute_entity_type_collection_search = function(search_term, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`search_term`)) {
-        body <- `search_term`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/search/entity_types/collections"
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
-    execute_entity_type_search = function(search_term, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`search_term`)) {
-        body <- `search_term`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/search/entity_types"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
                                  queryParams = queryParams,
@@ -460,90 +265,6 @@ SearchApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), `entity_set_id`, urlPath)
       }
 
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
-    execute_fqn_property_type_search = function(search_term, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`search_term`)) {
-        body <- `search_term`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/search/property_types/fqn"
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
-    execute_organization_search = function(search_term, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`search_term`)) {
-        body <- `search_term`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/search/organizations"
-      resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-                jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        Response$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        Response$new("API server error", resp)
-      }
-
-    },
-    execute_property_type_search = function(search_term, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- character()
-
-      if (!missing(`search_term`)) {
-        body <- `search_term`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/search/property_types"
       resp <- self$apiClient$callApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
                                  queryParams = queryParams,

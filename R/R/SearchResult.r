@@ -26,8 +26,6 @@ SearchResult <- R6::R6Class(
         self$`numHits` <- `numHits`
       }
       if (!missing(`hits`)) {
-                stopifnot(is.vector(`hits`), length(`hits`) != 0)
-                sapply(`hits`, function(x) stopifnot(is.character(x)))
         self$`hits` <- `hits`
       }
     },
@@ -63,12 +61,12 @@ SearchResult <- R6::R6Class(
               ,
            "hits":
                       
-                      ["%s"]
+                      "%s"
                   
               
         }',
                 self$`numHits`,
-                paste0(self$`hits`, collapse='","')
+                self$`hits`
       )
       gsub("[\r\n]| ", "", outstring)
     },
