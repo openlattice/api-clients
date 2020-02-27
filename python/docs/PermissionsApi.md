@@ -15,7 +15,7 @@ Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -23,53 +23,69 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.PermissionsApi(openlattice.ApiClient(configuration))
-request_body = NULL # list[str] | 
-
-try:
-    # Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
-    api_response = api_instance.get_acl(request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PermissionsApi->get_acl: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.PermissionsApi(openlattice.ApiClient(configuration))
-request_body = NULL # list[str] | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
-    api_response = api_instance.get_acl(request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PermissionsApi->get_acl: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.PermissionsApi(api_client)
+    request_body = ['request_body_example'] # list[str] | 
+
+    try:
+        # Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
+        api_response = api_instance.get_acl(request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PermissionsApi->get_acl: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.PermissionsApi(api_client)
+    request_body = ['request_body_example'] # list[str] | 
+
+    try:
+        # Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
+        api_response = api_instance.get_acl(request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PermissionsApi->get_acl: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request_body** | [**list[str]**](list.md)|  | 
+ **request_body** | [**list[str]**](str.md)|  | 
 
 ### Return type
 
@@ -84,6 +100,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_acl**
@@ -93,7 +114,7 @@ Updates the ACL for a particular ACL Key, only if the user is the owner of the A
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -101,44 +122,60 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.PermissionsApi(openlattice.ApiClient(configuration))
-acl_data = openlattice.AclData() # AclData | 
-
-try:
-    # Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
-    api_instance.update_acl(acl_data)
-except ApiException as e:
-    print("Exception when calling PermissionsApi->update_acl: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.PermissionsApi(openlattice.ApiClient(configuration))
-acl_data = openlattice.AclData() # AclData | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
-    api_instance.update_acl(acl_data)
-except ApiException as e:
-    print("Exception when calling PermissionsApi->update_acl: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.PermissionsApi(api_client)
+    acl_data = openlattice.AclData() # AclData | 
+
+    try:
+        # Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
+        api_instance.update_acl(acl_data)
+    except ApiException as e:
+        print("Exception when calling PermissionsApi->update_acl: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.PermissionsApi(api_client)
+    acl_data = openlattice.AclData() # AclData | 
+
+    try:
+        # Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
+        api_instance.update_acl(acl_data)
+    except ApiException as e:
+        print("Exception when calling PermissionsApi->update_acl: %s\n" % e)
 ```
 
 ### Parameters
@@ -159,6 +196,11 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

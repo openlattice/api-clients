@@ -1,0 +1,6816 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: support@openlattice.com
+  description: OpenLattice API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://api.openlattice.com/terms/
+  title: OpenLattice API
+  version: 0.0.1
+externalDocs:
+  description: Find out more about OpenLattice
+  url: https://openlattice.com/
+servers:
+- description: Production OpenLattice API
+  url: https://api.openlattice.com
+- description: Staging OpenLattice API
+  url: https://api.staging.openlattice.com
+- description: Local OpenLattice API
+  url: http://localhost:8080
+tags:
+- description: API endpoints to the entity data model.
+  name: edm
+- description: API endpoints for permissions for organizations, roles and users.
+  name: permissions
+- description: API endpoints for searching users and their properties.
+  name: directory
+- description: API endpoints to reading and writing data.
+  name: data
+- description: API endpoints to search data.
+  name: search
+- description: API endpoints related to organizations.
+  name: organizations
+- description: API endpoints for dealing with entity sets.
+  name: entitySets
+paths:
+  /datastore/edm/:
+    get:
+      operationId: getEntityDataModel
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EDM'
+          description: An Entity Data Model
+      summary: Gets the entity data model, including namespaces, schemas, entity types,
+        association types, and property types.
+      tags:
+      - edm
+    patch:
+      operationId: updateEntityDataModel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EDM'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the entity data model, including schemas, entity types, association
+        types, and property types.
+      tags:
+      - edm
+  /datastore/edm/diff/:
+    post:
+      operationId: getEntityDataModelDiff
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EDMdiff'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EDMdiff'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets the changes between the existing entity data model and the entity
+        data model passed in, including schemas, association types, entity types,
+        and property types.
+      tags:
+      - edm
+  /datastore/edm/entity/type/{entityTypeId}:
+    delete:
+      operationId: deleteEntityType
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      summary: Deletes the EntityType definition for the given EntityType UUID.
+      tags:
+      - edm
+    get:
+      operationId: getEntityType
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityType'
+          description: Success
+      summary: Gets the EntityType definition for the given EntityType UUID.
+      tags:
+      - edm
+    patch:
+      operationId: updateEntityTypeMetaData
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetadataUpdate'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the EntityType definition for the given EntityType UUID with
+        the given metadata.
+      tags:
+      - edm
+  /datastore/edm/ids/entity/type/{namespace}/{name}:
+    get:
+      operationId: getEntityTypeId
+      parameters:
+      - explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          example: openlattice
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          example: myentitytype
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: uuid
+                type: string
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets the EntityType UUID for the given EntityType FQN.
+      tags:
+      - edm
+  /datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId}:
+    delete:
+      operationId: removePrimaryKeyFromEntityType
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Removes a primary key with a given ID from an entity type with a given
+        ID.
+      tags:
+      - edm
+    put:
+      operationId: addPrimaryKeyToEntityType
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Adds a primary key with a given ID to an entity type with a given ID.
+      tags:
+      - edm
+  /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}:
+    delete:
+      operationId: removePropertyTypeFromEntityType
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the EntityType definition for the given EntityType UUID by
+        removing the given PropertyType UUID.
+      tags:
+      - edm
+    put:
+      operationId: addPropertyTypeToEntityType
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the EntityType definition for the given EntityType UUID by
+        adding the given PropertyType UUID.
+      tags:
+      - edm
+  /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}/force:
+    delete:
+      operationId: forceRemovePropertyTypeFromEntityType
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the EntityType definition for the given EntityType UUID by
+        removing the given PropertyType UUID, regardless of whether or not there is
+        data associated with the entity type.
+      tags:
+      - edm
+  /datastore/edm/entity/type/:
+    get:
+      operationId: getAllEntityTypes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EntityType'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets all EntityType definitions.
+      tags:
+      - edm
+    post:
+      operationId: createEntityType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityType'
+        required: true
+      responses:
+        "200":
+          description: Success
+      summary: Creates a new EntityType definition, if it doesn't exist.
+      tags:
+      - edm
+  /datastore/edm/association/type/:
+    get:
+      operationId: getAllAssociationEntityTypes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AssociationType'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets all association EntityType definitions.
+      tags:
+      - edm
+    post:
+      operationId: createAssociationType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/AssociationType'
+              type: array
+        required: true
+      responses:
+        "200":
+          description: Success
+      summary: Creates a new AssociationType definition, if it doesn't exist.
+      tags:
+      - edm
+  /datastore/edm/entity/type/{entityTypeId}/property/type:
+    get:
+      operationId: getAllEntityTypePropertyMetadata
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: '#/components/schemas/EntityTypePropertyMetadata'
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get all EntityType propertyType metadata
+      tags:
+      - edm
+    patch:
+      operationId: reorderPropertyTypesInEntityType
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeIds
+        required: true
+        schema:
+          items:
+            format: uuid
+            type: string
+          type: array
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the EntityType definition for the given EntityType UUID by
+        reordering its properties as specified by the provided list.
+      tags:
+      - edm
+  /datastore/edm/entity/type/{entityTypeId}/hierarchy:
+    patch:
+      operationId: getEntityTypeHierarchy
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the EntityType hierarchy for the given EntityType UUID.
+      tags:
+      - edm
+  /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}:
+    get:
+      operationId: getEntityTypePropertyMetadata
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityTypePropertyMetadata'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get EntityType propertyType metadata
+      tags:
+      - edm
+    post:
+      operationId: updateEntityTypePropertyMetadata
+      parameters:
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Update EntityType Property metadata
+      tags:
+      - edm
+  /datastore/edm/property/type/{propertyTypeId}:
+    delete:
+      operationId: deletePropertyType
+      parameters:
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes the PropertyType definition for the given PropertyType UUID.
+      tags:
+      - edm
+    get:
+      operationId: getPropertyType
+      parameters:
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyType'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets the PropertyType definition for the given PropertyType UUID.
+      tags:
+      - edm
+    patch:
+      operationId: updatePropertyTypeMetaData
+      parameters:
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetadataUpdate'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the PropertyType definition for the given PropertyType UUID
+        with the given metadata.
+      tags:
+      - edm
+  /datastore/edm/property/type/{propertyTypeId}/force:
+    delete:
+      operationId: forceDeletePropertyType
+      parameters:
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes the PropertyType definition for the given PropertyType UUID
+        regardless of whether or not there is data associated with it.
+      tags:
+      - edm
+  /datastore/edm/ids/property/type/{namespace}/{name}:
+    get:
+      operationId: getPropertyTypeId
+      parameters:
+      - explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: uuid
+                type: string
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets the PropertyType UUID for the given PropertyType FQN.
+      tags:
+      - edm
+  /datastore/edm/property/type/:
+    get:
+      operationId: getAllPropertyTypes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PropertyType'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets all PropertyType definitions.
+      tags:
+      - edm
+    post:
+      operationId: createPropertyType
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyType'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates a new PropertyType definition, if it doesn"t exist.
+      tags:
+      - edm
+  /datastore/edm/property/type/namespace/{namespace}:
+    get:
+      operationId: getAllPropertyTypesInNamespace
+      parameters:
+      - explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PropertyType'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets all PropertyType definitions under the given namespace.
+      tags:
+      - edm
+  /datastore/edm/association/type/{associationTypeId}:
+    delete:
+      operationId: deleteAssociationType
+      parameters:
+      - explode: false
+        in: path
+        name: associationTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      summary: Deletes the AssociationType definition for the given AssociationType
+        UUID.
+      tags:
+      - edm
+    get:
+      operationId: getAssociationType
+      parameters:
+      - explode: false
+        in: path
+        name: associationTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssociationType'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the AssociationType definition for the given AssociationType UUID.
+      tags:
+      - edm
+  /datastore/edm/association/type/{associationTypeId}/detailed:
+    get:
+      operationId: getAssociationTypeDetails
+      parameters:
+      - explode: false
+        in: path
+        name: associationTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssociationType'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get details about the AssociationType for the given AssociationType
+        UUID.
+      tags:
+      - edm
+  /datastore/edm/association/type/{associationTypeId}/available:
+    get:
+      operationId: getAllAvailableAssociationTypes
+      parameters:
+      - explode: false
+        in: path
+        name: associationTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AssociationType'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get all available associations for the given AssociationType UUID.
+      tags:
+      - edm
+  /datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId}:
+    delete:
+      operationId: removeDstEntityTypeFromAssociationType
+      parameters:
+      - explode: false
+        in: path
+        name: associationTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the AssociationType dst entity types for the given AssociationType
+        UUID by removing the given EntityType UUID.
+      tags:
+      - edm
+    put:
+      operationId: addDstEntityTypeToAssociationType
+      parameters:
+      - explode: false
+        in: path
+        name: associationTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Update the AssociationType dst entity types for the given AssociationType
+        UUID by adding the given EntityType UUID.
+      tags:
+      - edm
+  /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId}:
+    delete:
+      operationId: removeSrcEntityTypeFromAssociationType
+      parameters:
+      - explode: false
+        in: path
+        name: associationTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the AssociationType src entity types for the given AssociationType
+        UUID by removing the given EntityType UUID.
+      tags:
+      - edm
+    put:
+      operationId: addSrcEntityTypeToAssociationType
+      parameters:
+      - explode: false
+        in: path
+        name: associationTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entityTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Update the AssociationType src entity types for the given AssociationType
+        UUID by adding the given EntityType UUID.
+      tags:
+      - edm
+  /datastore/edm/summary:
+    get:
+      operationId: getAllPropertyUsageSummaries
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: '#/components/schemas/PropertyUsageSummary'
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get Property Usage Summary for all properties.
+      tags:
+      - edm
+  /datastore/edm/summary/{propertyTypeId}:
+    get:
+      operationId: getPropertyUsageSummary
+      parameters:
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PropertyUsageSummary'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get Property Usage Summary for property with given ID.
+      tags:
+      - edm
+  /datastore/edm/schema/{namespace}/{name}:
+    get:
+      operationId: getSchemaContents
+      parameters:
+      - explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: fileType
+        required: false
+        schema:
+          default: yaml
+          enum:
+          - csv
+          - json
+          - yaml
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Schema'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets the schema contents for a corresponding namespace and name.
+      tags:
+      - edm
+    patch:
+      operationId: updateSchema
+      parameters:
+      - explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdmRequest'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Edits the schema contents for a corresponding namespace and name.
+      tags:
+      - edm
+    put:
+      operationId: createEmptySchema
+      parameters:
+      - explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates an empty schema, if it doesn't exist. If schema exists then
+        no action is taken.
+      tags:
+      - edm
+  /datastore/edm/schema:
+    get:
+      operationId: getSchemas
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Schema'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets all schemas.
+      tags:
+      - edm
+    post:
+      operationId: createSchemaIfNotExists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Schema'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates an empty schema, if it doesn't exist. If schema exists then
+        no action is taken.
+      tags:
+      - edm
+  /datastore/edm/schema/{namespace}:
+    get:
+      operationId: getSchemasInNamespace
+      parameters:
+      - explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Schema'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets all schemas associated with a given namespace and accessible by
+        the caller.
+      tags:
+      - edm
+  /datastore/entity-sets:
+    get:
+      operationId: getAllEntitySets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EntitySet'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get all EntitySet definitions.
+      tags:
+      - entitySets
+      - edm
+    post:
+      operationId: createEntitySets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/EntitySet'
+              type: array
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates new EntitySet definitions if they don't exist.
+      tags:
+      - entitySets
+      - edm
+  /datastore/entity-sets/ids/:
+    post:
+      operationId: getEntitySetIds
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  format: uuid
+                  type: string
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get IDs for entity sets given their names.
+      tags:
+      - entitySets
+      - edm
+  /datastore/entity-sets/ids/{entitySetName}:
+    get:
+      operationId: getEntitySetId
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: uuid
+                type: string
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets the EntitySet UUID for the given EntitySet name.
+      tags:
+      - entitySets
+      - edm
+  /datastore/entity-sets/all/{entitySetId}:
+    delete:
+      operationId: deleteEntitySet
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes the EntitySet definition for the given EntitySet UUID.
+      tags:
+      - entitySets
+      - edm
+    get:
+      operationId: getEntitySet
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntitySet'
+          description: An Entity Set definition
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the EntitySet definition for the given EntitySet UUID.
+      tags:
+      - entitySets
+      - edm
+  /datastore/entity-sets/all/metadata:
+    post:
+      operationId: getPropertyMetadataForEntitySets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  additionalProperties:
+                    $ref: '#/components/schemas/EntitySetPropertyMetaData'
+                  type: object
+                type: object
+          description: EntitySetPropertyMetaData
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get property metadata for entity sets.
+      tags:
+      - entitySets
+      - edm
+  /datastore/entity-sets/all/{entitySetId}/metadata:
+    get:
+      operationId: getAllEntitySetPropertyMetadata
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: '#/components/schemas/EntitySetPropertyMetaData'
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get all entity set property metadata.
+      tags:
+      - entitySets
+      - edm
+  /datastore/entity-sets/all/{entitySetId}/properties:
+    get:
+      operationId: getPropertyTypesForEntitySet
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: '#/components/schemas/PropertyType'
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get all Property Types for entity set
+      tags:
+      - entitySets
+      - edm
+  /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/:
+    get:
+      operationId: getEntitySetPropertyMetadata
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntitySetPropertyMetaData'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get specified property type metadata for an entity set.
+      tags:
+      - entitySets
+      - edm
+    post:
+      operationId: updateEntitySetPropertyMetadata
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetadataUpdate'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the property type metadata for the given entity set.
+      tags:
+      - entitySets
+      - edm
+  /datastore/entity-sets/all/{entitySetId}/metadata/:
+    patch:
+      operationId: updateEntitySetMetaData
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetadataUpdate'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the EntitySet definition for the given EntitySet UUID with
+        the given metadata.
+      tags:
+      - entitySets
+      - edm
+  /datastore/entity-sets/linking/{linkingEntitySetId}:
+    delete:
+      operationId: removeEntitySetsFromLinkingEntitySet
+      parameters:
+      - explode: false
+        in: path
+        name: linkingEntitySetId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Removes/unlinks the linked entity sets from the linking entity set
+      tags:
+      - entitySets
+      - edm
+    post:
+      operationId: addEntitySetsToLinkingEntitySet
+      parameters:
+      - explode: false
+        in: path
+        name: linkingEntitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Adds the entity sets as linked entity sets to the linking entity set
+      tags:
+      - entitySets
+      - edm
+  /datastore/entity-sets/linking/:
+    delete:
+      operationId: removeEntitySetsFromLinkingEntitySets
+      parameters:
+      - explode: false
+        in: path
+        name: linkingEntitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties:
+                items:
+                  format: uuid
+                  type: string
+                type: array
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Removes/unlinks the linked entity sets from the linking entity set
+      tags:
+      - entitySets
+      - edm
+    put:
+      operationId: addEntitySetsToLinkingEntitySets
+      parameters:
+      - explode: false
+        in: path
+        name: linkingEntitySetId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties:
+                items:
+                  format: uuid
+                  type: string
+                type: array
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Adds the entity sets as linked entity sets to the linking entity sets
+      tags:
+      - entitySets
+      - edm
+  /datastore/organization-database/{organizationId}/external-database-table:
+    get:
+      operationId: getExternalDatabaseTables
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OrganizationExternalDatabaseTable'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets all OrganizationExternalDatabaseTable objects for an organization
+      tags:
+      - dataset
+  /datastore/organization-database/{organizationId}/external-database-table/external-database-column:
+    get:
+      operationId: getExternalDatabaseTablesWithColumns
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  items:
+                    $ref: '#/components/schemas/OrganizationExternalDatabaseColumn'
+                  type: array
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase
+        columns that are contained within each table.
+      tags:
+      - dataset
+  /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column:
+    get:
+      operationId: getExternalDatabaseTableWithColumns
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tableId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: '#/components/schemas/OrganizationExternalDatabaseTableColumnsPair'
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets an object containing an OrganizationExternalDatabaseTable object
+        and its OrganizationExternalDatabase columns for an organization
+      tags:
+      - dataset
+  /datastore/data:
+    post:
+      operationId: createEntityAndAssociationData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataGraph'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataGraphIds'
+          description: DataGraphIds
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates entities and assocations
+      tags:
+      - data
+  /datastore/data/association:
+    patch:
+      operationId: replaceAssociationData
+      parameters:
+      - explode: true
+        in: query
+        name: partial
+        required: true
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties:
+                additionalProperties:
+                  $ref: '#/components/schemas/DataEdge'
+                type: object
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Replaces Association Data
+      tags:
+      - data
+    post:
+      operationId: createAssociations
+      requestBody:
+        $ref: '#/components/requestBodies/inline_object'
+        content:
+          application/json:
+            schema:
+              description: Set of associations to create. Keys are association entity
+                set ids and values for each keys are the data to be created. AssociationEntityId's
+                are not generated based on the key.
+              properties:
+                additionalProperties:
+                  items:
+                    $ref: '#/components/schemas/DataEdge'
+                  type: array
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  items:
+                    format: uuid
+                    type: string
+                  type: array
+                type: object
+          description: Edges
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates a new set of associations.
+      tags:
+      - data
+    put:
+      operationId: createEdges
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: Set of associations to create. An association is the triple
+                of source, destination, and edge entitiy data keys.
+              items:
+                $ref: '#/components/schemas/DataEdgeKey'
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: An Entity Set definition
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates a new set of associations.
+      tags:
+      - data
+  /datastore/data/set/{entitySetId}:
+    delete:
+      operationId: deleteEntities
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: true
+        schema:
+          enum:
+          - Soft
+          - Hard
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes multiple entities from an entity set.
+      tags:
+      - data
+    get:
+      operationId: loadEntitySetData
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  type: object
+                type: array
+          description: An Entity Set definition
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets an iterable containing the entity data, using property type FQNs
+        as key
+      tags:
+      - data
+    patch:
+      operationId: replaceEntityProperties
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties:
+                additionalProperties:
+                  items:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  type: array
+                type: object
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Replaces Entity Properties
+      tags:
+      - data
+    post:
+      operationId: loadSelectedEntitySetData
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/EntitySetSelection'
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  type: object
+                type: array
+          description: A list of entity keys that were generated
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets a list of entities by UUIDs
+      tags:
+      - data
+    put:
+      operationId: updateEntitiesInEntitySet
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: true
+        schema:
+          enum:
+          - Merge
+          - Replace
+          - PartialReplace
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties:
+                additionalProperties:
+                  items:
+                    type: string
+                  type: array
+                type: object
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Perform one of the following bulk update operations on entities (type
+        = Merge) adds new properties without affecting existing data, (type = PartialReplace)
+        replaces all values for supplied property types, but does not not affect other
+        property types for an entity, (type = Replace) replaces all entity data with
+        the supplied properties.
+      tags:
+      - data
+  /datastore/data/set/{entitySetId}/neighbors:
+    post:
+      operationId: deleteEntitiesAndNeighbors
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: true
+        schema:
+          enum:
+          - Soft
+          - Hard
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/EntityNeighborsFilter'
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: A long
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes the entities matching the given entity ids and all of its neighbor
+        entities provided in the filter.
+      tags:
+      - data
+  /datastore/data/set/:
+    post:
+      operationId: createEntities
+      parameters:
+      - explode: true
+        in: query
+        name: setId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                additionalProperties:
+                  items:
+                    type: string
+                  type: array
+                type: object
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  format: uuid
+                  type: string
+                type: array
+          description: Edges
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates a new set of entities.
+      tags:
+      - data
+  /datastore/data/set/{entitySetId}/all:
+    delete:
+      operationId: deleteAllEntitiesFromEntitySet
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: true
+        schema:
+          enum:
+          - Soft
+          - Hard
+          type: string
+        style: form
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Clears the Entity matching the given Entity id and all of its neighbor
+        Entities
+      tags:
+      - data
+  /datastore/data/{entitySetId}/count:
+    get:
+      operationId: getEntitySetSize
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: The number of entities in an entity set.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets the number of entities in an entity set.
+      tags:
+      - data
+  /datastore/data/set/{linkedEntitySetId}/detailed:
+    post:
+      operationId: loadLinkedEntitySetBreakdown
+      parameters:
+      - explode: false
+        in: path
+        name: linkedEntitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/EntitySetSelection'
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  additionalProperties:
+                    additionalProperties:
+                      additionalProperties:
+                        items:
+                          type: string
+                        type: array
+                      type: object
+                    type: object
+                  type: object
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Loads a linked entity set breakdown with the selected linked entities
+        and properties.
+      tags:
+      - data
+  /datastore/data/{entitySetId}/{entityKeyId}:
+    delete:
+      operationId: deleteEntity
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entityKeyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: true
+        schema:
+          enum:
+          - Soft
+          - Hard
+          type: string
+        style: form
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes a single entity from an entity set.
+      tags:
+      - data
+    get:
+      operationId: getEntity
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entityKeyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  items:
+                    type: string
+                  type: array
+                type: object
+          description: An entity details object, with property type FQNs as keys.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Loads a single entity by its entityKeyId and entitySetId
+      tags:
+      - data
+  /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId}:
+    get:
+      operationId: getEntityPropertyValues
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entityKeyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: propertyTypeId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: A set of values
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Loads property  values for a single entity by its entityKeyId, entitySetId
+        and propertyTypeId
+      tags:
+      - data
+  /datastore/data/{entitySetId}/{entityKeyId}/properties:
+    delete:
+      operationId: deleteEntityProperties
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entityKeyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: true
+        schema:
+          enum:
+          - Soft
+          - Hard
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                format: uuid
+                type: string
+              type: array
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes properties from an entity.
+      tags:
+      - data
+  /datastore/integration:
+    post:
+      operationId: integrateEntityAndAssociationData
+      parameters:
+      - explode: true
+        in: query
+        name: detailedResults
+        required: true
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkDataCreation'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationResults'
+          description: A data search result object, containing the total number of
+            hits for the given query, and the hits themselves
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Integrate entity and association data
+      tags:
+      - data-integrations
+  /datastore/integration/entityKeyIds:
+    post:
+      operationId: getEntityKeyIds
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/EntityKey'
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  format: uuid
+                  type: string
+                type: array
+          description: A data search result object, containing the total number of
+            hits for the given query, and the hits themselves
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get entity key IDs
+      tags:
+      - data-integrations
+  /datastore/search/advanced/{entitySetId}:
+    post:
+      operationId: executeAdvancedEntitySetDataQuery
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdvancedSearch'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSearchResult'
+          description: A data search result object, containing the total number of
+            hits for the given query, and the hits themselves
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Executes a search over the data of a given entity set to find rows
+        that match the search term
+      tags:
+      - search
+  /datastore/search/{entitySetId}/{entityKeyId}:
+    get:
+      operationId: executeEntityNeighborSearch
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entityKeyId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/NeighborEntityDetails'
+                type: array
+          description: A list of objects containing information about the neighbor
+            and association.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Executes a search for all neighbors of an entity that are connected
+        by an association
+      tags:
+      - search
+  /datastore/search/{entitySetId}/neighbors:
+    post:
+      operationId: executeEntityNeighborSearchBulk
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: entityKeyIds
+              items:
+                format: uuid
+                type: string
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  items:
+                    $ref: '#/components/schemas/NeighborEntityDetails'
+                  type: array
+                type: object
+          description: A list of objects containing information about the neighbor
+            and association.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Executes a search for all neighbors of multiple entities of the same
+        entity set that are connected by an association
+      tags:
+      - search
+  /datastore/search/{entitySetId}/neighbors/advanced:
+    post:
+      operationId: executeFilteredEntityNeighborSearch
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NeighborSearchFilter'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  items:
+                    $ref: '#/components/schemas/NeighborEntityDetails'
+                  type: array
+                type: object
+          description: A list of objects containing information about the neighbor
+            and association.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Executes a search for all neighbors of multiple entities of the same
+        entity set that are connected by an association
+      tags:
+      - search
+  /datastore/search/{entitySetId}/neighbors/advanced/ids:
+    post:
+      operationId: executeFilteredEntityNeighborIdSearch
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NeighborSearchFilter'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  additionalProperties:
+                    additionalProperties:
+                      items:
+                        $ref: '#/components/schemas/NeighborEntityIds'
+                      type: array
+                    type: object
+                  type: object
+                type: object
+          description: A list of objects containing information about the neighbor
+            and association.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Executes a search for all neighbors of multiple entities of the same
+        entity set that are connected by an association and returns a simple version
+        of the neighborDetails
+      tags:
+      - search
+  /datastore/search:
+    patch:
+      operationId: searchEntitySetData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchConstraints'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSearchResult'
+          description: A  data search result object, containing the total number of
+            hits for the given query, and the hits themselves.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Executes a search over the data of a given entity set to find rows
+        that match the search term
+      tags:
+      - search
+    post:
+      operationId: executeEntitySetKeywordQuery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Search'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  additionalProperties:
+                    additionalProperties:
+                      items:
+                        $ref: '#/components/schemas/NeighborEntityIds'
+                      type: array
+                    type: object
+                  type: object
+                type: object
+          description: A list of objects containing information about the neighbor
+            and association.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: The query, entityType, and propertyTypes params are all optional, but
+        at least one must be specified otherwise an error will be thrown. All specified
+        params are required to be present in each entity set returned. If entityType
+        and propertyTypes are both specified, the propertyTypes param will be ignored.
+      tags:
+      - search
+  /datastore/search/popular:
+    get:
+      operationId: getPopularEntitySet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EntitySet'
+                type: array
+          description: A  data search result object, containing the total number of
+            hits for the given query, and the hits themselves.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the most popular entity sets.
+      tags:
+      - search
+  /datastore/search/entity-sets/{start}/{numResults}:
+    get:
+      operationId: getEntitySets
+      parameters:
+      - description: The first result number to return
+        explode: false
+        in: path
+        name: start
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - description: The total number of results to return
+        explode: false
+        in: path
+        name: numResults
+        required: true
+        schema:
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SearchResult'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Executes a search over all existing entity sets to populate the home
+        page. The path parameters instruct which page to return and how large the
+        page should be.
+      tags:
+      - search
+  /datastore/search/{entitySetId}:
+    post:
+      operationId: executeEntitySetDataQuery
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchTerm'
+        description: A JSON object that contains three parameters, "start", which
+          specifies the hit number to start returning results on for paging, "maxHits",
+          which specifies the maximum number of hits to return, and "searchTerm",
+          which is the search term results will match on.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSearchResult'
+          description: A  data search result object, containing the total number of
+            hits for the given query, and the hits themselves.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Executes a search over the data of a given entity set to find rows
+        that match the search term
+      tags:
+      - search
+  /datastore/principals/users/search/email/"{emailAddress}":
+    get:
+      operationId: searchAllUsersByEmail
+      parameters:
+      - explode: false
+        in: path
+        name: emailAddress
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: '#/components/schemas/Auth0userBasic'
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the user id for the given email address.
+      tags:
+      - principal
+  /datastore/principals/users/{userId}:
+    get:
+      operationId: getUser
+      parameters:
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Auth0userBasic'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the user for the given id.
+      tags:
+      - principal
+  /datastore/principals/db:
+    get:
+      operationId: getMaterializedViewAccount
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaterializedViewAccount'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the db access credentials.
+      tags:
+      - principal
+  /datastore/principals/users/:
+    get:
+      operationId: getAllUsers
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: '#/components/schemas/Auth0userBasic'
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get all users.
+      tags:
+      - principal
+  /datastore/principals/roles/current/:
+    get:
+      operationId: getCurrentRoles
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SecurablePrincipal'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get current roles.
+      tags:
+      - principal
+  /datastore/permissions:
+    patch:
+      operationId: updateAcl
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AclData'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates the ACL for a particular ACL Key, only if the user is the owner
+        of the ACL Key.
+      tags:
+      - permissions
+    post:
+      operationId: getAcl
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Acl'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the ACL for the given ACL Key, only if the user is the owner of
+        the ACL Key.
+      tags:
+      - permissions
+  /datastore/authorizations:
+    get:
+      operationId: getAccessibleObjects
+      parameters:
+      - explode: true
+        in: query
+        name: objectType
+        required: false
+        schema:
+          enum:
+          - EntityType
+          - EntitySet
+          - PropertyTypeInEntitySet
+          - Datasource
+          - ComplexType
+          - LinkingEntityType
+          - AssociationType
+          - Organization
+          - App
+          - AppType
+          - Principal
+          - Role
+          - UnknownEdmTemplate
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: permission
+        required: false
+        schema:
+          enum:
+          - DISCOVER
+          - MATERIALIZE
+          - LINK
+          - READ
+          - WRITE
+          - OWNER
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: pagingToken
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorizedObjectsSearchResult'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Returns paged results for all authorized objects of specified objectType,
+        that the current user has specified permission for.
+      tags:
+      - authorizations
+    post:
+      operationId: checkAuthorizations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessCheck'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Authorization'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Check authorizations
+      tags:
+      - authorizations
+  /datastore/organizations:
+    get:
+      operationId: getOrganizations
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Organization'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get all organizations
+      tags:
+      - organizations
+    post:
+      operationId: createOrganizationIfNotExists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Organization'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: uuid
+                type: string
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates an organization if it doesn't exist.
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}:
+    delete:
+      operationId: destroyOrganization
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Remove an organization from the organizationId
+      tags:
+      - organizations
+    get:
+      operationId: getOrganization
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get an organization from the organizationId
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/integration:
+    get:
+      operationId: getOrganizationIntegrationAccount
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the integrations account for an organization from the organizationId
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/entity-sets:
+    get:
+      operationId: getOrganizationEntitySets
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  items:
+                    enum:
+                    - INTERNAL
+                    - EXTERNAL
+                    - MATERIALIZED
+                    type: string
+                  type: array
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the entity sets for an organization for a certain filter
+      tags:
+      - organizations
+    post:
+      operationId: getFlaggedOrganizationEntitySets
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties:
+                items:
+                  enum:
+                  - INTERNAL
+                  - EXTERNAL
+                  - MATERIALIZED
+                  type: string
+                type: array
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  additionalProperties:
+                    items:
+                      enum:
+                      - INTERNAL
+                      - EXTERNAL
+                      - MATERIALIZED
+                      type: string
+                    type: array
+                  type: object
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get the entity sets for an organization for a certain flag
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/entity-sets/assemble:
+    post:
+      operationId: assembleEntitySets
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties:
+                type: integer
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  items:
+                    enum:
+                    - INTERNAL
+                    - EXTERNAL
+                    - MATERIALIZED
+                    type: string
+                  type: array
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Materializes entity sets into the organization database.
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/{entitySetId}/refresh:
+    post:
+      operationId: refreshDataChanges
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Refreshes the requested materialized entity set with data changes in
+        the organization.
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/{entitySetId}/synchronize:
+    post:
+      operationId: synchronizeEdmChanges
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Synchronizes EDM changes to the requested materialized entity set in
+        the organization.
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/title:
+    put:
+      operationId: updateTitle
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Update the organization title
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/description:
+    put:
+      operationId: updateDescription
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Update the organization description
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/email-domains:
+    delete:
+      operationId: removeAutoApprovedEmailDomains
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Remove auto-approved email domains
+      tags:
+      - organizations
+    get:
+      operationId: getAutoApprovedEmailDomains
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get auto-approved email domains
+      tags:
+      - organizations
+    put:
+      operationId: setAutoApprovedEmailDomain
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Set auto-approved email domains
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/principals/members:
+    get:
+      operationId: getMembers
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OrganizationMember'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get members of a certain organization
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/principals/members/{userId}:
+    delete:
+      operationId: removeMember
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Remove member from an organization
+      tags:
+      - organizations
+    put:
+      operationId: addMember
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Add member to an organization
+      tags:
+      - organizations
+  /datastore/organizations/roles:
+    post:
+      operationId: createRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Role'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: uuid
+                type: string
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates role
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/principals/roles:
+    get:
+      operationId: getRoles
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Role'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get roles for an organization
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/principals/roles/{roleId}:
+    delete:
+      operationId: deleteRole
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Remove role for an organization
+      tags:
+      - organizations
+    get:
+      operationId: getRole
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get role for an organization from a roleId
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/principals/roles/{roleId}/title:
+    put:
+      operationId: updateRoleTitle
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Update role title for an organization from a roleId
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/principals/roles/{roleId}/description:
+    post:
+      operationId: updateRoleDescription
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Update role description for an organization from a roleId
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/:
+    get:
+      operationId: getAllUsersOfRole
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Auth0userBasic'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get members of a role for an organization from a roleId
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId}:
+    delete:
+      operationId: removeRoleFromUser
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Remove a role from a user
+      tags:
+      - organizations
+    put:
+      operationId: addRoleToUser
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Add a role to a user
+      tags:
+      - organizations
+  /linker/linkingfeedback:
+    delete:
+      operationId: deleteLinkingFeedback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityKeyPair'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes linking feedback
+      tags:
+      - linking
+    put:
+      operationId: addLinkingFeedback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkingFeedback'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Submits feedbacks for a given linking entity set and linking id in
+        a batch format.
+      tags:
+      - linking
+  /linker/linkingfeedback/entity:
+    post:
+      operationId: getLinkingFeedbacksOnEntity
+      parameters:
+      - explode: true
+        in: query
+        name: feedbackType
+        required: true
+        schema:
+          enum:
+          - Positive
+          - Negative
+          - All
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityDataKey'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EntityLinkingFeedback'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Returns positive/negative/all linking feedbacks on the given entity.
+      tags:
+      - linking
+  /linker/linkingfeedback/features:
+    post:
+      operationId: getLinkingFeedbackWithFeatures
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityKeyPair'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityLinkingFeatures'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Returns the feedback on the given entity pair along with their features
+      tags:
+      - linking
+  /linker/linkingfeedback/all:
+    get:
+      operationId: getAllLinkingFeedback
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EntityLinkingFeedback'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Returns all feedback submitted
+      tags:
+      - linking
+  /linker/linkingfeedback/features/all:
+    get:
+      operationId: getAllLinkingFeedbackWithFeatures
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EntityLinkingFeatures'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http-auth: []
+      summary: Returns all feedback submitted walong with the features of pairwise
+        entities
+      tags:
+      - linking
+  /indexer/index/reindex:
+    delete:
+      operationId: clearIndexingQueue
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: integer
+          description: The number of items in the queue before being cleared.
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Clears all the data currently being indexed in the queue.
+      tags:
+      - admin
+    get:
+      operationId: getIndexingState
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexingState'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Retrieve the current state of reindexing jobs
+      tags:
+      - admin
+    post:
+      operationId: reindex
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties:
+                items:
+                  format: uuid
+                  type: string
+                type: array
+              type: object
+        description: A map of entity set ids to entity key ids that determines what
+          will be reindexed. If no entity key ids are provided then all entities in
+          an entity set are reindexed. If no entity set ids are provided then all
+          entity sets are scheduled for reindexing.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexingState'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Merge job descriptions for performing a partial or full reindex of
+        provided entity sets.
+      tags:
+      - admin
+    put:
+      operationId: updateReindex
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties:
+                items:
+                  format: uuid
+                  type: string
+                type: array
+              type: object
+        description: A map of entity set ids to entity key ids that determines what
+          will be reindexed. If no entity key ids are provided then all entities in
+          an entity set are reindexed. If no entity set ids are provided then all
+          entity sets are scheduled for reindexing.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IndexingState'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Replaces job descriptions for performing a partial or full reindex
+        of provided entity sets.
+      tags:
+      - admin
+components:
+  requestBodies:
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+      required: true
+  schemas:
+    FullQualifiedName:
+      example:
+        name: name
+        namespace: namespace
+      properties:
+        name:
+          type: string
+        namespace:
+          type: string
+      type: object
+    PropertyType:
+      example:
+        pii: true
+        indexType: BTREE
+        datatype: Binary
+        analyzer: NONE
+        schemas:
+        - name: name
+          namespace: namespace
+        - name: name
+          namespace: namespace
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        type:
+          name: name
+          namespace: namespace
+        multiValued: true
+        enumValues:
+        - enumValues
+        - enumValues
+      properties:
+        title:
+          type: string
+        id:
+          format: uuid
+          type: string
+        type:
+          $ref: '#/components/schemas/FullQualifiedName'
+        description:
+          type: string
+        schemas:
+          items:
+            $ref: '#/components/schemas/FullQualifiedName'
+          type: array
+        datatype:
+          enum:
+          - Binary
+          - Boolean
+          - Byte
+          - SByte
+          - Date
+          - DateTimeOffset
+          - TimeOfDay
+          - Duration
+          - Decimal
+          - Single
+          - Double
+          - Guid
+          - Int16
+          - Int32
+          - Int64
+          - String
+          - Stream
+          - Geography
+          - GeographyPoint
+          - GeographyLineString
+          - GeographyPolygon
+          - GeographyMultiPoint
+          - GeographyMultiLineString
+          - GeographyMultiPolygon
+          - GeographyCollection
+          - Geometry
+          - GeometryPoint
+          - GeometryLineString
+          - GeometryPolygon
+          - GeometryMultiPoint
+          - GeometryMultiLineString
+          - GeometryMultiPolygon
+          - GeometryCollection
+          type: string
+        pii:
+          type: boolean
+        multiValued:
+          type: boolean
+        analyzer:
+          enum:
+          - NONE
+          - METAPHONE
+          - STANDARD
+          - NOT_ANALYZED
+          type: string
+        enumValues:
+          items:
+            type: string
+          type: array
+        indexType:
+          enum:
+          - BTREE
+          - HASH
+          - GIN
+          - NONE
+          type: string
+      type: object
+    EntityType:
+      example:
+        id: ec6865e6-e60e-424b-a071-6a9c1603d735
+        type:
+          namespace: lattice
+          name: myentity
+        schemas:
+          namespace: lattice
+          name: myschema
+        key:
+        - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+        - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+        properties:
+        - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+        - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+        - fae6af98-2675-45bd-9a5b-1619a87235a8
+        category: EntityType
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        id:
+          type: string
+        type:
+          $ref: '#/components/schemas/FullQualifiedName'
+        schemas:
+          items:
+            $ref: '#/components/schemas/FullQualifiedName'
+          type: array
+        key:
+          items:
+            type: string
+          type: array
+        properties:
+          items:
+            type: string
+          type: array
+        propertyTags:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+        basetype:
+          type: string
+        category:
+          enum:
+          - AssociationType
+          - EntityType
+          type: string
+      title: An entity type
+      type: object
+    EntityTypePropertyMetadata:
+      example:
+        description: description
+        title: title
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+      title: An entity type property metadata
+      type: object
+    AssociationType:
+      example:
+        entityType:
+          id: ec6865e6-e60e-424b-a071-6a9c1603d735
+          type:
+            namespace: lattice
+            name: myentity
+          schemas:
+            namespace: lattice
+            name: myschema
+          key:
+          - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+          - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+          properties:
+          - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+          - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+          - fae6af98-2675-45bd-9a5b-1619a87235a8
+        src:
+        - ec6865e6-e60e-424b-a071-6a9c1603d735
+        dst:
+        - 4b08e1f9-4a00-4169-92ea-10e377070220
+        description: AssociationType Description
+        bidirectional: true
+        category: AssociationType
+      properties:
+        entityType:
+          $ref: '#/components/schemas/EntityType'
+        src:
+          items:
+            type: string
+          type: array
+        dst:
+          items:
+            type: string
+          type: array
+        bidirectional:
+          type: boolean
+      type: object
+    Schema:
+      example:
+        propertyTypes:
+        - pii: true
+          indexType: BTREE
+          datatype: Binary
+          analyzer: NONE
+          schemas:
+          - name: name
+            namespace: namespace
+          - name: name
+            namespace: namespace
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+          type:
+            name: name
+            namespace: namespace
+          multiValued: true
+          enumValues:
+          - enumValues
+          - enumValues
+        - pii: true
+          indexType: BTREE
+          datatype: Binary
+          analyzer: NONE
+          schemas:
+          - name: name
+            namespace: namespace
+          - name: name
+            namespace: namespace
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+          type:
+            name: name
+            namespace: namespace
+          multiValued: true
+          enumValues:
+          - enumValues
+          - enumValues
+        fqn:
+          name: name
+          namespace: namespace
+        entityTypes:
+        - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+          type:
+            namespace: lattice
+            name: myentity
+          schemas:
+            namespace: lattice
+            name: myschema
+          key:
+          - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+          - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+          properties:
+          - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+          - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+          - fae6af98-2675-45bd-9a5b-1619a87235a8
+          category: EntityType
+        - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+          type:
+            namespace: lattice
+            name: myentity
+          schemas:
+            namespace: lattice
+            name: myschema
+          key:
+          - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+          - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+          properties:
+          - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+          - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+          - fae6af98-2675-45bd-9a5b-1619a87235a8
+          category: EntityType
+      properties:
+        entityTypes:
+          items:
+            $ref: '#/components/schemas/EntityType'
+          type: array
+        propertyTypes:
+          items:
+            $ref: '#/components/schemas/PropertyType'
+          type: array
+        fqn:
+          $ref: '#/components/schemas/FullQualifiedName'
+      type: object
+    EDM:
+      example:
+        propertyTypes:
+        - pii: true
+          indexType: BTREE
+          datatype: Binary
+          analyzer: NONE
+          schemas:
+          - name: name
+            namespace: namespace
+          - name: name
+            namespace: namespace
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+          type:
+            name: name
+            namespace: namespace
+          multiValued: true
+          enumValues:
+          - enumValues
+          - enumValues
+        - pii: true
+          indexType: BTREE
+          datatype: Binary
+          analyzer: NONE
+          schemas:
+          - name: name
+            namespace: namespace
+          - name: name
+            namespace: namespace
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+          type:
+            name: name
+            namespace: namespace
+          multiValued: true
+          enumValues:
+          - enumValues
+          - enumValues
+        associationTypes:
+        - entityType:
+            id: ec6865e6-e60e-424b-a071-6a9c1603d735
+            type:
+              namespace: lattice
+              name: myentity
+            schemas:
+              namespace: lattice
+              name: myschema
+            key:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            properties:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            - fae6af98-2675-45bd-9a5b-1619a87235a8
+          src:
+          - ec6865e6-e60e-424b-a071-6a9c1603d735
+          dst:
+          - 4b08e1f9-4a00-4169-92ea-10e377070220
+          description: AssociationType Description
+          bidirectional: true
+          category: AssociationType
+        - entityType:
+            id: ec6865e6-e60e-424b-a071-6a9c1603d735
+            type:
+              namespace: lattice
+              name: myentity
+            schemas:
+              namespace: lattice
+              name: myschema
+            key:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            properties:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            - fae6af98-2675-45bd-9a5b-1619a87235a8
+          src:
+          - ec6865e6-e60e-424b-a071-6a9c1603d735
+          dst:
+          - 4b08e1f9-4a00-4169-92ea-10e377070220
+          description: AssociationType Description
+          bidirectional: true
+          category: AssociationType
+        schemas:
+        - propertyTypes:
+          - pii: true
+            indexType: BTREE
+            datatype: Binary
+            analyzer: NONE
+            schemas:
+            - name: name
+              namespace: namespace
+            - name: name
+              namespace: namespace
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            title: title
+            type:
+              name: name
+              namespace: namespace
+            multiValued: true
+            enumValues:
+            - enumValues
+            - enumValues
+          - pii: true
+            indexType: BTREE
+            datatype: Binary
+            analyzer: NONE
+            schemas:
+            - name: name
+              namespace: namespace
+            - name: name
+              namespace: namespace
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            title: title
+            type:
+              name: name
+              namespace: namespace
+            multiValued: true
+            enumValues:
+            - enumValues
+            - enumValues
+          fqn:
+            name: name
+            namespace: namespace
+          entityTypes:
+          - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+            type:
+              namespace: lattice
+              name: myentity
+            schemas:
+              namespace: lattice
+              name: myschema
+            key:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            properties:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            - fae6af98-2675-45bd-9a5b-1619a87235a8
+            category: EntityType
+          - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+            type:
+              namespace: lattice
+              name: myentity
+            schemas:
+              namespace: lattice
+              name: myschema
+            key:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            properties:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            - fae6af98-2675-45bd-9a5b-1619a87235a8
+            category: EntityType
+        - propertyTypes:
+          - pii: true
+            indexType: BTREE
+            datatype: Binary
+            analyzer: NONE
+            schemas:
+            - name: name
+              namespace: namespace
+            - name: name
+              namespace: namespace
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            title: title
+            type:
+              name: name
+              namespace: namespace
+            multiValued: true
+            enumValues:
+            - enumValues
+            - enumValues
+          - pii: true
+            indexType: BTREE
+            datatype: Binary
+            analyzer: NONE
+            schemas:
+            - name: name
+              namespace: namespace
+            - name: name
+              namespace: namespace
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            title: title
+            type:
+              name: name
+              namespace: namespace
+            multiValued: true
+            enumValues:
+            - enumValues
+            - enumValues
+          fqn:
+            name: name
+            namespace: namespace
+          entityTypes:
+          - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+            type:
+              namespace: lattice
+              name: myentity
+            schemas:
+              namespace: lattice
+              name: myschema
+            key:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            properties:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            - fae6af98-2675-45bd-9a5b-1619a87235a8
+            category: EntityType
+          - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+            type:
+              namespace: lattice
+              name: myentity
+            schemas:
+              namespace: lattice
+              name: myschema
+            key:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            properties:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            - fae6af98-2675-45bd-9a5b-1619a87235a8
+            category: EntityType
+        entityTypes:
+        - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+          type:
+            namespace: lattice
+            name: myentity
+          schemas:
+            namespace: lattice
+            name: myschema
+          key:
+          - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+          - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+          properties:
+          - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+          - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+          - fae6af98-2675-45bd-9a5b-1619a87235a8
+          category: EntityType
+        - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+          type:
+            namespace: lattice
+            name: myentity
+          schemas:
+            namespace: lattice
+            name: myschema
+          key:
+          - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+          - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+          properties:
+          - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+          - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+          - fae6af98-2675-45bd-9a5b-1619a87235a8
+          category: EntityType
+        namespaces:
+        - namespaces
+        - namespaces
+      properties:
+        namespaces:
+          items:
+            type: string
+          type: array
+        schemas:
+          items:
+            $ref: '#/components/schemas/Schema'
+          type: array
+        propertyTypes:
+          items:
+            $ref: '#/components/schemas/PropertyType'
+          type: array
+        entityTypes:
+          items:
+            $ref: '#/components/schemas/EntityType'
+          type: array
+        associationTypes:
+          items:
+            $ref: '#/components/schemas/AssociationType'
+          type: array
+      type: object
+    EDMdiff:
+      example:
+        conflicts:
+          propertyTypes:
+          - pii: true
+            indexType: BTREE
+            datatype: Binary
+            analyzer: NONE
+            schemas:
+            - name: name
+              namespace: namespace
+            - name: name
+              namespace: namespace
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            title: title
+            type:
+              name: name
+              namespace: namespace
+            multiValued: true
+            enumValues:
+            - enumValues
+            - enumValues
+          - pii: true
+            indexType: BTREE
+            datatype: Binary
+            analyzer: NONE
+            schemas:
+            - name: name
+              namespace: namespace
+            - name: name
+              namespace: namespace
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            title: title
+            type:
+              name: name
+              namespace: namespace
+            multiValued: true
+            enumValues:
+            - enumValues
+            - enumValues
+          associationTypes:
+          - entityType:
+              id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+            src:
+            - ec6865e6-e60e-424b-a071-6a9c1603d735
+            dst:
+            - 4b08e1f9-4a00-4169-92ea-10e377070220
+            description: AssociationType Description
+            bidirectional: true
+            category: AssociationType
+          - entityType:
+              id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+            src:
+            - ec6865e6-e60e-424b-a071-6a9c1603d735
+            dst:
+            - 4b08e1f9-4a00-4169-92ea-10e377070220
+            description: AssociationType Description
+            bidirectional: true
+            category: AssociationType
+          schemas:
+          - propertyTypes:
+            - pii: true
+              indexType: BTREE
+              datatype: Binary
+              analyzer: NONE
+              schemas:
+              - name: name
+                namespace: namespace
+              - name: name
+                namespace: namespace
+              description: description
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              title: title
+              type:
+                name: name
+                namespace: namespace
+              multiValued: true
+              enumValues:
+              - enumValues
+              - enumValues
+            - pii: true
+              indexType: BTREE
+              datatype: Binary
+              analyzer: NONE
+              schemas:
+              - name: name
+                namespace: namespace
+              - name: name
+                namespace: namespace
+              description: description
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              title: title
+              type:
+                name: name
+                namespace: namespace
+              multiValued: true
+              enumValues:
+              - enumValues
+              - enumValues
+            fqn:
+              name: name
+              namespace: namespace
+            entityTypes:
+            - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+              category: EntityType
+            - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+              category: EntityType
+          - propertyTypes:
+            - pii: true
+              indexType: BTREE
+              datatype: Binary
+              analyzer: NONE
+              schemas:
+              - name: name
+                namespace: namespace
+              - name: name
+                namespace: namespace
+              description: description
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              title: title
+              type:
+                name: name
+                namespace: namespace
+              multiValued: true
+              enumValues:
+              - enumValues
+              - enumValues
+            - pii: true
+              indexType: BTREE
+              datatype: Binary
+              analyzer: NONE
+              schemas:
+              - name: name
+                namespace: namespace
+              - name: name
+                namespace: namespace
+              description: description
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              title: title
+              type:
+                name: name
+                namespace: namespace
+              multiValued: true
+              enumValues:
+              - enumValues
+              - enumValues
+            fqn:
+              name: name
+              namespace: namespace
+            entityTypes:
+            - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+              category: EntityType
+            - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+              category: EntityType
+          entityTypes:
+          - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+            type:
+              namespace: lattice
+              name: myentity
+            schemas:
+              namespace: lattice
+              name: myschema
+            key:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            properties:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            - fae6af98-2675-45bd-9a5b-1619a87235a8
+            category: EntityType
+          - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+            type:
+              namespace: lattice
+              name: myentity
+            schemas:
+              namespace: lattice
+              name: myschema
+            key:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            properties:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            - fae6af98-2675-45bd-9a5b-1619a87235a8
+            category: EntityType
+          namespaces:
+          - namespaces
+          - namespaces
+        diff:
+          propertyTypes:
+          - pii: true
+            indexType: BTREE
+            datatype: Binary
+            analyzer: NONE
+            schemas:
+            - name: name
+              namespace: namespace
+            - name: name
+              namespace: namespace
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            title: title
+            type:
+              name: name
+              namespace: namespace
+            multiValued: true
+            enumValues:
+            - enumValues
+            - enumValues
+          - pii: true
+            indexType: BTREE
+            datatype: Binary
+            analyzer: NONE
+            schemas:
+            - name: name
+              namespace: namespace
+            - name: name
+              namespace: namespace
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            title: title
+            type:
+              name: name
+              namespace: namespace
+            multiValued: true
+            enumValues:
+            - enumValues
+            - enumValues
+          associationTypes:
+          - entityType:
+              id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+            src:
+            - ec6865e6-e60e-424b-a071-6a9c1603d735
+            dst:
+            - 4b08e1f9-4a00-4169-92ea-10e377070220
+            description: AssociationType Description
+            bidirectional: true
+            category: AssociationType
+          - entityType:
+              id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+            src:
+            - ec6865e6-e60e-424b-a071-6a9c1603d735
+            dst:
+            - 4b08e1f9-4a00-4169-92ea-10e377070220
+            description: AssociationType Description
+            bidirectional: true
+            category: AssociationType
+          schemas:
+          - propertyTypes:
+            - pii: true
+              indexType: BTREE
+              datatype: Binary
+              analyzer: NONE
+              schemas:
+              - name: name
+                namespace: namespace
+              - name: name
+                namespace: namespace
+              description: description
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              title: title
+              type:
+                name: name
+                namespace: namespace
+              multiValued: true
+              enumValues:
+              - enumValues
+              - enumValues
+            - pii: true
+              indexType: BTREE
+              datatype: Binary
+              analyzer: NONE
+              schemas:
+              - name: name
+                namespace: namespace
+              - name: name
+                namespace: namespace
+              description: description
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              title: title
+              type:
+                name: name
+                namespace: namespace
+              multiValued: true
+              enumValues:
+              - enumValues
+              - enumValues
+            fqn:
+              name: name
+              namespace: namespace
+            entityTypes:
+            - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+              category: EntityType
+            - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+              category: EntityType
+          - propertyTypes:
+            - pii: true
+              indexType: BTREE
+              datatype: Binary
+              analyzer: NONE
+              schemas:
+              - name: name
+                namespace: namespace
+              - name: name
+                namespace: namespace
+              description: description
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              title: title
+              type:
+                name: name
+                namespace: namespace
+              multiValued: true
+              enumValues:
+              - enumValues
+              - enumValues
+            - pii: true
+              indexType: BTREE
+              datatype: Binary
+              analyzer: NONE
+              schemas:
+              - name: name
+                namespace: namespace
+              - name: name
+                namespace: namespace
+              description: description
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              title: title
+              type:
+                name: name
+                namespace: namespace
+              multiValued: true
+              enumValues:
+              - enumValues
+              - enumValues
+            fqn:
+              name: name
+              namespace: namespace
+            entityTypes:
+            - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+              category: EntityType
+            - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+              type:
+                namespace: lattice
+                name: myentity
+              schemas:
+                namespace: lattice
+                name: myschema
+              key:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              properties:
+              - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+              - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+              - fae6af98-2675-45bd-9a5b-1619a87235a8
+              category: EntityType
+          entityTypes:
+          - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+            type:
+              namespace: lattice
+              name: myentity
+            schemas:
+              namespace: lattice
+              name: myschema
+            key:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            properties:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            - fae6af98-2675-45bd-9a5b-1619a87235a8
+            category: EntityType
+          - id: ec6865e6-e60e-424b-a071-6a9c1603d735
+            type:
+              namespace: lattice
+              name: myentity
+            schemas:
+              namespace: lattice
+              name: myschema
+            key:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            properties:
+            - 8f79e123-3411-4099-a41f-88e5d22d0e8d
+            - e39dfdfa-a3e6-4f1f-b54b-646a723c3085
+            - fae6af98-2675-45bd-9a5b-1619a87235a8
+            category: EntityType
+          namespaces:
+          - namespaces
+          - namespaces
+      properties:
+        conflicts:
+          $ref: '#/components/schemas/EDM'
+        diff:
+          $ref: '#/components/schemas/EDM'
+      type: object
+    MetadataUpdate:
+      example:
+        partitions:
+        - 0
+        - 0
+        description: description
+        defaultShow: true
+        title: title
+        type:
+          name: name
+          namespace: namespace
+        url: url
+        organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        pii: true
+        indexType: BTREE
+        propertyTags:
+          key:
+          - propertyTags
+          - propertyTags
+        name: name
+        contacts:
+        - contacts
+        - contacts
+        enumValues:
+        - enumValues
+        - enumValues
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        name:
+          type: string
+        contacts:
+          items:
+            type: string
+          type: array
+        type:
+          $ref: '#/components/schemas/FullQualifiedName'
+        pii:
+          type: boolean
+        defaultShow:
+          type: boolean
+        url:
+          type: string
+        propertyTags:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+        indexType:
+          enum:
+          - BTREE
+          - HASH
+          - GIN
+          - NONE
+          type: string
+        organizationId:
+          format: uuid
+          type: string
+        partitions:
+          items:
+            type: integer
+          type: array
+        enumValues:
+          items:
+            type: string
+          type: array
+      title: An update for an entity sets
+      type: object
+    PropertyUsageSummary:
+      example:
+        entitySetName: entitySetName
+        count: 0
+        entityTypeId: entityTypeId
+        entitySetId: entitySetId
+      properties:
+        entityTypeId:
+          type: string
+        entitySetId:
+          type: string
+        entitySetName:
+          type: string
+        count:
+          type: integer
+      type: object
+    EdmRequest:
+      example:
+        propertyTypes:
+        - propertyTypes
+        - propertyTypes
+        action: ADD
+        entityTypes:
+        - entityTypes
+        - entityTypes
+      properties:
+        action:
+          enum:
+          - ADD
+          - REMOVE
+          - REPLACE
+          type: string
+        propertyTypes:
+          items:
+            type: string
+          type: array
+        entityTypes:
+          items:
+            type: string
+          type: array
+      type: object
+    EntitySet:
+      example:
+        entityTypeId: 963b597b-b28d-4f59-b2e6-4d443499e464
+        id: 843b597b-b28d-4f59-b2e6-4d443499e323
+        name: NameOfMyEntitySet
+        title: This is the title of the entitySet
+        contacts:
+        - support@openlattice.com
+        description: This is a more elaborate description of the entity set.
+      properties:
+        id:
+          format: uuid
+          type: string
+        entityTypeId:
+          format: uuid
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        contacts:
+          items:
+            type: string
+          type: array
+        linking:
+          type: boolean
+        linkedEntitySets:
+          items:
+            type: string
+          type: array
+        organizationId:
+          format: uuid
+          type: string
+        flags:
+          items:
+            enum:
+            - ASSOCIATION
+            - AUDIT
+            - EXTERNAL
+            - LINKING
+            type: string
+          type: array
+        partitions:
+          items:
+            type: integer
+          type: array
+      title: An entity set
+      type: object
+    EntitySetPropertyMetaData:
+      example:
+        propertyTags:
+        - propertyTags
+        - propertyTags
+        description: description
+        defaultShow: true
+        title: title
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        propertyTags:
+          items:
+            type: string
+          type: array
+        defaultShow:
+          type: boolean
+      title: EntitySet Property Metadata
+      type: object
+    NeighborDetails:
+      additionalProperties:
+        items:
+          type: string
+        type: array
+      type: object
+    NeighborEntityDetails:
+      example:
+        associationEntitySet:
+          entityTypeId: 963b597b-b28d-4f59-b2e6-4d443499e464
+          id: 843b597b-b28d-4f59-b2e6-4d443499e323
+          name: NameOfMyEntitySet
+          title: This is the title of the entitySet
+          contacts:
+          - support@openlattice.com
+          description: This is a more elaborate description of the entity set.
+        associationDetails:
+          key:
+          - associationDetails
+          - associationDetails
+        neighborEntitySet:
+          entityTypeId: 963b597b-b28d-4f59-b2e6-4d443499e464
+          id: 843b597b-b28d-4f59-b2e6-4d443499e323
+          name: NameOfMyEntitySet
+          title: This is the title of the entitySet
+          contacts:
+          - support@openlattice.com
+          description: This is a more elaborate description of the entity set.
+        neighborId: neighborId
+        neighborDetails:
+          key:
+          - neighborDetails
+          - neighborDetails
+      properties:
+        associationEntitySet:
+          $ref: '#/components/schemas/EntitySet'
+        associationDetails:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+        neighborEntitySet:
+          $ref: '#/components/schemas/EntitySet'
+        neighborId:
+          type: string
+        neighborDetails:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+      type: object
+    NeighborEntityIds:
+      properties:
+        associationId:
+          format: uuid
+          type: string
+        neighborId:
+          format: uuid
+          type: string
+        src:
+          type: boolean
+      type: object
+    NeighborSearchFilter:
+      example:
+        edge:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        dst:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        src:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        entityKeyIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        entityKeyIds:
+          items:
+            format: uuid
+            type: string
+          type: array
+        src:
+          items:
+            format: uuid
+            type: string
+          type: array
+        dst:
+          items:
+            format: uuid
+            type: string
+          type: array
+        edge:
+          items:
+            format: uuid
+            type: string
+          type: array
+      type: object
+    DataSearchResult:
+      example:
+        numHits: 0
+        hits:
+        - key:
+          - hits
+          - hits
+        - key:
+          - hits
+          - hits
+      properties:
+        numHits:
+          type: integer
+        hits:
+          items:
+            additionalProperties:
+              items:
+                type: string
+              type: array
+            type: object
+          type: array
+      type: object
+    AdvancedSearch:
+      example:
+        start: 0
+        searchFields:
+        - searchTerm: searchTerm
+          property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          exact: true
+        - searchTerm: searchTerm
+          property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          exact: true
+        maxHits: 6
+      properties:
+        searchFields:
+          items:
+            $ref: '#/components/schemas/SearchDetails'
+          type: array
+        start:
+          type: integer
+        maxHits:
+          type: integer
+      type: object
+    BulkDataCreation:
+      example:
+        associations:
+        - dst:
+            entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          src:
+            entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          details:
+            key: details
+          key:
+            entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - dst:
+            entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          src:
+            entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          details:
+            key: details
+          key:
+            entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        entities:
+        - details:
+            key: details
+          key:
+            entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - details:
+            key: details
+          key:
+            entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        entities:
+          items:
+            $ref: '#/components/schemas/Entity'
+          type: array
+        associations:
+          items:
+            $ref: '#/components/schemas/Association'
+          type: array
+      type: object
+    Entity:
+      example:
+        details:
+          key: details
+        key:
+          entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        key:
+          $ref: '#/components/schemas/EntityKey'
+        details:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    Association:
+      example:
+        dst:
+          entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        src:
+          entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        details:
+          key: details
+        key:
+          entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        key:
+          $ref: '#/components/schemas/EntityKey'
+        src:
+          $ref: '#/components/schemas/EntityKey'
+        dst:
+          $ref: '#/components/schemas/EntityKey'
+        details:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    EntityKey:
+      example:
+        entityId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        entitySetId:
+          format: uuid
+          type: string
+        entityId:
+          format: uuid
+          type: string
+      type: object
+    IntegrationResults:
+      example:
+        entityCount: 0
+        associationCount: 6
+        entitySetsEntityKeyMappings:
+          key:
+            key: entitySetsEntityKeyMappings
+        associationsEntityKeyMappings:
+          key:
+            key: associationsEntityKeyMappings
+      properties:
+        entityCount:
+          type: integer
+        associationCount:
+          type: integer
+        associationsEntityKeyMappings:
+          additionalProperties:
+            additionalProperties:
+              type: string
+            type: object
+          type: object
+        entitySetsEntityKeyMappings:
+          additionalProperties:
+            additionalProperties:
+              type: string
+            type: object
+          type: object
+      type: object
+    Auth0userBasic:
+      example:
+        user_id: user_id
+        roles:
+        - roles
+        - roles
+        nickname: nickname
+        com/openlattice/organization:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        email: email
+        username: username
+      properties:
+        user_id:
+          type: string
+        email:
+          type: string
+        nickname:
+          type: string
+        username:
+          type: string
+        roles:
+          items:
+            type: string
+          type: array
+        com/openlattice/organization:
+          items:
+            format: uuid
+            type: string
+          type: array
+      type: object
+    Ace:
+      example:
+        principal:
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+        permissions:
+        - permissions
+        - permissions
+      properties:
+        principal:
+          $ref: '#/components/schemas/Principal'
+        permissions:
+          items:
+            type: string
+          type: array
+      type: object
+    Acl:
+      example:
+        aces:
+        - principal:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          permissions:
+          - permissions
+          - permissions
+        - principal:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          permissions:
+          - permissions
+          - permissions
+        aclKey:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        aclKey:
+          items:
+            format: uuid
+            type: string
+          type: array
+        aces:
+          items:
+            $ref: '#/components/schemas/Ace'
+          type: array
+      type: object
+    AclData:
+      example:
+        action: action
+        acl:
+          aces:
+          - principal:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              type: type
+            permissions:
+            - permissions
+            - permissions
+          - principal:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              type: type
+            permissions:
+            - permissions
+            - permissions
+          aclKey:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        action:
+          type: string
+        acl:
+          $ref: '#/components/schemas/Acl'
+      type: object
+    Principal:
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        type: type
+      properties:
+        type:
+          type: string
+        id:
+          format: uuid
+          type: string
+      type: object
+    SecurablePrincipal:
+      example:
+        principal:
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+      properties:
+        id:
+          format: uuid
+          type: string
+        principal:
+          $ref: '#/components/schemas/Principal'
+        title:
+          type: string
+        description:
+          type: string
+      type: object
+    DataEdge:
+      properties:
+        src:
+          $ref: '#/components/schemas/EntityDataKey'
+        dst:
+          $ref: '#/components/schemas/EntityDataKey'
+        data:
+          $ref: '#/components/schemas/DataEdge_data'
+      type: object
+    DataEdgeKey:
+      description: Set of associations to create. An association is the triple of
+        source, destination, and edge entity data keys.
+      example:
+        edge:
+          entityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        dst:
+          entityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        src:
+          entityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        src:
+          $ref: '#/components/schemas/EntityDataKey'
+        dst:
+          $ref: '#/components/schemas/EntityDataKey'
+        edge:
+          $ref: '#/components/schemas/EntityDataKey'
+      type: object
+    DataGraph:
+      example:
+        associations:
+          key:
+          - srcEntityIndex: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            srcEntityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            srcEntitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - srcEntityIndex: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            srcEntityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            srcEntitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        entities:
+          key:
+          - key:
+            - entities
+            - entities
+          - key:
+            - entities
+            - entities
+      properties:
+        entities:
+          additionalProperties:
+            items:
+              additionalProperties:
+                items:
+                  type: string
+                type: array
+              type: object
+            type: array
+          type: object
+        associations:
+          additionalProperties:
+            items:
+              $ref: '#/components/schemas/DataAssociation'
+            type: array
+          type: object
+      type: object
+    DataAssociation:
+      example:
+        srcEntityIndex: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        srcEntityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        srcEntitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        srcEntitySetId:
+          description: the ID of the source entity set
+          format: uuid
+          type: string
+        srcEntityIndex:
+          description: The index of an entity
+          format: uuid
+          type: string
+        srcEntityKeyId:
+          description: An existing entityKeyId
+          format: uuid
+          type: string
+      type: object
+    DataGraphIds:
+      example:
+        entitySetIds:
+          key:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        entityKeyIds:
+          key:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        entityKeyIds:
+          additionalProperties:
+            items:
+              format: uuid
+              type: string
+            type: array
+          type: object
+        entitySetIds:
+          additionalProperties:
+            items:
+              format: uuid
+              type: string
+            type: array
+          type: object
+      type: object
+    Role:
+      example:
+        organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        principal:
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+        '@class': com.openlattice.organization.roles.Role
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+      properties:
+        id:
+          format: uuid
+          type: string
+        organizationId:
+          format: uuid
+          type: string
+        principal:
+          $ref: '#/components/schemas/Principal'
+        title:
+          type: string
+        description:
+          type: string
+        '@class':
+          enum:
+          - com.openlattice.organization.roles.Role
+          type: string
+      type: object
+    Organization:
+      example:
+        principal:
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+        emails:
+        - emails
+        - emails
+        partitions:
+        - 0
+        - 0
+        members:
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+        roles:
+        - organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          principal:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          '@class': com.openlattice.organization.roles.Role
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+        - organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          principal:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          '@class': com.openlattice.organization.roles.Role
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        smsEntitySetInfo:
+        - organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          phoneNumber: phoneNumber
+          entitysetIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tags:
+          - tags
+          - tags
+        - organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          phoneNumber: phoneNumber
+          entitysetIds:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          tags:
+          - tags
+          - tags
+        title: title
+        apps:
+        - apps
+        - apps
+      properties:
+        id:
+          format: uuid
+          type: string
+        principal:
+          $ref: '#/components/schemas/Principal'
+        title:
+          type: string
+        description:
+          type: string
+        emails:
+          items:
+            type: string
+          type: array
+        members:
+          items:
+            $ref: '#/components/schemas/Principal'
+          type: array
+        roles:
+          items:
+            $ref: '#/components/schemas/Role'
+          type: array
+        apps:
+          items:
+            type: string
+          type: array
+        smsEntitySetInfo:
+          items:
+            $ref: '#/components/schemas/SmsEntitySetInformation'
+          type: array
+        partitions:
+          items:
+            type: integer
+          type: array
+      type: object
+    SmsEntitySetInformation:
+      example:
+        organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        phoneNumber: phoneNumber
+        entitysetIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        tags:
+        - tags
+        - tags
+      properties:
+        phoneNumber:
+          type: string
+        organizationId:
+          format: uuid
+          type: string
+        entitysetIds:
+          items:
+            format: uuid
+            type: string
+          type: array
+        tags:
+          items:
+            type: string
+          type: array
+      type: object
+    EntitySetSelection:
+      example:
+        ids:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        properties:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        ids:
+          items:
+            format: uuid
+            type: string
+          type: array
+        properties:
+          items:
+            format: uuid
+            type: string
+          type: array
+      type: object
+    OrganizationMember:
+      example:
+        principal:
+          principal:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+        profile:
+          user_id: user_id
+          roles:
+          - roles
+          - roles
+          nickname: nickname
+          com/openlattice/organization:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          email: email
+          username: username
+        roles:
+        - principal:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+        - principal:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+      properties:
+        principal:
+          $ref: '#/components/schemas/SecurablePrincipal'
+        profile:
+          $ref: '#/components/schemas/Auth0userBasic'
+        roles:
+          items:
+            $ref: '#/components/schemas/SecurablePrincipal'
+          type: array
+      type: object
+    AccessCheck:
+      example:
+        permissions:
+        - DISCOVER
+        - DISCOVER
+        aclKey:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        aclKey:
+          items:
+            format: uuid
+            type: string
+          type: array
+        permissions:
+          items:
+            enum:
+            - DISCOVER
+            - MATERIALIZE
+            - LINK
+            - READ
+            - WRITE
+            - OWNER
+            type: string
+          type: array
+      type: object
+    Authorization:
+      example:
+        permissions:
+          key: true
+        aclKey:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        aclKey:
+          items:
+            format: uuid
+            type: string
+          type: array
+        permissions:
+          additionalProperties:
+            type: boolean
+          type: object
+      type: object
+    AuthorizedObjectsSearchResult:
+      example:
+        pagingToken: pagingToken
+        authorizedObjects:
+        - - authorizedObjects
+          - authorizedObjects
+        - - authorizedObjects
+          - authorizedObjects
+      properties:
+        pagingToken:
+          type: string
+        authorizedObjects:
+          items:
+            items:
+              type: string
+            type: array
+          type: array
+      type: object
+    MaterializedViewAccount:
+      example:
+        credential: credential
+        username: username
+      properties:
+        username:
+          type: string
+        credential:
+          type: string
+      type: object
+    SearchConstraints:
+      example:
+        start: 0
+        sort:
+          propertyTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          isDescending: true
+          latitude: 9.301444243932576
+          type: field
+          longitude: 3.616076749251911
+        entitySetIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        constraints:
+        - min: 1
+          constraints:
+          - propertyTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            unit: miles
+            searchTerm: searchTerm
+            latitude: 5.962133916683182
+            start: 2000-01-23T04:56:07.000+00:00
+            searchFields:
+            - searchTerm: searchTerm
+              property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              exact: true
+            - searchTerm: searchTerm
+              property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              exact: true
+            end: 2000-01-23T04:56:07.000+00:00
+            type: simple
+            radius: 2.3021358869347655
+            zones:
+            - - - 7.061401241503109
+                - 7.061401241503109
+              - - 7.061401241503109
+                - 7.061401241503109
+            - - - 7.061401241503109
+                - 7.061401241503109
+              - - 7.061401241503109
+                - 7.061401241503109
+            fuzzy: true
+            longitude: 5.637376656633329
+          - propertyTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            unit: miles
+            searchTerm: searchTerm
+            latitude: 5.962133916683182
+            start: 2000-01-23T04:56:07.000+00:00
+            searchFields:
+            - searchTerm: searchTerm
+              property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              exact: true
+            - searchTerm: searchTerm
+              property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              exact: true
+            end: 2000-01-23T04:56:07.000+00:00
+            type: simple
+            radius: 2.3021358869347655
+            zones:
+            - - - 7.061401241503109
+                - 7.061401241503109
+              - - 7.061401241503109
+                - 7.061401241503109
+            - - - 7.061401241503109
+                - 7.061401241503109
+              - - 7.061401241503109
+                - 7.061401241503109
+            fuzzy: true
+            longitude: 5.637376656633329
+        - min: 1
+          constraints:
+          - propertyTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            unit: miles
+            searchTerm: searchTerm
+            latitude: 5.962133916683182
+            start: 2000-01-23T04:56:07.000+00:00
+            searchFields:
+            - searchTerm: searchTerm
+              property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              exact: true
+            - searchTerm: searchTerm
+              property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              exact: true
+            end: 2000-01-23T04:56:07.000+00:00
+            type: simple
+            radius: 2.3021358869347655
+            zones:
+            - - - 7.061401241503109
+                - 7.061401241503109
+              - - 7.061401241503109
+                - 7.061401241503109
+            - - - 7.061401241503109
+                - 7.061401241503109
+              - - 7.061401241503109
+                - 7.061401241503109
+            fuzzy: true
+            longitude: 5.637376656633329
+          - propertyTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            unit: miles
+            searchTerm: searchTerm
+            latitude: 5.962133916683182
+            start: 2000-01-23T04:56:07.000+00:00
+            searchFields:
+            - searchTerm: searchTerm
+              property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              exact: true
+            - searchTerm: searchTerm
+              property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              exact: true
+            end: 2000-01-23T04:56:07.000+00:00
+            type: simple
+            radius: 2.3021358869347655
+            zones:
+            - - - 7.061401241503109
+                - 7.061401241503109
+              - - 7.061401241503109
+                - 7.061401241503109
+            - - - 7.061401241503109
+                - 7.061401241503109
+              - - 7.061401241503109
+                - 7.061401241503109
+            fuzzy: true
+            longitude: 5.637376656633329
+        maxHits: 6
+      properties:
+        entitySetIds:
+          items:
+            format: uuid
+            type: string
+          type: array
+        start:
+          type: integer
+        maxHits:
+          type: integer
+        constraints:
+          items:
+            $ref: '#/components/schemas/ConstraintGroup'
+          type: array
+        sort:
+          $ref: '#/components/schemas/SortDefinition'
+      type: object
+    SortDefinition:
+      example:
+        propertyTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        isDescending: true
+        latitude: 9.301444243932576
+        type: field
+        longitude: 3.616076749251911
+      properties:
+        type:
+          enum:
+          - field
+          - score
+          - geoDistance
+          type: string
+        isDescending:
+          type: boolean
+        propertyTypeId:
+          format: uuid
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+      type: object
+    ConstraintGroup:
+      example:
+        min: 1
+        constraints:
+        - propertyTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          unit: miles
+          searchTerm: searchTerm
+          latitude: 5.962133916683182
+          start: 2000-01-23T04:56:07.000+00:00
+          searchFields:
+          - searchTerm: searchTerm
+            property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            exact: true
+          - searchTerm: searchTerm
+            property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            exact: true
+          end: 2000-01-23T04:56:07.000+00:00
+          type: simple
+          radius: 2.3021358869347655
+          zones:
+          - - - 7.061401241503109
+              - 7.061401241503109
+            - - 7.061401241503109
+              - 7.061401241503109
+          - - - 7.061401241503109
+              - 7.061401241503109
+            - - 7.061401241503109
+              - 7.061401241503109
+          fuzzy: true
+          longitude: 5.637376656633329
+        - propertyTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          unit: miles
+          searchTerm: searchTerm
+          latitude: 5.962133916683182
+          start: 2000-01-23T04:56:07.000+00:00
+          searchFields:
+          - searchTerm: searchTerm
+            property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            exact: true
+          - searchTerm: searchTerm
+            property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            exact: true
+          end: 2000-01-23T04:56:07.000+00:00
+          type: simple
+          radius: 2.3021358869347655
+          zones:
+          - - - 7.061401241503109
+              - 7.061401241503109
+            - - 7.061401241503109
+              - 7.061401241503109
+          - - - 7.061401241503109
+              - 7.061401241503109
+            - - 7.061401241503109
+              - 7.061401241503109
+          fuzzy: true
+          longitude: 5.637376656633329
+      properties:
+        min:
+          type: integer
+        constraints:
+          items:
+            $ref: '#/components/schemas/Constraint'
+          type: array
+      type: object
+    Constraint:
+      example:
+        propertyTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        unit: miles
+        searchTerm: searchTerm
+        latitude: 5.962133916683182
+        start: 2000-01-23T04:56:07.000+00:00
+        searchFields:
+        - searchTerm: searchTerm
+          property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          exact: true
+        - searchTerm: searchTerm
+          property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          exact: true
+        end: 2000-01-23T04:56:07.000+00:00
+        type: simple
+        radius: 2.3021358869347655
+        zones:
+        - - - 7.061401241503109
+            - 7.061401241503109
+          - - 7.061401241503109
+            - 7.061401241503109
+        - - - 7.061401241503109
+            - 7.061401241503109
+          - - 7.061401241503109
+            - 7.061401241503109
+        fuzzy: true
+        longitude: 5.637376656633329
+      properties:
+        type:
+          enum:
+          - simple
+          - advanced
+          - geoDistance
+          - geoPolygon
+          - writeDateTimeFilter
+          type: string
+        searchTerm:
+          type: string
+        fuzzy:
+          type: boolean
+        searchFields:
+          items:
+            $ref: '#/components/schemas/SearchDetails'
+          type: array
+        propertyTypeId:
+          format: uuid
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        radius:
+          type: number
+        unit:
+          enum:
+          - miles
+          - mi
+          - yards
+          - yd
+          - feet
+          - ft
+          - inch
+          - in
+          - kilometers
+          - km
+          - meters
+          - m
+          - centimeters
+          - cm
+          - millimeters
+          - mm
+          - nauticalmiles
+          - nmi
+          - NM
+          type: string
+        zones:
+          items:
+            items:
+              items:
+                type: number
+              type: array
+            type: array
+          type: array
+        start:
+          format: date-time
+          type: string
+        end:
+          format: date-time
+          type: string
+      type: object
+    SearchDetails:
+      example:
+        searchTerm: searchTerm
+        property: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        exact: true
+      properties:
+        searchTerm:
+          type: string
+        property:
+          format: uuid
+          type: string
+        exact:
+          type: boolean
+      type: object
+    SearchTerm:
+      example:
+        searchTerm: searchTerm
+        start: 0
+        maxHits: 6
+        fuzzy: true
+      properties:
+        searchTerm:
+          type: string
+        start:
+          type: integer
+        maxHits:
+          type: integer
+        fuzzy:
+          type: boolean
+      type: object
+    Search:
+      description: A JSON object that contains between three and five parameters.
+        Required parameters are "start" and "maxHits, which specify the hit number
+        to start returning results on for paging and the maximum number of hits to
+        return. Optional parameters are "query" (specifies the keywords used to perform
+        the search), "eid" (UUID of the entity type of the entity sets that will be
+        returned), and "pid" (a set of UUIDs of property types belonging to the entity
+        sets that will be returned). All three of these parameters are optional, but
+        at least one must be specified otherwise an error will be thrown. If eid and
+        pid are both specified, the pid param will be ignored.
+      example:
+        propertyTypeIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        start: 0
+        entityTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        keyword: keyword
+        maxHits: 6
+      properties:
+        keyword:
+          type: string
+        entityTypeId:
+          format: uuid
+          type: string
+        propertyTypeIds:
+          items:
+            format: uuid
+            type: string
+          type: array
+        start:
+          type: integer
+        maxHits:
+          type: integer
+      type: object
+    SearchResult:
+      description: A search result object, containing the total number of hits for
+        the given query, and the hits themselves.
+      example:
+        numHits: 0
+        hits:
+          key: hits
+      properties:
+        numHits:
+          type: integer
+        hits:
+          additionalProperties:
+            type: string
+          type: object
+      type: object
+    OrganizationExternalDatabaseTable:
+      example:
+        organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        organizationId:
+          format: uuid
+          type: string
+      type: object
+    OrganizationExternalDatabaseColumn:
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        tableId:
+          format: uuid
+          type: string
+        organizationId:
+          format: uuid
+          type: string
+        dataType:
+          enum:
+          - SMALLINT
+          - SMALLINT_ARRAY
+          - INTEGER
+          - INTEGER_ARRAY
+          - BIGINT
+          - BIGINT_ARRAY
+          - DECIMAL
+          - NUMERIC
+          - DOUBLE
+          - DOUBLE_ARRAY
+          - SERIAL
+          - BIGSERIAL
+          - BYTEA
+          - BYTEA_ARRAY
+          - BOOLEAN
+          - BOOLEAN_ARRAY
+          - DATE
+          - DATE_ARRAY
+          - TIME
+          - TIME_ARRAY
+          - TIMETZ
+          - TIMETZ_ARRAY
+          - TIMESTAMPTZ
+          - TIMESTAMPTZ_ARRAY
+          - UUID
+          - UUID_ARRAY
+          - UUID_ARRAY_ARRAY
+          - TEXT
+          - TEXT_ARRAY
+          - JSONB
+          type: string
+        primaryKey:
+          type: boolean
+        ordinalPosition:
+          type: integer
+      type: object
+    OrganizationExternalDatabaseTableColumnsPair:
+      properties:
+        table:
+          $ref: '#/components/schemas/OrganizationExternalDatabaseTable'
+        columns:
+          items:
+            $ref: '#/components/schemas/OrganizationExternalDatabaseColumn'
+          type: array
+      type: object
+    EntityNeighborsFilter:
+      example:
+        dstEntitySetIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        entityKeyIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        srcEntitySetIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        associationEntitySetIds:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        entityKeyIds:
+          items:
+            format: uuid
+            type: string
+          type: array
+        srcEntitySetIds:
+          items:
+            format: uuid
+            type: string
+          type: array
+        dstEntitySetIds:
+          items:
+            format: uuid
+            type: string
+          type: array
+        associationEntitySetIds:
+          items:
+            format: uuid
+            type: string
+          type: array
+      type: object
+    EntityDataKey:
+      example:
+        entityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        entitySetId:
+          format: uuid
+          type: string
+        entityKeyId:
+          format: uuid
+          type: string
+      type: object
+    LinkingFeedback:
+      example:
+        unlink:
+        - entityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - entityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        link:
+        - entityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - entityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        linkingEntity:
+          entityKeyId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        linkingEntity:
+          $ref: '#/components/schemas/EntityDataKey'
+        link:
+          items:
+            $ref: '#/components/schemas/EntityDataKey'
+          type: array
+        unlink:
+          items:
+            $ref: '#/components/schemas/EntityDataKey'
+          type: array
+      type: object
+    EntityKeyPair:
+      example:
+        first: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        second: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        first:
+          format: uuid
+          type: string
+        second:
+          format: uuid
+          type: string
+      type: object
+    EntityLinkingFeedback:
+      example:
+        entityKeyPair:
+          first: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          second: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        linked: true
+      properties:
+        entityKeyPair:
+          $ref: '#/components/schemas/EntityKeyPair'
+        linked:
+          type: boolean
+      type: object
+    EntityLinkingFeatures:
+      example:
+        features:
+          key: 0.8008281904610115
+        entityLinkingFeedback:
+          entityKeyPair:
+            first: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            second: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          linked: true
+      properties:
+        entityLinkingFeedback:
+          $ref: '#/components/schemas/EntityLinkingFeedback'
+        features:
+          additionalProperties:
+            type: number
+          type: object
+      type: object
+    IndexingState:
+      example:
+        queueSize: 0
+        indexing:
+          key:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        count: 6
+        currentEntitySet: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        queue:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        indexing:
+          additionalProperties:
+            items:
+              format: uuid
+              type: string
+            type: array
+          type: object
+        queue:
+          items:
+            format: uuid
+            type: string
+          type: array
+        currentEntitySet:
+          format: uuid
+          type: string
+        queueSize:
+          type: integer
+        count:
+          type: integer
+      type: object
+    inline_object:
+      description: Set of associations to create. Keys are association entity set
+        ids and values for each keys are the data to be created. AssociationEntityId's
+        are not generated based on the key.
+      properties:
+        additionalProperties:
+          items:
+            $ref: '#/components/schemas/DataEdge'
+          type: array
+      type: object
+    inline_response_200:
+      example:
+        credential: credential
+        user: user
+      properties:
+        user:
+          type: string
+        credential:
+          type: string
+    DataEdge_data:
+      properties:
+        additionalProperties:
+          items:
+            type: string
+          type: array
+  securitySchemes:
+    http_auth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
+    openlattice_auth:
+      in: header
+      name: Authorization
+      type: apiKey

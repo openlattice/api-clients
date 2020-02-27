@@ -40,7 +40,7 @@ Add member to an organization
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -48,46 +48,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-user_id = 'user_id_example' # str | 
-
-try:
-    # Add member to an organization
-    api_instance.add_member(organization_id, user_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->add_member: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 user_id = 'user_id_example' # str | 
 
-try:
-    # Add member to an organization
-    api_instance.add_member(organization_id, user_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->add_member: %s\n" % e)
+    try:
+        # Add member to an organization
+        api_instance.add_member(organization_id, user_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->add_member: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+user_id = 'user_id_example' # str | 
+
+    try:
+        # Add member to an organization
+        api_instance.add_member(organization_id, user_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->add_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -110,6 +126,11 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_role_to_user**
@@ -119,7 +140,7 @@ Add a role to a user
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -127,48 +148,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-role_id = 'role_id_example' # str | 
-user_id = 'user_id_example' # str | 
-
-try:
-    # Add a role to a user
-    api_instance.add_role_to_user(organization_id, role_id, user_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->add_role_to_user: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 role_id = 'role_id_example' # str | 
 user_id = 'user_id_example' # str | 
 
-try:
-    # Add a role to a user
-    api_instance.add_role_to_user(organization_id, role_id, user_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->add_role_to_user: %s\n" % e)
+    try:
+        # Add a role to a user
+        api_instance.add_role_to_user(organization_id, role_id, user_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->add_role_to_user: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+role_id = 'role_id_example' # str | 
+user_id = 'user_id_example' # str | 
+
+    try:
+        # Add a role to a user
+        api_instance.add_role_to_user(organization_id, role_id, user_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->add_role_to_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -192,6 +229,11 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **assemble_entity_sets**
@@ -201,7 +243,7 @@ Materializes entity sets into the organization database.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -209,48 +251,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-request_body = {'key': 56} # dict(str, int) | 
-
-try:
-    # Materializes entity sets into the organization database.
-    api_response = api_instance.assemble_entity_sets(organization_id, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->assemble_entity_sets: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 request_body = {'key': 56} # dict(str, int) | 
 
-try:
-    # Materializes entity sets into the organization database.
-    api_response = api_instance.assemble_entity_sets(organization_id, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->assemble_entity_sets: %s\n" % e)
+    try:
+        # Materializes entity sets into the organization database.
+        api_response = api_instance.assemble_entity_sets(organization_id, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->assemble_entity_sets: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+request_body = {'key': 56} # dict(str, int) | 
+
+    try:
+        # Materializes entity sets into the organization database.
+        api_response = api_instance.assemble_entity_sets(organization_id, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->assemble_entity_sets: %s\n" % e)
 ```
 
 ### Parameters
@@ -273,6 +331,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_organization_if_not_exists**
@@ -282,7 +345,7 @@ Creates an organization if it doesn't exist.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -290,46 +353,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization = openlattice.Organization() # Organization | 
-
-try:
-    # Creates an organization if it doesn't exist.
-    api_response = api_instance.create_organization_if_not_exists(organization)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->create_organization_if_not_exists: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization = openlattice.Organization() # Organization | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Creates an organization if it doesn't exist.
-    api_response = api_instance.create_organization_if_not_exists(organization)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->create_organization_if_not_exists: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization = openlattice.Organization() # Organization | 
+
+    try:
+        # Creates an organization if it doesn't exist.
+        api_response = api_instance.create_organization_if_not_exists(organization)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->create_organization_if_not_exists: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization = openlattice.Organization() # Organization | 
+
+    try:
+        # Creates an organization if it doesn't exist.
+        api_response = api_instance.create_organization_if_not_exists(organization)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->create_organization_if_not_exists: %s\n" % e)
 ```
 
 ### Parameters
@@ -351,6 +430,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_role**
@@ -360,7 +444,7 @@ Creates role
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -368,46 +452,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-role = openlattice.Role() # Role | 
-
-try:
-    # Creates role
-    api_response = api_instance.create_role(role)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->create_role: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-role = openlattice.Role() # Role | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Creates role
-    api_response = api_instance.create_role(role)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->create_role: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    role = openlattice.Role() # Role | 
+
+    try:
+        # Creates role
+        api_response = api_instance.create_role(role)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->create_role: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    role = openlattice.Role() # Role | 
+
+    try:
+        # Creates role
+        api_response = api_instance.create_role(role)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->create_role: %s\n" % e)
 ```
 
 ### Parameters
@@ -429,6 +529,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_role**
@@ -438,7 +543,7 @@ Remove role for an organization
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -446,46 +551,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-role_id = 'role_id_example' # str | 
-
-try:
-    # Remove role for an organization
-    api_instance.delete_role(organization_id, role_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->delete_role: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 role_id = 'role_id_example' # str | 
 
-try:
-    # Remove role for an organization
-    api_instance.delete_role(organization_id, role_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->delete_role: %s\n" % e)
+    try:
+        # Remove role for an organization
+        api_instance.delete_role(organization_id, role_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->delete_role: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+role_id = 'role_id_example' # str | 
+
+    try:
+        # Remove role for an organization
+        api_instance.delete_role(organization_id, role_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->delete_role: %s\n" % e)
 ```
 
 ### Parameters
@@ -508,6 +629,11 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **destroy_organization**
@@ -517,7 +643,7 @@ Remove an organization from the organizationId
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -525,44 +651,60 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-
-try:
-    # Remove an organization from the organizationId
-    api_instance.destroy_organization(organization_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->destroy_organization: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Remove an organization from the organizationId
-    api_instance.destroy_organization(organization_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->destroy_organization: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Remove an organization from the organizationId
+        api_instance.destroy_organization(organization_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->destroy_organization: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Remove an organization from the organizationId
+        api_instance.destroy_organization(organization_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->destroy_organization: %s\n" % e)
 ```
 
 ### Parameters
@@ -584,6 +726,11 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_users_of_role**
@@ -593,7 +740,7 @@ Get members of a role for an organization from a roleId
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -601,48 +748,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-role_id = 'role_id_example' # str | 
-
-try:
-    # Get members of a role for an organization from a roleId
-    api_response = api_instance.get_all_users_of_role(organization_id, role_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_all_users_of_role: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 role_id = 'role_id_example' # str | 
 
-try:
-    # Get members of a role for an organization from a roleId
-    api_response = api_instance.get_all_users_of_role(organization_id, role_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_all_users_of_role: %s\n" % e)
+    try:
+        # Get members of a role for an organization from a roleId
+        api_response = api_instance.get_all_users_of_role(organization_id, role_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_all_users_of_role: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+role_id = 'role_id_example' # str | 
+
+    try:
+        # Get members of a role for an organization from a roleId
+        api_response = api_instance.get_all_users_of_role(organization_id, role_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_all_users_of_role: %s\n" % e)
 ```
 
 ### Parameters
@@ -665,6 +828,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_auto_approved_email_domains**
@@ -674,7 +842,7 @@ Get auto-approved email domains
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -682,46 +850,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-
-try:
-    # Get auto-approved email domains
-    api_response = api_instance.get_auto_approved_email_domains(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_auto_approved_email_domains: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Get auto-approved email domains
-    api_response = api_instance.get_auto_approved_email_domains(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_auto_approved_email_domains: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get auto-approved email domains
+        api_response = api_instance.get_auto_approved_email_domains(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_auto_approved_email_domains: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get auto-approved email domains
+        api_response = api_instance.get_auto_approved_email_domains(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_auto_approved_email_domains: %s\n" % e)
 ```
 
 ### Parameters
@@ -743,6 +927,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_flagged_organization_entity_sets**
@@ -752,7 +941,7 @@ Get the entity sets for an organization for a certain flag
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -760,48 +949,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-request_body = NULL # dict(str, list[str]) | 
-
-try:
-    # Get the entity sets for an organization for a certain flag
-    api_response = api_instance.get_flagged_organization_entity_sets(organization_id, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_flagged_organization_entity_sets: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-request_body = NULL # dict(str, list[str]) | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Get the entity sets for an organization for a certain flag
-    api_response = api_instance.get_flagged_organization_entity_sets(organization_id, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_flagged_organization_entity_sets: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+request_body = None # dict(str, list[str]) | 
+
+    try:
+        # Get the entity sets for an organization for a certain flag
+        api_response = api_instance.get_flagged_organization_entity_sets(organization_id, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_flagged_organization_entity_sets: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+request_body = None # dict(str, list[str]) | 
+
+    try:
+        # Get the entity sets for an organization for a certain flag
+        api_response = api_instance.get_flagged_organization_entity_sets(organization_id, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_flagged_organization_entity_sets: %s\n" % e)
 ```
 
 ### Parameters
@@ -824,6 +1029,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members**
@@ -833,7 +1043,7 @@ Get members of a certain organization
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -841,46 +1051,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-
-try:
-    # Get members of a certain organization
-    api_response = api_instance.get_members(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_members: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Get members of a certain organization
-    api_response = api_instance.get_members(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_members: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get members of a certain organization
+        api_response = api_instance.get_members(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_members: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get members of a certain organization
+        api_response = api_instance.get_members(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_members: %s\n" % e)
 ```
 
 ### Parameters
@@ -902,6 +1128,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization**
@@ -911,7 +1142,7 @@ Get an organization from the organizationId
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -919,46 +1150,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-
-try:
-    # Get an organization from the organizationId
-    api_response = api_instance.get_organization(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_organization: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Get an organization from the organizationId
-    api_response = api_instance.get_organization(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_organization: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get an organization from the organizationId
+        api_response = api_instance.get_organization(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_organization: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get an organization from the organizationId
+        api_response = api_instance.get_organization(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_organization: %s\n" % e)
 ```
 
 ### Parameters
@@ -980,6 +1227,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_entity_sets**
@@ -989,7 +1241,7 @@ Get the entity sets for an organization for a certain filter
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -997,46 +1249,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-
-try:
-    # Get the entity sets for an organization for a certain filter
-    api_response = api_instance.get_organization_entity_sets(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_organization_entity_sets: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Get the entity sets for an organization for a certain filter
-    api_response = api_instance.get_organization_entity_sets(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_organization_entity_sets: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get the entity sets for an organization for a certain filter
+        api_response = api_instance.get_organization_entity_sets(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_organization_entity_sets: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get the entity sets for an organization for a certain filter
+        api_response = api_instance.get_organization_entity_sets(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_organization_entity_sets: %s\n" % e)
 ```
 
 ### Parameters
@@ -1058,6 +1326,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_integration_account**
@@ -1067,7 +1340,7 @@ Get the integrations account for an organization from the organizationId
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1075,46 +1348,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-
-try:
-    # Get the integrations account for an organization from the organizationId
-    api_response = api_instance.get_organization_integration_account(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_organization_integration_account: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Get the integrations account for an organization from the organizationId
-    api_response = api_instance.get_organization_integration_account(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_organization_integration_account: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get the integrations account for an organization from the organizationId
+        api_response = api_instance.get_organization_integration_account(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_organization_integration_account: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get the integrations account for an organization from the organizationId
+        api_response = api_instance.get_organization_integration_account(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_organization_integration_account: %s\n" % e)
 ```
 
 ### Parameters
@@ -1136,6 +1425,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organizations**
@@ -1145,7 +1439,7 @@ Get all organizations
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1153,44 +1447,60 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-
-try:
-    # Get all organizations
-    api_response = api_instance.get_organizations()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_organizations: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Get all organizations
-    api_response = api_instance.get_organizations()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_organizations: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    
+    try:
+        # Get all organizations
+        api_response = api_instance.get_organizations()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_organizations: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    
+    try:
+        # Get all organizations
+        api_response = api_instance.get_organizations()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_organizations: %s\n" % e)
 ```
 
 ### Parameters
@@ -1209,6 +1519,11 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_role**
@@ -1218,7 +1533,7 @@ Get role for an organization from a roleId
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1226,48 +1541,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-role_id = 'role_id_example' # str | 
-
-try:
-    # Get role for an organization from a roleId
-    api_response = api_instance.get_role(organization_id, role_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_role: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 role_id = 'role_id_example' # str | 
 
-try:
-    # Get role for an organization from a roleId
-    api_response = api_instance.get_role(organization_id, role_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_role: %s\n" % e)
+    try:
+        # Get role for an organization from a roleId
+        api_response = api_instance.get_role(organization_id, role_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_role: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+role_id = 'role_id_example' # str | 
+
+    try:
+        # Get role for an organization from a roleId
+        api_response = api_instance.get_role(organization_id, role_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_role: %s\n" % e)
 ```
 
 ### Parameters
@@ -1290,6 +1621,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_roles**
@@ -1299,7 +1635,7 @@ Get roles for an organization
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1307,46 +1643,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-
-try:
-    # Get roles for an organization
-    api_response = api_instance.get_roles(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_roles: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Get roles for an organization
-    api_response = api_instance.get_roles(organization_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->get_roles: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get roles for an organization
+        api_response = api_instance.get_roles(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_roles: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+
+    try:
+        # Get roles for an organization
+        api_response = api_instance.get_roles(organization_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->get_roles: %s\n" % e)
 ```
 
 ### Parameters
@@ -1368,6 +1720,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **refresh_data_changes**
@@ -1377,7 +1734,7 @@ Refreshes the requested materialized entity set with data changes in the organiz
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1385,46 +1742,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-entity_set_id = 'entity_set_id_example' # str | 
-
-try:
-    # Refreshes the requested materialized entity set with data changes in the organization.
-    api_instance.refresh_data_changes(organization_id, entity_set_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->refresh_data_changes: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 entity_set_id = 'entity_set_id_example' # str | 
 
-try:
-    # Refreshes the requested materialized entity set with data changes in the organization.
-    api_instance.refresh_data_changes(organization_id, entity_set_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->refresh_data_changes: %s\n" % e)
+    try:
+        # Refreshes the requested materialized entity set with data changes in the organization.
+        api_instance.refresh_data_changes(organization_id, entity_set_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->refresh_data_changes: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+entity_set_id = 'entity_set_id_example' # str | 
+
+    try:
+        # Refreshes the requested materialized entity set with data changes in the organization.
+        api_instance.refresh_data_changes(organization_id, entity_set_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->refresh_data_changes: %s\n" % e)
 ```
 
 ### Parameters
@@ -1446,6 +1819,11 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1456,7 +1834,7 @@ Remove auto-approved email domains
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1464,46 +1842,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-request_body = NULL # list[str] | 
-
-try:
-    # Remove auto-approved email domains
-    api_instance.remove_auto_approved_email_domains(organization_id, request_body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->remove_auto_approved_email_domains: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-request_body = NULL # list[str] | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Remove auto-approved email domains
-    api_instance.remove_auto_approved_email_domains(organization_id, request_body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->remove_auto_approved_email_domains: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+request_body = ['request_body_example'] # list[str] | 
+
+    try:
+        # Remove auto-approved email domains
+        api_instance.remove_auto_approved_email_domains(organization_id, request_body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->remove_auto_approved_email_domains: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+request_body = ['request_body_example'] # list[str] | 
+
+    try:
+        # Remove auto-approved email domains
+        api_instance.remove_auto_approved_email_domains(organization_id, request_body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->remove_auto_approved_email_domains: %s\n" % e)
 ```
 
 ### Parameters
@@ -1511,7 +1905,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | [**str**](.md)|  | 
- **request_body** | [**list[str]**](list.md)|  | 
+ **request_body** | [**list[str]**](str.md)|  | 
 
 ### Return type
 
@@ -1526,6 +1920,11 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_member**
@@ -1535,7 +1934,7 @@ Remove member from an organization
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1543,46 +1942,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-user_id = 'user_id_example' # str | 
-
-try:
-    # Remove member from an organization
-    api_instance.remove_member(organization_id, user_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->remove_member: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 user_id = 'user_id_example' # str | 
 
-try:
-    # Remove member from an organization
-    api_instance.remove_member(organization_id, user_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->remove_member: %s\n" % e)
+    try:
+        # Remove member from an organization
+        api_instance.remove_member(organization_id, user_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->remove_member: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+user_id = 'user_id_example' # str | 
+
+    try:
+        # Remove member from an organization
+        api_instance.remove_member(organization_id, user_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->remove_member: %s\n" % e)
 ```
 
 ### Parameters
@@ -1605,6 +2020,11 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_role_from_user**
@@ -1614,7 +2034,7 @@ Remove a role from a user
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1622,48 +2042,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-role_id = 'role_id_example' # str | 
-user_id = 'user_id_example' # str | 
-
-try:
-    # Remove a role from a user
-    api_instance.remove_role_from_user(organization_id, role_id, user_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->remove_role_from_user: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 role_id = 'role_id_example' # str | 
 user_id = 'user_id_example' # str | 
 
-try:
-    # Remove a role from a user
-    api_instance.remove_role_from_user(organization_id, role_id, user_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->remove_role_from_user: %s\n" % e)
+    try:
+        # Remove a role from a user
+        api_instance.remove_role_from_user(organization_id, role_id, user_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->remove_role_from_user: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+role_id = 'role_id_example' # str | 
+user_id = 'user_id_example' # str | 
+
+    try:
+        # Remove a role from a user
+        api_instance.remove_role_from_user(organization_id, role_id, user_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->remove_role_from_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -1687,6 +2123,11 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_auto_approved_email_domain**
@@ -1696,7 +2137,7 @@ Set auto-approved email domains
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1704,46 +2145,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-request_body = NULL # list[str] | 
-
-try:
-    # Set auto-approved email domains
-    api_instance.set_auto_approved_email_domain(organization_id, request_body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->set_auto_approved_email_domain: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-request_body = NULL # list[str] | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Set auto-approved email domains
-    api_instance.set_auto_approved_email_domain(organization_id, request_body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->set_auto_approved_email_domain: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+request_body = ['request_body_example'] # list[str] | 
+
+    try:
+        # Set auto-approved email domains
+        api_instance.set_auto_approved_email_domain(organization_id, request_body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->set_auto_approved_email_domain: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+request_body = ['request_body_example'] # list[str] | 
+
+    try:
+        # Set auto-approved email domains
+        api_instance.set_auto_approved_email_domain(organization_id, request_body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->set_auto_approved_email_domain: %s\n" % e)
 ```
 
 ### Parameters
@@ -1751,7 +2208,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | [**str**](.md)|  | 
- **request_body** | [**list[str]**](list.md)|  | 
+ **request_body** | [**list[str]**](str.md)|  | 
 
 ### Return type
 
@@ -1766,6 +2223,11 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **synchronize_edm_changes**
@@ -1775,7 +2237,7 @@ Synchronizes EDM changes to the requested materialized entity set in the organiz
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1783,46 +2245,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-entity_set_id = 'entity_set_id_example' # str | 
-
-try:
-    # Synchronizes EDM changes to the requested materialized entity set in the organization.
-    api_instance.synchronize_edm_changes(organization_id, entity_set_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->synchronize_edm_changes: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 entity_set_id = 'entity_set_id_example' # str | 
 
-try:
-    # Synchronizes EDM changes to the requested materialized entity set in the organization.
-    api_instance.synchronize_edm_changes(organization_id, entity_set_id)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->synchronize_edm_changes: %s\n" % e)
+    try:
+        # Synchronizes EDM changes to the requested materialized entity set in the organization.
+        api_instance.synchronize_edm_changes(organization_id, entity_set_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->synchronize_edm_changes: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+entity_set_id = 'entity_set_id_example' # str | 
+
+    try:
+        # Synchronizes EDM changes to the requested materialized entity set in the organization.
+        api_instance.synchronize_edm_changes(organization_id, entity_set_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->synchronize_edm_changes: %s\n" % e)
 ```
 
 ### Parameters
@@ -1845,6 +2323,11 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_description**
@@ -1854,7 +2337,7 @@ Update the organization description
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1862,46 +2345,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-body = 'body_example' # str | 
-
-try:
-    # Update the organization description
-    api_instance.update_description(organization_id, body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->update_description: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 body = 'body_example' # str | 
 
-try:
-    # Update the organization description
-    api_instance.update_description(organization_id, body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->update_description: %s\n" % e)
+    try:
+        # Update the organization description
+        api_instance.update_description(organization_id, body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->update_description: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+body = 'body_example' # str | 
+
+    try:
+        # Update the organization description
+        api_instance.update_description(organization_id, body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->update_description: %s\n" % e)
 ```
 
 ### Parameters
@@ -1923,6 +2422,11 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1933,7 +2437,7 @@ Update role description for an organization from a roleId
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1941,48 +2445,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-role_id = 'role_id_example' # str | 
-body = 'body_example' # str | 
-
-try:
-    # Update role description for an organization from a roleId
-    api_instance.update_role_description(organization_id, role_id, body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->update_role_description: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 role_id = 'role_id_example' # str | 
 body = 'body_example' # str | 
 
-try:
-    # Update role description for an organization from a roleId
-    api_instance.update_role_description(organization_id, role_id, body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->update_role_description: %s\n" % e)
+    try:
+        # Update role description for an organization from a roleId
+        api_instance.update_role_description(organization_id, role_id, body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->update_role_description: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+role_id = 'role_id_example' # str | 
+body = 'body_example' # str | 
+
+    try:
+        # Update role description for an organization from a roleId
+        api_instance.update_role_description(organization_id, role_id, body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->update_role_description: %s\n" % e)
 ```
 
 ### Parameters
@@ -2003,8 +2523,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: text/plain
  - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2015,7 +2540,7 @@ Update role title for an organization from a roleId
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -2023,48 +2548,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-role_id = 'role_id_example' # str | 
-body = 'body_example' # str | 
-
-try:
-    # Update role title for an organization from a roleId
-    api_instance.update_role_title(organization_id, role_id, body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->update_role_title: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 role_id = 'role_id_example' # str | 
 body = 'body_example' # str | 
 
-try:
-    # Update role title for an organization from a roleId
-    api_instance.update_role_title(organization_id, role_id, body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->update_role_title: %s\n" % e)
+    try:
+        # Update role title for an organization from a roleId
+        api_instance.update_role_title(organization_id, role_id, body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->update_role_title: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+role_id = 'role_id_example' # str | 
+body = 'body_example' # str | 
+
+    try:
+        # Update role title for an organization from a roleId
+        api_instance.update_role_title(organization_id, role_id, body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->update_role_title: %s\n" % e)
 ```
 
 ### Parameters
@@ -2085,8 +2626,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: text/plain
  - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2097,7 +2643,7 @@ Update the organization title
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -2105,46 +2651,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
-body = 'body_example' # str | 
-
-try:
-    # Update the organization title
-    api_instance.update_title(organization_id, body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->update_title: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.OrganizationsApi(openlattice.ApiClient(configuration))
-organization_id = 'organization_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
 body = 'body_example' # str | 
 
-try:
-    # Update the organization title
-    api_instance.update_title(organization_id, body)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->update_title: %s\n" % e)
+    try:
+        # Update the organization title
+        api_instance.update_title(organization_id, body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->update_title: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+body = 'body_example' # str | 
+
+    try:
+        # Update the organization title
+        api_instance.update_title(organization_id, body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->update_title: %s\n" % e)
 ```
 
 ### Parameters
@@ -2166,6 +2728,11 @@ void (empty response body)
 
  - **Content-Type**: application/json
  - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

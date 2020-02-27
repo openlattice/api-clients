@@ -15,7 +15,7 @@ Check authorizations
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -23,46 +23,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.AuthorizationsApi(openlattice.ApiClient(configuration))
-access_check = openlattice.AccessCheck() # AccessCheck | 
-
-try:
-    # Check authorizations
-    api_response = api_instance.check_authorizations(access_check)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthorizationsApi->check_authorizations: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.AuthorizationsApi(openlattice.ApiClient(configuration))
-access_check = openlattice.AccessCheck() # AccessCheck | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Check authorizations
-    api_response = api_instance.check_authorizations(access_check)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthorizationsApi->check_authorizations: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.AuthorizationsApi(api_client)
+    access_check = openlattice.AccessCheck() # AccessCheck | 
+
+    try:
+        # Check authorizations
+        api_response = api_instance.check_authorizations(access_check)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthorizationsApi->check_authorizations: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.AuthorizationsApi(api_client)
+    access_check = openlattice.AccessCheck() # AccessCheck | 
+
+    try:
+        # Check authorizations
+        api_response = api_instance.check_authorizations(access_check)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthorizationsApi->check_authorizations: %s\n" % e)
 ```
 
 ### Parameters
@@ -84,6 +100,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_accessible_objects**
@@ -93,7 +114,7 @@ Returns paged results for all authorized objects of specified objectType, that t
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -101,50 +122,66 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.AuthorizationsApi(openlattice.ApiClient(configuration))
-object_type = 'object_type_example' # str |  (optional)
-permission = 'permission_example' # str |  (optional)
-paging_token = 'paging_token_example' # str |  (optional)
-
-try:
-    # Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
-    api_response = api_instance.get_accessible_objects(object_type=object_type, permission=permission, paging_token=paging_token)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthorizationsApi->get_accessible_objects: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.AuthorizationsApi(openlattice.ApiClient(configuration))
-object_type = 'object_type_example' # str |  (optional)
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.AuthorizationsApi(api_client)
+    object_type = 'object_type_example' # str |  (optional)
 permission = 'permission_example' # str |  (optional)
 paging_token = 'paging_token_example' # str |  (optional)
 
-try:
-    # Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
-    api_response = api_instance.get_accessible_objects(object_type=object_type, permission=permission, paging_token=paging_token)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthorizationsApi->get_accessible_objects: %s\n" % e)
+    try:
+        # Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
+        api_response = api_instance.get_accessible_objects(object_type=object_type, permission=permission, paging_token=paging_token)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthorizationsApi->get_accessible_objects: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.AuthorizationsApi(api_client)
+    object_type = 'object_type_example' # str |  (optional)
+permission = 'permission_example' # str |  (optional)
+paging_token = 'paging_token_example' # str |  (optional)
+
+    try:
+        # Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
+        api_response = api_instance.get_accessible_objects(object_type=object_type, permission=permission, paging_token=paging_token)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AuthorizationsApi->get_accessible_objects: %s\n" % e)
 ```
 
 ### Parameters
@@ -167,6 +204,11 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

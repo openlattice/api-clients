@@ -31,7 +31,7 @@ Creates a new set of associations.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -39,46 +39,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-inline_object = openlattice.InlineObject() # InlineObject | 
-
-try:
-    # Creates a new set of associations.
-    api_response = api_instance.create_associations(inline_object)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->create_associations: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-inline_object = openlattice.InlineObject() # InlineObject | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Creates a new set of associations.
-    api_response = api_instance.create_associations(inline_object)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->create_associations: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    inline_object = openlattice.InlineObject() # InlineObject | 
+
+    try:
+        # Creates a new set of associations.
+        api_response = api_instance.create_associations(inline_object)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->create_associations: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    inline_object = openlattice.InlineObject() # InlineObject | 
+
+    try:
+        # Creates a new set of associations.
+        api_response = api_instance.create_associations(inline_object)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->create_associations: %s\n" % e)
 ```
 
 ### Parameters
@@ -100,6 +116,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Edges |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_edges**
@@ -109,7 +130,7 @@ Creates a new set of associations.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -117,53 +138,69 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-data_edge_key = NULL # list[DataEdgeKey] | 
-
-try:
-    # Creates a new set of associations.
-    api_response = api_instance.create_edges(data_edge_key)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->create_edges: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-data_edge_key = NULL # list[DataEdgeKey] | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Creates a new set of associations.
-    api_response = api_instance.create_edges(data_edge_key)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->create_edges: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    data_edge_key = [openlattice.DataEdgeKey()] # list[DataEdgeKey] | 
+
+    try:
+        # Creates a new set of associations.
+        api_response = api_instance.create_edges(data_edge_key)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->create_edges: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    data_edge_key = [openlattice.DataEdgeKey()] # list[DataEdgeKey] | 
+
+    try:
+        # Creates a new set of associations.
+        api_response = api_instance.create_edges(data_edge_key)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->create_edges: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data_edge_key** | [**list[DataEdgeKey]**](list.md)|  | 
+ **data_edge_key** | [**list[DataEdgeKey]**](DataEdgeKey.md)|  | 
 
 ### Return type
 
@@ -178,6 +215,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An Entity Set definition |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_entities**
@@ -187,7 +229,7 @@ Creates a new set of entities.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -195,48 +237,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-set_id = 'set_id_example' # str | 
-request_body = NULL # list[dict(str, list[str])] | 
-
-try:
-    # Creates a new set of entities.
-    api_response = api_instance.create_entities(set_id, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->create_entities: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-set_id = 'set_id_example' # str | 
-request_body = NULL # list[dict(str, list[str])] | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Creates a new set of entities.
-    api_response = api_instance.create_entities(set_id, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->create_entities: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    set_id = 'set_id_example' # str | 
+request_body = None # list[dict(str, list[str])] | 
+
+    try:
+        # Creates a new set of entities.
+        api_response = api_instance.create_entities(set_id, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->create_entities: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    set_id = 'set_id_example' # str | 
+request_body = None # list[dict(str, list[str])] | 
+
+    try:
+        # Creates a new set of entities.
+        api_response = api_instance.create_entities(set_id, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->create_entities: %s\n" % e)
 ```
 
 ### Parameters
@@ -244,7 +302,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **set_id** | [**str**](.md)|  | 
- **request_body** | [**list[dict(str, list[str])]**](list.md)|  | 
+ **request_body** | [**list[dict(str, list[str])]**](dict.md)|  | 
 
 ### Return type
 
@@ -259,6 +317,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Edges |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_entity_and_association_data**
@@ -268,7 +331,7 @@ Creates entities and assocations
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -276,46 +339,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-data_graph = openlattice.DataGraph() # DataGraph | 
-
-try:
-    # Creates entities and assocations
-    api_response = api_instance.create_entity_and_association_data(data_graph)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->create_entity_and_association_data: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-data_graph = openlattice.DataGraph() # DataGraph | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Creates entities and assocations
-    api_response = api_instance.create_entity_and_association_data(data_graph)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->create_entity_and_association_data: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    data_graph = openlattice.DataGraph() # DataGraph | 
+
+    try:
+        # Creates entities and assocations
+        api_response = api_instance.create_entity_and_association_data(data_graph)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->create_entity_and_association_data: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    data_graph = openlattice.DataGraph() # DataGraph | 
+
+    try:
+        # Creates entities and assocations
+        api_response = api_instance.create_entity_and_association_data(data_graph)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->create_entity_and_association_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -337,6 +416,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | DataGraphIds |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_all_entities_from_entity_set**
@@ -346,7 +430,7 @@ Clears the Entity matching the given Entity id and all of its neighbor Entities
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -354,46 +438,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-type = 'type_example' # str | 
-
-try:
-    # Clears the Entity matching the given Entity id and all of its neighbor Entities
-    api_instance.delete_all_entities_from_entity_set(entity_set_id, type)
-except ApiException as e:
-    print("Exception when calling DataApi->delete_all_entities_from_entity_set: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
 type = 'type_example' # str | 
 
-try:
-    # Clears the Entity matching the given Entity id and all of its neighbor Entities
-    api_instance.delete_all_entities_from_entity_set(entity_set_id, type)
-except ApiException as e:
-    print("Exception when calling DataApi->delete_all_entities_from_entity_set: %s\n" % e)
+    try:
+        # Clears the Entity matching the given Entity id and all of its neighbor Entities
+        api_instance.delete_all_entities_from_entity_set(entity_set_id, type)
+    except ApiException as e:
+        print("Exception when calling DataApi->delete_all_entities_from_entity_set: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+type = 'type_example' # str | 
+
+    try:
+        # Clears the Entity matching the given Entity id and all of its neighbor Entities
+        api_instance.delete_all_entities_from_entity_set(entity_set_id, type)
+    except ApiException as e:
+        print("Exception when calling DataApi->delete_all_entities_from_entity_set: %s\n" % e)
 ```
 
 ### Parameters
@@ -415,6 +515,11 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -425,7 +530,7 @@ Deletes multiple entities from an entity set.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -433,50 +538,66 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-type = 'type_example' # str | 
-request_body = NULL # list[str] | 
-
-try:
-    # Deletes multiple entities from an entity set.
-    api_response = api_instance.delete_entities(entity_set_id, type, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->delete_entities: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-type = 'type_example' # str | 
-request_body = NULL # list[str] | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Deletes multiple entities from an entity set.
-    api_response = api_instance.delete_entities(entity_set_id, type, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->delete_entities: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+type = 'type_example' # str | 
+request_body = ['request_body_example'] # list[str] | 
+
+    try:
+        # Deletes multiple entities from an entity set.
+        api_response = api_instance.delete_entities(entity_set_id, type, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->delete_entities: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+type = 'type_example' # str | 
+request_body = ['request_body_example'] # list[str] | 
+
+    try:
+        # Deletes multiple entities from an entity set.
+        api_response = api_instance.delete_entities(entity_set_id, type, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->delete_entities: %s\n" % e)
 ```
 
 ### Parameters
@@ -485,7 +606,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_set_id** | [**str**](.md)|  | 
  **type** | **str**|  | 
- **request_body** | [**list[str]**](list.md)|  | 
+ **request_body** | [**list[str]**](str.md)|  | 
 
 ### Return type
 
@@ -499,6 +620,11 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -509,7 +635,7 @@ Deletes the entities matching the given entity ids and all of its neighbor entit
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -517,50 +643,66 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-type = 'type_example' # str | 
-entity_neighbors_filter = NULL # list[EntityNeighborsFilter] | 
-
-try:
-    # Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
-    api_response = api_instance.delete_entities_and_neighbors(entity_set_id, type, entity_neighbors_filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->delete_entities_and_neighbors: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-type = 'type_example' # str | 
-entity_neighbors_filter = NULL # list[EntityNeighborsFilter] | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
-    api_response = api_instance.delete_entities_and_neighbors(entity_set_id, type, entity_neighbors_filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->delete_entities_and_neighbors: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+type = 'type_example' # str | 
+entity_neighbors_filter = [openlattice.EntityNeighborsFilter()] # list[EntityNeighborsFilter] | 
+
+    try:
+        # Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
+        api_response = api_instance.delete_entities_and_neighbors(entity_set_id, type, entity_neighbors_filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->delete_entities_and_neighbors: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+type = 'type_example' # str | 
+entity_neighbors_filter = [openlattice.EntityNeighborsFilter()] # list[EntityNeighborsFilter] | 
+
+    try:
+        # Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
+        api_response = api_instance.delete_entities_and_neighbors(entity_set_id, type, entity_neighbors_filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->delete_entities_and_neighbors: %s\n" % e)
 ```
 
 ### Parameters
@@ -569,7 +711,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_set_id** | [**str**](.md)|  | 
  **type** | **str**|  | 
- **entity_neighbors_filter** | [**list[EntityNeighborsFilter]**](list.md)|  | 
+ **entity_neighbors_filter** | [**list[EntityNeighborsFilter]**](EntityNeighborsFilter.md)|  | 
 
 ### Return type
 
@@ -584,6 +726,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A long |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_entity**
@@ -593,7 +740,7 @@ Deletes a single entity from an entity set.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -601,48 +748,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-entity_key_id = 'entity_key_id_example' # str | 
-type = 'type_example' # str | 
-
-try:
-    # Deletes a single entity from an entity set.
-    api_instance.delete_entity(entity_set_id, entity_key_id, type)
-except ApiException as e:
-    print("Exception when calling DataApi->delete_entity: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
 entity_key_id = 'entity_key_id_example' # str | 
 type = 'type_example' # str | 
 
-try:
-    # Deletes a single entity from an entity set.
-    api_instance.delete_entity(entity_set_id, entity_key_id, type)
-except ApiException as e:
-    print("Exception when calling DataApi->delete_entity: %s\n" % e)
+    try:
+        # Deletes a single entity from an entity set.
+        api_instance.delete_entity(entity_set_id, entity_key_id, type)
+    except ApiException as e:
+        print("Exception when calling DataApi->delete_entity: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+entity_key_id = 'entity_key_id_example' # str | 
+type = 'type_example' # str | 
+
+    try:
+        # Deletes a single entity from an entity set.
+        api_instance.delete_entity(entity_set_id, entity_key_id, type)
+    except ApiException as e:
+        print("Exception when calling DataApi->delete_entity: %s\n" % e)
 ```
 
 ### Parameters
@@ -666,6 +829,11 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_entity_properties**
@@ -675,7 +843,7 @@ Deletes properties from an entity.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -683,50 +851,66 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-entity_key_id = 'entity_key_id_example' # str | 
-type = 'type_example' # str | 
-request_body = NULL # list[str] | 
-
-try:
-    # Deletes properties from an entity.
-    api_instance.delete_entity_properties(entity_set_id, entity_key_id, type, request_body)
-except ApiException as e:
-    print("Exception when calling DataApi->delete_entity_properties: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
 entity_key_id = 'entity_key_id_example' # str | 
 type = 'type_example' # str | 
-request_body = NULL # list[str] | 
+request_body = ['request_body_example'] # list[str] | 
 
-try:
-    # Deletes properties from an entity.
-    api_instance.delete_entity_properties(entity_set_id, entity_key_id, type, request_body)
-except ApiException as e:
-    print("Exception when calling DataApi->delete_entity_properties: %s\n" % e)
+    try:
+        # Deletes properties from an entity.
+        api_instance.delete_entity_properties(entity_set_id, entity_key_id, type, request_body)
+    except ApiException as e:
+        print("Exception when calling DataApi->delete_entity_properties: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+entity_key_id = 'entity_key_id_example' # str | 
+type = 'type_example' # str | 
+request_body = ['request_body_example'] # list[str] | 
+
+    try:
+        # Deletes properties from an entity.
+        api_instance.delete_entity_properties(entity_set_id, entity_key_id, type, request_body)
+    except ApiException as e:
+        print("Exception when calling DataApi->delete_entity_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -736,7 +920,7 @@ Name | Type | Description  | Notes
  **entity_set_id** | [**str**](.md)|  | 
  **entity_key_id** | [**str**](.md)|  | 
  **type** | **str**|  | 
- **request_body** | [**list[str]**](list.md)|  | 
+ **request_body** | [**list[str]**](str.md)|  | 
 
 ### Return type
 
@@ -751,6 +935,11 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_entity**
@@ -760,7 +949,7 @@ Loads a single entity by its entityKeyId and entitySetId
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -768,48 +957,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-entity_key_id = 'entity_key_id_example' # str | 
-
-try:
-    # Loads a single entity by its entityKeyId and entitySetId
-    api_response = api_instance.get_entity(entity_set_id, entity_key_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->get_entity: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
 entity_key_id = 'entity_key_id_example' # str | 
 
-try:
-    # Loads a single entity by its entityKeyId and entitySetId
-    api_response = api_instance.get_entity(entity_set_id, entity_key_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->get_entity: %s\n" % e)
+    try:
+        # Loads a single entity by its entityKeyId and entitySetId
+        api_response = api_instance.get_entity(entity_set_id, entity_key_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->get_entity: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+entity_key_id = 'entity_key_id_example' # str | 
+
+    try:
+        # Loads a single entity by its entityKeyId and entitySetId
+        api_response = api_instance.get_entity(entity_set_id, entity_key_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->get_entity: %s\n" % e)
 ```
 
 ### Parameters
@@ -832,6 +1037,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An entity details object, with property type FQNs as keys. |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_entity_property_values**
@@ -841,7 +1051,7 @@ Loads property  values for a single entity by its entityKeyId, entitySetId and p
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -849,50 +1059,66 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-entity_key_id = 'entity_key_id_example' # str | 
-property_type_id = 'property_type_id_example' # str | 
-
-try:
-    # Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
-    api_response = api_instance.get_entity_property_values(entity_set_id, entity_key_id, property_type_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->get_entity_property_values: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
 entity_key_id = 'entity_key_id_example' # str | 
 property_type_id = 'property_type_id_example' # str | 
 
-try:
-    # Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
-    api_response = api_instance.get_entity_property_values(entity_set_id, entity_key_id, property_type_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->get_entity_property_values: %s\n" % e)
+    try:
+        # Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
+        api_response = api_instance.get_entity_property_values(entity_set_id, entity_key_id, property_type_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->get_entity_property_values: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+entity_key_id = 'entity_key_id_example' # str | 
+property_type_id = 'property_type_id_example' # str | 
+
+    try:
+        # Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
+        api_response = api_instance.get_entity_property_values(entity_set_id, entity_key_id, property_type_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->get_entity_property_values: %s\n" % e)
 ```
 
 ### Parameters
@@ -916,6 +1142,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A set of values |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_entity_set_size**
@@ -925,7 +1156,7 @@ Gets the number of entities in an entity set.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -933,46 +1164,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-
-try:
-    # Gets the number of entities in an entity set.
-    api_response = api_instance.get_entity_set_size(entity_set_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->get_entity_set_size: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Gets the number of entities in an entity set.
-    api_response = api_instance.get_entity_set_size(entity_set_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->get_entity_set_size: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+
+    try:
+        # Gets the number of entities in an entity set.
+        api_response = api_instance.get_entity_set_size(entity_set_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->get_entity_set_size: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+
+    try:
+        # Gets the number of entities in an entity set.
+        api_response = api_instance.get_entity_set_size(entity_set_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->get_entity_set_size: %s\n" % e)
 ```
 
 ### Parameters
@@ -994,6 +1241,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The number of entities in an entity set. |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **load_entity_set_data**
@@ -1003,7 +1255,7 @@ Gets an iterable containing the entity data, using property type FQNs as key
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1011,46 +1263,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-
-try:
-    # Gets an iterable containing the entity data, using property type FQNs as key
-    api_response = api_instance.load_entity_set_data(entity_set_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->load_entity_set_data: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Gets an iterable containing the entity data, using property type FQNs as key
-    api_response = api_instance.load_entity_set_data(entity_set_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->load_entity_set_data: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+
+    try:
+        # Gets an iterable containing the entity data, using property type FQNs as key
+        api_response = api_instance.load_entity_set_data(entity_set_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->load_entity_set_data: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+
+    try:
+        # Gets an iterable containing the entity data, using property type FQNs as key
+        api_response = api_instance.load_entity_set_data(entity_set_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->load_entity_set_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -1072,6 +1340,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An Entity Set definition |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **load_linked_entity_set_breakdown**
@@ -1081,7 +1354,7 @@ Loads a linked entity set breakdown with the selected linked entities and proper
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1089,48 +1362,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-linked_entity_set_id = 'linked_entity_set_id_example' # str | 
-entity_set_selection = NULL # list[EntitySetSelection] | 
-
-try:
-    # Loads a linked entity set breakdown with the selected linked entities and properties.
-    api_response = api_instance.load_linked_entity_set_breakdown(linked_entity_set_id, entity_set_selection)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->load_linked_entity_set_breakdown: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-linked_entity_set_id = 'linked_entity_set_id_example' # str | 
-entity_set_selection = NULL # list[EntitySetSelection] | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Loads a linked entity set breakdown with the selected linked entities and properties.
-    api_response = api_instance.load_linked_entity_set_breakdown(linked_entity_set_id, entity_set_selection)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->load_linked_entity_set_breakdown: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    linked_entity_set_id = 'linked_entity_set_id_example' # str | 
+entity_set_selection = [openlattice.EntitySetSelection()] # list[EntitySetSelection] | 
+
+    try:
+        # Loads a linked entity set breakdown with the selected linked entities and properties.
+        api_response = api_instance.load_linked_entity_set_breakdown(linked_entity_set_id, entity_set_selection)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->load_linked_entity_set_breakdown: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    linked_entity_set_id = 'linked_entity_set_id_example' # str | 
+entity_set_selection = [openlattice.EntitySetSelection()] # list[EntitySetSelection] | 
+
+    try:
+        # Loads a linked entity set breakdown with the selected linked entities and properties.
+        api_response = api_instance.load_linked_entity_set_breakdown(linked_entity_set_id, entity_set_selection)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->load_linked_entity_set_breakdown: %s\n" % e)
 ```
 
 ### Parameters
@@ -1138,7 +1427,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **linked_entity_set_id** | [**str**](.md)|  | 
- **entity_set_selection** | [**list[EntitySetSelection]**](list.md)|  | 
+ **entity_set_selection** | [**list[EntitySetSelection]**](EntitySetSelection.md)|  | 
 
 ### Return type
 
@@ -1153,6 +1442,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **load_selected_entity_set_data**
@@ -1162,7 +1456,7 @@ Gets a list of entities by UUIDs
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1170,48 +1464,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-entity_set_selection = NULL # list[EntitySetSelection] | 
-
-try:
-    # Gets a list of entities by UUIDs
-    api_response = api_instance.load_selected_entity_set_data(entity_set_id, entity_set_selection)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->load_selected_entity_set_data: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-entity_set_selection = NULL # list[EntitySetSelection] | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Gets a list of entities by UUIDs
-    api_response = api_instance.load_selected_entity_set_data(entity_set_id, entity_set_selection)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->load_selected_entity_set_data: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+entity_set_selection = [openlattice.EntitySetSelection()] # list[EntitySetSelection] | 
+
+    try:
+        # Gets a list of entities by UUIDs
+        api_response = api_instance.load_selected_entity_set_data(entity_set_id, entity_set_selection)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->load_selected_entity_set_data: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+entity_set_selection = [openlattice.EntitySetSelection()] # list[EntitySetSelection] | 
+
+    try:
+        # Gets a list of entities by UUIDs
+        api_response = api_instance.load_selected_entity_set_data(entity_set_id, entity_set_selection)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->load_selected_entity_set_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -1219,7 +1529,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_set_id** | [**str**](.md)|  | 
- **entity_set_selection** | [**list[EntitySetSelection]**](list.md)|  | 
+ **entity_set_selection** | [**list[EntitySetSelection]**](EntitySetSelection.md)|  | 
 
 ### Return type
 
@@ -1234,6 +1544,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A list of entity keys that were generated |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **replace_association_data**
@@ -1243,7 +1558,7 @@ Replaces Association Data
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1251,48 +1566,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-partial = True # bool | 
-request_body = NULL # dict(str, dict(str, DataEdge)) | 
-
-try:
-    # Replaces Association Data
-    api_response = api_instance.replace_association_data(partial, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->replace_association_data: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-partial = True # bool | 
-request_body = NULL # dict(str, dict(str, DataEdge)) | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Replaces Association Data
-    api_response = api_instance.replace_association_data(partial, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->replace_association_data: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    partial = True # bool | 
+request_body = None # dict(str, dict(str, DataEdge)) | 
+
+    try:
+        # Replaces Association Data
+        api_response = api_instance.replace_association_data(partial, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->replace_association_data: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    partial = True # bool | 
+request_body = None # dict(str, dict(str, DataEdge)) | 
+
+    try:
+        # Replaces Association Data
+        api_response = api_instance.replace_association_data(partial, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->replace_association_data: %s\n" % e)
 ```
 
 ### Parameters
@@ -1315,6 +1646,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **replace_entity_properties**
@@ -1324,7 +1660,7 @@ Replaces Entity Properties
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1332,48 +1668,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-request_body = NULL # dict(str, dict(str, list[dict(str, str)])) | 
-
-try:
-    # Replaces Entity Properties
-    api_response = api_instance.replace_entity_properties(entity_set_id, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->replace_entity_properties: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-request_body = NULL # dict(str, dict(str, list[dict(str, str)])) | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Replaces Entity Properties
-    api_response = api_instance.replace_entity_properties(entity_set_id, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->replace_entity_properties: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+request_body = None # dict(str, dict(str, list[dict(str, str)])) | 
+
+    try:
+        # Replaces Entity Properties
+        api_response = api_instance.replace_entity_properties(entity_set_id, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->replace_entity_properties: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+request_body = None # dict(str, dict(str, list[dict(str, str)])) | 
+
+    try:
+        # Replaces Entity Properties
+        api_response = api_instance.replace_entity_properties(entity_set_id, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->replace_entity_properties: %s\n" % e)
 ```
 
 ### Parameters
@@ -1396,6 +1748,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_entities_in_entity_set**
@@ -1405,7 +1762,7 @@ Perform one of the following bulk update operations on entities (type = Merge) a
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -1413,50 +1770,66 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-type = 'type_example' # str | 
-request_body = NULL # dict(str, dict(str, list[str])) | 
-
-try:
-    # Perform one of the following bulk update operations on entities (type = Merge) adds new properties without affecting existing data, (type = PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type = Replace) replaces all entity data with the supplied properties.
-    api_response = api_instance.update_entities_in_entity_set(entity_set_id, type, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->update_entities_in_entity_set: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.DataApi(openlattice.ApiClient(configuration))
-entity_set_id = 'entity_set_id_example' # str | 
-type = 'type_example' # str | 
-request_body = NULL # dict(str, dict(str, list[str])) | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Perform one of the following bulk update operations on entities (type = Merge) adds new properties without affecting existing data, (type = PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type = Replace) replaces all entity data with the supplied properties.
-    api_response = api_instance.update_entities_in_entity_set(entity_set_id, type, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DataApi->update_entities_in_entity_set: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+type = 'type_example' # str | 
+request_body = None # dict(str, dict(str, list[str])) | 
+
+    try:
+        # Perform one of the following bulk update operations on entities (type = Merge) adds new properties without affecting existing data, (type = PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type = Replace) replaces all entity data with the supplied properties.
+        api_response = api_instance.update_entities_in_entity_set(entity_set_id, type, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->update_entities_in_entity_set: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+type = 'type_example' # str | 
+request_body = None # dict(str, dict(str, list[str])) | 
+
+    try:
+        # Perform one of the following bulk update operations on entities (type = Merge) adds new properties without affecting existing data, (type = PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type = Replace) replaces all entity data with the supplied properties.
+        api_response = api_instance.update_entities_in_entity_set(entity_set_id, type, request_body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->update_entities_in_entity_set: %s\n" % e)
 ```
 
 ### Parameters
@@ -1479,6 +1852,11 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

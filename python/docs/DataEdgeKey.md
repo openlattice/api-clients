@@ -1,5 +1,6 @@
 # DataEdgeKey
 
+Set of associations to create. An association is the triple of source, destination, and edge entity data keys.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

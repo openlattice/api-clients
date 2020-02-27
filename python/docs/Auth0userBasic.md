@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **nickname** | **str** |  | [optional] 
 **username** | **str** |  | [optional] 
 **roles** | **list[str]** |  | [optional] 
-**comopenlatticeorganization** | **list[str]** |  | [optional] 
+**com_openlattice_organization** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

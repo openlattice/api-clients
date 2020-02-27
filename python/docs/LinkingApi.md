@@ -19,7 +19,7 @@ Submits feedbacks for a given linking entity set and linking id in a batch forma
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -27,46 +27,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
-linking_feedback = openlattice.LinkingFeedback() # LinkingFeedback | 
-
-try:
-    # Submits feedbacks for a given linking entity set and linking id in a batch format.
-    api_response = api_instance.add_linking_feedback(linking_feedback)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->add_linking_feedback: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
-linking_feedback = openlattice.LinkingFeedback() # LinkingFeedback | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Submits feedbacks for a given linking entity set and linking id in a batch format.
-    api_response = api_instance.add_linking_feedback(linking_feedback)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->add_linking_feedback: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    linking_feedback = openlattice.LinkingFeedback() # LinkingFeedback | 
+
+    try:
+        # Submits feedbacks for a given linking entity set and linking id in a batch format.
+        api_response = api_instance.add_linking_feedback(linking_feedback)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->add_linking_feedback: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    linking_feedback = openlattice.LinkingFeedback() # LinkingFeedback | 
+
+    try:
+        # Submits feedbacks for a given linking entity set and linking id in a batch format.
+        api_response = api_instance.add_linking_feedback(linking_feedback)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->add_linking_feedback: %s\n" % e)
 ```
 
 ### Parameters
@@ -88,6 +104,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_linking_feedback**
@@ -97,7 +118,7 @@ Deletes linking feedback
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -105,46 +126,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
-entity_key_pair = openlattice.EntityKeyPair() # EntityKeyPair | 
-
-try:
-    # Deletes linking feedback
-    api_response = api_instance.delete_linking_feedback(entity_key_pair)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->delete_linking_feedback: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
-entity_key_pair = openlattice.EntityKeyPair() # EntityKeyPair | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Deletes linking feedback
-    api_response = api_instance.delete_linking_feedback(entity_key_pair)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->delete_linking_feedback: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    entity_key_pair = openlattice.EntityKeyPair() # EntityKeyPair | 
+
+    try:
+        # Deletes linking feedback
+        api_response = api_instance.delete_linking_feedback(entity_key_pair)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->delete_linking_feedback: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    entity_key_pair = openlattice.EntityKeyPair() # EntityKeyPair | 
+
+    try:
+        # Deletes linking feedback
+        api_response = api_instance.delete_linking_feedback(entity_key_pair)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->delete_linking_feedback: %s\n" % e)
 ```
 
 ### Parameters
@@ -166,6 +203,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_linking_feedback**
@@ -175,7 +217,7 @@ Returns all feedback submitted
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -183,44 +225,60 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
-
-try:
-    # Returns all feedback submitted
-    api_response = api_instance.get_all_linking_feedback()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->get_all_linking_feedback: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Returns all feedback submitted
-    api_response = api_instance.get_all_linking_feedback()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->get_all_linking_feedback: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    
+    try:
+        # Returns all feedback submitted
+        api_response = api_instance.get_all_linking_feedback()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->get_all_linking_feedback: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    
+    try:
+        # Returns all feedback submitted
+        api_response = api_instance.get_all_linking_feedback()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->get_all_linking_feedback: %s\n" % e)
 ```
 
 ### Parameters
@@ -239,6 +297,11 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_linking_feedback_with_features**
@@ -248,7 +311,7 @@ Returns all feedback submitted walong with the features of pairwise entities
 
 ### Example
 
-* Api Key Authentication (openlattice_auth): 
+* Api Key Authentication (openlattice_auth):
 ```python
 from __future__ import print_function
 import time
@@ -261,15 +324,20 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Returns all feedback submitted walong with the features of pairwise entities
-    api_response = api_instance.get_all_linking_feedback_with_features()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->get_all_linking_feedback_with_features: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    
+    try:
+        # Returns all feedback submitted walong with the features of pairwise entities
+        api_response = api_instance.get_all_linking_feedback_with_features()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->get_all_linking_feedback_with_features: %s\n" % e)
 ```
 
 ### Parameters
@@ -288,6 +356,11 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_linking_feedback_with_features**
@@ -297,7 +370,7 @@ Returns the feedback on the given entity pair along with their features
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -305,46 +378,62 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
-entity_key_pair = openlattice.EntityKeyPair() # EntityKeyPair | 
-
-try:
-    # Returns the feedback on the given entity pair along with their features
-    api_response = api_instance.get_linking_feedback_with_features(entity_key_pair)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->get_linking_feedback_with_features: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
-entity_key_pair = openlattice.EntityKeyPair() # EntityKeyPair | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
 
-try:
-    # Returns the feedback on the given entity pair along with their features
-    api_response = api_instance.get_linking_feedback_with_features(entity_key_pair)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->get_linking_feedback_with_features: %s\n" % e)
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    entity_key_pair = openlattice.EntityKeyPair() # EntityKeyPair | 
+
+    try:
+        # Returns the feedback on the given entity pair along with their features
+        api_response = api_instance.get_linking_feedback_with_features(entity_key_pair)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->get_linking_feedback_with_features: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    entity_key_pair = openlattice.EntityKeyPair() # EntityKeyPair | 
+
+    try:
+        # Returns the feedback on the given entity pair along with their features
+        api_response = api_instance.get_linking_feedback_with_features(entity_key_pair)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->get_linking_feedback_with_features: %s\n" % e)
 ```
 
 ### Parameters
@@ -366,6 +455,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_linking_feedbacks_on_entity**
@@ -375,7 +469,7 @@ Returns positive/negative/all linking feedbacks on the given entity.
 
 ### Example
 
-* Basic Authentication (http_auth): 
+* Bearer (JWT) Authentication (http_auth):
 ```python
 from __future__ import print_function
 import time
@@ -383,48 +477,64 @@ import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 configuration = openlattice.Configuration()
-# Configure HTTP basic authorization: http_auth
-configuration.username = 'YOUR_USERNAME'
-configuration.password = 'YOUR_PASSWORD'
-
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
-feedback_type = 'feedback_type_example' # str | 
-entity_data_key = openlattice.EntityDataKey() # EntityDataKey | 
-
-try:
-    # Returns positive/negative/all linking feedbacks on the given entity.
-    api_response = api_instance.get_linking_feedbacks_on_entity(feedback_type, entity_data_key)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->get_linking_feedbacks_on_entity: %s\n" % e)
-```
-
-
-* Api Key Authentication (openlattice_auth): 
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
 configuration = openlattice.Configuration()
 # Configure API key authorization: openlattice_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = openlattice.LinkingApi(openlattice.ApiClient(configuration))
-feedback_type = 'feedback_type_example' # str | 
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    feedback_type = 'feedback_type_example' # str | 
 entity_data_key = openlattice.EntityDataKey() # EntityDataKey | 
 
-try:
-    # Returns positive/negative/all linking feedbacks on the given entity.
-    api_response = api_instance.get_linking_feedbacks_on_entity(feedback_type, entity_data_key)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LinkingApi->get_linking_feedbacks_on_entity: %s\n" % e)
+    try:
+        # Returns positive/negative/all linking feedbacks on the given entity.
+        api_response = api_instance.get_linking_feedbacks_on_entity(feedback_type, entity_data_key)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->get_linking_feedbacks_on_entity: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+configuration = openlattice.Configuration()
+# Configure Bearer authorization (JWT): http_auth
+configuration.access_token = 'YOUR_BEARER_TOKEN'
+configuration = openlattice.Configuration()
+# Configure API key authorization: openlattice_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to https://api.openlattice.com
+configuration.host = "https://api.openlattice.com"
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.LinkingApi(api_client)
+    feedback_type = 'feedback_type_example' # str | 
+entity_data_key = openlattice.EntityDataKey() # EntityDataKey | 
+
+    try:
+        # Returns positive/negative/all linking feedbacks on the given entity.
+        api_response = api_instance.get_linking_feedbacks_on_entity(feedback_type, entity_data_key)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling LinkingApi->get_linking_feedbacks_on_entity: %s\n" % e)
 ```
 
 ### Parameters
@@ -446,6 +556,11 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
