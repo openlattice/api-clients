@@ -5,8 +5,8 @@ context("Test DataIntegrationsApi")
 
 api.instance <- DataIntegrationsApi$new()
 
-test_that("GetEntityKeyIds", {
-  # tests for GetEntityKeyIds
+test_that("get_entity_key_ids", {
+  # tests for get_entity_key_ids
   # base path: https://api.openlattice.com
   # Get entity key IDs
   # @param array[EntityKey]  entity.key   
@@ -16,8 +16,8 @@ test_that("GetEntityKeyIds", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("IntegrateEntityAndAssociationData", {
-  # tests for IntegrateEntityAndAssociationData
+test_that("integrate_entity_and_association_data", {
+  # tests for integrate_entity_and_association_data
   # base path: https://api.openlattice.com
   # Integrate entity and association data
   # @param character  detailed.results   

@@ -5,8 +5,8 @@ context("Test LinkingApi")
 
 api.instance <- LinkingApi$new()
 
-test_that("AddLinkingFeedback", {
-  # tests for AddLinkingFeedback
+test_that("add_linking_feedback", {
+  # tests for add_linking_feedback
   # base path: https://api.openlattice.com
   # Submits feedbacks for a given linking entity set and linking id in a batch format.
   # @param LinkingFeedback  linking.feedback   
@@ -16,8 +16,8 @@ test_that("AddLinkingFeedback", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("DeleteLinkingFeedback", {
-  # tests for DeleteLinkingFeedback
+test_that("delete_linking_feedback", {
+  # tests for delete_linking_feedback
   # base path: https://api.openlattice.com
   # Deletes linking feedback
   # @param EntityKeyPair  entity.key.pair   
@@ -27,8 +27,8 @@ test_that("DeleteLinkingFeedback", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetAllLinkingFeedback", {
-  # tests for GetAllLinkingFeedback
+test_that("get_all_linking_feedback", {
+  # tests for get_all_linking_feedback
   # base path: https://api.openlattice.com
   # Returns all feedback submitted
   # @return [array[EntityLinkingFeedback]]
@@ -37,8 +37,8 @@ test_that("GetAllLinkingFeedback", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetAllLinkingFeedbackWithFeatures", {
-  # tests for GetAllLinkingFeedbackWithFeatures
+test_that("get_all_linking_feedback_with_features", {
+  # tests for get_all_linking_feedback_with_features
   # base path: https://api.openlattice.com
   # Returns all feedback submitted walong with the features of pairwise entities
   # @return [array[EntityLinkingFeatures]]
@@ -47,8 +47,8 @@ test_that("GetAllLinkingFeedbackWithFeatures", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetLinkingFeedbackWithFeatures", {
-  # tests for GetLinkingFeedbackWithFeatures
+test_that("get_linking_feedback_with_features", {
+  # tests for get_linking_feedback_with_features
   # base path: https://api.openlattice.com
   # Returns the feedback on the given entity pair along with their features
   # @param EntityKeyPair  entity.key.pair   
@@ -58,8 +58,8 @@ test_that("GetLinkingFeedbackWithFeatures", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetLinkingFeedbacksOnEntity", {
-  # tests for GetLinkingFeedbacksOnEntity
+test_that("get_linking_feedbacks_on_entity", {
+  # tests for get_linking_feedbacks_on_entity
   # base path: https://api.openlattice.com
   # Returns positive/negative/all linking feedbacks on the given entity.
   # @param character  feedback.type   

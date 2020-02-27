@@ -5,8 +5,8 @@ context("Test SearchApi")
 
 api.instance <- SearchApi$new()
 
-test_that("ExecuteAdvancedEntitySetDataQuery", {
-  # tests for ExecuteAdvancedEntitySetDataQuery
+test_that("execute_advanced_entity_set_data_query", {
+  # tests for execute_advanced_entity_set_data_query
   # base path: https://api.openlattice.com
   # Executes a search over the data of a given entity set to find rows that match the search term
   # @param character  entity.set.id   
@@ -17,8 +17,8 @@ test_that("ExecuteAdvancedEntitySetDataQuery", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("ExecuteEntityNeighborSearch", {
-  # tests for ExecuteEntityNeighborSearch
+test_that("execute_entity_neighbor_search", {
+  # tests for execute_entity_neighbor_search
   # base path: https://api.openlattice.com
   # Executes a search for all neighbors of an entity that are connected by an association
   # @param character  entity.set.id   
@@ -29,8 +29,8 @@ test_that("ExecuteEntityNeighborSearch", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("ExecuteEntityNeighborSearchBulk", {
-  # tests for ExecuteEntityNeighborSearchBulk
+test_that("execute_entity_neighbor_search_bulk", {
+  # tests for execute_entity_neighbor_search_bulk
   # base path: https://api.openlattice.com
   # Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
   # @param character  entity.set.id   
@@ -41,8 +41,8 @@ test_that("ExecuteEntityNeighborSearchBulk", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("ExecuteEntitySetDataQuery", {
-  # tests for ExecuteEntitySetDataQuery
+test_that("execute_entity_set_data_query", {
+  # tests for execute_entity_set_data_query
   # base path: https://api.openlattice.com
   # Executes a search over the data of a given entity set to find rows that match the search term
   # @param character  entity.set.id   
@@ -53,8 +53,8 @@ test_that("ExecuteEntitySetDataQuery", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("ExecuteEntitySetKeywordQuery", {
-  # tests for ExecuteEntitySetKeywordQuery
+test_that("execute_entity_set_keyword_query", {
+  # tests for execute_entity_set_keyword_query
   # base path: https://api.openlattice.com
   # The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
   # @param Search  search   
@@ -64,8 +64,8 @@ test_that("ExecuteEntitySetKeywordQuery", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("ExecuteFilteredEntityNeighborIdSearch", {
-  # tests for ExecuteFilteredEntityNeighborIdSearch
+test_that("execute_filtered_entity_neighbor_id_search", {
+  # tests for execute_filtered_entity_neighbor_id_search
   # base path: https://api.openlattice.com
   # Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
   # @param character  entity.set.id   
@@ -76,8 +76,8 @@ test_that("ExecuteFilteredEntityNeighborIdSearch", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("ExecuteFilteredEntityNeighborSearch", {
-  # tests for ExecuteFilteredEntityNeighborSearch
+test_that("execute_filtered_entity_neighbor_search", {
+  # tests for execute_filtered_entity_neighbor_search
   # base path: https://api.openlattice.com
   # Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
   # @param character  entity.set.id   
@@ -88,8 +88,8 @@ test_that("ExecuteFilteredEntityNeighborSearch", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetEntitySets", {
-  # tests for GetEntitySets
+test_that("get_entity_sets", {
+  # tests for get_entity_sets
   # base path: https://api.openlattice.com
   # Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
   # @param integer  start  The first result number to return 
@@ -100,8 +100,8 @@ test_that("GetEntitySets", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetPopularEntitySet", {
-  # tests for GetPopularEntitySet
+test_that("get_popular_entity_set", {
+  # tests for get_popular_entity_set
   # base path: https://api.openlattice.com
   # Get the most popular entity sets.
   # @return [array[EntitySet]]
@@ -110,8 +110,8 @@ test_that("GetPopularEntitySet", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("SearchEntitySetData", {
-  # tests for SearchEntitySetData
+test_that("search_entity_set_data", {
+  # tests for search_entity_set_data
   # base path: https://api.openlattice.com
   # Executes a search over the data of a given entity set to find rows that match the search term
   # @param SearchConstraints  search.constraints   
