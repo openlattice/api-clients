@@ -5,8 +5,8 @@ context("Test DataApi")
 
 api.instance <- DataApi$new()
 
-test_that("CreateAssociations", {
-  # tests for CreateAssociations
+test_that("create_associations", {
+  # tests for create_associations
   # base path: https://api.openlattice.com
   # Creates a new set of associations.
   # @param InlineObject  inline.object   
@@ -16,8 +16,8 @@ test_that("CreateAssociations", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("CreateEdges", {
-  # tests for CreateEdges
+test_that("create_edges", {
+  # tests for create_edges
   # base path: https://api.openlattice.com
   # Creates a new set of associations.
   # @param array[DataEdgeKey]  data.edge.key   
@@ -27,8 +27,8 @@ test_that("CreateEdges", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("CreateEntities", {
-  # tests for CreateEntities
+test_that("create_entities", {
+  # tests for create_entities
   # base path: https://api.openlattice.com
   # Creates a new set of entities.
   # @param character  set.id   
@@ -39,8 +39,8 @@ test_that("CreateEntities", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("CreateEntityAndAssociationData", {
-  # tests for CreateEntityAndAssociationData
+test_that("create_entity_and_association_data", {
+  # tests for create_entity_and_association_data
   # base path: https://api.openlattice.com
   # Creates entities and assocations
   # @param DataGraph  data.graph   
@@ -50,8 +50,8 @@ test_that("CreateEntityAndAssociationData", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("DeleteAllEntitiesFromEntitySet", {
-  # tests for DeleteAllEntitiesFromEntitySet
+test_that("delete_all_entities_from_entity_set", {
+  # tests for delete_all_entities_from_entity_set
   # base path: https://api.openlattice.com
   # Clears the Entity matching the given Entity id and all of its neighbor Entities
   # @param character  entity.set.id   
@@ -62,8 +62,8 @@ test_that("DeleteAllEntitiesFromEntitySet", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("DeleteEntities", {
-  # tests for DeleteEntities
+test_that("delete_entities", {
+  # tests for delete_entities
   # base path: https://api.openlattice.com
   # Deletes multiple entities from an entity set.
   # @param character  entity.set.id   
@@ -75,8 +75,8 @@ test_that("DeleteEntities", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("DeleteEntitiesAndNeighbors", {
-  # tests for DeleteEntitiesAndNeighbors
+test_that("delete_entities_and_neighbors", {
+  # tests for delete_entities_and_neighbors
   # base path: https://api.openlattice.com
   # Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
   # @param character  entity.set.id   
@@ -88,8 +88,8 @@ test_that("DeleteEntitiesAndNeighbors", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("DeleteEntity", {
-  # tests for DeleteEntity
+test_that("delete_entity", {
+  # tests for delete_entity
   # base path: https://api.openlattice.com
   # Deletes a single entity from an entity set.
   # @param character  entity.set.id   
@@ -101,8 +101,8 @@ test_that("DeleteEntity", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("DeleteEntityProperties", {
-  # tests for DeleteEntityProperties
+test_that("delete_entity_properties", {
+  # tests for delete_entity_properties
   # base path: https://api.openlattice.com
   # Deletes properties from an entity.
   # @param character  entity.set.id   
@@ -115,8 +115,8 @@ test_that("DeleteEntityProperties", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetEntity", {
-  # tests for GetEntity
+test_that("get_entity", {
+  # tests for get_entity
   # base path: https://api.openlattice.com
   # Loads a single entity by its entityKeyId and entitySetId
   # @param character  entity.set.id   
@@ -127,8 +127,8 @@ test_that("GetEntity", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetEntityPropertyValues", {
-  # tests for GetEntityPropertyValues
+test_that("get_entity_property_values", {
+  # tests for get_entity_property_values
   # base path: https://api.openlattice.com
   # Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
   # @param character  entity.set.id   
@@ -140,8 +140,8 @@ test_that("GetEntityPropertyValues", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetEntitySetSize", {
-  # tests for GetEntitySetSize
+test_that("get_entity_set_size", {
+  # tests for get_entity_set_size
   # base path: https://api.openlattice.com
   # Gets the number of entities in an entity set.
   # @param character  entity.set.id   
@@ -151,8 +151,8 @@ test_that("GetEntitySetSize", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("LoadEntitySetData", {
-  # tests for LoadEntitySetData
+test_that("load_entity_set_data", {
+  # tests for load_entity_set_data
   # base path: https://api.openlattice.com
   # Gets an iterable containing the entity data, using property type FQNs as key
   # @param character  entity.set.id   
@@ -162,8 +162,8 @@ test_that("LoadEntitySetData", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("LoadLinkedEntitySetBreakdown", {
-  # tests for LoadLinkedEntitySetBreakdown
+test_that("load_linked_entity_set_breakdown", {
+  # tests for load_linked_entity_set_breakdown
   # base path: https://api.openlattice.com
   # Loads a linked entity set breakdown with the selected linked entities and properties.
   # @param character  linked.entity.set.id   
@@ -174,8 +174,8 @@ test_that("LoadLinkedEntitySetBreakdown", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("LoadSelectedEntitySetData", {
-  # tests for LoadSelectedEntitySetData
+test_that("load_selected_entity_set_data", {
+  # tests for load_selected_entity_set_data
   # base path: https://api.openlattice.com
   # Gets a list of entities by UUIDs
   # @param character  entity.set.id   
@@ -186,8 +186,8 @@ test_that("LoadSelectedEntitySetData", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("ReplaceAssociationData", {
-  # tests for ReplaceAssociationData
+test_that("replace_association_data", {
+  # tests for replace_association_data
   # base path: https://api.openlattice.com
   # Replaces Association Data
   # @param character  partial   
@@ -198,8 +198,8 @@ test_that("ReplaceAssociationData", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("ReplaceEntityProperties", {
-  # tests for ReplaceEntityProperties
+test_that("replace_entity_properties", {
+  # tests for replace_entity_properties
   # base path: https://api.openlattice.com
   # Replaces Entity Properties
   # @param character  entity.set.id   
@@ -210,8 +210,8 @@ test_that("ReplaceEntityProperties", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("UpdateEntitiesInEntitySet", {
-  # tests for UpdateEntitiesInEntitySet
+test_that("update_entities_in_entity_set", {
+  # tests for update_entities_in_entity_set
   # base path: https://api.openlattice.com
   # Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
   # @param character  entity.set.id   

@@ -5,8 +5,8 @@ context("Test DatasetApi")
 
 api.instance <- DatasetApi$new()
 
-test_that("GetExternalDatabaseTableWithColumns", {
-  # tests for GetExternalDatabaseTableWithColumns
+test_that("get_external_database_table_with_columns", {
+  # tests for get_external_database_table_with_columns
   # base path: https://api.openlattice.com
   # Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
   # @param character  organization.id   
@@ -17,8 +17,8 @@ test_that("GetExternalDatabaseTableWithColumns", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetExternalDatabaseTables", {
-  # tests for GetExternalDatabaseTables
+test_that("get_external_database_tables", {
+  # tests for get_external_database_tables
   # base path: https://api.openlattice.com
   # Gets all OrganizationExternalDatabaseTable objects for an organization
   # @param character  organization.id   
@@ -28,8 +28,8 @@ test_that("GetExternalDatabaseTables", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetExternalDatabaseTablesWithColumns", {
-  # tests for GetExternalDatabaseTablesWithColumns
+test_that("get_external_database_tables_with_columns", {
+  # tests for get_external_database_tables_with_columns
   # base path: https://api.openlattice.com
   # Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
   # @param character  organization.id   

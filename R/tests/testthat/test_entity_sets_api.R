@@ -5,8 +5,8 @@ context("Test EntitySetsApi")
 
 api.instance <- EntitySetsApi$new()
 
-test_that("AddEntitySetsToLinkingEntitySet", {
-  # tests for AddEntitySetsToLinkingEntitySet
+test_that("add_entity_sets_to_linking_entity_set", {
+  # tests for add_entity_sets_to_linking_entity_set
   # base path: https://api.openlattice.com
   # Adds the entity sets as linked entity sets to the linking entity set
   # @param character  linking.entity.set.id   
@@ -17,8 +17,8 @@ test_that("AddEntitySetsToLinkingEntitySet", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("AddEntitySetsToLinkingEntitySets", {
-  # tests for AddEntitySetsToLinkingEntitySets
+test_that("add_entity_sets_to_linking_entity_sets", {
+  # tests for add_entity_sets_to_linking_entity_sets
   # base path: https://api.openlattice.com
   # Adds the entity sets as linked entity sets to the linking entity sets
   # @param character  linking.entity.set.id   
@@ -29,8 +29,8 @@ test_that("AddEntitySetsToLinkingEntitySets", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("CreateEntitySets", {
-  # tests for CreateEntitySets
+test_that("create_entity_sets", {
+  # tests for create_entity_sets
   # base path: https://api.openlattice.com
   # Creates new EntitySet definitions if they don&#39;t exist.
   # @param array[EntitySet]  entity.set   
@@ -40,8 +40,8 @@ test_that("CreateEntitySets", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("DeleteEntitySet", {
-  # tests for DeleteEntitySet
+test_that("delete_entity_set", {
+  # tests for delete_entity_set
   # base path: https://api.openlattice.com
   # Deletes the EntitySet definition for the given EntitySet UUID.
   # @param character  entity.set.id   
@@ -51,8 +51,8 @@ test_that("DeleteEntitySet", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetAllEntitySetPropertyMetadata", {
-  # tests for GetAllEntitySetPropertyMetadata
+test_that("get_all_entity_set_property_metadata", {
+  # tests for get_all_entity_set_property_metadata
   # base path: https://api.openlattice.com
   # Get all entity set property metadata.
   # @param character  entity.set.id   
@@ -62,8 +62,8 @@ test_that("GetAllEntitySetPropertyMetadata", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetAllEntitySets", {
-  # tests for GetAllEntitySets
+test_that("get_all_entity_sets", {
+  # tests for get_all_entity_sets
   # base path: https://api.openlattice.com
   # Get all EntitySet definitions.
   # @return [array[EntitySet]]
@@ -72,8 +72,8 @@ test_that("GetAllEntitySets", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetEntitySet", {
-  # tests for GetEntitySet
+test_that("get_entity_set", {
+  # tests for get_entity_set
   # base path: https://api.openlattice.com
   # Get the EntitySet definition for the given EntitySet UUID.
   # @param character  entity.set.id   
@@ -83,8 +83,8 @@ test_that("GetEntitySet", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetEntitySetId", {
-  # tests for GetEntitySetId
+test_that("get_entity_set_id", {
+  # tests for get_entity_set_id
   # base path: https://api.openlattice.com
   # Gets the EntitySet UUID for the given EntitySet name.
   # @param character  entity.set.name   
@@ -94,8 +94,8 @@ test_that("GetEntitySetId", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetEntitySetIds", {
-  # tests for GetEntitySetIds
+test_that("get_entity_set_ids", {
+  # tests for get_entity_set_ids
   # base path: https://api.openlattice.com
   # Get IDs for entity sets given their names.
   # @param array[character]  request.body    (optional)
@@ -105,8 +105,8 @@ test_that("GetEntitySetIds", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetEntitySetPropertyMetadata", {
-  # tests for GetEntitySetPropertyMetadata
+test_that("get_entity_set_property_metadata", {
+  # tests for get_entity_set_property_metadata
   # base path: https://api.openlattice.com
   # Get specified property type metadata for an entity set.
   # @param character  entity.set.id   
@@ -117,8 +117,8 @@ test_that("GetEntitySetPropertyMetadata", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetPropertyMetadataForEntitySets", {
-  # tests for GetPropertyMetadataForEntitySets
+test_that("get_property_metadata_for_entity_sets", {
+  # tests for get_property_metadata_for_entity_sets
   # base path: https://api.openlattice.com
   # Get property metadata for entity sets.
   # @param array[character]  request.body    (optional)
@@ -128,8 +128,8 @@ test_that("GetPropertyMetadataForEntitySets", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetPropertyTypesForEntitySet", {
-  # tests for GetPropertyTypesForEntitySet
+test_that("get_property_types_for_entity_set", {
+  # tests for get_property_types_for_entity_set
   # base path: https://api.openlattice.com
   # Get all Property Types for entity set
   # @param character  entity.set.id   
@@ -139,8 +139,8 @@ test_that("GetPropertyTypesForEntitySet", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("RemoveEntitySetsFromLinkingEntitySet", {
-  # tests for RemoveEntitySetsFromLinkingEntitySet
+test_that("remove_entity_sets_from_linking_entity_set", {
+  # tests for remove_entity_sets_from_linking_entity_set
   # base path: https://api.openlattice.com
   # Removes/unlinks the linked entity sets from the linking entity set
   # @param character  linking.entity.set.id   
@@ -151,8 +151,8 @@ test_that("RemoveEntitySetsFromLinkingEntitySet", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("RemoveEntitySetsFromLinkingEntitySets", {
-  # tests for RemoveEntitySetsFromLinkingEntitySets
+test_that("remove_entity_sets_from_linking_entity_sets", {
+  # tests for remove_entity_sets_from_linking_entity_sets
   # base path: https://api.openlattice.com
   # Removes/unlinks the linked entity sets from the linking entity set
   # @param character  linking.entity.set.id   
@@ -163,8 +163,8 @@ test_that("RemoveEntitySetsFromLinkingEntitySets", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("UpdateEntitySetMetaData", {
-  # tests for UpdateEntitySetMetaData
+test_that("update_entity_set_meta_data", {
+  # tests for update_entity_set_meta_data
   # base path: https://api.openlattice.com
   # Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
   # @param character  entity.set.id   
@@ -175,8 +175,8 @@ test_that("UpdateEntitySetMetaData", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("UpdateEntitySetPropertyMetadata", {
-  # tests for UpdateEntitySetPropertyMetadata
+test_that("update_entity_set_property_metadata", {
+  # tests for update_entity_set_property_metadata
   # base path: https://api.openlattice.com
   # Updates the property type metadata for the given entity set.
   # @param character  entity.set.id   

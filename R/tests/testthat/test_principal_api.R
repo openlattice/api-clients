@@ -5,8 +5,8 @@ context("Test PrincipalApi")
 
 api.instance <- PrincipalApi$new()
 
-test_that("GetAllUsers", {
-  # tests for GetAllUsers
+test_that("get_all_users", {
+  # tests for get_all_users
   # base path: https://api.openlattice.com
   # Get all users.
   # @return [map(Auth0userBasic)]
@@ -15,8 +15,8 @@ test_that("GetAllUsers", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetCurrentRoles", {
-  # tests for GetCurrentRoles
+test_that("get_current_roles", {
+  # tests for get_current_roles
   # base path: https://api.openlattice.com
   # Get current roles.
   # @return [array[SecurablePrincipal]]
@@ -25,8 +25,8 @@ test_that("GetCurrentRoles", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetMaterializedViewAccount", {
-  # tests for GetMaterializedViewAccount
+test_that("get_materialized_view_account", {
+  # tests for get_materialized_view_account
   # base path: https://api.openlattice.com
   # Get the db access credentials.
   # @return [MaterializedViewAccount]
@@ -35,8 +35,8 @@ test_that("GetMaterializedViewAccount", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetUser", {
-  # tests for GetUser
+test_that("get_user", {
+  # tests for get_user
   # base path: https://api.openlattice.com
   # Get the user for the given id.
   # @param character  user.id   
@@ -46,8 +46,8 @@ test_that("GetUser", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("SearchAllUsersByEmail", {
-  # tests for SearchAllUsersByEmail
+test_that("search_all_users_by_email", {
+  # tests for search_all_users_by_email
   # base path: https://api.openlattice.com
   # Get the user id for the given email address.
   # @param character  email.address   

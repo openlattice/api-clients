@@ -37,9 +37,15 @@ class TestDataEdgeKey(unittest.TestCase):
         # model = openlattice.models.data_edge_key.DataEdgeKey()  # noqa: E501
         if include_optional :
             return DataEdgeKey(
-                src = None, 
-                dst = None, 
-                edge = None
+                src = openlattice.models.entity_data_key.EntityDataKey(
+                    entity_set_id = '0', 
+                    entity_key_id = '0', ), 
+                dst = openlattice.models.entity_data_key.EntityDataKey(
+                    entity_set_id = '0', 
+                    entity_key_id = '0', ), 
+                edge = openlattice.models.entity_data_key.EntityDataKey(
+                    entity_set_id = '0', 
+                    entity_key_id = '0', )
             )
         else :
             return DataEdgeKey(

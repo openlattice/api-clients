@@ -5,8 +5,8 @@ context("Test AuthorizationsApi")
 
 api.instance <- AuthorizationsApi$new()
 
-test_that("CheckAuthorizations", {
-  # tests for CheckAuthorizations
+test_that("check_authorizations", {
+  # tests for check_authorizations
   # base path: https://api.openlattice.com
   # Check authorizations
   # @param AccessCheck  access.check   
@@ -16,8 +16,8 @@ test_that("CheckAuthorizations", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetAccessibleObjects", {
-  # tests for GetAccessibleObjects
+test_that("get_accessible_objects", {
+  # tests for get_accessible_objects
   # base path: https://api.openlattice.com
   # Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
   # @param character  object.type    (optional)

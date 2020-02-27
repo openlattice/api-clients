@@ -5,8 +5,8 @@ context("Test OrganizationsApi")
 
 api.instance <- OrganizationsApi$new()
 
-test_that("AddMember", {
-  # tests for AddMember
+test_that("add_member", {
+  # tests for add_member
   # base path: https://api.openlattice.com
   # Add member to an organization
   # @param character  organization.id   
@@ -17,8 +17,8 @@ test_that("AddMember", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("AddRoleToUser", {
-  # tests for AddRoleToUser
+test_that("add_role_to_user", {
+  # tests for add_role_to_user
   # base path: https://api.openlattice.com
   # Add a role to a user
   # @param character  organization.id   
@@ -30,8 +30,8 @@ test_that("AddRoleToUser", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("AssembleEntitySets", {
-  # tests for AssembleEntitySets
+test_that("assemble_entity_sets", {
+  # tests for assemble_entity_sets
   # base path: https://api.openlattice.com
   # Materializes entity sets into the organization database.
   # @param character  organization.id   
@@ -42,8 +42,8 @@ test_that("AssembleEntitySets", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("CreateOrganizationIfNotExists", {
-  # tests for CreateOrganizationIfNotExists
+test_that("create_organization_if_not_exists", {
+  # tests for create_organization_if_not_exists
   # base path: https://api.openlattice.com
   # Creates an organization if it doesn&#39;t exist.
   # @param Organization  organization   
@@ -53,8 +53,8 @@ test_that("CreateOrganizationIfNotExists", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("CreateRole", {
-  # tests for CreateRole
+test_that("create_role", {
+  # tests for create_role
   # base path: https://api.openlattice.com
   # Creates role
   # @param Role  role   
@@ -64,8 +64,8 @@ test_that("CreateRole", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("DeleteRole", {
-  # tests for DeleteRole
+test_that("delete_role", {
+  # tests for delete_role
   # base path: https://api.openlattice.com
   # Remove role for an organization
   # @param character  organization.id   
@@ -76,8 +76,8 @@ test_that("DeleteRole", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("DestroyOrganization", {
-  # tests for DestroyOrganization
+test_that("destroy_organization", {
+  # tests for destroy_organization
   # base path: https://api.openlattice.com
   # Remove an organization from the organizationId
   # @param character  organization.id   
@@ -87,8 +87,8 @@ test_that("DestroyOrganization", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetAllUsersOfRole", {
-  # tests for GetAllUsersOfRole
+test_that("get_all_users_of_role", {
+  # tests for get_all_users_of_role
   # base path: https://api.openlattice.com
   # Get members of a role for an organization from a roleId
   # @param character  organization.id   
@@ -99,8 +99,8 @@ test_that("GetAllUsersOfRole", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetAutoApprovedEmailDomains", {
-  # tests for GetAutoApprovedEmailDomains
+test_that("get_auto_approved_email_domains", {
+  # tests for get_auto_approved_email_domains
   # base path: https://api.openlattice.com
   # Get auto-approved email domains
   # @param character  organization.id   
@@ -110,8 +110,8 @@ test_that("GetAutoApprovedEmailDomains", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetFlaggedOrganizationEntitySets", {
-  # tests for GetFlaggedOrganizationEntitySets
+test_that("get_flagged_organization_entity_sets", {
+  # tests for get_flagged_organization_entity_sets
   # base path: https://api.openlattice.com
   # Get the entity sets for an organization for a certain flag
   # @param character  organization.id   
@@ -122,8 +122,8 @@ test_that("GetFlaggedOrganizationEntitySets", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetMembers", {
-  # tests for GetMembers
+test_that("get_members", {
+  # tests for get_members
   # base path: https://api.openlattice.com
   # Get members of a certain organization
   # @param character  organization.id   
@@ -133,8 +133,8 @@ test_that("GetMembers", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetOrganization", {
-  # tests for GetOrganization
+test_that("get_organization", {
+  # tests for get_organization
   # base path: https://api.openlattice.com
   # Get an organization from the organizationId
   # @param character  organization.id   
@@ -144,8 +144,8 @@ test_that("GetOrganization", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetOrganizationEntitySets", {
-  # tests for GetOrganizationEntitySets
+test_that("get_organization_entity_sets", {
+  # tests for get_organization_entity_sets
   # base path: https://api.openlattice.com
   # Get the entity sets for an organization for a certain filter
   # @param character  organization.id   
@@ -155,8 +155,8 @@ test_that("GetOrganizationEntitySets", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetOrganizationIntegrationAccount", {
-  # tests for GetOrganizationIntegrationAccount
+test_that("get_organization_integration_account", {
+  # tests for get_organization_integration_account
   # base path: https://api.openlattice.com
   # Get the integrations account for an organization from the organizationId
   # @param character  organization.id   
@@ -166,8 +166,8 @@ test_that("GetOrganizationIntegrationAccount", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetOrganizations", {
-  # tests for GetOrganizations
+test_that("get_organizations", {
+  # tests for get_organizations
   # base path: https://api.openlattice.com
   # Get all organizations
   # @return [array[Organization]]
@@ -176,8 +176,8 @@ test_that("GetOrganizations", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetRole", {
-  # tests for GetRole
+test_that("get_role", {
+  # tests for get_role
   # base path: https://api.openlattice.com
   # Get role for an organization from a roleId
   # @param character  organization.id   
@@ -188,8 +188,8 @@ test_that("GetRole", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetRoles", {
-  # tests for GetRoles
+test_that("get_roles", {
+  # tests for get_roles
   # base path: https://api.openlattice.com
   # Get roles for an organization
   # @param character  organization.id   
@@ -199,8 +199,8 @@ test_that("GetRoles", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("RefreshDataChanges", {
-  # tests for RefreshDataChanges
+test_that("refresh_data_changes", {
+  # tests for refresh_data_changes
   # base path: https://api.openlattice.com
   # Refreshes the requested materialized entity set with data changes in the organization.
   # @param character  organization.id   
@@ -211,8 +211,8 @@ test_that("RefreshDataChanges", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("RemoveAutoApprovedEmailDomains", {
-  # tests for RemoveAutoApprovedEmailDomains
+test_that("remove_auto_approved_email_domains", {
+  # tests for remove_auto_approved_email_domains
   # base path: https://api.openlattice.com
   # Remove auto-approved email domains
   # @param character  organization.id   
@@ -223,8 +223,8 @@ test_that("RemoveAutoApprovedEmailDomains", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("RemoveMember", {
-  # tests for RemoveMember
+test_that("remove_member", {
+  # tests for remove_member
   # base path: https://api.openlattice.com
   # Remove member from an organization
   # @param character  organization.id   
@@ -235,8 +235,8 @@ test_that("RemoveMember", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("RemoveRoleFromUser", {
-  # tests for RemoveRoleFromUser
+test_that("remove_role_from_user", {
+  # tests for remove_role_from_user
   # base path: https://api.openlattice.com
   # Remove a role from a user
   # @param character  organization.id   
@@ -248,8 +248,8 @@ test_that("RemoveRoleFromUser", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("SetAutoApprovedEmailDomain", {
-  # tests for SetAutoApprovedEmailDomain
+test_that("set_auto_approved_email_domain", {
+  # tests for set_auto_approved_email_domain
   # base path: https://api.openlattice.com
   # Set auto-approved email domains
   # @param character  organization.id   
@@ -260,8 +260,8 @@ test_that("SetAutoApprovedEmailDomain", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("SynchronizeEdmChanges", {
-  # tests for SynchronizeEdmChanges
+test_that("synchronize_edm_changes", {
+  # tests for synchronize_edm_changes
   # base path: https://api.openlattice.com
   # Synchronizes EDM changes to the requested materialized entity set in the organization.
   # @param character  organization.id   
@@ -272,8 +272,8 @@ test_that("SynchronizeEdmChanges", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("UpdateDescription", {
-  # tests for UpdateDescription
+test_that("update_description", {
+  # tests for update_description
   # base path: https://api.openlattice.com
   # Update the organization description
   # @param character  organization.id   
@@ -284,8 +284,8 @@ test_that("UpdateDescription", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("UpdateRoleDescription", {
-  # tests for UpdateRoleDescription
+test_that("update_role_description", {
+  # tests for update_role_description
   # base path: https://api.openlattice.com
   # Update role description for an organization from a roleId
   # @param character  organization.id   
@@ -297,8 +297,8 @@ test_that("UpdateRoleDescription", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("UpdateRoleTitle", {
-  # tests for UpdateRoleTitle
+test_that("update_role_title", {
+  # tests for update_role_title
   # base path: https://api.openlattice.com
   # Update role title for an organization from a roleId
   # @param character  organization.id   
@@ -310,8 +310,8 @@ test_that("UpdateRoleTitle", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("UpdateTitle", {
-  # tests for UpdateTitle
+test_that("update_title", {
+  # tests for update_title
   # base path: https://api.openlattice.com
   # Update the organization title
   # @param character  organization.id   
