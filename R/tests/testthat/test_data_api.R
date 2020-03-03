@@ -179,7 +179,7 @@ test_that("load_selected_entity_set_data", {
   # base path: https://api.openlattice.com
   # Gets a list of entities by UUIDs
   # @param character  entity.set.id   
-  # @param array[EntitySetSelection]  entity.set.selection   
+  # @param EntitySetSelection  entity.set.selection   
   # @return [array[map(array[character])]]
 
   # uncomment below to test the operation

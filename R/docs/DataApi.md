@@ -705,7 +705,7 @@ Gets a list of entities by UUIDs
 library(openlattice)
 
 var.entity.set.id <- 'entity.set.id_example' # character | 
-var.entity.set.selection <- list(EntitySetSelection$new(list("ids_example"), list("properties_example"))) # array[EntitySetSelection] | 
+var.entity.set.selection <- EntitySetSelection$new(list("ids_example"), list("properties_example")) # EntitySetSelection | 
 
 #Gets a list of entities by UUIDs
 api.instance <- DataApi$new()
@@ -723,7 +723,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity.set.id** | [**character**](.md)|  | 
- **entity.set.selection** | list( [**EntitySetSelection**](EntitySetSelection.md) )|  | 
+ **entity.set.selection** | [**EntitySetSelection**](EntitySetSelection.md)|  | 
 
 ### Return type
 
