@@ -29,6 +29,13 @@ class TestDatasetApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_authorized_external_db_tables_with_column_metadata(self):
+        """Test case for get_authorized_external_db_tables_with_column_metadata
+
+        Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.  # noqa: E501
+        """
+        pass
+
     def test_get_external_database_table_with_columns(self):
         """Test case for get_external_database_table_with_columns
 
@@ -43,8 +50,8 @@ class TestDatasetApi(unittest.TestCase):
         """
         pass
 
-    def test_get_external_database_tables_with_columns(self):
-        """Test case for get_external_database_tables_with_columns
+    def test_get_external_database_tables_with_column_metadata(self):
+        """Test case for get_external_database_tables_with_column_metadata
 
         Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.  # noqa: E501
         """

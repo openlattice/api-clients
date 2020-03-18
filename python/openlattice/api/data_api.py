@@ -1671,7 +1671,7 @@ class DataApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str entity_set_id: (required)
-        :param list[EntitySetSelection] entity_set_selection: (required)
+        :param EntitySetSelection entity_set_selection: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1696,7 +1696,7 @@ class DataApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str entity_set_id: (required)
-        :param list[EntitySetSelection] entity_set_selection: (required)
+        :param EntitySetSelection entity_set_selection: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
