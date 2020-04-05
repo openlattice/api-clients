@@ -29,6 +29,34 @@ class TestDatasetApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_delete_external_database_column(self):
+        """Test case for delete_external_database_column
+
+        Deletes an OrganizationExternalDatabaseColumn object, which represents an organization's column in an external database. This deletes both the object and the column in the database. It is a hard delete.  # noqa: E501
+        """
+        pass
+
+    def test_delete_external_database_columns(self):
+        """Test case for delete_external_database_columns
+
+        Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization's table in an external database. It is a hard delete  # noqa: E501
+        """
+        pass
+
+    def test_delete_external_database_table(self):
+        """Test case for delete_external_database_table
+
+        Deletes an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database. This deletes both the object and the table in the database. It is a hard delete.  # noqa: E501
+        """
+        pass
+
+    def test_delete_external_database_tables(self):
+        """Test case for delete_external_database_tables
+
+        Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.  # noqa: E501
+        """
+        pass
+
     def test_get_authorized_external_db_tables_with_column_metadata(self):
         """Test case for get_authorized_external_db_tables_with_column_metadata
 
@@ -36,8 +64,22 @@ class TestDatasetApi(unittest.TestCase):
         """
         pass
 
-    def test_get_external_database_table_with_columns(self):
-        """Test case for get_external_database_table_with_columns
+    def test_get_external_database_column(self):
+        """Test case for get_external_database_column
+
+        Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization's table in an external database.  # noqa: E501
+        """
+        pass
+
+    def test_get_external_database_table(self):
+        """Test case for get_external_database_table
+
+        Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.  # noqa: E501
+        """
+        pass
+
+    def test_get_external_database_table_with_column_metadata(self):
+        """Test case for get_external_database_table_with_column_metadata
 
         Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization  # noqa: E501
         """
@@ -54,6 +96,20 @@ class TestDatasetApi(unittest.TestCase):
         """Test case for get_external_database_tables_with_column_metadata
 
         Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.  # noqa: E501
+        """
+        pass
+
+    def test_update_external_database_column(self):
+        """Test case for update_external_database_column
+
+        Updates an OrganizationExternalDatabaseTableColumn object's fields that are included within the given metadata.  # noqa: E501
+        """
+        pass
+
+    def test_update_external_database_table(self):
+        """Test case for update_external_database_table
+
+        Updates an OrganizationExternalDatabaseTable object's fields that are included within the given metadata.  # noqa: E501
         """
         pass
 
