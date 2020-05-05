@@ -992,7 +992,7 @@ module OpenapiClient
 
     # Gets a list of entities by UUIDs
     # @param entity_set_id [String] 
-    # @param entity_set_selection [Array<EntitySetSelection>] 
+    # @param entity_set_selection [EntitySetSelection] 
     # @param [Hash] opts the optional parameters
     # @return [Array<Hash<String, Array<String>>>]
     def load_selected_entity_set_data(entity_set_id, entity_set_selection, opts = {})
@@ -1002,7 +1002,7 @@ module OpenapiClient
 
     # Gets a list of entities by UUIDs
     # @param entity_set_id [String] 
-    # @param entity_set_selection [Array<EntitySetSelection>] 
+    # @param entity_set_selection [EntitySetSelection] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Hash<String, Array<String>>>, Integer, Hash)>] Array<Hash<String, Array<String>>> data, response status code and response headers
     def load_selected_entity_set_data_with_http_info(entity_set_id, entity_set_selection, opts = {})

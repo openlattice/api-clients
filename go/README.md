@@ -58,9 +58,18 @@ Class | Method | HTTP request | Description
 *DataApi* | [**UpdateEntitiesInEntitySet**](docs/DataApi.md#updateentitiesinentityset) | **Put** /datastore/data/set/{entitySetId} | Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
 *DataIntegrationsApi* | [**GetEntityKeyIds**](docs/DataIntegrationsApi.md#getentitykeyids) | **Post** /datastore/integration/entityKeyIds | Get entity key IDs
 *DataIntegrationsApi* | [**IntegrateEntityAndAssociationData**](docs/DataIntegrationsApi.md#integrateentityandassociationdata) | **Post** /datastore/integration | Integrate entity and association data
-*DatasetApi* | [**GetExternalDatabaseTableWithColumns**](docs/DatasetApi.md#getexternaldatabasetablewithcolumns) | **Get** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
+*DatasetApi* | [**DeleteExternalDatabaseColumn**](docs/DatasetApi.md#deleteexternaldatabasecolumn) | **Delete** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Deletes an OrganizationExternalDatabaseColumn object, which represents an organization&#39;s column in an external database. This deletes both the object and the column in the database. It is a hard delete.
+*DatasetApi* | [**DeleteExternalDatabaseColumns**](docs/DatasetApi.md#deleteexternaldatabasecolumns) | **Delete** /datastore/organization-database/{organizationId}/{tableName}/external-database-column | Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization&#39;s table in an external database. It is a hard delete
+*DatasetApi* | [**DeleteExternalDatabaseTable**](docs/DatasetApi.md#deleteexternaldatabasetable) | **Delete** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Deletes an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database. This deletes both the object and the table in the database. It is a hard delete.
+*DatasetApi* | [**DeleteExternalDatabaseTables**](docs/DatasetApi.md#deleteexternaldatabasetables) | **Delete** /datastore/organization-database/{organizationId}/external-database-table | Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
+*DatasetApi* | [**GetAuthorizedExternalDbTablesWithColumnMetadata**](docs/DatasetApi.md#getauthorizedexternaldbtableswithcolumnmetadata) | **Get** /datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+*DatasetApi* | [**GetExternalDatabaseColumn**](docs/DatasetApi.md#getexternaldatabasecolumn) | **Get** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization&#39;s table in an external database.
+*DatasetApi* | [**GetExternalDatabaseTable**](docs/DatasetApi.md#getexternaldatabasetable) | **Get** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
+*DatasetApi* | [**GetExternalDatabaseTableWithColumnMetadata**](docs/DatasetApi.md#getexternaldatabasetablewithcolumnmetadata) | **Get** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
 *DatasetApi* | [**GetExternalDatabaseTables**](docs/DatasetApi.md#getexternaldatabasetables) | **Get** /datastore/organization-database/{organizationId}/external-database-table | Gets all OrganizationExternalDatabaseTable objects for an organization
-*DatasetApi* | [**GetExternalDatabaseTablesWithColumns**](docs/DatasetApi.md#getexternaldatabasetableswithcolumns) | **Get** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+*DatasetApi* | [**GetExternalDatabaseTablesWithColumnMetadata**](docs/DatasetApi.md#getexternaldatabasetableswithcolumnmetadata) | **Get** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+*DatasetApi* | [**UpdateExternalDatabaseColumn**](docs/DatasetApi.md#updateexternaldatabasecolumn) | **Patch** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Updates an OrganizationExternalDatabaseTableColumn object&#39;s fields that are included within the given metadata.
+*DatasetApi* | [**UpdateExternalDatabaseTable**](docs/DatasetApi.md#updateexternaldatabasetable) | **Patch** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Updates an OrganizationExternalDatabaseTable object&#39;s fields that are included within the given metadata.
 *EdmApi* | [**AddDstEntityTypeToAssociationType**](docs/EdmApi.md#adddstentitytypetoassociationtype) | **Put** /datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId} | Update the AssociationType dst entity types for the given AssociationType UUID by adding the given EntityType UUID.
 *EdmApi* | [**AddEntitySetsToLinkingEntitySet**](docs/EdmApi.md#addentitysetstolinkingentityset) | **Post** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
 *EdmApi* | [**AddEntitySetsToLinkingEntitySets**](docs/EdmApi.md#addentitysetstolinkingentitysets) | **Put** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
@@ -188,6 +197,14 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**GetEntitySets**](docs/SearchApi.md#getentitysets) | **Get** /datastore/search/entity-sets/{start}/{numResults} | Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
 *SearchApi* | [**GetPopularEntitySet**](docs/SearchApi.md#getpopularentityset) | **Get** /datastore/search/popular | Get the most popular entity sets.
 *SearchApi* | [**SearchEntitySetData**](docs/SearchApi.md#searchentitysetdata) | **Patch** /datastore/search | Executes a search over the data of a given entity set to find rows that match the search term
+*ShuttleApi* | [**CreateIntegrationDefinition**](docs/ShuttleApi.md#createintegrationdefinition) | **Post** /shuttle/integration/definition/{integrationName} | Creates a new integration definition for running recurring integrations
+*ShuttleApi* | [**DeleteIntegrationDefinition**](docs/ShuttleApi.md#deleteintegrationdefinition) | **Delete** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
+*ShuttleApi* | [**DeleteIntegrationJobStatus**](docs/ShuttleApi.md#deleteintegrationjobstatus) | **Delete** /shuttle/integration/status/{jobId} | Deletes an integration job status from the integrationJobs map
+*ShuttleApi* | [**EnqueueIntegration**](docs/ShuttleApi.md#enqueueintegration) | **Get** /shuttle/integration/{integrationName}/{integrationKey} | Enqueues an integration on Shuttle Server for a given integration
+*ShuttleApi* | [**PollAllIntegrations**](docs/ShuttleApi.md#pollallintegrations) | **Get** /shuttle/integration/status | Polls the statuses of all running integrations
+*ShuttleApi* | [**PollIntegration**](docs/ShuttleApi.md#pollintegration) | **Get** /shuttle/integration/status/{jobId} | Polls the status of an integration
+*ShuttleApi* | [**ReadIntegrationDefinition**](docs/ShuttleApi.md#readintegrationdefinition) | **Get** /shuttle/integration/definition/{integrationName} | Gets an existing integration definition
+*ShuttleApi* | [**UpdateIntegrationDefinition**](docs/ShuttleApi.md#updateintegrationdefinition) | **Patch** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
 
 
 ## Documentation For Models
@@ -198,6 +215,7 @@ Class | Method | HTTP request | Description
  - [AclData](docs/AclData.md)
  - [AdvancedSearch](docs/AdvancedSearch.md)
  - [Association](docs/Association.md)
+ - [AssociationDefinition](docs/AssociationDefinition.md)
  - [AssociationType](docs/AssociationType.md)
  - [Auth0userBasic](docs/Auth0userBasic.md)
  - [Authorization](docs/Authorization.md)
@@ -217,6 +235,7 @@ Class | Method | HTTP request | Description
  - [EdmRequest](docs/EdmRequest.md)
  - [Entity](docs/Entity.md)
  - [EntityDataKey](docs/EntityDataKey.md)
+ - [EntityDefinition](docs/EntityDefinition.md)
  - [EntityKey](docs/EntityKey.md)
  - [EntityKeyPair](docs/EntityKeyPair.md)
  - [EntityLinkingFeatures](docs/EntityLinkingFeatures.md)
@@ -227,11 +246,18 @@ Class | Method | HTTP request | Description
  - [EntitySetSelection](docs/EntitySetSelection.md)
  - [EntityType](docs/EntityType.md)
  - [EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
+ - [Flight](docs/Flight.md)
+ - [FlightPlanParameters](docs/FlightPlanParameters.md)
+ - [FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
  - [IndexingState](docs/IndexingState.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)
+ - [Integration](docs/Integration.md)
+ - [IntegrationJob](docs/IntegrationJob.md)
  - [IntegrationResults](docs/IntegrationResults.md)
+ - [IntegrationStatus](docs/IntegrationStatus.md)
+ - [IntegrationUpdate](docs/IntegrationUpdate.md)
  - [LinkingFeedback](docs/LinkingFeedback.md)
  - [MaterializedViewAccount](docs/MaterializedViewAccount.md)
  - [MetadataUpdate](docs/MetadataUpdate.md)
@@ -244,6 +270,7 @@ Class | Method | HTTP request | Description
  - [OrganizationExternalDatabaseTableColumnsPair](docs/OrganizationExternalDatabaseTableColumnsPair.md)
  - [OrganizationMember](docs/OrganizationMember.md)
  - [Principal](docs/Principal.md)
+ - [PropertyDefinition](docs/PropertyDefinition.md)
  - [PropertyType](docs/PropertyType.md)
  - [PropertyUsageSummary](docs/PropertyUsageSummary.md)
  - [Role](docs/Role.md)

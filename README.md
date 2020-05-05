@@ -9,7 +9,6 @@ We are currently supporting the following languages:
 - javascript
 - python
 - ruby
-- rust
 
 Other languages that can be supported upon interest:
 ActionScript, Ada, Apex, Bash, C, C# (.net 2.0, 3.5 or later, .NET Standard 1.3 - 2.0, .NET Core 2.0), C++ (cpp-restsdk, Qt5, Tizen), Clojure, Dart (1.x, 2.x), Elixir, Elm, Eiffel, Erlang, Go, Groovy, Haskell (http-client, Servant), Java (Jersey1.x, Jersey2.x, OkHttp, Retrofit1.x, Retrofit2.x, Feign, RestTemplate, RESTEasy, Vertx, Google API Client Library for Java, Rest-assured, Spring 5 Web Client, MicroProfile Rest Client), k6, Kotlin, Lua, Nim, Node.js/JavaScript (ES5, ES6, AngularJS with Google Closure Compiler annotations, Flow types), Objective-C, OCaml, Perl, PHP, PowerShell, Python, R, Ruby, Rust (rust, rust-server), Scala (akka, http4s, scalaz, swagger-async-httpclient), Swift (2.x, 3.x, 4.x, 5.x), Typescript (AngularJS, Angular (2.x - 8.x), Aurelia, Axios, Fetch, Inversify, jQuery, Node, Rxjs)
@@ -31,8 +30,8 @@ To install the R-clients, from this directory (`./api-clients/`)
 
 This is the code to generate these libraries based on the api-specifications.
 
-    APIDIR="$HOME/Documents/openlattice/api/"
-    CLIENTDIR="$HOME/Documents/projects/projectsOngoing/api-clients/"
+    APIDIR="$HOME/openlattice/openlattice/api/"
+    CLIENTDIR="$HOME/openlattice/api-clients/"
     rm -rf $APIDIR/build/openapi/*
     rm -rf $CLIENTDIR/R
     rm -rf $CLIENTDIR/python
@@ -49,12 +48,13 @@ This is the code to generate these libraries based on the api-specifications.
 
     docker run -it -v $APIDIR:$APIDIR openlattice/openapi-generator-cli generate -i $APIDIR/openlattice.yaml -g ruby -o $APIDIR/build/openapi/ruby -c $APIDIR/oas-config.json
 
-    docker run -it -v $APIDIR:$APIDIR openlattice/openapi-generator-cli generate -i $APIDIR/openlattice.yaml -g rust -o $APIDIR/build/openapi/rust -c $APIDIR/oas-config.json
-
     docker run -it -v $APIDIR:$APIDIR openlattice/openapi-generator-cli generate -i $APIDIR/openlattice.yaml -g javascript -o $APIDIR/build/openapi/javascript -c $APIDIR/oas-config.json
 
 
     rsync -azP $APIDIR/build/openapi/ $CLIENTDIR
+    
+    cd $CLIENTDIR/python
+    python setup.py install
 
 ## Building the docker file
 
@@ -62,6 +62,21 @@ We are using our own version of the client generator.  This because openapi-tool
 
 If there is need to rebuild the docker file of our openapi-generation:
 
+    cd /Users/jokedurnez/Documents/Software/openapi-generator/
     docker build -t openlattice/openapi-generator-cli .
+    docker run -it -v $APIDIR:$APIDIR openlattice/openapi-generator-cli generate -i $APIDIR/openlattice.yaml -g r -o $APIDIR/build/openapi/R -c $APIDIR/oas-config.json
 
 The docker container is avaiable from docker hub.
+
+    cd $CLIENTDIR
+    chmod 664 R/NAMESPACE
+
+    python -c '''import os 
+    files = os.listdir("R/R/") 
+    objects = [x.split(".")[0] for x in files] 
+    objects = ["export(%s)"%obj for obj in objects] 
+    namespacestring = "\n".join(objects) 
+    with open("R/NAMESPACE", "r+") as fl: 
+      fl.write(namespacestring) 
+    '''
+

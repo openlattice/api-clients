@@ -5,13 +5,99 @@ context("Test DatasetApi")
 
 api.instance <- DatasetApi$new()
 
-test_that("get_external_database_table_with_columns", {
-  # tests for get_external_database_table_with_columns
+test_that("delete_external_database_column", {
+  # tests for delete_external_database_column
+  # base path: https://api.openlattice.com
+  # Deletes an OrganizationExternalDatabaseColumn object, which represents an organization&#39;s column in an external database. This deletes both the object and the column in the database. It is a hard delete.
+  # @param character  organization.id   
+  # @param character  table.name   
+  # @param character  column.name   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("delete_external_database_columns", {
+  # tests for delete_external_database_columns
+  # base path: https://api.openlattice.com
+  # Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization&#39;s table in an external database. It is a hard delete
+  # @param character  organization.id   
+  # @param character  table.name   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("delete_external_database_table", {
+  # tests for delete_external_database_table
+  # base path: https://api.openlattice.com
+  # Deletes an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database. This deletes both the object and the table in the database. It is a hard delete.
+  # @param character  organization.id   
+  # @param character  table.name   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("delete_external_database_tables", {
+  # tests for delete_external_database_tables
+  # base path: https://api.openlattice.com
+  # Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
+  # @param character  organization.id   
+  # @param array[character]  request.body   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("get_authorized_external_db_tables_with_column_metadata", {
+  # tests for get_authorized_external_db_tables_with_column_metadata
+  # base path: https://api.openlattice.com
+  # Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+  # @param character  organization.id   
+  # @param character  permission   
+  # @return [array[OrganizationExternalDatabaseTableColumnsPair]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("get_external_database_column", {
+  # tests for get_external_database_column
+  # base path: https://api.openlattice.com
+  # Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization&#39;s table in an external database.
+  # @param character  organization.id   
+  # @param character  table.name   
+  # @param character  column.name   
+  # @return [OrganizationExternalDatabaseColumn]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("get_external_database_table", {
+  # tests for get_external_database_table
+  # base path: https://api.openlattice.com
+  # Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
+  # @param character  organization.id   
+  # @param character  table.name   
+  # @return [OrganizationExternalDatabaseTable]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("get_external_database_table_with_column_metadata", {
+  # tests for get_external_database_table_with_column_metadata
   # base path: https://api.openlattice.com
   # Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
   # @param character  organization.id   
   # @param character  table.id   
-  # @return [map(OrganizationExternalDatabaseTableColumnsPair)]
+  # @return [OrganizationExternalDatabaseTableColumnsPair]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -28,12 +114,39 @@ test_that("get_external_database_tables", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("get_external_database_tables_with_columns", {
-  # tests for get_external_database_tables_with_columns
+test_that("get_external_database_tables_with_column_metadata", {
+  # tests for get_external_database_tables_with_column_metadata
   # base path: https://api.openlattice.com
   # Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
   # @param character  organization.id   
-  # @return [map(array[OrganizationExternalDatabaseColumn])]
+  # @return [array[OrganizationExternalDatabaseTableColumnsPair]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("update_external_database_column", {
+  # tests for update_external_database_column
+  # base path: https://api.openlattice.com
+  # Updates an OrganizationExternalDatabaseTableColumn object&#39;s fields that are included within the given metadata.
+  # @param character  organization.id   
+  # @param character  table.name   
+  # @param character  column.name   
+  # @param MetadataUpdate  metadata.update   
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("update_external_database_table", {
+  # tests for update_external_database_table
+  # base path: https://api.openlattice.com
+  # Updates an OrganizationExternalDatabaseTable object&#39;s fields that are included within the given metadata.
+  # @param character  organization.id   
+  # @param character  table.name   
+  # @param MetadataUpdate  metadata.update   
+  # @return [Void]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

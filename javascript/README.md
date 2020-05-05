@@ -154,9 +154,18 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.DataApi* | [**updateEntitiesInEntitySet**](docs/DataApi.md#updateEntitiesInEntitySet) | **PUT** /datastore/data/set/{entitySetId} | Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
 *OpenLatticeApi.DataIntegrationsApi* | [**getEntityKeyIds**](docs/DataIntegrationsApi.md#getEntityKeyIds) | **POST** /datastore/integration/entityKeyIds | Get entity key IDs
 *OpenLatticeApi.DataIntegrationsApi* | [**integrateEntityAndAssociationData**](docs/DataIntegrationsApi.md#integrateEntityAndAssociationData) | **POST** /datastore/integration | Integrate entity and association data
-*OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTableWithColumns**](docs/DatasetApi.md#getExternalDatabaseTableWithColumns) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
+*OpenLatticeApi.DatasetApi* | [**deleteExternalDatabaseColumn**](docs/DatasetApi.md#deleteExternalDatabaseColumn) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Deletes an OrganizationExternalDatabaseColumn object, which represents an organization&#39;s column in an external database. This deletes both the object and the column in the database. It is a hard delete.
+*OpenLatticeApi.DatasetApi* | [**deleteExternalDatabaseColumns**](docs/DatasetApi.md#deleteExternalDatabaseColumns) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/external-database-column | Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization&#39;s table in an external database. It is a hard delete
+*OpenLatticeApi.DatasetApi* | [**deleteExternalDatabaseTable**](docs/DatasetApi.md#deleteExternalDatabaseTable) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Deletes an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database. This deletes both the object and the table in the database. It is a hard delete.
+*OpenLatticeApi.DatasetApi* | [**deleteExternalDatabaseTables**](docs/DatasetApi.md#deleteExternalDatabaseTables) | **DELETE** /datastore/organization-database/{organizationId}/external-database-table | Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
+*OpenLatticeApi.DatasetApi* | [**getAuthorizedExternalDbTablesWithColumnMetadata**](docs/DatasetApi.md#getAuthorizedExternalDbTablesWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+*OpenLatticeApi.DatasetApi* | [**getExternalDatabaseColumn**](docs/DatasetApi.md#getExternalDatabaseColumn) | **GET** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization&#39;s table in an external database.
+*OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTable**](docs/DatasetApi.md#getExternalDatabaseTable) | **GET** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
+*OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTableWithColumnMetadata**](docs/DatasetApi.md#getExternalDatabaseTableWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
 *OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTables**](docs/DatasetApi.md#getExternalDatabaseTables) | **GET** /datastore/organization-database/{organizationId}/external-database-table | Gets all OrganizationExternalDatabaseTable objects for an organization
-*OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTablesWithColumns**](docs/DatasetApi.md#getExternalDatabaseTablesWithColumns) | **GET** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+*OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTablesWithColumnMetadata**](docs/DatasetApi.md#getExternalDatabaseTablesWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+*OpenLatticeApi.DatasetApi* | [**updateExternalDatabaseColumn**](docs/DatasetApi.md#updateExternalDatabaseColumn) | **PATCH** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Updates an OrganizationExternalDatabaseTableColumn object&#39;s fields that are included within the given metadata.
+*OpenLatticeApi.DatasetApi* | [**updateExternalDatabaseTable**](docs/DatasetApi.md#updateExternalDatabaseTable) | **PATCH** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Updates an OrganizationExternalDatabaseTable object&#39;s fields that are included within the given metadata.
 *OpenLatticeApi.EdmApi* | [**addDstEntityTypeToAssociationType**](docs/EdmApi.md#addDstEntityTypeToAssociationType) | **PUT** /datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId} | Update the AssociationType dst entity types for the given AssociationType UUID by adding the given EntityType UUID.
 *OpenLatticeApi.EdmApi* | [**addEntitySetsToLinkingEntitySet**](docs/EdmApi.md#addEntitySetsToLinkingEntitySet) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
 *OpenLatticeApi.EdmApi* | [**addEntitySetsToLinkingEntitySets**](docs/EdmApi.md#addEntitySetsToLinkingEntitySets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
@@ -284,6 +293,14 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.SearchApi* | [**getEntitySets**](docs/SearchApi.md#getEntitySets) | **GET** /datastore/search/entity-sets/{start}/{numResults} | Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
 *OpenLatticeApi.SearchApi* | [**getPopularEntitySet**](docs/SearchApi.md#getPopularEntitySet) | **GET** /datastore/search/popular | Get the most popular entity sets.
 *OpenLatticeApi.SearchApi* | [**searchEntitySetData**](docs/SearchApi.md#searchEntitySetData) | **PATCH** /datastore/search | Executes a search over the data of a given entity set to find rows that match the search term
+*OpenLatticeApi.ShuttleApi* | [**createIntegrationDefinition**](docs/ShuttleApi.md#createIntegrationDefinition) | **POST** /shuttle/integration/definition/{integrationName} | Creates a new integration definition for running recurring integrations
+*OpenLatticeApi.ShuttleApi* | [**deleteIntegrationDefinition**](docs/ShuttleApi.md#deleteIntegrationDefinition) | **DELETE** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
+*OpenLatticeApi.ShuttleApi* | [**deleteIntegrationJobStatus**](docs/ShuttleApi.md#deleteIntegrationJobStatus) | **DELETE** /shuttle/integration/status/{jobId} | Deletes an integration job status from the integrationJobs map
+*OpenLatticeApi.ShuttleApi* | [**enqueueIntegration**](docs/ShuttleApi.md#enqueueIntegration) | **GET** /shuttle/integration/{integrationName}/{integrationKey} | Enqueues an integration on Shuttle Server for a given integration
+*OpenLatticeApi.ShuttleApi* | [**pollAllIntegrations**](docs/ShuttleApi.md#pollAllIntegrations) | **GET** /shuttle/integration/status | Polls the statuses of all running integrations
+*OpenLatticeApi.ShuttleApi* | [**pollIntegration**](docs/ShuttleApi.md#pollIntegration) | **GET** /shuttle/integration/status/{jobId} | Polls the status of an integration
+*OpenLatticeApi.ShuttleApi* | [**readIntegrationDefinition**](docs/ShuttleApi.md#readIntegrationDefinition) | **GET** /shuttle/integration/definition/{integrationName} | Gets an existing integration definition
+*OpenLatticeApi.ShuttleApi* | [**updateIntegrationDefinition**](docs/ShuttleApi.md#updateIntegrationDefinition) | **PATCH** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
 
 
 ## Documentation for Models
@@ -294,6 +311,7 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.AclData](docs/AclData.md)
  - [OpenLatticeApi.AdvancedSearch](docs/AdvancedSearch.md)
  - [OpenLatticeApi.Association](docs/Association.md)
+ - [OpenLatticeApi.AssociationDefinition](docs/AssociationDefinition.md)
  - [OpenLatticeApi.AssociationType](docs/AssociationType.md)
  - [OpenLatticeApi.Auth0userBasic](docs/Auth0userBasic.md)
  - [OpenLatticeApi.Authorization](docs/Authorization.md)
@@ -313,6 +331,7 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.EdmRequest](docs/EdmRequest.md)
  - [OpenLatticeApi.Entity](docs/Entity.md)
  - [OpenLatticeApi.EntityDataKey](docs/EntityDataKey.md)
+ - [OpenLatticeApi.EntityDefinition](docs/EntityDefinition.md)
  - [OpenLatticeApi.EntityKey](docs/EntityKey.md)
  - [OpenLatticeApi.EntityKeyPair](docs/EntityKeyPair.md)
  - [OpenLatticeApi.EntityLinkingFeatures](docs/EntityLinkingFeatures.md)
@@ -323,11 +342,18 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.EntitySetSelection](docs/EntitySetSelection.md)
  - [OpenLatticeApi.EntityType](docs/EntityType.md)
  - [OpenLatticeApi.EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
+ - [OpenLatticeApi.Flight](docs/Flight.md)
+ - [OpenLatticeApi.FlightPlanParameters](docs/FlightPlanParameters.md)
+ - [OpenLatticeApi.FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [OpenLatticeApi.FullQualifiedName](docs/FullQualifiedName.md)
  - [OpenLatticeApi.IndexingState](docs/IndexingState.md)
  - [OpenLatticeApi.InlineObject](docs/InlineObject.md)
  - [OpenLatticeApi.InlineResponse200](docs/InlineResponse200.md)
+ - [OpenLatticeApi.Integration](docs/Integration.md)
+ - [OpenLatticeApi.IntegrationJob](docs/IntegrationJob.md)
  - [OpenLatticeApi.IntegrationResults](docs/IntegrationResults.md)
+ - [OpenLatticeApi.IntegrationStatus](docs/IntegrationStatus.md)
+ - [OpenLatticeApi.IntegrationUpdate](docs/IntegrationUpdate.md)
  - [OpenLatticeApi.LinkingFeedback](docs/LinkingFeedback.md)
  - [OpenLatticeApi.MaterializedViewAccount](docs/MaterializedViewAccount.md)
  - [OpenLatticeApi.MetadataUpdate](docs/MetadataUpdate.md)
@@ -340,6 +366,7 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.OrganizationExternalDatabaseTableColumnsPair](docs/OrganizationExternalDatabaseTableColumnsPair.md)
  - [OpenLatticeApi.OrganizationMember](docs/OrganizationMember.md)
  - [OpenLatticeApi.Principal](docs/Principal.md)
+ - [OpenLatticeApi.PropertyDefinition](docs/PropertyDefinition.md)
  - [OpenLatticeApi.PropertyType](docs/PropertyType.md)
  - [OpenLatticeApi.PropertyUsageSummary](docs/PropertyUsageSummary.md)
  - [OpenLatticeApi.Role](docs/Role.md)

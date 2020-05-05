@@ -111,9 +111,18 @@ Class | Method | HTTP request | Description
 *OpenapiClient::DataApi* | [**update_entities_in_entity_set**](docs/DataApi.md#update_entities_in_entity_set) | **PUT** /datastore/data/set/{entitySetId} | Perform one of the following bulk update operations on entities (type = Merge) adds new properties without affecting existing data, (type = PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type = Replace) replaces all entity data with the supplied properties.
 *OpenapiClient::DataIntegrationsApi* | [**get_entity_key_ids**](docs/DataIntegrationsApi.md#get_entity_key_ids) | **POST** /datastore/integration/entityKeyIds | Get entity key IDs
 *OpenapiClient::DataIntegrationsApi* | [**integrate_entity_and_association_data**](docs/DataIntegrationsApi.md#integrate_entity_and_association_data) | **POST** /datastore/integration | Integrate entity and association data
-*OpenapiClient::DatasetApi* | [**get_external_database_table_with_columns**](docs/DatasetApi.md#get_external_database_table_with_columns) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
+*OpenapiClient::DatasetApi* | [**delete_external_database_column**](docs/DatasetApi.md#delete_external_database_column) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Deletes an OrganizationExternalDatabaseColumn object, which represents an organization's column in an external database. This deletes both the object and the column in the database. It is a hard delete.
+*OpenapiClient::DatasetApi* | [**delete_external_database_columns**](docs/DatasetApi.md#delete_external_database_columns) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/external-database-column | Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization's table in an external database. It is a hard delete
+*OpenapiClient::DatasetApi* | [**delete_external_database_table**](docs/DatasetApi.md#delete_external_database_table) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Deletes an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database. This deletes both the object and the table in the database. It is a hard delete.
+*OpenapiClient::DatasetApi* | [**delete_external_database_tables**](docs/DatasetApi.md#delete_external_database_tables) | **DELETE** /datastore/organization-database/{organizationId}/external-database-table | Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
+*OpenapiClient::DatasetApi* | [**get_authorized_external_db_tables_with_column_metadata**](docs/DatasetApi.md#get_authorized_external_db_tables_with_column_metadata) | **GET** /datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+*OpenapiClient::DatasetApi* | [**get_external_database_column**](docs/DatasetApi.md#get_external_database_column) | **GET** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization's table in an external database.
+*OpenapiClient::DatasetApi* | [**get_external_database_table**](docs/DatasetApi.md#get_external_database_table) | **GET** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.
+*OpenapiClient::DatasetApi* | [**get_external_database_table_with_column_metadata**](docs/DatasetApi.md#get_external_database_table_with_column_metadata) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
 *OpenapiClient::DatasetApi* | [**get_external_database_tables**](docs/DatasetApi.md#get_external_database_tables) | **GET** /datastore/organization-database/{organizationId}/external-database-table | Gets all OrganizationExternalDatabaseTable objects for an organization
-*OpenapiClient::DatasetApi* | [**get_external_database_tables_with_columns**](docs/DatasetApi.md#get_external_database_tables_with_columns) | **GET** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+*OpenapiClient::DatasetApi* | [**get_external_database_tables_with_column_metadata**](docs/DatasetApi.md#get_external_database_tables_with_column_metadata) | **GET** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+*OpenapiClient::DatasetApi* | [**update_external_database_column**](docs/DatasetApi.md#update_external_database_column) | **PATCH** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Updates an OrganizationExternalDatabaseTableColumn object's fields that are included within the given metadata.
+*OpenapiClient::DatasetApi* | [**update_external_database_table**](docs/DatasetApi.md#update_external_database_table) | **PATCH** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Updates an OrganizationExternalDatabaseTable object's fields that are included within the given metadata.
 *OpenapiClient::EdmApi* | [**add_dst_entity_type_to_association_type**](docs/EdmApi.md#add_dst_entity_type_to_association_type) | **PUT** /datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId} | Update the AssociationType dst entity types for the given AssociationType UUID by adding the given EntityType UUID.
 *OpenapiClient::EdmApi* | [**add_entity_sets_to_linking_entity_set**](docs/EdmApi.md#add_entity_sets_to_linking_entity_set) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
 *OpenapiClient::EdmApi* | [**add_entity_sets_to_linking_entity_sets**](docs/EdmApi.md#add_entity_sets_to_linking_entity_sets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
@@ -241,6 +250,14 @@ Class | Method | HTTP request | Description
 *OpenapiClient::SearchApi* | [**get_entity_sets**](docs/SearchApi.md#get_entity_sets) | **GET** /datastore/search/entity-sets/{start}/{numResults} | Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
 *OpenapiClient::SearchApi* | [**get_popular_entity_set**](docs/SearchApi.md#get_popular_entity_set) | **GET** /datastore/search/popular | Get the most popular entity sets.
 *OpenapiClient::SearchApi* | [**search_entity_set_data**](docs/SearchApi.md#search_entity_set_data) | **PATCH** /datastore/search | Executes a search over the data of a given entity set to find rows that match the search term
+*OpenapiClient::ShuttleApi* | [**create_integration_definition**](docs/ShuttleApi.md#create_integration_definition) | **POST** /shuttle/integration/definition/{integrationName} | Creates a new integration definition for running recurring integrations
+*OpenapiClient::ShuttleApi* | [**delete_integration_definition**](docs/ShuttleApi.md#delete_integration_definition) | **DELETE** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
+*OpenapiClient::ShuttleApi* | [**delete_integration_job_status**](docs/ShuttleApi.md#delete_integration_job_status) | **DELETE** /shuttle/integration/status/{jobId} | Deletes an integration job status from the integrationJobs map
+*OpenapiClient::ShuttleApi* | [**enqueue_integration**](docs/ShuttleApi.md#enqueue_integration) | **GET** /shuttle/integration/{integrationName}/{integrationKey} | Enqueues an integration on Shuttle Server for a given integration
+*OpenapiClient::ShuttleApi* | [**poll_all_integrations**](docs/ShuttleApi.md#poll_all_integrations) | **GET** /shuttle/integration/status | Polls the statuses of all running integrations
+*OpenapiClient::ShuttleApi* | [**poll_integration**](docs/ShuttleApi.md#poll_integration) | **GET** /shuttle/integration/status/{jobId} | Polls the status of an integration
+*OpenapiClient::ShuttleApi* | [**read_integration_definition**](docs/ShuttleApi.md#read_integration_definition) | **GET** /shuttle/integration/definition/{integrationName} | Gets an existing integration definition
+*OpenapiClient::ShuttleApi* | [**update_integration_definition**](docs/ShuttleApi.md#update_integration_definition) | **PATCH** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
 
 
 ## Documentation for Models
@@ -251,6 +268,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::AclData](docs/AclData.md)
  - [OpenapiClient::AdvancedSearch](docs/AdvancedSearch.md)
  - [OpenapiClient::Association](docs/Association.md)
+ - [OpenapiClient::AssociationDefinition](docs/AssociationDefinition.md)
  - [OpenapiClient::AssociationType](docs/AssociationType.md)
  - [OpenapiClient::Auth0userBasic](docs/Auth0userBasic.md)
  - [OpenapiClient::Authorization](docs/Authorization.md)
@@ -270,6 +288,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::EdmRequest](docs/EdmRequest.md)
  - [OpenapiClient::Entity](docs/Entity.md)
  - [OpenapiClient::EntityDataKey](docs/EntityDataKey.md)
+ - [OpenapiClient::EntityDefinition](docs/EntityDefinition.md)
  - [OpenapiClient::EntityKey](docs/EntityKey.md)
  - [OpenapiClient::EntityKeyPair](docs/EntityKeyPair.md)
  - [OpenapiClient::EntityLinkingFeatures](docs/EntityLinkingFeatures.md)
@@ -280,11 +299,18 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::EntitySetSelection](docs/EntitySetSelection.md)
  - [OpenapiClient::EntityType](docs/EntityType.md)
  - [OpenapiClient::EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
+ - [OpenapiClient::Flight](docs/Flight.md)
+ - [OpenapiClient::FlightPlanParameters](docs/FlightPlanParameters.md)
+ - [OpenapiClient::FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [OpenapiClient::FullQualifiedName](docs/FullQualifiedName.md)
  - [OpenapiClient::IndexingState](docs/IndexingState.md)
  - [OpenapiClient::InlineObject](docs/InlineObject.md)
  - [OpenapiClient::InlineResponse200](docs/InlineResponse200.md)
+ - [OpenapiClient::Integration](docs/Integration.md)
+ - [OpenapiClient::IntegrationJob](docs/IntegrationJob.md)
  - [OpenapiClient::IntegrationResults](docs/IntegrationResults.md)
+ - [OpenapiClient::IntegrationStatus](docs/IntegrationStatus.md)
+ - [OpenapiClient::IntegrationUpdate](docs/IntegrationUpdate.md)
  - [OpenapiClient::LinkingFeedback](docs/LinkingFeedback.md)
  - [OpenapiClient::MaterializedViewAccount](docs/MaterializedViewAccount.md)
  - [OpenapiClient::MetadataUpdate](docs/MetadataUpdate.md)
@@ -297,6 +323,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::OrganizationExternalDatabaseTableColumnsPair](docs/OrganizationExternalDatabaseTableColumnsPair.md)
  - [OpenapiClient::OrganizationMember](docs/OrganizationMember.md)
  - [OpenapiClient::Principal](docs/Principal.md)
+ - [OpenapiClient::PropertyDefinition](docs/PropertyDefinition.md)
  - [OpenapiClient::PropertyType](docs/PropertyType.md)
  - [OpenapiClient::PropertyUsageSummary](docs/PropertyUsageSummary.md)
  - [OpenapiClient::Role](docs/Role.md)

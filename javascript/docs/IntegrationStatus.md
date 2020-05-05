@@ -1,0 +1,16 @@
+# OpenLatticeApi.IntegrationStatus
+
+## Enum
+
+
+* `IN_PROGRESS` (value: `"IN_PROGRESS"`)
+
+* `SUCCEEDED` (value: `"SUCCEEDED"`)
+
+* `FAILED` (value: `"FAILED"`)
+
+* `QUEUED` (value: `"QUEUED"`)
+
+* `FAILED_TO_START` (value: `"FAILED_TO_START"`)
+
+

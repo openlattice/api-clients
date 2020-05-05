@@ -1620,6 +1620,35 @@ paths:
       - entitySets
       - edm
   /datastore/organization-database/{organizationId}/external-database-table:
+    delete:
+      operationId: deleteExternalDatabaseTables
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                type: string
+              type: array
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes multiple OrganizationExternalDatabaseTable objects and the
+        tables they represent in the database. It is a hard delete.
+      tags:
+      - dataset
     get:
       operationId: getExternalDatabaseTables
       parameters:
@@ -1648,7 +1677,7 @@ paths:
       - dataset
   /datastore/organization-database/{organizationId}/external-database-table/external-database-column:
     get:
-      operationId: getExternalDatabaseTablesWithColumns
+      operationId: getExternalDatabaseTablesWithColumnMetadata
       parameters:
       - explode: false
         in: path
@@ -1663,11 +1692,51 @@ paths:
           content:
             application/json:
               schema:
-                additionalProperties:
-                  items:
-                    $ref: '#/components/schemas/OrganizationExternalDatabaseColumn'
-                  type: array
-                type: object
+                items:
+                  $ref: '#/components/schemas/OrganizationExternalDatabaseTableColumnsPair'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase
+        columns that are contained within each table.
+      tags:
+      - dataset
+  /datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized:
+    get:
+      operationId: getAuthorizedExternalDbTablesWithColumnMetadata
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: permission
+        required: true
+        schema:
+          enum:
+          - DISCOVER
+          - MATERIALIZE
+          - LINK
+          - READ
+          - WRITE
+          - OWNER
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OrganizationExternalDatabaseTableColumnsPair'
+                type: array
           description: Success
       security:
       - openlattice_auth: []
@@ -1678,7 +1747,7 @@ paths:
       - dataset
   /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column:
     get:
-      operationId: getExternalDatabaseTableWithColumns
+      operationId: getExternalDatabaseTableWithColumnMetadata
       parameters:
       - explode: false
         in: path
@@ -1701,15 +1770,256 @@ paths:
           content:
             application/json:
               schema:
-                additionalProperties:
-                  $ref: '#/components/schemas/OrganizationExternalDatabaseTableColumnsPair'
-                type: object
+                $ref: '#/components/schemas/OrganizationExternalDatabaseTableColumnsPair'
           description: Success
       security:
       - openlattice_auth: []
       - http_auth: []
       summary: Gets an object containing an OrganizationExternalDatabaseTable object
         and its OrganizationExternalDatabase columns for an organization
+      tags:
+      - dataset
+  /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column:
+    delete:
+      operationId: deleteExternalDatabaseColumn
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tableName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: columnName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes an OrganizationExternalDatabaseColumn object, which represents
+        an organization's column in an external database. This deletes both the object
+        and the column in the database. It is a hard delete.
+      tags:
+      - dataset
+    get:
+      operationId: getExternalDatabaseColumn
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tableName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: columnName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationExternalDatabaseColumn'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets an OrganizationExternalDatabaseColumn object, which represents
+        a column within an organization's table in an external database.
+      tags:
+      - dataset
+    patch:
+      operationId: updateExternalDatabaseColumn
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tableName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: columnName
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetadataUpdate'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates an OrganizationExternalDatabaseTableColumn object's fields
+        that are included within the given metadata.
+      tags:
+      - dataset
+  /datastore/organization-database/{organizationId}/{tableName}/external-database-table:
+    delete:
+      operationId: deleteExternalDatabaseTable
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tableName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes an OrganizationExternalDatabaseTable object, which represents
+        an organization's table in an external database. This deletes both the object
+        and the table in the database. It is a hard delete.
+      tags:
+      - dataset
+    get:
+      operationId: getExternalDatabaseTable
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tableName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationExternalDatabaseTable'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets an OrganizationExternalDatabaseTable object, which represents
+        an organization's table in an external database.
+      tags:
+      - dataset
+    patch:
+      operationId: updateExternalDatabaseTable
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tableName
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetadataUpdate'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Updates an OrganizationExternalDatabaseTable object's fields that are
+        included within the given metadata.
+      tags:
+      - dataset
+  /datastore/organization-database/{organizationId}/{tableName}/external-database-column:
+    delete:
+      operationId: deleteExternalDatabaseColumns
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: tableName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes multiple OrganizationExternalDatabaseColumn objects and the
+        columns they represent within an organization's table in an external database.
+        It is a hard delete
       tags:
       - dataset
   /datastore/data:
@@ -1956,9 +2266,7 @@ paths:
         content:
           application/json:
             schema:
-              items:
-                $ref: '#/components/schemas/EntitySetSelection'
-              type: array
+              $ref: '#/components/schemas/EntitySetSelection'
         required: true
       responses:
         "200":
@@ -4043,6 +4351,204 @@ paths:
         of provided entity sets.
       tags:
       - admin
+  /shuttle/integration/definition/{integrationName}:
+    delete:
+      operationId: deleteIntegrationDefinition
+      parameters:
+      - explode: false
+        in: path
+        name: integrationName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Replaces any number of fields within an existing integration definition
+      tags:
+      - shuttle
+    get:
+      operationId: readIntegrationDefinition
+      parameters:
+      - explode: false
+        in: path
+        name: integrationName
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Gets an existing integration definition
+      tags:
+      - shuttle
+    patch:
+      operationId: updateIntegrationDefinition
+      parameters:
+      - explode: false
+        in: path
+        name: integrationName
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationUpdate'
+        required: true
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Replaces any number of fields within an existing integration definition
+      tags:
+      - shuttle
+    post:
+      operationId: createIntegrationDefinition
+      parameters:
+      - explode: false
+        in: path
+        name: integrationName
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Integration'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: uuid
+                type: string
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Creates a new integration definition for running recurring integrations
+      tags:
+      - shuttle
+  /shuttle/integration/{integrationName}/{integrationKey}:
+    get:
+      operationId: enqueueIntegration
+      parameters:
+      - description: the name of the integration to be run
+        explode: false
+        in: path
+        name: integrationName
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: the unique id used to authenticate an integration run
+        explode: false
+        in: path
+        name: integrationKey
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: uuid
+                type: string
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Enqueues an integration on Shuttle Server for a given integration
+      tags:
+      - shuttle
+  /shuttle/integration/status/{jobId}:
+    delete:
+      operationId: deleteIntegrationJobStatus
+      parameters:
+      - description: the unique id of the integration job
+        explode: false
+        in: path
+        name: jobId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Deletes an integration job status from the integrationJobs map
+      tags:
+      - shuttle
+    get:
+      operationId: pollIntegration
+      parameters:
+      - description: the unique id of the integration job
+        explode: false
+        in: path
+        name: jobId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationStatus'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Polls the status of an integration
+      tags:
+      - shuttle
+  /shuttle/integration/status:
+    get:
+      operationId: pollAllIntegrations
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: '#/components/schemas/IntegrationJob'
+                type: object
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Polls the statuses of all running integrations
+      tags:
+      - shuttle
 components:
   requestBodies:
     inline_object:
@@ -6568,6 +7074,16 @@ components:
           type: string
       type: object
     OrganizationExternalDatabaseColumn:
+      example:
+        organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        dataType: SMALLINT
+        name: name
+        description: description
+        tableId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        ordinalPosition: 0
+        primaryKey: true
       properties:
         id:
           format: uuid
@@ -6623,6 +7139,32 @@ components:
           type: integer
       type: object
     OrganizationExternalDatabaseTableColumnsPair:
+      example:
+        columns:
+        - organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          dataType: SMALLINT
+          name: name
+          description: description
+          tableId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+          ordinalPosition: 0
+          primaryKey: true
+        - organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          dataType: SMALLINT
+          name: name
+          description: description
+          tableId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+          ordinalPosition: 0
+          primaryKey: true
+        table:
+          organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
       properties:
         table:
           $ref: '#/components/schemas/OrganizationExternalDatabaseTable'
@@ -6779,6 +7321,401 @@ components:
           type: integer
         count:
           type: integer
+      type: object
+    Integration:
+      description: Represents a data integration, including all fields required to
+        run the integration.
+      example:
+        organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        environment: PROD_INTEGRATION
+        callback:
+        - callback
+        - callback
+        key: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        s3Bucket: s3Bucket
+        contacts:
+        - contacts
+        - contacts
+        entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        maxConnections: 0
+        flightPlanParameters:
+          key:
+            path: path
+            flight:
+              organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              name: name
+              associationDefinitions:
+                key:
+                  propertyDefinitions:
+                    key:
+                      column: column
+                      type:
+                        name: name
+                        namespace: namespace
+                  fqn:
+                    name: name
+                    namespace: namespace
+                  dst: dst
+                  src: src
+                  entitySetName: entitySetName
+                  updateType: Replace
+              tags:
+              - tags
+              - tags
+              entityDefinitions:
+                key:
+                  propertyDefinitions:
+                    key:
+                      column: column
+                      type:
+                        name: name
+                        namespace: namespace
+                  fqn:
+                    name: name
+                    namespace: namespace
+                  entitySetName: entitySetName
+                  updateType: Replace
+            src:
+              key: src
+            srcPrimaryKeyColumns:
+            - srcPrimaryKeyColumns
+            - srcPrimaryKeyColumns
+            sql: sql
+      properties:
+        key:
+          description: a unique ID used for authorizing a call to run an integration
+          format: uuid
+          type: string
+        environment:
+          description: the retrofit environment (e.g. production, local)
+          enum:
+          - PROD_INTEGRATION
+          - STAGING_INTEGRATION
+          - LOCAL
+          type: string
+        s3Bucket:
+          description: the url of the s3bucket to be used
+          type: string
+        contacts:
+          description: the set of email addresses of those responsible for the integration
+          items:
+            type: string
+          type: array
+        organizationId:
+          description: the id of the organization that owns the integration
+          format: uuid
+          type: string
+        entitySetId:
+          description: the id of the entity set that stores the logs for this integration
+          format: uuid
+          type: string
+        maxConnections:
+          description: maximum number of connections to postgres allowed for this
+            integration
+          type: integer
+        callback:
+          description: urls to receive a POST when integration has completed
+          items:
+            type: string
+          type: array
+        flightPlanParameters:
+          additionalProperties:
+            $ref: '#/components/schemas/FlightPlanParameters'
+          description: a map from [Flight] name to [FlightPlanParameters]
+          type: object
+      type: object
+    FlightPlanParameters:
+      description: Represents the parameters required to create a flight plan (i.e.
+        a Map<Flight, Payload>)
+      example:
+        path: path
+        flight:
+          organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          associationDefinitions:
+            key:
+              propertyDefinitions:
+                key:
+                  column: column
+                  type:
+                    name: name
+                    namespace: namespace
+              fqn:
+                name: name
+                namespace: namespace
+              dst: dst
+              src: src
+              entitySetName: entitySetName
+              updateType: Replace
+          tags:
+          - tags
+          - tags
+          entityDefinitions:
+            key:
+              propertyDefinitions:
+                key:
+                  column: column
+                  type:
+                    name: name
+                    namespace: namespace
+              fqn:
+                name: name
+                namespace: namespace
+              entitySetName: entitySetName
+              updateType: Replace
+        src:
+          key: src
+        srcPrimaryKeyColumns:
+        - srcPrimaryKeyColumns
+        - srcPrimaryKeyColumns
+        sql: sql
+      properties:
+        sql:
+          description: the sql query to be used to pull cleaned data from postgres
+          type: string
+        src:
+          additionalProperties:
+            type: string
+          description: postgres data source for pulling clean data
+          type: object
+        srcPrimaryKeyColumns:
+          description: the columns that are primary keys in the cleaned data
+          items:
+            type: string
+          type: array
+        path:
+          description: the path to the flight yaml (i.e. https://raw.githubusercontent.com/pathToFlight.yaml)
+          type: string
+        flight:
+          $ref: '#/components/schemas/Flight'
+      type: object
+    FlightPlanParametersUpdate:
+      example:
+        path: path
+        src:
+          key: src
+        srcPrimaryKeyColumns:
+        - srcPrimaryKeyColumns
+        - srcPrimaryKeyColumns
+        sql: sql
+      properties:
+        sql:
+          description: the sql query to be used to pull cleaned data from postgres
+          type: string
+        src:
+          additionalProperties:
+            type: string
+          description: postgres data source for pulling clean data
+          type: object
+        srcPrimaryKeyColumns:
+          description: the columns that are primary keys in the cleaned data
+          items:
+            type: string
+          type: array
+        path:
+          description: the path to the flight yaml (i.e. https://raw.githubusercontent.com/pathToFlight.yaml)
+          type: string
+      type: object
+    Flight:
+      example:
+        organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        associationDefinitions:
+          key:
+            propertyDefinitions:
+              key:
+                column: column
+                type:
+                  name: name
+                  namespace: namespace
+            fqn:
+              name: name
+              namespace: namespace
+            dst: dst
+            src: src
+            entitySetName: entitySetName
+            updateType: Replace
+        tags:
+        - tags
+        - tags
+        entityDefinitions:
+          key:
+            propertyDefinitions:
+              key:
+                column: column
+                type:
+                  name: name
+                  namespace: namespace
+            fqn:
+              name: name
+              namespace: namespace
+            entitySetName: entitySetName
+            updateType: Replace
+      properties:
+        name:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+        organizationId:
+          format: uuid
+          type: string
+        entityDefinitions:
+          additionalProperties:
+            $ref: '#/components/schemas/EntityDefinition'
+          type: object
+        associationDefinitions:
+          additionalProperties:
+            $ref: '#/components/schemas/AssociationDefinition'
+          type: object
+      type: object
+    PropertyDefinition:
+      example:
+        column: column
+        type:
+          name: name
+          namespace: namespace
+      properties:
+        type:
+          $ref: '#/components/schemas/FullQualifiedName'
+        column:
+          type: string
+      type: object
+    EntityDefinition:
+      example:
+        propertyDefinitions:
+          key:
+            column: column
+            type:
+              name: name
+              namespace: namespace
+        fqn:
+          name: name
+          namespace: namespace
+        entitySetName: entitySetName
+        updateType: Replace
+      properties:
+        fqn:
+          $ref: '#/components/schemas/FullQualifiedName'
+        entitySetName:
+          type: string
+        propertyDefinitions:
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyDefinition'
+          type: object
+        updateType:
+          enum:
+          - Replace
+          - PartialReplace
+          - Merge
+          type: string
+      type: object
+    AssociationDefinition:
+      example:
+        propertyDefinitions:
+          key:
+            column: column
+            type:
+              name: name
+              namespace: namespace
+        fqn:
+          name: name
+          namespace: namespace
+        dst: dst
+        src: src
+        entitySetName: entitySetName
+        updateType: Replace
+      properties:
+        fqn:
+          $ref: '#/components/schemas/FullQualifiedName'
+        entitySetName:
+          type: string
+        propertyDefinitions:
+          additionalProperties:
+            $ref: '#/components/schemas/PropertyDefinition'
+          type: object
+        updateType:
+          enum:
+          - Replace
+          - PartialReplace
+          - Merge
+          type: string
+        src:
+          type: string
+        dst:
+          type: string
+      type: object
+    IntegrationStatus:
+      enum:
+      - IN_PROGRESS
+      - SUCCEEDED
+      - FAILED
+      - QUEUED
+      - FAILED_TO_START
+      type: string
+    IntegrationJob:
+      properties:
+        name:
+          type: string
+        status:
+          $ref: '#/components/schemas/IntegrationStatus'
+      type: object
+    IntegrationUpdate:
+      example:
+        organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        environment: PROD_INTEGRATION
+        callbackUrls:
+        - callbackUrls
+        - callbackUrls
+        s3Bucket: s3Bucket
+        contacts:
+        - contacts
+        - contacts
+        maxConnections: 0
+        flightPlanParameters:
+          key:
+            path: path
+            src:
+              key: src
+            srcPrimaryKeyColumns:
+            - srcPrimaryKeyColumns
+            - srcPrimaryKeyColumns
+            sql: sql
+      properties:
+        environment:
+          description: the retrofit environment (e.g. production, local)
+          enum:
+          - PROD_INTEGRATION
+          - STAGING_INTEGRATION
+          - LOCAL
+          type: string
+        s3Bucket:
+          description: the url of the s3bucket to be used
+          type: string
+        contacts:
+          description: the set of email addresses of those responsible for the integration
+          items:
+            type: string
+          type: array
+        organizationId:
+          description: the id of the organization that owns the integration
+          format: uuid
+          type: string
+        maxConnections:
+          description: maximum number of connections to postgres allowed for this
+            integration
+          type: integer
+        callbackUrls:
+          description: urls to receive a POST when integration has completed
+          items:
+            type: string
+          type: array
+        flightPlanParameters:
+          additionalProperties:
+            $ref: '#/components/schemas/FlightPlanParametersUpdate'
+          description: a map from [Flight] name to [FlightPlanParametersUpdate]
+          type: object
       type: object
     inline_object:
       description: Set of associations to create. Keys are association entity set

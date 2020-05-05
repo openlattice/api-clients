@@ -2022,7 +2022,7 @@ public class DataApi {
    * @param entitySetSelection 
    * @return List<Map<String, List<String>>>
   */
-  public List<Map<String, List<String>>> loadSelectedEntitySetData (UUID entitySetId, List<EntitySetSelection> entitySetSelection) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Map<String, List<String>>> loadSelectedEntitySetData (UUID entitySetId, EntitySetSelection entitySetSelection) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = entitySetSelection;
     // verify the required parameter 'entitySetId' is set
     if (entitySetId == null) {
@@ -2089,7 +2089,7 @@ public class DataApi {
    * 
    * @param entitySetId    * @param entitySetSelection 
   */
-  public void loadSelectedEntitySetData (UUID entitySetId, List<EntitySetSelection> entitySetSelection, final Response.Listener<List<Map<String, List<String>>>> responseListener, final Response.ErrorListener errorListener) {
+  public void loadSelectedEntitySetData (UUID entitySetId, EntitySetSelection entitySetSelection, final Response.Listener<List<Map<String, List<String>>>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = entitySetSelection;
 
     // verify the required parameter 'entitySetId' is set

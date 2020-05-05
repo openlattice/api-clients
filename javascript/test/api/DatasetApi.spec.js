@@ -48,10 +48,80 @@
   }
 
   describe('DatasetApi', function() {
-    describe('getExternalDatabaseTableWithColumns', function() {
-      it('should call getExternalDatabaseTableWithColumns successfully', function(done) {
-        //uncomment below and update the code to test getExternalDatabaseTableWithColumns
-        //instance.getExternalDatabaseTableWithColumns(function(error) {
+    describe('deleteExternalDatabaseColumn', function() {
+      it('should call deleteExternalDatabaseColumn successfully', function(done) {
+        //uncomment below and update the code to test deleteExternalDatabaseColumn
+        //instance.deleteExternalDatabaseColumn(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('deleteExternalDatabaseColumns', function() {
+      it('should call deleteExternalDatabaseColumns successfully', function(done) {
+        //uncomment below and update the code to test deleteExternalDatabaseColumns
+        //instance.deleteExternalDatabaseColumns(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('deleteExternalDatabaseTable', function() {
+      it('should call deleteExternalDatabaseTable successfully', function(done) {
+        //uncomment below and update the code to test deleteExternalDatabaseTable
+        //instance.deleteExternalDatabaseTable(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('deleteExternalDatabaseTables', function() {
+      it('should call deleteExternalDatabaseTables successfully', function(done) {
+        //uncomment below and update the code to test deleteExternalDatabaseTables
+        //instance.deleteExternalDatabaseTables(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getAuthorizedExternalDbTablesWithColumnMetadata', function() {
+      it('should call getAuthorizedExternalDbTablesWithColumnMetadata successfully', function(done) {
+        //uncomment below and update the code to test getAuthorizedExternalDbTablesWithColumnMetadata
+        //instance.getAuthorizedExternalDbTablesWithColumnMetadata(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getExternalDatabaseColumn', function() {
+      it('should call getExternalDatabaseColumn successfully', function(done) {
+        //uncomment below and update the code to test getExternalDatabaseColumn
+        //instance.getExternalDatabaseColumn(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getExternalDatabaseTable', function() {
+      it('should call getExternalDatabaseTable successfully', function(done) {
+        //uncomment below and update the code to test getExternalDatabaseTable
+        //instance.getExternalDatabaseTable(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getExternalDatabaseTableWithColumnMetadata', function() {
+      it('should call getExternalDatabaseTableWithColumnMetadata successfully', function(done) {
+        //uncomment below and update the code to test getExternalDatabaseTableWithColumnMetadata
+        //instance.getExternalDatabaseTableWithColumnMetadata(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -68,10 +138,30 @@
         done();
       });
     });
-    describe('getExternalDatabaseTablesWithColumns', function() {
-      it('should call getExternalDatabaseTablesWithColumns successfully', function(done) {
-        //uncomment below and update the code to test getExternalDatabaseTablesWithColumns
-        //instance.getExternalDatabaseTablesWithColumns(function(error) {
+    describe('getExternalDatabaseTablesWithColumnMetadata', function() {
+      it('should call getExternalDatabaseTablesWithColumnMetadata successfully', function(done) {
+        //uncomment below and update the code to test getExternalDatabaseTablesWithColumnMetadata
+        //instance.getExternalDatabaseTablesWithColumnMetadata(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateExternalDatabaseColumn', function() {
+      it('should call updateExternalDatabaseColumn successfully', function(done) {
+        //uncomment below and update the code to test updateExternalDatabaseColumn
+        //instance.updateExternalDatabaseColumn(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateExternalDatabaseTable', function() {
+      it('should call updateExternalDatabaseTable successfully', function(done) {
+        //uncomment below and update the code to test updateExternalDatabaseTable
+        //instance.updateExternalDatabaseTable(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

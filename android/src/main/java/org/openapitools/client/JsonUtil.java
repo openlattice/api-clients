@@ -81,6 +81,10 @@ public class JsonUtil {
       return new TypeToken<List<Association>>(){}.getType();
     }
     
+    if ("AssociationDefinition".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AssociationDefinition>>(){}.getType();
+    }
+    
     if ("AssociationType".equalsIgnoreCase(className)) {
       return new TypeToken<List<AssociationType>>(){}.getType();
     }
@@ -157,6 +161,10 @@ public class JsonUtil {
       return new TypeToken<List<EntityDataKey>>(){}.getType();
     }
     
+    if ("EntityDefinition".equalsIgnoreCase(className)) {
+      return new TypeToken<List<EntityDefinition>>(){}.getType();
+    }
+    
     if ("EntityKey".equalsIgnoreCase(className)) {
       return new TypeToken<List<EntityKey>>(){}.getType();
     }
@@ -197,6 +205,18 @@ public class JsonUtil {
       return new TypeToken<List<EntityTypePropertyMetadata>>(){}.getType();
     }
     
+    if ("Flight".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Flight>>(){}.getType();
+    }
+    
+    if ("FlightPlanParameters".equalsIgnoreCase(className)) {
+      return new TypeToken<List<FlightPlanParameters>>(){}.getType();
+    }
+    
+    if ("FlightPlanParametersUpdate".equalsIgnoreCase(className)) {
+      return new TypeToken<List<FlightPlanParametersUpdate>>(){}.getType();
+    }
+    
     if ("FullQualifiedName".equalsIgnoreCase(className)) {
       return new TypeToken<List<FullQualifiedName>>(){}.getType();
     }
@@ -213,8 +233,24 @@ public class JsonUtil {
       return new TypeToken<List<InlineResponse200>>(){}.getType();
     }
     
+    if ("Integration".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Integration>>(){}.getType();
+    }
+    
+    if ("IntegrationJob".equalsIgnoreCase(className)) {
+      return new TypeToken<List<IntegrationJob>>(){}.getType();
+    }
+    
     if ("IntegrationResults".equalsIgnoreCase(className)) {
       return new TypeToken<List<IntegrationResults>>(){}.getType();
+    }
+    
+    if ("IntegrationStatus".equalsIgnoreCase(className)) {
+      return new TypeToken<List<IntegrationStatus>>(){}.getType();
+    }
+    
+    if ("IntegrationUpdate".equalsIgnoreCase(className)) {
+      return new TypeToken<List<IntegrationUpdate>>(){}.getType();
     }
     
     if ("LinkingFeedback".equalsIgnoreCase(className)) {
@@ -263,6 +299,10 @@ public class JsonUtil {
     
     if ("Principal".equalsIgnoreCase(className)) {
       return new TypeToken<List<Principal>>(){}.getType();
+    }
+    
+    if ("PropertyDefinition".equalsIgnoreCase(className)) {
+      return new TypeToken<List<PropertyDefinition>>(){}.getType();
     }
     
     if ("PropertyType".equalsIgnoreCase(className)) {
@@ -343,6 +383,10 @@ public class JsonUtil {
       return new TypeToken<Association>(){}.getType();
     }
     
+    if ("AssociationDefinition".equalsIgnoreCase(className)) {
+      return new TypeToken<AssociationDefinition>(){}.getType();
+    }
+    
     if ("AssociationType".equalsIgnoreCase(className)) {
       return new TypeToken<AssociationType>(){}.getType();
     }
@@ -419,6 +463,10 @@ public class JsonUtil {
       return new TypeToken<EntityDataKey>(){}.getType();
     }
     
+    if ("EntityDefinition".equalsIgnoreCase(className)) {
+      return new TypeToken<EntityDefinition>(){}.getType();
+    }
+    
     if ("EntityKey".equalsIgnoreCase(className)) {
       return new TypeToken<EntityKey>(){}.getType();
     }
@@ -459,6 +507,18 @@ public class JsonUtil {
       return new TypeToken<EntityTypePropertyMetadata>(){}.getType();
     }
     
+    if ("Flight".equalsIgnoreCase(className)) {
+      return new TypeToken<Flight>(){}.getType();
+    }
+    
+    if ("FlightPlanParameters".equalsIgnoreCase(className)) {
+      return new TypeToken<FlightPlanParameters>(){}.getType();
+    }
+    
+    if ("FlightPlanParametersUpdate".equalsIgnoreCase(className)) {
+      return new TypeToken<FlightPlanParametersUpdate>(){}.getType();
+    }
+    
     if ("FullQualifiedName".equalsIgnoreCase(className)) {
       return new TypeToken<FullQualifiedName>(){}.getType();
     }
@@ -475,8 +535,24 @@ public class JsonUtil {
       return new TypeToken<InlineResponse200>(){}.getType();
     }
     
+    if ("Integration".equalsIgnoreCase(className)) {
+      return new TypeToken<Integration>(){}.getType();
+    }
+    
+    if ("IntegrationJob".equalsIgnoreCase(className)) {
+      return new TypeToken<IntegrationJob>(){}.getType();
+    }
+    
     if ("IntegrationResults".equalsIgnoreCase(className)) {
       return new TypeToken<IntegrationResults>(){}.getType();
+    }
+    
+    if ("IntegrationStatus".equalsIgnoreCase(className)) {
+      return new TypeToken<IntegrationStatus>(){}.getType();
+    }
+    
+    if ("IntegrationUpdate".equalsIgnoreCase(className)) {
+      return new TypeToken<IntegrationUpdate>(){}.getType();
     }
     
     if ("LinkingFeedback".equalsIgnoreCase(className)) {
@@ -525,6 +601,10 @@ public class JsonUtil {
     
     if ("Principal".equalsIgnoreCase(className)) {
       return new TypeToken<Principal>(){}.getType();
+    }
+    
+    if ("PropertyDefinition".equalsIgnoreCase(className)) {
+      return new TypeToken<PropertyDefinition>(){}.getType();
     }
     
     if ("PropertyType".equalsIgnoreCase(className)) {

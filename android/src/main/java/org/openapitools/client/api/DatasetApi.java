@@ -24,6 +24,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import java.util.*;
+import org.openapitools.client.model.MetadataUpdate;
+import org.openapitools.client.model.OrganizationExternalDatabaseColumn;
 import org.openapitools.client.model.OrganizationExternalDatabaseTable;
 import org.openapitools.client.model.OrganizationExternalDatabaseTableColumnsPair;
 import java.util.UUID;
@@ -59,23 +61,996 @@ public class DatasetApi {
   }
 
   /**
+  * Deletes an OrganizationExternalDatabaseColumn object, which represents an organization&#39;s column in an external database. This deletes both the object and the column in the database. It is a hard delete.
+  * 
+   * @param organizationId 
+   * @param tableName 
+   * @param columnName 
+   * @return void
+  */
+  public void deleteExternalDatabaseColumn (UUID organizationId, String tableName, String columnName) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling deleteExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling deleteExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling deleteExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling deleteExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'columnName' is set
+    if (columnName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'columnName' when calling deleteExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'columnName' when calling deleteExternalDatabaseColumn"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString())).replaceAll("\\{" + "columnName" + "\\}", apiInvoker.escapeString(columnName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Deletes an OrganizationExternalDatabaseColumn object, which represents an organization&#39;s column in an external database. This deletes both the object and the column in the database. It is a hard delete.
+   * 
+   * @param organizationId    * @param tableName    * @param columnName 
+  */
+  public void deleteExternalDatabaseColumn (UUID organizationId, String tableName, String columnName, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling deleteExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling deleteExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling deleteExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling deleteExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'columnName' is set
+    if (columnName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'columnName' when calling deleteExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'columnName' when calling deleteExternalDatabaseColumn"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString())).replaceAll("\\{" + "columnName" + "\\}", apiInvoker.escapeString(columnName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization&#39;s table in an external database. It is a hard delete
+  * 
+   * @param organizationId 
+   * @param tableName 
+   * @return void
+  */
+  public void deleteExternalDatabaseColumns (UUID organizationId, String tableName) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling deleteExternalDatabaseColumns",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling deleteExternalDatabaseColumns"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling deleteExternalDatabaseColumns",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling deleteExternalDatabaseColumns"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/external-database-column".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization&#39;s table in an external database. It is a hard delete
+   * 
+   * @param organizationId    * @param tableName 
+  */
+  public void deleteExternalDatabaseColumns (UUID organizationId, String tableName, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling deleteExternalDatabaseColumns",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling deleteExternalDatabaseColumns"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling deleteExternalDatabaseColumns",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling deleteExternalDatabaseColumns"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/external-database-column".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Deletes an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database. This deletes both the object and the table in the database. It is a hard delete.
+  * 
+   * @param organizationId 
+   * @param tableName 
+   * @return void
+  */
+  public void deleteExternalDatabaseTable (UUID organizationId, String tableName) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling deleteExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling deleteExternalDatabaseTable"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling deleteExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling deleteExternalDatabaseTable"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/external-database-table".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Deletes an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database. This deletes both the object and the table in the database. It is a hard delete.
+   * 
+   * @param organizationId    * @param tableName 
+  */
+  public void deleteExternalDatabaseTable (UUID organizationId, String tableName, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling deleteExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling deleteExternalDatabaseTable"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling deleteExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling deleteExternalDatabaseTable"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/external-database-table".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
+  * 
+   * @param organizationId 
+   * @param requestBody 
+   * @return void
+  */
+  public void deleteExternalDatabaseTables (UUID organizationId, List<String> requestBody) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = requestBody;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling deleteExternalDatabaseTables",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling deleteExternalDatabaseTables"));
+    }
+    // verify the required parameter 'requestBody' is set
+    if (requestBody == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'requestBody' when calling deleteExternalDatabaseTables",
+        new ApiException(400, "Missing the required parameter 'requestBody' when calling deleteExternalDatabaseTables"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/external-database-table".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
+   * 
+   * @param organizationId    * @param requestBody 
+  */
+  public void deleteExternalDatabaseTables (UUID organizationId, List<String> requestBody, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = requestBody;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling deleteExternalDatabaseTables",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling deleteExternalDatabaseTables"));
+    }
+    // verify the required parameter 'requestBody' is set
+    if (requestBody == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'requestBody' when calling deleteExternalDatabaseTables",
+        new ApiException(400, "Missing the required parameter 'requestBody' when calling deleteExternalDatabaseTables"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/external-database-table".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+  * 
+   * @param organizationId 
+   * @param permission 
+   * @return List<OrganizationExternalDatabaseTableColumnsPair>
+  */
+  public List<OrganizationExternalDatabaseTableColumnsPair> getAuthorizedExternalDbTablesWithColumnMetadata (UUID organizationId, String permission) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getAuthorizedExternalDbTablesWithColumnMetadata",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getAuthorizedExternalDbTablesWithColumnMetadata"));
+    }
+    // verify the required parameter 'permission' is set
+    if (permission == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'permission' when calling getAuthorizedExternalDbTablesWithColumnMetadata",
+        new ApiException(400, "Missing the required parameter 'permission' when calling getAuthorizedExternalDbTablesWithColumnMetadata"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "permission" + "\\}", apiInvoker.escapeString(permission.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (List<OrganizationExternalDatabaseTableColumnsPair>) ApiInvoker.deserialize(localVarResponse, "array", OrganizationExternalDatabaseTableColumnsPair.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
+   * 
+   * @param organizationId    * @param permission 
+  */
+  public void getAuthorizedExternalDbTablesWithColumnMetadata (UUID organizationId, String permission, final Response.Listener<List<OrganizationExternalDatabaseTableColumnsPair>> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getAuthorizedExternalDbTablesWithColumnMetadata",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getAuthorizedExternalDbTablesWithColumnMetadata"));
+    }
+    // verify the required parameter 'permission' is set
+    if (permission == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'permission' when calling getAuthorizedExternalDbTablesWithColumnMetadata",
+        new ApiException(400, "Missing the required parameter 'permission' when calling getAuthorizedExternalDbTablesWithColumnMetadata"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "permission" + "\\}", apiInvoker.escapeString(permission.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((List<OrganizationExternalDatabaseTableColumnsPair>) ApiInvoker.deserialize(localVarResponse,  "array", OrganizationExternalDatabaseTableColumnsPair.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization&#39;s table in an external database.
+  * 
+   * @param organizationId 
+   * @param tableName 
+   * @param columnName 
+   * @return OrganizationExternalDatabaseColumn
+  */
+  public OrganizationExternalDatabaseColumn getExternalDatabaseColumn (UUID organizationId, String tableName, String columnName) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling getExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling getExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'columnName' is set
+    if (columnName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'columnName' when calling getExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'columnName' when calling getExternalDatabaseColumn"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString())).replaceAll("\\{" + "columnName" + "\\}", apiInvoker.escapeString(columnName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (OrganizationExternalDatabaseColumn) ApiInvoker.deserialize(localVarResponse, "", OrganizationExternalDatabaseColumn.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization&#39;s table in an external database.
+   * 
+   * @param organizationId    * @param tableName    * @param columnName 
+  */
+  public void getExternalDatabaseColumn (UUID organizationId, String tableName, String columnName, final Response.Listener<OrganizationExternalDatabaseColumn> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling getExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling getExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'columnName' is set
+    if (columnName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'columnName' when calling getExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'columnName' when calling getExternalDatabaseColumn"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString())).replaceAll("\\{" + "columnName" + "\\}", apiInvoker.escapeString(columnName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((OrganizationExternalDatabaseColumn) ApiInvoker.deserialize(localVarResponse,  "", OrganizationExternalDatabaseColumn.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
+  * 
+   * @param organizationId 
+   * @param tableName 
+   * @return OrganizationExternalDatabaseTable
+  */
+  public OrganizationExternalDatabaseTable getExternalDatabaseTable (UUID organizationId, String tableName) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTable"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling getExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling getExternalDatabaseTable"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/external-database-table".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (OrganizationExternalDatabaseTable) ApiInvoker.deserialize(localVarResponse, "", OrganizationExternalDatabaseTable.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
+   * 
+   * @param organizationId    * @param tableName 
+  */
+  public void getExternalDatabaseTable (UUID organizationId, String tableName, final Response.Listener<OrganizationExternalDatabaseTable> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTable"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling getExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling getExternalDatabaseTable"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/external-database-table".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((OrganizationExternalDatabaseTable) ApiInvoker.deserialize(localVarResponse,  "", OrganizationExternalDatabaseTable.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
   * Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
   * 
    * @param organizationId 
    * @param tableId 
-   * @return Map<String, OrganizationExternalDatabaseTableColumnsPair>
+   * @return OrganizationExternalDatabaseTableColumnsPair
   */
-  public Map<String, OrganizationExternalDatabaseTableColumnsPair> getExternalDatabaseTableWithColumns (UUID organizationId, UUID tableId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrganizationExternalDatabaseTableColumnsPair getExternalDatabaseTableWithColumnMetadata (UUID organizationId, UUID tableId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'organizationId' is set
     if (organizationId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTableWithColumns",
-        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTableWithColumns"));
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTableWithColumnMetadata",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTableWithColumnMetadata"));
     }
     // verify the required parameter 'tableId' is set
     if (tableId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'tableId' when calling getExternalDatabaseTableWithColumns",
-        new ApiException(400, "Missing the required parameter 'tableId' when calling getExternalDatabaseTableWithColumns"));
+      VolleyError error = new VolleyError("Missing the required parameter 'tableId' when calling getExternalDatabaseTableWithColumnMetadata",
+        new ApiException(400, "Missing the required parameter 'tableId' when calling getExternalDatabaseTableWithColumnMetadata"));
     }
 
     // create path and map variables
@@ -105,7 +1080,7 @@ public class DatasetApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Map<String, OrganizationExternalDatabaseTableColumnsPair>) ApiInvoker.deserialize(localVarResponse, "map", OrganizationExternalDatabaseTableColumnsPair.class);
+         return (OrganizationExternalDatabaseTableColumnsPair) ApiInvoker.deserialize(localVarResponse, "", OrganizationExternalDatabaseTableColumnsPair.class);
       } else {
          return null;
       }
@@ -131,18 +1106,18 @@ public class DatasetApi {
    * 
    * @param organizationId    * @param tableId 
   */
-  public void getExternalDatabaseTableWithColumns (UUID organizationId, UUID tableId, final Response.Listener<Map<String, OrganizationExternalDatabaseTableColumnsPair>> responseListener, final Response.ErrorListener errorListener) {
+  public void getExternalDatabaseTableWithColumnMetadata (UUID organizationId, UUID tableId, final Response.Listener<OrganizationExternalDatabaseTableColumnsPair> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'organizationId' is set
     if (organizationId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTableWithColumns",
-        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTableWithColumns"));
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTableWithColumnMetadata",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTableWithColumnMetadata"));
     }
     // verify the required parameter 'tableId' is set
     if (tableId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'tableId' when calling getExternalDatabaseTableWithColumns",
-        new ApiException(400, "Missing the required parameter 'tableId' when calling getExternalDatabaseTableWithColumns"));
+      VolleyError error = new VolleyError("Missing the required parameter 'tableId' when calling getExternalDatabaseTableWithColumnMetadata",
+        new ApiException(400, "Missing the required parameter 'tableId' when calling getExternalDatabaseTableWithColumnMetadata"));
     }
 
     // create path and map variables
@@ -181,7 +1156,7 @@ public class DatasetApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Map<String, OrganizationExternalDatabaseTableColumnsPair>) ApiInvoker.deserialize(localVarResponse,  "map", OrganizationExternalDatabaseTableColumnsPair.class));
+              responseListener.onResponse((OrganizationExternalDatabaseTableColumnsPair) ApiInvoker.deserialize(localVarResponse,  "", OrganizationExternalDatabaseTableColumnsPair.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -327,14 +1302,14 @@ public class DatasetApi {
   * Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
   * 
    * @param organizationId 
-   * @return Map<String, List<OrganizationExternalDatabaseColumn>>
+   * @return List<OrganizationExternalDatabaseTableColumnsPair>
   */
-  public Map<String, List<OrganizationExternalDatabaseColumn>> getExternalDatabaseTablesWithColumns (UUID organizationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OrganizationExternalDatabaseTableColumnsPair> getExternalDatabaseTablesWithColumnMetadata (UUID organizationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'organizationId' is set
     if (organizationId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTablesWithColumns",
-        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTablesWithColumns"));
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTablesWithColumnMetadata",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTablesWithColumnMetadata"));
     }
 
     // create path and map variables
@@ -364,7 +1339,7 @@ public class DatasetApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Map<String, List<OrganizationExternalDatabaseColumn>>) ApiInvoker.deserialize(localVarResponse, "map", List.class);
+         return (List<OrganizationExternalDatabaseTableColumnsPair>) ApiInvoker.deserialize(localVarResponse, "array", OrganizationExternalDatabaseTableColumnsPair.class);
       } else {
          return null;
       }
@@ -390,13 +1365,13 @@ public class DatasetApi {
    * 
    * @param organizationId 
   */
-  public void getExternalDatabaseTablesWithColumns (UUID organizationId, final Response.Listener<Map<String, List<OrganizationExternalDatabaseColumn>>> responseListener, final Response.ErrorListener errorListener) {
+  public void getExternalDatabaseTablesWithColumnMetadata (UUID organizationId, final Response.Listener<List<OrganizationExternalDatabaseTableColumnsPair>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'organizationId' is set
     if (organizationId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTablesWithColumns",
-        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTablesWithColumns"));
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTablesWithColumnMetadata",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTablesWithColumnMetadata"));
     }
 
     // create path and map variables
@@ -435,10 +1410,313 @@ public class DatasetApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Map<String, List<OrganizationExternalDatabaseColumn>>) ApiInvoker.deserialize(localVarResponse,  "map", List.class));
+              responseListener.onResponse((List<OrganizationExternalDatabaseTableColumnsPair>) ApiInvoker.deserialize(localVarResponse,  "array", OrganizationExternalDatabaseTableColumnsPair.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Updates an OrganizationExternalDatabaseTableColumn object&#39;s fields that are included within the given metadata.
+  * 
+   * @param organizationId 
+   * @param tableName 
+   * @param columnName 
+   * @param metadataUpdate 
+   * @return void
+  */
+  public void updateExternalDatabaseColumn (UUID organizationId, String tableName, String columnName, MetadataUpdate metadataUpdate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = metadataUpdate;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling updateExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling updateExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling updateExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling updateExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'columnName' is set
+    if (columnName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'columnName' when calling updateExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'columnName' when calling updateExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'metadataUpdate' is set
+    if (metadataUpdate == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'metadataUpdate' when calling updateExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'metadataUpdate' when calling updateExternalDatabaseColumn"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString())).replaceAll("\\{" + "columnName" + "\\}", apiInvoker.escapeString(columnName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "PATCH", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Updates an OrganizationExternalDatabaseTableColumn object&#39;s fields that are included within the given metadata.
+   * 
+   * @param organizationId    * @param tableName    * @param columnName    * @param metadataUpdate 
+  */
+  public void updateExternalDatabaseColumn (UUID organizationId, String tableName, String columnName, MetadataUpdate metadataUpdate, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = metadataUpdate;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling updateExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling updateExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling updateExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling updateExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'columnName' is set
+    if (columnName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'columnName' when calling updateExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'columnName' when calling updateExternalDatabaseColumn"));
+    }
+    // verify the required parameter 'metadataUpdate' is set
+    if (metadataUpdate == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'metadataUpdate' when calling updateExternalDatabaseColumn",
+        new ApiException(400, "Missing the required parameter 'metadataUpdate' when calling updateExternalDatabaseColumn"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString())).replaceAll("\\{" + "columnName" + "\\}", apiInvoker.escapeString(columnName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "PATCH", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Updates an OrganizationExternalDatabaseTable object&#39;s fields that are included within the given metadata.
+  * 
+   * @param organizationId 
+   * @param tableName 
+   * @param metadataUpdate 
+   * @return void
+  */
+  public void updateExternalDatabaseTable (UUID organizationId, String tableName, MetadataUpdate metadataUpdate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = metadataUpdate;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling updateExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling updateExternalDatabaseTable"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling updateExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling updateExternalDatabaseTable"));
+    }
+    // verify the required parameter 'metadataUpdate' is set
+    if (metadataUpdate == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'metadataUpdate' when calling updateExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'metadataUpdate' when calling updateExternalDatabaseTable"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/external-database-table".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "PATCH", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Updates an OrganizationExternalDatabaseTable object&#39;s fields that are included within the given metadata.
+   * 
+   * @param organizationId    * @param tableName    * @param metadataUpdate 
+  */
+  public void updateExternalDatabaseTable (UUID organizationId, String tableName, MetadataUpdate metadataUpdate, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = metadataUpdate;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling updateExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling updateExternalDatabaseTable"));
+    }
+    // verify the required parameter 'tableName' is set
+    if (tableName == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling updateExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'tableName' when calling updateExternalDatabaseTable"));
+    }
+    // verify the required parameter 'metadataUpdate' is set
+    if (metadataUpdate == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'metadataUpdate' when calling updateExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'metadataUpdate' when calling updateExternalDatabaseTable"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableName}/external-database-table".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "PATCH", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
           }
       }, new Response.ErrorListener() {
           @Override

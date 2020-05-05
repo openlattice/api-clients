@@ -846,7 +846,7 @@ end
 
 api_instance = OpenapiClient::DataApi.new
 entity_set_id = 'entity_set_id_example' # String | 
-entity_set_selection = [OpenapiClient::EntitySetSelection.new] # Array<EntitySetSelection> | 
+entity_set_selection = OpenapiClient::EntitySetSelection.new # EntitySetSelection | 
 
 begin
   #Gets a list of entities by UUIDs
@@ -863,7 +863,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_set_id** | [**String**](.md)|  | 
- **entity_set_selection** | [**Array&lt;EntitySetSelection&gt;**](EntitySetSelection.md)|  | 
+ **entity_set_selection** | [**EntitySetSelection**](EntitySetSelection.md)|  | 
 
 ### Return type
 

@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **entitySetId** | [**string**](.md)|  | 
-**entitySetSelection** | [**[]EntitySetSelection**](EntitySetSelection.md)|  | 
+**entitySetSelection** | [**EntitySetSelection**](EntitySetSelection.md)|  | 
 
 ### Return type
 
