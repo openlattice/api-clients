@@ -50,14 +50,14 @@ class EntityNeighborsFilter {
             if (data.hasOwnProperty('entityKeyIds')) {
                 obj['entityKeyIds'] = ApiClient.convertToType(data['entityKeyIds'], ['String']);
             }
-            if (data.hasOwnProperty('srcEntitySetIds')) {
-                obj['srcEntitySetIds'] = ApiClient.convertToType(data['srcEntitySetIds'], ['String']);
+            if (data.hasOwnProperty('src')) {
+                obj['src'] = ApiClient.convertToType(data['src'], ['String']);
             }
-            if (data.hasOwnProperty('dstEntitySetIds')) {
-                obj['dstEntitySetIds'] = ApiClient.convertToType(data['dstEntitySetIds'], ['String']);
+            if (data.hasOwnProperty('dst')) {
+                obj['dst'] = ApiClient.convertToType(data['dst'], ['String']);
             }
-            if (data.hasOwnProperty('associationEntitySetIds')) {
-                obj['associationEntitySetIds'] = ApiClient.convertToType(data['associationEntitySetIds'], ['String']);
+            if (data.hasOwnProperty('edge')) {
+                obj['edge'] = ApiClient.convertToType(data['edge'], ['String']);
             }
         }
         return obj;
@@ -72,19 +72,19 @@ class EntityNeighborsFilter {
 EntityNeighborsFilter.prototype['entityKeyIds'] = undefined;
 
 /**
- * @member {Array.<String>} srcEntitySetIds
+ * @member {Array.<String>} src
  */
-EntityNeighborsFilter.prototype['srcEntitySetIds'] = undefined;
+EntityNeighborsFilter.prototype['src'] = undefined;
 
 /**
- * @member {Array.<String>} dstEntitySetIds
+ * @member {Array.<String>} dst
  */
-EntityNeighborsFilter.prototype['dstEntitySetIds'] = undefined;
+EntityNeighborsFilter.prototype['dst'] = undefined;
 
 /**
- * @member {Array.<String>} associationEntitySetIds
+ * @member {Array.<String>} edge
  */
-EntityNeighborsFilter.prototype['associationEntitySetIds'] = undefined;
+EntityNeighborsFilter.prototype['edge'] = undefined;
 
 
 

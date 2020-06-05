@@ -805,7 +805,7 @@ openlattice_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new OpenLatticeApi.DataApi();
 let entitySetId = null; // String | 
-let entitySetSelection = new OpenLatticeApi.EntitySetSelection(); // EntitySetSelection | 
+let entitySetSelection = [new OpenLatticeApi.EntitySetSelection()]; // [EntitySetSelection] | 
 apiInstance.loadSelectedEntitySetData(entitySetId, entitySetSelection, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -821,7 +821,7 @@ apiInstance.loadSelectedEntitySetData(entitySetId, entitySetSelection, (error, d
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entitySetId** | [**String**](.md)|  | 
- **entitySetSelection** | [**EntitySetSelection**](EntitySetSelection.md)|  | 
+ **entitySetSelection** | [**[EntitySetSelection]**](EntitySetSelection.md)|  | 
 
 ### Return type
 

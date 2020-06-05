@@ -7,9 +7,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entityKeyIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**srcEntitySetIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**dstEntitySetIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
-**associationEntitySetIds** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
+**src** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
+**dst** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
+**edge** | [**List&lt;UUID&gt;**](UUID.md) |  |  [optional]
 
 
 

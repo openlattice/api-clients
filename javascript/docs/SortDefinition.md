@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **String** |  | [optional] 
-**isDescending** | **Boolean** |  | [optional] 
+**descending** | **Boolean** |  | [optional] 
 **propertyTypeId** | **String** |  | [optional] 
 **latitude** | **Number** |  | [optional] 
 **longitude** | **Number** |  | [optional] 

@@ -74,7 +74,7 @@ class TestSearchConstraints(unittest.TestCase):
                     ], 
                 sort = openlattice.models.sort_definition.SortDefinition(
                     type = 'field', 
-                    is_descending = True, 
+                    descending = True, 
                     property_type_id = '0', 
                     latitude = 1.337, 
                     longitude = 1.337, )

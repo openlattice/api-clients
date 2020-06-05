@@ -718,7 +718,7 @@ export default class DataApi {
     /**
      * Gets a list of entities by UUIDs
      * @param {String} entitySetId 
-     * @param {module:model/EntitySetSelection} entitySetSelection 
+     * @param {Array.<module:model/EntitySetSelection>} entitySetSelection 
      * @param {module:api/DataApi~loadSelectedEntitySetDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<{String: [String]}>}
      */

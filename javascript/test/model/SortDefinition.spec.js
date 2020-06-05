@@ -60,8 +60,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property isDescending (base name: "isDescending")', function() {
-      // uncomment below and update the code to test the property isDescending
+    it('should have the property descending (base name: "descending")', function() {
+      // uncomment below and update the code to test the property descending
       //var instane = new OpenLatticeApi.SortDefinition();
       //expect(instance).to.be();
     });

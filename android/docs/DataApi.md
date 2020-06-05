@@ -682,7 +682,7 @@ Gets a list of entities by UUIDs
 
 DataApi apiInstance = new DataApi();
 UUID entitySetId = null; // UUID | 
-EntitySetSelection entitySetSelection = new EntitySetSelection(); // EntitySetSelection | 
+List<EntitySetSelection> entitySetSelection = Arrays.asList(new EntitySetSelection()); // List<EntitySetSelection> | 
 try {
     List<Map<String, List<String>>> result = apiInstance.loadSelectedEntitySetData(entitySetId, entitySetSelection);
     System.out.println(result);
@@ -698,7 +698,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entitySetId** | [**UUID**](.md)|  | [default to null]
- **entitySetSelection** | [**EntitySetSelection**](EntitySetSelection.md)|  |
+ **entitySetSelection** | [**List&lt;EntitySetSelection&gt;**](EntitySetSelection.md)|  |
 
 ### Return type
 

@@ -88,6 +88,20 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**updateReindex**](docs/AdminApi.md#updateReindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 *AuthorizationsApi* | [**checkAuthorizations**](docs/AuthorizationsApi.md#checkAuthorizations) | **POST** /datastore/authorizations | Check authorizations
 *AuthorizationsApi* | [**getAccessibleObjects**](docs/AuthorizationsApi.md#getAccessibleObjects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
+*CollectionsApi* | [**addTypeToEntityTypeCollectionTemplate**](docs/CollectionsApi.md#addTypeToEntityTypeCollectionTemplate) | **PATCH** /datastore/collections/entity/type/{entityTypeCollectionId}/template | Appends type to template of the specified EntityTypeCollection
+*CollectionsApi* | [**createEntitySetCollection**](docs/CollectionsApi.md#createEntitySetCollection) | **POST** /datastore/collections/entity/set | Creates a new EntitySetCollection
+*CollectionsApi* | [**createEntityTypeCollection**](docs/CollectionsApi.md#createEntityTypeCollection) | **POST** /datastore/collections/entity/type | Creates a new EntityTypeCollection
+*CollectionsApi* | [**deleteEntitySetCollection**](docs/CollectionsApi.md#deleteEntitySetCollection) | **DELETE** /datastore/collections/entity/set/{entitySetCollectionId} | Deletes the specified EntitySetCollection
+*CollectionsApi* | [**deleteEntityTypeCollection**](docs/CollectionsApi.md#deleteEntityTypeCollection) | **DELETE** /datastore/collections/entity/type/{entityTypeCollectionId} | Deletes the specified EntityTypeCollection
+*CollectionsApi* | [**getAllEntitySetCollections**](docs/CollectionsApi.md#getAllEntitySetCollections) | **GET** /datastore/collections/entity/set | Returns all EntitySetCollection objects
+*CollectionsApi* | [**getAllEntityTypeCollections**](docs/CollectionsApi.md#getAllEntityTypeCollections) | **GET** /datastore/collections/entity/type | Returns all EntityTypeCollection objects
+*CollectionsApi* | [**getEntitySetCollection**](docs/CollectionsApi.md#getEntitySetCollection) | **GET** /datastore/collections/entity/set/{entitySetCollectionId} | Returns the EntitySetCollection object for a given id
+*CollectionsApi* | [**getEntitySetCollectionsOfType**](docs/CollectionsApi.md#getEntitySetCollectionsOfType) | **GET** /datastore/collections/entity/type/entity/set/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
+*CollectionsApi* | [**getEntityTypeCollection**](docs/CollectionsApi.md#getEntityTypeCollection) | **GET** /datastore/collections/entity/type/{entityTypeCollectionId} | Returns the EntityTypeCollection object for a given id
+*CollectionsApi* | [**removeTypeFromEntityTypeCollectionTemplate**](docs/CollectionsApi.md#removeTypeFromEntityTypeCollectionTemplate) | **DELETE** /datastore/collections/entity/type/{entityTypeCollectionId}/template/{typeId} | Removes a key from an EntityTypeCollection template
+*CollectionsApi* | [**updateEntitySetCollectionMetadata**](docs/CollectionsApi.md#updateEntitySetCollectionMetadata) | **PATCH** /datastore/collections/entity/set/{entitySetCollectionId} | Updates metadata of the specified EntitySetCollection
+*CollectionsApi* | [**updateEntitySetCollectionTemplate**](docs/CollectionsApi.md#updateEntitySetCollectionTemplate) | **PATCH** /datastore/collections/entity/set/{entitySetCollectionId}/template | Updates template of the specified EntitySetCollection
+*CollectionsApi* | [**updateEntityTypeCollectionMetadata**](docs/CollectionsApi.md#updateEntityTypeCollectionMetadata) | **PATCH** /datastore/collections/entity/type/{entityTypeCollectionId} | Updates metadata of the specified EntityTypeCollection
 *DataApi* | [**createAssociations**](docs/DataApi.md#createAssociations) | **POST** /datastore/data/association | Creates a new set of associations.
 *DataApi* | [**createEdges**](docs/DataApi.md#createEdges) | **PUT** /datastore/data/association | Creates a new set of associations.
 *DataApi* | [**createEntities**](docs/DataApi.md#createEntities) | **POST** /datastore/data/set/ | Creates a new set of entities.
@@ -236,25 +250,28 @@ Class | Method | HTTP request | Description
 *PrincipalApi* | [**getCurrentRoles**](docs/PrincipalApi.md#getCurrentRoles) | **GET** /datastore/principals/roles/current/ | Get current roles.
 *PrincipalApi* | [**getMaterializedViewAccount**](docs/PrincipalApi.md#getMaterializedViewAccount) | **GET** /datastore/principals/db | Get the db access credentials.
 *PrincipalApi* | [**getUser**](docs/PrincipalApi.md#getUser) | **GET** /datastore/principals/users/{userId} | Get the user for the given id.
+*PrincipalApi* | [**searchAllUsers**](docs/PrincipalApi.md#searchAllUsers) | **GET** /datastore/principals/users/search/&quot;{searchQuery}&quot; | Get the user id for the given search.
 *PrincipalApi* | [**searchAllUsersByEmail**](docs/PrincipalApi.md#searchAllUsersByEmail) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
+*PrincipalApi* | [**syncCallingUser**](docs/PrincipalApi.md#syncCallingUser) | **GET** /datastore/principals/sync/ | Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
 *SearchApi* | [**executeAdvancedEntitySetDataQuery**](docs/SearchApi.md#executeAdvancedEntitySetDataQuery) | **POST** /datastore/search/advanced/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
+*SearchApi* | [**executeAppSearch**](docs/SearchApi.md#executeAppSearch) | **POST** /datastore/search/app | Executes a search over all apps to find ones that match the given search term
+*SearchApi* | [**executeAppTypeSearch**](docs/SearchApi.md#executeAppTypeSearch) | **POST** /datastore/search/app_types | Executes a search over all app types to find ones that match the given search term
+*SearchApi* | [**executeAssociationTypeSearch**](docs/SearchApi.md#executeAssociationTypeSearch) | **POST** /datastore/search/association_types | Executes a search over all association types to find ones that match the given search term
 *SearchApi* | [**executeEntityNeighborSearch**](docs/SearchApi.md#executeEntityNeighborSearch) | **GET** /datastore/search/{entitySetId}/{entityKeyId} | Executes a search for all neighbors of an entity that are connected by an association
 *SearchApi* | [**executeEntityNeighborSearchBulk**](docs/SearchApi.md#executeEntityNeighborSearchBulk) | **POST** /datastore/search/{entitySetId}/neighbors | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
+*SearchApi* | [**executeEntitySetCollectionSearch**](docs/SearchApi.md#executeEntitySetCollectionSearch) | **POST** /datastore/search/entity_sets/collections | Executes a search over all EntitySetCollections to find ones that match the given search term
 *SearchApi* | [**executeEntitySetDataQuery**](docs/SearchApi.md#executeEntitySetDataQuery) | **POST** /datastore/search/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
 *SearchApi* | [**executeEntitySetKeywordQuery**](docs/SearchApi.md#executeEntitySetKeywordQuery) | **POST** /datastore/search | The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
+*SearchApi* | [**executeEntityTypeCollectionSearch**](docs/SearchApi.md#executeEntityTypeCollectionSearch) | **POST** /datastore/search/entity_types/collections | Executes a search over all EntityTypeCollections to find ones that match the given search term
+*SearchApi* | [**executeEntityTypeSearch**](docs/SearchApi.md#executeEntityTypeSearch) | **POST** /datastore/search/entity_types | Executes a search over all entity types to find ones that match the given search term
+*SearchApi* | [**executeFQNPropertyTypeSearch**](docs/SearchApi.md#executeFQNPropertyTypeSearch) | **POST** /datastore/search/property_types/fqn | Executes a search over all property types to find ones that match the given name and namespace, including partial matches
 *SearchApi* | [**executeFilteredEntityNeighborIdSearch**](docs/SearchApi.md#executeFilteredEntityNeighborIdSearch) | **POST** /datastore/search/{entitySetId}/neighbors/advanced/ids | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 *SearchApi* | [**executeFilteredEntityNeighborSearch**](docs/SearchApi.md#executeFilteredEntityNeighborSearch) | **POST** /datastore/search/{entitySetId}/neighbors/advanced | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
+*SearchApi* | [**executeOrganizationSearch**](docs/SearchApi.md#executeOrganizationSearch) | **POST** /datastore/search/organizations | Executes a search over all organizations to find ones that match the given search term
+*SearchApi* | [**executePropertyTypeSearch**](docs/SearchApi.md#executePropertyTypeSearch) | **POST** /datastore/search/property_types | Executes a search over all property types to find ones that match the given search term
 *SearchApi* | [**getEntitySets**](docs/SearchApi.md#getEntitySets) | **GET** /datastore/search/entity-sets/{start}/{numResults} | Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
 *SearchApi* | [**getPopularEntitySet**](docs/SearchApi.md#getPopularEntitySet) | **GET** /datastore/search/popular | Get the most popular entity sets.
 *SearchApi* | [**searchEntitySetData**](docs/SearchApi.md#searchEntitySetData) | **PATCH** /datastore/search | Executes a search over the data of a given entity set to find rows that match the search term
-*ShuttleApi* | [**createIntegrationDefinition**](docs/ShuttleApi.md#createIntegrationDefinition) | **POST** /shuttle/integration/definition/{integrationName} | Creates a new integration definition for running recurring integrations
-*ShuttleApi* | [**deleteIntegrationDefinition**](docs/ShuttleApi.md#deleteIntegrationDefinition) | **DELETE** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
-*ShuttleApi* | [**deleteIntegrationJobStatus**](docs/ShuttleApi.md#deleteIntegrationJobStatus) | **DELETE** /shuttle/integration/status/{jobId} | Deletes an integration job status from the integrationJobs map
-*ShuttleApi* | [**enqueueIntegration**](docs/ShuttleApi.md#enqueueIntegration) | **GET** /shuttle/integration/{integrationName}/{integrationKey} | Enqueues an integration on Shuttle Server for a given integration
-*ShuttleApi* | [**pollAllIntegrations**](docs/ShuttleApi.md#pollAllIntegrations) | **GET** /shuttle/integration/status | Polls the statuses of all running integrations
-*ShuttleApi* | [**pollIntegration**](docs/ShuttleApi.md#pollIntegration) | **GET** /shuttle/integration/status/{jobId} | Polls the status of an integration
-*ShuttleApi* | [**readIntegrationDefinition**](docs/ShuttleApi.md#readIntegrationDefinition) | **GET** /shuttle/integration/definition/{integrationName} | Gets an existing integration definition
-*ShuttleApi* | [**updateIntegrationDefinition**](docs/ShuttleApi.md#updateIntegrationDefinition) | **PATCH** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
 
 
 ## Documentation for Models
@@ -265,12 +282,12 @@ Class | Method | HTTP request | Description
  - [AclData](docs/AclData.md)
  - [AdvancedSearch](docs/AdvancedSearch.md)
  - [Association](docs/Association.md)
- - [AssociationDefinition](docs/AssociationDefinition.md)
  - [AssociationType](docs/AssociationType.md)
  - [Auth0userBasic](docs/Auth0userBasic.md)
  - [Authorization](docs/Authorization.md)
  - [AuthorizedObjectsSearchResult](docs/AuthorizedObjectsSearchResult.md)
  - [BulkDataCreation](docs/BulkDataCreation.md)
+ - [CollectionTemplateType](docs/CollectionTemplateType.md)
  - [Constraint](docs/Constraint.md)
  - [ConstraintGroup](docs/ConstraintGroup.md)
  - [DataAssociation](docs/DataAssociation.md)
@@ -285,29 +302,23 @@ Class | Method | HTTP request | Description
  - [EdmRequest](docs/EdmRequest.md)
  - [Entity](docs/Entity.md)
  - [EntityDataKey](docs/EntityDataKey.md)
- - [EntityDefinition](docs/EntityDefinition.md)
  - [EntityKey](docs/EntityKey.md)
  - [EntityKeyPair](docs/EntityKeyPair.md)
  - [EntityLinkingFeatures](docs/EntityLinkingFeatures.md)
  - [EntityLinkingFeedback](docs/EntityLinkingFeedback.md)
  - [EntityNeighborsFilter](docs/EntityNeighborsFilter.md)
  - [EntitySet](docs/EntitySet.md)
+ - [EntitySetCollection](docs/EntitySetCollection.md)
  - [EntitySetPropertyMetaData](docs/EntitySetPropertyMetaData.md)
  - [EntitySetSelection](docs/EntitySetSelection.md)
  - [EntityType](docs/EntityType.md)
+ - [EntityTypeCollection](docs/EntityTypeCollection.md)
  - [EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
- - [Flight](docs/Flight.md)
- - [FlightPlanParameters](docs/FlightPlanParameters.md)
- - [FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
  - [IndexingState](docs/IndexingState.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)
- - [Integration](docs/Integration.md)
- - [IntegrationJob](docs/IntegrationJob.md)
  - [IntegrationResults](docs/IntegrationResults.md)
- - [IntegrationStatus](docs/IntegrationStatus.md)
- - [IntegrationUpdate](docs/IntegrationUpdate.md)
  - [LinkingFeedback](docs/LinkingFeedback.md)
  - [MaterializedViewAccount](docs/MaterializedViewAccount.md)
  - [MetadataUpdate](docs/MetadataUpdate.md)
@@ -320,7 +331,6 @@ Class | Method | HTTP request | Description
  - [OrganizationExternalDatabaseTableColumnsPair](docs/OrganizationExternalDatabaseTableColumnsPair.md)
  - [OrganizationMember](docs/OrganizationMember.md)
  - [Principal](docs/Principal.md)
- - [PropertyDefinition](docs/PropertyDefinition.md)
  - [PropertyType](docs/PropertyType.md)
  - [PropertyUsageSummary](docs/PropertyUsageSummary.md)
  - [Role](docs/Role.md)

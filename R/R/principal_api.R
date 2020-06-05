@@ -79,6 +79,23 @@
 #' }
 #' }
 #'
+#' \strong{ search_all_users } \emph{ Get the user id for the given search. }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } search.query character
+#' \item \emph{ @returnType } named list( \link{Auth0userBasic} ) \cr
+#'
+#'
+#' \item status code : 200 | Success
+#'
+#' \item return type : map(Auth0userBasic) 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ search_all_users_by_email } \emph{ Get the user id for the given email address. }
 #' 
 #'
@@ -90,6 +107,21 @@
 #' \item status code : 200 | Success
 #'
 #' \item return type : map(Auth0userBasic) 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ sync_calling_user } \emph{ Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies. }
+#' 
+#'
+#' \itemize{
+#'
+#'
+#' \item status code : 200 | Success
+#'
+#'
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -178,6 +210,26 @@
 #' result <- api.instance$get_user(var.user.id)
 #'
 #'
+#' ####################  search_all_users  ####################
+#'
+#' library(openlattice)
+#' var.search.query <- 'search.query_example' # character | 
+#'
+#' #Get the user id for the given search.
+#' api.instance <- PrincipalApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$search_all_users(var.search.query)
+#'
+#'
 #' ####################  search_all_users_by_email  ####################
 #'
 #' library(openlattice)
@@ -196,6 +248,25 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$search_all_users_by_email(var.email.address)
+#'
+#'
+#' ####################  sync_calling_user  ####################
+#'
+#' library(openlattice)
+#'
+#' #Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
+#' api.instance <- PrincipalApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$sync_calling_user()
 #'
 #'
 #' }
@@ -414,6 +485,62 @@ PrincipalApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
+    search_all_users = function(search.query, ...){
+      apiResponse <- self$search_all_usersWithHttpInfo(search.query, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    search_all_usersWithHttpInfo = function(search.query, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`search.query`)) {
+        stop("Missing required parameter `search.query`.")
+      }
+
+      urlPath <- "/datastore/principals/users/search/&quot;{searchQuery}&quot;"
+      if (!missing(`search.query`)) {
+        urlPath <- gsub(paste0("\\{", "searchQuery", "\\}"), URLencode(as.character(`search.query`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "map(Auth0userBasic)", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
     search_all_users_by_email = function(email.address, ...){
       apiResponse <- self$search_all_users_by_emailWithHttpInfo(email.address, ...)
       resp <- apiResponse$response
@@ -462,6 +589,48 @@ PrincipalApi <- R6::R6Class(
           }
         )
         ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    sync_calling_user = function(...){
+      apiResponse <- self$sync_calling_userWithHttpInfo(...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    sync_calling_userWithHttpInfo = function(...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      urlPath <- "/datastore/principals/sync/"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

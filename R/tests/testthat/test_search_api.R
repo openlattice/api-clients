@@ -17,6 +17,39 @@ test_that("execute_advanced_entity_set_data_query", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("execute_app_search", {
+  # tests for execute_app_search
+  # base path: https://api.openlattice.com
+  # Executes a search over all apps to find ones that match the given search term
+  # @param SearchTerm  search.term   
+  # @return [SearchResult]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("execute_app_type_search", {
+  # tests for execute_app_type_search
+  # base path: https://api.openlattice.com
+  # Executes a search over all app types to find ones that match the given search term
+  # @param SearchTerm  search.term   
+  # @return [SearchResult]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("execute_association_type_search", {
+  # tests for execute_association_type_search
+  # base path: https://api.openlattice.com
+  # Executes a search over all association types to find ones that match the given search term
+  # @param SearchTerm  search.term   
+  # @return [SearchResult]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("execute_entity_neighbor_search", {
   # tests for execute_entity_neighbor_search
   # base path: https://api.openlattice.com
@@ -41,6 +74,17 @@ test_that("execute_entity_neighbor_search_bulk", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("execute_entity_set_collection_search", {
+  # tests for execute_entity_set_collection_search
+  # base path: https://api.openlattice.com
+  # Executes a search over all EntitySetCollections to find ones that match the given search term
+  # @param SearchTerm  search.term   
+  # @return [SearchResult]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("execute_entity_set_data_query", {
   # tests for execute_entity_set_data_query
   # base path: https://api.openlattice.com
@@ -58,7 +102,29 @@ test_that("execute_entity_set_keyword_query", {
   # base path: https://api.openlattice.com
   # The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
   # @param Search  search   
-  # @return [map(map(map(array[NeighborEntityIds])))]
+  # @return [SearchResult]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("execute_entity_type_collection_search", {
+  # tests for execute_entity_type_collection_search
+  # base path: https://api.openlattice.com
+  # Executes a search over all EntityTypeCollections to find ones that match the given search term
+  # @param SearchTerm  search.term   
+  # @return [SearchResult]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("execute_entity_type_search", {
+  # tests for execute_entity_type_search
+  # base path: https://api.openlattice.com
+  # Executes a search over all entity types to find ones that match the given search term
+  # @param SearchTerm  search.term   
+  # @return [SearchResult]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -83,6 +149,39 @@ test_that("execute_filtered_entity_neighbor_search", {
   # @param character  entity.set.id   
   # @param NeighborSearchFilter  neighbor.search.filter   
   # @return [map(array[NeighborEntityDetails])]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("execute_fqn_property_type_search", {
+  # tests for execute_fqn_property_type_search
+  # base path: https://api.openlattice.com
+  # Executes a search over all property types to find ones that match the given name and namespace, including partial matches
+  # @param SearchTerm  search.term   
+  # @return [SearchResult]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("execute_organization_search", {
+  # tests for execute_organization_search
+  # base path: https://api.openlattice.com
+  # Executes a search over all organizations to find ones that match the given search term
+  # @param SearchTerm  search.term   
+  # @return [SearchResult]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("execute_property_type_search", {
+  # tests for execute_property_type_search
+  # base path: https://api.openlattice.com
+  # Executes a search over all property types to find ones that match the given search term
+  # @param SearchTerm  search.term   
+  # @return [SearchResult]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

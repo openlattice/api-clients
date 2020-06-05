@@ -1480,7 +1480,7 @@ with openlattice.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openlattice.DataApi(api_client)
     entity_set_id = 'entity_set_id_example' # str | 
-entity_set_selection = openlattice.EntitySetSelection() # EntitySetSelection | 
+entity_set_selection = [openlattice.EntitySetSelection()] # list[EntitySetSelection] | 
 
     try:
         # Gets a list of entities by UUIDs
@@ -1514,7 +1514,7 @@ with openlattice.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openlattice.DataApi(api_client)
     entity_set_id = 'entity_set_id_example' # str | 
-entity_set_selection = openlattice.EntitySetSelection() # EntitySetSelection | 
+entity_set_selection = [openlattice.EntitySetSelection()] # list[EntitySetSelection] | 
 
     try:
         # Gets a list of entities by UUIDs
@@ -1529,7 +1529,7 @@ entity_set_selection = openlattice.EntitySetSelection() # EntitySetSelection |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_set_id** | [**str**](.md)|  | 
- **entity_set_selection** | [**EntitySetSelection**](EntitySetSelection.md)|  | 
+ **entity_set_selection** | [**list[EntitySetSelection]**](EntitySetSelection.md)|  | 
 
 ### Return type
 

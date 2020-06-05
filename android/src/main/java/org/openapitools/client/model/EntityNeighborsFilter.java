@@ -22,12 +22,12 @@ public class EntityNeighborsFilter {
   
   @SerializedName("entityKeyIds")
   private List<UUID> entityKeyIds = null;
-  @SerializedName("srcEntitySetIds")
-  private List<UUID> srcEntitySetIds = null;
-  @SerializedName("dstEntitySetIds")
-  private List<UUID> dstEntitySetIds = null;
-  @SerializedName("associationEntitySetIds")
-  private List<UUID> associationEntitySetIds = null;
+  @SerializedName("src")
+  private List<UUID> src = null;
+  @SerializedName("dst")
+  private List<UUID> dst = null;
+  @SerializedName("edge")
+  private List<UUID> edge = null;
 
   /**
    **/
@@ -42,31 +42,31 @@ public class EntityNeighborsFilter {
   /**
    **/
   @ApiModelProperty(value = "")
-  public List<UUID> getSrcEntitySetIds() {
-    return srcEntitySetIds;
+  public List<UUID> getSrc() {
+    return src;
   }
-  public void setSrcEntitySetIds(List<UUID> srcEntitySetIds) {
-    this.srcEntitySetIds = srcEntitySetIds;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public List<UUID> getDstEntitySetIds() {
-    return dstEntitySetIds;
-  }
-  public void setDstEntitySetIds(List<UUID> dstEntitySetIds) {
-    this.dstEntitySetIds = dstEntitySetIds;
+  public void setSrc(List<UUID> src) {
+    this.src = src;
   }
 
   /**
    **/
   @ApiModelProperty(value = "")
-  public List<UUID> getAssociationEntitySetIds() {
-    return associationEntitySetIds;
+  public List<UUID> getDst() {
+    return dst;
   }
-  public void setAssociationEntitySetIds(List<UUID> associationEntitySetIds) {
-    this.associationEntitySetIds = associationEntitySetIds;
+  public void setDst(List<UUID> dst) {
+    this.dst = dst;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(value = "")
+  public List<UUID> getEdge() {
+    return edge;
+  }
+  public void setEdge(List<UUID> edge) {
+    this.edge = edge;
   }
 
 
@@ -80,18 +80,18 @@ public class EntityNeighborsFilter {
     }
     EntityNeighborsFilter entityNeighborsFilter = (EntityNeighborsFilter) o;
     return (this.entityKeyIds == null ? entityNeighborsFilter.entityKeyIds == null : this.entityKeyIds.equals(entityNeighborsFilter.entityKeyIds)) &&
-        (this.srcEntitySetIds == null ? entityNeighborsFilter.srcEntitySetIds == null : this.srcEntitySetIds.equals(entityNeighborsFilter.srcEntitySetIds)) &&
-        (this.dstEntitySetIds == null ? entityNeighborsFilter.dstEntitySetIds == null : this.dstEntitySetIds.equals(entityNeighborsFilter.dstEntitySetIds)) &&
-        (this.associationEntitySetIds == null ? entityNeighborsFilter.associationEntitySetIds == null : this.associationEntitySetIds.equals(entityNeighborsFilter.associationEntitySetIds));
+        (this.src == null ? entityNeighborsFilter.src == null : this.src.equals(entityNeighborsFilter.src)) &&
+        (this.dst == null ? entityNeighborsFilter.dst == null : this.dst.equals(entityNeighborsFilter.dst)) &&
+        (this.edge == null ? entityNeighborsFilter.edge == null : this.edge.equals(entityNeighborsFilter.edge));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
     result = 31 * result + (this.entityKeyIds == null ? 0: this.entityKeyIds.hashCode());
-    result = 31 * result + (this.srcEntitySetIds == null ? 0: this.srcEntitySetIds.hashCode());
-    result = 31 * result + (this.dstEntitySetIds == null ? 0: this.dstEntitySetIds.hashCode());
-    result = 31 * result + (this.associationEntitySetIds == null ? 0: this.associationEntitySetIds.hashCode());
+    result = 31 * result + (this.src == null ? 0: this.src.hashCode());
+    result = 31 * result + (this.dst == null ? 0: this.dst.hashCode());
+    result = 31 * result + (this.edge == null ? 0: this.edge.hashCode());
     return result;
   }
 
@@ -101,9 +101,9 @@ public class EntityNeighborsFilter {
     sb.append("class EntityNeighborsFilter {\n");
     
     sb.append("  entityKeyIds: ").append(entityKeyIds).append("\n");
-    sb.append("  srcEntitySetIds: ").append(srcEntitySetIds).append("\n");
-    sb.append("  dstEntitySetIds: ").append(dstEntitySetIds).append("\n");
-    sb.append("  associationEntitySetIds: ").append(associationEntitySetIds).append("\n");
+    sb.append("  src: ").append(src).append("\n");
+    sb.append("  dst: ").append(dst).append("\n");
+    sb.append("  edge: ").append(edge).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

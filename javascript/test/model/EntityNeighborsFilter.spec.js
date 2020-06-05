@@ -60,20 +60,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property srcEntitySetIds (base name: "srcEntitySetIds")', function() {
-      // uncomment below and update the code to test the property srcEntitySetIds
+    it('should have the property src (base name: "src")', function() {
+      // uncomment below and update the code to test the property src
       //var instane = new OpenLatticeApi.EntityNeighborsFilter();
       //expect(instance).to.be();
     });
 
-    it('should have the property dstEntitySetIds (base name: "dstEntitySetIds")', function() {
-      // uncomment below and update the code to test the property dstEntitySetIds
+    it('should have the property dst (base name: "dst")', function() {
+      // uncomment below and update the code to test the property dst
       //var instane = new OpenLatticeApi.EntityNeighborsFilter();
       //expect(instance).to.be();
     });
 
-    it('should have the property associationEntitySetIds (base name: "associationEntitySetIds")', function() {
-      // uncomment below and update the code to test the property associationEntitySetIds
+    it('should have the property edge (base name: "edge")', function() {
+      // uncomment below and update the code to test the property edge
       //var instane = new OpenLatticeApi.EntityNeighborsFilter();
       //expect(instance).to.be();
     });

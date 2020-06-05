@@ -58,6 +58,36 @@
         done();
       });
     });
+    describe('executeAppSearch', function() {
+      it('should call executeAppSearch successfully', function(done) {
+        //uncomment below and update the code to test executeAppSearch
+        //instance.executeAppSearch(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('executeAppTypeSearch', function() {
+      it('should call executeAppTypeSearch successfully', function(done) {
+        //uncomment below and update the code to test executeAppTypeSearch
+        //instance.executeAppTypeSearch(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('executeAssociationTypeSearch', function() {
+      it('should call executeAssociationTypeSearch successfully', function(done) {
+        //uncomment below and update the code to test executeAssociationTypeSearch
+        //instance.executeAssociationTypeSearch(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('executeEntityNeighborSearch', function() {
       it('should call executeEntityNeighborSearch successfully', function(done) {
         //uncomment below and update the code to test executeEntityNeighborSearch
@@ -72,6 +102,16 @@
       it('should call executeEntityNeighborSearchBulk successfully', function(done) {
         //uncomment below and update the code to test executeEntityNeighborSearchBulk
         //instance.executeEntityNeighborSearchBulk(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('executeEntitySetCollectionSearch', function() {
+      it('should call executeEntitySetCollectionSearch successfully', function(done) {
+        //uncomment below and update the code to test executeEntitySetCollectionSearch
+        //instance.executeEntitySetCollectionSearch(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -98,6 +138,36 @@
         done();
       });
     });
+    describe('executeEntityTypeCollectionSearch', function() {
+      it('should call executeEntityTypeCollectionSearch successfully', function(done) {
+        //uncomment below and update the code to test executeEntityTypeCollectionSearch
+        //instance.executeEntityTypeCollectionSearch(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('executeEntityTypeSearch', function() {
+      it('should call executeEntityTypeSearch successfully', function(done) {
+        //uncomment below and update the code to test executeEntityTypeSearch
+        //instance.executeEntityTypeSearch(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('executeFQNPropertyTypeSearch', function() {
+      it('should call executeFQNPropertyTypeSearch successfully', function(done) {
+        //uncomment below and update the code to test executeFQNPropertyTypeSearch
+        //instance.executeFQNPropertyTypeSearch(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('executeFilteredEntityNeighborIdSearch', function() {
       it('should call executeFilteredEntityNeighborIdSearch successfully', function(done) {
         //uncomment below and update the code to test executeFilteredEntityNeighborIdSearch
@@ -112,6 +182,26 @@
       it('should call executeFilteredEntityNeighborSearch successfully', function(done) {
         //uncomment below and update the code to test executeFilteredEntityNeighborSearch
         //instance.executeFilteredEntityNeighborSearch(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('executeOrganizationSearch', function() {
+      it('should call executeOrganizationSearch successfully', function(done) {
+        //uncomment below and update the code to test executeOrganizationSearch
+        //instance.executeOrganizationSearch(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('executePropertyTypeSearch', function() {
+      it('should call executePropertyTypeSearch successfully', function(done) {
+        //uncomment below and update the code to test executePropertyTypeSearch
+        //instance.executePropertyTypeSearch(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
