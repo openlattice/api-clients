@@ -12,11 +12,11 @@ test_that("type", {
   #expect_equal(model.instance$`type`, "EXPECTED_RESULT")
 })
 
-test_that("isDescending", {
-  # tests for the property `isDescending` (character)
+test_that("descending", {
+  # tests for the property `descending` (character)
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`isDescending`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`descending`, "EXPECTED_RESULT")
 })
 
 test_that("propertyTypeId", {

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entityKeyIds** | **[String]** |  | [optional] 
-**srcEntitySetIds** | **[String]** |  | [optional] 
-**dstEntitySetIds** | **[String]** |  | [optional] 
-**associationEntitySetIds** | **[String]** |  | [optional] 
+**src** | **[String]** |  | [optional] 
+**dst** | **[String]** |  | [optional] 
+**edge** | **[String]** |  | [optional] 
 
 

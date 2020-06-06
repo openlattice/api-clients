@@ -187,6 +187,48 @@ export default class PrincipalApi {
     }
 
     /**
+     * Callback function to receive the result of the searchAllUsers operation.
+     * @callback module:api/PrincipalApi~searchAllUsersCallback
+     * @param {String} error Error message, if any.
+     * @param {Object.<String, module:model/{String: Auth0userBasic}>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the user id for the given search.
+     * @param {String} searchQuery 
+     * @param {module:api/PrincipalApi~searchAllUsersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object.<String, module:model/{String: Auth0userBasic}>}
+     */
+    searchAllUsers(searchQuery, callback) {
+      let postBody = null;
+      // verify the required parameter 'searchQuery' is set
+      if (searchQuery === undefined || searchQuery === null) {
+        throw new Error("Missing the required parameter 'searchQuery' when calling searchAllUsers");
+      }
+
+      let pathParams = {
+        'searchQuery': searchQuery
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = {'String': Auth0userBasic};
+      return this.apiClient.callApi(
+        '/datastore/principals/users/search/"{searchQuery}"', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the searchAllUsersByEmail operation.
      * @callback module:api/PrincipalApi~searchAllUsersByEmailCallback
      * @param {String} error Error message, if any.
@@ -223,6 +265,41 @@ export default class PrincipalApi {
       let returnType = {'String': Auth0userBasic};
       return this.apiClient.callApi(
         '/datastore/principals/users/search/email/"{emailAddress}"', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the syncCallingUser operation.
+     * @callback module:api/PrincipalApi~syncCallingUserCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
+     * @param {module:api/PrincipalApi~syncCallingUserCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    syncCallingUser(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/datastore/principals/sync/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

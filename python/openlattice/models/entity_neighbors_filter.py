@@ -35,38 +35,38 @@ class EntityNeighborsFilter(object):
     """
     openapi_types = {
         'entity_key_ids': 'list[str]',
-        'src_entity_set_ids': 'list[str]',
-        'dst_entity_set_ids': 'list[str]',
-        'association_entity_set_ids': 'list[str]'
+        'src': 'list[str]',
+        'dst': 'list[str]',
+        'edge': 'list[str]'
     }
 
     attribute_map = {
         'entity_key_ids': 'entityKeyIds',
-        'src_entity_set_ids': 'srcEntitySetIds',
-        'dst_entity_set_ids': 'dstEntitySetIds',
-        'association_entity_set_ids': 'associationEntitySetIds'
+        'src': 'src',
+        'dst': 'dst',
+        'edge': 'edge'
     }
 
-    def __init__(self, entity_key_ids=None, src_entity_set_ids=None, dst_entity_set_ids=None, association_entity_set_ids=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, entity_key_ids=None, src=None, dst=None, edge=None, local_vars_configuration=None):  # noqa: E501
         """EntityNeighborsFilter - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._entity_key_ids = None
-        self._src_entity_set_ids = None
-        self._dst_entity_set_ids = None
-        self._association_entity_set_ids = None
+        self._src = None
+        self._dst = None
+        self._edge = None
         self.discriminator = None
 
         if entity_key_ids is not None:
             self.entity_key_ids = entity_key_ids
-        if src_entity_set_ids is not None:
-            self.src_entity_set_ids = src_entity_set_ids
-        if dst_entity_set_ids is not None:
-            self.dst_entity_set_ids = dst_entity_set_ids
-        if association_entity_set_ids is not None:
-            self.association_entity_set_ids = association_entity_set_ids
+        if src is not None:
+            self.src = src
+        if dst is not None:
+            self.dst = dst
+        if edge is not None:
+            self.edge = edge
 
     @property
     def entity_key_ids(self):
@@ -90,67 +90,67 @@ class EntityNeighborsFilter(object):
         self._entity_key_ids = entity_key_ids
 
     @property
-    def src_entity_set_ids(self):
-        """Gets the src_entity_set_ids of this EntityNeighborsFilter.  # noqa: E501
+    def src(self):
+        """Gets the src of this EntityNeighborsFilter.  # noqa: E501
 
 
-        :return: The src_entity_set_ids of this EntityNeighborsFilter.  # noqa: E501
+        :return: The src of this EntityNeighborsFilter.  # noqa: E501
         :rtype: list[str]
         """
-        return self._src_entity_set_ids
+        return self._src
 
-    @src_entity_set_ids.setter
-    def src_entity_set_ids(self, src_entity_set_ids):
-        """Sets the src_entity_set_ids of this EntityNeighborsFilter.
+    @src.setter
+    def src(self, src):
+        """Sets the src of this EntityNeighborsFilter.
 
 
-        :param src_entity_set_ids: The src_entity_set_ids of this EntityNeighborsFilter.  # noqa: E501
+        :param src: The src of this EntityNeighborsFilter.  # noqa: E501
         :type: list[str]
         """
 
-        self._src_entity_set_ids = src_entity_set_ids
+        self._src = src
 
     @property
-    def dst_entity_set_ids(self):
-        """Gets the dst_entity_set_ids of this EntityNeighborsFilter.  # noqa: E501
+    def dst(self):
+        """Gets the dst of this EntityNeighborsFilter.  # noqa: E501
 
 
-        :return: The dst_entity_set_ids of this EntityNeighborsFilter.  # noqa: E501
+        :return: The dst of this EntityNeighborsFilter.  # noqa: E501
         :rtype: list[str]
         """
-        return self._dst_entity_set_ids
+        return self._dst
 
-    @dst_entity_set_ids.setter
-    def dst_entity_set_ids(self, dst_entity_set_ids):
-        """Sets the dst_entity_set_ids of this EntityNeighborsFilter.
+    @dst.setter
+    def dst(self, dst):
+        """Sets the dst of this EntityNeighborsFilter.
 
 
-        :param dst_entity_set_ids: The dst_entity_set_ids of this EntityNeighborsFilter.  # noqa: E501
+        :param dst: The dst of this EntityNeighborsFilter.  # noqa: E501
         :type: list[str]
         """
 
-        self._dst_entity_set_ids = dst_entity_set_ids
+        self._dst = dst
 
     @property
-    def association_entity_set_ids(self):
-        """Gets the association_entity_set_ids of this EntityNeighborsFilter.  # noqa: E501
+    def edge(self):
+        """Gets the edge of this EntityNeighborsFilter.  # noqa: E501
 
 
-        :return: The association_entity_set_ids of this EntityNeighborsFilter.  # noqa: E501
+        :return: The edge of this EntityNeighborsFilter.  # noqa: E501
         :rtype: list[str]
         """
-        return self._association_entity_set_ids
+        return self._edge
 
-    @association_entity_set_ids.setter
-    def association_entity_set_ids(self, association_entity_set_ids):
-        """Sets the association_entity_set_ids of this EntityNeighborsFilter.
+    @edge.setter
+    def edge(self, edge):
+        """Sets the edge of this EntityNeighborsFilter.
 
 
-        :param association_entity_set_ids: The association_entity_set_ids of this EntityNeighborsFilter.  # noqa: E501
+        :param edge: The edge of this EntityNeighborsFilter.  # noqa: E501
         :type: list[str]
         """
 
-        self._association_entity_set_ids = association_entity_set_ids
+        self._edge = edge
 
     def to_dict(self):
         """Returns the model properties as a dict"""

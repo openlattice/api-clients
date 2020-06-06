@@ -318,7 +318,7 @@ library(openlattice)
 
 var.entity.set.id <- 'entity.set.id_example' # character | 
 var.type <- 'type_example' # character | 
-var.entity.neighbors.filter <- list(EntityNeighborsFilter$new(list("entityKeyIds_example"), list("srcEntitySetIds_example"), list("dstEntitySetIds_example"), list("associationEntitySetIds_example"))) # array[EntityNeighborsFilter] | 
+var.entity.neighbors.filter <- list(EntityNeighborsFilter$new(list("entityKeyIds_example"), list("src_example"), list("dst_example"), list("edge_example"))) # array[EntityNeighborsFilter] | 
 
 #Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
 api.instance <- DataApi$new()
@@ -705,7 +705,7 @@ Gets a list of entities by UUIDs
 library(openlattice)
 
 var.entity.set.id <- 'entity.set.id_example' # character | 
-var.entity.set.selection <- EntitySetSelection$new(list("ids_example"), list("properties_example")) # EntitySetSelection | 
+var.entity.set.selection <- list(EntitySetSelection$new(list("ids_example"), list("properties_example"))) # array[EntitySetSelection] | 
 
 #Gets a list of entities by UUIDs
 api.instance <- DataApi$new()
@@ -723,7 +723,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity.set.id** | [**character**](.md)|  | 
- **entity.set.selection** | [**EntitySetSelection**](EntitySetSelection.md)|  | 
+ **entity.set.selection** | list( [**EntitySetSelection**](EntitySetSelection.md) )|  | 
 
 ### Return type
 

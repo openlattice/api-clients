@@ -88,10 +88,30 @@
         done();
       });
     });
+    describe('searchAllUsers', function() {
+      it('should call searchAllUsers successfully', function(done) {
+        //uncomment below and update the code to test searchAllUsers
+        //instance.searchAllUsers(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('searchAllUsersByEmail', function() {
       it('should call searchAllUsersByEmail successfully', function(done) {
         //uncomment below and update the code to test searchAllUsersByEmail
         //instance.searchAllUsersByEmail(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('syncCallingUser', function() {
+      it('should call syncCallingUser successfully', function(done) {
+        //uncomment below and update the code to test syncCallingUser
+        //instance.syncCallingUser(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

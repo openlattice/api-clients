@@ -263,7 +263,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } entity.set.selection \link{EntitySetSelection}
+#' \item \emph{ @param } entity.set.selection list( \link{EntitySetSelection} )
 #' \item \emph{ @returnType } list( \link{map} ) \cr
 #'
 #'
@@ -632,7 +632,7 @@
 #'
 #' library(openlattice)
 #' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.entity.set.selection <- EntitySetSelection$new() # EntitySetSelection | 
+#' var.entity.set.selection <- [EntitySetSelection$new()] # array[EntitySetSelection] | 
 #'
 #' #Gets a list of entities by UUIDs
 #' api.instance <- DataApi$new()
@@ -1653,7 +1653,8 @@ DataApi <- R6::R6Class(
       }
 
       if (!missing(`entity.set.selection`)) {
-        body <- `entity.set.selection`$toJSONString()
+        body.items = paste(unlist(lapply(entity.set.selection, function(param){param$toJSONString()})), collapse = ",")
+        body <- paste0('[', body.items, ']')
       } else {
         body <- NULL
       }

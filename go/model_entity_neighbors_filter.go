@@ -12,7 +12,7 @@ package openlattice
 // EntityNeighborsFilter struct for EntityNeighborsFilter
 type EntityNeighborsFilter struct {
 	EntityKeyIds []string `json:"entityKeyIds,omitempty"`
-	SrcEntitySetIds []string `json:"srcEntitySetIds,omitempty"`
-	DstEntitySetIds []string `json:"dstEntitySetIds,omitempty"`
-	AssociationEntitySetIds []string `json:"associationEntitySetIds,omitempty"`
+	Src []string `json:"src,omitempty"`
+	Dst []string `json:"dst,omitempty"`
+	Edge []string `json:"edge,omitempty"`
 }

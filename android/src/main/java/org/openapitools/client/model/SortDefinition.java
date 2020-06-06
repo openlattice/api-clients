@@ -25,8 +25,8 @@ public class SortDefinition {
   };
   @SerializedName("type")
   private TypeEnum type = null;
-  @SerializedName("isDescending")
-  private Boolean isDescending = null;
+  @SerializedName("descending")
+  private Boolean descending = null;
   @SerializedName("propertyTypeId")
   private UUID propertyTypeId = null;
   @SerializedName("latitude")
@@ -47,11 +47,11 @@ public class SortDefinition {
   /**
    **/
   @ApiModelProperty(value = "")
-  public Boolean getIsDescending() {
-    return isDescending;
+  public Boolean getDescending() {
+    return descending;
   }
-  public void setIsDescending(Boolean isDescending) {
-    this.isDescending = isDescending;
+  public void setDescending(Boolean descending) {
+    this.descending = descending;
   }
 
   /**
@@ -95,7 +95,7 @@ public class SortDefinition {
     }
     SortDefinition sortDefinition = (SortDefinition) o;
     return (this.type == null ? sortDefinition.type == null : this.type.equals(sortDefinition.type)) &&
-        (this.isDescending == null ? sortDefinition.isDescending == null : this.isDescending.equals(sortDefinition.isDescending)) &&
+        (this.descending == null ? sortDefinition.descending == null : this.descending.equals(sortDefinition.descending)) &&
         (this.propertyTypeId == null ? sortDefinition.propertyTypeId == null : this.propertyTypeId.equals(sortDefinition.propertyTypeId)) &&
         (this.latitude == null ? sortDefinition.latitude == null : this.latitude.equals(sortDefinition.latitude)) &&
         (this.longitude == null ? sortDefinition.longitude == null : this.longitude.equals(sortDefinition.longitude));
@@ -105,7 +105,7 @@ public class SortDefinition {
   public int hashCode() {
     int result = 17;
     result = 31 * result + (this.type == null ? 0: this.type.hashCode());
-    result = 31 * result + (this.isDescending == null ? 0: this.isDescending.hashCode());
+    result = 31 * result + (this.descending == null ? 0: this.descending.hashCode());
     result = 31 * result + (this.propertyTypeId == null ? 0: this.propertyTypeId.hashCode());
     result = 31 * result + (this.latitude == null ? 0: this.latitude.hashCode());
     result = 31 * result + (this.longitude == null ? 0: this.longitude.hashCode());
@@ -118,7 +118,7 @@ public class SortDefinition {
     sb.append("class SortDefinition {\n");
     
     sb.append("  type: ").append(type).append("\n");
-    sb.append("  isDescending: ").append(isDescending).append("\n");
+    sb.append("  descending: ").append(descending).append("\n");
     sb.append("  propertyTypeId: ").append(propertyTypeId).append("\n");
     sb.append("  latitude: ").append(latitude).append("\n");
     sb.append("  longitude: ").append(longitude).append("\n");

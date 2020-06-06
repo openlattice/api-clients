@@ -206,6 +206,390 @@ public class SearchApi {
     }
   }
   /**
+  * Executes a search over all apps to find ones that match the given search term
+  * 
+   * @param searchTerm 
+   * @return SearchResult
+  */
+  public SearchResult executeAppSearch (SearchTerm searchTerm) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = searchTerm;
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeAppSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeAppSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/app";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (SearchResult) ApiInvoker.deserialize(localVarResponse, "", SearchResult.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Executes a search over all apps to find ones that match the given search term
+   * 
+   * @param searchTerm 
+  */
+  public void executeAppSearch (SearchTerm searchTerm, final Response.Listener<SearchResult> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = searchTerm;
+
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeAppSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeAppSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/app".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((SearchResult) ApiInvoker.deserialize(localVarResponse,  "", SearchResult.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Executes a search over all app types to find ones that match the given search term
+  * 
+   * @param searchTerm 
+   * @return SearchResult
+  */
+  public SearchResult executeAppTypeSearch (SearchTerm searchTerm) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = searchTerm;
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeAppTypeSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeAppTypeSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/app_types";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (SearchResult) ApiInvoker.deserialize(localVarResponse, "", SearchResult.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Executes a search over all app types to find ones that match the given search term
+   * 
+   * @param searchTerm 
+  */
+  public void executeAppTypeSearch (SearchTerm searchTerm, final Response.Listener<SearchResult> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = searchTerm;
+
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeAppTypeSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeAppTypeSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/app_types".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((SearchResult) ApiInvoker.deserialize(localVarResponse,  "", SearchResult.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Executes a search over all association types to find ones that match the given search term
+  * 
+   * @param searchTerm 
+   * @return SearchResult
+  */
+  public SearchResult executeAssociationTypeSearch (SearchTerm searchTerm) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = searchTerm;
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeAssociationTypeSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeAssociationTypeSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/association_types";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (SearchResult) ApiInvoker.deserialize(localVarResponse, "", SearchResult.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Executes a search over all association types to find ones that match the given search term
+   * 
+   * @param searchTerm 
+  */
+  public void executeAssociationTypeSearch (SearchTerm searchTerm, final Response.Listener<SearchResult> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = searchTerm;
+
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeAssociationTypeSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeAssociationTypeSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/association_types".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((SearchResult) ApiInvoker.deserialize(localVarResponse,  "", SearchResult.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
   * Executes a search for all neighbors of an entity that are connected by an association
   * 
    * @param entitySetId 
@@ -483,6 +867,134 @@ public class SearchApi {
     }
   }
   /**
+  * Executes a search over all EntitySetCollections to find ones that match the given search term
+  * 
+   * @param searchTerm 
+   * @return SearchResult
+  */
+  public SearchResult executeEntitySetCollectionSearch (SearchTerm searchTerm) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = searchTerm;
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeEntitySetCollectionSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeEntitySetCollectionSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/entity_sets/collections";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (SearchResult) ApiInvoker.deserialize(localVarResponse, "", SearchResult.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Executes a search over all EntitySetCollections to find ones that match the given search term
+   * 
+   * @param searchTerm 
+  */
+  public void executeEntitySetCollectionSearch (SearchTerm searchTerm, final Response.Listener<SearchResult> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = searchTerm;
+
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeEntitySetCollectionSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeEntitySetCollectionSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/entity_sets/collections".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((SearchResult) ApiInvoker.deserialize(localVarResponse,  "", SearchResult.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
   * Executes a search over the data of a given entity set to find rows that match the search term
   * 
    * @param entitySetId 
@@ -625,9 +1137,9 @@ public class SearchApi {
   * The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
   * 
    * @param search 
-   * @return Map<String, Map<String, Map<String, List<NeighborEntityIds>>>>
+   * @return SearchResult
   */
-  public Map<String, Map<String, Map<String, List<NeighborEntityIds>>>> executeEntitySetKeywordQuery (Search search) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SearchResult executeEntitySetKeywordQuery (Search search) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = search;
     // verify the required parameter 'search' is set
     if (search == null) {
@@ -663,7 +1175,7 @@ public class SearchApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Map<String, Map<String, Map<String, List<NeighborEntityIds>>>>) ApiInvoker.deserialize(localVarResponse, "map", Map.class);
+         return (SearchResult) ApiInvoker.deserialize(localVarResponse, "", SearchResult.class);
       } else {
          return null;
       }
@@ -689,7 +1201,7 @@ public class SearchApi {
    * 
    * @param search 
   */
-  public void executeEntitySetKeywordQuery (Search search, final Response.Listener<Map<String, Map<String, Map<String, List<NeighborEntityIds>>>>> responseListener, final Response.ErrorListener errorListener) {
+  public void executeEntitySetKeywordQuery (Search search, final Response.Listener<SearchResult> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = search;
 
     // verify the required parameter 'search' is set
@@ -734,7 +1246,391 @@ public class SearchApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Map<String, Map<String, Map<String, List<NeighborEntityIds>>>>) ApiInvoker.deserialize(localVarResponse,  "map", Map.class));
+              responseListener.onResponse((SearchResult) ApiInvoker.deserialize(localVarResponse,  "", SearchResult.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Executes a search over all EntityTypeCollections to find ones that match the given search term
+  * 
+   * @param searchTerm 
+   * @return SearchResult
+  */
+  public SearchResult executeEntityTypeCollectionSearch (SearchTerm searchTerm) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = searchTerm;
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeEntityTypeCollectionSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeEntityTypeCollectionSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/entity_types/collections";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (SearchResult) ApiInvoker.deserialize(localVarResponse, "", SearchResult.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Executes a search over all EntityTypeCollections to find ones that match the given search term
+   * 
+   * @param searchTerm 
+  */
+  public void executeEntityTypeCollectionSearch (SearchTerm searchTerm, final Response.Listener<SearchResult> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = searchTerm;
+
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeEntityTypeCollectionSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeEntityTypeCollectionSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/entity_types/collections".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((SearchResult) ApiInvoker.deserialize(localVarResponse,  "", SearchResult.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Executes a search over all entity types to find ones that match the given search term
+  * 
+   * @param searchTerm 
+   * @return SearchResult
+  */
+  public SearchResult executeEntityTypeSearch (SearchTerm searchTerm) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = searchTerm;
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeEntityTypeSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeEntityTypeSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/entity_types";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (SearchResult) ApiInvoker.deserialize(localVarResponse, "", SearchResult.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Executes a search over all entity types to find ones that match the given search term
+   * 
+   * @param searchTerm 
+  */
+  public void executeEntityTypeSearch (SearchTerm searchTerm, final Response.Listener<SearchResult> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = searchTerm;
+
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeEntityTypeSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeEntityTypeSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/entity_types".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((SearchResult) ApiInvoker.deserialize(localVarResponse,  "", SearchResult.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Executes a search over all property types to find ones that match the given name and namespace, including partial matches
+  * 
+   * @param searchTerm 
+   * @return SearchResult
+  */
+  public SearchResult executeFQNPropertyTypeSearch (SearchTerm searchTerm) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = searchTerm;
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeFQNPropertyTypeSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeFQNPropertyTypeSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/property_types/fqn";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (SearchResult) ApiInvoker.deserialize(localVarResponse, "", SearchResult.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Executes a search over all property types to find ones that match the given name and namespace, including partial matches
+   * 
+   * @param searchTerm 
+  */
+  public void executeFQNPropertyTypeSearch (SearchTerm searchTerm, final Response.Listener<SearchResult> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = searchTerm;
+
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeFQNPropertyTypeSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeFQNPropertyTypeSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/property_types/fqn".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((SearchResult) ApiInvoker.deserialize(localVarResponse,  "", SearchResult.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -1013,6 +1909,262 @@ public class SearchApi {
           public void onResponse(String localVarResponse) {
             try {
               responseListener.onResponse((Map<String, List<NeighborEntityDetails>>) ApiInvoker.deserialize(localVarResponse,  "map", List.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Executes a search over all organizations to find ones that match the given search term
+  * 
+   * @param searchTerm 
+   * @return SearchResult
+  */
+  public SearchResult executeOrganizationSearch (SearchTerm searchTerm) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = searchTerm;
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeOrganizationSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeOrganizationSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/organizations";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (SearchResult) ApiInvoker.deserialize(localVarResponse, "", SearchResult.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Executes a search over all organizations to find ones that match the given search term
+   * 
+   * @param searchTerm 
+  */
+  public void executeOrganizationSearch (SearchTerm searchTerm, final Response.Listener<SearchResult> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = searchTerm;
+
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executeOrganizationSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executeOrganizationSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/organizations".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((SearchResult) ApiInvoker.deserialize(localVarResponse,  "", SearchResult.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Executes a search over all property types to find ones that match the given search term
+  * 
+   * @param searchTerm 
+   * @return SearchResult
+  */
+  public SearchResult executePropertyTypeSearch (SearchTerm searchTerm) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = searchTerm;
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executePropertyTypeSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executePropertyTypeSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/property_types";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (SearchResult) ApiInvoker.deserialize(localVarResponse, "", SearchResult.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Executes a search over all property types to find ones that match the given search term
+   * 
+   * @param searchTerm 
+  */
+  public void executePropertyTypeSearch (SearchTerm searchTerm, final Response.Listener<SearchResult> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = searchTerm;
+
+    // verify the required parameter 'searchTerm' is set
+    if (searchTerm == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'searchTerm' when calling executePropertyTypeSearch",
+        new ApiException(400, "Missing the required parameter 'searchTerm' when calling executePropertyTypeSearch"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/search/property_types".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((SearchResult) ApiInvoker.deserialize(localVarResponse,  "", SearchResult.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

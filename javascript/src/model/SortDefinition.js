@@ -50,8 +50,8 @@ class SortDefinition {
             if (data.hasOwnProperty('type')) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('isDescending')) {
-                obj['isDescending'] = ApiClient.convertToType(data['isDescending'], 'Boolean');
+            if (data.hasOwnProperty('descending')) {
+                obj['descending'] = ApiClient.convertToType(data['descending'], 'Boolean');
             }
             if (data.hasOwnProperty('propertyTypeId')) {
                 obj['propertyTypeId'] = ApiClient.convertToType(data['propertyTypeId'], 'String');
@@ -75,9 +75,9 @@ class SortDefinition {
 SortDefinition.prototype['type'] = undefined;
 
 /**
- * @member {Boolean} isDescending
+ * @member {Boolean} descending
  */
-SortDefinition.prototype['isDescending'] = undefined;
+SortDefinition.prototype['descending'] = undefined;
 
 /**
  * @member {String} propertyTypeId

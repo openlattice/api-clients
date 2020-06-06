@@ -12,7 +12,7 @@ package openlattice
 // SortDefinition struct for SortDefinition
 type SortDefinition struct {
 	Type string `json:"type,omitempty"`
-	IsDescending bool `json:"isDescending,omitempty"`
+	Descending bool `json:"descending,omitempty"`
 	PropertyTypeId string `json:"propertyTypeId,omitempty"`
 	Latitude float32 `json:"latitude,omitempty"`
 	Longitude float32 `json:"longitude,omitempty"`

@@ -90,6 +90,129 @@ export default class SearchApi {
     }
 
     /**
+     * Callback function to receive the result of the executeAppSearch operation.
+     * @callback module:api/SearchApi~executeAppSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SearchResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Executes a search over all apps to find ones that match the given search term
+     * @param {module:model/SearchTerm} searchTerm 
+     * @param {module:api/SearchApi~executeAppSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SearchResult}
+     */
+    executeAppSearch(searchTerm, callback) {
+      let postBody = searchTerm;
+      // verify the required parameter 'searchTerm' is set
+      if (searchTerm === undefined || searchTerm === null) {
+        throw new Error("Missing the required parameter 'searchTerm' when calling executeAppSearch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SearchResult;
+      return this.apiClient.callApi(
+        '/datastore/search/app', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the executeAppTypeSearch operation.
+     * @callback module:api/SearchApi~executeAppTypeSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SearchResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Executes a search over all app types to find ones that match the given search term
+     * @param {module:model/SearchTerm} searchTerm 
+     * @param {module:api/SearchApi~executeAppTypeSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SearchResult}
+     */
+    executeAppTypeSearch(searchTerm, callback) {
+      let postBody = searchTerm;
+      // verify the required parameter 'searchTerm' is set
+      if (searchTerm === undefined || searchTerm === null) {
+        throw new Error("Missing the required parameter 'searchTerm' when calling executeAppTypeSearch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SearchResult;
+      return this.apiClient.callApi(
+        '/datastore/search/app_types', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the executeAssociationTypeSearch operation.
+     * @callback module:api/SearchApi~executeAssociationTypeSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SearchResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Executes a search over all association types to find ones that match the given search term
+     * @param {module:model/SearchTerm} searchTerm 
+     * @param {module:api/SearchApi~executeAssociationTypeSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SearchResult}
+     */
+    executeAssociationTypeSearch(searchTerm, callback) {
+      let postBody = searchTerm;
+      // verify the required parameter 'searchTerm' is set
+      if (searchTerm === undefined || searchTerm === null) {
+        throw new Error("Missing the required parameter 'searchTerm' when calling executeAssociationTypeSearch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SearchResult;
+      return this.apiClient.callApi(
+        '/datastore/search/association_types', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the executeEntityNeighborSearch operation.
      * @callback module:api/SearchApi~executeEntityNeighborSearchCallback
      * @param {String} error Error message, if any.
@@ -185,6 +308,47 @@ export default class SearchApi {
     }
 
     /**
+     * Callback function to receive the result of the executeEntitySetCollectionSearch operation.
+     * @callback module:api/SearchApi~executeEntitySetCollectionSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SearchResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Executes a search over all EntitySetCollections to find ones that match the given search term
+     * @param {module:model/SearchTerm} searchTerm 
+     * @param {module:api/SearchApi~executeEntitySetCollectionSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SearchResult}
+     */
+    executeEntitySetCollectionSearch(searchTerm, callback) {
+      let postBody = searchTerm;
+      // verify the required parameter 'searchTerm' is set
+      if (searchTerm === undefined || searchTerm === null) {
+        throw new Error("Missing the required parameter 'searchTerm' when calling executeEntitySetCollectionSearch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SearchResult;
+      return this.apiClient.callApi(
+        '/datastore/search/entity_sets/collections', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the executeEntitySetDataQuery operation.
      * @callback module:api/SearchApi~executeEntitySetDataQueryCallback
      * @param {String} error Error message, if any.
@@ -235,7 +399,7 @@ export default class SearchApi {
      * Callback function to receive the result of the executeEntitySetKeywordQuery operation.
      * @callback module:api/SearchApi~executeEntitySetKeywordQueryCallback
      * @param {String} error Error message, if any.
-     * @param {Object.<String, {String: {String: {String: [NeighborEntityIds]}}}>} data The data returned by the service call.
+     * @param {module:model/SearchResult} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -243,7 +407,7 @@ export default class SearchApi {
      * The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
      * @param {module:model/Search} search 
      * @param {module:api/SearchApi~executeEntitySetKeywordQueryCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object.<String, {String: {String: {String: [NeighborEntityIds]}}}>}
+     * data is of type: {@link module:model/SearchResult}
      */
     executeEntitySetKeywordQuery(search, callback) {
       let postBody = search;
@@ -264,9 +428,132 @@ export default class SearchApi {
       let authNames = ['http_auth', 'openlattice_auth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = {'String': {'String': {'String': [NeighborEntityIds]}}};
+      let returnType = SearchResult;
       return this.apiClient.callApi(
         '/datastore/search', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the executeEntityTypeCollectionSearch operation.
+     * @callback module:api/SearchApi~executeEntityTypeCollectionSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SearchResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Executes a search over all EntityTypeCollections to find ones that match the given search term
+     * @param {module:model/SearchTerm} searchTerm 
+     * @param {module:api/SearchApi~executeEntityTypeCollectionSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SearchResult}
+     */
+    executeEntityTypeCollectionSearch(searchTerm, callback) {
+      let postBody = searchTerm;
+      // verify the required parameter 'searchTerm' is set
+      if (searchTerm === undefined || searchTerm === null) {
+        throw new Error("Missing the required parameter 'searchTerm' when calling executeEntityTypeCollectionSearch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SearchResult;
+      return this.apiClient.callApi(
+        '/datastore/search/entity_types/collections', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the executeEntityTypeSearch operation.
+     * @callback module:api/SearchApi~executeEntityTypeSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SearchResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Executes a search over all entity types to find ones that match the given search term
+     * @param {module:model/SearchTerm} searchTerm 
+     * @param {module:api/SearchApi~executeEntityTypeSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SearchResult}
+     */
+    executeEntityTypeSearch(searchTerm, callback) {
+      let postBody = searchTerm;
+      // verify the required parameter 'searchTerm' is set
+      if (searchTerm === undefined || searchTerm === null) {
+        throw new Error("Missing the required parameter 'searchTerm' when calling executeEntityTypeSearch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SearchResult;
+      return this.apiClient.callApi(
+        '/datastore/search/entity_types', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the executeFQNPropertyTypeSearch operation.
+     * @callback module:api/SearchApi~executeFQNPropertyTypeSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SearchResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Executes a search over all property types to find ones that match the given name and namespace, including partial matches
+     * @param {module:model/SearchTerm} searchTerm 
+     * @param {module:api/SearchApi~executeFQNPropertyTypeSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SearchResult}
+     */
+    executeFQNPropertyTypeSearch(searchTerm, callback) {
+      let postBody = searchTerm;
+      // verify the required parameter 'searchTerm' is set
+      if (searchTerm === undefined || searchTerm === null) {
+        throw new Error("Missing the required parameter 'searchTerm' when calling executeFQNPropertyTypeSearch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SearchResult;
+      return this.apiClient.callApi(
+        '/datastore/search/property_types/fqn', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -361,6 +648,88 @@ export default class SearchApi {
       let returnType = {'String': [NeighborEntityDetails]};
       return this.apiClient.callApi(
         '/datastore/search/{entitySetId}/neighbors/advanced', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the executeOrganizationSearch operation.
+     * @callback module:api/SearchApi~executeOrganizationSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SearchResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Executes a search over all organizations to find ones that match the given search term
+     * @param {module:model/SearchTerm} searchTerm 
+     * @param {module:api/SearchApi~executeOrganizationSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SearchResult}
+     */
+    executeOrganizationSearch(searchTerm, callback) {
+      let postBody = searchTerm;
+      // verify the required parameter 'searchTerm' is set
+      if (searchTerm === undefined || searchTerm === null) {
+        throw new Error("Missing the required parameter 'searchTerm' when calling executeOrganizationSearch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SearchResult;
+      return this.apiClient.callApi(
+        '/datastore/search/organizations', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the executePropertyTypeSearch operation.
+     * @callback module:api/SearchApi~executePropertyTypeSearchCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SearchResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Executes a search over all property types to find ones that match the given search term
+     * @param {module:model/SearchTerm} searchTerm 
+     * @param {module:api/SearchApi~executePropertyTypeSearchCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SearchResult}
+     */
+    executePropertyTypeSearch(searchTerm, callback) {
+      let postBody = searchTerm;
+      // verify the required parameter 'searchTerm' is set
+      if (searchTerm === undefined || searchTerm === null) {
+        throw new Error("Missing the required parameter 'searchTerm' when calling executePropertyTypeSearch");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SearchResult;
+      return this.apiClient.callApi(
+        '/datastore/search/property_types', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

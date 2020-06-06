@@ -52,6 +52,8 @@ type APIClient struct {
 
 	AuthorizationsApi *AuthorizationsApiService
 
+	CollectionsApi *CollectionsApiService
+
 	DataApi *DataApiService
 
 	DataIntegrationsApi *DataIntegrationsApiService
@@ -71,8 +73,6 @@ type APIClient struct {
 	PrincipalApi *PrincipalApiService
 
 	SearchApi *SearchApiService
-
-	ShuttleApi *ShuttleApiService
 }
 
 type service struct {
@@ -93,6 +93,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.AdminApi = (*AdminApiService)(&c.common)
 	c.AuthorizationsApi = (*AuthorizationsApiService)(&c.common)
+	c.CollectionsApi = (*CollectionsApiService)(&c.common)
 	c.DataApi = (*DataApiService)(&c.common)
 	c.DataIntegrationsApi = (*DataIntegrationsApiService)(&c.common)
 	c.DatasetApi = (*DatasetApiService)(&c.common)
@@ -103,7 +104,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.PermissionsApi = (*PermissionsApiService)(&c.common)
 	c.PrincipalApi = (*PrincipalApiService)(&c.common)
 	c.SearchApi = (*SearchApiService)(&c.common)
-	c.ShuttleApi = (*ShuttleApiService)(&c.common)
 
 	return c
 }

@@ -1384,7 +1384,7 @@ LoadSelectedEntitySetData Gets a list of entities by UUIDs
  * @param entitySetSelection
 @return []map[string][]string
 */
-func (a *DataApiService) LoadSelectedEntitySetData(ctx _context.Context, entitySetId string, entitySetSelection EntitySetSelection) ([]map[string][]string, *_nethttp.Response, error) {
+func (a *DataApiService) LoadSelectedEntitySetData(ctx _context.Context, entitySetId string, entitySetSelection []EntitySetSelection) ([]map[string][]string, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}

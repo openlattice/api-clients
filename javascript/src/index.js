@@ -19,12 +19,12 @@ import Acl from './model/Acl';
 import AclData from './model/AclData';
 import AdvancedSearch from './model/AdvancedSearch';
 import Association from './model/Association';
-import AssociationDefinition from './model/AssociationDefinition';
 import AssociationType from './model/AssociationType';
 import Auth0userBasic from './model/Auth0userBasic';
 import Authorization from './model/Authorization';
 import AuthorizedObjectsSearchResult from './model/AuthorizedObjectsSearchResult';
 import BulkDataCreation from './model/BulkDataCreation';
+import CollectionTemplateType from './model/CollectionTemplateType';
 import Constraint from './model/Constraint';
 import ConstraintGroup from './model/ConstraintGroup';
 import DataAssociation from './model/DataAssociation';
@@ -39,29 +39,23 @@ import EDMdiff from './model/EDMdiff';
 import EdmRequest from './model/EdmRequest';
 import Entity from './model/Entity';
 import EntityDataKey from './model/EntityDataKey';
-import EntityDefinition from './model/EntityDefinition';
 import EntityKey from './model/EntityKey';
 import EntityKeyPair from './model/EntityKeyPair';
 import EntityLinkingFeatures from './model/EntityLinkingFeatures';
 import EntityLinkingFeedback from './model/EntityLinkingFeedback';
 import EntityNeighborsFilter from './model/EntityNeighborsFilter';
 import EntitySet from './model/EntitySet';
+import EntitySetCollection from './model/EntitySetCollection';
 import EntitySetPropertyMetaData from './model/EntitySetPropertyMetaData';
 import EntitySetSelection from './model/EntitySetSelection';
 import EntityType from './model/EntityType';
+import EntityTypeCollection from './model/EntityTypeCollection';
 import EntityTypePropertyMetadata from './model/EntityTypePropertyMetadata';
-import Flight from './model/Flight';
-import FlightPlanParameters from './model/FlightPlanParameters';
-import FlightPlanParametersUpdate from './model/FlightPlanParametersUpdate';
 import FullQualifiedName from './model/FullQualifiedName';
 import IndexingState from './model/IndexingState';
 import InlineObject from './model/InlineObject';
 import InlineResponse200 from './model/InlineResponse200';
-import Integration from './model/Integration';
-import IntegrationJob from './model/IntegrationJob';
 import IntegrationResults from './model/IntegrationResults';
-import IntegrationStatus from './model/IntegrationStatus';
-import IntegrationUpdate from './model/IntegrationUpdate';
 import LinkingFeedback from './model/LinkingFeedback';
 import MaterializedViewAccount from './model/MaterializedViewAccount';
 import MetadataUpdate from './model/MetadataUpdate';
@@ -74,7 +68,6 @@ import OrganizationExternalDatabaseTable from './model/OrganizationExternalDatab
 import OrganizationExternalDatabaseTableColumnsPair from './model/OrganizationExternalDatabaseTableColumnsPair';
 import OrganizationMember from './model/OrganizationMember';
 import Principal from './model/Principal';
-import PropertyDefinition from './model/PropertyDefinition';
 import PropertyType from './model/PropertyType';
 import PropertyUsageSummary from './model/PropertyUsageSummary';
 import Role from './model/Role';
@@ -89,6 +82,7 @@ import SmsEntitySetInformation from './model/SmsEntitySetInformation';
 import SortDefinition from './model/SortDefinition';
 import AdminApi from './api/AdminApi';
 import AuthorizationsApi from './api/AuthorizationsApi';
+import CollectionsApi from './api/CollectionsApi';
 import DataApi from './api/DataApi';
 import DataIntegrationsApi from './api/DataIntegrationsApi';
 import DatasetApi from './api/DatasetApi';
@@ -99,7 +93,6 @@ import OrganizationsApi from './api/OrganizationsApi';
 import PermissionsApi from './api/PermissionsApi';
 import PrincipalApi from './api/PrincipalApi';
 import SearchApi from './api/SearchApi';
-import ShuttleApi from './api/ShuttleApi';
 
 
 /**
@@ -177,12 +170,6 @@ export {
     Association,
 
     /**
-     * The AssociationDefinition model constructor.
-     * @property {module:model/AssociationDefinition}
-     */
-    AssociationDefinition,
-
-    /**
      * The AssociationType model constructor.
      * @property {module:model/AssociationType}
      */
@@ -211,6 +198,12 @@ export {
      * @property {module:model/BulkDataCreation}
      */
     BulkDataCreation,
+
+    /**
+     * The CollectionTemplateType model constructor.
+     * @property {module:model/CollectionTemplateType}
+     */
+    CollectionTemplateType,
 
     /**
      * The Constraint model constructor.
@@ -297,12 +290,6 @@ export {
     EntityDataKey,
 
     /**
-     * The EntityDefinition model constructor.
-     * @property {module:model/EntityDefinition}
-     */
-    EntityDefinition,
-
-    /**
      * The EntityKey model constructor.
      * @property {module:model/EntityKey}
      */
@@ -339,6 +326,12 @@ export {
     EntitySet,
 
     /**
+     * The EntitySetCollection model constructor.
+     * @property {module:model/EntitySetCollection}
+     */
+    EntitySetCollection,
+
+    /**
      * The EntitySetPropertyMetaData model constructor.
      * @property {module:model/EntitySetPropertyMetaData}
      */
@@ -357,28 +350,16 @@ export {
     EntityType,
 
     /**
+     * The EntityTypeCollection model constructor.
+     * @property {module:model/EntityTypeCollection}
+     */
+    EntityTypeCollection,
+
+    /**
      * The EntityTypePropertyMetadata model constructor.
      * @property {module:model/EntityTypePropertyMetadata}
      */
     EntityTypePropertyMetadata,
-
-    /**
-     * The Flight model constructor.
-     * @property {module:model/Flight}
-     */
-    Flight,
-
-    /**
-     * The FlightPlanParameters model constructor.
-     * @property {module:model/FlightPlanParameters}
-     */
-    FlightPlanParameters,
-
-    /**
-     * The FlightPlanParametersUpdate model constructor.
-     * @property {module:model/FlightPlanParametersUpdate}
-     */
-    FlightPlanParametersUpdate,
 
     /**
      * The FullQualifiedName model constructor.
@@ -405,34 +386,10 @@ export {
     InlineResponse200,
 
     /**
-     * The Integration model constructor.
-     * @property {module:model/Integration}
-     */
-    Integration,
-
-    /**
-     * The IntegrationJob model constructor.
-     * @property {module:model/IntegrationJob}
-     */
-    IntegrationJob,
-
-    /**
      * The IntegrationResults model constructor.
      * @property {module:model/IntegrationResults}
      */
     IntegrationResults,
-
-    /**
-     * The IntegrationStatus model constructor.
-     * @property {module:model/IntegrationStatus}
-     */
-    IntegrationStatus,
-
-    /**
-     * The IntegrationUpdate model constructor.
-     * @property {module:model/IntegrationUpdate}
-     */
-    IntegrationUpdate,
 
     /**
      * The LinkingFeedback model constructor.
@@ -505,12 +462,6 @@ export {
      * @property {module:model/Principal}
      */
     Principal,
-
-    /**
-     * The PropertyDefinition model constructor.
-     * @property {module:model/PropertyDefinition}
-     */
-    PropertyDefinition,
 
     /**
      * The PropertyType model constructor.
@@ -597,6 +548,12 @@ export {
     AuthorizationsApi,
 
     /**
+    * The CollectionsApi service constructor.
+    * @property {module:api/CollectionsApi}
+    */
+    CollectionsApi,
+
+    /**
     * The DataApi service constructor.
     * @property {module:api/DataApi}
     */
@@ -654,11 +611,5 @@ export {
     * The SearchApi service constructor.
     * @property {module:api/SearchApi}
     */
-    SearchApi,
-
-    /**
-    * The ShuttleApi service constructor.
-    * @property {module:api/ShuttleApi}
-    */
-    ShuttleApi
+    SearchApi
 };

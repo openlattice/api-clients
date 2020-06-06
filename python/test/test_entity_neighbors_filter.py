@@ -40,13 +40,13 @@ class TestEntityNeighborsFilter(unittest.TestCase):
                 entity_key_ids = [
                     '0'
                     ], 
-                src_entity_set_ids = [
+                src = [
                     '0'
                     ], 
-                dst_entity_set_ids = [
+                dst = [
                     '0'
                     ], 
-                association_entity_set_ids = [
+                edge = [
                     '0'
                     ]
             )

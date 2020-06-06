@@ -32,6 +32,57 @@
 #' }
 #' }
 #'
+#' \strong{ execute_app_search } \emph{ Executes a search over all apps to find ones that match the given search term }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @returnType } \link{SearchResult} \cr
+#'
+#'
+#' \item status code : 200 | A search result object, containing the total number of hits for the given query, and the hits themselves.
+#'
+#' \item return type : SearchResult 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execute_app_type_search } \emph{ Executes a search over all app types to find ones that match the given search term }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @returnType } \link{SearchResult} \cr
+#'
+#'
+#' \item status code : 200 | A search result object, containing the total number of hits for the given query, and the hits themselves.
+#'
+#' \item return type : SearchResult 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execute_association_type_search } \emph{ Executes a search over all association types to find ones that match the given search term }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @returnType } \link{SearchResult} \cr
+#'
+#'
+#' \item status code : 200 | A search result object, containing the total number of hits for the given query, and the hits themselves.
+#'
+#' \item return type : SearchResult 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ execute_entity_neighbor_search } \emph{ Executes a search for all neighbors of an entity that are connected by an association }
 #' 
 #'
@@ -68,6 +119,23 @@
 #' }
 #' }
 #'
+#' \strong{ execute_entity_set_collection_search } \emph{ Executes a search over all EntitySetCollections to find ones that match the given search term }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @returnType } \link{SearchResult} \cr
+#'
+#'
+#' \item status code : 200 | A search result object, containing the total number of hits for the given query, and the hits themselves.
+#'
+#' \item return type : SearchResult 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ execute_entity_set_data_query } \emph{ Executes a search over the data of a given entity set to find rows that match the search term }
 #' 
 #'
@@ -91,12 +159,46 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } search \link{Search}
-#' \item \emph{ @returnType } named list( \link{map} ) \cr
+#' \item \emph{ @returnType } \link{SearchResult} \cr
 #'
 #'
-#' \item status code : 200 | A list of objects containing information about the neighbor and association.
+#' \item status code : 200 | A search result object, containing the total number of hits for the given query, and the hits themselves.
 #'
-#' \item return type : map(map(map(array[NeighborEntityIds]))) 
+#' \item return type : SearchResult 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execute_entity_type_collection_search } \emph{ Executes a search over all EntityTypeCollections to find ones that match the given search term }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @returnType } \link{SearchResult} \cr
+#'
+#'
+#' \item status code : 200 | A search result object, containing the total number of hits for the given query, and the hits themselves.
+#'
+#' \item return type : SearchResult 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execute_entity_type_search } \emph{ Executes a search over all entity types to find ones that match the given search term }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @returnType } \link{SearchResult} \cr
+#'
+#'
+#' \item status code : 200 | A search result object, containing the total number of hits for the given query, and the hits themselves.
+#'
+#' \item return type : SearchResult 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -133,6 +235,57 @@
 #' \item status code : 200 | A list of objects containing information about the neighbor and association.
 #'
 #' \item return type : map(array[NeighborEntityDetails]) 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execute_fqn_property_type_search } \emph{ Executes a search over all property types to find ones that match the given name and namespace, including partial matches }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @returnType } \link{SearchResult} \cr
+#'
+#'
+#' \item status code : 200 | A search result object, containing the total number of hits for the given query, and the hits themselves.
+#'
+#' \item return type : SearchResult 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execute_organization_search } \emph{ Executes a search over all organizations to find ones that match the given search term }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @returnType } \link{SearchResult} \cr
+#'
+#'
+#' \item status code : 200 | A search result object, containing the total number of hits for the given query, and the hits themselves.
+#'
+#' \item return type : SearchResult 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ execute_property_type_search } \emph{ Executes a search over all property types to find ones that match the given search term }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @returnType } \link{SearchResult} \cr
+#'
+#'
+#' \item status code : 200 | A search result object, containing the total number of hits for the given query, and the hits themselves.
+#'
+#' \item return type : SearchResult 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -216,6 +369,66 @@
 #' result <- api.instance$execute_advanced_entity_set_data_query(var.entity.set.id, var.advanced.search)
 #'
 #'
+#' ####################  execute_app_search  ####################
+#'
+#' library(openlattice)
+#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#'
+#' #Executes a search over all apps to find ones that match the given search term
+#' api.instance <- SearchApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execute_app_search(var.search.term)
+#'
+#'
+#' ####################  execute_app_type_search  ####################
+#'
+#' library(openlattice)
+#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#'
+#' #Executes a search over all app types to find ones that match the given search term
+#' api.instance <- SearchApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execute_app_type_search(var.search.term)
+#'
+#'
+#' ####################  execute_association_type_search  ####################
+#'
+#' library(openlattice)
+#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#'
+#' #Executes a search over all association types to find ones that match the given search term
+#' api.instance <- SearchApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execute_association_type_search(var.search.term)
+#'
+#'
 #' ####################  execute_entity_neighbor_search  ####################
 #'
 #' library(openlattice)
@@ -256,6 +469,26 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$execute_entity_neighbor_search_bulk(var.entity.set.id, var.request.body)
+#'
+#'
+#' ####################  execute_entity_set_collection_search  ####################
+#'
+#' library(openlattice)
+#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#'
+#' #Executes a search over all EntitySetCollections to find ones that match the given search term
+#' api.instance <- SearchApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execute_entity_set_collection_search(var.search.term)
 #'
 #'
 #' ####################  execute_entity_set_data_query  ####################
@@ -299,6 +532,46 @@
 #' result <- api.instance$execute_entity_set_keyword_query(var.search)
 #'
 #'
+#' ####################  execute_entity_type_collection_search  ####################
+#'
+#' library(openlattice)
+#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#'
+#' #Executes a search over all EntityTypeCollections to find ones that match the given search term
+#' api.instance <- SearchApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execute_entity_type_collection_search(var.search.term)
+#'
+#'
+#' ####################  execute_entity_type_search  ####################
+#'
+#' library(openlattice)
+#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#'
+#' #Executes a search over all entity types to find ones that match the given search term
+#' api.instance <- SearchApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execute_entity_type_search(var.search.term)
+#'
+#'
 #' ####################  execute_filtered_entity_neighbor_id_search  ####################
 #'
 #' library(openlattice)
@@ -339,6 +612,66 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$execute_filtered_entity_neighbor_search(var.entity.set.id, var.neighbor.search.filter)
+#'
+#'
+#' ####################  execute_fqn_property_type_search  ####################
+#'
+#' library(openlattice)
+#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#'
+#' #Executes a search over all property types to find ones that match the given name and namespace, including partial matches
+#' api.instance <- SearchApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execute_fqn_property_type_search(var.search.term)
+#'
+#'
+#' ####################  execute_organization_search  ####################
+#'
+#' library(openlattice)
+#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#'
+#' #Executes a search over all organizations to find ones that match the given search term
+#' api.instance <- SearchApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execute_organization_search(var.search.term)
+#'
+#'
+#' ####################  execute_property_type_search  ####################
+#'
+#' library(openlattice)
+#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#'
+#' #Executes a search over all property types to find ones that match the given search term
+#' api.instance <- SearchApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$execute_property_type_search(var.search.term)
 #'
 #'
 #' ####################  get_entity_sets  ####################
@@ -483,6 +816,180 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
+    execute_app_search = function(search.term, ...){
+      apiResponse <- self$execute_app_searchWithHttpInfo(search.term, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execute_app_searchWithHttpInfo = function(search.term, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`search.term`)) {
+        stop("Missing required parameter `search.term`.")
+      }
+
+      if (!missing(`search.term`)) {
+        body <- `search.term`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search/app"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "SearchResult", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execute_app_type_search = function(search.term, ...){
+      apiResponse <- self$execute_app_type_searchWithHttpInfo(search.term, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execute_app_type_searchWithHttpInfo = function(search.term, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`search.term`)) {
+        stop("Missing required parameter `search.term`.")
+      }
+
+      if (!missing(`search.term`)) {
+        body <- `search.term`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search/app_types"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "SearchResult", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execute_association_type_search = function(search.term, ...){
+      apiResponse <- self$execute_association_type_searchWithHttpInfo(search.term, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execute_association_type_searchWithHttpInfo = function(search.term, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`search.term`)) {
+        stop("Missing required parameter `search.term`.")
+      }
+
+      if (!missing(`search.term`)) {
+        body <- `search.term`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search/association_types"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "SearchResult", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
     execute_entity_neighbor_search = function(entity.set.id, entity.key.id, ...){
       apiResponse <- self$execute_entity_neighbor_searchWithHttpInfo(entity.set.id, entity.key.id, ...)
       resp <- apiResponse$response
@@ -614,6 +1121,64 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
+    execute_entity_set_collection_search = function(search.term, ...){
+      apiResponse <- self$execute_entity_set_collection_searchWithHttpInfo(search.term, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execute_entity_set_collection_searchWithHttpInfo = function(search.term, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`search.term`)) {
+        stop("Missing required parameter `search.term`.")
+      }
+
+      if (!missing(`search.term`)) {
+        body <- `search.term`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search/entity_sets/collections"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "SearchResult", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
     execute_entity_set_data_query = function(entity.set.id, search.term, ...){
       apiResponse <- self$execute_entity_set_data_queryWithHttpInfo(entity.set.id, search.term, ...)
       resp <- apiResponse$response
@@ -724,7 +1289,123 @@ SearchApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(map(map(array[NeighborEntityIds])))", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "SearchResult", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execute_entity_type_collection_search = function(search.term, ...){
+      apiResponse <- self$execute_entity_type_collection_searchWithHttpInfo(search.term, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execute_entity_type_collection_searchWithHttpInfo = function(search.term, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`search.term`)) {
+        stop("Missing required parameter `search.term`.")
+      }
+
+      if (!missing(`search.term`)) {
+        body <- `search.term`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search/entity_types/collections"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "SearchResult", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execute_entity_type_search = function(search.term, ...){
+      apiResponse <- self$execute_entity_type_searchWithHttpInfo(search.term, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execute_entity_type_searchWithHttpInfo = function(search.term, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`search.term`)) {
+        stop("Missing required parameter `search.term`.")
+      }
+
+      if (!missing(`search.term`)) {
+        body <- `search.term`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search/entity_types"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "SearchResult", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -857,6 +1538,180 @@ SearchApi <- R6::R6Class(
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
           self$apiClient$deserialize(resp, "map(array[NeighborEntityDetails])", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execute_fqn_property_type_search = function(search.term, ...){
+      apiResponse <- self$execute_fqn_property_type_searchWithHttpInfo(search.term, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execute_fqn_property_type_searchWithHttpInfo = function(search.term, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`search.term`)) {
+        stop("Missing required parameter `search.term`.")
+      }
+
+      if (!missing(`search.term`)) {
+        body <- `search.term`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search/property_types/fqn"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "SearchResult", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execute_organization_search = function(search.term, ...){
+      apiResponse <- self$execute_organization_searchWithHttpInfo(search.term, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execute_organization_searchWithHttpInfo = function(search.term, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`search.term`)) {
+        stop("Missing required parameter `search.term`.")
+      }
+
+      if (!missing(`search.term`)) {
+        body <- `search.term`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search/organizations"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "SearchResult", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    execute_property_type_search = function(search.term, ...){
+      apiResponse <- self$execute_property_type_searchWithHttpInfo(search.term, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    execute_property_type_searchWithHttpInfo = function(search.term, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`search.term`)) {
+        stop("Missing required parameter `search.term`.")
+      }
+
+      if (!missing(`search.term`)) {
+        body <- `search.term`$toJSONString()
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/search/property_types"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "SearchResult", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }

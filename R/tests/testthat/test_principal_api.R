@@ -46,12 +46,33 @@ test_that("get_user", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("search_all_users", {
+  # tests for search_all_users
+  # base path: https://api.openlattice.com
+  # Get the user id for the given search.
+  # @param character  search.query   
+  # @return [map(Auth0userBasic)]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("search_all_users_by_email", {
   # tests for search_all_users_by_email
   # base path: https://api.openlattice.com
   # Get the user id for the given email address.
   # @param character  email.address   
   # @return [map(Auth0userBasic)]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("sync_calling_user", {
+  # tests for sync_calling_user
+  # base path: https://api.openlattice.com
+  # Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
+  # @return [Void]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

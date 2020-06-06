@@ -35,7 +35,7 @@ class SortDefinition(object):
     """
     openapi_types = {
         'type': 'str',
-        'is_descending': 'bool',
+        'descending': 'bool',
         'property_type_id': 'str',
         'latitude': 'float',
         'longitude': 'float'
@@ -43,20 +43,20 @@ class SortDefinition(object):
 
     attribute_map = {
         'type': 'type',
-        'is_descending': 'isDescending',
+        'descending': 'descending',
         'property_type_id': 'propertyTypeId',
         'latitude': 'latitude',
         'longitude': 'longitude'
     }
 
-    def __init__(self, type=None, is_descending=None, property_type_id=None, latitude=None, longitude=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=None, descending=None, property_type_id=None, latitude=None, longitude=None, local_vars_configuration=None):  # noqa: E501
         """SortDefinition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._type = None
-        self._is_descending = None
+        self._descending = None
         self._property_type_id = None
         self._latitude = None
         self._longitude = None
@@ -64,8 +64,8 @@ class SortDefinition(object):
 
         if type is not None:
             self.type = type
-        if is_descending is not None:
-            self.is_descending = is_descending
+        if descending is not None:
+            self.descending = descending
         if property_type_id is not None:
             self.property_type_id = property_type_id
         if latitude is not None:
@@ -101,25 +101,25 @@ class SortDefinition(object):
         self._type = type
 
     @property
-    def is_descending(self):
-        """Gets the is_descending of this SortDefinition.  # noqa: E501
+    def descending(self):
+        """Gets the descending of this SortDefinition.  # noqa: E501
 
 
-        :return: The is_descending of this SortDefinition.  # noqa: E501
+        :return: The descending of this SortDefinition.  # noqa: E501
         :rtype: bool
         """
-        return self._is_descending
+        return self._descending
 
-    @is_descending.setter
-    def is_descending(self, is_descending):
-        """Sets the is_descending of this SortDefinition.
+    @descending.setter
+    def descending(self, descending):
+        """Sets the descending of this SortDefinition.
 
 
-        :param is_descending: The is_descending of this SortDefinition.  # noqa: E501
+        :param descending: The descending of this SortDefinition.  # noqa: E501
         :type: bool
         """
 
-        self._is_descending = is_descending
+        self._descending = descending
 
     @property
     def property_type_id(self):

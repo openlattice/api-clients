@@ -5,12 +5,21 @@ All URIs are relative to *https://api.openlattice.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**executeAdvancedEntitySetDataQuery**](SearchApi.md#executeAdvancedEntitySetDataQuery) | **POST** /datastore/search/advanced/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
+[**executeAppSearch**](SearchApi.md#executeAppSearch) | **POST** /datastore/search/app | Executes a search over all apps to find ones that match the given search term
+[**executeAppTypeSearch**](SearchApi.md#executeAppTypeSearch) | **POST** /datastore/search/app_types | Executes a search over all app types to find ones that match the given search term
+[**executeAssociationTypeSearch**](SearchApi.md#executeAssociationTypeSearch) | **POST** /datastore/search/association_types | Executes a search over all association types to find ones that match the given search term
 [**executeEntityNeighborSearch**](SearchApi.md#executeEntityNeighborSearch) | **GET** /datastore/search/{entitySetId}/{entityKeyId} | Executes a search for all neighbors of an entity that are connected by an association
 [**executeEntityNeighborSearchBulk**](SearchApi.md#executeEntityNeighborSearchBulk) | **POST** /datastore/search/{entitySetId}/neighbors | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
+[**executeEntitySetCollectionSearch**](SearchApi.md#executeEntitySetCollectionSearch) | **POST** /datastore/search/entity_sets/collections | Executes a search over all EntitySetCollections to find ones that match the given search term
 [**executeEntitySetDataQuery**](SearchApi.md#executeEntitySetDataQuery) | **POST** /datastore/search/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term
 [**executeEntitySetKeywordQuery**](SearchApi.md#executeEntitySetKeywordQuery) | **POST** /datastore/search | The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
+[**executeEntityTypeCollectionSearch**](SearchApi.md#executeEntityTypeCollectionSearch) | **POST** /datastore/search/entity_types/collections | Executes a search over all EntityTypeCollections to find ones that match the given search term
+[**executeEntityTypeSearch**](SearchApi.md#executeEntityTypeSearch) | **POST** /datastore/search/entity_types | Executes a search over all entity types to find ones that match the given search term
+[**executeFQNPropertyTypeSearch**](SearchApi.md#executeFQNPropertyTypeSearch) | **POST** /datastore/search/property_types/fqn | Executes a search over all property types to find ones that match the given name and namespace, including partial matches
 [**executeFilteredEntityNeighborIdSearch**](SearchApi.md#executeFilteredEntityNeighborIdSearch) | **POST** /datastore/search/{entitySetId}/neighbors/advanced/ids | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 [**executeFilteredEntityNeighborSearch**](SearchApi.md#executeFilteredEntityNeighborSearch) | **POST** /datastore/search/{entitySetId}/neighbors/advanced | Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
+[**executeOrganizationSearch**](SearchApi.md#executeOrganizationSearch) | **POST** /datastore/search/organizations | Executes a search over all organizations to find ones that match the given search term
+[**executePropertyTypeSearch**](SearchApi.md#executePropertyTypeSearch) | **POST** /datastore/search/property_types | Executes a search over all property types to find ones that match the given search term
 [**getEntitySets**](SearchApi.md#getEntitySets) | **GET** /datastore/search/entity-sets/{start}/{numResults} | Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
 [**getPopularEntitySet**](SearchApi.md#getPopularEntitySet) | **GET** /datastore/search/popular | Get the most popular entity sets.
 [**searchEntitySetData**](SearchApi.md#searchEntitySetData) | **PATCH** /datastore/search | Executes a search over the data of a given entity set to find rows that match the search term
@@ -60,6 +69,162 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DataSearchResult**](DataSearchResult.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## executeAppSearch
+
+> SearchResult executeAppSearch(searchTerm)
+
+Executes a search over all apps to find ones that match the given search term
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.SearchApi();
+let searchTerm = new OpenLatticeApi.SearchTerm(); // SearchTerm | 
+apiInstance.executeAppSearch(searchTerm, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchTerm** | [**SearchTerm**](SearchTerm.md)|  | 
+
+### Return type
+
+[**SearchResult**](SearchResult.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## executeAppTypeSearch
+
+> SearchResult executeAppTypeSearch(searchTerm)
+
+Executes a search over all app types to find ones that match the given search term
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.SearchApi();
+let searchTerm = new OpenLatticeApi.SearchTerm(); // SearchTerm | 
+apiInstance.executeAppTypeSearch(searchTerm, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchTerm** | [**SearchTerm**](SearchTerm.md)|  | 
+
+### Return type
+
+[**SearchResult**](SearchResult.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## executeAssociationTypeSearch
+
+> SearchResult executeAssociationTypeSearch(searchTerm)
+
+Executes a search over all association types to find ones that match the given search term
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.SearchApi();
+let searchTerm = new OpenLatticeApi.SearchTerm(); // SearchTerm | 
+apiInstance.executeAssociationTypeSearch(searchTerm, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchTerm** | [**SearchTerm**](SearchTerm.md)|  | 
+
+### Return type
+
+[**SearchResult**](SearchResult.md)
 
 ### Authorization
 
@@ -179,6 +344,58 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## executeEntitySetCollectionSearch
+
+> SearchResult executeEntitySetCollectionSearch(searchTerm)
+
+Executes a search over all EntitySetCollections to find ones that match the given search term
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.SearchApi();
+let searchTerm = new OpenLatticeApi.SearchTerm(); // SearchTerm | 
+apiInstance.executeEntitySetCollectionSearch(searchTerm, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchTerm** | [**SearchTerm**](SearchTerm.md)|  | 
+
+### Return type
+
+[**SearchResult**](SearchResult.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## executeEntitySetDataQuery
 
 > DataSearchResult executeEntitySetDataQuery(entitySetId, searchTerm)
@@ -235,7 +452,7 @@ Name | Type | Description  | Notes
 
 ## executeEntitySetKeywordQuery
 
-> {String: {String: {String: [NeighborEntityIds]}}} executeEntitySetKeywordQuery(search)
+> SearchResult executeEntitySetKeywordQuery(search)
 
 The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
 
@@ -273,7 +490,163 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**{String: {String: {String: [NeighborEntityIds]}}}**
+[**SearchResult**](SearchResult.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## executeEntityTypeCollectionSearch
+
+> SearchResult executeEntityTypeCollectionSearch(searchTerm)
+
+Executes a search over all EntityTypeCollections to find ones that match the given search term
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.SearchApi();
+let searchTerm = new OpenLatticeApi.SearchTerm(); // SearchTerm | 
+apiInstance.executeEntityTypeCollectionSearch(searchTerm, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchTerm** | [**SearchTerm**](SearchTerm.md)|  | 
+
+### Return type
+
+[**SearchResult**](SearchResult.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## executeEntityTypeSearch
+
+> SearchResult executeEntityTypeSearch(searchTerm)
+
+Executes a search over all entity types to find ones that match the given search term
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.SearchApi();
+let searchTerm = new OpenLatticeApi.SearchTerm(); // SearchTerm | 
+apiInstance.executeEntityTypeSearch(searchTerm, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchTerm** | [**SearchTerm**](SearchTerm.md)|  | 
+
+### Return type
+
+[**SearchResult**](SearchResult.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## executeFQNPropertyTypeSearch
+
+> SearchResult executeFQNPropertyTypeSearch(searchTerm)
+
+Executes a search over all property types to find ones that match the given name and namespace, including partial matches
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.SearchApi();
+let searchTerm = new OpenLatticeApi.SearchTerm(); // SearchTerm | 
+apiInstance.executeFQNPropertyTypeSearch(searchTerm, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchTerm** | [**SearchTerm**](SearchTerm.md)|  | 
+
+### Return type
+
+[**SearchResult**](SearchResult.md)
 
 ### Authorization
 
@@ -382,6 +755,110 @@ Name | Type | Description  | Notes
 ### Return type
 
 **{String: [NeighborEntityDetails]}**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## executeOrganizationSearch
+
+> SearchResult executeOrganizationSearch(searchTerm)
+
+Executes a search over all organizations to find ones that match the given search term
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.SearchApi();
+let searchTerm = new OpenLatticeApi.SearchTerm(); // SearchTerm | 
+apiInstance.executeOrganizationSearch(searchTerm, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchTerm** | [**SearchTerm**](SearchTerm.md)|  | 
+
+### Return type
+
+[**SearchResult**](SearchResult.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## executePropertyTypeSearch
+
+> SearchResult executePropertyTypeSearch(searchTerm)
+
+Executes a search over all property types to find ones that match the given search term
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.SearchApi();
+let searchTerm = new OpenLatticeApi.SearchTerm(); // SearchTerm | 
+apiInstance.executePropertyTypeSearch(searchTerm, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **searchTerm** | [**SearchTerm**](SearchTerm.md)|  | 
+
+### Return type
+
+[**SearchResult**](SearchResult.md)
 
 ### Authorization
 

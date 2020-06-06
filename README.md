@@ -36,6 +36,10 @@ This is the code to generate these libraries based on the api-specifications.
     rm -rf $CLIENTDIR/R
     rm -rf $CLIENTDIR/python
     rm -rf $CLIENTDIR/javascript
+    rm -rf $CLIENTDIR/go
+    rm -rf $CLIENTDIR/android
+    rm -rf $CLIENTDIR/ruby
+    rm -rf $CLIENTDIR/javascript
 
     cd $APIDIR
     docker run -it -v $APIDIR:$APIDIR openlattice/openapi-generator-cli generate -i $APIDIR/openlattice.yaml -g python -o $APIDIR/build/openapi/python -c $APIDIR/oas-config.json
