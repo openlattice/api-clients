@@ -26,6 +26,13 @@ To install the R-clients, from this directory (`./api-clients/`)
 
     R CMD install R
 
+You can also install from github, in R using `devtools`.
+
+    library(devtools)
+    install_github(
+        "https://github.com/Lattice-Works/api-clients.git", 
+        subdir = "R"
+    )
 ## To build the packages from the openlattice.yaml-file
 
 This is the code to generate these libraries based on the api-specifications.
