@@ -19,7 +19,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } entity.type.collection.id \link{character}
-#' \item \emph{ @param } entity.type.collection \link{EntityTypeCollection}
+#' \item \emph{ @param } collection.template.type \link{CollectionTemplateType}
 #'
 #'
 #' \item status code : 200 | Success
@@ -255,7 +255,7 @@
 #'
 #' library(openlattice)
 #' var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
-#' var.entity.type.collection <- EntityTypeCollection$new() # EntityTypeCollection | 
+#' var.collection.template.type <- CollectionTemplateType$new() # CollectionTemplateType | 
 #'
 #' #Appends type to template of the specified EntityTypeCollection
 #' api.instance <- CollectionsApi$new()
@@ -269,7 +269,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_type_to_entity_type_collection_template(var.entity.type.collection.id, var.entity.type.collection)
+#' result <- api.instance$add_type_to_entity_type_collection_template(var.entity.type.collection.id, var.collection.template.type)
 #'
 #'
 #' ####################  create_entity_set_collection  ####################
@@ -550,8 +550,8 @@ CollectionsApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    add_type_to_entity_type_collection_template = function(entity.type.collection.id, entity.type.collection, ...){
-      apiResponse <- self$add_type_to_entity_type_collection_templateWithHttpInfo(entity.type.collection.id, entity.type.collection, ...)
+    add_type_to_entity_type_collection_template = function(entity.type.collection.id, collection.template.type, ...){
+      apiResponse <- self$add_type_to_entity_type_collection_templateWithHttpInfo(entity.type.collection.id, collection.template.type, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -564,7 +564,7 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    add_type_to_entity_type_collection_templateWithHttpInfo = function(entity.type.collection.id, entity.type.collection, ...){
+    add_type_to_entity_type_collection_templateWithHttpInfo = function(entity.type.collection.id, collection.template.type, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -573,12 +573,12 @@ CollectionsApi <- R6::R6Class(
         stop("Missing required parameter `entity.type.collection.id`.")
       }
 
-      if (missing(`entity.type.collection`)) {
-        stop("Missing required parameter `entity.type.collection`.")
+      if (missing(`collection.template.type`)) {
+        stop("Missing required parameter `collection.template.type`.")
       }
 
-      if (!missing(`entity.type.collection`)) {
-        body <- `entity.type.collection`$toJSONString()
+      if (!missing(`collection.template.type`)) {
+        body <- `collection.template.type`$toJSONString()
       } else {
         body <- NULL
       }
@@ -1001,7 +1001,7 @@ CollectionsApi <- R6::R6Class(
         stop("Missing required parameter `entity.set.collection.id`.")
       }
 
-      urlPath <- "/datastore/collections/entity/type/entity/set/{entitySetCollectionId}"
+      urlPath <- "/datastore/collections/entity/set/entity/type/{entitySetCollectionId}"
       if (!missing(`entity.set.collection.id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity.set.collection.id`), reserved = TRUE), urlPath)
       }

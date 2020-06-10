@@ -37,17 +37,17 @@ class CollectionsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_type_to_entity_type_collection_template(self, entity_type_collection_id, entity_type_collection, **kwargs):  # noqa: E501
+    def add_type_to_entity_type_collection_template(self, entity_type_collection_id, collection_template_type, **kwargs):  # noqa: E501
         """Appends type to template of the specified EntityTypeCollection  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_type_to_entity_type_collection_template(entity_type_collection_id, entity_type_collection, async_req=True)
+        >>> thread = api.add_type_to_entity_type_collection_template(entity_type_collection_id, collection_template_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str entity_type_collection_id: (required)
-        :param EntityTypeCollection entity_type_collection: (required)
+        :param CollectionTemplateType collection_template_type: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -60,19 +60,19 @@ class CollectionsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.add_type_to_entity_type_collection_template_with_http_info(entity_type_collection_id, entity_type_collection, **kwargs)  # noqa: E501
+        return self.add_type_to_entity_type_collection_template_with_http_info(entity_type_collection_id, collection_template_type, **kwargs)  # noqa: E501
 
-    def add_type_to_entity_type_collection_template_with_http_info(self, entity_type_collection_id, entity_type_collection, **kwargs):  # noqa: E501
+    def add_type_to_entity_type_collection_template_with_http_info(self, entity_type_collection_id, collection_template_type, **kwargs):  # noqa: E501
         """Appends type to template of the specified EntityTypeCollection  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_type_to_entity_type_collection_template_with_http_info(entity_type_collection_id, entity_type_collection, async_req=True)
+        >>> thread = api.add_type_to_entity_type_collection_template_with_http_info(entity_type_collection_id, collection_template_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str entity_type_collection_id: (required)
-        :param EntityTypeCollection entity_type_collection: (required)
+        :param CollectionTemplateType collection_template_type: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -89,7 +89,7 @@ class CollectionsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['entity_type_collection_id', 'entity_type_collection']  # noqa: E501
+        all_params = ['entity_type_collection_id', 'collection_template_type']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -107,10 +107,10 @@ class CollectionsApi(object):
         if self.api_client.client_side_validation and ('entity_type_collection_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['entity_type_collection_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `entity_type_collection_id` when calling `add_type_to_entity_type_collection_template`")  # noqa: E501
-        # verify the required parameter 'entity_type_collection' is set
-        if self.api_client.client_side_validation and ('entity_type_collection' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity_type_collection'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity_type_collection` when calling `add_type_to_entity_type_collection_template`")  # noqa: E501
+        # verify the required parameter 'collection_template_type' is set
+        if self.api_client.client_side_validation and ('collection_template_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['collection_template_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `collection_template_type` when calling `add_type_to_entity_type_collection_template`")  # noqa: E501
 
         collection_formats = {}
 
@@ -126,8 +126,8 @@ class CollectionsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'entity_type_collection' in local_var_params:
-            body_params = local_var_params['entity_type_collection']
+        if 'collection_template_type' in local_var_params:
+            body_params = local_var_params['collection_template_type']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -968,7 +968,7 @@ class CollectionsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/collections/entity/type/entity/set/{entitySetCollectionId}', 'GET',
+            '/datastore/collections/entity/set/entity/type/{entitySetCollectionId}', 'GET',
             path_params,
             query_params,
             header_params,

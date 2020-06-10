@@ -72,15 +72,3 @@ If there is need to rebuild the docker file of our openapi-generation:
 
 The docker container is avaiable from docker hub.
 
-    cd $CLIENTDIR
-    chmod 664 R/NAMESPACE
-
-    python -c '''import os 
-    files = os.listdir("R/R/") 
-    objects = [x.split(".")[0] for x in files] 
-    objects = ["export(%s)"%obj for obj in objects] 
-    namespacestring = "\n".join(objects) 
-    with open("R/NAMESPACE", "r+") as fl: 
-      fl.write(namespacestring) 
-    '''
-

@@ -10,7 +10,7 @@ test_that("add_type_to_entity_type_collection_template", {
   # base path: https://api.openlattice.com
   # Appends type to template of the specified EntityTypeCollection
   # @param character  entity.type.collection.id   
-  # @param EntityTypeCollection  entity.type.collection   
+  # @param CollectionTemplateType  collection.template.type   
   # @return [Void]
 
   # uncomment below to test the operation

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**get_all_entity_set_collections**](CollectionsApi.md#get_all_entity_set_collections) | **GET** /datastore/collections/entity/set | Returns all EntitySetCollection objects
 [**get_all_entity_type_collections**](CollectionsApi.md#get_all_entity_type_collections) | **GET** /datastore/collections/entity/type | Returns all EntityTypeCollection objects
 [**get_entity_set_collection**](CollectionsApi.md#get_entity_set_collection) | **GET** /datastore/collections/entity/set/{entitySetCollectionId} | Returns the EntitySetCollection object for a given id
-[**get_entity_set_collections_of_type**](CollectionsApi.md#get_entity_set_collections_of_type) | **GET** /datastore/collections/entity/type/entity/set/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
+[**get_entity_set_collections_of_type**](CollectionsApi.md#get_entity_set_collections_of_type) | **GET** /datastore/collections/entity/set/entity/type/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
 [**get_entity_type_collection**](CollectionsApi.md#get_entity_type_collection) | **GET** /datastore/collections/entity/type/{entityTypeCollectionId} | Returns the EntityTypeCollection object for a given id
 [**remove_type_from_entity_type_collection_template**](CollectionsApi.md#remove_type_from_entity_type_collection_template) | **DELETE** /datastore/collections/entity/type/{entityTypeCollectionId}/template/{typeId} | Removes a key from an EntityTypeCollection template
 [**update_entity_set_collection_metadata**](CollectionsApi.md#update_entity_set_collection_metadata) | **PATCH** /datastore/collections/entity/set/{entitySetCollectionId} | Updates metadata of the specified EntitySetCollection
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **add_type_to_entity_type_collection_template**
-> add_type_to_entity_type_collection_template(entity.type.collection.id, entity.type.collection)
+> add_type_to_entity_type_collection_template(entity.type.collection.id, collection.template.type)
 
 Appends type to template of the specified EntityTypeCollection
 
@@ -30,7 +30,7 @@ Appends type to template of the specified EntityTypeCollection
 library(openlattice)
 
 var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
-var.entity.type.collection <- EntityTypeCollection$new("id_example", FullQualifiedName$new("name_example", "namespace_example"), "title_example", "description_example", list(FullQualifiedName$new("name_example", "namespace_example")), list(CollectionTemplateType$new("id_example", "name_example", "title_example", "description_example", "entityTypeId_example"))) # EntityTypeCollection | 
+var.collection.template.type <- CollectionTemplateType$new("id_example", "name_example", "title_example", "description_example", "entityTypeId_example") # CollectionTemplateType | 
 
 #Appends type to template of the specified EntityTypeCollection
 api.instance <- CollectionsApi$new()
@@ -39,7 +39,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$add_type_to_entity_type_collection_template(var.entity.type.collection.id, var.entity.type.collection)
+api.instance$add_type_to_entity_type_collection_template(var.entity.type.collection.id, var.collection.template.type)
 ```
 
 ### Parameters
@@ -47,7 +47,7 @@ api.instance$add_type_to_entity_type_collection_template(var.entity.type.collect
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity.type.collection.id** | [**character**](.md)|  | 
- **entity.type.collection** | [**EntityTypeCollection**](EntityTypeCollection.md)|  | 
+ **collection.template.type** | [**CollectionTemplateType**](CollectionTemplateType.md)|  | 
 
 ### Return type
 

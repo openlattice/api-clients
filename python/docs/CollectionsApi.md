@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**get_all_entity_set_collections**](CollectionsApi.md#get_all_entity_set_collections) | **GET** /datastore/collections/entity/set | Returns all EntitySetCollection objects
 [**get_all_entity_type_collections**](CollectionsApi.md#get_all_entity_type_collections) | **GET** /datastore/collections/entity/type | Returns all EntityTypeCollection objects
 [**get_entity_set_collection**](CollectionsApi.md#get_entity_set_collection) | **GET** /datastore/collections/entity/set/{entitySetCollectionId} | Returns the EntitySetCollection object for a given id
-[**get_entity_set_collections_of_type**](CollectionsApi.md#get_entity_set_collections_of_type) | **GET** /datastore/collections/entity/type/entity/set/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
+[**get_entity_set_collections_of_type**](CollectionsApi.md#get_entity_set_collections_of_type) | **GET** /datastore/collections/entity/set/entity/type/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
 [**get_entity_type_collection**](CollectionsApi.md#get_entity_type_collection) | **GET** /datastore/collections/entity/type/{entityTypeCollectionId} | Returns the EntityTypeCollection object for a given id
 [**remove_type_from_entity_type_collection_template**](CollectionsApi.md#remove_type_from_entity_type_collection_template) | **DELETE** /datastore/collections/entity/type/{entityTypeCollectionId}/template/{typeId} | Removes a key from an EntityTypeCollection template
 [**update_entity_set_collection_metadata**](CollectionsApi.md#update_entity_set_collection_metadata) | **PATCH** /datastore/collections/entity/set/{entitySetCollectionId} | Updates metadata of the specified EntitySetCollection
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **add_type_to_entity_type_collection_template**
-> add_type_to_entity_type_collection_template(entity_type_collection_id, entity_type_collection)
+> add_type_to_entity_type_collection_template(entity_type_collection_id, collection_template_type)
 
 Appends type to template of the specified EntityTypeCollection
 
@@ -51,11 +51,11 @@ with openlattice.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openlattice.CollectionsApi(api_client)
     entity_type_collection_id = 'entity_type_collection_id_example' # str | 
-entity_type_collection = openlattice.EntityTypeCollection() # EntityTypeCollection | 
+collection_template_type = openlattice.CollectionTemplateType() # CollectionTemplateType | 
 
     try:
         # Appends type to template of the specified EntityTypeCollection
-        api_instance.add_type_to_entity_type_collection_template(entity_type_collection_id, entity_type_collection)
+        api_instance.add_type_to_entity_type_collection_template(entity_type_collection_id, collection_template_type)
     except ApiException as e:
         print("Exception when calling CollectionsApi->add_type_to_entity_type_collection_template: %s\n" % e)
 ```
@@ -84,11 +84,11 @@ with openlattice.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openlattice.CollectionsApi(api_client)
     entity_type_collection_id = 'entity_type_collection_id_example' # str | 
-entity_type_collection = openlattice.EntityTypeCollection() # EntityTypeCollection | 
+collection_template_type = openlattice.CollectionTemplateType() # CollectionTemplateType | 
 
     try:
         # Appends type to template of the specified EntityTypeCollection
-        api_instance.add_type_to_entity_type_collection_template(entity_type_collection_id, entity_type_collection)
+        api_instance.add_type_to_entity_type_collection_template(entity_type_collection_id, collection_template_type)
     except ApiException as e:
         print("Exception when calling CollectionsApi->add_type_to_entity_type_collection_template: %s\n" % e)
 ```
@@ -98,7 +98,7 @@ entity_type_collection = openlattice.EntityTypeCollection() # EntityTypeCollecti
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_type_collection_id** | [**str**](.md)|  | 
- **entity_type_collection** | [**EntityTypeCollection**](EntityTypeCollection.md)|  | 
+ **collection_template_type** | [**CollectionTemplateType**](CollectionTemplateType.md)|  | 
 
 ### Return type
 
