@@ -853,7 +853,7 @@
 #'
 #' library(openlattice)
 #' var.organization.id <- 'organization.id_example' # character | 
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Remove auto-approved email domains
 #' api.instance <- OrganizationsApi$new()
@@ -917,7 +917,7 @@
 #'
 #' library(openlattice)
 #' var.organization.id <- 'organization.id_example' # character | 
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Set auto-approved email domains
 #' api.instance <- OrganizationsApi$new()
@@ -1043,7 +1043,7 @@
 #'
 #' }
 #' @importFrom R6 R6Class
-#' @importFrom caTools base64encode
+#' @importFrom base64enc base64encode
 #' @export
 OrganizationsApi <- R6::R6Class(
   'OrganizationsApi',

@@ -300,7 +300,7 @@
 #'
 #' library(openlattice)
 #' var.organization.id <- 'organization.id_example' # character | 
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
 #' api.instance <- DatasetApi$new()
@@ -489,7 +489,7 @@
 #'
 #' }
 #' @importFrom R6 R6Class
-#' @importFrom caTools base64encode
+#' @importFrom base64enc base64encode
 #' @export
 DatasetApi <- R6::R6Class(
   'DatasetApi',

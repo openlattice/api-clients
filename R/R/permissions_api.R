@@ -55,7 +55,7 @@
 #' ####################  get_acl  ####################
 #'
 #' library(openlattice)
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 #' api.instance <- PermissionsApi$new()
@@ -94,7 +94,7 @@
 #'
 #' }
 #' @importFrom R6 R6Class
-#' @importFrom caTools base64encode
+#' @importFrom base64enc base64encode
 #' @export
 PermissionsApi <- R6::R6Class(
   'PermissionsApi',

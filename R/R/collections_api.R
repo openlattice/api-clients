@@ -536,7 +536,7 @@
 #'
 #' }
 #' @importFrom R6 R6Class
-#' @importFrom caTools base64encode
+#' @importFrom base64enc base64encode
 #' @export
 CollectionsApi <- R6::R6Class(
   'CollectionsApi',

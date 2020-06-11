@@ -454,7 +454,7 @@
 #'
 #' library(openlattice)
 #' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
 #' api.instance <- SearchApi$new()
@@ -736,7 +736,7 @@
 #'
 #' }
 #' @importFrom R6 R6Class
-#' @importFrom caTools base64encode
+#' @importFrom base64enc base64encode
 #' @export
 SearchApi <- R6::R6Class(
   'SearchApi',

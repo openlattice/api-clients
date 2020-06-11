@@ -56,7 +56,7 @@
 #' ####################  get_entity_key_ids  ####################
 #'
 #' library(openlattice)
-#' var.entity.key <- [EntityKey$new()] # array[EntityKey] | 
+#' var.entity.key <- list(EntityKey$new()) # array[EntityKey] | 
 #'
 #' #Get entity key IDs
 #' api.instance <- DataIntegrationsApi$new()
@@ -96,7 +96,7 @@
 #'
 #' }
 #' @importFrom R6 R6Class
-#' @importFrom caTools base64encode
+#' @importFrom base64enc base64encode
 #' @export
 DataIntegrationsApi <- R6::R6Class(
   'DataIntegrationsApi',
