@@ -30,7 +30,7 @@ EntityLinkingFeatures <- R6::R6Class(
         self$`entityLinkingFeedback` <- `entityLinkingFeedback`
       }
       if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`), length(`features`) != 0)
+        stopifnot(is.vector(`features`))
         sapply(`features`, function(x) stopifnot(is.character(x)))
         self$`features` <- `features`
       }

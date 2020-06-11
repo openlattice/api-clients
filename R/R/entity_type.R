@@ -66,22 +66,22 @@ EntityType <- R6::R6Class(
         self$`type` <- `type`
       }
       if (!is.null(`schemas`)) {
-        stopifnot(is.vector(`schemas`), length(`schemas`) != 0)
+        stopifnot(is.vector(`schemas`))
         sapply(`schemas`, function(x) stopifnot(R6::is.R6(x)))
         self$`schemas` <- `schemas`
       }
       if (!is.null(`key`)) {
-        stopifnot(is.vector(`key`), length(`key`) != 0)
+        stopifnot(is.vector(`key`))
         sapply(`key`, function(x) stopifnot(is.character(x)))
         self$`key` <- `key`
       }
       if (!is.null(`properties`)) {
-        stopifnot(is.vector(`properties`), length(`properties`) != 0)
+        stopifnot(is.vector(`properties`))
         sapply(`properties`, function(x) stopifnot(is.character(x)))
         self$`properties` <- `properties`
       }
       if (!is.null(`propertyTags`)) {
-        stopifnot(is.vector(`propertyTags`), length(`propertyTags`) != 0)
+        stopifnot(is.vector(`propertyTags`))
         sapply(`propertyTags`, function(x) stopifnot(R6::is.R6(x)))
         self$`propertyTags` <- `propertyTags`
       }

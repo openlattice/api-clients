@@ -26,12 +26,12 @@ Authorization <- R6::R6Class(
     initialize = function(`aclKey`=NULL, `permissions`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`aclKey`)) {
-        stopifnot(is.vector(`aclKey`), length(`aclKey`) != 0)
+        stopifnot(is.vector(`aclKey`))
         sapply(`aclKey`, function(x) stopifnot(is.character(x)))
         self$`aclKey` <- `aclKey`
       }
       if (!is.null(`permissions`)) {
-        stopifnot(is.vector(`permissions`), length(`permissions`) != 0)
+        stopifnot(is.vector(`permissions`))
         sapply(`permissions`, function(x) stopifnot(is.character(x)))
         self$`permissions` <- `permissions`
       }

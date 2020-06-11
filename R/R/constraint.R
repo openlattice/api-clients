@@ -67,7 +67,7 @@ Constraint <- R6::R6Class(
         self$`fuzzy` <- `fuzzy`
       }
       if (!is.null(`searchFields`)) {
-        stopifnot(is.vector(`searchFields`), length(`searchFields`) != 0)
+        stopifnot(is.vector(`searchFields`))
         sapply(`searchFields`, function(x) stopifnot(R6::is.R6(x)))
         self$`searchFields` <- `searchFields`
       }
@@ -89,7 +89,7 @@ Constraint <- R6::R6Class(
         self$`unit` <- `unit`
       }
       if (!is.null(`zones`)) {
-        stopifnot(is.vector(`zones`), length(`zones`) != 0)
+        stopifnot(is.vector(`zones`))
         sapply(`zones`, function(x) stopifnot(R6::is.R6(x)))
         self$`zones` <- `zones`
       }

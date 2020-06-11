@@ -35,12 +35,12 @@ IndexingState <- R6::R6Class(
     initialize = function(`indexing`=NULL, `queue`=NULL, `currentEntitySet`=NULL, `queueSize`=NULL, `count`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`indexing`)) {
-        stopifnot(is.vector(`indexing`), length(`indexing`) != 0)
+        stopifnot(is.vector(`indexing`))
         sapply(`indexing`, function(x) stopifnot(R6::is.R6(x)))
         self$`indexing` <- `indexing`
       }
       if (!is.null(`queue`)) {
-        stopifnot(is.vector(`queue`), length(`queue`) != 0)
+        stopifnot(is.vector(`queue`))
         sapply(`queue`, function(x) stopifnot(is.character(x)))
         self$`queue` <- `queue`
       }

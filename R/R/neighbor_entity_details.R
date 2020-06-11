@@ -39,7 +39,7 @@ NeighborEntityDetails <- R6::R6Class(
         self$`associationEntitySet` <- `associationEntitySet`
       }
       if (!is.null(`associationDetails`)) {
-        stopifnot(is.vector(`associationDetails`), length(`associationDetails`) != 0)
+        stopifnot(is.vector(`associationDetails`))
         sapply(`associationDetails`, function(x) stopifnot(R6::is.R6(x)))
         self$`associationDetails` <- `associationDetails`
       }
@@ -52,7 +52,7 @@ NeighborEntityDetails <- R6::R6Class(
         self$`neighborId` <- `neighborId`
       }
       if (!is.null(`neighborDetails`)) {
-        stopifnot(is.vector(`neighborDetails`), length(`neighborDetails`) != 0)
+        stopifnot(is.vector(`neighborDetails`))
         sapply(`neighborDetails`, function(x) stopifnot(R6::is.R6(x)))
         self$`neighborDetails` <- `neighborDetails`
       }

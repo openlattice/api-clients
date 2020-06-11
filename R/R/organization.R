@@ -66,32 +66,32 @@ Organization <- R6::R6Class(
         self$`description` <- `description`
       }
       if (!is.null(`emails`)) {
-        stopifnot(is.vector(`emails`), length(`emails`) != 0)
+        stopifnot(is.vector(`emails`))
         sapply(`emails`, function(x) stopifnot(is.character(x)))
         self$`emails` <- `emails`
       }
       if (!is.null(`members`)) {
-        stopifnot(is.vector(`members`), length(`members`) != 0)
+        stopifnot(is.vector(`members`))
         sapply(`members`, function(x) stopifnot(R6::is.R6(x)))
         self$`members` <- `members`
       }
       if (!is.null(`roles`)) {
-        stopifnot(is.vector(`roles`), length(`roles`) != 0)
+        stopifnot(is.vector(`roles`))
         sapply(`roles`, function(x) stopifnot(R6::is.R6(x)))
         self$`roles` <- `roles`
       }
       if (!is.null(`apps`)) {
-        stopifnot(is.vector(`apps`), length(`apps`) != 0)
+        stopifnot(is.vector(`apps`))
         sapply(`apps`, function(x) stopifnot(is.character(x)))
         self$`apps` <- `apps`
       }
       if (!is.null(`smsEntitySetInfo`)) {
-        stopifnot(is.vector(`smsEntitySetInfo`), length(`smsEntitySetInfo`) != 0)
+        stopifnot(is.vector(`smsEntitySetInfo`))
         sapply(`smsEntitySetInfo`, function(x) stopifnot(R6::is.R6(x)))
         self$`smsEntitySetInfo` <- `smsEntitySetInfo`
       }
       if (!is.null(`partitions`)) {
-        stopifnot(is.vector(`partitions`), length(`partitions`) != 0)
+        stopifnot(is.vector(`partitions`))
         sapply(`partitions`, function(x) stopifnot(is.character(x)))
         self$`partitions` <- `partitions`
       }

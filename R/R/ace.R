@@ -30,7 +30,7 @@ Ace <- R6::R6Class(
         self$`principal` <- `principal`
       }
       if (!is.null(`permissions`)) {
-        stopifnot(is.vector(`permissions`), length(`permissions`) != 0)
+        stopifnot(is.vector(`permissions`))
         sapply(`permissions`, function(x) stopifnot(is.character(x)))
         self$`permissions` <- `permissions`
       }

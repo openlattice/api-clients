@@ -30,7 +30,7 @@ SearchResult <- R6::R6Class(
         self$`numHits` <- `numHits`
       }
       if (!is.null(`hits`)) {
-        stopifnot(is.vector(`hits`), length(`hits`) != 0)
+        stopifnot(is.vector(`hits`))
         sapply(`hits`, function(x) stopifnot(is.character(x)))
         self$`hits` <- `hits`
       }

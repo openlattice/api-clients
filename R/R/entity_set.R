@@ -73,7 +73,7 @@ EntitySet <- R6::R6Class(
         self$`description` <- `description`
       }
       if (!is.null(`contacts`)) {
-        stopifnot(is.vector(`contacts`), length(`contacts`) != 0)
+        stopifnot(is.vector(`contacts`))
         sapply(`contacts`, function(x) stopifnot(is.character(x)))
         self$`contacts` <- `contacts`
       }
@@ -81,7 +81,7 @@ EntitySet <- R6::R6Class(
         self$`linking` <- `linking`
       }
       if (!is.null(`linkedEntitySets`)) {
-        stopifnot(is.vector(`linkedEntitySets`), length(`linkedEntitySets`) != 0)
+        stopifnot(is.vector(`linkedEntitySets`))
         sapply(`linkedEntitySets`, function(x) stopifnot(is.character(x)))
         self$`linkedEntitySets` <- `linkedEntitySets`
       }
@@ -90,12 +90,12 @@ EntitySet <- R6::R6Class(
         self$`organizationId` <- `organizationId`
       }
       if (!is.null(`flags`)) {
-        stopifnot(is.vector(`flags`), length(`flags`) != 0)
+        stopifnot(is.vector(`flags`))
         sapply(`flags`, function(x) stopifnot(is.character(x)))
         self$`flags` <- `flags`
       }
       if (!is.null(`partitions`)) {
-        stopifnot(is.vector(`partitions`), length(`partitions`) != 0)
+        stopifnot(is.vector(`partitions`))
         sapply(`partitions`, function(x) stopifnot(is.character(x)))
         self$`partitions` <- `partitions`
       }

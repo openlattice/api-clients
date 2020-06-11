@@ -40,12 +40,12 @@ SmsEntitySetInformation <- R6::R6Class(
         self$`organizationId` <- `organizationId`
       }
       if (!is.null(`entitysetIds`)) {
-        stopifnot(is.vector(`entitysetIds`), length(`entitysetIds`) != 0)
+        stopifnot(is.vector(`entitysetIds`))
         sapply(`entitysetIds`, function(x) stopifnot(is.character(x)))
         self$`entitysetIds` <- `entitysetIds`
       }
       if (!is.null(`tags`)) {
-        stopifnot(is.vector(`tags`), length(`tags`) != 0)
+        stopifnot(is.vector(`tags`))
         sapply(`tags`, function(x) stopifnot(is.character(x)))
         self$`tags` <- `tags`
       }

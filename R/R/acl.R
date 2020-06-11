@@ -26,12 +26,12 @@ Acl <- R6::R6Class(
     initialize = function(`aclKey`=NULL, `aces`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`aclKey`)) {
-        stopifnot(is.vector(`aclKey`), length(`aclKey`) != 0)
+        stopifnot(is.vector(`aclKey`))
         sapply(`aclKey`, function(x) stopifnot(is.character(x)))
         self$`aclKey` <- `aclKey`
       }
       if (!is.null(`aces`)) {
-        stopifnot(is.vector(`aces`), length(`aces`) != 0)
+        stopifnot(is.vector(`aces`))
         sapply(`aces`, function(x) stopifnot(R6::is.R6(x)))
         self$`aces` <- `aces`
       }

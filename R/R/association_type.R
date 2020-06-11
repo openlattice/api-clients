@@ -36,12 +36,12 @@ AssociationType <- R6::R6Class(
         self$`entityType` <- `entityType`
       }
       if (!is.null(`src`)) {
-        stopifnot(is.vector(`src`), length(`src`) != 0)
+        stopifnot(is.vector(`src`))
         sapply(`src`, function(x) stopifnot(is.character(x)))
         self$`src` <- `src`
       }
       if (!is.null(`dst`)) {
-        stopifnot(is.vector(`dst`), length(`dst`) != 0)
+        stopifnot(is.vector(`dst`))
         sapply(`dst`, function(x) stopifnot(is.character(x)))
         self$`dst` <- `dst`
       }

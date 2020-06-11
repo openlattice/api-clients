@@ -69,7 +69,7 @@ PropertyType <- R6::R6Class(
         self$`description` <- `description`
       }
       if (!is.null(`schemas`)) {
-        stopifnot(is.vector(`schemas`), length(`schemas`) != 0)
+        stopifnot(is.vector(`schemas`))
         sapply(`schemas`, function(x) stopifnot(R6::is.R6(x)))
         self$`schemas` <- `schemas`
       }
@@ -88,7 +88,7 @@ PropertyType <- R6::R6Class(
         self$`analyzer` <- `analyzer`
       }
       if (!is.null(`enumValues`)) {
-        stopifnot(is.vector(`enumValues`), length(`enumValues`) != 0)
+        stopifnot(is.vector(`enumValues`))
         sapply(`enumValues`, function(x) stopifnot(is.character(x)))
         self$`enumValues` <- `enumValues`
       }

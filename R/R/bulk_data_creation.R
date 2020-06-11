@@ -26,12 +26,12 @@ BulkDataCreation <- R6::R6Class(
     initialize = function(`entities`=NULL, `associations`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`entities`)) {
-        stopifnot(is.vector(`entities`), length(`entities`) != 0)
+        stopifnot(is.vector(`entities`))
         sapply(`entities`, function(x) stopifnot(R6::is.R6(x)))
         self$`entities` <- `entities`
       }
       if (!is.null(`associations`)) {
-        stopifnot(is.vector(`associations`), length(`associations`) != 0)
+        stopifnot(is.vector(`associations`))
         sapply(`associations`, function(x) stopifnot(R6::is.R6(x)))
         self$`associations` <- `associations`
       }

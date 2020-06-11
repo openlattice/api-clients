@@ -54,12 +54,12 @@ Auth0userBasic <- R6::R6Class(
         self$`username` <- `username`
       }
       if (!is.null(`roles`)) {
-        stopifnot(is.vector(`roles`), length(`roles`) != 0)
+        stopifnot(is.vector(`roles`))
         sapply(`roles`, function(x) stopifnot(is.character(x)))
         self$`roles` <- `roles`
       }
       if (!is.null(`com/openlattice/organization`)) {
-        stopifnot(is.vector(`com/openlattice/organization`), length(`com/openlattice/organization`) != 0)
+        stopifnot(is.vector(`com/openlattice/organization`))
         sapply(`com/openlattice/organization`, function(x) stopifnot(is.character(x)))
         self$`com/openlattice/organization` <- `com/openlattice/organization`
       }

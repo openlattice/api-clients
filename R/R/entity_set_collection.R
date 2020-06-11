@@ -64,12 +64,12 @@ EntitySetCollection <- R6::R6Class(
         self$`entityTypeCollectionId` <- `entityTypeCollectionId`
       }
       if (!is.null(`template`)) {
-        stopifnot(is.vector(`template`), length(`template`) != 0)
+        stopifnot(is.vector(`template`))
         sapply(`template`, function(x) stopifnot(is.character(x)))
         self$`template` <- `template`
       }
       if (!is.null(`contacts`)) {
-        stopifnot(is.vector(`contacts`), length(`contacts`) != 0)
+        stopifnot(is.vector(`contacts`))
         sapply(`contacts`, function(x) stopifnot(is.character(x)))
         self$`contacts` <- `contacts`
       }

@@ -54,12 +54,12 @@ EntityTypeCollection <- R6::R6Class(
         self$`description` <- `description`
       }
       if (!is.null(`schemas`)) {
-        stopifnot(is.vector(`schemas`), length(`schemas`) != 0)
+        stopifnot(is.vector(`schemas`))
         sapply(`schemas`, function(x) stopifnot(R6::is.R6(x)))
         self$`schemas` <- `schemas`
       }
       if (!is.null(`template`)) {
-        stopifnot(is.vector(`template`), length(`template`) != 0)
+        stopifnot(is.vector(`template`))
         sapply(`template`, function(x) stopifnot(R6::is.R6(x)))
         self$`template` <- `template`
       }

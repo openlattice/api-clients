@@ -30,7 +30,7 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
         self$`pagingToken` <- `pagingToken`
       }
       if (!is.null(`authorizedObjects`)) {
-        stopifnot(is.vector(`authorizedObjects`), length(`authorizedObjects`) != 0)
+        stopifnot(is.vector(`authorizedObjects`))
         sapply(`authorizedObjects`, function(x) stopifnot(R6::is.R6(x)))
         self$`authorizedObjects` <- `authorizedObjects`
       }

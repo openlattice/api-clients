@@ -29,12 +29,12 @@ Schema <- R6::R6Class(
     initialize = function(`entityTypes`=NULL, `propertyTypes`=NULL, `fqn`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`entityTypes`)) {
-        stopifnot(is.vector(`entityTypes`), length(`entityTypes`) != 0)
+        stopifnot(is.vector(`entityTypes`))
         sapply(`entityTypes`, function(x) stopifnot(R6::is.R6(x)))
         self$`entityTypes` <- `entityTypes`
       }
       if (!is.null(`propertyTypes`)) {
-        stopifnot(is.vector(`propertyTypes`), length(`propertyTypes`) != 0)
+        stopifnot(is.vector(`propertyTypes`))
         sapply(`propertyTypes`, function(x) stopifnot(R6::is.R6(x)))
         self$`propertyTypes` <- `propertyTypes`
       }

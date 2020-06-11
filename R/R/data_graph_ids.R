@@ -26,12 +26,12 @@ DataGraphIds <- R6::R6Class(
     initialize = function(`entityKeyIds`=NULL, `entitySetIds`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`entityKeyIds`)) {
-        stopifnot(is.vector(`entityKeyIds`), length(`entityKeyIds`) != 0)
+        stopifnot(is.vector(`entityKeyIds`))
         sapply(`entityKeyIds`, function(x) stopifnot(R6::is.R6(x)))
         self$`entityKeyIds` <- `entityKeyIds`
       }
       if (!is.null(`entitySetIds`)) {
-        stopifnot(is.vector(`entitySetIds`), length(`entitySetIds`) != 0)
+        stopifnot(is.vector(`entitySetIds`))
         sapply(`entitySetIds`, function(x) stopifnot(R6::is.R6(x)))
         self$`entitySetIds` <- `entitySetIds`
       }

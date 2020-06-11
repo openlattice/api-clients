@@ -23,7 +23,7 @@ InlineObject <- R6::R6Class(
     initialize = function(`additionalProperties`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`additionalProperties`)) {
-        stopifnot(is.vector(`additionalProperties`), length(`additionalProperties`) != 0)
+        stopifnot(is.vector(`additionalProperties`))
         sapply(`additionalProperties`, function(x) stopifnot(R6::is.R6(x)))
         self$`additionalProperties` <- `additionalProperties`
       }

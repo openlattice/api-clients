@@ -37,7 +37,7 @@ OrganizationMember <- R6::R6Class(
         self$`profile` <- `profile`
       }
       if (!is.null(`roles`)) {
-        stopifnot(is.vector(`roles`), length(`roles`) != 0)
+        stopifnot(is.vector(`roles`))
         sapply(`roles`, function(x) stopifnot(R6::is.R6(x)))
         self$`roles` <- `roles`
       }

@@ -33,12 +33,12 @@ LinkingFeedback <- R6::R6Class(
         self$`linkingEntity` <- `linkingEntity`
       }
       if (!is.null(`link`)) {
-        stopifnot(is.vector(`link`), length(`link`) != 0)
+        stopifnot(is.vector(`link`))
         sapply(`link`, function(x) stopifnot(R6::is.R6(x)))
         self$`link` <- `link`
       }
       if (!is.null(`unlink`)) {
-        stopifnot(is.vector(`unlink`), length(`unlink`) != 0)
+        stopifnot(is.vector(`unlink`))
         sapply(`unlink`, function(x) stopifnot(R6::is.R6(x)))
         self$`unlink` <- `unlink`
       }

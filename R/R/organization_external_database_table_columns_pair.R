@@ -30,7 +30,7 @@ OrganizationExternalDatabaseTableColumnsPair <- R6::R6Class(
         self$`table` <- `table`
       }
       if (!is.null(`columns`)) {
-        stopifnot(is.vector(`columns`), length(`columns`) != 0)
+        stopifnot(is.vector(`columns`))
         sapply(`columns`, function(x) stopifnot(R6::is.R6(x)))
         self$`columns` <- `columns`
       }

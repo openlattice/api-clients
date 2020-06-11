@@ -35,7 +35,7 @@ SearchConstraints <- R6::R6Class(
     initialize = function(`entitySetIds`=NULL, `start`=NULL, `maxHits`=NULL, `constraints`=NULL, `sort`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`entitySetIds`)) {
-        stopifnot(is.vector(`entitySetIds`), length(`entitySetIds`) != 0)
+        stopifnot(is.vector(`entitySetIds`))
         sapply(`entitySetIds`, function(x) stopifnot(is.character(x)))
         self$`entitySetIds` <- `entitySetIds`
       }
@@ -48,7 +48,7 @@ SearchConstraints <- R6::R6Class(
         self$`maxHits` <- `maxHits`
       }
       if (!is.null(`constraints`)) {
-        stopifnot(is.vector(`constraints`), length(`constraints`) != 0)
+        stopifnot(is.vector(`constraints`))
         sapply(`constraints`, function(x) stopifnot(R6::is.R6(x)))
         self$`constraints` <- `constraints`
       }

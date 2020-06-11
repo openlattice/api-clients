@@ -26,12 +26,12 @@ EntitySetSelection <- R6::R6Class(
     initialize = function(`ids`=NULL, `properties`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`ids`)) {
-        stopifnot(is.vector(`ids`), length(`ids`) != 0)
+        stopifnot(is.vector(`ids`))
         sapply(`ids`, function(x) stopifnot(is.character(x)))
         self$`ids` <- `ids`
       }
       if (!is.null(`properties`)) {
-        stopifnot(is.vector(`properties`), length(`properties`) != 0)
+        stopifnot(is.vector(`properties`))
         sapply(`properties`, function(x) stopifnot(is.character(x)))
         self$`properties` <- `properties`
       }

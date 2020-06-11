@@ -71,7 +71,7 @@ MetadataUpdate <- R6::R6Class(
         self$`name` <- `name`
       }
       if (!is.null(`contacts`)) {
-        stopifnot(is.vector(`contacts`), length(`contacts`) != 0)
+        stopifnot(is.vector(`contacts`))
         sapply(`contacts`, function(x) stopifnot(is.character(x)))
         self$`contacts` <- `contacts`
       }
@@ -90,7 +90,7 @@ MetadataUpdate <- R6::R6Class(
         self$`url` <- `url`
       }
       if (!is.null(`propertyTags`)) {
-        stopifnot(is.vector(`propertyTags`), length(`propertyTags`) != 0)
+        stopifnot(is.vector(`propertyTags`))
         sapply(`propertyTags`, function(x) stopifnot(R6::is.R6(x)))
         self$`propertyTags` <- `propertyTags`
       }
@@ -103,12 +103,12 @@ MetadataUpdate <- R6::R6Class(
         self$`organizationId` <- `organizationId`
       }
       if (!is.null(`partitions`)) {
-        stopifnot(is.vector(`partitions`), length(`partitions`) != 0)
+        stopifnot(is.vector(`partitions`))
         sapply(`partitions`, function(x) stopifnot(is.character(x)))
         self$`partitions` <- `partitions`
       }
       if (!is.null(`enumValues`)) {
-        stopifnot(is.vector(`enumValues`), length(`enumValues`) != 0)
+        stopifnot(is.vector(`enumValues`))
         sapply(`enumValues`, function(x) stopifnot(is.character(x)))
         self$`enumValues` <- `enumValues`
       }

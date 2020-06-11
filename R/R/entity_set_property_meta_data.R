@@ -40,7 +40,7 @@ EntitySetPropertyMetaData <- R6::R6Class(
         self$`description` <- `description`
       }
       if (!is.null(`propertyTags`)) {
-        stopifnot(is.vector(`propertyTags`), length(`propertyTags`) != 0)
+        stopifnot(is.vector(`propertyTags`))
         sapply(`propertyTags`, function(x) stopifnot(is.character(x)))
         self$`propertyTags` <- `propertyTags`
       }

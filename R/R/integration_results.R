@@ -40,12 +40,12 @@ IntegrationResults <- R6::R6Class(
         self$`associationCount` <- `associationCount`
       }
       if (!is.null(`associationsEntityKeyMappings`)) {
-        stopifnot(is.vector(`associationsEntityKeyMappings`), length(`associationsEntityKeyMappings`) != 0)
+        stopifnot(is.vector(`associationsEntityKeyMappings`))
         sapply(`associationsEntityKeyMappings`, function(x) stopifnot(R6::is.R6(x)))
         self$`associationsEntityKeyMappings` <- `associationsEntityKeyMappings`
       }
       if (!is.null(`entitySetsEntityKeyMappings`)) {
-        stopifnot(is.vector(`entitySetsEntityKeyMappings`), length(`entitySetsEntityKeyMappings`) != 0)
+        stopifnot(is.vector(`entitySetsEntityKeyMappings`))
         sapply(`entitySetsEntityKeyMappings`, function(x) stopifnot(R6::is.R6(x)))
         self$`entitySetsEntityKeyMappings` <- `entitySetsEntityKeyMappings`
       }

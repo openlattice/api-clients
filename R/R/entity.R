@@ -30,7 +30,7 @@ Entity <- R6::R6Class(
         self$`key` <- `key`
       }
       if (!is.null(`details`)) {
-        stopifnot(is.vector(`details`), length(`details`) != 0)
+        stopifnot(is.vector(`details`))
         sapply(`details`, function(x) stopifnot(is.character(x)))
         self$`details` <- `details`
       }

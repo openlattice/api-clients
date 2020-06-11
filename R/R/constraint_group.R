@@ -30,7 +30,7 @@ ConstraintGroup <- R6::R6Class(
         self$`min` <- `min`
       }
       if (!is.null(`constraints`)) {
-        stopifnot(is.vector(`constraints`), length(`constraints`) != 0)
+        stopifnot(is.vector(`constraints`))
         sapply(`constraints`, function(x) stopifnot(R6::is.R6(x)))
         self$`constraints` <- `constraints`
       }

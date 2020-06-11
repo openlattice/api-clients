@@ -43,7 +43,7 @@ Search <- R6::R6Class(
         self$`entityTypeId` <- `entityTypeId`
       }
       if (!is.null(`propertyTypeIds`)) {
-        stopifnot(is.vector(`propertyTypeIds`), length(`propertyTypeIds`) != 0)
+        stopifnot(is.vector(`propertyTypeIds`))
         sapply(`propertyTypeIds`, function(x) stopifnot(is.character(x)))
         self$`propertyTypeIds` <- `propertyTypeIds`
       }

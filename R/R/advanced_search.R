@@ -29,7 +29,7 @@ AdvancedSearch <- R6::R6Class(
     initialize = function(`searchFields`=NULL, `start`=NULL, `maxHits`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`searchFields`)) {
-        stopifnot(is.vector(`searchFields`), length(`searchFields`) != 0)
+        stopifnot(is.vector(`searchFields`))
         sapply(`searchFields`, function(x) stopifnot(R6::is.R6(x)))
         self$`searchFields` <- `searchFields`
       }

@@ -35,27 +35,27 @@ EDM <- R6::R6Class(
     initialize = function(`namespaces`=NULL, `schemas`=NULL, `propertyTypes`=NULL, `entityTypes`=NULL, `associationTypes`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`namespaces`)) {
-        stopifnot(is.vector(`namespaces`), length(`namespaces`) != 0)
+        stopifnot(is.vector(`namespaces`))
         sapply(`namespaces`, function(x) stopifnot(is.character(x)))
         self$`namespaces` <- `namespaces`
       }
       if (!is.null(`schemas`)) {
-        stopifnot(is.vector(`schemas`), length(`schemas`) != 0)
+        stopifnot(is.vector(`schemas`))
         sapply(`schemas`, function(x) stopifnot(R6::is.R6(x)))
         self$`schemas` <- `schemas`
       }
       if (!is.null(`propertyTypes`)) {
-        stopifnot(is.vector(`propertyTypes`), length(`propertyTypes`) != 0)
+        stopifnot(is.vector(`propertyTypes`))
         sapply(`propertyTypes`, function(x) stopifnot(R6::is.R6(x)))
         self$`propertyTypes` <- `propertyTypes`
       }
       if (!is.null(`entityTypes`)) {
-        stopifnot(is.vector(`entityTypes`), length(`entityTypes`) != 0)
+        stopifnot(is.vector(`entityTypes`))
         sapply(`entityTypes`, function(x) stopifnot(R6::is.R6(x)))
         self$`entityTypes` <- `entityTypes`
       }
       if (!is.null(`associationTypes`)) {
-        stopifnot(is.vector(`associationTypes`), length(`associationTypes`) != 0)
+        stopifnot(is.vector(`associationTypes`))
         sapply(`associationTypes`, function(x) stopifnot(R6::is.R6(x)))
         self$`associationTypes` <- `associationTypes`
       }
