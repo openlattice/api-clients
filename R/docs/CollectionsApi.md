@@ -575,7 +575,7 @@ Updates template of the specified EntitySetCollection
 library(openlattice)
 
 var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
-var.request.body <- TODO # list(character) | 
+var.request.body <- TODO # map(character) | 
 
 #Updates template of the specified EntitySetCollection
 api.instance <- CollectionsApi$new()
@@ -592,7 +592,7 @@ api.instance$update_entity_set_collection_template(var.entity.set.collection.id,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity.set.collection.id** | [**character**](.md)|  | 
- **request.body** | named list( [**list(character)**](character.md) )|  | 
+ **request.body** | named list( [**map(character)**](character.md) )|  | 
 
 ### Return type
 

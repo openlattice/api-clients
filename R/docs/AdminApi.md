@@ -103,7 +103,7 @@ Merge job descriptions for performing a partial or full reindex of provided enti
 ```R
 library(openlattice)
 
-var.request.body <- TODO # list(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
+var.request.body <- TODO # map(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
 
 #Merge job descriptions for performing a partial or full reindex of provided entity sets.
 api.instance <- AdminApi$new()
@@ -120,7 +120,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request.body** | named list( [**list(array[character])**](array.md) )| A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. | 
+ **request.body** | named list( [**map(array[character])**](array.md) )| A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. | 
 
 ### Return type
 
@@ -149,7 +149,7 @@ Replaces job descriptions for performing a partial or full reindex of provided e
 ```R
 library(openlattice)
 
-var.request.body <- TODO # list(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
+var.request.body <- TODO # map(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
 
 #Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 api.instance <- AdminApi$new()
@@ -166,7 +166,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request.body** | named list( [**list(array[character])**](array.md) )| A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. | 
+ **request.body** | named list( [**map(array[character])**](array.md) )| A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. | 
 
 ### Return type
 

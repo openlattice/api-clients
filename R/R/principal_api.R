@@ -23,7 +23,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : list(Auth0userBasic) 
+#' \item return type : map(Auth0userBasic) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -89,7 +89,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : list(Auth0userBasic) 
+#' \item return type : map(Auth0userBasic) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -106,7 +106,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : list(Auth0userBasic) 
+#' \item return type : map(Auth0userBasic) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -319,7 +319,7 @@ PrincipalApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "list(Auth0userBasic)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "map(Auth0userBasic)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -527,7 +527,7 @@ PrincipalApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "list(Auth0userBasic)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "map(Auth0userBasic)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -583,7 +583,7 @@ PrincipalApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "list(Auth0userBasic)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "map(Auth0userBasic)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }

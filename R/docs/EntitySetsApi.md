@@ -80,7 +80,7 @@ Adds the entity sets as linked entity sets to the linking entity sets
 library(openlattice)
 
 var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-var.request.body <- TODO # list(array[character]) | 
+var.request.body <- TODO # map(array[character]) | 
 
 #Adds the entity sets as linked entity sets to the linking entity sets
 api.instance <- EntitySetsApi$new()
@@ -98,7 +98,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **linking.entity.set.id** | **character**|  | 
- **request.body** | named list( [**list(array[character])**](array.md) )|  | 
+ **request.body** | named list( [**map(array[character])**](array.md) )|  | 
 
 ### Return type
 
@@ -209,7 +209,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **get_all_entity_set_property_metadata**
-> list(EntitySetPropertyMetaData) get_all_entity_set_property_metadata(entity.set.id)
+> map(EntitySetPropertyMetaData) get_all_entity_set_property_metadata(entity.set.id)
 
 Get all entity set property metadata.
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(EntitySetPropertyMetaData)**](EntitySetPropertyMetaData.md)
+[**map(EntitySetPropertyMetaData)**](EntitySetPropertyMetaData.md)
 
 ### Authorization
 
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_entity_set_ids**
-> list(character) get_entity_set_ids(request.body=var.request.body)
+> map(character) get_entity_set_ids(request.body=var.request.body)
 
 Get IDs for entity sets given their names.
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list(character)**
+**map(character)**
 
 ### Authorization
 
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_property_metadata_for_entity_sets**
-> list(list(EntitySetPropertyMetaData)) get_property_metadata_for_entity_sets(request.body=var.request.body)
+> map(map(EntitySetPropertyMetaData)) get_property_metadata_for_entity_sets(request.body=var.request.body)
 
 Get property metadata for entity sets.
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(list(EntitySetPropertyMetaData))**](list.md)
+[**map(map(EntitySetPropertyMetaData))**](map.md)
 
 ### Authorization
 
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 | **200** | EntitySetPropertyMetaData |  -  |
 
 # **get_property_types_for_entity_set**
-> list(PropertyType) get_property_types_for_entity_set(entity.set.id)
+> map(PropertyType) get_property_types_for_entity_set(entity.set.id)
 
 Get all Property Types for entity set
 
@@ -558,7 +558,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(PropertyType)**](PropertyType.md)
+[**map(PropertyType)**](PropertyType.md)
 
 ### Authorization
 
@@ -632,7 +632,7 @@ Removes/unlinks the linked entity sets from the linking entity set
 library(openlattice)
 
 var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-var.request.body <- TODO # list(array[character]) | 
+var.request.body <- TODO # map(array[character]) | 
 
 #Removes/unlinks the linked entity sets from the linking entity set
 api.instance <- EntitySetsApi$new()
@@ -650,7 +650,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **linking.entity.set.id** | [**character**](.md)|  | 
- **request.body** | named list( [**list(array[character])**](array.md) )|  | 
+ **request.body** | named list( [**map(array[character])**](array.md) )|  | 
 
 ### Return type
 

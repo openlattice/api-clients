@@ -130,7 +130,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **assemble_entity_sets**
-> list(array[character]) assemble_entity_sets(organization.id, request.body)
+> map(array[character]) assemble_entity_sets(organization.id, request.body)
 
 Materializes entity sets into the organization database.
 
@@ -139,7 +139,7 @@ Materializes entity sets into the organization database.
 library(openlattice)
 
 var.organization.id <- 'organization.id_example' # character | 
-var.request.body <- TODO # list(integer) | 
+var.request.body <- TODO # map(integer) | 
 
 #Materializes entity sets into the organization database.
 api.instance <- OrganizationsApi$new()
@@ -157,11 +157,11 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization.id** | [**character**](.md)|  | 
- **request.body** | named list( [**list(integer)**](integer.md) )|  | 
+ **request.body** | named list( [**map(integer)**](integer.md) )|  | 
 
 ### Return type
 
-[**list(array[character])**](array.md)
+[**map(array[character])**](array.md)
 
 ### Authorization
 
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_flagged_organization_entity_sets**
-> array[list(array[character])] get_flagged_organization_entity_sets(organization.id, request.body)
+> array[map(array[character])] get_flagged_organization_entity_sets(organization.id, request.body)
 
 Get the entity sets for an organization for a certain flag
 
@@ -465,7 +465,7 @@ Get the entity sets for an organization for a certain flag
 library(openlattice)
 
 var.organization.id <- 'organization.id_example' # character | 
-var.request.body <- TODO # list(array[character]) | 
+var.request.body <- TODO # map(array[character]) | 
 
 #Get the entity sets for an organization for a certain flag
 api.instance <- OrganizationsApi$new()
@@ -483,11 +483,11 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization.id** | [**character**](.md)|  | 
- **request.body** | named list( [**list(array[character])**](array.md) )|  | 
+ **request.body** | named list( [**map(array[character])**](array.md) )|  | 
 
 ### Return type
 
-[**array[list(array[character])]**](list.md)
+[**array[map(array[character])]**](map.md)
 
 ### Authorization
 
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_organization_entity_sets**
-> list(array[character]) get_organization_entity_sets(organization.id)
+> map(array[character]) get_organization_entity_sets(organization.id)
 
 Get the entity sets for an organization for a certain filter
 
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(array[character])**](array.md)
+[**map(array[character])**](array.md)
 
 ### Authorization
 

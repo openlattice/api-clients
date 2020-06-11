@@ -14,9 +14,9 @@
 #'
 #' @field associationCount  integer [optional]
 #'
-#' @field associationsEntityKeyMappings  named list( \link{list(character)} ) [optional]
+#' @field associationsEntityKeyMappings  named list( \link{map(character)} ) [optional]
 #'
-#' @field entitySetsEntityKeyMappings  named list( \link{list(character)} ) [optional]
+#' @field entitySetsEntityKeyMappings  named list( \link{map(character)} ) [optional]
 #'
 #'
 #' @importFrom R6 R6Class
@@ -80,10 +80,10 @@ IntegrationResults <- R6::R6Class(
         self$`associationCount` <- IntegrationResultsObject$`associationCount`
       }
       if (!is.null(IntegrationResultsObject$`associationsEntityKeyMappings`)) {
-        self$`associationsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`associationsEntityKeyMappings`, "list(list(character))", loadNamespace("openlattice"))
+        self$`associationsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`associationsEntityKeyMappings`, "map(map(character))", loadNamespace("openlattice"))
       }
       if (!is.null(IntegrationResultsObject$`entitySetsEntityKeyMappings`)) {
-        self$`entitySetsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`entitySetsEntityKeyMappings`, "list(list(character))", loadNamespace("openlattice"))
+        self$`entitySetsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`entitySetsEntityKeyMappings`, "map(map(character))", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -124,8 +124,8 @@ IntegrationResults <- R6::R6Class(
       IntegrationResultsObject <- jsonlite::fromJSON(IntegrationResultsJson)
       self$`entityCount` <- IntegrationResultsObject$`entityCount`
       self$`associationCount` <- IntegrationResultsObject$`associationCount`
-      self$`associationsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`associationsEntityKeyMappings`, "list(list(character))", loadNamespace("openlattice"))
-      self$`entitySetsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`entitySetsEntityKeyMappings`, "list(list(character))", loadNamespace("openlattice"))
+      self$`associationsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`associationsEntityKeyMappings`, "map(map(character))", loadNamespace("openlattice"))
+      self$`entitySetsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`entitySetsEntityKeyMappings`, "map(map(character))", loadNamespace("openlattice"))
       self
     }
   )

@@ -54,7 +54,7 @@ SearchResult <- R6::R6Class(
         self$`numHits` <- SearchResultObject$`numHits`
       }
       if (!is.null(SearchResultObject$`hits`)) {
-        self$`hits` <- ApiClient$new()$deserializeObj(SearchResultObject$`hits`, "list(character)", loadNamespace("openlattice"))
+        self$`hits` <- ApiClient$new()$deserializeObj(SearchResultObject$`hits`, "map(character)", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -80,7 +80,7 @@ SearchResult <- R6::R6Class(
     fromJSONString = function(SearchResultJson) {
       SearchResultObject <- jsonlite::fromJSON(SearchResultJson)
       self$`numHits` <- SearchResultObject$`numHits`
-      self$`hits` <- ApiClient$new()$deserializeObj(SearchResultObject$`hits`, "list(character)", loadNamespace("openlattice"))
+      self$`hits` <- ApiClient$new()$deserializeObj(SearchResultObject$`hits`, "map(character)", loadNamespace("openlattice"))
       self
     }
   )

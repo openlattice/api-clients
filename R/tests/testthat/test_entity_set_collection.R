@@ -46,7 +46,7 @@ test_that("entityTypeCollectionId", {
 })
 
 test_that("template", {
-  # tests for the property `template` (list(character))
+  # tests for the property `template` (map(character))
   # A mapping from collection template type ids to entity set ids.
 
   # uncomment below to test the property 

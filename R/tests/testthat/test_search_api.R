@@ -68,7 +68,7 @@ test_that("execute_entity_neighbor_search_bulk", {
   # Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
   # @param character  entity.set.id   
   # @param array[character]  request.body   
-  # @return [list(array[NeighborEntityDetails])]
+  # @return [map(array[NeighborEntityDetails])]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -136,7 +136,7 @@ test_that("execute_filtered_entity_neighbor_id_search", {
   # Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
   # @param character  entity.set.id   
   # @param NeighborSearchFilter  neighbor.search.filter   
-  # @return [list(list(list(array[NeighborEntityIds])))]
+  # @return [map(map(map(array[NeighborEntityIds])))]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -148,7 +148,7 @@ test_that("execute_filtered_entity_neighbor_search", {
   # Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
   # @param character  entity.set.id   
   # @param NeighborSearchFilter  neighbor.search.filter   
-  # @return [list(array[NeighborEntityDetails])]
+  # @return [map(array[NeighborEntityDetails])]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

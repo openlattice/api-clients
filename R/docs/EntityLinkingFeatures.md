@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entityLinkingFeedback** | [**EntityLinkingFeedback**](EntityLinkingFeedback.md) |  | [optional] 
-**features** | **list(numeric)** |  | [optional] 
+**features** | **map(numeric)** |  | [optional] 
 
 

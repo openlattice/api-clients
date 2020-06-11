@@ -56,7 +56,7 @@ Entity <- R6::R6Class(
         self$`key` <- keyObject
       }
       if (!is.null(EntityObject$`details`)) {
-        self$`details` <- ApiClient$new()$deserializeObj(EntityObject$`details`, "list(character)", loadNamespace("openlattice"))
+        self$`details` <- ApiClient$new()$deserializeObj(EntityObject$`details`, "map(character)", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -82,7 +82,7 @@ Entity <- R6::R6Class(
     fromJSONString = function(EntityJson) {
       EntityObject <- jsonlite::fromJSON(EntityJson)
       self$`key` <- EntityKey$new()$fromJSON(jsonlite::toJSON(EntityObject$key, auto_unbox = TRUE, digits = NA))
-      self$`details` <- ApiClient$new()$deserializeObj(EntityObject$`details`, "list(character)", loadNamespace("openlattice"))
+      self$`details` <- ApiClient$new()$deserializeObj(EntityObject$`details`, "map(character)", loadNamespace("openlattice"))
       self
     }
   )

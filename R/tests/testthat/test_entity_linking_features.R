@@ -13,7 +13,7 @@ test_that("entityLinkingFeedback", {
 })
 
 test_that("features", {
-  # tests for the property `features` (list(numeric))
+  # tests for the property `features` (map(numeric))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`features`, "EXPECTED_RESULT")

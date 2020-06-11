@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **schemas** | [**array[FullQualifiedName]**](FullQualifiedName.md) |  | [optional] 
 **key** | **array[character]** |  | [optional] 
 **properties** | **array[character]** |  | [optional] 
-**propertyTags** | [**list(array[character])**](array.md) |  | [optional] 
+**propertyTags** | [**map(array[character])**](array.md) |  | [optional] 
 **basetype** | **character** |  | [optional] 
 **category** | **character** |  | [optional] 
 

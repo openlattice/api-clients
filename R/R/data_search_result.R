@@ -12,7 +12,7 @@
 #' @format An \code{R6Class} generator object
 #' @field numHits  integer [optional]
 #'
-#' @field hits  list( \link{list(array[character])} ) [optional]
+#' @field hits  list( \link{map(array[character])} ) [optional]
 #'
 #'
 #' @importFrom R6 R6Class
@@ -54,7 +54,7 @@ DataSearchResult <- R6::R6Class(
         self$`numHits` <- DataSearchResultObject$`numHits`
       }
       if (!is.null(DataSearchResultObject$`hits`)) {
-        self$`hits` <- ApiClient$new()$deserializeObj(DataSearchResultObject$`hits`, "array[list(array[character])]", loadNamespace("openlattice"))
+        self$`hits` <- ApiClient$new()$deserializeObj(DataSearchResultObject$`hits`, "array[map(array[character])]", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -80,7 +80,7 @@ DataSearchResult <- R6::R6Class(
     fromJSONString = function(DataSearchResultJson) {
       DataSearchResultObject <- jsonlite::fromJSON(DataSearchResultJson)
       self$`numHits` <- DataSearchResultObject$`numHits`
-      self$`hits` <- ApiClient$new()$deserializeObj(DataSearchResultObject$`hits`, "array[list(array[character])]", loadNamespace("openlattice"))
+      self$`hits` <- ApiClient$new()$deserializeObj(DataSearchResultObject$`hits`, "array[map(array[character])]", loadNamespace("openlattice"))
       self
     }
   )

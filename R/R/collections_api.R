@@ -217,7 +217,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } entity.set.collection.id \link{character}
-#' \item \emph{ @param } request.body named list( \link{list(character)} )
+#' \item \emph{ @param } request.body named list( \link{map(character)} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -496,7 +496,7 @@
 #'
 #' library(openlattice)
 #' var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
-#' var.request.body <- {'key' => 'request.body_example'} # list(character) | 
+#' var.request.body <- {'key' => 'request.body_example'} # map(character) | 
 #'
 #' #Updates template of the specified EntitySetCollection
 #' api.instance <- CollectionsApi$new()

@@ -20,14 +20,14 @@ test_that("associationCount", {
 })
 
 test_that("associationsEntityKeyMappings", {
-  # tests for the property `associationsEntityKeyMappings` (list(list(character)))
+  # tests for the property `associationsEntityKeyMappings` (map(map(character)))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`associationsEntityKeyMappings`, "EXPECTED_RESULT")
 })
 
 test_that("entitySetsEntityKeyMappings", {
-  # tests for the property `entitySetsEntityKeyMappings` (list(list(character)))
+  # tests for the property `entitySetsEntityKeyMappings` (map(map(character)))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`entitySetsEntityKeyMappings`, "EXPECTED_RESULT")

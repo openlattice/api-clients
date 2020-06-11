@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **numHits** | **integer** |  | [optional] 
-**hits** | [**array[list(array[character])]**](list.md) |  | [optional] 
+**hits** | [**array[map(array[character])]**](map.md) |  | [optional] 
 
 

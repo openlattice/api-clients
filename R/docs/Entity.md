@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | [**EntityKey**](EntityKey.md) |  | [optional] 
-**details** | **list(character)** |  | [optional] 
+**details** | **map(character)** |  | [optional] 
 
 
