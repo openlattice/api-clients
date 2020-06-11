@@ -729,7 +729,7 @@ EntitySetsApi <- R6::R6Class(
         '
             %s
 ',
-              jsonlite::toJSON(lapply(`request_body`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+              jsonlite::toJSON(lapply(`request_body`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )
       } else {
         body <- NULL
@@ -1428,7 +1428,7 @@ EntitySetsApi <- R6::R6Class(
         '
             %s
 ',
-              jsonlite::toJSON(lapply(`request_body`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+              jsonlite::toJSON(lapply(`request_body`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )
       } else {
         body <- NULL
