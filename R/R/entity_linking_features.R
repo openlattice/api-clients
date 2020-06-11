@@ -71,7 +71,7 @@ EntityLinkingFeatures <- R6::R6Class(
         if (!is.null(self$`features`)) {
         sprintf(
         '"features":
-          "%s"
+          %s
         ',
         jsonlite::toJSON(lapply(self$`features`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}

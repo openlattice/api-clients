@@ -71,7 +71,7 @@ Entity <- R6::R6Class(
         if (!is.null(self$`details`)) {
         sprintf(
         '"details":
-          "%s"
+          %s
         ',
         jsonlite::toJSON(lapply(self$`details`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}

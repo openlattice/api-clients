@@ -182,7 +182,7 @@ EntitySetCollection <- R6::R6Class(
         if (!is.null(self$`template`)) {
         sprintf(
         '"template":
-          "%s"
+          %s
         ',
         jsonlite::toJSON(lapply(self$`template`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )},

@@ -69,7 +69,7 @@ SearchResult <- R6::R6Class(
         if (!is.null(self$`hits`)) {
         sprintf(
         '"hits":
-          "%s"
+          %s
         ',
         jsonlite::toJSON(lapply(self$`hits`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}

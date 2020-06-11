@@ -70,7 +70,7 @@ Authorization <- R6::R6Class(
         if (!is.null(self$`permissions`)) {
         sprintf(
         '"permissions":
-          "%s"
+          %s
         ',
         jsonlite::toJSON(lapply(self$`permissions`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}
