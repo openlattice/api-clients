@@ -356,7 +356,7 @@
 #' ####################  create_edges  ####################
 #'
 #' library(openlattice)
-#' var.data.edge.key <- [DataEdgeKey$new()] # array[DataEdgeKey] | 
+#' var.data.edge.key <- list(DataEdgeKey$new()) # array[DataEdgeKey] | 
 #'
 #' #Creates a new set of associations.
 #' api.instance <- DataApi$new()
@@ -377,7 +377,7 @@
 #'
 #' library(openlattice)
 #' var.set.id <- 'set.id_example' # character | 
-#' var.request.body <- [map$new()] # array[map(array[character])] | 
+#' var.request.body <- list(map$new()) # array[map(array[character])] | 
 #'
 #' #Creates a new set of entities.
 #' api.instance <- DataApi$new()
@@ -440,7 +440,7 @@
 #' library(openlattice)
 #' var.entity.set.id <- 'entity.set.id_example' # character | 
 #' var.type <- 'type_example' # character | 
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Deletes multiple entities from an entity set.
 #' api.instance <- DataApi$new()
@@ -462,7 +462,7 @@
 #' library(openlattice)
 #' var.entity.set.id <- 'entity.set.id_example' # character | 
 #' var.type <- 'type_example' # character | 
-#' var.entity.neighbors.filter <- [EntityNeighborsFilter$new()] # array[EntityNeighborsFilter] | 
+#' var.entity.neighbors.filter <- list(EntityNeighborsFilter$new()) # array[EntityNeighborsFilter] | 
 #'
 #' #Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
 #' api.instance <- DataApi$new()
@@ -507,7 +507,7 @@
 #' var.entity.set.id <- 'entity.set.id_example' # character | 
 #' var.entity.key.id <- 'entity.key.id_example' # character | 
 #' var.type <- 'type_example' # character | 
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Deletes properties from an entity.
 #' api.instance <- DataApi$new()
@@ -611,7 +611,7 @@
 #'
 #' library(openlattice)
 #' var.linked.entity.set.id <- 'linked.entity.set.id_example' # character | 
-#' var.entity.set.selection <- [EntitySetSelection$new()] # array[EntitySetSelection] | 
+#' var.entity.set.selection <- list(EntitySetSelection$new()) # array[EntitySetSelection] | 
 #'
 #' #Loads a linked entity set breakdown with the selected linked entities and properties.
 #' api.instance <- DataApi$new()
@@ -632,7 +632,7 @@
 #'
 #' library(openlattice)
 #' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.entity.set.selection <- [EntitySetSelection$new()] # array[EntitySetSelection] | 
+#' var.entity.set.selection <- list(EntitySetSelection$new()) # array[EntitySetSelection] | 
 #'
 #' #Gets a list of entities by UUIDs
 #' api.instance <- DataApi$new()
@@ -715,7 +715,7 @@
 #'
 #' }
 #' @importFrom R6 R6Class
-#' @importFrom caTools base64encode
+#' @importFrom base64enc base64encode
 #' @export
 DataApi <- R6::R6Class(
   'DataApi',

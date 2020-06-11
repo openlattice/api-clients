@@ -1066,7 +1066,7 @@
 #'
 #' library(openlattice)
 #' var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Adds the entity sets as linked entity sets to the linking entity set
 #' api.instance <- EdmApi$new()
@@ -1170,7 +1170,7 @@
 #' ####################  create_association_type  ####################
 #'
 #' library(openlattice)
-#' var.association.type <- [AssociationType$new()] # array[AssociationType] | 
+#' var.association.type <- list(AssociationType$new()) # array[AssociationType] | 
 #'
 #' #Creates a new AssociationType definition, if it doesn't exist.
 #' api.instance <- EdmApi$new()
@@ -1202,7 +1202,7 @@
 #' ####################  create_entity_sets  ####################
 #'
 #' library(openlattice)
-#' var.entity.set <- [EntitySet$new()] # array[EntitySet] | 
+#' var.entity.set <- list(EntitySet$new()) # array[EntitySet] | 
 #'
 #' #Creates new EntitySet definitions if they don't exist.
 #' api.instance <- EdmApi$new()
@@ -1661,7 +1661,7 @@
 #' ####################  get_entity_set_ids  ####################
 #'
 #' library(openlattice)
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Get IDs for entity sets given their names.
 #' api.instance <- EdmApi$new()
@@ -1775,7 +1775,7 @@
 #' ####################  get_property_metadata_for_entity_sets  ####################
 #'
 #' library(openlattice)
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Get property metadata for entity sets.
 #' api.instance <- EdmApi$new()
@@ -1959,7 +1959,7 @@
 #'
 #' library(openlattice)
 #' var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-#' var.request.body <- ['request.body_example'] # array[character] | 
+#' var.request.body <- list('request.body_example') # array[character] | 
 #'
 #' #Removes/unlinks the linked entity sets from the linking entity set
 #' api.instance <- EdmApi$new()
@@ -2064,7 +2064,7 @@
 #'
 #' library(openlattice)
 #' var.entity.type.id <- 'entity.type.id_example' # character | 
-#' var.property.type.ids <- ['property.type.ids_example'] # array[character] | 
+#' var.property.type.ids <- list('property.type.ids_example') # array[character] | 
 #'
 #' #Updates the EntityType definition for the given EntityType UUID by reordering its properties as specified by the provided list.
 #' api.instance <- EdmApi$new()
@@ -2231,7 +2231,7 @@
 #'
 #' }
 #' @importFrom R6 R6Class
-#' @importFrom caTools base64encode
+#' @importFrom base64enc base64encode
 #' @export
 EdmApi <- R6::R6Class(
   'EdmApi',
