@@ -90,7 +90,7 @@ NeighborEntityDetails <- R6::R6Class(
         self$`associationEntitySet` <- associationEntitySetObject
       }
       if (!is.null(NeighborEntityDetailsObject$`associationDetails`)) {
-        self$`associationDetails` <- ApiClient$new()$deserializeObj(NeighborEntityDetailsObject$`associationDetails`, "map(array[character])", loadNamespace("openlattice"))
+        self$`associationDetails` <- ApiClient$new()$deserializeObj(NeighborEntityDetailsObject$`associationDetails`, "list(array[character])", loadNamespace("openlattice"))
       }
       if (!is.null(NeighborEntityDetailsObject$`neighborEntitySet`)) {
         neighborEntitySetObject <- EntitySet$new()
@@ -101,7 +101,7 @@ NeighborEntityDetails <- R6::R6Class(
         self$`neighborId` <- NeighborEntityDetailsObject$`neighborId`
       }
       if (!is.null(NeighborEntityDetailsObject$`neighborDetails`)) {
-        self$`neighborDetails` <- ApiClient$new()$deserializeObj(NeighborEntityDetailsObject$`neighborDetails`, "map(array[character])", loadNamespace("openlattice"))
+        self$`neighborDetails` <- ApiClient$new()$deserializeObj(NeighborEntityDetailsObject$`neighborDetails`, "list(array[character])", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -148,10 +148,10 @@ NeighborEntityDetails <- R6::R6Class(
     fromJSONString = function(NeighborEntityDetailsJson) {
       NeighborEntityDetailsObject <- jsonlite::fromJSON(NeighborEntityDetailsJson)
       self$`associationEntitySet` <- EntitySet$new()$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$associationEntitySet, auto_unbox = TRUE, digits = NA))
-      self$`associationDetails` <- ApiClient$new()$deserializeObj(NeighborEntityDetailsObject$`associationDetails`, "map(array[character])", loadNamespace("openlattice"))
+      self$`associationDetails` <- ApiClient$new()$deserializeObj(NeighborEntityDetailsObject$`associationDetails`, "list(array[character])", loadNamespace("openlattice"))
       self$`neighborEntitySet` <- EntitySet$new()$fromJSON(jsonlite::toJSON(NeighborEntityDetailsObject$neighborEntitySet, auto_unbox = TRUE, digits = NA))
       self$`neighborId` <- NeighborEntityDetailsObject$`neighborId`
-      self$`neighborDetails` <- ApiClient$new()$deserializeObj(NeighborEntityDetailsObject$`neighborDetails`, "map(array[character])", loadNamespace("openlattice"))
+      self$`neighborDetails` <- ApiClient$new()$deserializeObj(NeighborEntityDetailsObject$`neighborDetails`, "list(array[character])", loadNamespace("openlattice"))
       self
     }
   )

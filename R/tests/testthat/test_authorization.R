@@ -13,7 +13,7 @@ test_that("aclKey", {
 })
 
 test_that("permissions", {
-  # tests for the property `permissions` (map(character))
+  # tests for the property `permissions` (list(character))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`permissions`, "EXPECTED_RESULT")

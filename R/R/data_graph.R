@@ -10,7 +10,7 @@
 #' @title DataGraph
 #' @description DataGraph Class
 #' @format An \code{R6Class} generator object
-#' @field entities  named list( \link{array[map(array[character])]} ) [optional]
+#' @field entities  named list( \link{array[list(array[character])]} ) [optional]
 #'
 #' @field associations  named list( \link{array[DataAssociation]} ) [optional]
 #'
@@ -52,10 +52,10 @@ DataGraph <- R6::R6Class(
     fromJSON = function(DataGraphJson) {
       DataGraphObject <- jsonlite::fromJSON(DataGraphJson)
       if (!is.null(DataGraphObject$`entities`)) {
-        self$`entities` <- ApiClient$new()$deserializeObj(DataGraphObject$`entities`, "map(array[map(array[character])])", loadNamespace("openlattice"))
+        self$`entities` <- ApiClient$new()$deserializeObj(DataGraphObject$`entities`, "list(array[list(array[character])])", loadNamespace("openlattice"))
       }
       if (!is.null(DataGraphObject$`associations`)) {
-        self$`associations` <- ApiClient$new()$deserializeObj(DataGraphObject$`associations`, "map(array[DataAssociation])", loadNamespace("openlattice"))
+        self$`associations` <- ApiClient$new()$deserializeObj(DataGraphObject$`associations`, "list(array[DataAssociation])", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -80,8 +80,8 @@ DataGraph <- R6::R6Class(
     },
     fromJSONString = function(DataGraphJson) {
       DataGraphObject <- jsonlite::fromJSON(DataGraphJson)
-      self$`entities` <- ApiClient$new()$deserializeObj(DataGraphObject$`entities`, "map(array[map(array[character])])", loadNamespace("openlattice"))
-      self$`associations` <- ApiClient$new()$deserializeObj(DataGraphObject$`associations`, "map(array[DataAssociation])", loadNamespace("openlattice"))
+      self$`entities` <- ApiClient$new()$deserializeObj(DataGraphObject$`entities`, "list(array[list(array[character])])", loadNamespace("openlattice"))
+      self$`associations` <- ApiClient$new()$deserializeObj(DataGraphObject$`associations`, "list(array[DataAssociation])", loadNamespace("openlattice"))
       self
     }
   )

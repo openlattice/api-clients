@@ -34,7 +34,7 @@ test_that("add_entity_sets_to_linking_entity_sets", {
   # base path: https://api.openlattice.com
   # Adds the entity sets as linked entity sets to the linking entity sets
   # @param character  linking.entity.set.id   
-  # @param map(array[character])  request.body   
+  # @param list(array[character])  request.body   
   # @return [integer]
 
   # uncomment below to test the operation
@@ -237,7 +237,7 @@ test_that("get_all_entity_set_property_metadata", {
   # base path: https://api.openlattice.com
   # Get all entity set property metadata.
   # @param character  entity.set.id   
-  # @return [map(EntitySetPropertyMetaData)]
+  # @return [list(EntitySetPropertyMetaData)]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -258,7 +258,7 @@ test_that("get_all_entity_type_property_metadata", {
   # base path: https://api.openlattice.com
   # Get all EntityType propertyType metadata
   # @param character  entity.type.id   
-  # @return [map(EntityTypePropertyMetadata)]
+  # @return [list(EntityTypePropertyMetadata)]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -299,7 +299,7 @@ test_that("get_all_property_usage_summaries", {
   # tests for get_all_property_usage_summaries
   # base path: https://api.openlattice.com
   # Get Property Usage Summary for all properties.
-  # @return [map(PropertyUsageSummary)]
+  # @return [list(PropertyUsageSummary)]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -375,7 +375,7 @@ test_that("get_entity_set_ids", {
   # base path: https://api.openlattice.com
   # Get IDs for entity sets given their names.
   # @param array[character]  request.body    (optional)
-  # @return [map(character)]
+  # @return [list(character)]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -444,7 +444,7 @@ test_that("get_property_metadata_for_entity_sets", {
   # base path: https://api.openlattice.com
   # Get property metadata for entity sets.
   # @param array[character]  request.body    (optional)
-  # @return [map(map(EntitySetPropertyMetaData))]
+  # @return [list(list(EntitySetPropertyMetaData))]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -478,7 +478,7 @@ test_that("get_property_types_for_entity_set", {
   # base path: https://api.openlattice.com
   # Get all Property Types for entity set
   # @param character  entity.set.id   
-  # @return [map(PropertyType)]
+  # @return [list(PropertyType)]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -558,7 +558,7 @@ test_that("remove_entity_sets_from_linking_entity_sets", {
   # base path: https://api.openlattice.com
   # Removes/unlinks the linked entity sets from the linking entity set
   # @param character  linking.entity.set.id   
-  # @param map(array[character])  request.body   
+  # @param list(array[character])  request.body   
   # @return [integer]
 
   # uncomment below to test the operation

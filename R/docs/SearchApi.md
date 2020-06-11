@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 | **200** | A list of objects containing information about the neighbor and association. |  -  |
 
 # **execute_entity_neighbor_search_bulk**
-> map(array[NeighborEntityDetails]) execute_entity_neighbor_search_bulk(entity.set.id, request.body)
+> list(array[NeighborEntityDetails]) execute_entity_neighbor_search_bulk(entity.set.id, request.body)
 
 Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map(array[NeighborEntityDetails])**](array.md)
+[**list(array[NeighborEntityDetails])**](array.md)
 
 ### Authorization
 
@@ -540,7 +540,7 @@ Name | Type | Description  | Notes
 | **200** | A search result object, containing the total number of hits for the given query, and the hits themselves. |  -  |
 
 # **execute_filtered_entity_neighbor_id_search**
-> map(map(map(array[NeighborEntityIds]))) execute_filtered_entity_neighbor_id_search(entity.set.id, neighbor.search.filter)
+> list(list(list(array[NeighborEntityIds]))) execute_filtered_entity_neighbor_id_search(entity.set.id, neighbor.search.filter)
 
 Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 
@@ -571,7 +571,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map(map(map(array[NeighborEntityIds])))**](map.md)
+[**list(list(list(array[NeighborEntityIds])))**](list.md)
 
 ### Authorization
 
@@ -588,7 +588,7 @@ Name | Type | Description  | Notes
 | **200** | A list of objects containing information about the neighbor and association. |  -  |
 
 # **execute_filtered_entity_neighbor_search**
-> map(array[NeighborEntityDetails]) execute_filtered_entity_neighbor_search(entity.set.id, neighbor.search.filter)
+> list(array[NeighborEntityDetails]) execute_filtered_entity_neighbor_search(entity.set.id, neighbor.search.filter)
 
 Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
 
@@ -619,7 +619,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map(array[NeighborEntityDetails])**](array.md)
+[**list(array[NeighborEntityDetails])**](array.md)
 
 ### Authorization
 

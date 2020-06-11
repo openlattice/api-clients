@@ -143,7 +143,7 @@ test_that("update_entity_set_collection_template", {
   # base path: https://api.openlattice.com
   # Updates template of the specified EntitySetCollection
   # @param character  entity.set.collection.id   
-  # @param map(character)  request.body   
+  # @param list(character)  request.body   
   # @return [Void]
 
   # uncomment below to test the operation

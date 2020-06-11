@@ -10,7 +10,7 @@ test_that("create_associations", {
   # base path: https://api.openlattice.com
   # Creates a new set of associations.
   # @param InlineObject  inline.object   
-  # @return [map(array[character])]
+  # @return [list(array[character])]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -32,7 +32,7 @@ test_that("create_entities", {
   # base path: https://api.openlattice.com
   # Creates a new set of entities.
   # @param character  set.id   
-  # @param array[map(array[character])]  request.body   
+  # @param array[list(array[character])]  request.body   
   # @return [array[character]]
 
   # uncomment below to test the operation
@@ -121,7 +121,7 @@ test_that("get_entity", {
   # Loads a single entity by its entityKeyId and entitySetId
   # @param character  entity.set.id   
   # @param character  entity.key.id   
-  # @return [map(array[character])]
+  # @return [list(array[character])]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -156,7 +156,7 @@ test_that("load_entity_set_data", {
   # base path: https://api.openlattice.com
   # Gets an iterable containing the entity data, using property type FQNs as key
   # @param character  entity.set.id   
-  # @return [array[map(array[character])]]
+  # @return [array[list(array[character])]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -168,7 +168,7 @@ test_that("load_linked_entity_set_breakdown", {
   # Loads a linked entity set breakdown with the selected linked entities and properties.
   # @param character  linked.entity.set.id   
   # @param array[EntitySetSelection]  entity.set.selection   
-  # @return [map(map(map(map(array[character]))))]
+  # @return [list(list(list(list(array[character]))))]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -180,7 +180,7 @@ test_that("load_selected_entity_set_data", {
   # Gets a list of entities by UUIDs
   # @param character  entity.set.id   
   # @param array[EntitySetSelection]  entity.set.selection   
-  # @return [array[map(array[character])]]
+  # @return [array[list(array[character])]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -191,7 +191,7 @@ test_that("replace_association_data", {
   # base path: https://api.openlattice.com
   # Replaces Association Data
   # @param character  partial   
-  # @param map(map(DataEdge))  request.body   
+  # @param list(list(DataEdge))  request.body   
   # @return [integer]
 
   # uncomment below to test the operation
@@ -203,7 +203,7 @@ test_that("replace_entity_properties", {
   # base path: https://api.openlattice.com
   # Replaces Entity Properties
   # @param character  entity.set.id   
-  # @param map(map(array[map(character)]))  request.body   
+  # @param list(list(array[list(character)]))  request.body   
   # @return [integer]
 
   # uncomment below to test the operation
@@ -216,7 +216,7 @@ test_that("update_entities_in_entity_set", {
   # Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
   # @param character  entity.set.id   
   # @param character  type   
-  # @param map(map(array[character]))  request.body   
+  # @param list(list(array[character]))  request.body   
   # @return [integer]
 
   # uncomment below to test the operation

@@ -53,7 +53,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } linking.entity.set.id character
-#' \item \emph{ @param } request.body named list( \link{map(array[character])} )
+#' \item \emph{ @param } request.body named list( \link{list(array[character])} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -353,7 +353,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(EntitySetPropertyMetaData) 
+#' \item return type : list(EntitySetPropertyMetaData) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -386,7 +386,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(EntityTypePropertyMetadata) 
+#' \item return type : list(EntityTypePropertyMetadata) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -451,7 +451,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(PropertyUsageSummary) 
+#' \item return type : list(PropertyUsageSummary) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -567,7 +567,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(character) 
+#' \item return type : list(character) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -665,12 +665,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } request.body list( character )
-#' \item \emph{ @returnType } named list( \link{map} ) \cr
+#' \item \emph{ @returnType } named list( \link{list} ) \cr
 #'
 #'
 #' \item status code : 200 | EntitySetPropertyMetaData
 #'
-#' \item return type : map(map(EntitySetPropertyMetaData)) 
+#' \item return type : list(list(EntitySetPropertyMetaData)) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -721,7 +721,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(PropertyType) 
+#' \item return type : list(PropertyType) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -836,7 +836,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } linking.entity.set.id \link{character}
-#' \item \emph{ @param } request.body named list( \link{map(array[character])} )
+#' \item \emph{ @param } request.body named list( \link{list(array[character])} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -1087,7 +1087,7 @@
 #'
 #' library(openlattice)
 #' var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-#' var.request.body <- {'key' => array$new()} # map(array[character]) | 
+#' var.request.body <- {'key' => array$new()} # list(array[character]) | 
 #'
 #' #Adds the entity sets as linked entity sets to the linking entity sets
 #' api.instance <- EdmApi$new()
@@ -1980,7 +1980,7 @@
 #'
 #' library(openlattice)
 #' var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-#' var.request.body <- {'key' => array$new()} # map(array[character]) | 
+#' var.request.body <- {'key' => array$new()} # list(array[character]) | 
 #'
 #' #Removes/unlinks the linked entity sets from the linking entity set
 #' api.instance <- EdmApi$new()
@@ -3364,7 +3364,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(EntitySetPropertyMetaData)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(EntitySetPropertyMetaData)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -3468,7 +3468,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(EntityTypePropertyMetadata)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(EntityTypePropertyMetadata)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -3668,7 +3668,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(PropertyUsageSummary)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(PropertyUsageSummary)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -4049,7 +4049,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(character)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(character)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -4398,7 +4398,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(map(EntitySetPropertyMetaData))", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(list(EntitySetPropertyMetaData))", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -4574,7 +4574,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(PropertyType)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(PropertyType)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }

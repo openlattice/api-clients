@@ -6,14 +6,14 @@ context("Test DataGraphIds")
 model.instance <- DataGraphIds$new()
 
 test_that("entityKeyIds", {
-  # tests for the property `entityKeyIds` (map(array[character]))
+  # tests for the property `entityKeyIds` (list(array[character]))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`entityKeyIds`, "EXPECTED_RESULT")
 })
 
 test_that("entitySetIds", {
-  # tests for the property `entitySetIds` (map(array[character]))
+  # tests for the property `entitySetIds` (list(array[character]))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`entitySetIds`, "EXPECTED_RESULT")

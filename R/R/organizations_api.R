@@ -54,13 +54,13 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } request.body named list( \link{map(integer)} )
+#' \item \emph{ @param } request.body named list( \link{list(integer)} )
 #' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(array[character]) 
+#' \item return type : list(array[character]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -171,13 +171,13 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } request.body named list( \link{map(array[character])} )
-#' \item \emph{ @returnType } list( \link{map} ) \cr
+#' \item \emph{ @param } request.body named list( \link{list(array[character])} )
+#' \item \emph{ @returnType } list( \link{list} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : array[map(array[character])] 
+#' \item return type : array[list(array[character])] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -228,7 +228,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(array[character]) 
+#' \item return type : list(array[character]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -528,7 +528,7 @@
 #'
 #' library(openlattice)
 #' var.organization.id <- 'organization.id_example' # character | 
-#' var.request.body <- {'key' => 56} # map(integer) | 
+#' var.request.body <- {'key' => 56} # list(integer) | 
 #'
 #' #Materializes entity sets into the organization database.
 #' api.instance <- OrganizationsApi$new()
@@ -671,7 +671,7 @@
 #'
 #' library(openlattice)
 #' var.organization.id <- 'organization.id_example' # character | 
-#' var.request.body <- {'key' => array$new()} # map(array[character]) | 
+#' var.request.body <- {'key' => array$new()} # list(array[character]) | 
 #'
 #' #Get the entity sets for an organization for a certain flag
 #' api.instance <- OrganizationsApi$new()
@@ -1233,7 +1233,7 @@ OrganizationsApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[character])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[character])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1643,7 +1643,7 @@ OrganizationsApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[map(array[character])]", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "array[list(array[character])]", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1811,7 +1811,7 @@ OrganizationsApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[character])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[character])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }

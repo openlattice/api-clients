@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 
 # **create_associations**
-> map(array[character]) create_associations(inline.object)
+> list(array[character]) create_associations(inline.object)
 
 Creates a new set of associations.
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map(array[character])**](array.md)
+[**list(array[character])**](array.md)
 
 ### Authorization
 
@@ -126,7 +126,7 @@ Creates a new set of entities.
 library(openlattice)
 
 var.set.id <- 'set.id_example' # character | 
-var.request.body <- list(TODO) # array[map(array[character])] | 
+var.request.body <- list(TODO) # array[list(array[character])] | 
 
 #Creates a new set of entities.
 api.instance <- DataApi$new()
@@ -144,7 +144,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **set.id** | [**character**](.md)|  | 
- **request.body** | list( [**map(array[character])**](map.md) )|  | 
+ **request.body** | list( [**list(array[character])**](list.md) )|  | 
 
 ### Return type
 
@@ -458,7 +458,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **get_entity**
-> map(array[character]) get_entity(entity.set.id, entity.key.id)
+> list(array[character]) get_entity(entity.set.id, entity.key.id)
 
 Loads a single entity by its entityKeyId and entitySetId
 
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map(array[character])**](array.md)
+[**list(array[character])**](array.md)
 
 ### Authorization
 
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 | **200** | The number of entities in an entity set. |  -  |
 
 # **load_entity_set_data**
-> array[map(array[character])] load_entity_set_data(entity.set.id)
+> array[list(array[character])] load_entity_set_data(entity.set.id)
 
 Gets an iterable containing the entity data, using property type FQNs as key
 
@@ -631,7 +631,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array[map(array[character])]**](map.md)
+[**array[list(array[character])]**](list.md)
 
 ### Authorization
 
@@ -648,7 +648,7 @@ Name | Type | Description  | Notes
 | **200** | An Entity Set definition |  -  |
 
 # **load_linked_entity_set_breakdown**
-> map(map(map(map(array[character])))) load_linked_entity_set_breakdown(linked.entity.set.id, entity.set.selection)
+> list(list(list(list(array[character])))) load_linked_entity_set_breakdown(linked.entity.set.id, entity.set.selection)
 
 Loads a linked entity set breakdown with the selected linked entities and properties.
 
@@ -679,7 +679,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map(map(map(map(array[character]))))**](map.md)
+[**list(list(list(list(array[character]))))**](list.md)
 
 ### Authorization
 
@@ -696,7 +696,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **load_selected_entity_set_data**
-> array[map(array[character])] load_selected_entity_set_data(entity.set.id, entity.set.selection)
+> array[list(array[character])] load_selected_entity_set_data(entity.set.id, entity.set.selection)
 
 Gets a list of entities by UUIDs
 
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array[map(array[character])]**](map.md)
+[**array[list(array[character])]**](list.md)
 
 ### Authorization
 
@@ -753,7 +753,7 @@ Replaces Association Data
 library(openlattice)
 
 var.partial <- 'partial_example' # character | 
-var.request.body <- TODO # map(map(DataEdge)) | 
+var.request.body <- TODO # list(list(DataEdge)) | 
 
 #Replaces Association Data
 api.instance <- DataApi$new()
@@ -771,7 +771,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **partial** | **character**|  | 
- **request.body** | named list( [**map(map(DataEdge))**](map.md) )|  | 
+ **request.body** | named list( [**list(list(DataEdge))**](list.md) )|  | 
 
 ### Return type
 
@@ -801,7 +801,7 @@ Replaces Entity Properties
 library(openlattice)
 
 var.entity.set.id <- 'entity.set.id_example' # character | 
-var.request.body <- TODO # map(map(array[map(character)])) | 
+var.request.body <- TODO # list(list(array[list(character)])) | 
 
 #Replaces Entity Properties
 api.instance <- DataApi$new()
@@ -819,7 +819,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity.set.id** | [**character**](.md)|  | 
- **request.body** | named list( [**map(map(array[map(character)]))**](map.md) )|  | 
+ **request.body** | named list( [**list(list(array[list(character)]))**](list.md) )|  | 
 
 ### Return type
 
@@ -850,7 +850,7 @@ library(openlattice)
 
 var.entity.set.id <- 'entity.set.id_example' # character | 
 var.type <- 'type_example' # character | 
-var.request.body <- TODO # map(map(array[character])) | 
+var.request.body <- TODO # list(list(array[character])) | 
 
 #Perform one of the following bulk update operations on entities (type = Merge) adds new properties without affecting existing data, (type = PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type = Replace) replaces all entity data with the supplied properties.
 api.instance <- DataApi$new()
@@ -869,7 +869,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity.set.id** | [**character**](.md)|  | 
  **type** | Enum [Merge, Replace, PartialReplace] |  | 
- **request.body** | named list( [**map(map(array[character]))**](map.md) )|  | 
+ **request.body** | named list( [**list(list(array[character]))**](list.md) )|  | 
 
 ### Return type
 

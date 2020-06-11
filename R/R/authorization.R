@@ -55,7 +55,7 @@ Authorization <- R6::R6Class(
         self$`aclKey` <- ApiClient$new()$deserializeObj(AuthorizationObject$`aclKey`, "array[character]", loadNamespace("openlattice"))
       }
       if (!is.null(AuthorizationObject$`permissions`)) {
-        self$`permissions` <- ApiClient$new()$deserializeObj(AuthorizationObject$`permissions`, "map(character)", loadNamespace("openlattice"))
+        self$`permissions` <- ApiClient$new()$deserializeObj(AuthorizationObject$`permissions`, "list(character)", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -81,7 +81,7 @@ Authorization <- R6::R6Class(
     fromJSONString = function(AuthorizationJson) {
       AuthorizationObject <- jsonlite::fromJSON(AuthorizationJson)
       self$`aclKey` <- ApiClient$new()$deserializeObj(AuthorizationObject$`aclKey`, "array[character]", loadNamespace("openlattice"))
-      self$`permissions` <- ApiClient$new()$deserializeObj(AuthorizationObject$`permissions`, "map(character)", loadNamespace("openlattice"))
+      self$`permissions` <- ApiClient$new()$deserializeObj(AuthorizationObject$`permissions`, "list(character)", loadNamespace("openlattice"))
       self
     }
   )

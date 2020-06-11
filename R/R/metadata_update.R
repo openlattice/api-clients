@@ -199,7 +199,7 @@ MetadataUpdate <- R6::R6Class(
         self$`url` <- MetadataUpdateObject$`url`
       }
       if (!is.null(MetadataUpdateObject$`propertyTags`)) {
-        self$`propertyTags` <- ApiClient$new()$deserializeObj(MetadataUpdateObject$`propertyTags`, "map(array[character])", loadNamespace("openlattice"))
+        self$`propertyTags` <- ApiClient$new()$deserializeObj(MetadataUpdateObject$`propertyTags`, "list(array[character])", loadNamespace("openlattice"))
       }
       if (!is.null(MetadataUpdateObject$`indexType`)) {
         self$`indexType` <- MetadataUpdateObject$`indexType`
@@ -321,7 +321,7 @@ MetadataUpdate <- R6::R6Class(
       self$`pii` <- MetadataUpdateObject$`pii`
       self$`defaultShow` <- MetadataUpdateObject$`defaultShow`
       self$`url` <- MetadataUpdateObject$`url`
-      self$`propertyTags` <- ApiClient$new()$deserializeObj(MetadataUpdateObject$`propertyTags`, "map(array[character])", loadNamespace("openlattice"))
+      self$`propertyTags` <- ApiClient$new()$deserializeObj(MetadataUpdateObject$`propertyTags`, "list(array[character])", loadNamespace("openlattice"))
       self$`indexType` <- MetadataUpdateObject$`indexType`
       self$`organizationId` <- MetadataUpdateObject$`organizationId`
       self$`partitions` <- ApiClient$new()$deserializeObj(MetadataUpdateObject$`partitions`, "array[integer]", loadNamespace("openlattice"))

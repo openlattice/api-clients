@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **get_all_users**
-> map(Auth0userBasic) get_all_users()
+> list(Auth0userBasic) get_all_users()
 
 Get all users.
 
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**map(Auth0userBasic)**](Auth0userBasic.md)
+[**list(Auth0userBasic)**](Auth0userBasic.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **search_all_users**
-> map(Auth0userBasic) search_all_users(search.query)
+> list(Auth0userBasic) search_all_users(search.query)
 
 Get the user id for the given search.
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map(Auth0userBasic)**](Auth0userBasic.md)
+[**list(Auth0userBasic)**](Auth0userBasic.md)
 
 ### Authorization
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **search_all_users_by_email**
-> map(Auth0userBasic) search_all_users_by_email(email.address)
+> list(Auth0userBasic) search_all_users_by_email(email.address)
 
 Get the user id for the given email address.
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map(Auth0userBasic)**](Auth0userBasic.md)
+[**list(Auth0userBasic)**](Auth0userBasic.md)
 
 ### Authorization
 

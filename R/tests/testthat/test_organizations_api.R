@@ -35,8 +35,8 @@ test_that("assemble_entity_sets", {
   # base path: https://api.openlattice.com
   # Materializes entity sets into the organization database.
   # @param character  organization.id   
-  # @param map(integer)  request.body   
-  # @return [map(array[character])]
+  # @param list(integer)  request.body   
+  # @return [list(array[character])]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -115,8 +115,8 @@ test_that("get_flagged_organization_entity_sets", {
   # base path: https://api.openlattice.com
   # Get the entity sets for an organization for a certain flag
   # @param character  organization.id   
-  # @param map(array[character])  request.body   
-  # @return [array[map(array[character])]]
+  # @param list(array[character])  request.body   
+  # @return [array[list(array[character])]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -149,7 +149,7 @@ test_that("get_organization_entity_sets", {
   # base path: https://api.openlattice.com
   # Get the entity sets for an organization for a certain filter
   # @param character  organization.id   
-  # @return [map(array[character])]
+  # @return [list(array[character])]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

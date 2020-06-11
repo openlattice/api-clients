@@ -88,7 +88,7 @@ Association <- R6::R6Class(
         self$`dst` <- dstObject
       }
       if (!is.null(AssociationObject$`details`)) {
-        self$`details` <- ApiClient$new()$deserializeObj(AssociationObject$`details`, "map(character)", loadNamespace("openlattice"))
+        self$`details` <- ApiClient$new()$deserializeObj(AssociationObject$`details`, "list(character)", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -130,7 +130,7 @@ Association <- R6::R6Class(
       self$`key` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$key, auto_unbox = TRUE, digits = NA))
       self$`src` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$src, auto_unbox = TRUE, digits = NA))
       self$`dst` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$dst, auto_unbox = TRUE, digits = NA))
-      self$`details` <- ApiClient$new()$deserializeObj(AssociationObject$`details`, "map(character)", loadNamespace("openlattice"))
+      self$`details` <- ApiClient$new()$deserializeObj(AssociationObject$`details`, "list(character)", loadNamespace("openlattice"))
       self
     }
   )

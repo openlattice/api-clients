@@ -24,7 +24,7 @@
 #'
 #' \item status code : 200 | Edges
 #'
-#' \item return type : map(array[character]) 
+#' \item return type : list(array[character]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -52,7 +52,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } set.id \link{character}
-#' \item \emph{ @param } request.body list( \link{map(array[character])} )
+#' \item \emph{ @param } request.body list( \link{list(array[character])} )
 #'
 #'
 #' \item status code : 200 | Edges
@@ -182,7 +182,7 @@
 #'
 #' \item status code : 200 | An entity details object, with property type FQNs as keys.
 #'
-#' \item return type : map(array[character]) 
+#' \item return type : list(array[character]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -228,12 +228,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @returnType } list( \link{map} ) \cr
+#' \item \emph{ @returnType } list( \link{list} ) \cr
 #'
 #'
 #' \item status code : 200 | An Entity Set definition
 #'
-#' \item return type : array[map(array[character])] 
+#' \item return type : array[list(array[character])] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -246,12 +246,12 @@
 #' \itemize{
 #' \item \emph{ @param } linked.entity.set.id \link{character}
 #' \item \emph{ @param } entity.set.selection list( \link{EntitySetSelection} )
-#' \item \emph{ @returnType } named list( \link{map} ) \cr
+#' \item \emph{ @returnType } named list( \link{list} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(map(map(map(array[character])))) 
+#' \item return type : list(list(list(list(array[character])))) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -264,12 +264,12 @@
 #' \itemize{
 #' \item \emph{ @param } entity.set.id \link{character}
 #' \item \emph{ @param } entity.set.selection list( \link{EntitySetSelection} )
-#' \item \emph{ @returnType } list( \link{map} ) \cr
+#' \item \emph{ @returnType } list( \link{list} ) \cr
 #'
 #'
 #' \item status code : 200 | A list of entity keys that were generated
 #'
-#' \item return type : array[map(array[character])] 
+#' \item return type : array[list(array[character])] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -281,7 +281,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } partial character
-#' \item \emph{ @param } request.body named list( \link{map(map(DataEdge))} )
+#' \item \emph{ @param } request.body named list( \link{list(list(DataEdge))} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -298,7 +298,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } request.body named list( \link{map(map(array[map(character)]))} )
+#' \item \emph{ @param } request.body named list( \link{list(list(array[list(character)]))} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -316,7 +316,7 @@
 #' \itemize{
 #' \item \emph{ @param } entity.set.id \link{character}
 #' \item \emph{ @param } type Enum < [Merge, Replace, PartialReplace] > 
-#' \item \emph{ @param } request.body named list( \link{map(map(array[character]))} )
+#' \item \emph{ @param } request.body named list( \link{list(list(array[character]))} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -377,7 +377,7 @@
 #'
 #' library(openlattice)
 #' var.set.id <- 'set.id_example' # character | 
-#' var.request.body <- list(map$new()) # array[map(array[character])] | 
+#' var.request.body <- list(list$new()) # array[list(array[character])] | 
 #'
 #' #Creates a new set of entities.
 #' api.instance <- DataApi$new()
@@ -653,7 +653,7 @@
 #'
 #' library(openlattice)
 #' var.partial <- 'partial_example' # character | 
-#' var.request.body <- {'key' => map$new()} # map(map(DataEdge)) | 
+#' var.request.body <- {'key' => list$new()} # list(list(DataEdge)) | 
 #'
 #' #Replaces Association Data
 #' api.instance <- DataApi$new()
@@ -674,7 +674,7 @@
 #'
 #' library(openlattice)
 #' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.request.body <- {'key' => map$new()} # map(map(array[map(character)])) | 
+#' var.request.body <- {'key' => list$new()} # list(list(array[list(character)])) | 
 #'
 #' #Replaces Entity Properties
 #' api.instance <- DataApi$new()
@@ -696,7 +696,7 @@
 #' library(openlattice)
 #' var.entity.set.id <- 'entity.set.id_example' # character | 
 #' var.type <- 'type_example' # character | 
-#' var.request.body <- {'key' => map$new()} # map(map(array[character])) | 
+#' var.request.body <- {'key' => list$new()} # list(list(array[character])) | 
 #'
 #' #Perform one of the following bulk update operations on entities (type = Merge) adds new properties without affecting existing data, (type = PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type = Replace) replaces all entity data with the supplied properties.
 #' api.instance <- DataApi$new()
@@ -773,7 +773,7 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[character])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[character])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1360,7 +1360,7 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[character])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[character])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1544,7 +1544,7 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[map(array[character])]", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "array[list(array[character])]", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1611,7 +1611,7 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(map(map(map(array[character]))))", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(list(list(list(array[character]))))", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1678,7 +1678,7 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[map(array[character])]", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "array[list(array[character])]", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }

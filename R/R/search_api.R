@@ -112,7 +112,7 @@
 #'
 #' \item status code : 200 | A list of objects containing information about the neighbor and association.
 #'
-#' \item return type : map(array[NeighborEntityDetails]) 
+#' \item return type : list(array[NeighborEntityDetails]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -211,12 +211,12 @@
 #' \itemize{
 #' \item \emph{ @param } entity.set.id \link{character}
 #' \item \emph{ @param } neighbor.search.filter \link{NeighborSearchFilter}
-#' \item \emph{ @returnType } named list( \link{map} ) \cr
+#' \item \emph{ @returnType } named list( \link{list} ) \cr
 #'
 #'
 #' \item status code : 200 | A list of objects containing information about the neighbor and association.
 #'
-#' \item return type : map(map(map(array[NeighborEntityIds]))) 
+#' \item return type : list(list(list(array[NeighborEntityIds]))) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -234,7 +234,7 @@
 #'
 #' \item status code : 200 | A list of objects containing information about the neighbor and association.
 #'
-#' \item return type : map(array[NeighborEntityDetails]) 
+#' \item return type : list(array[NeighborEntityDetails]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -1107,7 +1107,7 @@ SearchApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[NeighborEntityDetails])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[NeighborEntityDetails])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1471,7 +1471,7 @@ SearchApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(map(map(array[NeighborEntityIds])))", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(list(list(array[NeighborEntityIds])))", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1537,7 +1537,7 @@ SearchApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[NeighborEntityDetails])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[NeighborEntityDetails])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }

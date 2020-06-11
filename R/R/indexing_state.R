@@ -85,7 +85,7 @@ IndexingState <- R6::R6Class(
     fromJSON = function(IndexingStateJson) {
       IndexingStateObject <- jsonlite::fromJSON(IndexingStateJson)
       if (!is.null(IndexingStateObject$`indexing`)) {
-        self$`indexing` <- ApiClient$new()$deserializeObj(IndexingStateObject$`indexing`, "map(array[character])", loadNamespace("openlattice"))
+        self$`indexing` <- ApiClient$new()$deserializeObj(IndexingStateObject$`indexing`, "list(array[character])", loadNamespace("openlattice"))
       }
       if (!is.null(IndexingStateObject$`queue`)) {
         self$`queue` <- ApiClient$new()$deserializeObj(IndexingStateObject$`queue`, "array[character]", loadNamespace("openlattice"))
@@ -143,7 +143,7 @@ IndexingState <- R6::R6Class(
     },
     fromJSONString = function(IndexingStateJson) {
       IndexingStateObject <- jsonlite::fromJSON(IndexingStateJson)
-      self$`indexing` <- ApiClient$new()$deserializeObj(IndexingStateObject$`indexing`, "map(array[character])", loadNamespace("openlattice"))
+      self$`indexing` <- ApiClient$new()$deserializeObj(IndexingStateObject$`indexing`, "list(array[character])", loadNamespace("openlattice"))
       self$`queue` <- ApiClient$new()$deserializeObj(IndexingStateObject$`queue`, "array[character]", loadNamespace("openlattice"))
       self$`currentEntitySet` <- IndexingStateObject$`currentEntitySet`
       self$`queueSize` <- IndexingStateObject$`queueSize`
