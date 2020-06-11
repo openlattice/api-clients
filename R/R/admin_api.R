@@ -49,7 +49,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } request.body named list( \link{map(array[character])} )
+#' \item \emph{ @param } request_body named list( \link{list(array[character])} )
 #' \item \emph{ @returnType } \link{IndexingState} \cr
 #'
 #'
@@ -66,7 +66,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } request.body named list( \link{map(array[character])} )
+#' \item \emph{ @param } request_body named list( \link{list(array[character])} )
 #' \item \emph{ @returnType } \link{IndexingState} \cr
 #'
 #'
@@ -125,7 +125,7 @@
 #' ####################  reindex  ####################
 #'
 #' library(openlattice)
-#' var.request.body <- {'key' => array$new()} # map(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
+#' var.request_body <- {'key' => array$new()} # list(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
 #'
 #' #Merge job descriptions for performing a partial or full reindex of provided entity sets.
 #' api.instance <- AdminApi$new()
@@ -139,13 +139,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$reindex(var.request.body)
+#' result <- api.instance$reindex(var.request_body)
 #'
 #'
 #' ####################  update_reindex  ####################
 #'
 #' library(openlattice)
-#' var.request.body <- {'key' => array$new()} # map(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
+#' var.request_body <- {'key' => array$new()} # list(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
 #'
 #' #Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 #' api.instance <- AdminApi$new()
@@ -159,7 +159,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_reindex(var.request.body)
+#' result <- api.instance$update_reindex(var.request_body)
 #'
 #'
 #' }
@@ -274,8 +274,8 @@ AdminApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    reindex = function(request.body, ...){
-      apiResponse <- self$reindexWithHttpInfo(request.body, ...)
+    reindex = function(request_body, ...){
+      apiResponse <- self$reindexWithHttpInfo(request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -288,17 +288,22 @@ AdminApi <- R6::R6Class(
       }
     },
 
-    reindexWithHttpInfo = function(request.body, ...){
+    reindexWithHttpInfo = function(request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body <- `request.body`$toJSONString()
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            %s
+',
+              jsonlite::toJSON(lapply(`request_body`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        )
       } else {
         body <- NULL
       }
@@ -332,8 +337,8 @@ AdminApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_reindex = function(request.body, ...){
-      apiResponse <- self$update_reindexWithHttpInfo(request.body, ...)
+    update_reindex = function(request_body, ...){
+      apiResponse <- self$update_reindexWithHttpInfo(request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -346,17 +351,22 @@ AdminApi <- R6::R6Class(
       }
     },
 
-    update_reindexWithHttpInfo = function(request.body, ...){
+    update_reindexWithHttpInfo = function(request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body <- `request.body`$toJSONString()
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            %s
+',
+              jsonlite::toJSON(lapply(`request_body`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        )
       } else {
         body <- NULL
       }

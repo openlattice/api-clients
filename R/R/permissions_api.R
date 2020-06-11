@@ -18,7 +18,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } request.body list( character )
+#' \item \emph{ @param } request_body list( character )
 #' \item \emph{ @returnType } \link{Acl} \cr
 #'
 #'
@@ -35,7 +35,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } acl.data \link{AclData}
+#' \item \emph{ @param } acl_data \link{AclData}
 #'
 #'
 #' \item status code : 200 | Success
@@ -55,7 +55,7 @@
 #' ####################  get_acl  ####################
 #'
 #' library(openlattice)
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 #' api.instance <- PermissionsApi$new()
@@ -69,13 +69,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_acl(var.request.body)
+#' result <- api.instance$get_acl(var.request_body)
 #'
 #'
 #' ####################  update_acl  ####################
 #'
 #' library(openlattice)
-#' var.acl.data <- AclData$new() # AclData | 
+#' var.acl_data <- AclData$new() # AclData | 
 #'
 #' #Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
 #' api.instance <- PermissionsApi$new()
@@ -89,7 +89,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_acl(var.acl.data)
+#' result <- api.instance$update_acl(var.acl_data)
 #'
 #'
 #' }
@@ -108,8 +108,8 @@ PermissionsApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    get_acl = function(request.body, ...){
-      apiResponse <- self$get_aclWithHttpInfo(request.body, ...)
+    get_acl = function(request_body, ...){
+      apiResponse <- self$get_aclWithHttpInfo(request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -122,18 +122,22 @@ PermissionsApi <- R6::R6Class(
       }
     },
 
-    get_aclWithHttpInfo = function(request.body, ...){
+    get_aclWithHttpInfo = function(request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
@@ -167,8 +171,8 @@ PermissionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_acl = function(acl.data, ...){
-      apiResponse <- self$update_aclWithHttpInfo(acl.data, ...)
+    update_acl = function(acl_data, ...){
+      apiResponse <- self$update_aclWithHttpInfo(acl_data, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -181,17 +185,22 @@ PermissionsApi <- R6::R6Class(
       }
     },
 
-    update_aclWithHttpInfo = function(acl.data, ...){
+    update_aclWithHttpInfo = function(acl_data, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`acl.data`)) {
-        stop("Missing required parameter `acl.data`.")
+      if (missing(`acl_data`)) {
+        stop("Missing required parameter `acl_data`.")
       }
 
-      if (!missing(`acl.data`)) {
-        body <- `acl.data`$toJSONString()
+      if (!missing(`acl_data`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`acl_data`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }

@@ -9,7 +9,7 @@ test_that("get_entity_key_ids", {
   # tests for get_entity_key_ids
   # base path: https://api.openlattice.com
   # Get entity key IDs
-  # @param array[EntityKey]  entity.key   
+  # @param array[EntityKey]  entity_key   
   # @return [array[character]]
 
   # uncomment below to test the operation
@@ -20,8 +20,8 @@ test_that("integrate_entity_and_association_data", {
   # tests for integrate_entity_and_association_data
   # base path: https://api.openlattice.com
   # Integrate entity and association data
-  # @param character  detailed.results   
-  # @param BulkDataCreation  bulk.data.creation   
+  # @param character  detailed_results   
+  # @param BulkDataCreation  bulk_data_creation   
   # @return [IntegrationResults]
 
   # uncomment below to test the operation

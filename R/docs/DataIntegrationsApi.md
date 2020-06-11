@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_entity_key_ids**
-> array[character] get_entity_key_ids(entity.key)
+> array[character] get_entity_key_ids(entity_key)
 
 Get entity key IDs
 
@@ -17,7 +17,7 @@ Get entity key IDs
 ```R
 library(openlattice)
 
-var.entity.key <- list(EntityKey$new("entitySetId_example", "entityId_example")) # array[EntityKey] | 
+var.entity_key <- list(EntityKey$new("entitySetId_example", "entityId_example")) # array[EntityKey] | 
 
 #Get entity key IDs
 api.instance <- DataIntegrationsApi$new()
@@ -26,7 +26,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_entity_key_ids(var.entity.key)
+result <- api.instance$get_entity_key_ids(var.entity_key)
 dput(result)
 ```
 
@@ -34,7 +34,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.key** | list( [**EntityKey**](EntityKey.md) )|  | 
+ **entity_key** | list( [**EntityKey**](EntityKey.md) )|  | 
 
 ### Return type
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 | **200** | A data search result object, containing the total number of hits for the given query, and the hits themselves |  -  |
 
 # **integrate_entity_and_association_data**
-> IntegrationResults integrate_entity_and_association_data(detailed.results, bulk.data.creation)
+> IntegrationResults integrate_entity_and_association_data(detailed_results, bulk_data_creation)
 
 Integrate entity and association data
 
@@ -63,8 +63,8 @@ Integrate entity and association data
 ```R
 library(openlattice)
 
-var.detailed.results <- 'detailed.results_example' # character | 
-var.bulk.data.creation <- BulkDataCreation$new(list(Entity$new(EntityKey$new("entitySetId_example", "entityId_example"), TODO)), list(Association$new(EntityKey$new("entitySetId_example", "entityId_example"), EntityKey$new("entitySetId_example", "entityId_example"), EntityKey$new("entitySetId_example", "entityId_example"), TODO))) # BulkDataCreation | 
+var.detailed_results <- 'detailed_results_example' # character | 
+var.bulk_data_creation <- BulkDataCreation$new(list(Entity$new(EntityKey$new("entitySetId_example", "entityId_example"), TODO)), list(Association$new(EntityKey$new("entitySetId_example", "entityId_example"), EntityKey$new("entitySetId_example", "entityId_example"), EntityKey$new("entitySetId_example", "entityId_example"), TODO))) # BulkDataCreation | 
 
 #Integrate entity and association data
 api.instance <- DataIntegrationsApi$new()
@@ -73,7 +73,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$integrate_entity_and_association_data(var.detailed.results, var.bulk.data.creation)
+result <- api.instance$integrate_entity_and_association_data(var.detailed_results, var.bulk_data_creation)
 dput(result)
 ```
 
@@ -81,8 +81,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **detailed.results** | **character**|  | 
- **bulk.data.creation** | [**BulkDataCreation**](BulkDataCreation.md)|  | 
+ **detailed_results** | **character**|  | 
+ **bulk_data_creation** | [**BulkDataCreation**](BulkDataCreation.md)|  | 
 
 ### Return type
 

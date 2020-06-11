@@ -165,7 +165,7 @@ EntityType <- R6::R6Class(
         self$`properties` <- ApiClient$new()$deserializeObj(EntityTypeObject$`properties`, "array[character]", loadNamespace("openlattice"))
       }
       if (!is.null(EntityTypeObject$`propertyTags`)) {
-        self$`propertyTags` <- ApiClient$new()$deserializeObj(EntityTypeObject$`propertyTags`, "map(array[character])", loadNamespace("openlattice"))
+        self$`propertyTags` <- ApiClient$new()$deserializeObj(EntityTypeObject$`propertyTags`, "list(array[character])", loadNamespace("openlattice"))
       }
       if (!is.null(EntityTypeObject$`basetype`)) {
         self$`basetype` <- EntityTypeObject$`basetype`
@@ -259,7 +259,7 @@ EntityType <- R6::R6Class(
       self$`schemas` <- ApiClient$new()$deserializeObj(EntityTypeObject$`schemas`, "array[FullQualifiedName]", loadNamespace("openlattice"))
       self$`key` <- ApiClient$new()$deserializeObj(EntityTypeObject$`key`, "array[character]", loadNamespace("openlattice"))
       self$`properties` <- ApiClient$new()$deserializeObj(EntityTypeObject$`properties`, "array[character]", loadNamespace("openlattice"))
-      self$`propertyTags` <- ApiClient$new()$deserializeObj(EntityTypeObject$`propertyTags`, "map(array[character])", loadNamespace("openlattice"))
+      self$`propertyTags` <- ApiClient$new()$deserializeObj(EntityTypeObject$`propertyTags`, "list(array[character])", loadNamespace("openlattice"))
       self$`basetype` <- EntityTypeObject$`basetype`
       self$`category` <- EntityTypeObject$`category`
       self

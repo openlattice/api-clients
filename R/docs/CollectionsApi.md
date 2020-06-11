@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **add_type_to_entity_type_collection_template**
-> add_type_to_entity_type_collection_template(entity.type.collection.id, collection.template.type)
+> add_type_to_entity_type_collection_template(entity_type_collection_id, collection_template_type)
 
 Appends type to template of the specified EntityTypeCollection
 
@@ -29,8 +29,8 @@ Appends type to template of the specified EntityTypeCollection
 ```R
 library(openlattice)
 
-var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
-var.collection.template.type <- CollectionTemplateType$new("id_example", "name_example", "title_example", "description_example", "entityTypeId_example") # CollectionTemplateType | 
+var.entity_type_collection_id <- 'entity_type_collection_id_example' # character | 
+var.collection_template_type <- CollectionTemplateType$new("id_example", "name_example", "title_example", "description_example", "entityTypeId_example") # CollectionTemplateType | 
 
 #Appends type to template of the specified EntityTypeCollection
 api.instance <- CollectionsApi$new()
@@ -39,15 +39,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$add_type_to_entity_type_collection_template(var.entity.type.collection.id, var.collection.template.type)
+api.instance$add_type_to_entity_type_collection_template(var.entity_type_collection_id, var.collection_template_type)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.type.collection.id** | [**character**](.md)|  | 
- **collection.template.type** | [**CollectionTemplateType**](CollectionTemplateType.md)|  | 
+ **entity_type_collection_id** | [**character**](.md)|  | 
+ **collection_template_type** | [**CollectionTemplateType**](CollectionTemplateType.md)|  | 
 
 ### Return type
 
@@ -68,7 +68,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **create_entity_set_collection**
-> character create_entity_set_collection(entity.set.collection)
+> character create_entity_set_collection(entity_set_collection)
 
 Creates a new EntitySetCollection
 
@@ -76,7 +76,7 @@ Creates a new EntitySetCollection
 ```R
 library(openlattice)
 
-var.entity.set.collection <- EntitySetCollection$new("id_example", "name_example", "title_example", "description_example", "entityTypeCollectionId_example", TODO, list("contacts_example"), "organizationId_example") # EntitySetCollection | 
+var.entity_set_collection <- EntitySetCollection$new("id_example", "name_example", "title_example", "description_example", "entityTypeCollectionId_example", TODO, list("contacts_example"), "organizationId_example") # EntitySetCollection | 
 
 #Creates a new EntitySetCollection
 api.instance <- CollectionsApi$new()
@@ -85,7 +85,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$create_entity_set_collection(var.entity.set.collection)
+result <- api.instance$create_entity_set_collection(var.entity_set_collection)
 dput(result)
 ```
 
@@ -93,7 +93,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.collection** | [**EntitySetCollection**](EntitySetCollection.md)|  | 
+ **entity_set_collection** | [**EntitySetCollection**](EntitySetCollection.md)|  | 
 
 ### Return type
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **create_entity_type_collection**
-> character create_entity_type_collection(entity.type.collection)
+> character create_entity_type_collection(entity_type_collection)
 
 Creates a new EntityTypeCollection
 
@@ -122,7 +122,7 @@ Creates a new EntityTypeCollection
 ```R
 library(openlattice)
 
-var.entity.type.collection <- EntityTypeCollection$new("id_example", FullQualifiedName$new("name_example", "namespace_example"), "title_example", "description_example", list(FullQualifiedName$new("name_example", "namespace_example")), list(CollectionTemplateType$new("id_example", "name_example", "title_example", "description_example", "entityTypeId_example"))) # EntityTypeCollection | 
+var.entity_type_collection <- EntityTypeCollection$new("id_example", FullQualifiedName$new("name_example", "namespace_example"), "title_example", "description_example", list(FullQualifiedName$new("name_example", "namespace_example")), list(CollectionTemplateType$new("id_example", "name_example", "title_example", "description_example", "entityTypeId_example"))) # EntityTypeCollection | 
 
 #Creates a new EntityTypeCollection
 api.instance <- CollectionsApi$new()
@@ -131,7 +131,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$create_entity_type_collection(var.entity.type.collection)
+result <- api.instance$create_entity_type_collection(var.entity_type_collection)
 dput(result)
 ```
 
@@ -139,7 +139,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.type.collection** | [**EntityTypeCollection**](EntityTypeCollection.md)|  | 
+ **entity_type_collection** | [**EntityTypeCollection**](EntityTypeCollection.md)|  | 
 
 ### Return type
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **delete_entity_set_collection**
-> delete_entity_set_collection(entity.set.collection.id)
+> delete_entity_set_collection(entity_set_collection_id)
 
 Deletes the specified EntitySetCollection
 
@@ -168,7 +168,7 @@ Deletes the specified EntitySetCollection
 ```R
 library(openlattice)
 
-var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
+var.entity_set_collection_id <- 'entity_set_collection_id_example' # character | 
 
 #Deletes the specified EntitySetCollection
 api.instance <- CollectionsApi$new()
@@ -177,14 +177,14 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$delete_entity_set_collection(var.entity.set.collection.id)
+api.instance$delete_entity_set_collection(var.entity_set_collection_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.collection.id** | [**character**](.md)|  | 
+ **entity_set_collection_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -205,7 +205,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **delete_entity_type_collection**
-> delete_entity_type_collection(entity.type.collection.id)
+> delete_entity_type_collection(entity_type_collection_id)
 
 Deletes the specified EntityTypeCollection
 
@@ -213,7 +213,7 @@ Deletes the specified EntityTypeCollection
 ```R
 library(openlattice)
 
-var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
+var.entity_type_collection_id <- 'entity_type_collection_id_example' # character | 
 
 #Deletes the specified EntityTypeCollection
 api.instance <- CollectionsApi$new()
@@ -222,14 +222,14 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$delete_entity_type_collection(var.entity.type.collection.id)
+api.instance$delete_entity_type_collection(var.entity_type_collection_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.type.collection.id** | [**character**](.md)|  | 
+ **entity_type_collection_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -334,7 +334,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 # **get_entity_set_collection**
-> EntitySetCollection get_entity_set_collection(entity.set.collection.id)
+> EntitySetCollection get_entity_set_collection(entity_set_collection_id)
 
 Returns the EntitySetCollection object for a given id
 
@@ -342,7 +342,7 @@ Returns the EntitySetCollection object for a given id
 ```R
 library(openlattice)
 
-var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
+var.entity_set_collection_id <- 'entity_set_collection_id_example' # character | 
 
 #Returns the EntitySetCollection object for a given id
 api.instance <- CollectionsApi$new()
@@ -351,7 +351,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_entity_set_collection(var.entity.set.collection.id)
+result <- api.instance$get_entity_set_collection(var.entity_set_collection_id)
 dput(result)
 ```
 
@@ -359,7 +359,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.collection.id** | [**character**](.md)|  | 
+ **entity_set_collection_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_entity_set_collections_of_type**
-> array[EntitySetCollection] get_entity_set_collections_of_type(entity.set.collection.id)
+> array[EntitySetCollection] get_entity_set_collections_of_type(entity_set_collection_id)
 
 Returns all authorized EntitySetCollections for a given EntityTypeCollection id
 
@@ -388,7 +388,7 @@ Returns all authorized EntitySetCollections for a given EntityTypeCollection id
 ```R
 library(openlattice)
 
-var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
+var.entity_set_collection_id <- 'entity_set_collection_id_example' # character | 
 
 #Returns all authorized EntitySetCollections for a given EntityTypeCollection id
 api.instance <- CollectionsApi$new()
@@ -397,7 +397,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_entity_set_collections_of_type(var.entity.set.collection.id)
+result <- api.instance$get_entity_set_collections_of_type(var.entity_set_collection_id)
 dput(result)
 ```
 
@@ -405,7 +405,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.collection.id** | [**character**](.md)|  | 
+ **entity_set_collection_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_entity_type_collection**
-> EntityTypeCollection get_entity_type_collection(entity.type.collection.id)
+> EntityTypeCollection get_entity_type_collection(entity_type_collection_id)
 
 Returns the EntityTypeCollection object for a given id
 
@@ -434,7 +434,7 @@ Returns the EntityTypeCollection object for a given id
 ```R
 library(openlattice)
 
-var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
+var.entity_type_collection_id <- 'entity_type_collection_id_example' # character | 
 
 #Returns the EntityTypeCollection object for a given id
 api.instance <- CollectionsApi$new()
@@ -443,7 +443,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_entity_type_collection(var.entity.type.collection.id)
+result <- api.instance$get_entity_type_collection(var.entity_type_collection_id)
 dput(result)
 ```
 
@@ -451,7 +451,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.type.collection.id** | [**character**](.md)|  | 
+ **entity_type_collection_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **remove_type_from_entity_type_collection_template**
-> remove_type_from_entity_type_collection_template(entity.type.collection.id, type.id)
+> remove_type_from_entity_type_collection_template(entity_type_collection_id, type_id)
 
 Removes a key from an EntityTypeCollection template
 
@@ -480,8 +480,8 @@ Removes a key from an EntityTypeCollection template
 ```R
 library(openlattice)
 
-var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
-var.type.id <- 'type.id_example' # character | 
+var.entity_type_collection_id <- 'entity_type_collection_id_example' # character | 
+var.type_id <- 'type_id_example' # character | 
 
 #Removes a key from an EntityTypeCollection template
 api.instance <- CollectionsApi$new()
@@ -490,15 +490,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$remove_type_from_entity_type_collection_template(var.entity.type.collection.id, var.type.id)
+api.instance$remove_type_from_entity_type_collection_template(var.entity_type_collection_id, var.type_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.type.collection.id** | [**character**](.md)|  | 
- **type.id** | [**character**](.md)|  | 
+ **entity_type_collection_id** | [**character**](.md)|  | 
+ **type_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -519,7 +519,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **update_entity_set_collection_metadata**
-> update_entity_set_collection_metadata(entity.set.collection.id, metadata.update)
+> update_entity_set_collection_metadata(entity_set_collection_id, metadata_update)
 
 Updates metadata of the specified EntitySetCollection
 
@@ -527,8 +527,8 @@ Updates metadata of the specified EntitySetCollection
 ```R
 library(openlattice)
 
-var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
-var.metadata.update <- MetadataUpdate$new("title_example", "description_example", "name_example", list("contacts_example"), FullQualifiedName$new("name_example", "namespace_example"), "pii_example", "defaultShow_example", "url_example", TODO, "indexType_example", "organizationId_example", list(123), list("enumValues_example")) # MetadataUpdate | 
+var.entity_set_collection_id <- 'entity_set_collection_id_example' # character | 
+var.metadata_update <- MetadataUpdate$new("title_example", "description_example", "name_example", list("contacts_example"), FullQualifiedName$new("name_example", "namespace_example"), "pii_example", "defaultShow_example", "url_example", TODO, "indexType_example", "organizationId_example", list(123), list("enumValues_example")) # MetadataUpdate | 
 
 #Updates metadata of the specified EntitySetCollection
 api.instance <- CollectionsApi$new()
@@ -537,15 +537,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_entity_set_collection_metadata(var.entity.set.collection.id, var.metadata.update)
+api.instance$update_entity_set_collection_metadata(var.entity_set_collection_id, var.metadata_update)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.collection.id** | [**character**](.md)|  | 
- **metadata.update** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
+ **entity_set_collection_id** | [**character**](.md)|  | 
+ **metadata_update** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
 
 ### Return type
 
@@ -566,7 +566,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **update_entity_set_collection_template**
-> update_entity_set_collection_template(entity.set.collection.id, request.body)
+> update_entity_set_collection_template(entity_set_collection_id, request_body)
 
 Updates template of the specified EntitySetCollection
 
@@ -574,8 +574,8 @@ Updates template of the specified EntitySetCollection
 ```R
 library(openlattice)
 
-var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
-var.request.body <- TODO # map(character) | 
+var.entity_set_collection_id <- 'entity_set_collection_id_example' # character | 
+var.request_body <- TODO # list(character) | 
 
 #Updates template of the specified EntitySetCollection
 api.instance <- CollectionsApi$new()
@@ -584,15 +584,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_entity_set_collection_template(var.entity.set.collection.id, var.request.body)
+api.instance$update_entity_set_collection_template(var.entity_set_collection_id, var.request_body)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.collection.id** | [**character**](.md)|  | 
- **request.body** | named list( [**map(character)**](character.md) )|  | 
+ **entity_set_collection_id** | [**character**](.md)|  | 
+ **request_body** | named list( [**list(character)**](character.md) )|  | 
 
 ### Return type
 
@@ -613,7 +613,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **update_entity_type_collection_metadata**
-> update_entity_type_collection_metadata(entity.type.collection.id, metadata.update)
+> update_entity_type_collection_metadata(entity_type_collection_id, metadata_update)
 
 Updates metadata of the specified EntityTypeCollection
 
@@ -621,8 +621,8 @@ Updates metadata of the specified EntityTypeCollection
 ```R
 library(openlattice)
 
-var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
-var.metadata.update <- MetadataUpdate$new("title_example", "description_example", "name_example", list("contacts_example"), FullQualifiedName$new("name_example", "namespace_example"), "pii_example", "defaultShow_example", "url_example", TODO, "indexType_example", "organizationId_example", list(123), list("enumValues_example")) # MetadataUpdate | 
+var.entity_type_collection_id <- 'entity_type_collection_id_example' # character | 
+var.metadata_update <- MetadataUpdate$new("title_example", "description_example", "name_example", list("contacts_example"), FullQualifiedName$new("name_example", "namespace_example"), "pii_example", "defaultShow_example", "url_example", TODO, "indexType_example", "organizationId_example", list(123), list("enumValues_example")) # MetadataUpdate | 
 
 #Updates metadata of the specified EntityTypeCollection
 api.instance <- CollectionsApi$new()
@@ -631,15 +631,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_entity_type_collection_metadata(var.entity.type.collection.id, var.metadata.update)
+api.instance$update_entity_type_collection_metadata(var.entity_type_collection_id, var.metadata_update)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.type.collection.id** | [**character**](.md)|  | 
- **metadata.update** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
+ **entity_type_collection_id** | [**character**](.md)|  | 
+ **metadata_update** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
 
 ### Return type
 

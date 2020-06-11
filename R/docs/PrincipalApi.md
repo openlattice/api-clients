@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **get_all_users**
-> map(Auth0userBasic) get_all_users()
+> list(Auth0userBasic) get_all_users()
 
 Get all users.
 
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**map(Auth0userBasic)**](Auth0userBasic.md)
+[**list(Auth0userBasic)**](Auth0userBasic.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 # **get_user**
-> Auth0userBasic get_user(user.id)
+> Auth0userBasic get_user(user_id)
 
 Get the user for the given id.
 
@@ -148,7 +148,7 @@ Get the user for the given id.
 ```R
 library(openlattice)
 
-var.user.id <- 'user.id_example' # character | 
+var.user_id <- 'user_id_example' # character | 
 
 #Get the user for the given id.
 api.instance <- PrincipalApi$new()
@@ -157,7 +157,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_user(var.user.id)
+result <- api.instance$get_user(var.user_id)
 dput(result)
 ```
 
@@ -165,7 +165,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user.id** | **character**|  | 
+ **user_id** | **character**|  | 
 
 ### Return type
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **search_all_users**
-> map(Auth0userBasic) search_all_users(search.query)
+> list(Auth0userBasic) search_all_users(search_query)
 
 Get the user id for the given search.
 
@@ -194,7 +194,7 @@ Get the user id for the given search.
 ```R
 library(openlattice)
 
-var.search.query <- 'search.query_example' # character | 
+var.search_query <- 'search_query_example' # character | 
 
 #Get the user id for the given search.
 api.instance <- PrincipalApi$new()
@@ -203,7 +203,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$search_all_users(var.search.query)
+result <- api.instance$search_all_users(var.search_query)
 dput(result)
 ```
 
@@ -211,11 +211,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search.query** | **character**|  | 
+ **search_query** | **character**|  | 
 
 ### Return type
 
-[**map(Auth0userBasic)**](Auth0userBasic.md)
+[**list(Auth0userBasic)**](Auth0userBasic.md)
 
 ### Authorization
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **search_all_users_by_email**
-> map(Auth0userBasic) search_all_users_by_email(email.address)
+> list(Auth0userBasic) search_all_users_by_email(email_address)
 
 Get the user id for the given email address.
 
@@ -240,7 +240,7 @@ Get the user id for the given email address.
 ```R
 library(openlattice)
 
-var.email.address <- 'email.address_example' # character | 
+var.email_address <- 'email_address_example' # character | 
 
 #Get the user id for the given email address.
 api.instance <- PrincipalApi$new()
@@ -249,7 +249,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$search_all_users_by_email(var.email.address)
+result <- api.instance$search_all_users_by_email(var.email_address)
 dput(result)
 ```
 
@@ -257,11 +257,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email.address** | **character**|  | 
+ **email_address** | **character**|  | 
 
 ### Return type
 
-[**map(Auth0userBasic)**](Auth0userBasic.md)
+[**list(Auth0userBasic)**](Auth0userBasic.md)
 
 ### Authorization
 

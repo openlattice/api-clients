@@ -133,7 +133,7 @@ EntitySetCollection <- R6::R6Class(
         self$`entityTypeCollectionId` <- EntitySetCollectionObject$`entityTypeCollectionId`
       }
       if (!is.null(EntitySetCollectionObject$`template`)) {
-        self$`template` <- ApiClient$new()$deserializeObj(EntitySetCollectionObject$`template`, "map(character)", loadNamespace("openlattice"))
+        self$`template` <- ApiClient$new()$deserializeObj(EntitySetCollectionObject$`template`, "list(character)", loadNamespace("openlattice"))
       }
       if (!is.null(EntitySetCollectionObject$`contacts`)) {
         self$`contacts` <- ApiClient$new()$deserializeObj(EntitySetCollectionObject$`contacts`, "array[character]", loadNamespace("openlattice"))
@@ -211,7 +211,7 @@ EntitySetCollection <- R6::R6Class(
       self$`title` <- EntitySetCollectionObject$`title`
       self$`description` <- EntitySetCollectionObject$`description`
       self$`entityTypeCollectionId` <- EntitySetCollectionObject$`entityTypeCollectionId`
-      self$`template` <- ApiClient$new()$deserializeObj(EntitySetCollectionObject$`template`, "map(character)", loadNamespace("openlattice"))
+      self$`template` <- ApiClient$new()$deserializeObj(EntitySetCollectionObject$`template`, "list(character)", loadNamespace("openlattice"))
       self$`contacts` <- ApiClient$new()$deserializeObj(EntitySetCollectionObject$`contacts`, "array[character]", loadNamespace("openlattice"))
       self$`organizationId` <- EntitySetCollectionObject$`organizationId`
       self

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **add_linking_feedback**
-> integer add_linking_feedback(linking.feedback)
+> integer add_linking_feedback(linking_feedback)
 
 Submits feedbacks for a given linking entity set and linking id in a batch format.
 
@@ -21,7 +21,7 @@ Submits feedbacks for a given linking entity set and linking id in a batch forma
 ```R
 library(openlattice)
 
-var.linking.feedback <- LinkingFeedback$new(EntityDataKey$new("entitySetId_example", "entityKeyId_example"), list(EntityDataKey$new("entitySetId_example", "entityKeyId_example")), list(EntityDataKey$new("entitySetId_example", "entityKeyId_example"))) # LinkingFeedback | 
+var.linking_feedback <- LinkingFeedback$new(EntityDataKey$new("entitySetId_example", "entityKeyId_example"), list(EntityDataKey$new("entitySetId_example", "entityKeyId_example")), list(EntityDataKey$new("entitySetId_example", "entityKeyId_example"))) # LinkingFeedback | 
 
 #Submits feedbacks for a given linking entity set and linking id in a batch format.
 api.instance <- LinkingApi$new()
@@ -30,7 +30,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$add_linking_feedback(var.linking.feedback)
+result <- api.instance$add_linking_feedback(var.linking_feedback)
 dput(result)
 ```
 
@@ -38,7 +38,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linking.feedback** | [**LinkingFeedback**](LinkingFeedback.md)|  | 
+ **linking_feedback** | [**LinkingFeedback**](LinkingFeedback.md)|  | 
 
 ### Return type
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **delete_linking_feedback**
-> integer delete_linking_feedback(entity.key.pair)
+> integer delete_linking_feedback(entity_key_pair)
 
 Deletes linking feedback
 
@@ -67,7 +67,7 @@ Deletes linking feedback
 ```R
 library(openlattice)
 
-var.entity.key.pair <- EntityKeyPair$new("first_example", "second_example") # EntityKeyPair | 
+var.entity_key_pair <- EntityKeyPair$new("first_example", "second_example") # EntityKeyPair | 
 
 #Deletes linking feedback
 api.instance <- LinkingApi$new()
@@ -76,7 +76,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$delete_linking_feedback(var.entity.key.pair)
+result <- api.instance$delete_linking_feedback(var.entity_key_pair)
 dput(result)
 ```
 
@@ -84,7 +84,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.key.pair** | [**EntityKeyPair**](EntityKeyPair.md)|  | 
+ **entity_key_pair** | [**EntityKeyPair**](EntityKeyPair.md)|  | 
 
 ### Return type
 
@@ -186,7 +186,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 # **get_linking_feedback_with_features**
-> EntityLinkingFeatures get_linking_feedback_with_features(entity.key.pair)
+> EntityLinkingFeatures get_linking_feedback_with_features(entity_key_pair)
 
 Returns the feedback on the given entity pair along with their features
 
@@ -194,7 +194,7 @@ Returns the feedback on the given entity pair along with their features
 ```R
 library(openlattice)
 
-var.entity.key.pair <- EntityKeyPair$new("first_example", "second_example") # EntityKeyPair | 
+var.entity_key_pair <- EntityKeyPair$new("first_example", "second_example") # EntityKeyPair | 
 
 #Returns the feedback on the given entity pair along with their features
 api.instance <- LinkingApi$new()
@@ -203,7 +203,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_linking_feedback_with_features(var.entity.key.pair)
+result <- api.instance$get_linking_feedback_with_features(var.entity_key_pair)
 dput(result)
 ```
 
@@ -211,7 +211,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.key.pair** | [**EntityKeyPair**](EntityKeyPair.md)|  | 
+ **entity_key_pair** | [**EntityKeyPair**](EntityKeyPair.md)|  | 
 
 ### Return type
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_linking_feedbacks_on_entity**
-> array[EntityLinkingFeedback] get_linking_feedbacks_on_entity(feedback.type, entity.data.key)
+> array[EntityLinkingFeedback] get_linking_feedbacks_on_entity(feedback_type, entity_data_key)
 
 Returns positive/negative/all linking feedbacks on the given entity.
 
@@ -240,8 +240,8 @@ Returns positive/negative/all linking feedbacks on the given entity.
 ```R
 library(openlattice)
 
-var.feedback.type <- 'feedback.type_example' # character | 
-var.entity.data.key <- EntityDataKey$new("entitySetId_example", "entityKeyId_example") # EntityDataKey | 
+var.feedback_type <- 'feedback_type_example' # character | 
+var.entity_data_key <- EntityDataKey$new("entitySetId_example", "entityKeyId_example") # EntityDataKey | 
 
 #Returns positive/negative/all linking feedbacks on the given entity.
 api.instance <- LinkingApi$new()
@@ -250,7 +250,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_linking_feedbacks_on_entity(var.feedback.type, var.entity.data.key)
+result <- api.instance$get_linking_feedbacks_on_entity(var.feedback_type, var.entity_data_key)
 dput(result)
 ```
 
@@ -258,8 +258,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **feedback.type** | Enum [Positive, Negative, All] |  | 
- **entity.data.key** | [**EntityDataKey**](EntityDataKey.md)|  | 
+ **feedback_type** | Enum [Positive, Negative, All] |  | 
+ **entity_data_key** | [**EntityDataKey**](EntityDataKey.md)|  | 
 
 ### Return type
 

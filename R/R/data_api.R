@@ -18,13 +18,13 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } inline.object \link{InlineObject}
+#' \item \emph{ @param } inline_object \link{InlineObject}
 #' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | Edges
 #'
-#' \item return type : map(array[character]) 
+#' \item return type : list(array[character]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -35,7 +35,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } data.edge.key list( \link{DataEdgeKey} )
+#' \item \emph{ @param } data_edge_key list( \link{DataEdgeKey} )
 #'
 #'
 #' \item status code : 200 | An Entity Set definition
@@ -51,8 +51,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } set.id \link{character}
-#' \item \emph{ @param } request.body list( \link{map(array[character])} )
+#' \item \emph{ @param } set_id \link{character}
+#' \item \emph{ @param } request_body list( \link{list(array[character])} )
 #'
 #'
 #' \item status code : 200 | Edges
@@ -68,7 +68,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } data.graph \link{DataGraph}
+#' \item \emph{ @param } data_graph \link{DataGraph}
 #' \item \emph{ @returnType } \link{DataGraphIds} \cr
 #'
 #'
@@ -85,7 +85,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @param } type Enum < [Soft, Hard] > 
 #'
 #'
@@ -102,9 +102,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @param } type Enum < [Soft, Hard] > 
-#' \item \emph{ @param } request.body list( character )
+#' \item \emph{ @param } request_body list( character )
 #'
 #'
 #' \item status code : 200 | Success
@@ -120,9 +120,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @param } type Enum < [Soft, Hard] > 
-#' \item \emph{ @param } entity.neighbors.filter list( \link{EntityNeighborsFilter} )
+#' \item \emph{ @param } entity_neighbors_filter list( \link{EntityNeighborsFilter} )
 #'
 #'
 #' \item status code : 200 | A long
@@ -138,8 +138,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } entity.key.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } entity_key_id \link{character}
 #' \item \emph{ @param } type Enum < [Soft, Hard] > 
 #'
 #'
@@ -156,10 +156,10 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } entity.key.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } entity_key_id \link{character}
 #' \item \emph{ @param } type Enum < [Soft, Hard] > 
-#' \item \emph{ @param } request.body list( character )
+#' \item \emph{ @param } request_body list( character )
 #'
 #'
 #' \item status code : 200 | Success
@@ -175,14 +175,14 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } entity.key.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } entity_key_id \link{character}
 #' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | An entity details object, with property type FQNs as keys.
 #'
-#' \item return type : map(array[character]) 
+#' \item return type : list(array[character]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -193,9 +193,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } entity.key.id \link{character}
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } entity_key_id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | A set of values
@@ -211,7 +211,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #'
 #'
 #' \item status code : 200 | The number of entities in an entity set.
@@ -227,13 +227,12 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @returnType } list( \link{map} ) \cr
+#' \item \emph{ @param } entity_set_id \link{character}
 #'
 #'
 #' \item status code : 200 | An Entity Set definition
 #'
-#' \item return type : array[map(array[character])] 
+#' \item return type : array[list(array[character])] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -244,14 +243,13 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } linked.entity.set.id \link{character}
-#' \item \emph{ @param } entity.set.selection list( \link{EntitySetSelection} )
-#' \item \emph{ @returnType } named list( \link{map} ) \cr
+#' \item \emph{ @param } linked_entity_set_id \link{character}
+#' \item \emph{ @param } entity_set_selection list( \link{EntitySetSelection} )
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(map(map(map(array[character])))) 
+#' \item return type : list(list(list(list(array[character])))) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -262,14 +260,13 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } entity.set.selection list( \link{EntitySetSelection} )
-#' \item \emph{ @returnType } list( \link{map} ) \cr
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } entity_set_selection list( \link{EntitySetSelection} )
 #'
 #'
 #' \item status code : 200 | A list of entity keys that were generated
 #'
-#' \item return type : array[map(array[character])] 
+#' \item return type : array[list(array[character])] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -281,7 +278,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } partial character
-#' \item \emph{ @param } request.body named list( \link{map(map(DataEdge))} )
+#' \item \emph{ @param } request_body named list( \link{list(list(DataEdge))} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -297,8 +294,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } request.body named list( \link{map(map(array[map(character)]))} )
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } request_body named list( \link{list(list(array[list(character)]))} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -314,9 +311,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @param } type Enum < [Merge, Replace, PartialReplace] > 
-#' \item \emph{ @param } request.body named list( \link{map(map(array[character]))} )
+#' \item \emph{ @param } request_body named list( \link{list(list(array[character]))} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -336,7 +333,7 @@
 #' ####################  create_associations  ####################
 #'
 #' library(openlattice)
-#' var.inline.object <- InlineObject$new() # InlineObject | 
+#' var.inline_object <- InlineObject$new() # InlineObject | 
 #'
 #' #Creates a new set of associations.
 #' api.instance <- DataApi$new()
@@ -350,13 +347,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$create_associations(var.inline.object)
+#' result <- api.instance$create_associations(var.inline_object)
 #'
 #'
 #' ####################  create_edges  ####################
 #'
 #' library(openlattice)
-#' var.data.edge.key <- list(DataEdgeKey$new()) # array[DataEdgeKey] | 
+#' var.data_edge_key <- list(DataEdgeKey$new()) # array[DataEdgeKey] | 
 #'
 #' #Creates a new set of associations.
 #' api.instance <- DataApi$new()
@@ -370,14 +367,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$create_edges(var.data.edge.key)
+#' result <- api.instance$create_edges(var.data_edge_key)
 #'
 #'
 #' ####################  create_entities  ####################
 #'
 #' library(openlattice)
-#' var.set.id <- 'set.id_example' # character | 
-#' var.request.body <- list(map$new()) # array[map(array[character])] | 
+#' var.set_id <- 'set_id_example' # character | 
+#' var.request_body <- NULL # array[list(array[character])] | 
 #'
 #' #Creates a new set of entities.
 #' api.instance <- DataApi$new()
@@ -391,13 +388,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$create_entities(var.set.id, var.request.body)
+#' result <- api.instance$create_entities(var.set_id, var.request_body)
 #'
 #'
 #' ####################  create_entity_and_association_data  ####################
 #'
 #' library(openlattice)
-#' var.data.graph <- DataGraph$new() # DataGraph | 
+#' var.data_graph <- DataGraph$new() # DataGraph | 
 #'
 #' #Creates entities and assocations
 #' api.instance <- DataApi$new()
@@ -411,13 +408,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$create_entity_and_association_data(var.data.graph)
+#' result <- api.instance$create_entity_and_association_data(var.data_graph)
 #'
 #'
 #' ####################  delete_all_entities_from_entity_set  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #' var.type <- 'type_example' # character | 
 #'
 #' #Clears the Entity matching the given Entity id and all of its neighbor Entities
@@ -432,15 +429,15 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_all_entities_from_entity_set(var.entity.set.id, var.type)
+#' result <- api.instance$delete_all_entities_from_entity_set(var.entity_set_id, var.type)
 #'
 #'
 #' ####################  delete_entities  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #' var.type <- 'type_example' # character | 
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Deletes multiple entities from an entity set.
 #' api.instance <- DataApi$new()
@@ -454,15 +451,15 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_entities(var.entity.set.id, var.type, var.request.body)
+#' result <- api.instance$delete_entities(var.entity_set_id, var.type, var.request_body)
 #'
 #'
 #' ####################  delete_entities_and_neighbors  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #' var.type <- 'type_example' # character | 
-#' var.entity.neighbors.filter <- list(EntityNeighborsFilter$new()) # array[EntityNeighborsFilter] | 
+#' var.entity_neighbors_filter <- list(EntityNeighborsFilter$new()) # array[EntityNeighborsFilter] | 
 #'
 #' #Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
 #' api.instance <- DataApi$new()
@@ -476,14 +473,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_entities_and_neighbors(var.entity.set.id, var.type, var.entity.neighbors.filter)
+#' result <- api.instance$delete_entities_and_neighbors(var.entity_set_id, var.type, var.entity_neighbors_filter)
 #'
 #'
 #' ####################  delete_entity  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.entity.key.id <- 'entity.key.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.entity_key_id <- 'entity_key_id_example' # character | 
 #' var.type <- 'type_example' # character | 
 #'
 #' #Deletes a single entity from an entity set.
@@ -498,16 +495,16 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_entity(var.entity.set.id, var.entity.key.id, var.type)
+#' result <- api.instance$delete_entity(var.entity_set_id, var.entity_key_id, var.type)
 #'
 #'
 #' ####################  delete_entity_properties  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.entity.key.id <- 'entity.key.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.entity_key_id <- 'entity_key_id_example' # character | 
 #' var.type <- 'type_example' # character | 
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Deletes properties from an entity.
 #' api.instance <- DataApi$new()
@@ -521,14 +518,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_entity_properties(var.entity.set.id, var.entity.key.id, var.type, var.request.body)
+#' result <- api.instance$delete_entity_properties(var.entity_set_id, var.entity_key_id, var.type, var.request_body)
 #'
 #'
 #' ####################  get_entity  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.entity.key.id <- 'entity.key.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.entity_key_id <- 'entity_key_id_example' # character | 
 #'
 #' #Loads a single entity by its entityKeyId and entitySetId
 #' api.instance <- DataApi$new()
@@ -542,15 +539,15 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity(var.entity.set.id, var.entity.key.id)
+#' result <- api.instance$get_entity(var.entity_set_id, var.entity_key_id)
 #'
 #'
 #' ####################  get_entity_property_values  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.entity.key.id <- 'entity.key.id_example' # character | 
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.entity_key_id <- 'entity_key_id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
 #' api.instance <- DataApi$new()
@@ -564,13 +561,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_property_values(var.entity.set.id, var.entity.key.id, var.property.type.id)
+#' result <- api.instance$get_entity_property_values(var.entity_set_id, var.entity_key_id, var.property_type_id)
 #'
 #'
 #' ####################  get_entity_set_size  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #'
 #' #Gets the number of entities in an entity set.
 #' api.instance <- DataApi$new()
@@ -584,13 +581,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_set_size(var.entity.set.id)
+#' result <- api.instance$get_entity_set_size(var.entity_set_id)
 #'
 #'
 #' ####################  load_entity_set_data  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #'
 #' #Gets an iterable containing the entity data, using property type FQNs as key
 #' api.instance <- DataApi$new()
@@ -604,14 +601,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$load_entity_set_data(var.entity.set.id)
+#' result <- api.instance$load_entity_set_data(var.entity_set_id)
 #'
 #'
 #' ####################  load_linked_entity_set_breakdown  ####################
 #'
 #' library(openlattice)
-#' var.linked.entity.set.id <- 'linked.entity.set.id_example' # character | 
-#' var.entity.set.selection <- list(EntitySetSelection$new()) # array[EntitySetSelection] | 
+#' var.linked_entity_set_id <- 'linked_entity_set_id_example' # character | 
+#' var.entity_set_selection <- list(EntitySetSelection$new()) # array[EntitySetSelection] | 
 #'
 #' #Loads a linked entity set breakdown with the selected linked entities and properties.
 #' api.instance <- DataApi$new()
@@ -625,14 +622,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$load_linked_entity_set_breakdown(var.linked.entity.set.id, var.entity.set.selection)
+#' result <- api.instance$load_linked_entity_set_breakdown(var.linked_entity_set_id, var.entity_set_selection)
 #'
 #'
 #' ####################  load_selected_entity_set_data  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.entity.set.selection <- list(EntitySetSelection$new()) # array[EntitySetSelection] | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.entity_set_selection <- list(EntitySetSelection$new()) # array[EntitySetSelection] | 
 #'
 #' #Gets a list of entities by UUIDs
 #' api.instance <- DataApi$new()
@@ -646,14 +643,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$load_selected_entity_set_data(var.entity.set.id, var.entity.set.selection)
+#' result <- api.instance$load_selected_entity_set_data(var.entity_set_id, var.entity_set_selection)
 #'
 #'
 #' ####################  replace_association_data  ####################
 #'
 #' library(openlattice)
 #' var.partial <- 'partial_example' # character | 
-#' var.request.body <- {'key' => map$new()} # map(map(DataEdge)) | 
+#' var.request_body <- NULL # list(list(DataEdge)) | 
 #'
 #' #Replaces Association Data
 #' api.instance <- DataApi$new()
@@ -667,14 +664,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$replace_association_data(var.partial, var.request.body)
+#' result <- api.instance$replace_association_data(var.partial, var.request_body)
 #'
 #'
 #' ####################  replace_entity_properties  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.request.body <- {'key' => map$new()} # map(map(array[map(character)])) | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.request_body <- NULL # list(list(array[list(character)])) | 
 #'
 #' #Replaces Entity Properties
 #' api.instance <- DataApi$new()
@@ -688,15 +685,15 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$replace_entity_properties(var.entity.set.id, var.request.body)
+#' result <- api.instance$replace_entity_properties(var.entity_set_id, var.request_body)
 #'
 #'
 #' ####################  update_entities_in_entity_set  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #' var.type <- 'type_example' # character | 
-#' var.request.body <- {'key' => map$new()} # map(map(array[character])) | 
+#' var.request_body <- NULL # list(list(array[character])) | 
 #'
 #' #Perform one of the following bulk update operations on entities (type = Merge) adds new properties without affecting existing data, (type = PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type = Replace) replaces all entity data with the supplied properties.
 #' api.instance <- DataApi$new()
@@ -710,7 +707,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_entities_in_entity_set(var.entity.set.id, var.type, var.request.body)
+#' result <- api.instance$update_entities_in_entity_set(var.entity_set_id, var.type, var.request_body)
 #'
 #'
 #' }
@@ -729,8 +726,8 @@ DataApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    create_associations = function(inline.object, ...){
-      apiResponse <- self$create_associationsWithHttpInfo(inline.object, ...)
+    create_associations = function(inline_object, ...){
+      apiResponse <- self$create_associationsWithHttpInfo(inline_object, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -743,17 +740,22 @@ DataApi <- R6::R6Class(
       }
     },
 
-    create_associationsWithHttpInfo = function(inline.object, ...){
+    create_associationsWithHttpInfo = function(inline_object, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`inline.object`)) {
-        stop("Missing required parameter `inline.object`.")
+      if (missing(`inline_object`)) {
+        stop("Missing required parameter `inline_object`.")
       }
 
-      if (!missing(`inline.object`)) {
-        body <- `inline.object`$toJSONString()
+      if (!missing(`inline_object`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`inline_object`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -773,7 +775,7 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[character])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[character])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -787,8 +789,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    create_edges = function(data.edge.key, ...){
-      apiResponse <- self$create_edgesWithHttpInfo(data.edge.key, ...)
+    create_edges = function(data_edge_key, ...){
+      apiResponse <- self$create_edgesWithHttpInfo(data_edge_key, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -801,18 +803,22 @@ DataApi <- R6::R6Class(
       }
     },
 
-    create_edgesWithHttpInfo = function(data.edge.key, ...){
+    create_edgesWithHttpInfo = function(data_edge_key, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`data.edge.key`)) {
-        stop("Missing required parameter `data.edge.key`.")
+      if (missing(`data_edge_key`)) {
+        stop("Missing required parameter `data_edge_key`.")
       }
 
-      if (!missing(`data.edge.key`)) {
-        body.items = paste(unlist(lapply(data.edge.key, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`data_edge_key`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`data_edge_key`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
@@ -846,8 +852,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    create_entities = function(set.id, request.body, ...){
-      apiResponse <- self$create_entitiesWithHttpInfo(set.id, request.body, ...)
+    create_entities = function(set_id, request_body, ...){
+      apiResponse <- self$create_entitiesWithHttpInfo(set_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -860,24 +866,28 @@ DataApi <- R6::R6Class(
       }
     },
 
-    create_entitiesWithHttpInfo = function(set.id, request.body, ...){
+    create_entitiesWithHttpInfo = function(set_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`set.id`)) {
-        stop("Missing required parameter `set.id`.")
+      if (missing(`set_id`)) {
+        stop("Missing required parameter `set_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      queryParams['setId'] <- set.id
+      queryParams['setId'] <- set_id
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
@@ -911,8 +921,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    create_entity_and_association_data = function(data.graph, ...){
-      apiResponse <- self$create_entity_and_association_dataWithHttpInfo(data.graph, ...)
+    create_entity_and_association_data = function(data_graph, ...){
+      apiResponse <- self$create_entity_and_association_dataWithHttpInfo(data_graph, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -925,17 +935,22 @@ DataApi <- R6::R6Class(
       }
     },
 
-    create_entity_and_association_dataWithHttpInfo = function(data.graph, ...){
+    create_entity_and_association_dataWithHttpInfo = function(data_graph, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`data.graph`)) {
-        stop("Missing required parameter `data.graph`.")
+      if (missing(`data_graph`)) {
+        stop("Missing required parameter `data_graph`.")
       }
 
-      if (!missing(`data.graph`)) {
-        body <- `data.graph`$toJSONString()
+      if (!missing(`data_graph`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`data_graph`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -969,8 +984,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_all_entities_from_entity_set = function(entity.set.id, type, ...){
-      apiResponse <- self$delete_all_entities_from_entity_setWithHttpInfo(entity.set.id, type, ...)
+    delete_all_entities_from_entity_set = function(entity_set_id, type, ...){
+      apiResponse <- self$delete_all_entities_from_entity_setWithHttpInfo(entity_set_id, type, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -983,13 +998,13 @@ DataApi <- R6::R6Class(
       }
     },
 
-    delete_all_entities_from_entity_setWithHttpInfo = function(entity.set.id, type, ...){
+    delete_all_entities_from_entity_setWithHttpInfo = function(entity_set_id, type, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       if (missing(`type`)) {
@@ -999,8 +1014,8 @@ DataApi <- R6::R6Class(
       queryParams['type'] <- type
 
       urlPath <- "/datastore/data/set/{entitySetId}/all"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1025,8 +1040,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_entities = function(entity.set.id, type, request.body, ...){
-      apiResponse <- self$delete_entitiesWithHttpInfo(entity.set.id, type, request.body, ...)
+    delete_entities = function(entity_set_id, type, request_body, ...){
+      apiResponse <- self$delete_entitiesWithHttpInfo(entity_set_id, type, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1039,35 +1054,39 @@ DataApi <- R6::R6Class(
       }
     },
 
-    delete_entitiesWithHttpInfo = function(entity.set.id, type, request.body, ...){
+    delete_entitiesWithHttpInfo = function(entity_set_id, type, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       if (missing(`type`)) {
         stop("Missing required parameter `type`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
       queryParams['type'] <- type
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/data/set/{entitySetId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1098,8 +1117,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_entities_and_neighbors = function(entity.set.id, type, entity.neighbors.filter, ...){
-      apiResponse <- self$delete_entities_and_neighborsWithHttpInfo(entity.set.id, type, entity.neighbors.filter, ...)
+    delete_entities_and_neighbors = function(entity_set_id, type, entity_neighbors_filter, ...){
+      apiResponse <- self$delete_entities_and_neighborsWithHttpInfo(entity_set_id, type, entity_neighbors_filter, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1112,35 +1131,39 @@ DataApi <- R6::R6Class(
       }
     },
 
-    delete_entities_and_neighborsWithHttpInfo = function(entity.set.id, type, entity.neighbors.filter, ...){
+    delete_entities_and_neighborsWithHttpInfo = function(entity_set_id, type, entity_neighbors_filter, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       if (missing(`type`)) {
         stop("Missing required parameter `type`.")
       }
 
-      if (missing(`entity.neighbors.filter`)) {
-        stop("Missing required parameter `entity.neighbors.filter`.")
+      if (missing(`entity_neighbors_filter`)) {
+        stop("Missing required parameter `entity_neighbors_filter`.")
       }
 
       queryParams['type'] <- type
 
-      if (!missing(`entity.neighbors.filter`)) {
-        body.items = paste(unlist(lapply(entity.neighbors.filter, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`entity_neighbors_filter`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`entity_neighbors_filter`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/data/set/{entitySetId}/neighbors"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1171,8 +1194,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_entity = function(entity.set.id, entity.key.id, type, ...){
-      apiResponse <- self$delete_entityWithHttpInfo(entity.set.id, entity.key.id, type, ...)
+    delete_entity = function(entity_set_id, entity_key_id, type, ...){
+      apiResponse <- self$delete_entityWithHttpInfo(entity_set_id, entity_key_id, type, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1185,17 +1208,17 @@ DataApi <- R6::R6Class(
       }
     },
 
-    delete_entityWithHttpInfo = function(entity.set.id, entity.key.id, type, ...){
+    delete_entityWithHttpInfo = function(entity_set_id, entity_key_id, type, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`entity.key.id`)) {
-        stop("Missing required parameter `entity.key.id`.")
+      if (missing(`entity_key_id`)) {
+        stop("Missing required parameter `entity_key_id`.")
       }
 
       if (missing(`type`)) {
@@ -1205,12 +1228,12 @@ DataApi <- R6::R6Class(
       queryParams['type'] <- type
 
       urlPath <- "/datastore/data/{entitySetId}/{entityKeyId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.key.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), URLencode(as.character(`entity.key.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_key_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), URLencode(as.character(`entity_key_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1235,8 +1258,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_entity_properties = function(entity.set.id, entity.key.id, type, request.body, ...){
-      apiResponse <- self$delete_entity_propertiesWithHttpInfo(entity.set.id, entity.key.id, type, request.body, ...)
+    delete_entity_properties = function(entity_set_id, entity_key_id, type, request_body, ...){
+      apiResponse <- self$delete_entity_propertiesWithHttpInfo(entity_set_id, entity_key_id, type, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1249,43 +1272,47 @@ DataApi <- R6::R6Class(
       }
     },
 
-    delete_entity_propertiesWithHttpInfo = function(entity.set.id, entity.key.id, type, request.body, ...){
+    delete_entity_propertiesWithHttpInfo = function(entity_set_id, entity_key_id, type, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`entity.key.id`)) {
-        stop("Missing required parameter `entity.key.id`.")
+      if (missing(`entity_key_id`)) {
+        stop("Missing required parameter `entity_key_id`.")
       }
 
       if (missing(`type`)) {
         stop("Missing required parameter `type`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
       queryParams['type'] <- type
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/data/{entitySetId}/{entityKeyId}/properties"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.key.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), URLencode(as.character(`entity.key.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_key_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), URLencode(as.character(`entity_key_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1310,8 +1337,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity = function(entity.set.id, entity.key.id, ...){
-      apiResponse <- self$get_entityWithHttpInfo(entity.set.id, entity.key.id, ...)
+    get_entity = function(entity_set_id, entity_key_id, ...){
+      apiResponse <- self$get_entityWithHttpInfo(entity_set_id, entity_key_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1324,26 +1351,26 @@ DataApi <- R6::R6Class(
       }
     },
 
-    get_entityWithHttpInfo = function(entity.set.id, entity.key.id, ...){
+    get_entityWithHttpInfo = function(entity_set_id, entity_key_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`entity.key.id`)) {
-        stop("Missing required parameter `entity.key.id`.")
+      if (missing(`entity_key_id`)) {
+        stop("Missing required parameter `entity_key_id`.")
       }
 
       urlPath <- "/datastore/data/{entitySetId}/{entityKeyId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.key.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), URLencode(as.character(`entity.key.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_key_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), URLencode(as.character(`entity_key_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1360,7 +1387,7 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[character])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[character])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1374,8 +1401,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_property_values = function(entity.set.id, entity.key.id, property.type.id, ...){
-      apiResponse <- self$get_entity_property_valuesWithHttpInfo(entity.set.id, entity.key.id, property.type.id, ...)
+    get_entity_property_values = function(entity_set_id, entity_key_id, property_type_id, ...){
+      apiResponse <- self$get_entity_property_valuesWithHttpInfo(entity_set_id, entity_key_id, property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1388,34 +1415,34 @@ DataApi <- R6::R6Class(
       }
     },
 
-    get_entity_property_valuesWithHttpInfo = function(entity.set.id, entity.key.id, property.type.id, ...){
+    get_entity_property_valuesWithHttpInfo = function(entity_set_id, entity_key_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`entity.key.id`)) {
-        stop("Missing required parameter `entity.key.id`.")
+      if (missing(`entity_key_id`)) {
+        stop("Missing required parameter `entity_key_id`.")
       }
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.key.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), URLencode(as.character(`entity.key.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_key_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), URLencode(as.character(`entity_key_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1446,8 +1473,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_set_size = function(entity.set.id, ...){
-      apiResponse <- self$get_entity_set_sizeWithHttpInfo(entity.set.id, ...)
+    get_entity_set_size = function(entity_set_id, ...){
+      apiResponse <- self$get_entity_set_sizeWithHttpInfo(entity_set_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1460,18 +1487,18 @@ DataApi <- R6::R6Class(
       }
     },
 
-    get_entity_set_sizeWithHttpInfo = function(entity.set.id, ...){
+    get_entity_set_sizeWithHttpInfo = function(entity_set_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       urlPath <- "/datastore/data/{entitySetId}/count"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1502,8 +1529,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    load_entity_set_data = function(entity.set.id, ...){
-      apiResponse <- self$load_entity_set_dataWithHttpInfo(entity.set.id, ...)
+    load_entity_set_data = function(entity_set_id, ...){
+      apiResponse <- self$load_entity_set_dataWithHttpInfo(entity_set_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1516,18 +1543,18 @@ DataApi <- R6::R6Class(
       }
     },
 
-    load_entity_set_dataWithHttpInfo = function(entity.set.id, ...){
+    load_entity_set_dataWithHttpInfo = function(entity_set_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       urlPath <- "/datastore/data/set/{entitySetId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1544,7 +1571,7 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[map(array[character])]", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "array[list(array[character])]", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1558,8 +1585,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    load_linked_entity_set_breakdown = function(linked.entity.set.id, entity.set.selection, ...){
-      apiResponse <- self$load_linked_entity_set_breakdownWithHttpInfo(linked.entity.set.id, entity.set.selection, ...)
+    load_linked_entity_set_breakdown = function(linked_entity_set_id, entity_set_selection, ...){
+      apiResponse <- self$load_linked_entity_set_breakdownWithHttpInfo(linked_entity_set_id, entity_set_selection, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1572,29 +1599,33 @@ DataApi <- R6::R6Class(
       }
     },
 
-    load_linked_entity_set_breakdownWithHttpInfo = function(linked.entity.set.id, entity.set.selection, ...){
+    load_linked_entity_set_breakdownWithHttpInfo = function(linked_entity_set_id, entity_set_selection, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`linked.entity.set.id`)) {
-        stop("Missing required parameter `linked.entity.set.id`.")
+      if (missing(`linked_entity_set_id`)) {
+        stop("Missing required parameter `linked_entity_set_id`.")
       }
 
-      if (missing(`entity.set.selection`)) {
-        stop("Missing required parameter `entity.set.selection`.")
+      if (missing(`entity_set_selection`)) {
+        stop("Missing required parameter `entity_set_selection`.")
       }
 
-      if (!missing(`entity.set.selection`)) {
-        body.items = paste(unlist(lapply(entity.set.selection, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`entity_set_selection`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`entity_set_selection`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/data/set/{linkedEntitySetId}/detailed"
-      if (!missing(`linked.entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "linkedEntitySetId", "\\}"), URLencode(as.character(`linked.entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`linked_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkedEntitySetId", "\\}"), URLencode(as.character(`linked_entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1611,7 +1642,7 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(map(map(map(array[character]))))", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(list(list(list(array[character]))))", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1625,8 +1656,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    load_selected_entity_set_data = function(entity.set.id, entity.set.selection, ...){
-      apiResponse <- self$load_selected_entity_set_dataWithHttpInfo(entity.set.id, entity.set.selection, ...)
+    load_selected_entity_set_data = function(entity_set_id, entity_set_selection, ...){
+      apiResponse <- self$load_selected_entity_set_dataWithHttpInfo(entity_set_id, entity_set_selection, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1639,29 +1670,33 @@ DataApi <- R6::R6Class(
       }
     },
 
-    load_selected_entity_set_dataWithHttpInfo = function(entity.set.id, entity.set.selection, ...){
+    load_selected_entity_set_dataWithHttpInfo = function(entity_set_id, entity_set_selection, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`entity.set.selection`)) {
-        stop("Missing required parameter `entity.set.selection`.")
+      if (missing(`entity_set_selection`)) {
+        stop("Missing required parameter `entity_set_selection`.")
       }
 
-      if (!missing(`entity.set.selection`)) {
-        body.items = paste(unlist(lapply(entity.set.selection, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`entity_set_selection`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`entity_set_selection`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/data/set/{entitySetId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1678,7 +1713,7 @@ DataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[map(array[character])]", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "array[list(array[character])]", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1692,8 +1727,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    replace_association_data = function(partial, request.body, ...){
-      apiResponse <- self$replace_association_dataWithHttpInfo(partial, request.body, ...)
+    replace_association_data = function(partial, request_body, ...){
+      apiResponse <- self$replace_association_dataWithHttpInfo(partial, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1706,7 +1741,7 @@ DataApi <- R6::R6Class(
       }
     },
 
-    replace_association_dataWithHttpInfo = function(partial, request.body, ...){
+    replace_association_dataWithHttpInfo = function(partial, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1715,14 +1750,19 @@ DataApi <- R6::R6Class(
         stop("Missing required parameter `partial`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
       queryParams['partial'] <- partial
 
-      if (!missing(`request.body`)) {
-        body <- `request.body`$toJSONString()
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            %s
+',
+              jsonlite::toJSON(lapply(`request_body`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        )
       } else {
         body <- NULL
       }
@@ -1756,8 +1796,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    replace_entity_properties = function(entity.set.id, request.body, ...){
-      apiResponse <- self$replace_entity_propertiesWithHttpInfo(entity.set.id, request.body, ...)
+    replace_entity_properties = function(entity_set_id, request_body, ...){
+      apiResponse <- self$replace_entity_propertiesWithHttpInfo(entity_set_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1770,28 +1810,33 @@ DataApi <- R6::R6Class(
       }
     },
 
-    replace_entity_propertiesWithHttpInfo = function(entity.set.id, request.body, ...){
+    replace_entity_propertiesWithHttpInfo = function(entity_set_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body <- `request.body`$toJSONString()
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            %s
+',
+              jsonlite::toJSON(lapply(`request_body`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/data/set/{entitySetId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1822,8 +1867,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_entities_in_entity_set = function(entity.set.id, type, request.body, ...){
-      apiResponse <- self$update_entities_in_entity_setWithHttpInfo(entity.set.id, type, request.body, ...)
+    update_entities_in_entity_set = function(entity_set_id, type, request_body, ...){
+      apiResponse <- self$update_entities_in_entity_setWithHttpInfo(entity_set_id, type, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1836,34 +1881,39 @@ DataApi <- R6::R6Class(
       }
     },
 
-    update_entities_in_entity_setWithHttpInfo = function(entity.set.id, type, request.body, ...){
+    update_entities_in_entity_setWithHttpInfo = function(entity_set_id, type, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       if (missing(`type`)) {
         stop("Missing required parameter `type`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
       queryParams['type'] <- type
 
-      if (!missing(`request.body`)) {
-        body <- `request.body`$toJSONString()
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            %s
+',
+              jsonlite::toJSON(lapply(`request_body`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/data/set/{entitySetId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication

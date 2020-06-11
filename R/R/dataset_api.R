@@ -18,9 +18,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } table.name character
-#' \item \emph{ @param } column.name character
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } table_name character
+#' \item \emph{ @param } column_name character
 #'
 #'
 #' \item status code : 200 | Success
@@ -36,8 +36,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } table.name character
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } table_name character
 #'
 #'
 #' \item status code : 200 | Success
@@ -53,8 +53,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } table.name character
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } table_name character
 #'
 #'
 #' \item status code : 200 | Success
@@ -70,8 +70,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } request.body list( character )
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } request_body list( character )
 #'
 #'
 #' \item status code : 200 | Success
@@ -87,7 +87,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @param } permission Enum < [DISCOVER, MATERIALIZE, LINK, READ, WRITE, OWNER] > 
 #' \item \emph{ @returnType } list( \link{OrganizationExternalDatabaseTableColumnsPair} ) \cr
 #'
@@ -105,9 +105,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } table.name character
-#' \item \emph{ @param } column.name character
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } table_name character
+#' \item \emph{ @param } column_name character
 #' \item \emph{ @returnType } \link{OrganizationExternalDatabaseColumn} \cr
 #'
 #'
@@ -124,8 +124,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } table.name character
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } table_name character
 #' \item \emph{ @returnType } \link{OrganizationExternalDatabaseTable} \cr
 #'
 #'
@@ -142,8 +142,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } table.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } table_id \link{character}
 #' \item \emph{ @returnType } \link{OrganizationExternalDatabaseTableColumnsPair} \cr
 #'
 #'
@@ -160,7 +160,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @returnType } list( \link{OrganizationExternalDatabaseTable} ) \cr
 #'
 #'
@@ -177,7 +177,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @returnType } list( \link{OrganizationExternalDatabaseTableColumnsPair} ) \cr
 #'
 #'
@@ -194,10 +194,10 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } table.name character
-#' \item \emph{ @param } column.name character
-#' \item \emph{ @param } metadata.update \link{MetadataUpdate}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } table_name character
+#' \item \emph{ @param } column_name character
+#' \item \emph{ @param } metadata_update \link{MetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -213,9 +213,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } table.name character
-#' \item \emph{ @param } metadata.update \link{MetadataUpdate}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } table_name character
+#' \item \emph{ @param } metadata_update \link{MetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -235,9 +235,9 @@
 #' ####################  delete_external_database_column  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.table.name <- 'table.name_example' # character | 
-#' var.column.name <- 'column.name_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.table_name <- 'table_name_example' # character | 
+#' var.column_name <- 'column_name_example' # character | 
 #'
 #' #Deletes an OrganizationExternalDatabaseColumn object, which represents an organization's column in an external database. This deletes both the object and the column in the database. It is a hard delete.
 #' api.instance <- DatasetApi$new()
@@ -251,14 +251,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_external_database_column(var.organization.id, var.table.name, var.column.name)
+#' result <- api.instance$delete_external_database_column(var.organization_id, var.table_name, var.column_name)
 #'
 #'
 #' ####################  delete_external_database_columns  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.table.name <- 'table.name_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.table_name <- 'table_name_example' # character | 
 #'
 #' #Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization's table in an external database. It is a hard delete
 #' api.instance <- DatasetApi$new()
@@ -272,14 +272,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_external_database_columns(var.organization.id, var.table.name)
+#' result <- api.instance$delete_external_database_columns(var.organization_id, var.table_name)
 #'
 #'
 #' ####################  delete_external_database_table  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.table.name <- 'table.name_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.table_name <- 'table_name_example' # character | 
 #'
 #' #Deletes an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database. This deletes both the object and the table in the database. It is a hard delete.
 #' api.instance <- DatasetApi$new()
@@ -293,14 +293,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_external_database_table(var.organization.id, var.table.name)
+#' result <- api.instance$delete_external_database_table(var.organization_id, var.table_name)
 #'
 #'
 #' ####################  delete_external_database_tables  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
 #' api.instance <- DatasetApi$new()
@@ -314,13 +314,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_external_database_tables(var.organization.id, var.request.body)
+#' result <- api.instance$delete_external_database_tables(var.organization_id, var.request_body)
 #'
 #'
 #' ####################  get_authorized_external_db_tables_with_column_metadata  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #' var.permission <- 'permission_example' # character | 
 #'
 #' #Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
@@ -335,15 +335,15 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_authorized_external_db_tables_with_column_metadata(var.organization.id, var.permission)
+#' result <- api.instance$get_authorized_external_db_tables_with_column_metadata(var.organization_id, var.permission)
 #'
 #'
 #' ####################  get_external_database_column  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.table.name <- 'table.name_example' # character | 
-#' var.column.name <- 'column.name_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.table_name <- 'table_name_example' # character | 
+#' var.column_name <- 'column_name_example' # character | 
 #'
 #' #Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization's table in an external database.
 #' api.instance <- DatasetApi$new()
@@ -357,14 +357,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_external_database_column(var.organization.id, var.table.name, var.column.name)
+#' result <- api.instance$get_external_database_column(var.organization_id, var.table_name, var.column_name)
 #'
 #'
 #' ####################  get_external_database_table  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.table.name <- 'table.name_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.table_name <- 'table_name_example' # character | 
 #'
 #' #Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.
 #' api.instance <- DatasetApi$new()
@@ -378,14 +378,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_external_database_table(var.organization.id, var.table.name)
+#' result <- api.instance$get_external_database_table(var.organization_id, var.table_name)
 #'
 #'
 #' ####################  get_external_database_table_with_column_metadata  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.table.id <- 'table.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.table_id <- 'table_id_example' # character | 
 #'
 #' #Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
 #' api.instance <- DatasetApi$new()
@@ -399,13 +399,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_external_database_table_with_column_metadata(var.organization.id, var.table.id)
+#' result <- api.instance$get_external_database_table_with_column_metadata(var.organization_id, var.table_id)
 #'
 #'
 #' ####################  get_external_database_tables  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #'
 #' #Gets all OrganizationExternalDatabaseTable objects for an organization
 #' api.instance <- DatasetApi$new()
@@ -419,13 +419,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_external_database_tables(var.organization.id)
+#' result <- api.instance$get_external_database_tables(var.organization_id)
 #'
 #'
 #' ####################  get_external_database_tables_with_column_metadata  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #'
 #' #Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
 #' api.instance <- DatasetApi$new()
@@ -439,16 +439,16 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_external_database_tables_with_column_metadata(var.organization.id)
+#' result <- api.instance$get_external_database_tables_with_column_metadata(var.organization_id)
 #'
 #'
 #' ####################  update_external_database_column  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.table.name <- 'table.name_example' # character | 
-#' var.column.name <- 'column.name_example' # character | 
-#' var.metadata.update <- MetadataUpdate$new() # MetadataUpdate | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.table_name <- 'table_name_example' # character | 
+#' var.column_name <- 'column_name_example' # character | 
+#' var.metadata_update <- MetadataUpdate$new() # MetadataUpdate | 
 #'
 #' #Updates an OrganizationExternalDatabaseTableColumn object's fields that are included within the given metadata.
 #' api.instance <- DatasetApi$new()
@@ -462,15 +462,15 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_external_database_column(var.organization.id, var.table.name, var.column.name, var.metadata.update)
+#' result <- api.instance$update_external_database_column(var.organization_id, var.table_name, var.column_name, var.metadata_update)
 #'
 #'
 #' ####################  update_external_database_table  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.table.name <- 'table.name_example' # character | 
-#' var.metadata.update <- MetadataUpdate$new() # MetadataUpdate | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.table_name <- 'table_name_example' # character | 
+#' var.metadata_update <- MetadataUpdate$new() # MetadataUpdate | 
 #'
 #' #Updates an OrganizationExternalDatabaseTable object's fields that are included within the given metadata.
 #' api.instance <- DatasetApi$new()
@@ -484,7 +484,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_external_database_table(var.organization.id, var.table.name, var.metadata.update)
+#' result <- api.instance$update_external_database_table(var.organization_id, var.table_name, var.metadata_update)
 #'
 #'
 #' }
@@ -503,8 +503,8 @@ DatasetApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    delete_external_database_column = function(organization.id, table.name, column.name, ...){
-      apiResponse <- self$delete_external_database_columnWithHttpInfo(organization.id, table.name, column.name, ...)
+    delete_external_database_column = function(organization_id, table_name, column_name, ...){
+      apiResponse <- self$delete_external_database_columnWithHttpInfo(organization_id, table_name, column_name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -517,34 +517,34 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    delete_external_database_columnWithHttpInfo = function(organization.id, table.name, column.name, ...){
+    delete_external_database_columnWithHttpInfo = function(organization_id, table_name, column_name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`table.name`)) {
-        stop("Missing required parameter `table.name`.")
+      if (missing(`table_name`)) {
+        stop("Missing required parameter `table_name`.")
       }
 
-      if (missing(`column.name`)) {
-        stop("Missing required parameter `column.name`.")
+      if (missing(`column_name`)) {
+        stop("Missing required parameter `column_name`.")
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`table.name`)) {
-        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table.name`), reserved = TRUE), urlPath)
+      if (!missing(`table_name`)) {
+        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table_name`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`column.name`)) {
-        urlPath <- gsub(paste0("\\{", "columnName", "\\}"), URLencode(as.character(`column.name`), reserved = TRUE), urlPath)
+      if (!missing(`column_name`)) {
+        urlPath <- gsub(paste0("\\{", "columnName", "\\}"), URLencode(as.character(`column_name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -569,8 +569,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_external_database_columns = function(organization.id, table.name, ...){
-      apiResponse <- self$delete_external_database_columnsWithHttpInfo(organization.id, table.name, ...)
+    delete_external_database_columns = function(organization_id, table_name, ...){
+      apiResponse <- self$delete_external_database_columnsWithHttpInfo(organization_id, table_name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -583,26 +583,26 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    delete_external_database_columnsWithHttpInfo = function(organization.id, table.name, ...){
+    delete_external_database_columnsWithHttpInfo = function(organization_id, table_name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`table.name`)) {
-        stop("Missing required parameter `table.name`.")
+      if (missing(`table_name`)) {
+        stop("Missing required parameter `table_name`.")
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/{tableName}/external-database-column"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`table.name`)) {
-        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table.name`), reserved = TRUE), urlPath)
+      if (!missing(`table_name`)) {
+        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table_name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -627,8 +627,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_external_database_table = function(organization.id, table.name, ...){
-      apiResponse <- self$delete_external_database_tableWithHttpInfo(organization.id, table.name, ...)
+    delete_external_database_table = function(organization_id, table_name, ...){
+      apiResponse <- self$delete_external_database_tableWithHttpInfo(organization_id, table_name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -641,26 +641,26 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    delete_external_database_tableWithHttpInfo = function(organization.id, table.name, ...){
+    delete_external_database_tableWithHttpInfo = function(organization_id, table_name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`table.name`)) {
-        stop("Missing required parameter `table.name`.")
+      if (missing(`table_name`)) {
+        stop("Missing required parameter `table_name`.")
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/{tableName}/external-database-table"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`table.name`)) {
-        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table.name`), reserved = TRUE), urlPath)
+      if (!missing(`table_name`)) {
+        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table_name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -685,8 +685,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_external_database_tables = function(organization.id, request.body, ...){
-      apiResponse <- self$delete_external_database_tablesWithHttpInfo(organization.id, request.body, ...)
+    delete_external_database_tables = function(organization_id, request_body, ...){
+      apiResponse <- self$delete_external_database_tablesWithHttpInfo(organization_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -699,29 +699,33 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    delete_external_database_tablesWithHttpInfo = function(organization.id, request.body, ...){
+    delete_external_database_tablesWithHttpInfo = function(organization_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/external-database-table"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -746,8 +750,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_authorized_external_db_tables_with_column_metadata = function(organization.id, permission, ...){
-      apiResponse <- self$get_authorized_external_db_tables_with_column_metadataWithHttpInfo(organization.id, permission, ...)
+    get_authorized_external_db_tables_with_column_metadata = function(organization_id, permission, ...){
+      apiResponse <- self$get_authorized_external_db_tables_with_column_metadataWithHttpInfo(organization_id, permission, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -760,13 +764,13 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    get_authorized_external_db_tables_with_column_metadataWithHttpInfo = function(organization.id, permission, ...){
+    get_authorized_external_db_tables_with_column_metadataWithHttpInfo = function(organization_id, permission, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       if (missing(`permission`)) {
@@ -774,8 +778,8 @@ DatasetApi <- R6::R6Class(
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       if (!missing(`permission`)) {
@@ -810,8 +814,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_external_database_column = function(organization.id, table.name, column.name, ...){
-      apiResponse <- self$get_external_database_columnWithHttpInfo(organization.id, table.name, column.name, ...)
+    get_external_database_column = function(organization_id, table_name, column_name, ...){
+      apiResponse <- self$get_external_database_columnWithHttpInfo(organization_id, table_name, column_name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -824,34 +828,34 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    get_external_database_columnWithHttpInfo = function(organization.id, table.name, column.name, ...){
+    get_external_database_columnWithHttpInfo = function(organization_id, table_name, column_name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`table.name`)) {
-        stop("Missing required parameter `table.name`.")
+      if (missing(`table_name`)) {
+        stop("Missing required parameter `table_name`.")
       }
 
-      if (missing(`column.name`)) {
-        stop("Missing required parameter `column.name`.")
+      if (missing(`column_name`)) {
+        stop("Missing required parameter `column_name`.")
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`table.name`)) {
-        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table.name`), reserved = TRUE), urlPath)
+      if (!missing(`table_name`)) {
+        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table_name`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`column.name`)) {
-        urlPath <- gsub(paste0("\\{", "columnName", "\\}"), URLencode(as.character(`column.name`), reserved = TRUE), urlPath)
+      if (!missing(`column_name`)) {
+        urlPath <- gsub(paste0("\\{", "columnName", "\\}"), URLencode(as.character(`column_name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -882,8 +886,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_external_database_table = function(organization.id, table.name, ...){
-      apiResponse <- self$get_external_database_tableWithHttpInfo(organization.id, table.name, ...)
+    get_external_database_table = function(organization_id, table_name, ...){
+      apiResponse <- self$get_external_database_tableWithHttpInfo(organization_id, table_name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -896,26 +900,26 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    get_external_database_tableWithHttpInfo = function(organization.id, table.name, ...){
+    get_external_database_tableWithHttpInfo = function(organization_id, table_name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`table.name`)) {
-        stop("Missing required parameter `table.name`.")
+      if (missing(`table_name`)) {
+        stop("Missing required parameter `table_name`.")
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/{tableName}/external-database-table"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`table.name`)) {
-        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table.name`), reserved = TRUE), urlPath)
+      if (!missing(`table_name`)) {
+        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table_name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -946,8 +950,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_external_database_table_with_column_metadata = function(organization.id, table.id, ...){
-      apiResponse <- self$get_external_database_table_with_column_metadataWithHttpInfo(organization.id, table.id, ...)
+    get_external_database_table_with_column_metadata = function(organization_id, table_id, ...){
+      apiResponse <- self$get_external_database_table_with_column_metadataWithHttpInfo(organization_id, table_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -960,26 +964,26 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    get_external_database_table_with_column_metadataWithHttpInfo = function(organization.id, table.id, ...){
+    get_external_database_table_with_column_metadataWithHttpInfo = function(organization_id, table_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`table.id`)) {
-        stop("Missing required parameter `table.id`.")
+      if (missing(`table_id`)) {
+        stop("Missing required parameter `table_id`.")
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`table.id`)) {
-        urlPath <- gsub(paste0("\\{", "tableId", "\\}"), URLencode(as.character(`table.id`), reserved = TRUE), urlPath)
+      if (!missing(`table_id`)) {
+        urlPath <- gsub(paste0("\\{", "tableId", "\\}"), URLencode(as.character(`table_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1010,8 +1014,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_external_database_tables = function(organization.id, ...){
-      apiResponse <- self$get_external_database_tablesWithHttpInfo(organization.id, ...)
+    get_external_database_tables = function(organization_id, ...){
+      apiResponse <- self$get_external_database_tablesWithHttpInfo(organization_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1024,18 +1028,18 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    get_external_database_tablesWithHttpInfo = function(organization.id, ...){
+    get_external_database_tablesWithHttpInfo = function(organization_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/external-database-table"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1066,8 +1070,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_external_database_tables_with_column_metadata = function(organization.id, ...){
-      apiResponse <- self$get_external_database_tables_with_column_metadataWithHttpInfo(organization.id, ...)
+    get_external_database_tables_with_column_metadata = function(organization_id, ...){
+      apiResponse <- self$get_external_database_tables_with_column_metadataWithHttpInfo(organization_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1080,18 +1084,18 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    get_external_database_tables_with_column_metadataWithHttpInfo = function(organization.id, ...){
+    get_external_database_tables_with_column_metadataWithHttpInfo = function(organization_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/external-database-table/external-database-column"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1122,8 +1126,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_external_database_column = function(organization.id, table.name, column.name, metadata.update, ...){
-      apiResponse <- self$update_external_database_columnWithHttpInfo(organization.id, table.name, column.name, metadata.update, ...)
+    update_external_database_column = function(organization_id, table_name, column_name, metadata_update, ...){
+      apiResponse <- self$update_external_database_columnWithHttpInfo(organization_id, table_name, column_name, metadata_update, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1136,44 +1140,49 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    update_external_database_columnWithHttpInfo = function(organization.id, table.name, column.name, metadata.update, ...){
+    update_external_database_columnWithHttpInfo = function(organization_id, table_name, column_name, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`table.name`)) {
-        stop("Missing required parameter `table.name`.")
+      if (missing(`table_name`)) {
+        stop("Missing required parameter `table_name`.")
       }
 
-      if (missing(`column.name`)) {
-        stop("Missing required parameter `column.name`.")
+      if (missing(`column_name`)) {
+        stop("Missing required parameter `column_name`.")
       }
 
-      if (missing(`metadata.update`)) {
-        stop("Missing required parameter `metadata.update`.")
+      if (missing(`metadata_update`)) {
+        stop("Missing required parameter `metadata_update`.")
       }
 
-      if (!missing(`metadata.update`)) {
-        body <- `metadata.update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`table.name`)) {
-        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table.name`), reserved = TRUE), urlPath)
+      if (!missing(`table_name`)) {
+        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table_name`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`column.name`)) {
-        urlPath <- gsub(paste0("\\{", "columnName", "\\}"), URLencode(as.character(`column.name`), reserved = TRUE), urlPath)
+      if (!missing(`column_name`)) {
+        urlPath <- gsub(paste0("\\{", "columnName", "\\}"), URLencode(as.character(`column_name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1198,8 +1207,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_external_database_table = function(organization.id, table.name, metadata.update, ...){
-      apiResponse <- self$update_external_database_tableWithHttpInfo(organization.id, table.name, metadata.update, ...)
+    update_external_database_table = function(organization_id, table_name, metadata_update, ...){
+      apiResponse <- self$update_external_database_tableWithHttpInfo(organization_id, table_name, metadata_update, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1212,36 +1221,41 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    update_external_database_tableWithHttpInfo = function(organization.id, table.name, metadata.update, ...){
+    update_external_database_tableWithHttpInfo = function(organization_id, table_name, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`table.name`)) {
-        stop("Missing required parameter `table.name`.")
+      if (missing(`table_name`)) {
+        stop("Missing required parameter `table_name`.")
       }
 
-      if (missing(`metadata.update`)) {
-        stop("Missing required parameter `metadata.update`.")
+      if (missing(`metadata_update`)) {
+        stop("Missing required parameter `metadata_update`.")
       }
 
-      if (!missing(`metadata.update`)) {
-        body <- `metadata.update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organization-database/{organizationId}/{tableName}/external-database-table"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`table.name`)) {
-        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table.name`), reserved = TRUE), urlPath)
+      if (!missing(`table_name`)) {
+        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table_name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication

@@ -18,8 +18,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.collection.id \link{character}
-#' \item \emph{ @param } collection.template.type \link{CollectionTemplateType}
+#' \item \emph{ @param } entity_type_collection_id \link{character}
+#' \item \emph{ @param } collection_template_type \link{CollectionTemplateType}
 #'
 #'
 #' \item status code : 200 | Success
@@ -35,7 +35,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.collection \link{EntitySetCollection}
+#' \item \emph{ @param } entity_set_collection \link{EntitySetCollection}
 #'
 #'
 #' \item status code : 200 | Success
@@ -51,7 +51,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.collection \link{EntityTypeCollection}
+#' \item \emph{ @param } entity_type_collection \link{EntityTypeCollection}
 #'
 #'
 #' \item status code : 200 | Success
@@ -67,7 +67,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.collection.id \link{character}
+#' \item \emph{ @param } entity_set_collection_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -83,7 +83,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.collection.id \link{character}
+#' \item \emph{ @param } entity_type_collection_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -131,7 +131,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.collection.id \link{character}
+#' \item \emph{ @param } entity_set_collection_id \link{character}
 #' \item \emph{ @returnType } \link{EntitySetCollection} \cr
 #'
 #'
@@ -148,7 +148,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.collection.id \link{character}
+#' \item \emph{ @param } entity_set_collection_id \link{character}
 #' \item \emph{ @returnType } list( \link{EntitySetCollection} ) \cr
 #'
 #'
@@ -165,7 +165,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.collection.id \link{character}
+#' \item \emph{ @param } entity_type_collection_id \link{character}
 #' \item \emph{ @returnType } \link{EntityTypeCollection} \cr
 #'
 #'
@@ -182,8 +182,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.collection.id \link{character}
-#' \item \emph{ @param } type.id \link{character}
+#' \item \emph{ @param } entity_type_collection_id \link{character}
+#' \item \emph{ @param } type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -199,8 +199,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.collection.id \link{character}
-#' \item \emph{ @param } metadata.update \link{MetadataUpdate}
+#' \item \emph{ @param } entity_set_collection_id \link{character}
+#' \item \emph{ @param } metadata_update \link{MetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -216,8 +216,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.collection.id \link{character}
-#' \item \emph{ @param } request.body named list( \link{map(character)} )
+#' \item \emph{ @param } entity_set_collection_id \link{character}
+#' \item \emph{ @param } request_body named list( \link{list(character)} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -233,8 +233,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.collection.id \link{character}
-#' \item \emph{ @param } metadata.update \link{MetadataUpdate}
+#' \item \emph{ @param } entity_type_collection_id \link{character}
+#' \item \emph{ @param } metadata_update \link{MetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -254,8 +254,8 @@
 #' ####################  add_type_to_entity_type_collection_template  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
-#' var.collection.template.type <- CollectionTemplateType$new() # CollectionTemplateType | 
+#' var.entity_type_collection_id <- 'entity_type_collection_id_example' # character | 
+#' var.collection_template_type <- CollectionTemplateType$new() # CollectionTemplateType | 
 #'
 #' #Appends type to template of the specified EntityTypeCollection
 #' api.instance <- CollectionsApi$new()
@@ -269,13 +269,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_type_to_entity_type_collection_template(var.entity.type.collection.id, var.collection.template.type)
+#' result <- api.instance$add_type_to_entity_type_collection_template(var.entity_type_collection_id, var.collection_template_type)
 #'
 #'
 #' ####################  create_entity_set_collection  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.collection <- EntitySetCollection$new() # EntitySetCollection | 
+#' var.entity_set_collection <- EntitySetCollection$new() # EntitySetCollection | 
 #'
 #' #Creates a new EntitySetCollection
 #' api.instance <- CollectionsApi$new()
@@ -289,13 +289,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$create_entity_set_collection(var.entity.set.collection)
+#' result <- api.instance$create_entity_set_collection(var.entity_set_collection)
 #'
 #'
 #' ####################  create_entity_type_collection  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.collection <- EntityTypeCollection$new() # EntityTypeCollection | 
+#' var.entity_type_collection <- EntityTypeCollection$new() # EntityTypeCollection | 
 #'
 #' #Creates a new EntityTypeCollection
 #' api.instance <- CollectionsApi$new()
@@ -309,13 +309,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$create_entity_type_collection(var.entity.type.collection)
+#' result <- api.instance$create_entity_type_collection(var.entity_type_collection)
 #'
 #'
 #' ####################  delete_entity_set_collection  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
+#' var.entity_set_collection_id <- 'entity_set_collection_id_example' # character | 
 #'
 #' #Deletes the specified EntitySetCollection
 #' api.instance <- CollectionsApi$new()
@@ -329,13 +329,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_entity_set_collection(var.entity.set.collection.id)
+#' result <- api.instance$delete_entity_set_collection(var.entity_set_collection_id)
 #'
 #'
 #' ####################  delete_entity_type_collection  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
+#' var.entity_type_collection_id <- 'entity_type_collection_id_example' # character | 
 #'
 #' #Deletes the specified EntityTypeCollection
 #' api.instance <- CollectionsApi$new()
@@ -349,7 +349,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_entity_type_collection(var.entity.type.collection.id)
+#' result <- api.instance$delete_entity_type_collection(var.entity_type_collection_id)
 #'
 #'
 #' ####################  get_all_entity_set_collections  ####################
@@ -393,7 +393,7 @@
 #' ####################  get_entity_set_collection  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
+#' var.entity_set_collection_id <- 'entity_set_collection_id_example' # character | 
 #'
 #' #Returns the EntitySetCollection object for a given id
 #' api.instance <- CollectionsApi$new()
@@ -407,13 +407,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_set_collection(var.entity.set.collection.id)
+#' result <- api.instance$get_entity_set_collection(var.entity_set_collection_id)
 #'
 #'
 #' ####################  get_entity_set_collections_of_type  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
+#' var.entity_set_collection_id <- 'entity_set_collection_id_example' # character | 
 #'
 #' #Returns all authorized EntitySetCollections for a given EntityTypeCollection id
 #' api.instance <- CollectionsApi$new()
@@ -427,13 +427,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_set_collections_of_type(var.entity.set.collection.id)
+#' result <- api.instance$get_entity_set_collections_of_type(var.entity_set_collection_id)
 #'
 #'
 #' ####################  get_entity_type_collection  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
+#' var.entity_type_collection_id <- 'entity_type_collection_id_example' # character | 
 #'
 #' #Returns the EntityTypeCollection object for a given id
 #' api.instance <- CollectionsApi$new()
@@ -447,14 +447,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_type_collection(var.entity.type.collection.id)
+#' result <- api.instance$get_entity_type_collection(var.entity_type_collection_id)
 #'
 #'
 #' ####################  remove_type_from_entity_type_collection_template  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
-#' var.type.id <- 'type.id_example' # character | 
+#' var.entity_type_collection_id <- 'entity_type_collection_id_example' # character | 
+#' var.type_id <- 'type_id_example' # character | 
 #'
 #' #Removes a key from an EntityTypeCollection template
 #' api.instance <- CollectionsApi$new()
@@ -468,14 +468,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$remove_type_from_entity_type_collection_template(var.entity.type.collection.id, var.type.id)
+#' result <- api.instance$remove_type_from_entity_type_collection_template(var.entity_type_collection_id, var.type_id)
 #'
 #'
 #' ####################  update_entity_set_collection_metadata  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
-#' var.metadata.update <- MetadataUpdate$new() # MetadataUpdate | 
+#' var.entity_set_collection_id <- 'entity_set_collection_id_example' # character | 
+#' var.metadata_update <- MetadataUpdate$new() # MetadataUpdate | 
 #'
 #' #Updates metadata of the specified EntitySetCollection
 #' api.instance <- CollectionsApi$new()
@@ -489,14 +489,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_entity_set_collection_metadata(var.entity.set.collection.id, var.metadata.update)
+#' result <- api.instance$update_entity_set_collection_metadata(var.entity_set_collection_id, var.metadata_update)
 #'
 #'
 #' ####################  update_entity_set_collection_template  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.collection.id <- 'entity.set.collection.id_example' # character | 
-#' var.request.body <- {'key' => 'request.body_example'} # map(character) | 
+#' var.entity_set_collection_id <- 'entity_set_collection_id_example' # character | 
+#' var.request_body <- {'key' => 'request_body_example'} # list(character) | 
 #'
 #' #Updates template of the specified EntitySetCollection
 #' api.instance <- CollectionsApi$new()
@@ -510,14 +510,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_entity_set_collection_template(var.entity.set.collection.id, var.request.body)
+#' result <- api.instance$update_entity_set_collection_template(var.entity_set_collection_id, var.request_body)
 #'
 #'
 #' ####################  update_entity_type_collection_metadata  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.collection.id <- 'entity.type.collection.id_example' # character | 
-#' var.metadata.update <- MetadataUpdate$new() # MetadataUpdate | 
+#' var.entity_type_collection_id <- 'entity_type_collection_id_example' # character | 
+#' var.metadata_update <- MetadataUpdate$new() # MetadataUpdate | 
 #'
 #' #Updates metadata of the specified EntityTypeCollection
 #' api.instance <- CollectionsApi$new()
@@ -531,7 +531,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_entity_type_collection_metadata(var.entity.type.collection.id, var.metadata.update)
+#' result <- api.instance$update_entity_type_collection_metadata(var.entity_type_collection_id, var.metadata_update)
 #'
 #'
 #' }
@@ -550,8 +550,8 @@ CollectionsApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    add_type_to_entity_type_collection_template = function(entity.type.collection.id, collection.template.type, ...){
-      apiResponse <- self$add_type_to_entity_type_collection_templateWithHttpInfo(entity.type.collection.id, collection.template.type, ...)
+    add_type_to_entity_type_collection_template = function(entity_type_collection_id, collection_template_type, ...){
+      apiResponse <- self$add_type_to_entity_type_collection_templateWithHttpInfo(entity_type_collection_id, collection_template_type, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -564,28 +564,33 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    add_type_to_entity_type_collection_templateWithHttpInfo = function(entity.type.collection.id, collection.template.type, ...){
+    add_type_to_entity_type_collection_templateWithHttpInfo = function(entity_type_collection_id, collection_template_type, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.collection.id`)) {
-        stop("Missing required parameter `entity.type.collection.id`.")
+      if (missing(`entity_type_collection_id`)) {
+        stop("Missing required parameter `entity_type_collection_id`.")
       }
 
-      if (missing(`collection.template.type`)) {
-        stop("Missing required parameter `collection.template.type`.")
+      if (missing(`collection_template_type`)) {
+        stop("Missing required parameter `collection_template_type`.")
       }
 
-      if (!missing(`collection.template.type`)) {
-        body <- `collection.template.type`$toJSONString()
+      if (!missing(`collection_template_type`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`collection_template_type`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/collections/entity/type/{entityTypeCollectionId}/template"
-      if (!missing(`entity.type.collection.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeCollectionId", "\\}"), URLencode(as.character(`entity.type.collection.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_collection_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeCollectionId", "\\}"), URLencode(as.character(`entity_type_collection_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -610,8 +615,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    create_entity_set_collection = function(entity.set.collection, ...){
-      apiResponse <- self$create_entity_set_collectionWithHttpInfo(entity.set.collection, ...)
+    create_entity_set_collection = function(entity_set_collection, ...){
+      apiResponse <- self$create_entity_set_collectionWithHttpInfo(entity_set_collection, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -624,17 +629,22 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    create_entity_set_collectionWithHttpInfo = function(entity.set.collection, ...){
+    create_entity_set_collectionWithHttpInfo = function(entity_set_collection, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.collection`)) {
-        stop("Missing required parameter `entity.set.collection`.")
+      if (missing(`entity_set_collection`)) {
+        stop("Missing required parameter `entity_set_collection`.")
       }
 
-      if (!missing(`entity.set.collection`)) {
-        body <- `entity.set.collection`$toJSONString()
+      if (!missing(`entity_set_collection`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`entity_set_collection`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -668,8 +678,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    create_entity_type_collection = function(entity.type.collection, ...){
-      apiResponse <- self$create_entity_type_collectionWithHttpInfo(entity.type.collection, ...)
+    create_entity_type_collection = function(entity_type_collection, ...){
+      apiResponse <- self$create_entity_type_collectionWithHttpInfo(entity_type_collection, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -682,17 +692,22 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    create_entity_type_collectionWithHttpInfo = function(entity.type.collection, ...){
+    create_entity_type_collectionWithHttpInfo = function(entity_type_collection, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.collection`)) {
-        stop("Missing required parameter `entity.type.collection`.")
+      if (missing(`entity_type_collection`)) {
+        stop("Missing required parameter `entity_type_collection`.")
       }
 
-      if (!missing(`entity.type.collection`)) {
-        body <- `entity.type.collection`$toJSONString()
+      if (!missing(`entity_type_collection`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`entity_type_collection`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -726,8 +741,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_entity_set_collection = function(entity.set.collection.id, ...){
-      apiResponse <- self$delete_entity_set_collectionWithHttpInfo(entity.set.collection.id, ...)
+    delete_entity_set_collection = function(entity_set_collection_id, ...){
+      apiResponse <- self$delete_entity_set_collectionWithHttpInfo(entity_set_collection_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -740,18 +755,18 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    delete_entity_set_collectionWithHttpInfo = function(entity.set.collection.id, ...){
+    delete_entity_set_collectionWithHttpInfo = function(entity_set_collection_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.collection.id`)) {
-        stop("Missing required parameter `entity.set.collection.id`.")
+      if (missing(`entity_set_collection_id`)) {
+        stop("Missing required parameter `entity_set_collection_id`.")
       }
 
       urlPath <- "/datastore/collections/entity/set/{entitySetCollectionId}"
-      if (!missing(`entity.set.collection.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity.set.collection.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_collection_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity_set_collection_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -776,8 +791,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_entity_type_collection = function(entity.type.collection.id, ...){
-      apiResponse <- self$delete_entity_type_collectionWithHttpInfo(entity.type.collection.id, ...)
+    delete_entity_type_collection = function(entity_type_collection_id, ...){
+      apiResponse <- self$delete_entity_type_collectionWithHttpInfo(entity_type_collection_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -790,18 +805,18 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    delete_entity_type_collectionWithHttpInfo = function(entity.type.collection.id, ...){
+    delete_entity_type_collectionWithHttpInfo = function(entity_type_collection_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.collection.id`)) {
-        stop("Missing required parameter `entity.type.collection.id`.")
+      if (missing(`entity_type_collection_id`)) {
+        stop("Missing required parameter `entity_type_collection_id`.")
       }
 
       urlPath <- "/datastore/collections/entity/type/{entityTypeCollectionId}"
-      if (!missing(`entity.type.collection.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeCollectionId", "\\}"), URLencode(as.character(`entity.type.collection.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_collection_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeCollectionId", "\\}"), URLencode(as.character(`entity_type_collection_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -922,8 +937,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_set_collection = function(entity.set.collection.id, ...){
-      apiResponse <- self$get_entity_set_collectionWithHttpInfo(entity.set.collection.id, ...)
+    get_entity_set_collection = function(entity_set_collection_id, ...){
+      apiResponse <- self$get_entity_set_collectionWithHttpInfo(entity_set_collection_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -936,18 +951,18 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    get_entity_set_collectionWithHttpInfo = function(entity.set.collection.id, ...){
+    get_entity_set_collectionWithHttpInfo = function(entity_set_collection_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.collection.id`)) {
-        stop("Missing required parameter `entity.set.collection.id`.")
+      if (missing(`entity_set_collection_id`)) {
+        stop("Missing required parameter `entity_set_collection_id`.")
       }
 
       urlPath <- "/datastore/collections/entity/set/{entitySetCollectionId}"
-      if (!missing(`entity.set.collection.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity.set.collection.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_collection_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity_set_collection_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -978,8 +993,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_set_collections_of_type = function(entity.set.collection.id, ...){
-      apiResponse <- self$get_entity_set_collections_of_typeWithHttpInfo(entity.set.collection.id, ...)
+    get_entity_set_collections_of_type = function(entity_set_collection_id, ...){
+      apiResponse <- self$get_entity_set_collections_of_typeWithHttpInfo(entity_set_collection_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -992,18 +1007,18 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    get_entity_set_collections_of_typeWithHttpInfo = function(entity.set.collection.id, ...){
+    get_entity_set_collections_of_typeWithHttpInfo = function(entity_set_collection_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.collection.id`)) {
-        stop("Missing required parameter `entity.set.collection.id`.")
+      if (missing(`entity_set_collection_id`)) {
+        stop("Missing required parameter `entity_set_collection_id`.")
       }
 
       urlPath <- "/datastore/collections/entity/set/entity/type/{entitySetCollectionId}"
-      if (!missing(`entity.set.collection.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity.set.collection.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_collection_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity_set_collection_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1034,8 +1049,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_type_collection = function(entity.type.collection.id, ...){
-      apiResponse <- self$get_entity_type_collectionWithHttpInfo(entity.type.collection.id, ...)
+    get_entity_type_collection = function(entity_type_collection_id, ...){
+      apiResponse <- self$get_entity_type_collectionWithHttpInfo(entity_type_collection_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1048,18 +1063,18 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    get_entity_type_collectionWithHttpInfo = function(entity.type.collection.id, ...){
+    get_entity_type_collectionWithHttpInfo = function(entity_type_collection_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.collection.id`)) {
-        stop("Missing required parameter `entity.type.collection.id`.")
+      if (missing(`entity_type_collection_id`)) {
+        stop("Missing required parameter `entity_type_collection_id`.")
       }
 
       urlPath <- "/datastore/collections/entity/type/{entityTypeCollectionId}"
-      if (!missing(`entity.type.collection.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeCollectionId", "\\}"), URLencode(as.character(`entity.type.collection.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_collection_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeCollectionId", "\\}"), URLencode(as.character(`entity_type_collection_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1090,8 +1105,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_type_from_entity_type_collection_template = function(entity.type.collection.id, type.id, ...){
-      apiResponse <- self$remove_type_from_entity_type_collection_templateWithHttpInfo(entity.type.collection.id, type.id, ...)
+    remove_type_from_entity_type_collection_template = function(entity_type_collection_id, type_id, ...){
+      apiResponse <- self$remove_type_from_entity_type_collection_templateWithHttpInfo(entity_type_collection_id, type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1104,26 +1119,26 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    remove_type_from_entity_type_collection_templateWithHttpInfo = function(entity.type.collection.id, type.id, ...){
+    remove_type_from_entity_type_collection_templateWithHttpInfo = function(entity_type_collection_id, type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.collection.id`)) {
-        stop("Missing required parameter `entity.type.collection.id`.")
+      if (missing(`entity_type_collection_id`)) {
+        stop("Missing required parameter `entity_type_collection_id`.")
       }
 
-      if (missing(`type.id`)) {
-        stop("Missing required parameter `type.id`.")
+      if (missing(`type_id`)) {
+        stop("Missing required parameter `type_id`.")
       }
 
       urlPath <- "/datastore/collections/entity/type/{entityTypeCollectionId}/template/{typeId}"
-      if (!missing(`entity.type.collection.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeCollectionId", "\\}"), URLencode(as.character(`entity.type.collection.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_collection_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeCollectionId", "\\}"), URLencode(as.character(`entity_type_collection_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`type.id`)) {
-        urlPath <- gsub(paste0("\\{", "typeId", "\\}"), URLencode(as.character(`type.id`), reserved = TRUE), urlPath)
+      if (!missing(`type_id`)) {
+        urlPath <- gsub(paste0("\\{", "typeId", "\\}"), URLencode(as.character(`type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1148,8 +1163,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_entity_set_collection_metadata = function(entity.set.collection.id, metadata.update, ...){
-      apiResponse <- self$update_entity_set_collection_metadataWithHttpInfo(entity.set.collection.id, metadata.update, ...)
+    update_entity_set_collection_metadata = function(entity_set_collection_id, metadata_update, ...){
+      apiResponse <- self$update_entity_set_collection_metadataWithHttpInfo(entity_set_collection_id, metadata_update, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1162,28 +1177,33 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    update_entity_set_collection_metadataWithHttpInfo = function(entity.set.collection.id, metadata.update, ...){
+    update_entity_set_collection_metadataWithHttpInfo = function(entity_set_collection_id, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.collection.id`)) {
-        stop("Missing required parameter `entity.set.collection.id`.")
+      if (missing(`entity_set_collection_id`)) {
+        stop("Missing required parameter `entity_set_collection_id`.")
       }
 
-      if (missing(`metadata.update`)) {
-        stop("Missing required parameter `metadata.update`.")
+      if (missing(`metadata_update`)) {
+        stop("Missing required parameter `metadata_update`.")
       }
 
-      if (!missing(`metadata.update`)) {
-        body <- `metadata.update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/collections/entity/set/{entitySetCollectionId}"
-      if (!missing(`entity.set.collection.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity.set.collection.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_collection_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity_set_collection_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1208,8 +1228,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_entity_set_collection_template = function(entity.set.collection.id, request.body, ...){
-      apiResponse <- self$update_entity_set_collection_templateWithHttpInfo(entity.set.collection.id, request.body, ...)
+    update_entity_set_collection_template = function(entity_set_collection_id, request_body, ...){
+      apiResponse <- self$update_entity_set_collection_templateWithHttpInfo(entity_set_collection_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1222,28 +1242,33 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    update_entity_set_collection_templateWithHttpInfo = function(entity.set.collection.id, request.body, ...){
+    update_entity_set_collection_templateWithHttpInfo = function(entity_set_collection_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.collection.id`)) {
-        stop("Missing required parameter `entity.set.collection.id`.")
+      if (missing(`entity_set_collection_id`)) {
+        stop("Missing required parameter `entity_set_collection_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body <- `request.body`$toJSONString()
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            %s
+',
+              jsonlite::toJSON(lapply(`request_body`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/collections/entity/set/{entitySetCollectionId}/template"
-      if (!missing(`entity.set.collection.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity.set.collection.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_collection_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetCollectionId", "\\}"), URLencode(as.character(`entity_set_collection_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1268,8 +1293,8 @@ CollectionsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_entity_type_collection_metadata = function(entity.type.collection.id, metadata.update, ...){
-      apiResponse <- self$update_entity_type_collection_metadataWithHttpInfo(entity.type.collection.id, metadata.update, ...)
+    update_entity_type_collection_metadata = function(entity_type_collection_id, metadata_update, ...){
+      apiResponse <- self$update_entity_type_collection_metadataWithHttpInfo(entity_type_collection_id, metadata_update, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1282,28 +1307,33 @@ CollectionsApi <- R6::R6Class(
       }
     },
 
-    update_entity_type_collection_metadataWithHttpInfo = function(entity.type.collection.id, metadata.update, ...){
+    update_entity_type_collection_metadataWithHttpInfo = function(entity_type_collection_id, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.collection.id`)) {
-        stop("Missing required parameter `entity.type.collection.id`.")
+      if (missing(`entity_type_collection_id`)) {
+        stop("Missing required parameter `entity_type_collection_id`.")
       }
 
-      if (missing(`metadata.update`)) {
-        stop("Missing required parameter `metadata.update`.")
+      if (missing(`metadata_update`)) {
+        stop("Missing required parameter `metadata_update`.")
       }
 
-      if (!missing(`metadata.update`)) {
-        body <- `metadata.update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/collections/entity/type/{entityTypeCollectionId}"
-      if (!missing(`entity.type.collection.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeCollectionId", "\\}"), URLencode(as.character(`entity.type.collection.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_collection_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeCollectionId", "\\}"), URLencode(as.character(`entity_type_collection_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication

@@ -6,7 +6,7 @@ context("Test IndexingState")
 model.instance <- IndexingState$new()
 
 test_that("indexing", {
-  # tests for the property `indexing` (map(array[character]))
+  # tests for the property `indexing` (list(array[character]))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`indexing`, "EXPECTED_RESULT")

@@ -56,7 +56,7 @@ EntityLinkingFeatures <- R6::R6Class(
         self$`entityLinkingFeedback` <- entityLinkingFeedbackObject
       }
       if (!is.null(EntityLinkingFeaturesObject$`features`)) {
-        self$`features` <- ApiClient$new()$deserializeObj(EntityLinkingFeaturesObject$`features`, "map(numeric)", loadNamespace("openlattice"))
+        self$`features` <- ApiClient$new()$deserializeObj(EntityLinkingFeaturesObject$`features`, "list(numeric)", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -82,7 +82,7 @@ EntityLinkingFeatures <- R6::R6Class(
     fromJSONString = function(EntityLinkingFeaturesJson) {
       EntityLinkingFeaturesObject <- jsonlite::fromJSON(EntityLinkingFeaturesJson)
       self$`entityLinkingFeedback` <- EntityLinkingFeedback$new()$fromJSON(jsonlite::toJSON(EntityLinkingFeaturesObject$entityLinkingFeedback, auto_unbox = TRUE, digits = NA))
-      self$`features` <- ApiClient$new()$deserializeObj(EntityLinkingFeaturesObject$`features`, "map(numeric)", loadNamespace("openlattice"))
+      self$`features` <- ApiClient$new()$deserializeObj(EntityLinkingFeaturesObject$`features`, "list(numeric)", loadNamespace("openlattice"))
       self
     }
   )

@@ -34,7 +34,7 @@ Method | HTTP request | Description
 
 
 # **add_member**
-> add_member(organization.id, user.id)
+> add_member(organization_id, user_id)
 
 Add member to an organization
 
@@ -42,8 +42,8 @@ Add member to an organization
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.user.id <- 'user.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.user_id <- 'user_id_example' # character | 
 
 #Add member to an organization
 api.instance <- OrganizationsApi$new()
@@ -52,15 +52,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$add_member(var.organization.id, var.user.id)
+api.instance$add_member(var.organization_id, var.user_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **user.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **user_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -81,7 +81,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **add_role_to_user**
-> add_role_to_user(organization.id, role.id, user.id)
+> add_role_to_user(organization_id, role_id, user_id)
 
 Add a role to a user
 
@@ -89,9 +89,9 @@ Add a role to a user
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.role.id <- 'role.id_example' # character | 
-var.user.id <- 'user.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.role_id <- 'role_id_example' # character | 
+var.user_id <- 'user_id_example' # character | 
 
 #Add a role to a user
 api.instance <- OrganizationsApi$new()
@@ -100,16 +100,16 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$add_role_to_user(var.organization.id, var.role.id, var.user.id)
+api.instance$add_role_to_user(var.organization_id, var.role_id, var.user_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **role.id** | [**character**](.md)|  | 
- **user.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **role_id** | [**character**](.md)|  | 
+ **user_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -130,7 +130,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **assemble_entity_sets**
-> map(array[character]) assemble_entity_sets(organization.id, request.body)
+> list(array[character]) assemble_entity_sets(organization_id, request_body)
 
 Materializes entity sets into the organization database.
 
@@ -138,8 +138,8 @@ Materializes entity sets into the organization database.
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.request.body <- TODO # map(integer) | 
+var.organization_id <- 'organization_id_example' # character | 
+var.request_body <- TODO # list(integer) | 
 
 #Materializes entity sets into the organization database.
 api.instance <- OrganizationsApi$new()
@@ -148,7 +148,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$assemble_entity_sets(var.organization.id, var.request.body)
+result <- api.instance$assemble_entity_sets(var.organization_id, var.request_body)
 dput(result)
 ```
 
@@ -156,12 +156,12 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **request.body** | named list( [**map(integer)**](integer.md) )|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **request_body** | named list( [**list(integer)**](integer.md) )|  | 
 
 ### Return type
 
-[**map(array[character])**](array.md)
+[**list(array[character])**](array.md)
 
 ### Authorization
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **delete_role**
-> delete_role(organization.id, role.id)
+> delete_role(organization_id, role_id)
 
 Remove role for an organization
 
@@ -278,8 +278,8 @@ Remove role for an organization
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.role.id <- 'role.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.role_id <- 'role_id_example' # character | 
 
 #Remove role for an organization
 api.instance <- OrganizationsApi$new()
@@ -288,15 +288,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$delete_role(var.organization.id, var.role.id)
+api.instance$delete_role(var.organization_id, var.role_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **role.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **role_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -317,7 +317,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **destroy_organization**
-> destroy_organization(organization.id)
+> destroy_organization(organization_id)
 
 Remove an organization from the organizationId
 
@@ -325,7 +325,7 @@ Remove an organization from the organizationId
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
 
 #Remove an organization from the organizationId
 api.instance <- OrganizationsApi$new()
@@ -334,14 +334,14 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$destroy_organization(var.organization.id)
+api.instance$destroy_organization(var.organization_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -362,7 +362,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **get_all_users_of_role**
-> array[Auth0userBasic] get_all_users_of_role(organization.id, role.id)
+> array[Auth0userBasic] get_all_users_of_role(organization_id, role_id)
 
 Get members of a role for an organization from a roleId
 
@@ -370,8 +370,8 @@ Get members of a role for an organization from a roleId
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.role.id <- 'role.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.role_id <- 'role_id_example' # character | 
 
 #Get members of a role for an organization from a roleId
 api.instance <- OrganizationsApi$new()
@@ -380,7 +380,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_all_users_of_role(var.organization.id, var.role.id)
+result <- api.instance$get_all_users_of_role(var.organization_id, var.role_id)
 dput(result)
 ```
 
@@ -388,8 +388,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **role.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **role_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_auto_approved_email_domains**
-> array[character] get_auto_approved_email_domains(organization.id)
+> array[character] get_auto_approved_email_domains(organization_id)
 
 Get auto-approved email domains
 
@@ -418,7 +418,7 @@ Get auto-approved email domains
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
 
 #Get auto-approved email domains
 api.instance <- OrganizationsApi$new()
@@ -427,7 +427,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_auto_approved_email_domains(var.organization.id)
+result <- api.instance$get_auto_approved_email_domains(var.organization_id)
 dput(result)
 ```
 
@@ -435,7 +435,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_flagged_organization_entity_sets**
-> array[map(array[character])] get_flagged_organization_entity_sets(organization.id, request.body)
+> array[list(array[character])] get_flagged_organization_entity_sets(organization_id, request_body)
 
 Get the entity sets for an organization for a certain flag
 
@@ -464,8 +464,8 @@ Get the entity sets for an organization for a certain flag
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.request.body <- TODO # map(array[character]) | 
+var.organization_id <- 'organization_id_example' # character | 
+var.request_body <- TODO # list(array[character]) | 
 
 #Get the entity sets for an organization for a certain flag
 api.instance <- OrganizationsApi$new()
@@ -474,7 +474,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_flagged_organization_entity_sets(var.organization.id, var.request.body)
+result <- api.instance$get_flagged_organization_entity_sets(var.organization_id, var.request_body)
 dput(result)
 ```
 
@@ -482,12 +482,12 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **request.body** | named list( [**map(array[character])**](array.md) )|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **request_body** | named list( [**list(array[character])**](array.md) )|  | 
 
 ### Return type
 
-[**array[map(array[character])]**](map.md)
+**array[list(array[character])]**
 
 ### Authorization
 
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_members**
-> array[OrganizationMember] get_members(organization.id)
+> array[OrganizationMember] get_members(organization_id)
 
 Get members of a certain organization
 
@@ -512,7 +512,7 @@ Get members of a certain organization
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
 
 #Get members of a certain organization
 api.instance <- OrganizationsApi$new()
@@ -521,7 +521,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_members(var.organization.id)
+result <- api.instance$get_members(var.organization_id)
 dput(result)
 ```
 
@@ -529,7 +529,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -550,7 +550,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_organization**
-> Organization get_organization(organization.id)
+> Organization get_organization(organization_id)
 
 Get an organization from the organizationId
 
@@ -558,7 +558,7 @@ Get an organization from the organizationId
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
 
 #Get an organization from the organizationId
 api.instance <- OrganizationsApi$new()
@@ -567,7 +567,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_organization(var.organization.id)
+result <- api.instance$get_organization(var.organization_id)
 dput(result)
 ```
 
@@ -575,7 +575,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_organization_entity_sets**
-> map(array[character]) get_organization_entity_sets(organization.id)
+> list(array[character]) get_organization_entity_sets(organization_id)
 
 Get the entity sets for an organization for a certain filter
 
@@ -604,7 +604,7 @@ Get the entity sets for an organization for a certain filter
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
 
 #Get the entity sets for an organization for a certain filter
 api.instance <- OrganizationsApi$new()
@@ -613,7 +613,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_organization_entity_sets(var.organization.id)
+result <- api.instance$get_organization_entity_sets(var.organization_id)
 dput(result)
 ```
 
@@ -621,11 +621,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
 
 ### Return type
 
-[**map(array[character])**](array.md)
+[**list(array[character])**](array.md)
 
 ### Authorization
 
@@ -642,7 +642,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_organization_integration_account**
-> InlineResponse200 get_organization_integration_account(organization.id)
+> InlineResponse200 get_organization_integration_account(organization_id)
 
 Get the integrations account for an organization from the organizationId
 
@@ -650,7 +650,7 @@ Get the integrations account for an organization from the organizationId
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
 
 #Get the integrations account for an organization from the organizationId
 api.instance <- OrganizationsApi$new()
@@ -659,7 +659,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_organization_integration_account(var.organization.id)
+result <- api.instance$get_organization_integration_account(var.organization_id)
 dput(result)
 ```
 
@@ -667,7 +667,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -730,7 +730,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 # **get_role**
-> Role get_role(organization.id, role.id)
+> Role get_role(organization_id, role_id)
 
 Get role for an organization from a roleId
 
@@ -738,8 +738,8 @@ Get role for an organization from a roleId
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.role.id <- 'role.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.role_id <- 'role_id_example' # character | 
 
 #Get role for an organization from a roleId
 api.instance <- OrganizationsApi$new()
@@ -748,7 +748,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_role(var.organization.id, var.role.id)
+result <- api.instance$get_role(var.organization_id, var.role_id)
 dput(result)
 ```
 
@@ -756,8 +756,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **role.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **role_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -778,7 +778,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_roles**
-> array[Role] get_roles(organization.id)
+> array[Role] get_roles(organization_id)
 
 Get roles for an organization
 
@@ -786,7 +786,7 @@ Get roles for an organization
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
 
 #Get roles for an organization
 api.instance <- OrganizationsApi$new()
@@ -795,7 +795,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_roles(var.organization.id)
+result <- api.instance$get_roles(var.organization_id)
 dput(result)
 ```
 
@@ -803,7 +803,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -824,7 +824,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **refresh_data_changes**
-> refresh_data_changes(organization.id, entity.set.id)
+> refresh_data_changes(organization_id, entity_set_id)
 
 Refreshes the requested materialized entity set with data changes in the organization.
 
@@ -832,8 +832,8 @@ Refreshes the requested materialized entity set with data changes in the organiz
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.entity.set.id <- 'entity.set.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
 
 #Refreshes the requested materialized entity set with data changes in the organization.
 api.instance <- OrganizationsApi$new()
@@ -842,15 +842,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$refresh_data_changes(var.organization.id, var.entity.set.id)
+api.instance$refresh_data_changes(var.organization_id, var.entity_set_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **entity.set.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -871,7 +871,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **remove_auto_approved_email_domains**
-> remove_auto_approved_email_domains(organization.id, request.body)
+> remove_auto_approved_email_domains(organization_id, request_body)
 
 Remove auto-approved email domains
 
@@ -879,8 +879,8 @@ Remove auto-approved email domains
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.request.body <- list("property_example") # array[character] | 
+var.organization_id <- 'organization_id_example' # character | 
+var.request_body <- list("property_example") # array[character] | 
 
 #Remove auto-approved email domains
 api.instance <- OrganizationsApi$new()
@@ -889,15 +889,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$remove_auto_approved_email_domains(var.organization.id, var.request.body)
+api.instance$remove_auto_approved_email_domains(var.organization_id, var.request_body)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **request.body** | list( **character** )|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **request_body** | list( **character** )|  | 
 
 ### Return type
 
@@ -918,7 +918,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **remove_member**
-> remove_member(organization.id, user.id)
+> remove_member(organization_id, user_id)
 
 Remove member from an organization
 
@@ -926,8 +926,8 @@ Remove member from an organization
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.user.id <- 'user.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.user_id <- 'user_id_example' # character | 
 
 #Remove member from an organization
 api.instance <- OrganizationsApi$new()
@@ -936,15 +936,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$remove_member(var.organization.id, var.user.id)
+api.instance$remove_member(var.organization_id, var.user_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **user.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **user_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -965,7 +965,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **remove_role_from_user**
-> remove_role_from_user(organization.id, role.id, user.id)
+> remove_role_from_user(organization_id, role_id, user_id)
 
 Remove a role from a user
 
@@ -973,9 +973,9 @@ Remove a role from a user
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.role.id <- 'role.id_example' # character | 
-var.user.id <- 'user.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.role_id <- 'role_id_example' # character | 
+var.user_id <- 'user_id_example' # character | 
 
 #Remove a role from a user
 api.instance <- OrganizationsApi$new()
@@ -984,16 +984,16 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$remove_role_from_user(var.organization.id, var.role.id, var.user.id)
+api.instance$remove_role_from_user(var.organization_id, var.role_id, var.user_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **role.id** | [**character**](.md)|  | 
- **user.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **role_id** | [**character**](.md)|  | 
+ **user_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -1014,7 +1014,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **set_auto_approved_email_domain**
-> set_auto_approved_email_domain(organization.id, request.body)
+> set_auto_approved_email_domain(organization_id, request_body)
 
 Set auto-approved email domains
 
@@ -1022,8 +1022,8 @@ Set auto-approved email domains
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.request.body <- list("property_example") # array[character] | 
+var.organization_id <- 'organization_id_example' # character | 
+var.request_body <- list("property_example") # array[character] | 
 
 #Set auto-approved email domains
 api.instance <- OrganizationsApi$new()
@@ -1032,15 +1032,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$set_auto_approved_email_domain(var.organization.id, var.request.body)
+api.instance$set_auto_approved_email_domain(var.organization_id, var.request_body)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **request.body** | list( **character** )|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **request_body** | list( **character** )|  | 
 
 ### Return type
 
@@ -1061,7 +1061,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **synchronize_edm_changes**
-> synchronize_edm_changes(organization.id, entity.set.id)
+> synchronize_edm_changes(organization_id, entity_set_id)
 
 Synchronizes EDM changes to the requested materialized entity set in the organization.
 
@@ -1069,8 +1069,8 @@ Synchronizes EDM changes to the requested materialized entity set in the organiz
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.entity.set.id <- 'entity.set.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
 
 #Synchronizes EDM changes to the requested materialized entity set in the organization.
 api.instance <- OrganizationsApi$new()
@@ -1079,15 +1079,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$synchronize_edm_changes(var.organization.id, var.entity.set.id)
+api.instance$synchronize_edm_changes(var.organization_id, var.entity_set_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **entity.set.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -1108,7 +1108,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **update_description**
-> update_description(organization.id, body)
+> update_description(organization_id, body)
 
 Update the organization description
 
@@ -1116,7 +1116,7 @@ Update the organization description
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
 var.body <- 'body_example' # character | 
 
 #Update the organization description
@@ -1126,14 +1126,14 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_description(var.organization.id, var.body)
+api.instance$update_description(var.organization_id, var.body)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
  **body** | **character**|  | 
 
 ### Return type
@@ -1155,7 +1155,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **update_role_description**
-> update_role_description(organization.id, role.id, body)
+> update_role_description(organization_id, role_id, body)
 
 Update role description for an organization from a roleId
 
@@ -1163,8 +1163,8 @@ Update role description for an organization from a roleId
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.role.id <- 'role.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.role_id <- 'role_id_example' # character | 
 var.body <- 'body_example' # character | 
 
 #Update role description for an organization from a roleId
@@ -1174,15 +1174,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_role_description(var.organization.id, var.role.id, var.body)
+api.instance$update_role_description(var.organization_id, var.role_id, var.body)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **role.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **role_id** | [**character**](.md)|  | 
  **body** | **character**|  | 
 
 ### Return type
@@ -1204,7 +1204,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **update_role_title**
-> update_role_title(organization.id, role.id, body)
+> update_role_title(organization_id, role_id, body)
 
 Update role title for an organization from a roleId
 
@@ -1212,8 +1212,8 @@ Update role title for an organization from a roleId
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
-var.role.id <- 'role.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
+var.role_id <- 'role_id_example' # character | 
 var.body <- 'body_example' # character | 
 
 #Update role title for an organization from a roleId
@@ -1223,15 +1223,15 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_role_title(var.organization.id, var.role.id, var.body)
+api.instance$update_role_title(var.organization_id, var.role_id, var.body)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
- **role.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
+ **role_id** | [**character**](.md)|  | 
  **body** | **character**|  | 
 
 ### Return type
@@ -1253,7 +1253,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **update_title**
-> update_title(organization.id, body)
+> update_title(organization_id, body)
 
 Update the organization title
 
@@ -1261,7 +1261,7 @@ Update the organization title
 ```R
 library(openlattice)
 
-var.organization.id <- 'organization.id_example' # character | 
+var.organization_id <- 'organization_id_example' # character | 
 var.body <- 'body_example' # character | 
 
 #Update the organization title
@@ -1271,14 +1271,14 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_title(var.organization.id, var.body)
+api.instance$update_title(var.organization_id, var.body)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization.id** | [**character**](.md)|  | 
+ **organization_id** | [**character**](.md)|  | 
  **body** | **character**|  | 
 
 ### Return type

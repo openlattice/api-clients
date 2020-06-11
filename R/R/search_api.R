@@ -18,8 +18,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } advanced.search \link{AdvancedSearch}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } advanced_search \link{AdvancedSearch}
 #' \item \emph{ @returnType } \link{DataSearchResult} \cr
 #'
 #'
@@ -36,7 +36,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @param } search_term \link{SearchTerm}
 #' \item \emph{ @returnType } \link{SearchResult} \cr
 #'
 #'
@@ -53,7 +53,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @param } search_term \link{SearchTerm}
 #' \item \emph{ @returnType } \link{SearchResult} \cr
 #'
 #'
@@ -70,7 +70,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @param } search_term \link{SearchTerm}
 #' \item \emph{ @returnType } \link{SearchResult} \cr
 #'
 #'
@@ -87,8 +87,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } entity.key.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } entity_key_id \link{character}
 #' \item \emph{ @returnType } list( \link{NeighborEntityDetails} ) \cr
 #'
 #'
@@ -105,14 +105,14 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } request.body list( character )
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } request_body list( character )
 #' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | A list of objects containing information about the neighbor and association.
 #'
-#' \item return type : map(array[NeighborEntityDetails]) 
+#' \item return type : list(array[NeighborEntityDetails]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -123,7 +123,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @param } search_term \link{SearchTerm}
 #' \item \emph{ @returnType } \link{SearchResult} \cr
 #'
 #'
@@ -140,8 +140,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } search_term \link{SearchTerm}
 #' \item \emph{ @returnType } \link{DataSearchResult} \cr
 #'
 #'
@@ -175,7 +175,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @param } search_term \link{SearchTerm}
 #' \item \emph{ @returnType } \link{SearchResult} \cr
 #'
 #'
@@ -192,7 +192,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @param } search_term \link{SearchTerm}
 #' \item \emph{ @returnType } \link{SearchResult} \cr
 #'
 #'
@@ -209,14 +209,13 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } neighbor.search.filter \link{NeighborSearchFilter}
-#' \item \emph{ @returnType } named list( \link{map} ) \cr
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } neighbor_search_filter \link{NeighborSearchFilter}
 #'
 #'
 #' \item status code : 200 | A list of objects containing information about the neighbor and association.
 #'
-#' \item return type : map(map(map(array[NeighborEntityIds]))) 
+#' \item return type : list(list(list(array[NeighborEntityIds]))) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -227,14 +226,14 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } neighbor.search.filter \link{NeighborSearchFilter}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } neighbor_search_filter \link{NeighborSearchFilter}
 #' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | A list of objects containing information about the neighbor and association.
 #'
-#' \item return type : map(array[NeighborEntityDetails]) 
+#' \item return type : list(array[NeighborEntityDetails]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -245,7 +244,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @param } search_term \link{SearchTerm}
 #' \item \emph{ @returnType } \link{SearchResult} \cr
 #'
 #'
@@ -262,7 +261,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @param } search_term \link{SearchTerm}
 #' \item \emph{ @returnType } \link{SearchResult} \cr
 #'
 #'
@@ -279,7 +278,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } search.term \link{SearchTerm}
+#' \item \emph{ @param } search_term \link{SearchTerm}
 #' \item \emph{ @returnType } \link{SearchResult} \cr
 #'
 #'
@@ -297,7 +296,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } start integer
-#' \item \emph{ @param } num.results integer
+#' \item \emph{ @param } num_results integer
 #' \item \emph{ @returnType } list( \link{SearchResult} ) \cr
 #'
 #'
@@ -330,7 +329,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } search.constraints \link{SearchConstraints}
+#' \item \emph{ @param } search_constraints \link{SearchConstraints}
 #' \item \emph{ @returnType } \link{DataSearchResult} \cr
 #'
 #'
@@ -351,8 +350,8 @@
 #' ####################  execute_advanced_entity_set_data_query  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.advanced.search <- AdvancedSearch$new() # AdvancedSearch | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.advanced_search <- AdvancedSearch$new() # AdvancedSearch | 
 #'
 #' #Executes a search over the data of a given entity set to find rows that match the search term
 #' api.instance <- SearchApi$new()
@@ -366,13 +365,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_advanced_entity_set_data_query(var.entity.set.id, var.advanced.search)
+#' result <- api.instance$execute_advanced_entity_set_data_query(var.entity_set_id, var.advanced_search)
 #'
 #'
 #' ####################  execute_app_search  ####################
 #'
 #' library(openlattice)
-#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#' var.search_term <- SearchTerm$new() # SearchTerm | 
 #'
 #' #Executes a search over all apps to find ones that match the given search term
 #' api.instance <- SearchApi$new()
@@ -386,13 +385,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_app_search(var.search.term)
+#' result <- api.instance$execute_app_search(var.search_term)
 #'
 #'
 #' ####################  execute_app_type_search  ####################
 #'
 #' library(openlattice)
-#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#' var.search_term <- SearchTerm$new() # SearchTerm | 
 #'
 #' #Executes a search over all app types to find ones that match the given search term
 #' api.instance <- SearchApi$new()
@@ -406,13 +405,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_app_type_search(var.search.term)
+#' result <- api.instance$execute_app_type_search(var.search_term)
 #'
 #'
 #' ####################  execute_association_type_search  ####################
 #'
 #' library(openlattice)
-#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#' var.search_term <- SearchTerm$new() # SearchTerm | 
 #'
 #' #Executes a search over all association types to find ones that match the given search term
 #' api.instance <- SearchApi$new()
@@ -426,14 +425,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_association_type_search(var.search.term)
+#' result <- api.instance$execute_association_type_search(var.search_term)
 #'
 #'
 #' ####################  execute_entity_neighbor_search  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.entity.key.id <- 'entity.key.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.entity_key_id <- 'entity_key_id_example' # character | 
 #'
 #' #Executes a search for all neighbors of an entity that are connected by an association
 #' api.instance <- SearchApi$new()
@@ -447,14 +446,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_entity_neighbor_search(var.entity.set.id, var.entity.key.id)
+#' result <- api.instance$execute_entity_neighbor_search(var.entity_set_id, var.entity_key_id)
 #'
 #'
 #' ####################  execute_entity_neighbor_search_bulk  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
 #' api.instance <- SearchApi$new()
@@ -468,13 +467,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_entity_neighbor_search_bulk(var.entity.set.id, var.request.body)
+#' result <- api.instance$execute_entity_neighbor_search_bulk(var.entity_set_id, var.request_body)
 #'
 #'
 #' ####################  execute_entity_set_collection_search  ####################
 #'
 #' library(openlattice)
-#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#' var.search_term <- SearchTerm$new() # SearchTerm | 
 #'
 #' #Executes a search over all EntitySetCollections to find ones that match the given search term
 #' api.instance <- SearchApi$new()
@@ -488,14 +487,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_entity_set_collection_search(var.search.term)
+#' result <- api.instance$execute_entity_set_collection_search(var.search_term)
 #'
 #'
 #' ####################  execute_entity_set_data_query  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.search.term <- SearchTerm$new() # SearchTerm | A JSON object that contains three parameters, \"start\", which specifies the hit number to start returning results on for paging, \"maxHits\", which specifies the maximum number of hits to return, and \"searchTerm\", which is the search term results will match on.
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.search_term <- SearchTerm$new() # SearchTerm | A JSON object that contains three parameters, \"start\", which specifies the hit number to start returning results on for paging, \"maxHits\", which specifies the maximum number of hits to return, and \"searchTerm\", which is the search term results will match on.
 #'
 #' #Executes a search over the data of a given entity set to find rows that match the search term
 #' api.instance <- SearchApi$new()
@@ -509,7 +508,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_entity_set_data_query(var.entity.set.id, var.search.term)
+#' result <- api.instance$execute_entity_set_data_query(var.entity_set_id, var.search_term)
 #'
 #'
 #' ####################  execute_entity_set_keyword_query  ####################
@@ -535,7 +534,7 @@
 #' ####################  execute_entity_type_collection_search  ####################
 #'
 #' library(openlattice)
-#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#' var.search_term <- SearchTerm$new() # SearchTerm | 
 #'
 #' #Executes a search over all EntityTypeCollections to find ones that match the given search term
 #' api.instance <- SearchApi$new()
@@ -549,13 +548,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_entity_type_collection_search(var.search.term)
+#' result <- api.instance$execute_entity_type_collection_search(var.search_term)
 #'
 #'
 #' ####################  execute_entity_type_search  ####################
 #'
 #' library(openlattice)
-#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#' var.search_term <- SearchTerm$new() # SearchTerm | 
 #'
 #' #Executes a search over all entity types to find ones that match the given search term
 #' api.instance <- SearchApi$new()
@@ -569,14 +568,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_entity_type_search(var.search.term)
+#' result <- api.instance$execute_entity_type_search(var.search_term)
 #'
 #'
 #' ####################  execute_filtered_entity_neighbor_id_search  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.neighbor.search.filter <- NeighborSearchFilter$new() # NeighborSearchFilter | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.neighbor_search_filter <- NeighborSearchFilter$new() # NeighborSearchFilter | 
 #'
 #' #Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
 #' api.instance <- SearchApi$new()
@@ -590,14 +589,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_filtered_entity_neighbor_id_search(var.entity.set.id, var.neighbor.search.filter)
+#' result <- api.instance$execute_filtered_entity_neighbor_id_search(var.entity_set_id, var.neighbor_search_filter)
 #'
 #'
 #' ####################  execute_filtered_entity_neighbor_search  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.neighbor.search.filter <- NeighborSearchFilter$new() # NeighborSearchFilter | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.neighbor_search_filter <- NeighborSearchFilter$new() # NeighborSearchFilter | 
 #'
 #' #Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
 #' api.instance <- SearchApi$new()
@@ -611,13 +610,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_filtered_entity_neighbor_search(var.entity.set.id, var.neighbor.search.filter)
+#' result <- api.instance$execute_filtered_entity_neighbor_search(var.entity_set_id, var.neighbor_search_filter)
 #'
 #'
 #' ####################  execute_fqn_property_type_search  ####################
 #'
 #' library(openlattice)
-#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#' var.search_term <- SearchTerm$new() # SearchTerm | 
 #'
 #' #Executes a search over all property types to find ones that match the given name and namespace, including partial matches
 #' api.instance <- SearchApi$new()
@@ -631,13 +630,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_fqn_property_type_search(var.search.term)
+#' result <- api.instance$execute_fqn_property_type_search(var.search_term)
 #'
 #'
 #' ####################  execute_organization_search  ####################
 #'
 #' library(openlattice)
-#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#' var.search_term <- SearchTerm$new() # SearchTerm | 
 #'
 #' #Executes a search over all organizations to find ones that match the given search term
 #' api.instance <- SearchApi$new()
@@ -651,13 +650,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_organization_search(var.search.term)
+#' result <- api.instance$execute_organization_search(var.search_term)
 #'
 #'
 #' ####################  execute_property_type_search  ####################
 #'
 #' library(openlattice)
-#' var.search.term <- SearchTerm$new() # SearchTerm | 
+#' var.search_term <- SearchTerm$new() # SearchTerm | 
 #'
 #' #Executes a search over all property types to find ones that match the given search term
 #' api.instance <- SearchApi$new()
@@ -671,14 +670,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$execute_property_type_search(var.search.term)
+#' result <- api.instance$execute_property_type_search(var.search_term)
 #'
 #'
 #' ####################  get_entity_sets  ####################
 #'
 #' library(openlattice)
 #' var.start <- 56 # integer | The first result number to return
-#' var.num.results <- 56 # integer | The total number of results to return
+#' var.num_results <- 56 # integer | The total number of results to return
 #'
 #' #Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
 #' api.instance <- SearchApi$new()
@@ -692,7 +691,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_sets(var.start, var.num.results)
+#' result <- api.instance$get_entity_sets(var.start, var.num_results)
 #'
 #'
 #' ####################  get_popular_entity_set  ####################
@@ -717,7 +716,7 @@
 #' ####################  search_entity_set_data  ####################
 #'
 #' library(openlattice)
-#' var.search.constraints <- SearchConstraints$new() # SearchConstraints | 
+#' var.search_constraints <- SearchConstraints$new() # SearchConstraints | 
 #'
 #' #Executes a search over the data of a given entity set to find rows that match the search term
 #' api.instance <- SearchApi$new()
@@ -731,7 +730,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$search_entity_set_data(var.search.constraints)
+#' result <- api.instance$search_entity_set_data(var.search_constraints)
 #'
 #'
 #' }
@@ -750,8 +749,8 @@ SearchApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    execute_advanced_entity_set_data_query = function(entity.set.id, advanced.search, ...){
-      apiResponse <- self$execute_advanced_entity_set_data_queryWithHttpInfo(entity.set.id, advanced.search, ...)
+    execute_advanced_entity_set_data_query = function(entity_set_id, advanced_search, ...){
+      apiResponse <- self$execute_advanced_entity_set_data_queryWithHttpInfo(entity_set_id, advanced_search, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -764,28 +763,33 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_advanced_entity_set_data_queryWithHttpInfo = function(entity.set.id, advanced.search, ...){
+    execute_advanced_entity_set_data_queryWithHttpInfo = function(entity_set_id, advanced_search, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`advanced.search`)) {
-        stop("Missing required parameter `advanced.search`.")
+      if (missing(`advanced_search`)) {
+        stop("Missing required parameter `advanced_search`.")
       }
 
-      if (!missing(`advanced.search`)) {
-        body <- `advanced.search`$toJSONString()
+      if (!missing(`advanced_search`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`advanced_search`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/search/advanced/{entitySetId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -816,8 +820,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_app_search = function(search.term, ...){
-      apiResponse <- self$execute_app_searchWithHttpInfo(search.term, ...)
+    execute_app_search = function(search_term, ...){
+      apiResponse <- self$execute_app_searchWithHttpInfo(search_term, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -830,17 +834,22 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_app_searchWithHttpInfo = function(search.term, ...){
+    execute_app_searchWithHttpInfo = function(search_term, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.term`)) {
-        stop("Missing required parameter `search.term`.")
+      if (missing(`search_term`)) {
+        stop("Missing required parameter `search_term`.")
       }
 
-      if (!missing(`search.term`)) {
-        body <- `search.term`$toJSONString()
+      if (!missing(`search_term`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -874,8 +883,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_app_type_search = function(search.term, ...){
-      apiResponse <- self$execute_app_type_searchWithHttpInfo(search.term, ...)
+    execute_app_type_search = function(search_term, ...){
+      apiResponse <- self$execute_app_type_searchWithHttpInfo(search_term, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -888,17 +897,22 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_app_type_searchWithHttpInfo = function(search.term, ...){
+    execute_app_type_searchWithHttpInfo = function(search_term, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.term`)) {
-        stop("Missing required parameter `search.term`.")
+      if (missing(`search_term`)) {
+        stop("Missing required parameter `search_term`.")
       }
 
-      if (!missing(`search.term`)) {
-        body <- `search.term`$toJSONString()
+      if (!missing(`search_term`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -932,8 +946,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_association_type_search = function(search.term, ...){
-      apiResponse <- self$execute_association_type_searchWithHttpInfo(search.term, ...)
+    execute_association_type_search = function(search_term, ...){
+      apiResponse <- self$execute_association_type_searchWithHttpInfo(search_term, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -946,17 +960,22 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_association_type_searchWithHttpInfo = function(search.term, ...){
+    execute_association_type_searchWithHttpInfo = function(search_term, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.term`)) {
-        stop("Missing required parameter `search.term`.")
+      if (missing(`search_term`)) {
+        stop("Missing required parameter `search_term`.")
       }
 
-      if (!missing(`search.term`)) {
-        body <- `search.term`$toJSONString()
+      if (!missing(`search_term`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -990,8 +1009,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_entity_neighbor_search = function(entity.set.id, entity.key.id, ...){
-      apiResponse <- self$execute_entity_neighbor_searchWithHttpInfo(entity.set.id, entity.key.id, ...)
+    execute_entity_neighbor_search = function(entity_set_id, entity_key_id, ...){
+      apiResponse <- self$execute_entity_neighbor_searchWithHttpInfo(entity_set_id, entity_key_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1004,26 +1023,26 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_entity_neighbor_searchWithHttpInfo = function(entity.set.id, entity.key.id, ...){
+    execute_entity_neighbor_searchWithHttpInfo = function(entity_set_id, entity_key_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`entity.key.id`)) {
-        stop("Missing required parameter `entity.key.id`.")
+      if (missing(`entity_key_id`)) {
+        stop("Missing required parameter `entity_key_id`.")
       }
 
       urlPath <- "/datastore/search/{entitySetId}/{entityKeyId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.key.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), URLencode(as.character(`entity.key.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_key_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityKeyId", "\\}"), URLencode(as.character(`entity_key_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1054,8 +1073,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_entity_neighbor_search_bulk = function(entity.set.id, request.body, ...){
-      apiResponse <- self$execute_entity_neighbor_search_bulkWithHttpInfo(entity.set.id, request.body, ...)
+    execute_entity_neighbor_search_bulk = function(entity_set_id, request_body, ...){
+      apiResponse <- self$execute_entity_neighbor_search_bulkWithHttpInfo(entity_set_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1068,29 +1087,33 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_entity_neighbor_search_bulkWithHttpInfo = function(entity.set.id, request.body, ...){
+    execute_entity_neighbor_search_bulkWithHttpInfo = function(entity_set_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/search/{entitySetId}/neighbors"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1107,7 +1130,7 @@ SearchApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[NeighborEntityDetails])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[NeighborEntityDetails])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1121,8 +1144,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_entity_set_collection_search = function(search.term, ...){
-      apiResponse <- self$execute_entity_set_collection_searchWithHttpInfo(search.term, ...)
+    execute_entity_set_collection_search = function(search_term, ...){
+      apiResponse <- self$execute_entity_set_collection_searchWithHttpInfo(search_term, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1135,17 +1158,22 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_entity_set_collection_searchWithHttpInfo = function(search.term, ...){
+    execute_entity_set_collection_searchWithHttpInfo = function(search_term, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.term`)) {
-        stop("Missing required parameter `search.term`.")
+      if (missing(`search_term`)) {
+        stop("Missing required parameter `search_term`.")
       }
 
-      if (!missing(`search.term`)) {
-        body <- `search.term`$toJSONString()
+      if (!missing(`search_term`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -1179,8 +1207,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_entity_set_data_query = function(entity.set.id, search.term, ...){
-      apiResponse <- self$execute_entity_set_data_queryWithHttpInfo(entity.set.id, search.term, ...)
+    execute_entity_set_data_query = function(entity_set_id, search_term, ...){
+      apiResponse <- self$execute_entity_set_data_queryWithHttpInfo(entity_set_id, search_term, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1193,28 +1221,33 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_entity_set_data_queryWithHttpInfo = function(entity.set.id, search.term, ...){
+    execute_entity_set_data_queryWithHttpInfo = function(entity_set_id, search_term, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`search.term`)) {
-        stop("Missing required parameter `search.term`.")
+      if (missing(`search_term`)) {
+        stop("Missing required parameter `search_term`.")
       }
 
-      if (!missing(`search.term`)) {
-        body <- `search.term`$toJSONString()
+      if (!missing(`search_term`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/search/{entitySetId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1269,7 +1302,12 @@ SearchApi <- R6::R6Class(
       }
 
       if (!missing(`search`)) {
-        body <- `search`$toJSONString()
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -1303,8 +1341,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_entity_type_collection_search = function(search.term, ...){
-      apiResponse <- self$execute_entity_type_collection_searchWithHttpInfo(search.term, ...)
+    execute_entity_type_collection_search = function(search_term, ...){
+      apiResponse <- self$execute_entity_type_collection_searchWithHttpInfo(search_term, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1317,17 +1355,22 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_entity_type_collection_searchWithHttpInfo = function(search.term, ...){
+    execute_entity_type_collection_searchWithHttpInfo = function(search_term, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.term`)) {
-        stop("Missing required parameter `search.term`.")
+      if (missing(`search_term`)) {
+        stop("Missing required parameter `search_term`.")
       }
 
-      if (!missing(`search.term`)) {
-        body <- `search.term`$toJSONString()
+      if (!missing(`search_term`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -1361,8 +1404,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_entity_type_search = function(search.term, ...){
-      apiResponse <- self$execute_entity_type_searchWithHttpInfo(search.term, ...)
+    execute_entity_type_search = function(search_term, ...){
+      apiResponse <- self$execute_entity_type_searchWithHttpInfo(search_term, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1375,17 +1418,22 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_entity_type_searchWithHttpInfo = function(search.term, ...){
+    execute_entity_type_searchWithHttpInfo = function(search_term, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.term`)) {
-        stop("Missing required parameter `search.term`.")
+      if (missing(`search_term`)) {
+        stop("Missing required parameter `search_term`.")
       }
 
-      if (!missing(`search.term`)) {
-        body <- `search.term`$toJSONString()
+      if (!missing(`search_term`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -1419,8 +1467,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_filtered_entity_neighbor_id_search = function(entity.set.id, neighbor.search.filter, ...){
-      apiResponse <- self$execute_filtered_entity_neighbor_id_searchWithHttpInfo(entity.set.id, neighbor.search.filter, ...)
+    execute_filtered_entity_neighbor_id_search = function(entity_set_id, neighbor_search_filter, ...){
+      apiResponse <- self$execute_filtered_entity_neighbor_id_searchWithHttpInfo(entity_set_id, neighbor_search_filter, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1433,28 +1481,33 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_filtered_entity_neighbor_id_searchWithHttpInfo = function(entity.set.id, neighbor.search.filter, ...){
+    execute_filtered_entity_neighbor_id_searchWithHttpInfo = function(entity_set_id, neighbor_search_filter, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`neighbor.search.filter`)) {
-        stop("Missing required parameter `neighbor.search.filter`.")
+      if (missing(`neighbor_search_filter`)) {
+        stop("Missing required parameter `neighbor_search_filter`.")
       }
 
-      if (!missing(`neighbor.search.filter`)) {
-        body <- `neighbor.search.filter`$toJSONString()
+      if (!missing(`neighbor_search_filter`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`neighbor_search_filter`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/search/{entitySetId}/neighbors/advanced/ids"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1471,7 +1524,7 @@ SearchApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(map(map(array[NeighborEntityIds])))", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(list(list(array[NeighborEntityIds])))", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1485,8 +1538,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_filtered_entity_neighbor_search = function(entity.set.id, neighbor.search.filter, ...){
-      apiResponse <- self$execute_filtered_entity_neighbor_searchWithHttpInfo(entity.set.id, neighbor.search.filter, ...)
+    execute_filtered_entity_neighbor_search = function(entity_set_id, neighbor_search_filter, ...){
+      apiResponse <- self$execute_filtered_entity_neighbor_searchWithHttpInfo(entity_set_id, neighbor_search_filter, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1499,28 +1552,33 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_filtered_entity_neighbor_searchWithHttpInfo = function(entity.set.id, neighbor.search.filter, ...){
+    execute_filtered_entity_neighbor_searchWithHttpInfo = function(entity_set_id, neighbor_search_filter, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`neighbor.search.filter`)) {
-        stop("Missing required parameter `neighbor.search.filter`.")
+      if (missing(`neighbor_search_filter`)) {
+        stop("Missing required parameter `neighbor_search_filter`.")
       }
 
-      if (!missing(`neighbor.search.filter`)) {
-        body <- `neighbor.search.filter`$toJSONString()
+      if (!missing(`neighbor_search_filter`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`neighbor_search_filter`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/search/{entitySetId}/neighbors/advanced"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1537,7 +1595,7 @@ SearchApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[NeighborEntityDetails])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[NeighborEntityDetails])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1551,8 +1609,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_fqn_property_type_search = function(search.term, ...){
-      apiResponse <- self$execute_fqn_property_type_searchWithHttpInfo(search.term, ...)
+    execute_fqn_property_type_search = function(search_term, ...){
+      apiResponse <- self$execute_fqn_property_type_searchWithHttpInfo(search_term, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1565,17 +1623,22 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_fqn_property_type_searchWithHttpInfo = function(search.term, ...){
+    execute_fqn_property_type_searchWithHttpInfo = function(search_term, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.term`)) {
-        stop("Missing required parameter `search.term`.")
+      if (missing(`search_term`)) {
+        stop("Missing required parameter `search_term`.")
       }
 
-      if (!missing(`search.term`)) {
-        body <- `search.term`$toJSONString()
+      if (!missing(`search_term`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -1609,8 +1672,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_organization_search = function(search.term, ...){
-      apiResponse <- self$execute_organization_searchWithHttpInfo(search.term, ...)
+    execute_organization_search = function(search_term, ...){
+      apiResponse <- self$execute_organization_searchWithHttpInfo(search_term, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1623,17 +1686,22 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_organization_searchWithHttpInfo = function(search.term, ...){
+    execute_organization_searchWithHttpInfo = function(search_term, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.term`)) {
-        stop("Missing required parameter `search.term`.")
+      if (missing(`search_term`)) {
+        stop("Missing required parameter `search_term`.")
       }
 
-      if (!missing(`search.term`)) {
-        body <- `search.term`$toJSONString()
+      if (!missing(`search_term`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -1667,8 +1735,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    execute_property_type_search = function(search.term, ...){
-      apiResponse <- self$execute_property_type_searchWithHttpInfo(search.term, ...)
+    execute_property_type_search = function(search_term, ...){
+      apiResponse <- self$execute_property_type_searchWithHttpInfo(search_term, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1681,17 +1749,22 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    execute_property_type_searchWithHttpInfo = function(search.term, ...){
+    execute_property_type_searchWithHttpInfo = function(search_term, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.term`)) {
-        stop("Missing required parameter `search.term`.")
+      if (missing(`search_term`)) {
+        stop("Missing required parameter `search_term`.")
       }
 
-      if (!missing(`search.term`)) {
-        body <- `search.term`$toJSONString()
+      if (!missing(`search_term`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -1725,8 +1798,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_sets = function(start, num.results, ...){
-      apiResponse <- self$get_entity_setsWithHttpInfo(start, num.results, ...)
+    get_entity_sets = function(start, num_results, ...){
+      apiResponse <- self$get_entity_setsWithHttpInfo(start, num_results, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1739,7 +1812,7 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    get_entity_setsWithHttpInfo = function(start, num.results, ...){
+    get_entity_setsWithHttpInfo = function(start, num_results, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1748,8 +1821,8 @@ SearchApi <- R6::R6Class(
         stop("Missing required parameter `start`.")
       }
 
-      if (missing(`num.results`)) {
-        stop("Missing required parameter `num.results`.")
+      if (missing(`num_results`)) {
+        stop("Missing required parameter `num_results`.")
       }
 
       urlPath <- "/datastore/search/entity-sets/{start}/{numResults}"
@@ -1757,8 +1830,8 @@ SearchApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "start", "\\}"), URLencode(as.character(`start`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`num.results`)) {
-        urlPath <- gsub(paste0("\\{", "numResults", "\\}"), URLencode(as.character(`num.results`), reserved = TRUE), urlPath)
+      if (!missing(`num_results`)) {
+        urlPath <- gsub(paste0("\\{", "numResults", "\\}"), URLencode(as.character(`num_results`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1837,8 +1910,8 @@ SearchApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    search_entity_set_data = function(search.constraints, ...){
-      apiResponse <- self$search_entity_set_dataWithHttpInfo(search.constraints, ...)
+    search_entity_set_data = function(search_constraints, ...){
+      apiResponse <- self$search_entity_set_dataWithHttpInfo(search_constraints, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1851,17 +1924,22 @@ SearchApi <- R6::R6Class(
       }
     },
 
-    search_entity_set_dataWithHttpInfo = function(search.constraints, ...){
+    search_entity_set_dataWithHttpInfo = function(search_constraints, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.constraints`)) {
-        stop("Missing required parameter `search.constraints`.")
+      if (missing(`search_constraints`)) {
+        stop("Missing required parameter `search_constraints`.")
       }
 
-      if (!missing(`search.constraints`)) {
-        body <- `search.constraints`$toJSONString()
+      if (!missing(`search_constraints`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`search_constraints`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }

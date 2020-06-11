@@ -18,8 +18,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } user.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } user_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -35,9 +35,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } role.id \link{character}
-#' \item \emph{ @param } user.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } role_id \link{character}
+#' \item \emph{ @param } user_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -53,14 +53,14 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } request.body named list( \link{map(integer)} )
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } request_body named list( \link{list(integer)} )
 #' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(array[character]) 
+#' \item return type : list(array[character]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -103,8 +103,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } role.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } role_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -120,7 +120,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -136,8 +136,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } role.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } role_id \link{character}
 #' \item \emph{ @returnType } list( \link{Auth0userBasic} ) \cr
 #'
 #'
@@ -154,7 +154,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -170,14 +170,13 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } request.body named list( \link{map(array[character])} )
-#' \item \emph{ @returnType } list( \link{map} ) \cr
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } request_body named list( \link{list(array[character])} )
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : array[map(array[character])] 
+#' \item return type : array[list(array[character])] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -188,7 +187,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @returnType } list( \link{OrganizationMember} ) \cr
 #'
 #'
@@ -205,7 +204,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @returnType } \link{Organization} \cr
 #'
 #'
@@ -222,13 +221,13 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(array[character]) 
+#' \item return type : list(array[character]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -239,7 +238,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @returnType } \link{InlineResponse200} \cr
 #'
 #'
@@ -272,8 +271,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } role.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } role_id \link{character}
 #' \item \emph{ @returnType } \link{Role} \cr
 #'
 #'
@@ -290,7 +289,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @returnType } list( \link{Role} ) \cr
 #'
 #'
@@ -307,8 +306,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -324,8 +323,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } request.body list( character )
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } request_body list( character )
 #'
 #'
 #' \item status code : 200 | Success
@@ -341,8 +340,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } user.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } user_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -358,9 +357,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } role.id \link{character}
-#' \item \emph{ @param } user.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } role_id \link{character}
+#' \item \emph{ @param } user_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -376,8 +375,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } request.body list( character )
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } request_body list( character )
 #'
 #'
 #' \item status code : 200 | Success
@@ -393,8 +392,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -410,7 +409,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @param } body character
 #'
 #'
@@ -427,8 +426,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } role.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } role_id \link{character}
 #' \item \emph{ @param } body character
 #'
 #'
@@ -445,8 +444,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
-#' \item \emph{ @param } role.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } role_id \link{character}
 #' \item \emph{ @param } body character
 #'
 #'
@@ -463,7 +462,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } organization.id \link{character}
+#' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @param } body character
 #'
 #'
@@ -484,8 +483,8 @@
 #' ####################  add_member  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.user.id <- 'user.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.user_id <- 'user_id_example' # character | 
 #'
 #' #Add member to an organization
 #' api.instance <- OrganizationsApi$new()
@@ -499,15 +498,15 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_member(var.organization.id, var.user.id)
+#' result <- api.instance$add_member(var.organization_id, var.user_id)
 #'
 #'
 #' ####################  add_role_to_user  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.role.id <- 'role.id_example' # character | 
-#' var.user.id <- 'user.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.role_id <- 'role_id_example' # character | 
+#' var.user_id <- 'user_id_example' # character | 
 #'
 #' #Add a role to a user
 #' api.instance <- OrganizationsApi$new()
@@ -521,14 +520,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_role_to_user(var.organization.id, var.role.id, var.user.id)
+#' result <- api.instance$add_role_to_user(var.organization_id, var.role_id, var.user_id)
 #'
 #'
 #' ####################  assemble_entity_sets  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.request.body <- {'key' => 56} # map(integer) | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.request_body <- {'key' => 56} # list(integer) | 
 #'
 #' #Materializes entity sets into the organization database.
 #' api.instance <- OrganizationsApi$new()
@@ -542,7 +541,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$assemble_entity_sets(var.organization.id, var.request.body)
+#' result <- api.instance$assemble_entity_sets(var.organization_id, var.request_body)
 #'
 #'
 #' ####################  create_organization_if_not_exists  ####################
@@ -588,8 +587,8 @@
 #' ####################  delete_role  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.role.id <- 'role.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.role_id <- 'role_id_example' # character | 
 #'
 #' #Remove role for an organization
 #' api.instance <- OrganizationsApi$new()
@@ -603,13 +602,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_role(var.organization.id, var.role.id)
+#' result <- api.instance$delete_role(var.organization_id, var.role_id)
 #'
 #'
 #' ####################  destroy_organization  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #'
 #' #Remove an organization from the organizationId
 #' api.instance <- OrganizationsApi$new()
@@ -623,14 +622,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$destroy_organization(var.organization.id)
+#' result <- api.instance$destroy_organization(var.organization_id)
 #'
 #'
 #' ####################  get_all_users_of_role  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.role.id <- 'role.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.role_id <- 'role_id_example' # character | 
 #'
 #' #Get members of a role for an organization from a roleId
 #' api.instance <- OrganizationsApi$new()
@@ -644,13 +643,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_all_users_of_role(var.organization.id, var.role.id)
+#' result <- api.instance$get_all_users_of_role(var.organization_id, var.role_id)
 #'
 #'
 #' ####################  get_auto_approved_email_domains  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #'
 #' #Get auto-approved email domains
 #' api.instance <- OrganizationsApi$new()
@@ -664,14 +663,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_auto_approved_email_domains(var.organization.id)
+#' result <- api.instance$get_auto_approved_email_domains(var.organization_id)
 #'
 #'
 #' ####################  get_flagged_organization_entity_sets  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.request.body <- {'key' => array$new()} # map(array[character]) | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.request_body <- {'key' => array$new()} # list(array[character]) | 
 #'
 #' #Get the entity sets for an organization for a certain flag
 #' api.instance <- OrganizationsApi$new()
@@ -685,13 +684,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_flagged_organization_entity_sets(var.organization.id, var.request.body)
+#' result <- api.instance$get_flagged_organization_entity_sets(var.organization_id, var.request_body)
 #'
 #'
 #' ####################  get_members  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #'
 #' #Get members of a certain organization
 #' api.instance <- OrganizationsApi$new()
@@ -705,13 +704,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_members(var.organization.id)
+#' result <- api.instance$get_members(var.organization_id)
 #'
 #'
 #' ####################  get_organization  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #'
 #' #Get an organization from the organizationId
 #' api.instance <- OrganizationsApi$new()
@@ -725,13 +724,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_organization(var.organization.id)
+#' result <- api.instance$get_organization(var.organization_id)
 #'
 #'
 #' ####################  get_organization_entity_sets  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #'
 #' #Get the entity sets for an organization for a certain filter
 #' api.instance <- OrganizationsApi$new()
@@ -745,13 +744,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_organization_entity_sets(var.organization.id)
+#' result <- api.instance$get_organization_entity_sets(var.organization_id)
 #'
 #'
 #' ####################  get_organization_integration_account  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #'
 #' #Get the integrations account for an organization from the organizationId
 #' api.instance <- OrganizationsApi$new()
@@ -765,7 +764,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_organization_integration_account(var.organization.id)
+#' result <- api.instance$get_organization_integration_account(var.organization_id)
 #'
 #'
 #' ####################  get_organizations  ####################
@@ -790,8 +789,8 @@
 #' ####################  get_role  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.role.id <- 'role.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.role_id <- 'role_id_example' # character | 
 #'
 #' #Get role for an organization from a roleId
 #' api.instance <- OrganizationsApi$new()
@@ -805,13 +804,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_role(var.organization.id, var.role.id)
+#' result <- api.instance$get_role(var.organization_id, var.role_id)
 #'
 #'
 #' ####################  get_roles  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #'
 #' #Get roles for an organization
 #' api.instance <- OrganizationsApi$new()
@@ -825,14 +824,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_roles(var.organization.id)
+#' result <- api.instance$get_roles(var.organization_id)
 #'
 #'
 #' ####################  refresh_data_changes  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #'
 #' #Refreshes the requested materialized entity set with data changes in the organization.
 #' api.instance <- OrganizationsApi$new()
@@ -846,14 +845,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$refresh_data_changes(var.organization.id, var.entity.set.id)
+#' result <- api.instance$refresh_data_changes(var.organization_id, var.entity_set_id)
 #'
 #'
 #' ####################  remove_auto_approved_email_domains  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Remove auto-approved email domains
 #' api.instance <- OrganizationsApi$new()
@@ -867,14 +866,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$remove_auto_approved_email_domains(var.organization.id, var.request.body)
+#' result <- api.instance$remove_auto_approved_email_domains(var.organization_id, var.request_body)
 #'
 #'
 #' ####################  remove_member  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.user.id <- 'user.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.user_id <- 'user_id_example' # character | 
 #'
 #' #Remove member from an organization
 #' api.instance <- OrganizationsApi$new()
@@ -888,15 +887,15 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$remove_member(var.organization.id, var.user.id)
+#' result <- api.instance$remove_member(var.organization_id, var.user_id)
 #'
 #'
 #' ####################  remove_role_from_user  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.role.id <- 'role.id_example' # character | 
-#' var.user.id <- 'user.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.role_id <- 'role_id_example' # character | 
+#' var.user_id <- 'user_id_example' # character | 
 #'
 #' #Remove a role from a user
 #' api.instance <- OrganizationsApi$new()
@@ -910,14 +909,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$remove_role_from_user(var.organization.id, var.role.id, var.user.id)
+#' result <- api.instance$remove_role_from_user(var.organization_id, var.role_id, var.user_id)
 #'
 #'
 #' ####################  set_auto_approved_email_domain  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Set auto-approved email domains
 #' api.instance <- OrganizationsApi$new()
@@ -931,14 +930,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$set_auto_approved_email_domain(var.organization.id, var.request.body)
+#' result <- api.instance$set_auto_approved_email_domain(var.organization_id, var.request_body)
 #'
 #'
 #' ####################  synchronize_edm_changes  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #'
 #' #Synchronizes EDM changes to the requested materialized entity set in the organization.
 #' api.instance <- OrganizationsApi$new()
@@ -952,13 +951,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$synchronize_edm_changes(var.organization.id, var.entity.set.id)
+#' result <- api.instance$synchronize_edm_changes(var.organization_id, var.entity_set_id)
 #'
 #'
 #' ####################  update_description  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #' var.body <- 'body_example' # character | 
 #'
 #' #Update the organization description
@@ -973,14 +972,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_description(var.organization.id, var.body)
+#' result <- api.instance$update_description(var.organization_id, var.body)
 #'
 #'
 #' ####################  update_role_description  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.role.id <- 'role.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.role_id <- 'role_id_example' # character | 
 #' var.body <- 'body_example' # character | 
 #'
 #' #Update role description for an organization from a roleId
@@ -995,14 +994,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_role_description(var.organization.id, var.role.id, var.body)
+#' result <- api.instance$update_role_description(var.organization_id, var.role_id, var.body)
 #'
 #'
 #' ####################  update_role_title  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
-#' var.role.id <- 'role.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.role_id <- 'role_id_example' # character | 
 #' var.body <- 'body_example' # character | 
 #'
 #' #Update role title for an organization from a roleId
@@ -1017,13 +1016,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_role_title(var.organization.id, var.role.id, var.body)
+#' result <- api.instance$update_role_title(var.organization_id, var.role_id, var.body)
 #'
 #'
 #' ####################  update_title  ####################
 #'
 #' library(openlattice)
-#' var.organization.id <- 'organization.id_example' # character | 
+#' var.organization_id <- 'organization_id_example' # character | 
 #' var.body <- 'body_example' # character | 
 #'
 #' #Update the organization title
@@ -1038,7 +1037,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_title(var.organization.id, var.body)
+#' result <- api.instance$update_title(var.organization_id, var.body)
 #'
 #'
 #' }
@@ -1057,8 +1056,8 @@ OrganizationsApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    add_member = function(organization.id, user.id, ...){
-      apiResponse <- self$add_memberWithHttpInfo(organization.id, user.id, ...)
+    add_member = function(organization_id, user_id, ...){
+      apiResponse <- self$add_memberWithHttpInfo(organization_id, user_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1071,26 +1070,26 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    add_memberWithHttpInfo = function(organization.id, user.id, ...){
+    add_memberWithHttpInfo = function(organization_id, user_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`user.id`)) {
-        stop("Missing required parameter `user.id`.")
+      if (missing(`user_id`)) {
+        stop("Missing required parameter `user_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/members/{userId}"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`user.id`)) {
-        urlPath <- gsub(paste0("\\{", "userId", "\\}"), URLencode(as.character(`user.id`), reserved = TRUE), urlPath)
+      if (!missing(`user_id`)) {
+        urlPath <- gsub(paste0("\\{", "userId", "\\}"), URLencode(as.character(`user_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1115,8 +1114,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    add_role_to_user = function(organization.id, role.id, user.id, ...){
-      apiResponse <- self$add_role_to_userWithHttpInfo(organization.id, role.id, user.id, ...)
+    add_role_to_user = function(organization_id, role_id, user_id, ...){
+      apiResponse <- self$add_role_to_userWithHttpInfo(organization_id, role_id, user_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1129,34 +1128,34 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    add_role_to_userWithHttpInfo = function(organization.id, role.id, user.id, ...){
+    add_role_to_userWithHttpInfo = function(organization_id, role_id, user_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`role.id`)) {
-        stop("Missing required parameter `role.id`.")
+      if (missing(`role_id`)) {
+        stop("Missing required parameter `role_id`.")
       }
 
-      if (missing(`user.id`)) {
-        stop("Missing required parameter `user.id`.")
+      if (missing(`user_id`)) {
+        stop("Missing required parameter `user_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId}"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`role.id`)) {
-        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role.id`), reserved = TRUE), urlPath)
+      if (!missing(`role_id`)) {
+        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`user.id`)) {
-        urlPath <- gsub(paste0("\\{", "userId", "\\}"), URLencode(as.character(`user.id`), reserved = TRUE), urlPath)
+      if (!missing(`user_id`)) {
+        urlPath <- gsub(paste0("\\{", "userId", "\\}"), URLencode(as.character(`user_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1181,8 +1180,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    assemble_entity_sets = function(organization.id, request.body, ...){
-      apiResponse <- self$assemble_entity_setsWithHttpInfo(organization.id, request.body, ...)
+    assemble_entity_sets = function(organization_id, request_body, ...){
+      apiResponse <- self$assemble_entity_setsWithHttpInfo(organization_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1195,28 +1194,33 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    assemble_entity_setsWithHttpInfo = function(organization.id, request.body, ...){
+    assemble_entity_setsWithHttpInfo = function(organization_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body <- `request.body`$toJSONString()
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            %s
+',
+              jsonlite::toJSON(lapply(`request_body`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/entity-sets/assemble"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1233,7 +1237,7 @@ OrganizationsApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[character])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[character])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1271,7 +1275,12 @@ OrganizationsApi <- R6::R6Class(
       }
 
       if (!missing(`organization`)) {
-        body <- `organization`$toJSONString()
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`organization`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -1329,7 +1338,12 @@ OrganizationsApi <- R6::R6Class(
       }
 
       if (!missing(`role`)) {
-        body <- `role`$toJSONString()
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`role`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -1363,8 +1377,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_role = function(organization.id, role.id, ...){
-      apiResponse <- self$delete_roleWithHttpInfo(organization.id, role.id, ...)
+    delete_role = function(organization_id, role_id, ...){
+      apiResponse <- self$delete_roleWithHttpInfo(organization_id, role_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1377,26 +1391,26 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    delete_roleWithHttpInfo = function(organization.id, role.id, ...){
+    delete_roleWithHttpInfo = function(organization_id, role_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`role.id`)) {
-        stop("Missing required parameter `role.id`.")
+      if (missing(`role_id`)) {
+        stop("Missing required parameter `role_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/roles/{roleId}"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`role.id`)) {
-        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role.id`), reserved = TRUE), urlPath)
+      if (!missing(`role_id`)) {
+        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1421,8 +1435,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    destroy_organization = function(organization.id, ...){
-      apiResponse <- self$destroy_organizationWithHttpInfo(organization.id, ...)
+    destroy_organization = function(organization_id, ...){
+      apiResponse <- self$destroy_organizationWithHttpInfo(organization_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1435,18 +1449,18 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    destroy_organizationWithHttpInfo = function(organization.id, ...){
+    destroy_organizationWithHttpInfo = function(organization_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1471,8 +1485,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_all_users_of_role = function(organization.id, role.id, ...){
-      apiResponse <- self$get_all_users_of_roleWithHttpInfo(organization.id, role.id, ...)
+    get_all_users_of_role = function(organization_id, role_id, ...){
+      apiResponse <- self$get_all_users_of_roleWithHttpInfo(organization_id, role_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1485,26 +1499,26 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    get_all_users_of_roleWithHttpInfo = function(organization.id, role.id, ...){
+    get_all_users_of_roleWithHttpInfo = function(organization_id, role_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`role.id`)) {
-        stop("Missing required parameter `role.id`.")
+      if (missing(`role_id`)) {
+        stop("Missing required parameter `role_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/roles/{roleId}/members/"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`role.id`)) {
-        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role.id`), reserved = TRUE), urlPath)
+      if (!missing(`role_id`)) {
+        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1535,8 +1549,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_auto_approved_email_domains = function(organization.id, ...){
-      apiResponse <- self$get_auto_approved_email_domainsWithHttpInfo(organization.id, ...)
+    get_auto_approved_email_domains = function(organization_id, ...){
+      apiResponse <- self$get_auto_approved_email_domainsWithHttpInfo(organization_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1549,18 +1563,18 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    get_auto_approved_email_domainsWithHttpInfo = function(organization.id, ...){
+    get_auto_approved_email_domainsWithHttpInfo = function(organization_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/email-domains"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1591,8 +1605,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_flagged_organization_entity_sets = function(organization.id, request.body, ...){
-      apiResponse <- self$get_flagged_organization_entity_setsWithHttpInfo(organization.id, request.body, ...)
+    get_flagged_organization_entity_sets = function(organization_id, request_body, ...){
+      apiResponse <- self$get_flagged_organization_entity_setsWithHttpInfo(organization_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1605,28 +1619,33 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    get_flagged_organization_entity_setsWithHttpInfo = function(organization.id, request.body, ...){
+    get_flagged_organization_entity_setsWithHttpInfo = function(organization_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body <- `request.body`$toJSONString()
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            %s
+',
+              jsonlite::toJSON(lapply(`request_body`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/entity-sets"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1643,7 +1662,7 @@ OrganizationsApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[map(array[character])]", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "array[list(array[character])]", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1657,8 +1676,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_members = function(organization.id, ...){
-      apiResponse <- self$get_membersWithHttpInfo(organization.id, ...)
+    get_members = function(organization_id, ...){
+      apiResponse <- self$get_membersWithHttpInfo(organization_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1671,18 +1690,18 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    get_membersWithHttpInfo = function(organization.id, ...){
+    get_membersWithHttpInfo = function(organization_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/members"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1713,8 +1732,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_organization = function(organization.id, ...){
-      apiResponse <- self$get_organizationWithHttpInfo(organization.id, ...)
+    get_organization = function(organization_id, ...){
+      apiResponse <- self$get_organizationWithHttpInfo(organization_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1727,18 +1746,18 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    get_organizationWithHttpInfo = function(organization.id, ...){
+    get_organizationWithHttpInfo = function(organization_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1769,8 +1788,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_organization_entity_sets = function(organization.id, ...){
-      apiResponse <- self$get_organization_entity_setsWithHttpInfo(organization.id, ...)
+    get_organization_entity_sets = function(organization_id, ...){
+      apiResponse <- self$get_organization_entity_setsWithHttpInfo(organization_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1783,18 +1802,18 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    get_organization_entity_setsWithHttpInfo = function(organization.id, ...){
+    get_organization_entity_setsWithHttpInfo = function(organization_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/entity-sets"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1811,7 +1830,7 @@ OrganizationsApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(array[character])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[character])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1825,8 +1844,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_organization_integration_account = function(organization.id, ...){
-      apiResponse <- self$get_organization_integration_accountWithHttpInfo(organization.id, ...)
+    get_organization_integration_account = function(organization_id, ...){
+      apiResponse <- self$get_organization_integration_accountWithHttpInfo(organization_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1839,18 +1858,18 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    get_organization_integration_accountWithHttpInfo = function(organization.id, ...){
+    get_organization_integration_accountWithHttpInfo = function(organization_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/integration"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1929,8 +1948,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_role = function(organization.id, role.id, ...){
-      apiResponse <- self$get_roleWithHttpInfo(organization.id, role.id, ...)
+    get_role = function(organization_id, role_id, ...){
+      apiResponse <- self$get_roleWithHttpInfo(organization_id, role_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1943,26 +1962,26 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    get_roleWithHttpInfo = function(organization.id, role.id, ...){
+    get_roleWithHttpInfo = function(organization_id, role_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`role.id`)) {
-        stop("Missing required parameter `role.id`.")
+      if (missing(`role_id`)) {
+        stop("Missing required parameter `role_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/roles/{roleId}"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`role.id`)) {
-        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role.id`), reserved = TRUE), urlPath)
+      if (!missing(`role_id`)) {
+        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1993,8 +2012,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_roles = function(organization.id, ...){
-      apiResponse <- self$get_rolesWithHttpInfo(organization.id, ...)
+    get_roles = function(organization_id, ...){
+      apiResponse <- self$get_rolesWithHttpInfo(organization_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2007,18 +2026,18 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    get_rolesWithHttpInfo = function(organization.id, ...){
+    get_rolesWithHttpInfo = function(organization_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/roles"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2049,8 +2068,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    refresh_data_changes = function(organization.id, entity.set.id, ...){
-      apiResponse <- self$refresh_data_changesWithHttpInfo(organization.id, entity.set.id, ...)
+    refresh_data_changes = function(organization_id, entity_set_id, ...){
+      apiResponse <- self$refresh_data_changesWithHttpInfo(organization_id, entity_set_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2063,26 +2082,26 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    refresh_data_changesWithHttpInfo = function(organization.id, entity.set.id, ...){
+    refresh_data_changesWithHttpInfo = function(organization_id, entity_set_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/{entitySetId}/refresh"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2107,8 +2126,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_auto_approved_email_domains = function(organization.id, request.body, ...){
-      apiResponse <- self$remove_auto_approved_email_domainsWithHttpInfo(organization.id, request.body, ...)
+    remove_auto_approved_email_domains = function(organization_id, request_body, ...){
+      apiResponse <- self$remove_auto_approved_email_domainsWithHttpInfo(organization_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2121,29 +2140,33 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    remove_auto_approved_email_domainsWithHttpInfo = function(organization.id, request.body, ...){
+    remove_auto_approved_email_domainsWithHttpInfo = function(organization_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/email-domains"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2168,8 +2191,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_member = function(organization.id, user.id, ...){
-      apiResponse <- self$remove_memberWithHttpInfo(organization.id, user.id, ...)
+    remove_member = function(organization_id, user_id, ...){
+      apiResponse <- self$remove_memberWithHttpInfo(organization_id, user_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2182,26 +2205,26 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    remove_memberWithHttpInfo = function(organization.id, user.id, ...){
+    remove_memberWithHttpInfo = function(organization_id, user_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`user.id`)) {
-        stop("Missing required parameter `user.id`.")
+      if (missing(`user_id`)) {
+        stop("Missing required parameter `user_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/members/{userId}"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`user.id`)) {
-        urlPath <- gsub(paste0("\\{", "userId", "\\}"), URLencode(as.character(`user.id`), reserved = TRUE), urlPath)
+      if (!missing(`user_id`)) {
+        urlPath <- gsub(paste0("\\{", "userId", "\\}"), URLencode(as.character(`user_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2226,8 +2249,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_role_from_user = function(organization.id, role.id, user.id, ...){
-      apiResponse <- self$remove_role_from_userWithHttpInfo(organization.id, role.id, user.id, ...)
+    remove_role_from_user = function(organization_id, role_id, user_id, ...){
+      apiResponse <- self$remove_role_from_userWithHttpInfo(organization_id, role_id, user_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2240,34 +2263,34 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    remove_role_from_userWithHttpInfo = function(organization.id, role.id, user.id, ...){
+    remove_role_from_userWithHttpInfo = function(organization_id, role_id, user_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`role.id`)) {
-        stop("Missing required parameter `role.id`.")
+      if (missing(`role_id`)) {
+        stop("Missing required parameter `role_id`.")
       }
 
-      if (missing(`user.id`)) {
-        stop("Missing required parameter `user.id`.")
+      if (missing(`user_id`)) {
+        stop("Missing required parameter `user_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId}"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`role.id`)) {
-        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role.id`), reserved = TRUE), urlPath)
+      if (!missing(`role_id`)) {
+        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`user.id`)) {
-        urlPath <- gsub(paste0("\\{", "userId", "\\}"), URLencode(as.character(`user.id`), reserved = TRUE), urlPath)
+      if (!missing(`user_id`)) {
+        urlPath <- gsub(paste0("\\{", "userId", "\\}"), URLencode(as.character(`user_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2292,8 +2315,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    set_auto_approved_email_domain = function(organization.id, request.body, ...){
-      apiResponse <- self$set_auto_approved_email_domainWithHttpInfo(organization.id, request.body, ...)
+    set_auto_approved_email_domain = function(organization_id, request_body, ...){
+      apiResponse <- self$set_auto_approved_email_domainWithHttpInfo(organization_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2306,29 +2329,33 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    set_auto_approved_email_domainWithHttpInfo = function(organization.id, request.body, ...){
+    set_auto_approved_email_domainWithHttpInfo = function(organization_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/email-domains"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2353,8 +2380,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    synchronize_edm_changes = function(organization.id, entity.set.id, ...){
-      apiResponse <- self$synchronize_edm_changesWithHttpInfo(organization.id, entity.set.id, ...)
+    synchronize_edm_changes = function(organization_id, entity_set_id, ...){
+      apiResponse <- self$synchronize_edm_changesWithHttpInfo(organization_id, entity_set_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2367,26 +2394,26 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    synchronize_edm_changesWithHttpInfo = function(organization.id, entity.set.id, ...){
+    synchronize_edm_changesWithHttpInfo = function(organization_id, entity_set_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/{entitySetId}/synchronize"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2411,8 +2438,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_description = function(organization.id, body, ...){
-      apiResponse <- self$update_descriptionWithHttpInfo(organization.id, body, ...)
+    update_description = function(organization_id, body, ...){
+      apiResponse <- self$update_descriptionWithHttpInfo(organization_id, body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2425,13 +2452,13 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    update_descriptionWithHttpInfo = function(organization.id, body, ...){
+    update_descriptionWithHttpInfo = function(organization_id, body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       if (missing(`body`)) {
@@ -2439,14 +2466,19 @@ OrganizationsApi <- R6::R6Class(
       }
 
       if (!missing(`body`)) {
-        body <- `body`$toJSONString()
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/description"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2471,8 +2503,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_role_description = function(organization.id, role.id, body, ...){
-      apiResponse <- self$update_role_descriptionWithHttpInfo(organization.id, role.id, body, ...)
+    update_role_description = function(organization_id, role_id, body, ...){
+      apiResponse <- self$update_role_descriptionWithHttpInfo(organization_id, role_id, body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2485,17 +2517,17 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    update_role_descriptionWithHttpInfo = function(organization.id, role.id, body, ...){
+    update_role_descriptionWithHttpInfo = function(organization_id, role_id, body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`role.id`)) {
-        stop("Missing required parameter `role.id`.")
+      if (missing(`role_id`)) {
+        stop("Missing required parameter `role_id`.")
       }
 
       if (missing(`body`)) {
@@ -2503,18 +2535,23 @@ OrganizationsApi <- R6::R6Class(
       }
 
       if (!missing(`body`)) {
-        body <- `body`$toJSONString()
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/roles/{roleId}/description"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`role.id`)) {
-        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role.id`), reserved = TRUE), urlPath)
+      if (!missing(`role_id`)) {
+        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2539,8 +2576,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_role_title = function(organization.id, role.id, body, ...){
-      apiResponse <- self$update_role_titleWithHttpInfo(organization.id, role.id, body, ...)
+    update_role_title = function(organization_id, role_id, body, ...){
+      apiResponse <- self$update_role_titleWithHttpInfo(organization_id, role_id, body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2553,17 +2590,17 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    update_role_titleWithHttpInfo = function(organization.id, role.id, body, ...){
+    update_role_titleWithHttpInfo = function(organization_id, role_id, body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`role.id`)) {
-        stop("Missing required parameter `role.id`.")
+      if (missing(`role_id`)) {
+        stop("Missing required parameter `role_id`.")
       }
 
       if (missing(`body`)) {
@@ -2571,18 +2608,23 @@ OrganizationsApi <- R6::R6Class(
       }
 
       if (!missing(`body`)) {
-        body <- `body`$toJSONString()
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/principals/roles/{roleId}/title"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`role.id`)) {
-        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role.id`), reserved = TRUE), urlPath)
+      if (!missing(`role_id`)) {
+        urlPath <- gsub(paste0("\\{", "roleId", "\\}"), URLencode(as.character(`role_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2607,8 +2649,8 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_title = function(organization.id, body, ...){
-      apiResponse <- self$update_titleWithHttpInfo(organization.id, body, ...)
+    update_title = function(organization_id, body, ...){
+      apiResponse <- self$update_titleWithHttpInfo(organization_id, body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2621,13 +2663,13 @@ OrganizationsApi <- R6::R6Class(
       }
     },
 
-    update_titleWithHttpInfo = function(organization.id, body, ...){
+    update_titleWithHttpInfo = function(organization_id, body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`organization.id`)) {
-        stop("Missing required parameter `organization.id`.")
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
       }
 
       if (missing(`body`)) {
@@ -2635,14 +2677,19 @@ OrganizationsApi <- R6::R6Class(
       }
 
       if (!missing(`body`)) {
-        body <- `body`$toJSONString()
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/organizations/{organizationId}/title"
-      if (!missing(`organization.id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization.id`), reserved = TRUE), urlPath)
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication

@@ -9,8 +9,8 @@ test_that("add_type_to_entity_type_collection_template", {
   # tests for add_type_to_entity_type_collection_template
   # base path: https://api.openlattice.com
   # Appends type to template of the specified EntityTypeCollection
-  # @param character  entity.type.collection.id   
-  # @param CollectionTemplateType  collection.template.type   
+  # @param character  entity_type_collection_id   
+  # @param CollectionTemplateType  collection_template_type   
   # @return [Void]
 
   # uncomment below to test the operation
@@ -21,7 +21,7 @@ test_that("create_entity_set_collection", {
   # tests for create_entity_set_collection
   # base path: https://api.openlattice.com
   # Creates a new EntitySetCollection
-  # @param EntitySetCollection  entity.set.collection   
+  # @param EntitySetCollection  entity_set_collection   
   # @return [character]
 
   # uncomment below to test the operation
@@ -32,7 +32,7 @@ test_that("create_entity_type_collection", {
   # tests for create_entity_type_collection
   # base path: https://api.openlattice.com
   # Creates a new EntityTypeCollection
-  # @param EntityTypeCollection  entity.type.collection   
+  # @param EntityTypeCollection  entity_type_collection   
   # @return [character]
 
   # uncomment below to test the operation
@@ -43,7 +43,7 @@ test_that("delete_entity_set_collection", {
   # tests for delete_entity_set_collection
   # base path: https://api.openlattice.com
   # Deletes the specified EntitySetCollection
-  # @param character  entity.set.collection.id   
+  # @param character  entity_set_collection_id   
   # @return [Void]
 
   # uncomment below to test the operation
@@ -54,7 +54,7 @@ test_that("delete_entity_type_collection", {
   # tests for delete_entity_type_collection
   # base path: https://api.openlattice.com
   # Deletes the specified EntityTypeCollection
-  # @param character  entity.type.collection.id   
+  # @param character  entity_type_collection_id   
   # @return [Void]
 
   # uncomment below to test the operation
@@ -85,7 +85,7 @@ test_that("get_entity_set_collection", {
   # tests for get_entity_set_collection
   # base path: https://api.openlattice.com
   # Returns the EntitySetCollection object for a given id
-  # @param character  entity.set.collection.id   
+  # @param character  entity_set_collection_id   
   # @return [EntitySetCollection]
 
   # uncomment below to test the operation
@@ -96,7 +96,7 @@ test_that("get_entity_set_collections_of_type", {
   # tests for get_entity_set_collections_of_type
   # base path: https://api.openlattice.com
   # Returns all authorized EntitySetCollections for a given EntityTypeCollection id
-  # @param character  entity.set.collection.id   
+  # @param character  entity_set_collection_id   
   # @return [array[EntitySetCollection]]
 
   # uncomment below to test the operation
@@ -107,7 +107,7 @@ test_that("get_entity_type_collection", {
   # tests for get_entity_type_collection
   # base path: https://api.openlattice.com
   # Returns the EntityTypeCollection object for a given id
-  # @param character  entity.type.collection.id   
+  # @param character  entity_type_collection_id   
   # @return [EntityTypeCollection]
 
   # uncomment below to test the operation
@@ -118,8 +118,8 @@ test_that("remove_type_from_entity_type_collection_template", {
   # tests for remove_type_from_entity_type_collection_template
   # base path: https://api.openlattice.com
   # Removes a key from an EntityTypeCollection template
-  # @param character  entity.type.collection.id   
-  # @param character  type.id   
+  # @param character  entity_type_collection_id   
+  # @param character  type_id   
   # @return [Void]
 
   # uncomment below to test the operation
@@ -130,8 +130,8 @@ test_that("update_entity_set_collection_metadata", {
   # tests for update_entity_set_collection_metadata
   # base path: https://api.openlattice.com
   # Updates metadata of the specified EntitySetCollection
-  # @param character  entity.set.collection.id   
-  # @param MetadataUpdate  metadata.update   
+  # @param character  entity_set_collection_id   
+  # @param MetadataUpdate  metadata_update   
   # @return [Void]
 
   # uncomment below to test the operation
@@ -142,8 +142,8 @@ test_that("update_entity_set_collection_template", {
   # tests for update_entity_set_collection_template
   # base path: https://api.openlattice.com
   # Updates template of the specified EntitySetCollection
-  # @param character  entity.set.collection.id   
-  # @param map(character)  request.body   
+  # @param character  entity_set_collection_id   
+  # @param list(character)  request_body   
   # @return [Void]
 
   # uncomment below to test the operation
@@ -154,8 +154,8 @@ test_that("update_entity_type_collection_metadata", {
   # tests for update_entity_type_collection_metadata
   # base path: https://api.openlattice.com
   # Updates metadata of the specified EntityTypeCollection
-  # @param character  entity.type.collection.id   
-  # @param MetadataUpdate  metadata.update   
+  # @param character  entity_type_collection_id   
+  # @param MetadataUpdate  metadata_update   
   # @return [Void]
 
   # uncomment below to test the operation

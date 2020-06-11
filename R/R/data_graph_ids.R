@@ -52,10 +52,10 @@ DataGraphIds <- R6::R6Class(
     fromJSON = function(DataGraphIdsJson) {
       DataGraphIdsObject <- jsonlite::fromJSON(DataGraphIdsJson)
       if (!is.null(DataGraphIdsObject$`entityKeyIds`)) {
-        self$`entityKeyIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entityKeyIds`, "map(array[character])", loadNamespace("openlattice"))
+        self$`entityKeyIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entityKeyIds`, "list(array[character])", loadNamespace("openlattice"))
       }
       if (!is.null(DataGraphIdsObject$`entitySetIds`)) {
-        self$`entitySetIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entitySetIds`, "map(array[character])", loadNamespace("openlattice"))
+        self$`entitySetIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entitySetIds`, "list(array[character])", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -80,8 +80,8 @@ DataGraphIds <- R6::R6Class(
     },
     fromJSONString = function(DataGraphIdsJson) {
       DataGraphIdsObject <- jsonlite::fromJSON(DataGraphIdsJson)
-      self$`entityKeyIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entityKeyIds`, "map(array[character])", loadNamespace("openlattice"))
-      self$`entitySetIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entitySetIds`, "map(array[character])", loadNamespace("openlattice"))
+      self$`entityKeyIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entityKeyIds`, "list(array[character])", loadNamespace("openlattice"))
+      self$`entitySetIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entitySetIds`, "list(array[character])", loadNamespace("openlattice"))
       self
     }
   )

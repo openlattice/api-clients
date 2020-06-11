@@ -14,9 +14,9 @@
 #'
 #' @field associationCount  integer [optional]
 #'
-#' @field associationsEntityKeyMappings  named list( \link{map(character)} ) [optional]
+#' @field associationsEntityKeyMappings  named list( list(character) ) [optional]
 #'
-#' @field entitySetsEntityKeyMappings  named list( \link{map(character)} ) [optional]
+#' @field entitySetsEntityKeyMappings  named list( list(character) ) [optional]
 #'
 #'
 #' @importFrom R6 R6Class
@@ -41,12 +41,12 @@ IntegrationResults <- R6::R6Class(
       }
       if (!is.null(`associationsEntityKeyMappings`)) {
         stopifnot(is.vector(`associationsEntityKeyMappings`))
-        sapply(`associationsEntityKeyMappings`, function(x) stopifnot(R6::is.R6(x)))
+        sapply(`associationsEntityKeyMappings`, function(x) stopifnot(is.character(x)))
         self$`associationsEntityKeyMappings` <- `associationsEntityKeyMappings`
       }
       if (!is.null(`entitySetsEntityKeyMappings`)) {
         stopifnot(is.vector(`entitySetsEntityKeyMappings`))
-        sapply(`entitySetsEntityKeyMappings`, function(x) stopifnot(R6::is.R6(x)))
+        sapply(`entitySetsEntityKeyMappings`, function(x) stopifnot(is.character(x)))
         self$`entitySetsEntityKeyMappings` <- `entitySetsEntityKeyMappings`
       }
     },
@@ -62,11 +62,11 @@ IntegrationResults <- R6::R6Class(
       }
       if (!is.null(self$`associationsEntityKeyMappings`)) {
         IntegrationResultsObject[['associationsEntityKeyMappings']] <-
-          lapply(self$`associationsEntityKeyMappings`, function(x) x$toJSON())
+          self$`associationsEntityKeyMappings`
       }
       if (!is.null(self$`entitySetsEntityKeyMappings`)) {
         IntegrationResultsObject[['entitySetsEntityKeyMappings']] <-
-          lapply(self$`entitySetsEntityKeyMappings`, function(x) x$toJSON())
+          self$`entitySetsEntityKeyMappings`
       }
 
       IntegrationResultsObject
@@ -80,10 +80,10 @@ IntegrationResults <- R6::R6Class(
         self$`associationCount` <- IntegrationResultsObject$`associationCount`
       }
       if (!is.null(IntegrationResultsObject$`associationsEntityKeyMappings`)) {
-        self$`associationsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`associationsEntityKeyMappings`, "map(map(character))", loadNamespace("openlattice"))
+        self$`associationsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`associationsEntityKeyMappings`, "list(list(character))", loadNamespace("openlattice"))
       }
       if (!is.null(IntegrationResultsObject$`entitySetsEntityKeyMappings`)) {
-        self$`entitySetsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`entitySetsEntityKeyMappings`, "map(map(character))", loadNamespace("openlattice"))
+        self$`entitySetsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`entitySetsEntityKeyMappings`, "list(list(character))", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -105,16 +105,16 @@ IntegrationResults <- R6::R6Class(
         if (!is.null(self$`associationsEntityKeyMappings`)) {
         sprintf(
         '"associationsEntityKeyMappings":
-        %s
-',
-        jsonlite::toJSON(lapply(self$`associationsEntityKeyMappings`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+          %s
+        ',
+        jsonlite::toJSON(lapply(self$`associationsEntityKeyMappings`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`entitySetsEntityKeyMappings`)) {
         sprintf(
         '"entitySetsEntityKeyMappings":
-        %s
-',
-        jsonlite::toJSON(lapply(self$`entitySetsEntityKeyMappings`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+          %s
+        ',
+        jsonlite::toJSON(lapply(self$`entitySetsEntityKeyMappings`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -124,8 +124,8 @@ IntegrationResults <- R6::R6Class(
       IntegrationResultsObject <- jsonlite::fromJSON(IntegrationResultsJson)
       self$`entityCount` <- IntegrationResultsObject$`entityCount`
       self$`associationCount` <- IntegrationResultsObject$`associationCount`
-      self$`associationsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`associationsEntityKeyMappings`, "map(map(character))", loadNamespace("openlattice"))
-      self$`entitySetsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`entitySetsEntityKeyMappings`, "map(map(character))", loadNamespace("openlattice"))
+      self$`associationsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`associationsEntityKeyMappings`, "list(list(character))", loadNamespace("openlattice"))
+      self$`entitySetsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`entitySetsEntityKeyMappings`, "list(list(character))", loadNamespace("openlattice"))
       self
     }
   )

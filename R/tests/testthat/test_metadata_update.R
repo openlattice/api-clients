@@ -62,7 +62,7 @@ test_that("url", {
 })
 
 test_that("propertyTags", {
-  # tests for the property `propertyTags` (map(array[character]))
+  # tests for the property `propertyTags` (list(array[character]))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`propertyTags`, "EXPECTED_RESULT")

@@ -18,7 +18,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } linking.feedback \link{LinkingFeedback}
+#' \item \emph{ @param } linking_feedback \link{LinkingFeedback}
 #'
 #'
 #' \item status code : 200 | Success
@@ -34,7 +34,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.key.pair \link{EntityKeyPair}
+#' \item \emph{ @param } entity_key_pair \link{EntityKeyPair}
 #'
 #'
 #' \item status code : 200 | Success
@@ -82,7 +82,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.key.pair \link{EntityKeyPair}
+#' \item \emph{ @param } entity_key_pair \link{EntityKeyPair}
 #' \item \emph{ @returnType } \link{EntityLinkingFeatures} \cr
 #'
 #'
@@ -99,8 +99,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } feedback.type Enum < [Positive, Negative, All] > 
-#' \item \emph{ @param } entity.data.key \link{EntityDataKey}
+#' \item \emph{ @param } feedback_type Enum < [Positive, Negative, All] > 
+#' \item \emph{ @param } entity_data_key \link{EntityDataKey}
 #' \item \emph{ @returnType } list( \link{EntityLinkingFeedback} ) \cr
 #'
 #'
@@ -121,7 +121,7 @@
 #' ####################  add_linking_feedback  ####################
 #'
 #' library(openlattice)
-#' var.linking.feedback <- LinkingFeedback$new() # LinkingFeedback | 
+#' var.linking_feedback <- LinkingFeedback$new() # LinkingFeedback | 
 #'
 #' #Submits feedbacks for a given linking entity set and linking id in a batch format.
 #' api.instance <- LinkingApi$new()
@@ -135,13 +135,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_linking_feedback(var.linking.feedback)
+#' result <- api.instance$add_linking_feedback(var.linking_feedback)
 #'
 #'
 #' ####################  delete_linking_feedback  ####################
 #'
 #' library(openlattice)
-#' var.entity.key.pair <- EntityKeyPair$new() # EntityKeyPair | 
+#' var.entity_key_pair <- EntityKeyPair$new() # EntityKeyPair | 
 #'
 #' #Deletes linking feedback
 #' api.instance <- LinkingApi$new()
@@ -155,7 +155,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_linking_feedback(var.entity.key.pair)
+#' result <- api.instance$delete_linking_feedback(var.entity_key_pair)
 #'
 #'
 #' ####################  get_all_linking_feedback  ####################
@@ -193,7 +193,7 @@
 #' ####################  get_linking_feedback_with_features  ####################
 #'
 #' library(openlattice)
-#' var.entity.key.pair <- EntityKeyPair$new() # EntityKeyPair | 
+#' var.entity_key_pair <- EntityKeyPair$new() # EntityKeyPair | 
 #'
 #' #Returns the feedback on the given entity pair along with their features
 #' api.instance <- LinkingApi$new()
@@ -207,14 +207,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_linking_feedback_with_features(var.entity.key.pair)
+#' result <- api.instance$get_linking_feedback_with_features(var.entity_key_pair)
 #'
 #'
 #' ####################  get_linking_feedbacks_on_entity  ####################
 #'
 #' library(openlattice)
-#' var.feedback.type <- 'feedback.type_example' # character | 
-#' var.entity.data.key <- EntityDataKey$new() # EntityDataKey | 
+#' var.feedback_type <- 'feedback_type_example' # character | 
+#' var.entity_data_key <- EntityDataKey$new() # EntityDataKey | 
 #'
 #' #Returns positive/negative/all linking feedbacks on the given entity.
 #' api.instance <- LinkingApi$new()
@@ -228,7 +228,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_linking_feedbacks_on_entity(var.feedback.type, var.entity.data.key)
+#' result <- api.instance$get_linking_feedbacks_on_entity(var.feedback_type, var.entity_data_key)
 #'
 #'
 #' }
@@ -247,8 +247,8 @@ LinkingApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    add_linking_feedback = function(linking.feedback, ...){
-      apiResponse <- self$add_linking_feedbackWithHttpInfo(linking.feedback, ...)
+    add_linking_feedback = function(linking_feedback, ...){
+      apiResponse <- self$add_linking_feedbackWithHttpInfo(linking_feedback, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -261,17 +261,22 @@ LinkingApi <- R6::R6Class(
       }
     },
 
-    add_linking_feedbackWithHttpInfo = function(linking.feedback, ...){
+    add_linking_feedbackWithHttpInfo = function(linking_feedback, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`linking.feedback`)) {
-        stop("Missing required parameter `linking.feedback`.")
+      if (missing(`linking_feedback`)) {
+        stop("Missing required parameter `linking_feedback`.")
       }
 
-      if (!missing(`linking.feedback`)) {
-        body <- `linking.feedback`$toJSONString()
+      if (!missing(`linking_feedback`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`linking_feedback`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -305,8 +310,8 @@ LinkingApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_linking_feedback = function(entity.key.pair, ...){
-      apiResponse <- self$delete_linking_feedbackWithHttpInfo(entity.key.pair, ...)
+    delete_linking_feedback = function(entity_key_pair, ...){
+      apiResponse <- self$delete_linking_feedbackWithHttpInfo(entity_key_pair, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -319,17 +324,22 @@ LinkingApi <- R6::R6Class(
       }
     },
 
-    delete_linking_feedbackWithHttpInfo = function(entity.key.pair, ...){
+    delete_linking_feedbackWithHttpInfo = function(entity_key_pair, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.key.pair`)) {
-        stop("Missing required parameter `entity.key.pair`.")
+      if (missing(`entity_key_pair`)) {
+        stop("Missing required parameter `entity_key_pair`.")
       }
 
-      if (!missing(`entity.key.pair`)) {
-        body <- `entity.key.pair`$toJSONString()
+      if (!missing(`entity_key_pair`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`entity_key_pair`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -459,8 +469,8 @@ LinkingApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_linking_feedback_with_features = function(entity.key.pair, ...){
-      apiResponse <- self$get_linking_feedback_with_featuresWithHttpInfo(entity.key.pair, ...)
+    get_linking_feedback_with_features = function(entity_key_pair, ...){
+      apiResponse <- self$get_linking_feedback_with_featuresWithHttpInfo(entity_key_pair, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -473,17 +483,22 @@ LinkingApi <- R6::R6Class(
       }
     },
 
-    get_linking_feedback_with_featuresWithHttpInfo = function(entity.key.pair, ...){
+    get_linking_feedback_with_featuresWithHttpInfo = function(entity_key_pair, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.key.pair`)) {
-        stop("Missing required parameter `entity.key.pair`.")
+      if (missing(`entity_key_pair`)) {
+        stop("Missing required parameter `entity_key_pair`.")
       }
 
-      if (!missing(`entity.key.pair`)) {
-        body <- `entity.key.pair`$toJSONString()
+      if (!missing(`entity_key_pair`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`entity_key_pair`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -517,8 +532,8 @@ LinkingApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_linking_feedbacks_on_entity = function(feedback.type, entity.data.key, ...){
-      apiResponse <- self$get_linking_feedbacks_on_entityWithHttpInfo(feedback.type, entity.data.key, ...)
+    get_linking_feedbacks_on_entity = function(feedback_type, entity_data_key, ...){
+      apiResponse <- self$get_linking_feedbacks_on_entityWithHttpInfo(feedback_type, entity_data_key, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -531,23 +546,28 @@ LinkingApi <- R6::R6Class(
       }
     },
 
-    get_linking_feedbacks_on_entityWithHttpInfo = function(feedback.type, entity.data.key, ...){
+    get_linking_feedbacks_on_entityWithHttpInfo = function(feedback_type, entity_data_key, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`feedback.type`)) {
-        stop("Missing required parameter `feedback.type`.")
+      if (missing(`feedback_type`)) {
+        stop("Missing required parameter `feedback_type`.")
       }
 
-      if (missing(`entity.data.key`)) {
-        stop("Missing required parameter `entity.data.key`.")
+      if (missing(`entity_data_key`)) {
+        stop("Missing required parameter `entity_data_key`.")
       }
 
-      queryParams['feedbackType'] <- feedback.type
+      queryParams['feedbackType'] <- feedback_type
 
-      if (!missing(`entity.data.key`)) {
-        body <- `entity.data.key`$toJSONString()
+      if (!missing(`entity_data_key`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`entity_data_key`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }

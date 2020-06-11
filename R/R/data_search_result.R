@@ -12,7 +12,7 @@
 #' @format An \code{R6Class} generator object
 #' @field numHits  integer [optional]
 #'
-#' @field hits  list( \link{map(array[character])} ) [optional]
+#' @field hits  list( list(array[character]) ) [optional]
 #'
 #'
 #' @importFrom R6 R6Class
@@ -31,7 +31,7 @@ DataSearchResult <- R6::R6Class(
       }
       if (!is.null(`hits`)) {
         stopifnot(is.vector(`hits`))
-        sapply(`hits`, function(x) stopifnot(R6::is.R6(x)))
+        sapply(`hits`, function(x) stopifnot(is.character(x)))
         self$`hits` <- `hits`
       }
     },
@@ -43,7 +43,7 @@ DataSearchResult <- R6::R6Class(
       }
       if (!is.null(self$`hits`)) {
         DataSearchResultObject[['hits']] <-
-          lapply(self$`hits`, function(x) x$toJSON())
+          self$`hits`
       }
 
       DataSearchResultObject
@@ -54,7 +54,7 @@ DataSearchResult <- R6::R6Class(
         self$`numHits` <- DataSearchResultObject$`numHits`
       }
       if (!is.null(DataSearchResultObject$`hits`)) {
-        self$`hits` <- ApiClient$new()$deserializeObj(DataSearchResultObject$`hits`, "array[map(array[character])]", loadNamespace("openlattice"))
+        self$`hits` <- ApiClient$new()$deserializeObj(DataSearchResultObject$`hits`, "array[list(array[character])]", loadNamespace("openlattice"))
       }
     },
     toJSONString = function() {
@@ -69,9 +69,9 @@ DataSearchResult <- R6::R6Class(
         if (!is.null(self$`hits`)) {
         sprintf(
         '"hits":
-        [%s]
-',
-        paste(sapply(self$`hits`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+           [%s]
+        ',
+        paste(unlist(lapply(self$`hits`, function(x) paste0('"', x, '"'))), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -80,7 +80,7 @@ DataSearchResult <- R6::R6Class(
     fromJSONString = function(DataSearchResultJson) {
       DataSearchResultObject <- jsonlite::fromJSON(DataSearchResultJson)
       self$`numHits` <- DataSearchResultObject$`numHits`
-      self$`hits` <- ApiClient$new()$deserializeObj(DataSearchResultObject$`hits`, "array[map(array[character])]", loadNamespace("openlattice"))
+      self$`hits` <- ApiClient$new()$deserializeObj(DataSearchResultObject$`hits`, "array[list(array[character])]", loadNamespace("openlattice"))
       self
     }
   )

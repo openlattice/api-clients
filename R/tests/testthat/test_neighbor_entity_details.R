@@ -13,7 +13,7 @@ test_that("associationEntitySet", {
 })
 
 test_that("associationDetails", {
-  # tests for the property `associationDetails` (map(array[character]))
+  # tests for the property `associationDetails` (list(array[character]))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`associationDetails`, "EXPECTED_RESULT")
@@ -34,7 +34,7 @@ test_that("neighborId", {
 })
 
 test_that("neighborDetails", {
-  # tests for the property `neighborDetails` (map(array[character]))
+  # tests for the property `neighborDetails` (list(array[character]))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`neighborDetails`, "EXPECTED_RESULT")
