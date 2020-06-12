@@ -1260,7 +1260,7 @@ CollectionsApi <- R6::R6Class(
         '
             %s
 ',
-              jsonlite::toJSON(`request_body`), auto_unbox = TRUE, digits=NA)
+              jsonlite::toJSON(`request_body`, auto_unbox = TRUE, digits=NA)
         )
       } else {
         body <- NULL
