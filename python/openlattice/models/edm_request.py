@@ -79,7 +79,7 @@ class EdmRequest(object):
 
 
         :param action: The action of this EdmRequest.  # noqa: E501
-        :type: str
+        :type action: str
         """
         allowed_values = ["ADD", "REMOVE", "REPLACE"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and action not in allowed_values:  # noqa: E501
@@ -106,7 +106,7 @@ class EdmRequest(object):
 
 
         :param property_types: The property_types of this EdmRequest.  # noqa: E501
-        :type: list[str]
+        :type property_types: list[str]
         """
 
         self._property_types = property_types
@@ -127,7 +127,7 @@ class EdmRequest(object):
 
 
         :param entity_types: The entity_types of this EdmRequest.  # noqa: E501
-        :type: list[str]
+        :type entity_types: list[str]
         """
 
         self._entity_types = entity_types

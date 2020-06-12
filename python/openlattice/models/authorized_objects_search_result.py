@@ -74,7 +74,7 @@ class AuthorizedObjectsSearchResult(object):
 
 
         :param paging_token: The paging_token of this AuthorizedObjectsSearchResult.  # noqa: E501
-        :type: str
+        :type paging_token: str
         """
 
         self._paging_token = paging_token
@@ -95,7 +95,7 @@ class AuthorizedObjectsSearchResult(object):
 
 
         :param authorized_objects: The authorized_objects of this AuthorizedObjectsSearchResult.  # noqa: E501
-        :type: list[list[str]]
+        :type authorized_objects: list[list[str]]
         """
 
         self._authorized_objects = authorized_objects

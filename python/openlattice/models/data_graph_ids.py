@@ -74,7 +74,7 @@ class DataGraphIds(object):
 
 
         :param entity_key_ids: The entity_key_ids of this DataGraphIds.  # noqa: E501
-        :type: dict(str, list[str])
+        :type entity_key_ids: dict(str, list[str])
         """
 
         self._entity_key_ids = entity_key_ids
@@ -95,7 +95,7 @@ class DataGraphIds(object):
 
 
         :param entity_set_ids: The entity_set_ids of this DataGraphIds.  # noqa: E501
-        :type: dict(str, list[str])
+        :type entity_set_ids: dict(str, list[str])
         """
 
         self._entity_set_ids = entity_set_ids

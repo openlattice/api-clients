@@ -79,7 +79,7 @@ class Schema(object):
 
 
         :param entity_types: The entity_types of this Schema.  # noqa: E501
-        :type: list[EntityType]
+        :type entity_types: list[EntityType]
         """
 
         self._entity_types = entity_types
@@ -100,7 +100,7 @@ class Schema(object):
 
 
         :param property_types: The property_types of this Schema.  # noqa: E501
-        :type: list[PropertyType]
+        :type property_types: list[PropertyType]
         """
 
         self._property_types = property_types
@@ -121,7 +121,7 @@ class Schema(object):
 
 
         :param fqn: The fqn of this Schema.  # noqa: E501
-        :type: FullQualifiedName
+        :type fqn: FullQualifiedName
         """
 
         self._fqn = fqn

@@ -39,6 +39,7 @@ from openlattice.exceptions import OpenApiException
 from openlattice.exceptions import ApiTypeError
 from openlattice.exceptions import ApiValueError
 from openlattice.exceptions import ApiKeyError
+from openlattice.exceptions import ApiAttributeError
 from openlattice.exceptions import ApiException
 # import models into sdk package
 from openlattice.models.access_check import AccessCheck

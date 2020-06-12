@@ -74,7 +74,7 @@ class EntityTypePropertyMetadata(object):
 
 
         :param title: The title of this EntityTypePropertyMetadata.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -95,7 +95,7 @@ class EntityTypePropertyMetadata(object):
 
 
         :param description: The description of this EntityTypePropertyMetadata.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description

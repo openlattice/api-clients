@@ -84,7 +84,7 @@ class SmsEntitySetInformation(object):
 
 
         :param phone_number: The phone_number of this SmsEntitySetInformation.  # noqa: E501
-        :type: str
+        :type phone_number: str
         """
 
         self._phone_number = phone_number
@@ -105,7 +105,7 @@ class SmsEntitySetInformation(object):
 
 
         :param organization_id: The organization_id of this SmsEntitySetInformation.  # noqa: E501
-        :type: str
+        :type organization_id: str
         """
 
         self._organization_id = organization_id
@@ -126,7 +126,7 @@ class SmsEntitySetInformation(object):
 
 
         :param entityset_ids: The entityset_ids of this SmsEntitySetInformation.  # noqa: E501
-        :type: list[str]
+        :type entityset_ids: list[str]
         """
 
         self._entityset_ids = entityset_ids
@@ -147,7 +147,7 @@ class SmsEntitySetInformation(object):
 
 
         :param tags: The tags of this SmsEntitySetInformation.  # noqa: E501
-        :type: list[str]
+        :type tags: list[str]
         """
 
         self._tags = tags

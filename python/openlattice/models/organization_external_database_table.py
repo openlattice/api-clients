@@ -89,7 +89,7 @@ class OrganizationExternalDatabaseTable(object):
 
 
         :param id: The id of this OrganizationExternalDatabaseTable.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -110,7 +110,7 @@ class OrganizationExternalDatabaseTable(object):
 
 
         :param name: The name of this OrganizationExternalDatabaseTable.  # noqa: E501
-        :type: str
+        :type name: str
         """
 
         self._name = name
@@ -131,7 +131,7 @@ class OrganizationExternalDatabaseTable(object):
 
 
         :param title: The title of this OrganizationExternalDatabaseTable.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -152,7 +152,7 @@ class OrganizationExternalDatabaseTable(object):
 
 
         :param description: The description of this OrganizationExternalDatabaseTable.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -173,7 +173,7 @@ class OrganizationExternalDatabaseTable(object):
 
 
         :param organization_id: The organization_id of this OrganizationExternalDatabaseTable.  # noqa: E501
-        :type: str
+        :type organization_id: str
         """
 
         self._organization_id = organization_id

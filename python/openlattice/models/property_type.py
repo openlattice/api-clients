@@ -119,7 +119,7 @@ class PropertyType(object):
 
 
         :param title: The title of this PropertyType.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -140,7 +140,7 @@ class PropertyType(object):
 
 
         :param id: The id of this PropertyType.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -161,7 +161,7 @@ class PropertyType(object):
 
 
         :param type: The type of this PropertyType.  # noqa: E501
-        :type: FullQualifiedName
+        :type type: FullQualifiedName
         """
 
         self._type = type
@@ -182,7 +182,7 @@ class PropertyType(object):
 
 
         :param description: The description of this PropertyType.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -203,7 +203,7 @@ class PropertyType(object):
 
 
         :param schemas: The schemas of this PropertyType.  # noqa: E501
-        :type: list[FullQualifiedName]
+        :type schemas: list[FullQualifiedName]
         """
 
         self._schemas = schemas
@@ -224,7 +224,7 @@ class PropertyType(object):
 
 
         :param datatype: The datatype of this PropertyType.  # noqa: E501
-        :type: str
+        :type datatype: str
         """
         allowed_values = ["Binary", "Boolean", "Byte", "SByte", "Date", "DateTimeOffset", "TimeOfDay", "Duration", "Decimal", "Single", "Double", "Guid", "Int16", "Int32", "Int64", "String", "Stream", "Geography", "GeographyPoint", "GeographyLineString", "GeographyPolygon", "GeographyMultiPoint", "GeographyMultiLineString", "GeographyMultiPolygon", "GeographyCollection", "Geometry", "GeometryPoint", "GeometryLineString", "GeometryPolygon", "GeometryMultiPoint", "GeometryMultiLineString", "GeometryMultiPolygon", "GeometryCollection"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and datatype not in allowed_values:  # noqa: E501
@@ -251,7 +251,7 @@ class PropertyType(object):
 
 
         :param pii: The pii of this PropertyType.  # noqa: E501
-        :type: bool
+        :type pii: bool
         """
 
         self._pii = pii
@@ -272,7 +272,7 @@ class PropertyType(object):
 
 
         :param multi_valued: The multi_valued of this PropertyType.  # noqa: E501
-        :type: bool
+        :type multi_valued: bool
         """
 
         self._multi_valued = multi_valued
@@ -293,7 +293,7 @@ class PropertyType(object):
 
 
         :param analyzer: The analyzer of this PropertyType.  # noqa: E501
-        :type: str
+        :type analyzer: str
         """
         allowed_values = ["NONE", "METAPHONE", "STANDARD", "NOT_ANALYZED"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and analyzer not in allowed_values:  # noqa: E501
@@ -320,7 +320,7 @@ class PropertyType(object):
 
 
         :param enum_values: The enum_values of this PropertyType.  # noqa: E501
-        :type: list[str]
+        :type enum_values: list[str]
         """
 
         self._enum_values = enum_values
@@ -341,7 +341,7 @@ class PropertyType(object):
 
 
         :param index_type: The index_type of this PropertyType.  # noqa: E501
-        :type: str
+        :type index_type: str
         """
         allowed_values = ["BTREE", "HASH", "GIN", "NONE"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and index_type not in allowed_values:  # noqa: E501

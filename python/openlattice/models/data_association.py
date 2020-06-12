@@ -81,7 +81,7 @@ class DataAssociation(object):
         the ID of the source entity set  # noqa: E501
 
         :param src_entity_set_id: The src_entity_set_id of this DataAssociation.  # noqa: E501
-        :type: str
+        :type src_entity_set_id: str
         """
 
         self._src_entity_set_id = src_entity_set_id
@@ -104,7 +104,7 @@ class DataAssociation(object):
         The index of an entity  # noqa: E501
 
         :param src_entity_index: The src_entity_index of this DataAssociation.  # noqa: E501
-        :type: str
+        :type src_entity_index: str
         """
 
         self._src_entity_index = src_entity_index
@@ -127,7 +127,7 @@ class DataAssociation(object):
         An existing entityKeyId  # noqa: E501
 
         :param src_entity_key_id: The src_entity_key_id of this DataAssociation.  # noqa: E501
-        :type: str
+        :type src_entity_key_id: str
         """
 
         self._src_entity_key_id = src_entity_key_id

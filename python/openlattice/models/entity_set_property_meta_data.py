@@ -84,7 +84,7 @@ class EntitySetPropertyMetaData(object):
 
 
         :param title: The title of this EntitySetPropertyMetaData.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -105,7 +105,7 @@ class EntitySetPropertyMetaData(object):
 
 
         :param description: The description of this EntitySetPropertyMetaData.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -126,7 +126,7 @@ class EntitySetPropertyMetaData(object):
 
 
         :param property_tags: The property_tags of this EntitySetPropertyMetaData.  # noqa: E501
-        :type: list[str]
+        :type property_tags: list[str]
         """
 
         self._property_tags = property_tags
@@ -147,7 +147,7 @@ class EntitySetPropertyMetaData(object):
 
 
         :param default_show: The default_show of this EntitySetPropertyMetaData.  # noqa: E501
-        :type: bool
+        :type default_show: bool
         """
 
         self._default_show = default_show

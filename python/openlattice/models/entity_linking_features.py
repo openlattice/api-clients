@@ -74,7 +74,7 @@ class EntityLinkingFeatures(object):
 
 
         :param entity_linking_feedback: The entity_linking_feedback of this EntityLinkingFeatures.  # noqa: E501
-        :type: EntityLinkingFeedback
+        :type entity_linking_feedback: EntityLinkingFeedback
         """
 
         self._entity_linking_feedback = entity_linking_feedback
@@ -95,7 +95,7 @@ class EntityLinkingFeatures(object):
 
 
         :param features: The features of this EntityLinkingFeatures.  # noqa: E501
-        :type: dict(str, float)
+        :type features: dict(str, float)
         """
 
         self._features = features

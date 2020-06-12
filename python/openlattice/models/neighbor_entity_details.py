@@ -89,7 +89,7 @@ class NeighborEntityDetails(object):
 
 
         :param association_entity_set: The association_entity_set of this NeighborEntityDetails.  # noqa: E501
-        :type: EntitySet
+        :type association_entity_set: EntitySet
         """
 
         self._association_entity_set = association_entity_set
@@ -110,7 +110,7 @@ class NeighborEntityDetails(object):
 
 
         :param association_details: The association_details of this NeighborEntityDetails.  # noqa: E501
-        :type: dict(str, list[str])
+        :type association_details: dict(str, list[str])
         """
 
         self._association_details = association_details
@@ -131,7 +131,7 @@ class NeighborEntityDetails(object):
 
 
         :param neighbor_entity_set: The neighbor_entity_set of this NeighborEntityDetails.  # noqa: E501
-        :type: EntitySet
+        :type neighbor_entity_set: EntitySet
         """
 
         self._neighbor_entity_set = neighbor_entity_set
@@ -152,7 +152,7 @@ class NeighborEntityDetails(object):
 
 
         :param neighbor_id: The neighbor_id of this NeighborEntityDetails.  # noqa: E501
-        :type: str
+        :type neighbor_id: str
         """
 
         self._neighbor_id = neighbor_id
@@ -173,7 +173,7 @@ class NeighborEntityDetails(object):
 
 
         :param neighbor_details: The neighbor_details of this NeighborEntityDetails.  # noqa: E501
-        :type: dict(str, list[str])
+        :type neighbor_details: dict(str, list[str])
         """
 
         self._neighbor_details = neighbor_details

@@ -91,7 +91,7 @@ class CollectionTemplateType(object):
         An optional UUID for the collection template type.  # noqa: E501
 
         :param id: The id of this CollectionTemplateType.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -114,7 +114,7 @@ class CollectionTemplateType(object):
         The unique name of the collection template type.  # noqa: E501
 
         :param name: The name of this CollectionTemplateType.  # noqa: E501
-        :type: str
+        :type name: str
         """
 
         self._name = name
@@ -137,7 +137,7 @@ class CollectionTemplateType(object):
         The friendly name for the collection template type.  # noqa: E501
 
         :param title: The title of this CollectionTemplateType.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -160,7 +160,7 @@ class CollectionTemplateType(object):
         A description of the collection template type.  # noqa: E501
 
         :param description: The description of this CollectionTemplateType.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -183,7 +183,7 @@ class CollectionTemplateType(object):
         The id of the entity type that this collection template type wraps.  # noqa: E501
 
         :param entity_type_id: The entity_type_id of this CollectionTemplateType.  # noqa: E501
-        :type: str
+        :type entity_type_id: str
         """
 
         self._entity_type_id = entity_type_id

@@ -74,7 +74,7 @@ class EntityLinkingFeedback(object):
 
 
         :param entity_key_pair: The entity_key_pair of this EntityLinkingFeedback.  # noqa: E501
-        :type: EntityKeyPair
+        :type entity_key_pair: EntityKeyPair
         """
 
         self._entity_key_pair = entity_key_pair
@@ -95,7 +95,7 @@ class EntityLinkingFeedback(object):
 
 
         :param linked: The linked of this EntityLinkingFeedback.  # noqa: E501
-        :type: bool
+        :type linked: bool
         """
 
         self._linked = linked

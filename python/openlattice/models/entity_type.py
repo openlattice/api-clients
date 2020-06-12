@@ -114,7 +114,7 @@ class EntityType(object):
 
 
         :param title: The title of this EntityType.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -135,7 +135,7 @@ class EntityType(object):
 
 
         :param description: The description of this EntityType.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -156,7 +156,7 @@ class EntityType(object):
 
 
         :param id: The id of this EntityType.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -177,7 +177,7 @@ class EntityType(object):
 
 
         :param type: The type of this EntityType.  # noqa: E501
-        :type: FullQualifiedName
+        :type type: FullQualifiedName
         """
 
         self._type = type
@@ -198,7 +198,7 @@ class EntityType(object):
 
 
         :param schemas: The schemas of this EntityType.  # noqa: E501
-        :type: list[FullQualifiedName]
+        :type schemas: list[FullQualifiedName]
         """
 
         self._schemas = schemas
@@ -219,7 +219,7 @@ class EntityType(object):
 
 
         :param key: The key of this EntityType.  # noqa: E501
-        :type: list[str]
+        :type key: list[str]
         """
 
         self._key = key
@@ -240,7 +240,7 @@ class EntityType(object):
 
 
         :param properties: The properties of this EntityType.  # noqa: E501
-        :type: list[str]
+        :type properties: list[str]
         """
 
         self._properties = properties
@@ -261,7 +261,7 @@ class EntityType(object):
 
 
         :param property_tags: The property_tags of this EntityType.  # noqa: E501
-        :type: dict(str, list[str])
+        :type property_tags: dict(str, list[str])
         """
 
         self._property_tags = property_tags
@@ -282,7 +282,7 @@ class EntityType(object):
 
 
         :param basetype: The basetype of this EntityType.  # noqa: E501
-        :type: str
+        :type basetype: str
         """
 
         self._basetype = basetype
@@ -303,7 +303,7 @@ class EntityType(object):
 
 
         :param category: The category of this EntityType.  # noqa: E501
-        :type: str
+        :type category: str
         """
         allowed_values = ["AssociationType", "EntityType"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and category not in allowed_values:  # noqa: E501

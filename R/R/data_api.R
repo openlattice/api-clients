@@ -1761,7 +1761,7 @@ DataApi <- R6::R6Class(
         '
             %s
 ',
-              jsonlite::toJSON(`request_body`, auto_unbox = TRUE, digits=NA)
+              jsonlite::toJSON(`request_body`, digits=NA)
         )
       } else {
         body <- NULL
@@ -1828,7 +1828,7 @@ DataApi <- R6::R6Class(
         '
             %s
 ',
-              jsonlite::toJSON(`request_body`, auto_unbox = TRUE, digits=NA)
+              jsonlite::toJSON(`request_body`, digits=NA)
         )
       } else {
         body <- NULL
@@ -1905,7 +1905,7 @@ DataApi <- R6::R6Class(
         '
             %s
 ',
-              jsonlite::toJSON(`request_body`, auto_unbox = TRUE, digits=NA)
+              jsonlite::toJSON(`request_body`, digits=NA)
         )
       } else {
         body <- NULL

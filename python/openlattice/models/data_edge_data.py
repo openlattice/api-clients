@@ -69,7 +69,7 @@ class DataEdgeData(object):
 
 
         :param additional_properties: The additional_properties of this DataEdgeData.  # noqa: E501
-        :type: list[str]
+        :type additional_properties: list[str]
         """
 
         self._additional_properties = additional_properties

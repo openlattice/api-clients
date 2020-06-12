@@ -79,7 +79,7 @@ class LinkingFeedback(object):
 
 
         :param linking_entity: The linking_entity of this LinkingFeedback.  # noqa: E501
-        :type: EntityDataKey
+        :type linking_entity: EntityDataKey
         """
 
         self._linking_entity = linking_entity
@@ -100,7 +100,7 @@ class LinkingFeedback(object):
 
 
         :param link: The link of this LinkingFeedback.  # noqa: E501
-        :type: list[EntityDataKey]
+        :type link: list[EntityDataKey]
         """
 
         self._link = link
@@ -121,7 +121,7 @@ class LinkingFeedback(object):
 
 
         :param unlink: The unlink of this LinkingFeedback.  # noqa: E501
-        :type: list[EntityDataKey]
+        :type unlink: list[EntityDataKey]
         """
 
         self._unlink = unlink

@@ -109,7 +109,7 @@ class OrganizationExternalDatabaseColumn(object):
 
 
         :param id: The id of this OrganizationExternalDatabaseColumn.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -130,7 +130,7 @@ class OrganizationExternalDatabaseColumn(object):
 
 
         :param name: The name of this OrganizationExternalDatabaseColumn.  # noqa: E501
-        :type: str
+        :type name: str
         """
 
         self._name = name
@@ -151,7 +151,7 @@ class OrganizationExternalDatabaseColumn(object):
 
 
         :param title: The title of this OrganizationExternalDatabaseColumn.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -172,7 +172,7 @@ class OrganizationExternalDatabaseColumn(object):
 
 
         :param description: The description of this OrganizationExternalDatabaseColumn.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -193,7 +193,7 @@ class OrganizationExternalDatabaseColumn(object):
 
 
         :param table_id: The table_id of this OrganizationExternalDatabaseColumn.  # noqa: E501
-        :type: str
+        :type table_id: str
         """
 
         self._table_id = table_id
@@ -214,7 +214,7 @@ class OrganizationExternalDatabaseColumn(object):
 
 
         :param organization_id: The organization_id of this OrganizationExternalDatabaseColumn.  # noqa: E501
-        :type: str
+        :type organization_id: str
         """
 
         self._organization_id = organization_id
@@ -235,7 +235,7 @@ class OrganizationExternalDatabaseColumn(object):
 
 
         :param data_type: The data_type of this OrganizationExternalDatabaseColumn.  # noqa: E501
-        :type: str
+        :type data_type: str
         """
         allowed_values = ["SMALLINT", "SMALLINT_ARRAY", "INTEGER", "INTEGER_ARRAY", "BIGINT", "BIGINT_ARRAY", "DECIMAL", "NUMERIC", "DOUBLE", "DOUBLE_ARRAY", "SERIAL", "BIGSERIAL", "BYTEA", "BYTEA_ARRAY", "BOOLEAN", "BOOLEAN_ARRAY", "DATE", "DATE_ARRAY", "TIME", "TIME_ARRAY", "TIMETZ", "TIMETZ_ARRAY", "TIMESTAMPTZ", "TIMESTAMPTZ_ARRAY", "UUID", "UUID_ARRAY", "UUID_ARRAY_ARRAY", "TEXT", "TEXT_ARRAY", "JSONB"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and data_type not in allowed_values:  # noqa: E501
@@ -262,7 +262,7 @@ class OrganizationExternalDatabaseColumn(object):
 
 
         :param primary_key: The primary_key of this OrganizationExternalDatabaseColumn.  # noqa: E501
-        :type: bool
+        :type primary_key: bool
         """
 
         self._primary_key = primary_key
@@ -283,7 +283,7 @@ class OrganizationExternalDatabaseColumn(object):
 
 
         :param ordinal_position: The ordinal_position of this OrganizationExternalDatabaseColumn.  # noqa: E501
-        :type: int
+        :type ordinal_position: int
         """
 
         self._ordinal_position = ordinal_position

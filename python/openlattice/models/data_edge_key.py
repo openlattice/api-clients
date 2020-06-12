@@ -79,7 +79,7 @@ class DataEdgeKey(object):
 
 
         :param src: The src of this DataEdgeKey.  # noqa: E501
-        :type: EntityDataKey
+        :type src: EntityDataKey
         """
 
         self._src = src
@@ -100,7 +100,7 @@ class DataEdgeKey(object):
 
 
         :param dst: The dst of this DataEdgeKey.  # noqa: E501
-        :type: EntityDataKey
+        :type dst: EntityDataKey
         """
 
         self._dst = dst
@@ -121,7 +121,7 @@ class DataEdgeKey(object):
 
 
         :param edge: The edge of this DataEdgeKey.  # noqa: E501
-        :type: EntityDataKey
+        :type edge: EntityDataKey
         """
 
         self._edge = edge

@@ -74,7 +74,7 @@ class EDMdiff(object):
 
 
         :param conflicts: The conflicts of this EDMdiff.  # noqa: E501
-        :type: EDM
+        :type conflicts: EDM
         """
 
         self._conflicts = conflicts
@@ -95,7 +95,7 @@ class EDMdiff(object):
 
 
         :param diff: The diff of this EDMdiff.  # noqa: E501
-        :type: EDM
+        :type diff: EDM
         """
 
         self._diff = diff

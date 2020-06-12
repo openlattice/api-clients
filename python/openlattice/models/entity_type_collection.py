@@ -96,7 +96,7 @@ class EntityTypeCollection(object):
         An optional UUID for the entity type collection.  # noqa: E501
 
         :param id: The id of this EntityTypeCollection.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -117,7 +117,7 @@ class EntityTypeCollection(object):
 
 
         :param type: The type of this EntityTypeCollection.  # noqa: E501
-        :type: FullQualifiedName
+        :type type: FullQualifiedName
         """
 
         self._type = type
@@ -140,7 +140,7 @@ class EntityTypeCollection(object):
         The friendly name for the entity type collection.  # noqa: E501
 
         :param title: The title of this EntityTypeCollection.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -163,7 +163,7 @@ class EntityTypeCollection(object):
         A description of the entity type collection.  # noqa: E501
 
         :param description: The description of this EntityTypeCollection.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -186,7 +186,7 @@ class EntityTypeCollection(object):
         A list of schemas the entity type collection should belong to.  # noqa: E501
 
         :param schemas: The schemas of this EntityTypeCollection.  # noqa: E501
-        :type: list[FullQualifiedName]
+        :type schemas: list[FullQualifiedName]
         """
 
         self._schemas = schemas
@@ -209,7 +209,7 @@ class EntityTypeCollection(object):
         A set of CollectionTemplateType objects, which describe the entity types involved in the entity type collection and the purposes they serve  # noqa: E501
 
         :param template: The template of this EntityTypeCollection.  # noqa: E501
-        :type: list[CollectionTemplateType]
+        :type template: list[CollectionTemplateType]
         """
 
         self._template = template

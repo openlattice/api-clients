@@ -84,7 +84,7 @@ class EntityNeighborsFilter(object):
 
 
         :param entity_key_ids: The entity_key_ids of this EntityNeighborsFilter.  # noqa: E501
-        :type: list[str]
+        :type entity_key_ids: list[str]
         """
 
         self._entity_key_ids = entity_key_ids
@@ -105,7 +105,7 @@ class EntityNeighborsFilter(object):
 
 
         :param src: The src of this EntityNeighborsFilter.  # noqa: E501
-        :type: list[str]
+        :type src: list[str]
         """
 
         self._src = src
@@ -126,7 +126,7 @@ class EntityNeighborsFilter(object):
 
 
         :param dst: The dst of this EntityNeighborsFilter.  # noqa: E501
-        :type: list[str]
+        :type dst: list[str]
         """
 
         self._dst = dst
@@ -147,7 +147,7 @@ class EntityNeighborsFilter(object):
 
 
         :param edge: The edge of this EntityNeighborsFilter.  # noqa: E501
-        :type: list[str]
+        :type edge: list[str]
         """
 
         self._edge = edge

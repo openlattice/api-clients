@@ -94,7 +94,7 @@ class Auth0userBasic(object):
 
 
         :param user_id: The user_id of this Auth0userBasic.  # noqa: E501
-        :type: str
+        :type user_id: str
         """
 
         self._user_id = user_id
@@ -115,7 +115,7 @@ class Auth0userBasic(object):
 
 
         :param email: The email of this Auth0userBasic.  # noqa: E501
-        :type: str
+        :type email: str
         """
 
         self._email = email
@@ -136,7 +136,7 @@ class Auth0userBasic(object):
 
 
         :param nickname: The nickname of this Auth0userBasic.  # noqa: E501
-        :type: str
+        :type nickname: str
         """
 
         self._nickname = nickname
@@ -157,7 +157,7 @@ class Auth0userBasic(object):
 
 
         :param username: The username of this Auth0userBasic.  # noqa: E501
-        :type: str
+        :type username: str
         """
 
         self._username = username
@@ -178,7 +178,7 @@ class Auth0userBasic(object):
 
 
         :param roles: The roles of this Auth0userBasic.  # noqa: E501
-        :type: list[str]
+        :type roles: list[str]
         """
 
         self._roles = roles
@@ -199,7 +199,7 @@ class Auth0userBasic(object):
 
 
         :param com_openlattice_organization: The com_openlattice_organization of this Auth0userBasic.  # noqa: E501
-        :type: list[str]
+        :type com_openlattice_organization: list[str]
         """
 
         self._com_openlattice_organization = com_openlattice_organization

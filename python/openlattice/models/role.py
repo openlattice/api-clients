@@ -94,7 +94,7 @@ class Role(object):
 
 
         :param id: The id of this Role.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -115,7 +115,7 @@ class Role(object):
 
 
         :param organization_id: The organization_id of this Role.  # noqa: E501
-        :type: str
+        :type organization_id: str
         """
 
         self._organization_id = organization_id
@@ -136,7 +136,7 @@ class Role(object):
 
 
         :param principal: The principal of this Role.  # noqa: E501
-        :type: Principal
+        :type principal: Principal
         """
 
         self._principal = principal
@@ -157,7 +157,7 @@ class Role(object):
 
 
         :param title: The title of this Role.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -178,7 +178,7 @@ class Role(object):
 
 
         :param description: The description of this Role.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -199,7 +199,7 @@ class Role(object):
 
 
         :param _class: The _class of this Role.  # noqa: E501
-        :type: str
+        :type _class: str
         """
         allowed_values = ["com.openlattice.organization.roles.Role"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and _class not in allowed_values:  # noqa: E501

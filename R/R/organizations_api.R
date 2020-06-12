@@ -1212,7 +1212,7 @@ OrganizationsApi <- R6::R6Class(
         '
             %s
 ',
-              jsonlite::toJSON(`request_body`, auto_unbox = TRUE, digits=NA)
+              jsonlite::toJSON(`request_body`, digits=NA)
         )
       } else {
         body <- NULL
@@ -1637,7 +1637,7 @@ OrganizationsApi <- R6::R6Class(
         '
             %s
 ',
-              jsonlite::toJSON(`request_body`, auto_unbox = TRUE, digits=NA)
+              jsonlite::toJSON(`request_body`, digits=NA)
         )
       } else {
         body <- NULL

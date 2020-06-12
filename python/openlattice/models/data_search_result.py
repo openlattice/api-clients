@@ -74,7 +74,7 @@ class DataSearchResult(object):
 
 
         :param num_hits: The num_hits of this DataSearchResult.  # noqa: E501
-        :type: int
+        :type num_hits: int
         """
 
         self._num_hits = num_hits
@@ -95,7 +95,7 @@ class DataSearchResult(object):
 
 
         :param hits: The hits of this DataSearchResult.  # noqa: E501
-        :type: list[dict(str, list[str])]
+        :type hits: list[dict(str, list[str])]
         """
 
         self._hits = hits

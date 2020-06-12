@@ -124,7 +124,7 @@ class Constraint(object):
 
 
         :param type: The type of this Constraint.  # noqa: E501
-        :type: str
+        :type type: str
         """
         allowed_values = ["simple", "advanced", "geoDistance", "geoPolygon", "writeDateTimeFilter"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
@@ -151,7 +151,7 @@ class Constraint(object):
 
 
         :param search_term: The search_term of this Constraint.  # noqa: E501
-        :type: str
+        :type search_term: str
         """
 
         self._search_term = search_term
@@ -172,7 +172,7 @@ class Constraint(object):
 
 
         :param fuzzy: The fuzzy of this Constraint.  # noqa: E501
-        :type: bool
+        :type fuzzy: bool
         """
 
         self._fuzzy = fuzzy
@@ -193,7 +193,7 @@ class Constraint(object):
 
 
         :param search_fields: The search_fields of this Constraint.  # noqa: E501
-        :type: list[SearchDetails]
+        :type search_fields: list[SearchDetails]
         """
 
         self._search_fields = search_fields
@@ -214,7 +214,7 @@ class Constraint(object):
 
 
         :param property_type_id: The property_type_id of this Constraint.  # noqa: E501
-        :type: str
+        :type property_type_id: str
         """
 
         self._property_type_id = property_type_id
@@ -235,7 +235,7 @@ class Constraint(object):
 
 
         :param latitude: The latitude of this Constraint.  # noqa: E501
-        :type: float
+        :type latitude: float
         """
 
         self._latitude = latitude
@@ -256,7 +256,7 @@ class Constraint(object):
 
 
         :param longitude: The longitude of this Constraint.  # noqa: E501
-        :type: float
+        :type longitude: float
         """
 
         self._longitude = longitude
@@ -277,7 +277,7 @@ class Constraint(object):
 
 
         :param radius: The radius of this Constraint.  # noqa: E501
-        :type: float
+        :type radius: float
         """
 
         self._radius = radius
@@ -298,7 +298,7 @@ class Constraint(object):
 
 
         :param unit: The unit of this Constraint.  # noqa: E501
-        :type: str
+        :type unit: str
         """
         allowed_values = ["miles", "mi", "yards", "yd", "feet", "ft", "inch", "in", "kilometers", "km", "meters", "m", "centimeters", "cm", "millimeters", "mm", "nauticalmiles", "nmi", "NM"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and unit not in allowed_values:  # noqa: E501
@@ -325,7 +325,7 @@ class Constraint(object):
 
 
         :param zones: The zones of this Constraint.  # noqa: E501
-        :type: list[list[list[float]]]
+        :type zones: list[list[list[float]]]
         """
 
         self._zones = zones
@@ -346,7 +346,7 @@ class Constraint(object):
 
 
         :param start: The start of this Constraint.  # noqa: E501
-        :type: datetime
+        :type start: datetime
         """
 
         self._start = start
@@ -367,7 +367,7 @@ class Constraint(object):
 
 
         :param end: The end of this Constraint.  # noqa: E501
-        :type: datetime
+        :type end: datetime
         """
 
         self._end = end

@@ -119,7 +119,7 @@ class EntitySet(object):
 
 
         :param id: The id of this EntitySet.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -140,7 +140,7 @@ class EntitySet(object):
 
 
         :param entity_type_id: The entity_type_id of this EntitySet.  # noqa: E501
-        :type: str
+        :type entity_type_id: str
         """
 
         self._entity_type_id = entity_type_id
@@ -161,7 +161,7 @@ class EntitySet(object):
 
 
         :param name: The name of this EntitySet.  # noqa: E501
-        :type: str
+        :type name: str
         """
 
         self._name = name
@@ -182,7 +182,7 @@ class EntitySet(object):
 
 
         :param title: The title of this EntitySet.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -203,7 +203,7 @@ class EntitySet(object):
 
 
         :param description: The description of this EntitySet.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -224,7 +224,7 @@ class EntitySet(object):
 
 
         :param contacts: The contacts of this EntitySet.  # noqa: E501
-        :type: list[str]
+        :type contacts: list[str]
         """
 
         self._contacts = contacts
@@ -245,7 +245,7 @@ class EntitySet(object):
 
 
         :param linking: The linking of this EntitySet.  # noqa: E501
-        :type: bool
+        :type linking: bool
         """
 
         self._linking = linking
@@ -266,7 +266,7 @@ class EntitySet(object):
 
 
         :param linked_entity_sets: The linked_entity_sets of this EntitySet.  # noqa: E501
-        :type: list[str]
+        :type linked_entity_sets: list[str]
         """
 
         self._linked_entity_sets = linked_entity_sets
@@ -287,7 +287,7 @@ class EntitySet(object):
 
 
         :param organization_id: The organization_id of this EntitySet.  # noqa: E501
-        :type: str
+        :type organization_id: str
         """
 
         self._organization_id = organization_id
@@ -308,7 +308,7 @@ class EntitySet(object):
 
 
         :param flags: The flags of this EntitySet.  # noqa: E501
-        :type: list[str]
+        :type flags: list[str]
         """
         allowed_values = ["ASSOCIATION", "AUDIT", "EXTERNAL", "LINKING"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
@@ -337,7 +337,7 @@ class EntitySet(object):
 
 
         :param partitions: The partitions of this EntitySet.  # noqa: E501
-        :type: list[int]
+        :type partitions: list[int]
         """
 
         self._partitions = partitions

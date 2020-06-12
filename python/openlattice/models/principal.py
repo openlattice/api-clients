@@ -74,7 +74,7 @@ class Principal(object):
 
 
         :param type: The type of this Principal.  # noqa: E501
-        :type: str
+        :type type: str
         """
 
         self._type = type
@@ -95,7 +95,7 @@ class Principal(object):
 
 
         :param id: The id of this Principal.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id

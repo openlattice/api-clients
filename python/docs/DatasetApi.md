@@ -32,17 +32,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -66,17 +80,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -135,17 +163,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -168,17 +210,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -235,17 +291,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -268,17 +338,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -335,17 +419,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -368,17 +466,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -435,17 +547,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -469,17 +595,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -537,17 +677,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -572,17 +726,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -642,17 +810,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -676,17 +858,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -744,17 +940,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -778,17 +988,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -846,17 +1070,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -879,17 +1117,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -945,17 +1197,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -978,17 +1244,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -1044,17 +1324,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -1079,17 +1373,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -1150,17 +1458,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
@@ -1184,17 +1506,31 @@ import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
-configuration = openlattice.Configuration()
-# Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
-# Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:

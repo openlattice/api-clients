@@ -84,7 +84,7 @@ class SecurablePrincipal(object):
 
 
         :param id: The id of this SecurablePrincipal.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -105,7 +105,7 @@ class SecurablePrincipal(object):
 
 
         :param principal: The principal of this SecurablePrincipal.  # noqa: E501
-        :type: Principal
+        :type principal: Principal
         """
 
         self._principal = principal
@@ -126,7 +126,7 @@ class SecurablePrincipal(object):
 
 
         :param title: The title of this SecurablePrincipal.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -147,7 +147,7 @@ class SecurablePrincipal(object):
 
 
         :param description: The description of this SecurablePrincipal.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description

@@ -74,7 +74,7 @@ class EntityKeyPair(object):
 
 
         :param first: The first of this EntityKeyPair.  # noqa: E501
-        :type: str
+        :type first: str
         """
 
         self._first = first
@@ -95,7 +95,7 @@ class EntityKeyPair(object):
 
 
         :param second: The second of this EntityKeyPair.  # noqa: E501
-        :type: str
+        :type second: str
         """
 
         self._second = second

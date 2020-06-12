@@ -74,7 +74,7 @@ class MaterializedViewAccount(object):
 
 
         :param username: The username of this MaterializedViewAccount.  # noqa: E501
-        :type: str
+        :type username: str
         """
 
         self._username = username
@@ -95,7 +95,7 @@ class MaterializedViewAccount(object):
 
 
         :param credential: The credential of this MaterializedViewAccount.  # noqa: E501
-        :type: str
+        :type credential: str
         """
 
         self._credential = credential

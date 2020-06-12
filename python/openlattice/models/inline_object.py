@@ -69,7 +69,7 @@ class InlineObject(object):
 
 
         :param additional_properties: The additional_properties of this InlineObject.  # noqa: E501
-        :type: list[DataEdge]
+        :type additional_properties: list[DataEdge]
         """
 
         self._additional_properties = additional_properties

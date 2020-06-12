@@ -84,7 +84,7 @@ class PropertyUsageSummary(object):
 
 
         :param entity_type_id: The entity_type_id of this PropertyUsageSummary.  # noqa: E501
-        :type: str
+        :type entity_type_id: str
         """
 
         self._entity_type_id = entity_type_id
@@ -105,7 +105,7 @@ class PropertyUsageSummary(object):
 
 
         :param entity_set_id: The entity_set_id of this PropertyUsageSummary.  # noqa: E501
-        :type: str
+        :type entity_set_id: str
         """
 
         self._entity_set_id = entity_set_id
@@ -126,7 +126,7 @@ class PropertyUsageSummary(object):
 
 
         :param entity_set_name: The entity_set_name of this PropertyUsageSummary.  # noqa: E501
-        :type: str
+        :type entity_set_name: str
         """
 
         self._entity_set_name = entity_set_name
@@ -147,7 +147,7 @@ class PropertyUsageSummary(object):
 
 
         :param count: The count of this PropertyUsageSummary.  # noqa: E501
-        :type: int
+        :type count: int
         """
 
         self._count = count
