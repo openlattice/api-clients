@@ -186,7 +186,7 @@ Creates an organization if it doesn't exist.
 ```R
 library(openlattice)
 
-var.organization <- Organization$new("id_example", Principal$new("type_example", "id_example"), "title_example", "description_example", list("emails_example"), list(Principal$new("type_example", "id_example")), list(Role$new("id_example", "organizationId_example", Principal$new("type_example", "id_example"), "title_example", "description_example", "@class_example")), list("apps_example"), list(SmsEntitySetInformation$new("phoneNumber_example", "organizationId_example", list("entitysetIds_example"), list("tags_example"))), list(123)) # Organization | 
+var.organization <- Organization$new("id_example", Principal$new("type_example", "id_example"), "title_example", "description_example", list("emails_example"), list(Principal$new("type_example", "id_example")), list(Role$new("id_example", "organizationId_example", Principal$new("type_example", "id_example"), "title_example", "description_example")), list("apps_example"), list(SmsEntitySetInformation$new("phoneNumber_example", "organizationId_example", list("entitysetIds_example"), list("tags_example"))), list(123)) # Organization | 
 
 #Creates an organization if it doesn't exist.
 api.instance <- OrganizationsApi$new()
@@ -232,7 +232,7 @@ Creates role
 ```R
 library(openlattice)
 
-var.role <- Role$new("id_example", "organizationId_example", Principal$new("type_example", "id_example"), "title_example", "description_example", "@class_example") # Role | 
+var.role <- Role$new("id_example", "organizationId_example", Principal$new("type_example", "id_example"), "title_example", "description_example") # Role | 
 
 #Creates role
 api.instance <- OrganizationsApi$new()

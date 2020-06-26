@@ -59,8 +59,7 @@ class TestOrganization(unittest.TestCase):
                             type = '0', 
                             id = '0', ), 
                         title = '0', 
-                        description = '0', 
-                        @class = 'com.openlattice.organization.roles.Role', )
+                        description = '0', )
                     ], 
                 apps = [
                     '0'

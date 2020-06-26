@@ -13,6 +13,7 @@ R/advanced_search.R
 R/api_client.R
 R/api_response.R
 R/association.R
+R/association_definition.R
 R/association_type.R
 R/auth0user_basic.R
 R/authorization.R
@@ -39,6 +40,7 @@ R/edm_api.R
 R/edm_request.R
 R/entity.R
 R/entity_data_key.R
+R/entity_definition.R
 R/entity_key.R
 R/entity_key_pair.R
 R/entity_linking_features.R
@@ -52,11 +54,17 @@ R/entity_sets_api.R
 R/entity_type.R
 R/entity_type_collection.R
 R/entity_type_property_metadata.R
+R/flight.R
+R/flight_plan_parameters.R
+R/flight_plan_parameters_update.R
 R/full_qualified_name.R
 R/indexing_state.R
 R/inline_object.R
 R/inline_response200.R
+R/integration.R
+R/integration_job.R
 R/integration_results.R
+R/integration_update.R
 R/linking_api.R
 R/linking_feedback.R
 R/materialized_view_account.R
@@ -73,6 +81,7 @@ R/organizations_api.R
 R/permissions_api.R
 R/principal.R
 R/principal_api.R
+R/property_definition.R
 R/property_type.R
 R/property_usage_summary.R
 R/role.R
@@ -84,6 +93,7 @@ R/search_details.R
 R/search_result.R
 R/search_term.R
 R/securable_principal.R
+R/shuttle_api.R
 R/sms_entity_set_information.R
 R/sort_definition.R
 README.md
@@ -94,6 +104,7 @@ docs/AclData.md
 docs/AdminApi.md
 docs/AdvancedSearch.md
 docs/Association.md
+docs/AssociationDefinition.md
 docs/AssociationType.md
 docs/Auth0userBasic.md
 docs/Authorization.md
@@ -120,6 +131,7 @@ docs/EdmApi.md
 docs/EdmRequest.md
 docs/Entity.md
 docs/EntityDataKey.md
+docs/EntityDefinition.md
 docs/EntityKey.md
 docs/EntityKeyPair.md
 docs/EntityLinkingFeatures.md
@@ -133,11 +145,17 @@ docs/EntitySetsApi.md
 docs/EntityType.md
 docs/EntityTypeCollection.md
 docs/EntityTypePropertyMetadata.md
+docs/Flight.md
+docs/FlightPlanParameters.md
+docs/FlightPlanParametersUpdate.md
 docs/FullQualifiedName.md
 docs/IndexingState.md
 docs/InlineObject.md
 docs/InlineResponse200.md
+docs/Integration.md
+docs/IntegrationJob.md
 docs/IntegrationResults.md
+docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
@@ -154,6 +172,7 @@ docs/OrganizationsApi.md
 docs/PermissionsApi.md
 docs/Principal.md
 docs/PrincipalApi.md
+docs/PropertyDefinition.md
 docs/PropertyType.md
 docs/PropertyUsageSummary.md
 docs/Role.md
@@ -165,6 +184,7 @@ docs/SearchDetails.md
 docs/SearchResult.md
 docs/SearchTerm.md
 docs/SecurablePrincipal.md
+docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
 docs/SortDefinition.md
 git_push.sh
@@ -176,6 +196,7 @@ tests/testthat/test_acl_data.R
 tests/testthat/test_admin_api.R
 tests/testthat/test_advanced_search.R
 tests/testthat/test_association.R
+tests/testthat/test_association_definition.R
 tests/testthat/test_association_type.R
 tests/testthat/test_auth0user_basic.R
 tests/testthat/test_authorization.R
@@ -202,6 +223,7 @@ tests/testthat/test_edm_api.R
 tests/testthat/test_edm_request.R
 tests/testthat/test_entity.R
 tests/testthat/test_entity_data_key.R
+tests/testthat/test_entity_definition.R
 tests/testthat/test_entity_key.R
 tests/testthat/test_entity_key_pair.R
 tests/testthat/test_entity_linking_features.R
@@ -215,11 +237,17 @@ tests/testthat/test_entity_sets_api.R
 tests/testthat/test_entity_type.R
 tests/testthat/test_entity_type_collection.R
 tests/testthat/test_entity_type_property_metadata.R
+tests/testthat/test_flight.R
+tests/testthat/test_flight_plan_parameters.R
+tests/testthat/test_flight_plan_parameters_update.R
 tests/testthat/test_full_qualified_name.R
 tests/testthat/test_indexing_state.R
 tests/testthat/test_inline_object.R
 tests/testthat/test_inline_response200.R
+tests/testthat/test_integration.R
+tests/testthat/test_integration_job.R
 tests/testthat/test_integration_results.R
+tests/testthat/test_integration_update.R
 tests/testthat/test_linking_api.R
 tests/testthat/test_linking_feedback.R
 tests/testthat/test_materialized_view_account.R
@@ -236,6 +264,7 @@ tests/testthat/test_organizations_api.R
 tests/testthat/test_permissions_api.R
 tests/testthat/test_principal.R
 tests/testthat/test_principal_api.R
+tests/testthat/test_property_definition.R
 tests/testthat/test_property_type.R
 tests/testthat/test_property_usage_summary.R
 tests/testthat/test_role.R
@@ -247,5 +276,6 @@ tests/testthat/test_search_details.R
 tests/testthat/test_search_result.R
 tests/testthat/test_search_term.R
 tests/testthat/test_securable_principal.R
+tests/testthat/test_shuttle_api.R
 tests/testthat/test_sms_entity_set_information.R
 tests/testthat/test_sort_definition.R

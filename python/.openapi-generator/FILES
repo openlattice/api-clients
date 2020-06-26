@@ -10,6 +10,7 @@ docs/AclData.md
 docs/AdminApi.md
 docs/AdvancedSearch.md
 docs/Association.md
+docs/AssociationDefinition.md
 docs/AssociationType.md
 docs/Auth0userBasic.md
 docs/Authorization.md
@@ -36,6 +37,7 @@ docs/EdmApi.md
 docs/EdmRequest.md
 docs/Entity.md
 docs/EntityDataKey.md
+docs/EntityDefinition.md
 docs/EntityKey.md
 docs/EntityKeyPair.md
 docs/EntityLinkingFeatures.md
@@ -49,11 +51,17 @@ docs/EntitySetsApi.md
 docs/EntityType.md
 docs/EntityTypeCollection.md
 docs/EntityTypePropertyMetadata.md
+docs/Flight.md
+docs/FlightPlanParameters.md
+docs/FlightPlanParametersUpdate.md
 docs/FullQualifiedName.md
 docs/IndexingState.md
 docs/InlineObject.md
 docs/InlineResponse200.md
+docs/Integration.md
+docs/IntegrationJob.md
 docs/IntegrationResults.md
+docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
@@ -70,6 +78,7 @@ docs/OrganizationsApi.md
 docs/PermissionsApi.md
 docs/Principal.md
 docs/PrincipalApi.md
+docs/PropertyDefinition.md
 docs/PropertyType.md
 docs/PropertyUsageSummary.md
 docs/Role.md
@@ -81,6 +90,7 @@ docs/SearchDetails.md
 docs/SearchResult.md
 docs/SearchTerm.md
 docs/SecurablePrincipal.md
+docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
 docs/SortDefinition.md
 git_push.sh
@@ -99,6 +109,7 @@ openlattice/api/organizations_api.py
 openlattice/api/permissions_api.py
 openlattice/api/principal_api.py
 openlattice/api/search_api.py
+openlattice/api/shuttle_api.py
 openlattice/api_client.py
 openlattice/configuration.py
 openlattice/exceptions.py
@@ -109,6 +120,7 @@ openlattice/models/acl.py
 openlattice/models/acl_data.py
 openlattice/models/advanced_search.py
 openlattice/models/association.py
+openlattice/models/association_definition.py
 openlattice/models/association_type.py
 openlattice/models/auth0user_basic.py
 openlattice/models/authorization.py
@@ -129,6 +141,7 @@ openlattice/models/edm.py
 openlattice/models/edm_request.py
 openlattice/models/entity.py
 openlattice/models/entity_data_key.py
+openlattice/models/entity_definition.py
 openlattice/models/entity_key.py
 openlattice/models/entity_key_pair.py
 openlattice/models/entity_linking_features.py
@@ -141,11 +154,17 @@ openlattice/models/entity_set_selection.py
 openlattice/models/entity_type.py
 openlattice/models/entity_type_collection.py
 openlattice/models/entity_type_property_metadata.py
+openlattice/models/flight.py
+openlattice/models/flight_plan_parameters.py
+openlattice/models/flight_plan_parameters_update.py
 openlattice/models/full_qualified_name.py
 openlattice/models/indexing_state.py
 openlattice/models/inline_object.py
 openlattice/models/inline_response200.py
+openlattice/models/integration.py
+openlattice/models/integration_job.py
 openlattice/models/integration_results.py
+openlattice/models/integration_update.py
 openlattice/models/linking_feedback.py
 openlattice/models/materialized_view_account.py
 openlattice/models/metadata_update.py
@@ -158,6 +177,7 @@ openlattice/models/organization_external_database_table.py
 openlattice/models/organization_external_database_table_columns_pair.py
 openlattice/models/organization_member.py
 openlattice/models/principal.py
+openlattice/models/property_definition.py
 openlattice/models/property_type.py
 openlattice/models/property_usage_summary.py
 openlattice/models/role.py
@@ -183,6 +203,7 @@ test/test_acl_data.py
 test/test_admin_api.py
 test/test_advanced_search.py
 test/test_association.py
+test/test_association_definition.py
 test/test_association_type.py
 test/test_auth0user_basic.py
 test/test_authorization.py
@@ -209,6 +230,7 @@ test/test_edm_api.py
 test/test_edm_request.py
 test/test_entity.py
 test/test_entity_data_key.py
+test/test_entity_definition.py
 test/test_entity_key.py
 test/test_entity_key_pair.py
 test/test_entity_linking_features.py
@@ -222,11 +244,17 @@ test/test_entity_sets_api.py
 test/test_entity_type.py
 test/test_entity_type_collection.py
 test/test_entity_type_property_metadata.py
+test/test_flight.py
+test/test_flight_plan_parameters.py
+test/test_flight_plan_parameters_update.py
 test/test_full_qualified_name.py
 test/test_indexing_state.py
 test/test_inline_object.py
 test/test_inline_response200.py
+test/test_integration.py
+test/test_integration_job.py
 test/test_integration_results.py
+test/test_integration_update.py
 test/test_linking_api.py
 test/test_linking_feedback.py
 test/test_materialized_view_account.py
@@ -243,6 +271,7 @@ test/test_organizations_api.py
 test/test_permissions_api.py
 test/test_principal.py
 test/test_principal_api.py
+test/test_property_definition.py
 test/test_property_type.py
 test/test_property_usage_summary.py
 test/test_role.py
@@ -254,6 +283,7 @@ test/test_search_details.py
 test/test_search_result.py
 test/test_search_term.py
 test/test_securable_principal.py
+test/test_shuttle_api.py
 test/test_sms_entity_set_information.py
 test/test_sort_definition.py
 tox.ini

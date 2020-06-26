@@ -31,7 +31,8 @@ You can also install from github, in R using `devtools`.
     library(devtools)
     install_github(
         "https://github.com/Lattice-Works/api-clients.git", 
-        subdir = "R"
+        subdir = "R",
+        ref = "develop"
     )
 ## To build the packages from the openlattice.yaml-file
 
@@ -64,6 +65,8 @@ This is the code to generate these libraries based on the api-specifications.
 
     rsync -azP $APIDIR/build/openapi/ $CLIENTDIR
     
+    cd $CLIENTDIR/
+    
     cd $CLIENTDIR/python
     python setup.py install
 
@@ -73,7 +76,7 @@ We are using our own version of the client generator.  This because openapi-tool
 
 If there is need to rebuild the docker file of our openapi-generation:
 
-    cd /Users/jokedurnez/Documents/Software/openapi-generator/
+    cd /Users/jokedurnez/Software/openapi-generator/
     docker build -t openlattice/openapi-generator-cli .
     docker run -it -v $APIDIR:$APIDIR openlattice/openapi-generator-cli generate -i $APIDIR/openlattice.yaml -g r -o $APIDIR/build/openapi/R -c $APIDIR/oas-config.json
 

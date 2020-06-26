@@ -1157,7 +1157,7 @@ class DataApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/data/{entitySetId}/{entityKeyId}', 'DELETE',
+            '/datastore/data/set/{entitySetId}/{entityKeyId}', 'DELETE',
             path_params,
             query_params,
             header_params,

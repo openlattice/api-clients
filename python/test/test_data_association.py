@@ -39,7 +39,15 @@ class TestDataAssociation(unittest.TestCase):
             return DataAssociation(
                 src_entity_set_id = '0', 
                 src_entity_index = '0', 
-                src_entity_key_id = '0'
+                src_entity_key_id = '0', 
+                dst_entity_set_id = '0', 
+                dst_entity_index = '0', 
+                dst_entity_key_id = '0', 
+                data = {
+                    'key' : [
+                        '0'
+                        ]
+                    }
             )
         else :
             return DataAssociation(

@@ -43,8 +43,7 @@ class TestRole(unittest.TestCase):
                     type = '0', 
                     id = '0', ), 
                 title = '0', 
-                description = '0', 
-                _class = 'com.openlattice.organization.roles.Role'
+                description = '0'
             )
         else :
             return Role(
