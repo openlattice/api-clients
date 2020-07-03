@@ -18,8 +18,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } association.type.id \link{character}
-#' \item \emph{ @param } entity.type.id \link{character}
+#' \item \emph{ @param } association_type_id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -35,8 +35,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } linking.entity.set.id \link{character}
-#' \item \emph{ @param } request.body list( character )
+#' \item \emph{ @param } linking_entity_set_id \link{character}
+#' \item \emph{ @param } request_body list( character )
 #'
 #'
 #' \item status code : 200 | Success
@@ -52,8 +52,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } linking.entity.set.id character
-#' \item \emph{ @param } request.body named list( \link{map(array[character])} )
+#' \item \emph{ @param } linking_entity_set_id character
+#' \item \emph{ @param } request_body named list( \link{list(array[character])} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -69,8 +69,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -86,8 +86,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -103,8 +103,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } association.type.id \link{character}
-#' \item \emph{ @param } entity.type.id \link{character}
+#' \item \emph{ @param } association_type_id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -120,7 +120,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } association.type list( \link{AssociationType} )
+#' \item \emph{ @param } association_type list( \link{AssociationType} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -153,7 +153,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set list( \link{EntitySet} )
+#' \item \emph{ @param } entity_set list( \link{EntitySet} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -169,7 +169,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type \link{EntityType}
+#' \item \emph{ @param } entity_type \link{EntityType}
 #'
 #'
 #' \item status code : 200 | Success
@@ -185,7 +185,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } property.type \link{PropertyType}
+#' \item \emph{ @param } property_type \link{PropertyType}
 #'
 #'
 #' \item status code : 200 | Success
@@ -217,7 +217,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } association.type.id \link{character}
+#' \item \emph{ @param } association_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -233,7 +233,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -249,7 +249,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -265,7 +265,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -281,7 +281,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -297,8 +297,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -330,7 +330,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } association.type.id \link{character}
+#' \item \emph{ @param } association_type_id \link{character}
 #' \item \emph{ @returnType } list( \link{AssociationType} ) \cr
 #'
 #'
@@ -347,13 +347,13 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @returnType } named list( \link{EntitySetPropertyMetaData} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(EntitySetPropertyMetaData) 
+#' \item return type : list(EntitySetPropertyMetaData) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -380,13 +380,13 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
 #' \item \emph{ @returnType } named list( \link{EntityTypePropertyMetadata} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(EntityTypePropertyMetadata) 
+#' \item return type : list(EntityTypePropertyMetadata) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -451,7 +451,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(PropertyUsageSummary) 
+#' \item return type : list(PropertyUsageSummary) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -462,7 +462,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } association.type.id \link{character}
+#' \item \emph{ @param } association_type_id \link{character}
 #' \item \emph{ @returnType } \link{AssociationType} \cr
 #'
 #'
@@ -479,7 +479,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } association.type.id \link{character}
+#' \item \emph{ @param } association_type_id \link{character}
 #' \item \emph{ @returnType } \link{AssociationType} \cr
 #'
 #'
@@ -512,7 +512,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } ed.mdiff \link{EDMdiff}
+#' \item \emph{ @param } ed_mdiff \link{EDMdiff}
 #' \item \emph{ @returnType } \link{EDMdiff} \cr
 #'
 #'
@@ -529,7 +529,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @returnType } \link{EntitySet} \cr
 #'
 #'
@@ -546,7 +546,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.name character
+#' \item \emph{ @param } entity_set_name character
 #'
 #'
 #' \item status code : 200 | Success
@@ -562,12 +562,12 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } request.body list( character )
+#' \item \emph{ @param } request_body list( character )
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(character) 
+#' \item return type : list(character) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -578,8 +578,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #' \item \emph{ @returnType } \link{EntitySetPropertyMetaData} \cr
 #'
 #'
@@ -596,7 +596,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
 #' \item \emph{ @returnType } \link{EntityType} \cr
 #'
 #'
@@ -613,7 +613,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -646,8 +646,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #' \item \emph{ @returnType } \link{EntityTypePropertyMetadata} \cr
 #'
 #'
@@ -664,13 +664,12 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } request.body list( character )
-#' \item \emph{ @returnType } named list( \link{map} ) \cr
+#' \item \emph{ @param } request_body list( character )
 #'
 #'
 #' \item status code : 200 | EntitySetPropertyMetaData
 #'
-#' \item return type : map(map(EntitySetPropertyMetaData)) 
+#' \item return type : list(list(EntitySetPropertyMetaData)) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -681,7 +680,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #' \item \emph{ @returnType } \link{PropertyType} \cr
 #'
 #'
@@ -715,13 +714,13 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
+#' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @returnType } named list( \link{PropertyType} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(PropertyType) 
+#' \item return type : list(PropertyType) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -732,7 +731,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #' \item \emph{ @returnType } list( \link{PropertyUsageSummary} ) \cr
 #'
 #'
@@ -751,7 +750,7 @@
 #' \itemize{
 #' \item \emph{ @param } namespace character
 #' \item \emph{ @param } name character
-#' \item \emph{ @param } file.type Enum < [csv, json, yaml] > 
+#' \item \emph{ @param } file_type Enum < [csv, json, yaml] > 
 #' \item \emph{ @returnType } \link{Schema} \cr
 #'
 #'
@@ -801,8 +800,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } association.type.id \link{character}
-#' \item \emph{ @param } entity.type.id \link{character}
+#' \item \emph{ @param } association_type_id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -818,8 +817,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } linking.entity.set.id character
-#' \item \emph{ @param } request.body list( character )
+#' \item \emph{ @param } linking_entity_set_id character
+#' \item \emph{ @param } request_body list( character )
 #'
 #'
 #' \item status code : 200 | Success
@@ -835,8 +834,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } linking.entity.set.id \link{character}
-#' \item \emph{ @param } request.body named list( \link{map(array[character])} )
+#' \item \emph{ @param } linking_entity_set_id \link{character}
+#' \item \emph{ @param } request_body named list( \link{list(array[character])} )
 #'
 #'
 #' \item status code : 200 | Success
@@ -852,8 +851,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -869,8 +868,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -886,8 +885,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } association.type.id \link{character}
-#' \item \emph{ @param } entity.type.id \link{character}
+#' \item \emph{ @param } association_type_id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -903,8 +902,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
-#' \item \emph{ @param } property.type.ids list( character )
+#' \item \emph{ @param } entity_type_id \link{character}
+#' \item \emph{ @param } property_type_ids list( character )
 #'
 #'
 #' \item status code : 200 | Success
@@ -936,8 +935,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } metadata.update \link{MetadataUpdate}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } metadata_update \link{MetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -953,9 +952,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.set.id \link{character}
-#' \item \emph{ @param } property.type.id \link{character}
-#' \item \emph{ @param } metadata.update \link{MetadataUpdate}
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
+#' \item \emph{ @param } metadata_update \link{MetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -971,8 +970,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
-#' \item \emph{ @param } metadata.update \link{MetadataUpdate}
+#' \item \emph{ @param } entity_type_id \link{character}
+#' \item \emph{ @param } metadata_update \link{MetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -988,8 +987,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.type.id \link{character}
-#' \item \emph{ @param } property.type.id \link{character}
+#' \item \emph{ @param } entity_type_id \link{character}
+#' \item \emph{ @param } property_type_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -1005,8 +1004,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } property.type.id \link{character}
-#' \item \emph{ @param } metadata.update \link{MetadataUpdate}
+#' \item \emph{ @param } property_type_id \link{character}
+#' \item \emph{ @param } metadata_update \link{MetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -1024,7 +1023,7 @@
 #' \itemize{
 #' \item \emph{ @param } namespace character
 #' \item \emph{ @param } name character
-#' \item \emph{ @param } edm.request \link{EdmRequest}
+#' \item \emph{ @param } edm_request \link{EdmRequest}
 #'
 #'
 #' \item status code : 200 | Success
@@ -1044,8 +1043,8 @@
 #' ####################  add_dst_entity_type_to_association_type  ####################
 #'
 #' library(openlattice)
-#' var.association.type.id <- 'association.type.id_example' # character | 
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
+#' var.association_type_id <- 'association_type_id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
 #'
 #' #Update the AssociationType dst entity types for the given AssociationType UUID by adding the given EntityType UUID.
 #' api.instance <- EdmApi$new()
@@ -1059,14 +1058,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_dst_entity_type_to_association_type(var.association.type.id, var.entity.type.id)
+#' result <- api.instance$add_dst_entity_type_to_association_type(var.association_type_id, var.entity_type_id)
 #'
 #'
 #' ####################  add_entity_sets_to_linking_entity_set  ####################
 #'
 #' library(openlattice)
-#' var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Adds the entity sets as linked entity sets to the linking entity set
 #' api.instance <- EdmApi$new()
@@ -1080,14 +1079,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_entity_sets_to_linking_entity_set(var.linking.entity.set.id, request.body=var.request.body)
+#' result <- api.instance$add_entity_sets_to_linking_entity_set(var.linking_entity_set_id, request_body=var.request_body)
 #'
 #'
 #' ####################  add_entity_sets_to_linking_entity_sets  ####################
 #'
 #' library(openlattice)
-#' var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-#' var.request.body <- {'key' => array$new()} # map(array[character]) | 
+#' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
+#' var.request_body <- NULL # list(array[character]) | 
 #'
 #' #Adds the entity sets as linked entity sets to the linking entity sets
 #' api.instance <- EdmApi$new()
@@ -1101,14 +1100,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_entity_sets_to_linking_entity_sets(var.linking.entity.set.id, var.request.body)
+#' result <- api.instance$add_entity_sets_to_linking_entity_sets(var.linking_entity_set_id, var.request_body)
 #'
 #'
 #' ####################  add_primary_key_to_entity_type  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Adds a primary key with a given ID to an entity type with a given ID.
 #' api.instance <- EdmApi$new()
@@ -1122,14 +1121,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_primary_key_to_entity_type(var.entity.type.id, var.property.type.id)
+#' result <- api.instance$add_primary_key_to_entity_type(var.entity_type_id, var.property_type_id)
 #'
 #'
 #' ####################  add_property_type_to_entity_type  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Updates the EntityType definition for the given EntityType UUID by adding the given PropertyType UUID.
 #' api.instance <- EdmApi$new()
@@ -1143,14 +1142,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_property_type_to_entity_type(var.entity.type.id, var.property.type.id)
+#' result <- api.instance$add_property_type_to_entity_type(var.entity_type_id, var.property_type_id)
 #'
 #'
 #' ####################  add_src_entity_type_to_association_type  ####################
 #'
 #' library(openlattice)
-#' var.association.type.id <- 'association.type.id_example' # character | 
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
+#' var.association_type_id <- 'association_type_id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
 #'
 #' #Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
 #' api.instance <- EdmApi$new()
@@ -1164,18 +1163,18 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$add_src_entity_type_to_association_type(var.association.type.id, var.entity.type.id)
+#' result <- api.instance$add_src_entity_type_to_association_type(var.association_type_id, var.entity_type_id)
 #'
 #'
 #' ####################  create_association_type  ####################
 #'
 #' library(openlattice)
-#' var.association.type <- list(AssociationType$new()) # array[AssociationType] | 
+#' var.association_type <- list(AssociationType$new()) # array[AssociationType] | 
 #'
 #' #Creates a new AssociationType definition, if it doesn't exist.
 #' api.instance <- EdmApi$new()
 #'
-#' result <- api.instance$create_association_type(var.association.type)
+#' result <- api.instance$create_association_type(var.association_type)
 #'
 #'
 #' ####################  create_empty_schema  ####################
@@ -1202,7 +1201,7 @@
 #' ####################  create_entity_sets  ####################
 #'
 #' library(openlattice)
-#' var.entity.set <- list(EntitySet$new()) # array[EntitySet] | 
+#' var.entity_set <- list(EntitySet$new()) # array[EntitySet] | 
 #'
 #' #Creates new EntitySet definitions if they don't exist.
 #' api.instance <- EdmApi$new()
@@ -1216,24 +1215,24 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$create_entity_sets(var.entity.set)
+#' result <- api.instance$create_entity_sets(var.entity_set)
 #'
 #'
 #' ####################  create_entity_type  ####################
 #'
 #' library(openlattice)
-#' var.entity.type <- EntityType$new() # EntityType | 
+#' var.entity_type <- EntityType$new() # EntityType | 
 #'
 #' #Creates a new EntityType definition, if it doesn't exist.
 #' api.instance <- EdmApi$new()
 #'
-#' result <- api.instance$create_entity_type(var.entity.type)
+#' result <- api.instance$create_entity_type(var.entity_type)
 #'
 #'
 #' ####################  create_property_type  ####################
 #'
 #' library(openlattice)
-#' var.property.type <- PropertyType$new() # PropertyType | 
+#' var.property_type <- PropertyType$new() # PropertyType | 
 #'
 #' #Creates a new PropertyType definition, if it doesn\"t exist.
 #' api.instance <- EdmApi$new()
@@ -1247,7 +1246,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$create_property_type(var.property.type)
+#' result <- api.instance$create_property_type(var.property_type)
 #'
 #'
 #' ####################  create_schema_if_not_exists  ####################
@@ -1273,18 +1272,18 @@
 #' ####################  delete_association_type  ####################
 #'
 #' library(openlattice)
-#' var.association.type.id <- 'association.type.id_example' # character | 
+#' var.association_type_id <- 'association_type_id_example' # character | 
 #'
 #' #Deletes the AssociationType definition for the given AssociationType UUID.
 #' api.instance <- EdmApi$new()
 #'
-#' result <- api.instance$delete_association_type(var.association.type.id)
+#' result <- api.instance$delete_association_type(var.association_type_id)
 #'
 #'
 #' ####################  delete_entity_set  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #'
 #' #Deletes the EntitySet definition for the given EntitySet UUID.
 #' api.instance <- EdmApi$new()
@@ -1298,24 +1297,24 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_entity_set(var.entity.set.id)
+#' result <- api.instance$delete_entity_set(var.entity_set_id)
 #'
 #'
 #' ####################  delete_entity_type  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
 #'
 #' #Deletes the EntityType definition for the given EntityType UUID.
 #' api.instance <- EdmApi$new()
 #'
-#' result <- api.instance$delete_entity_type(var.entity.type.id)
+#' result <- api.instance$delete_entity_type(var.entity_type_id)
 #'
 #'
 #' ####################  delete_property_type  ####################
 #'
 #' library(openlattice)
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Deletes the PropertyType definition for the given PropertyType UUID.
 #' api.instance <- EdmApi$new()
@@ -1329,13 +1328,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_property_type(var.property.type.id)
+#' result <- api.instance$delete_property_type(var.property_type_id)
 #'
 #'
 #' ####################  force_delete_property_type  ####################
 #'
 #' library(openlattice)
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Deletes the PropertyType definition for the given PropertyType UUID regardless of whether or not there is data associated with it.
 #' api.instance <- EdmApi$new()
@@ -1349,14 +1348,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$force_delete_property_type(var.property.type.id)
+#' result <- api.instance$force_delete_property_type(var.property_type_id)
 #'
 #'
 #' ####################  force_remove_property_type_from_entity_type  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID, regardless of whether or not there is data associated with the entity type.
 #' api.instance <- EdmApi$new()
@@ -1370,7 +1369,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$force_remove_property_type_from_entity_type(var.entity.type.id, var.property.type.id)
+#' result <- api.instance$force_remove_property_type_from_entity_type(var.entity_type_id, var.property_type_id)
 #'
 #'
 #' ####################  get_all_association_entity_types  ####################
@@ -1395,7 +1394,7 @@
 #' ####################  get_all_available_association_types  ####################
 #'
 #' library(openlattice)
-#' var.association.type.id <- 'association.type.id_example' # character | 
+#' var.association_type_id <- 'association_type_id_example' # character | 
 #'
 #' #Get all available associations for the given AssociationType UUID.
 #' api.instance <- EdmApi$new()
@@ -1409,13 +1408,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_all_available_association_types(var.association.type.id)
+#' result <- api.instance$get_all_available_association_types(var.association_type_id)
 #'
 #'
 #' ####################  get_all_entity_set_property_metadata  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #'
 #' #Get all entity set property metadata.
 #' api.instance <- EdmApi$new()
@@ -1429,7 +1428,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_all_entity_set_property_metadata(var.entity.set.id)
+#' result <- api.instance$get_all_entity_set_property_metadata(var.entity_set_id)
 #'
 #'
 #' ####################  get_all_entity_sets  ####################
@@ -1454,7 +1453,7 @@
 #' ####################  get_all_entity_type_property_metadata  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
 #'
 #' #Get all EntityType propertyType metadata
 #' api.instance <- EdmApi$new()
@@ -1468,7 +1467,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_all_entity_type_property_metadata(var.entity.type.id)
+#' result <- api.instance$get_all_entity_type_property_metadata(var.entity_type_id)
 #'
 #'
 #' ####################  get_all_entity_types  ####################
@@ -1551,7 +1550,7 @@
 #' ####################  get_association_type  ####################
 #'
 #' library(openlattice)
-#' var.association.type.id <- 'association.type.id_example' # character | 
+#' var.association_type_id <- 'association_type_id_example' # character | 
 #'
 #' #Get the AssociationType definition for the given AssociationType UUID.
 #' api.instance <- EdmApi$new()
@@ -1565,13 +1564,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_association_type(var.association.type.id)
+#' result <- api.instance$get_association_type(var.association_type_id)
 #'
 #'
 #' ####################  get_association_type_details  ####################
 #'
 #' library(openlattice)
-#' var.association.type.id <- 'association.type.id_example' # character | 
+#' var.association_type_id <- 'association_type_id_example' # character | 
 #'
 #' #Get details about the AssociationType for the given AssociationType UUID.
 #' api.instance <- EdmApi$new()
@@ -1585,7 +1584,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_association_type_details(var.association.type.id)
+#' result <- api.instance$get_association_type_details(var.association_type_id)
 #'
 #'
 #' ####################  get_entity_data_model  ####################
@@ -1601,7 +1600,7 @@
 #' ####################  get_entity_data_model_diff  ####################
 #'
 #' library(openlattice)
-#' var.ed.mdiff <- EDMdiff$new() # EDMdiff | 
+#' var.ed_mdiff <- EDMdiff$new() # EDMdiff | 
 #'
 #' #Gets the changes between the existing entity data model and the entity data model passed in, including schemas, association types, entity types, and property types.
 #' api.instance <- EdmApi$new()
@@ -1615,13 +1614,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_data_model_diff(var.ed.mdiff)
+#' result <- api.instance$get_entity_data_model_diff(var.ed_mdiff)
 #'
 #'
 #' ####################  get_entity_set  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #'
 #' #Get the EntitySet definition for the given EntitySet UUID.
 #' api.instance <- EdmApi$new()
@@ -1635,13 +1634,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_set(var.entity.set.id)
+#' result <- api.instance$get_entity_set(var.entity_set_id)
 #'
 #'
 #' ####################  get_entity_set_id  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.name <- 'entity.set.name_example' # character | 
+#' var.entity_set_name <- 'entity_set_name_example' # character | 
 #'
 #' #Gets the EntitySet UUID for the given EntitySet name.
 #' api.instance <- EdmApi$new()
@@ -1655,13 +1654,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_set_id(var.entity.set.name)
+#' result <- api.instance$get_entity_set_id(var.entity_set_name)
 #'
 #'
 #' ####################  get_entity_set_ids  ####################
 #'
 #' library(openlattice)
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Get IDs for entity sets given their names.
 #' api.instance <- EdmApi$new()
@@ -1675,14 +1674,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_set_ids(request.body=var.request.body)
+#' result <- api.instance$get_entity_set_ids(request_body=var.request_body)
 #'
 #'
 #' ####################  get_entity_set_property_metadata  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Get specified property type metadata for an entity set.
 #' api.instance <- EdmApi$new()
@@ -1696,24 +1695,24 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_set_property_metadata(var.entity.set.id, var.property.type.id)
+#' result <- api.instance$get_entity_set_property_metadata(var.entity_set_id, var.property_type_id)
 #'
 #'
 #' ####################  get_entity_type  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
 #'
 #' #Gets the EntityType definition for the given EntityType UUID.
 #' api.instance <- EdmApi$new()
 #'
-#' result <- api.instance$get_entity_type(var.entity.type.id)
+#' result <- api.instance$get_entity_type(var.entity_type_id)
 #'
 #'
 #' ####################  get_entity_type_hierarchy  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
 #'
 #' #Get the EntityType hierarchy for the given EntityType UUID.
 #' api.instance <- EdmApi$new()
@@ -1727,7 +1726,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_type_hierarchy(var.entity.type.id)
+#' result <- api.instance$get_entity_type_hierarchy(var.entity_type_id)
 #'
 #'
 #' ####################  get_entity_type_id  ####################
@@ -1754,8 +1753,8 @@
 #' ####################  get_entity_type_property_metadata  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Get EntityType propertyType metadata
 #' api.instance <- EdmApi$new()
@@ -1769,13 +1768,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_type_property_metadata(var.entity.type.id, var.property.type.id)
+#' result <- api.instance$get_entity_type_property_metadata(var.entity_type_id, var.property_type_id)
 #'
 #'
 #' ####################  get_property_metadata_for_entity_sets  ####################
 #'
 #' library(openlattice)
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Get property metadata for entity sets.
 #' api.instance <- EdmApi$new()
@@ -1789,13 +1788,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_property_metadata_for_entity_sets(request.body=var.request.body)
+#' result <- api.instance$get_property_metadata_for_entity_sets(request_body=var.request_body)
 #'
 #'
 #' ####################  get_property_type  ####################
 #'
 #' library(openlattice)
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Gets the PropertyType definition for the given PropertyType UUID.
 #' api.instance <- EdmApi$new()
@@ -1809,7 +1808,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_property_type(var.property.type.id)
+#' result <- api.instance$get_property_type(var.property_type_id)
 #'
 #'
 #' ####################  get_property_type_id  ####################
@@ -1836,7 +1835,7 @@
 #' ####################  get_property_types_for_entity_set  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
 #'
 #' #Get all Property Types for entity set
 #' api.instance <- EdmApi$new()
@@ -1850,13 +1849,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_property_types_for_entity_set(var.entity.set.id)
+#' result <- api.instance$get_property_types_for_entity_set(var.entity_set_id)
 #'
 #'
 #' ####################  get_property_usage_summary  ####################
 #'
 #' library(openlattice)
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Get Property Usage Summary for property with given ID.
 #' api.instance <- EdmApi$new()
@@ -1870,7 +1869,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_property_usage_summary(var.property.type.id)
+#' result <- api.instance$get_property_usage_summary(var.property_type_id)
 #'
 #'
 #' ####################  get_schema_contents  ####################
@@ -1878,7 +1877,7 @@
 #' library(openlattice)
 #' var.namespace <- 'namespace_example' # character | 
 #' var.name <- 'name_example' # character | 
-#' var.file.type <- 'yaml' # character | 
+#' var.file_type <- 'yaml' # character | 
 #'
 #' #Gets the schema contents for a corresponding namespace and name.
 #' api.instance <- EdmApi$new()
@@ -1892,7 +1891,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_schema_contents(var.namespace, var.name, file.type=var.file.type)
+#' result <- api.instance$get_schema_contents(var.namespace, var.name, file_type=var.file_type)
 #'
 #'
 #' ####################  get_schemas  ####################
@@ -1937,8 +1936,8 @@
 #' ####################  remove_dst_entity_type_from_association_type  ####################
 #'
 #' library(openlattice)
-#' var.association.type.id <- 'association.type.id_example' # character | 
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
+#' var.association_type_id <- 'association_type_id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
 #'
 #' #Updates the AssociationType dst entity types for the given AssociationType UUID by removing the given EntityType UUID.
 #' api.instance <- EdmApi$new()
@@ -1952,14 +1951,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$remove_dst_entity_type_from_association_type(var.association.type.id, var.entity.type.id)
+#' result <- api.instance$remove_dst_entity_type_from_association_type(var.association_type_id, var.entity_type_id)
 #'
 #'
 #' ####################  remove_entity_sets_from_linking_entity_set  ####################
 #'
 #' library(openlattice)
-#' var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-#' var.request.body <- list('request.body_example') # array[character] | 
+#' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
+#' var.request_body <- list('request_body_example') # array[character] | 
 #'
 #' #Removes/unlinks the linked entity sets from the linking entity set
 #' api.instance <- EdmApi$new()
@@ -1973,14 +1972,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$remove_entity_sets_from_linking_entity_set(var.linking.entity.set.id, request.body=var.request.body)
+#' result <- api.instance$remove_entity_sets_from_linking_entity_set(var.linking_entity_set_id, request_body=var.request_body)
 #'
 #'
 #' ####################  remove_entity_sets_from_linking_entity_sets  ####################
 #'
 #' library(openlattice)
-#' var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-#' var.request.body <- {'key' => array$new()} # map(array[character]) | 
+#' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
+#' var.request_body <- NULL # list(array[character]) | 
 #'
 #' #Removes/unlinks the linked entity sets from the linking entity set
 #' api.instance <- EdmApi$new()
@@ -1994,14 +1993,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$remove_entity_sets_from_linking_entity_sets(var.linking.entity.set.id, var.request.body)
+#' result <- api.instance$remove_entity_sets_from_linking_entity_sets(var.linking_entity_set_id, var.request_body)
 #'
 #'
 #' ####################  remove_primary_key_from_entity_type  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Removes a primary key with a given ID from an entity type with a given ID.
 #' api.instance <- EdmApi$new()
@@ -2015,14 +2014,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$remove_primary_key_from_entity_type(var.entity.type.id, var.property.type.id)
+#' result <- api.instance$remove_primary_key_from_entity_type(var.entity_type_id, var.property_type_id)
 #'
 #'
 #' ####################  remove_property_type_from_entity_type  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID.
 #' api.instance <- EdmApi$new()
@@ -2036,14 +2035,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$remove_property_type_from_entity_type(var.entity.type.id, var.property.type.id)
+#' result <- api.instance$remove_property_type_from_entity_type(var.entity_type_id, var.property_type_id)
 #'
 #'
 #' ####################  remove_src_entity_type_from_association_type  ####################
 #'
 #' library(openlattice)
-#' var.association.type.id <- 'association.type.id_example' # character | 
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
+#' var.association_type_id <- 'association_type_id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
 #'
 #' #Updates the AssociationType src entity types for the given AssociationType UUID by removing the given EntityType UUID.
 #' api.instance <- EdmApi$new()
@@ -2057,14 +2056,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$remove_src_entity_type_from_association_type(var.association.type.id, var.entity.type.id)
+#' result <- api.instance$remove_src_entity_type_from_association_type(var.association_type_id, var.entity_type_id)
 #'
 #'
 #' ####################  reorder_property_types_in_entity_type  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
-#' var.property.type.ids <- list('property.type.ids_example') # array[character] | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
+#' var.property_type_ids <- list('property_type_ids_example') # array[character] | 
 #'
 #' #Updates the EntityType definition for the given EntityType UUID by reordering its properties as specified by the provided list.
 #' api.instance <- EdmApi$new()
@@ -2078,7 +2077,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$reorder_property_types_in_entity_type(var.entity.type.id, var.property.type.ids)
+#' result <- api.instance$reorder_property_types_in_entity_type(var.entity_type_id, var.property_type_ids)
 #'
 #'
 #' ####################  update_entity_data_model  ####################
@@ -2104,8 +2103,8 @@
 #' ####################  update_entity_set_meta_data  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.metadata.update <- MetadataUpdate$new() # MetadataUpdate | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.metadata_update <- MetadataUpdate$new() # MetadataUpdate | 
 #'
 #' #Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 #' api.instance <- EdmApi$new()
@@ -2119,15 +2118,15 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_entity_set_meta_data(var.entity.set.id, var.metadata.update)
+#' result <- api.instance$update_entity_set_meta_data(var.entity_set_id, var.metadata_update)
 #'
 #'
 #' ####################  update_entity_set_property_metadata  ####################
 #'
 #' library(openlattice)
-#' var.entity.set.id <- 'entity.set.id_example' # character | 
-#' var.property.type.id <- 'property.type.id_example' # character | 
-#' var.metadata.update <- MetadataUpdate$new() # MetadataUpdate | 
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
+#' var.metadata_update <- MetadataUpdate$new() # MetadataUpdate | 
 #'
 #' #Updates the property type metadata for the given entity set.
 #' api.instance <- EdmApi$new()
@@ -2141,14 +2140,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_entity_set_property_metadata(var.entity.set.id, var.property.type.id, var.metadata.update)
+#' result <- api.instance$update_entity_set_property_metadata(var.entity_set_id, var.property_type_id, var.metadata_update)
 #'
 #'
 #' ####################  update_entity_type_meta_data  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
-#' var.metadata.update <- MetadataUpdate$new() # MetadataUpdate | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
+#' var.metadata_update <- MetadataUpdate$new() # MetadataUpdate | 
 #'
 #' #Updates the EntityType definition for the given EntityType UUID with the given metadata.
 #' api.instance <- EdmApi$new()
@@ -2162,14 +2161,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_entity_type_meta_data(var.entity.type.id, var.metadata.update)
+#' result <- api.instance$update_entity_type_meta_data(var.entity_type_id, var.metadata_update)
 #'
 #'
 #' ####################  update_entity_type_property_metadata  ####################
 #'
 #' library(openlattice)
-#' var.entity.type.id <- 'entity.type.id_example' # character | 
-#' var.property.type.id <- 'property.type.id_example' # character | 
+#' var.entity_type_id <- 'entity_type_id_example' # character | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
 #'
 #' #Update EntityType Property metadata
 #' api.instance <- EdmApi$new()
@@ -2183,14 +2182,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_entity_type_property_metadata(var.entity.type.id, var.property.type.id)
+#' result <- api.instance$update_entity_type_property_metadata(var.entity_type_id, var.property_type_id)
 #'
 #'
 #' ####################  update_property_type_meta_data  ####################
 #'
 #' library(openlattice)
-#' var.property.type.id <- 'property.type.id_example' # character | 
-#' var.metadata.update <- MetadataUpdate$new() # MetadataUpdate | 
+#' var.property_type_id <- 'property_type_id_example' # character | 
+#' var.metadata_update <- MetadataUpdate$new() # MetadataUpdate | 
 #'
 #' #Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
 #' api.instance <- EdmApi$new()
@@ -2204,7 +2203,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_property_type_meta_data(var.property.type.id, var.metadata.update)
+#' result <- api.instance$update_property_type_meta_data(var.property_type_id, var.metadata_update)
 #'
 #'
 #' ####################  update_schema  ####################
@@ -2212,7 +2211,7 @@
 #' library(openlattice)
 #' var.namespace <- 'namespace_example' # character | 
 #' var.name <- 'name_example' # character | 
-#' var.edm.request <- EdmRequest$new() # EdmRequest | 
+#' var.edm_request <- EdmRequest$new() # EdmRequest | 
 #'
 #' #Edits the schema contents for a corresponding namespace and name.
 #' api.instance <- EdmApi$new()
@@ -2226,7 +2225,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_schema(var.namespace, var.name, var.edm.request)
+#' result <- api.instance$update_schema(var.namespace, var.name, var.edm_request)
 #'
 #'
 #' }
@@ -2245,8 +2244,8 @@ EdmApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    add_dst_entity_type_to_association_type = function(association.type.id, entity.type.id, ...){
-      apiResponse <- self$add_dst_entity_type_to_association_typeWithHttpInfo(association.type.id, entity.type.id, ...)
+    add_dst_entity_type_to_association_type = function(association_type_id, entity_type_id, ...){
+      apiResponse <- self$add_dst_entity_type_to_association_typeWithHttpInfo(association_type_id, entity_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2259,26 +2258,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    add_dst_entity_type_to_association_typeWithHttpInfo = function(association.type.id, entity.type.id, ...){
+    add_dst_entity_type_to_association_typeWithHttpInfo = function(association_type_id, entity_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`association.type.id`)) {
-        stop("Missing required parameter `association.type.id`.")
+      if (missing(`association_type_id`)) {
+        stop("Missing required parameter `association_type_id`.")
       }
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
       urlPath <- "/datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId}"
-      if (!missing(`association.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`association_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2303,8 +2302,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    add_entity_sets_to_linking_entity_set = function(linking.entity.set.id, request.body=NULL, ...){
-      apiResponse <- self$add_entity_sets_to_linking_entity_setWithHttpInfo(linking.entity.set.id, request.body, ...)
+    add_entity_sets_to_linking_entity_set = function(linking_entity_set_id, request_body=NULL, ...){
+      apiResponse <- self$add_entity_sets_to_linking_entity_setWithHttpInfo(linking_entity_set_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2317,25 +2316,29 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    add_entity_sets_to_linking_entity_setWithHttpInfo = function(linking.entity.set.id, request.body=NULL, ...){
+    add_entity_sets_to_linking_entity_setWithHttpInfo = function(linking_entity_set_id, request_body=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`linking.entity.set.id`)) {
-        stop("Missing required parameter `linking.entity.set.id`.")
+      if (missing(`linking_entity_set_id`)) {
+        stop("Missing required parameter `linking_entity_set_id`.")
       }
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/entity-sets/linking/{linkingEntitySetId}"
-      if (!missing(`linking.entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking.entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`linking_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking_entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2366,8 +2369,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    add_entity_sets_to_linking_entity_sets = function(linking.entity.set.id, request.body, ...){
-      apiResponse <- self$add_entity_sets_to_linking_entity_setsWithHttpInfo(linking.entity.set.id, request.body, ...)
+    add_entity_sets_to_linking_entity_sets = function(linking_entity_set_id, request_body, ...){
+      apiResponse <- self$add_entity_sets_to_linking_entity_setsWithHttpInfo(linking_entity_set_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2380,28 +2383,33 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    add_entity_sets_to_linking_entity_setsWithHttpInfo = function(linking.entity.set.id, request.body, ...){
+    add_entity_sets_to_linking_entity_setsWithHttpInfo = function(linking_entity_set_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`linking.entity.set.id`)) {
-        stop("Missing required parameter `linking.entity.set.id`.")
+      if (missing(`linking_entity_set_id`)) {
+        stop("Missing required parameter `linking_entity_set_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body <- `request.body`$toJSONString()
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            %s
+',
+              jsonlite::toJSON(`request_body`, digits=NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/entity-sets/linking/"
-      if (!missing(`linking.entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking.entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`linking_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking_entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2432,8 +2440,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    add_primary_key_to_entity_type = function(entity.type.id, property.type.id, ...){
-      apiResponse <- self$add_primary_key_to_entity_typeWithHttpInfo(entity.type.id, property.type.id, ...)
+    add_primary_key_to_entity_type = function(entity_type_id, property_type_id, ...){
+      apiResponse <- self$add_primary_key_to_entity_typeWithHttpInfo(entity_type_id, property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2446,26 +2454,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    add_primary_key_to_entity_typeWithHttpInfo = function(entity.type.id, property.type.id, ...){
+    add_primary_key_to_entity_typeWithHttpInfo = function(entity_type_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId}"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2490,8 +2498,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    add_property_type_to_entity_type = function(entity.type.id, property.type.id, ...){
-      apiResponse <- self$add_property_type_to_entity_typeWithHttpInfo(entity.type.id, property.type.id, ...)
+    add_property_type_to_entity_type = function(entity_type_id, property_type_id, ...){
+      apiResponse <- self$add_property_type_to_entity_typeWithHttpInfo(entity_type_id, property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2504,26 +2512,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    add_property_type_to_entity_typeWithHttpInfo = function(entity.type.id, property.type.id, ...){
+    add_property_type_to_entity_typeWithHttpInfo = function(entity_type_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2548,8 +2556,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    add_src_entity_type_to_association_type = function(association.type.id, entity.type.id, ...){
-      apiResponse <- self$add_src_entity_type_to_association_typeWithHttpInfo(association.type.id, entity.type.id, ...)
+    add_src_entity_type_to_association_type = function(association_type_id, entity_type_id, ...){
+      apiResponse <- self$add_src_entity_type_to_association_typeWithHttpInfo(association_type_id, entity_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2562,26 +2570,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    add_src_entity_type_to_association_typeWithHttpInfo = function(association.type.id, entity.type.id, ...){
+    add_src_entity_type_to_association_typeWithHttpInfo = function(association_type_id, entity_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`association.type.id`)) {
-        stop("Missing required parameter `association.type.id`.")
+      if (missing(`association_type_id`)) {
+        stop("Missing required parameter `association_type_id`.")
       }
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
       urlPath <- "/datastore/edm/association/type/{associationTypeId}/src/{entityTypeId}"
-      if (!missing(`association.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`association_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -2606,8 +2614,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    create_association_type = function(association.type, ...){
-      apiResponse <- self$create_association_typeWithHttpInfo(association.type, ...)
+    create_association_type = function(association_type, ...){
+      apiResponse <- self$create_association_typeWithHttpInfo(association_type, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2620,18 +2628,22 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    create_association_typeWithHttpInfo = function(association.type, ...){
+    create_association_typeWithHttpInfo = function(association_type, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`association.type`)) {
-        stop("Missing required parameter `association.type`.")
+      if (missing(`association_type`)) {
+        stop("Missing required parameter `association_type`.")
       }
 
-      if (!missing(`association.type`)) {
-        body.items = paste(unlist(lapply(association.type, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`association_type`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`association_type`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+        )
       } else {
         body <- NULL
       }
@@ -2713,8 +2725,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    create_entity_sets = function(entity.set, ...){
-      apiResponse <- self$create_entity_setsWithHttpInfo(entity.set, ...)
+    create_entity_sets = function(entity_set, ...){
+      apiResponse <- self$create_entity_setsWithHttpInfo(entity_set, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2727,18 +2739,22 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    create_entity_setsWithHttpInfo = function(entity.set, ...){
+    create_entity_setsWithHttpInfo = function(entity_set, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set`)) {
-        stop("Missing required parameter `entity.set`.")
+      if (missing(`entity_set`)) {
+        stop("Missing required parameter `entity_set`.")
       }
 
-      if (!missing(`entity.set`)) {
-        body.items = paste(unlist(lapply(entity.set, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`entity_set`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`entity_set`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+        )
       } else {
         body <- NULL
       }
@@ -2766,8 +2782,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    create_entity_type = function(entity.type, ...){
-      apiResponse <- self$create_entity_typeWithHttpInfo(entity.type, ...)
+    create_entity_type = function(entity_type, ...){
+      apiResponse <- self$create_entity_typeWithHttpInfo(entity_type, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2780,17 +2796,22 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    create_entity_typeWithHttpInfo = function(entity.type, ...){
+    create_entity_typeWithHttpInfo = function(entity_type, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type`)) {
-        stop("Missing required parameter `entity.type`.")
+      if (missing(`entity_type`)) {
+        stop("Missing required parameter `entity_type`.")
       }
 
-      if (!missing(`entity.type`)) {
-        body <- `entity.type`$toJSONString()
+      if (!missing(`entity_type`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`entity_type`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -2814,8 +2835,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    create_property_type = function(property.type, ...){
-      apiResponse <- self$create_property_typeWithHttpInfo(property.type, ...)
+    create_property_type = function(property_type, ...){
+      apiResponse <- self$create_property_typeWithHttpInfo(property_type, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2828,17 +2849,22 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    create_property_typeWithHttpInfo = function(property.type, ...){
+    create_property_typeWithHttpInfo = function(property_type, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`property.type`)) {
-        stop("Missing required parameter `property.type`.")
+      if (missing(`property_type`)) {
+        stop("Missing required parameter `property_type`.")
       }
 
-      if (!missing(`property.type`)) {
-        body <- `property.type`$toJSONString()
+      if (!missing(`property_type`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`property_type`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -2890,7 +2916,12 @@ EdmApi <- R6::R6Class(
       }
 
       if (!missing(`schema`)) {
-        body <- `schema`$toJSONString()
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`schema`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -2918,8 +2949,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_association_type = function(association.type.id, ...){
-      apiResponse <- self$delete_association_typeWithHttpInfo(association.type.id, ...)
+    delete_association_type = function(association_type_id, ...){
+      apiResponse <- self$delete_association_typeWithHttpInfo(association_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2932,18 +2963,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    delete_association_typeWithHttpInfo = function(association.type.id, ...){
+    delete_association_typeWithHttpInfo = function(association_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`association.type.id`)) {
-        stop("Missing required parameter `association.type.id`.")
+      if (missing(`association_type_id`)) {
+        stop("Missing required parameter `association_type_id`.")
       }
 
       urlPath <- "/datastore/edm/association/type/{associationTypeId}"
-      if (!missing(`association.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`association_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association_type_id`), reserved = TRUE), urlPath)
       }
 
 
@@ -2964,8 +2995,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_entity_set = function(entity.set.id, ...){
-      apiResponse <- self$delete_entity_setWithHttpInfo(entity.set.id, ...)
+    delete_entity_set = function(entity_set_id, ...){
+      apiResponse <- self$delete_entity_setWithHttpInfo(entity_set_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2978,18 +3009,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    delete_entity_setWithHttpInfo = function(entity.set.id, ...){
+    delete_entity_setWithHttpInfo = function(entity_set_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       urlPath <- "/datastore/entity-sets/all/{entitySetId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -3014,8 +3045,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_entity_type = function(entity.type.id, ...){
-      apiResponse <- self$delete_entity_typeWithHttpInfo(entity.type.id, ...)
+    delete_entity_type = function(entity_type_id, ...){
+      apiResponse <- self$delete_entity_typeWithHttpInfo(entity_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3028,18 +3059,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    delete_entity_typeWithHttpInfo = function(entity.type.id, ...){
+    delete_entity_typeWithHttpInfo = function(entity_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
 
@@ -3060,8 +3091,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_property_type = function(property.type.id, ...){
-      apiResponse <- self$delete_property_typeWithHttpInfo(property.type.id, ...)
+    delete_property_type = function(property_type_id, ...){
+      apiResponse <- self$delete_property_typeWithHttpInfo(property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3074,18 +3105,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    delete_property_typeWithHttpInfo = function(property.type.id, ...){
+    delete_property_typeWithHttpInfo = function(property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/property/type/{propertyTypeId}"
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -3110,8 +3141,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    force_delete_property_type = function(property.type.id, ...){
-      apiResponse <- self$force_delete_property_typeWithHttpInfo(property.type.id, ...)
+    force_delete_property_type = function(property_type_id, ...){
+      apiResponse <- self$force_delete_property_typeWithHttpInfo(property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3124,18 +3155,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    force_delete_property_typeWithHttpInfo = function(property.type.id, ...){
+    force_delete_property_typeWithHttpInfo = function(property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/property/type/{propertyTypeId}/force"
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -3160,8 +3191,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    force_remove_property_type_from_entity_type = function(entity.type.id, property.type.id, ...){
-      apiResponse <- self$force_remove_property_type_from_entity_typeWithHttpInfo(entity.type.id, property.type.id, ...)
+    force_remove_property_type_from_entity_type = function(entity_type_id, property_type_id, ...){
+      apiResponse <- self$force_remove_property_type_from_entity_typeWithHttpInfo(entity_type_id, property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3174,26 +3205,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    force_remove_property_type_from_entity_typeWithHttpInfo = function(entity.type.id, property.type.id, ...){
+    force_remove_property_type_from_entity_typeWithHttpInfo = function(entity_type_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}/force"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -3266,8 +3297,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_all_available_association_types = function(association.type.id, ...){
-      apiResponse <- self$get_all_available_association_typesWithHttpInfo(association.type.id, ...)
+    get_all_available_association_types = function(association_type_id, ...){
+      apiResponse <- self$get_all_available_association_typesWithHttpInfo(association_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3280,18 +3311,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_all_available_association_typesWithHttpInfo = function(association.type.id, ...){
+    get_all_available_association_typesWithHttpInfo = function(association_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`association.type.id`)) {
-        stop("Missing required parameter `association.type.id`.")
+      if (missing(`association_type_id`)) {
+        stop("Missing required parameter `association_type_id`.")
       }
 
       urlPath <- "/datastore/edm/association/type/{associationTypeId}/available"
-      if (!missing(`association.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`association_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -3322,8 +3353,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_all_entity_set_property_metadata = function(entity.set.id, ...){
-      apiResponse <- self$get_all_entity_set_property_metadataWithHttpInfo(entity.set.id, ...)
+    get_all_entity_set_property_metadata = function(entity_set_id, ...){
+      apiResponse <- self$get_all_entity_set_property_metadataWithHttpInfo(entity_set_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3336,18 +3367,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_all_entity_set_property_metadataWithHttpInfo = function(entity.set.id, ...){
+    get_all_entity_set_property_metadataWithHttpInfo = function(entity_set_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       urlPath <- "/datastore/entity-sets/all/{entitySetId}/metadata"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -3364,7 +3395,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(EntitySetPropertyMetaData)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(EntitySetPropertyMetaData)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -3426,8 +3457,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_all_entity_type_property_metadata = function(entity.type.id, ...){
-      apiResponse <- self$get_all_entity_type_property_metadataWithHttpInfo(entity.type.id, ...)
+    get_all_entity_type_property_metadata = function(entity_type_id, ...){
+      apiResponse <- self$get_all_entity_type_property_metadataWithHttpInfo(entity_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3440,18 +3471,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_all_entity_type_property_metadataWithHttpInfo = function(entity.type.id, ...){
+    get_all_entity_type_property_metadataWithHttpInfo = function(entity_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}/property/type"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -3468,7 +3499,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(EntityTypePropertyMetadata)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(EntityTypePropertyMetadata)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -3668,7 +3699,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(PropertyUsageSummary)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(PropertyUsageSummary)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -3682,8 +3713,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_association_type = function(association.type.id, ...){
-      apiResponse <- self$get_association_typeWithHttpInfo(association.type.id, ...)
+    get_association_type = function(association_type_id, ...){
+      apiResponse <- self$get_association_typeWithHttpInfo(association_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3696,18 +3727,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_association_typeWithHttpInfo = function(association.type.id, ...){
+    get_association_typeWithHttpInfo = function(association_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`association.type.id`)) {
-        stop("Missing required parameter `association.type.id`.")
+      if (missing(`association_type_id`)) {
+        stop("Missing required parameter `association_type_id`.")
       }
 
       urlPath <- "/datastore/edm/association/type/{associationTypeId}"
-      if (!missing(`association.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`association_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -3738,8 +3769,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_association_type_details = function(association.type.id, ...){
-      apiResponse <- self$get_association_type_detailsWithHttpInfo(association.type.id, ...)
+    get_association_type_details = function(association_type_id, ...){
+      apiResponse <- self$get_association_type_detailsWithHttpInfo(association_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3752,18 +3783,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_association_type_detailsWithHttpInfo = function(association.type.id, ...){
+    get_association_type_detailsWithHttpInfo = function(association_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`association.type.id`)) {
-        stop("Missing required parameter `association.type.id`.")
+      if (missing(`association_type_id`)) {
+        stop("Missing required parameter `association_type_id`.")
       }
 
       urlPath <- "/datastore/edm/association/type/{associationTypeId}/detailed"
-      if (!missing(`association.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`association_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -3838,8 +3869,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_data_model_diff = function(ed.mdiff, ...){
-      apiResponse <- self$get_entity_data_model_diffWithHttpInfo(ed.mdiff, ...)
+    get_entity_data_model_diff = function(ed_mdiff, ...){
+      apiResponse <- self$get_entity_data_model_diffWithHttpInfo(ed_mdiff, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3852,17 +3883,22 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_entity_data_model_diffWithHttpInfo = function(ed.mdiff, ...){
+    get_entity_data_model_diffWithHttpInfo = function(ed_mdiff, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`ed.mdiff`)) {
-        stop("Missing required parameter `ed.mdiff`.")
+      if (missing(`ed_mdiff`)) {
+        stop("Missing required parameter `ed_mdiff`.")
       }
 
-      if (!missing(`ed.mdiff`)) {
-        body <- `ed.mdiff`$toJSONString()
+      if (!missing(`ed_mdiff`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`ed_mdiff`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -3896,8 +3932,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_set = function(entity.set.id, ...){
-      apiResponse <- self$get_entity_setWithHttpInfo(entity.set.id, ...)
+    get_entity_set = function(entity_set_id, ...){
+      apiResponse <- self$get_entity_setWithHttpInfo(entity_set_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3910,18 +3946,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_entity_setWithHttpInfo = function(entity.set.id, ...){
+    get_entity_setWithHttpInfo = function(entity_set_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       urlPath <- "/datastore/entity-sets/all/{entitySetId}"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -3952,8 +3988,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_set_id = function(entity.set.name, ...){
-      apiResponse <- self$get_entity_set_idWithHttpInfo(entity.set.name, ...)
+    get_entity_set_id = function(entity_set_name, ...){
+      apiResponse <- self$get_entity_set_idWithHttpInfo(entity_set_name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -3966,18 +4002,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_entity_set_idWithHttpInfo = function(entity.set.name, ...){
+    get_entity_set_idWithHttpInfo = function(entity_set_name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.name`)) {
-        stop("Missing required parameter `entity.set.name`.")
+      if (missing(`entity_set_name`)) {
+        stop("Missing required parameter `entity_set_name`.")
       }
 
       urlPath <- "/datastore/entity-sets/ids/{entitySetName}"
-      if (!missing(`entity.set.name`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetName", "\\}"), URLencode(as.character(`entity.set.name`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_name`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetName", "\\}"), URLencode(as.character(`entity_set_name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -4008,8 +4044,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_set_ids = function(request.body=NULL, ...){
-      apiResponse <- self$get_entity_set_idsWithHttpInfo(request.body, ...)
+    get_entity_set_ids = function(request_body=NULL, ...){
+      apiResponse <- self$get_entity_set_idsWithHttpInfo(request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4022,14 +4058,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_entity_set_idsWithHttpInfo = function(request.body=NULL, ...){
+    get_entity_set_idsWithHttpInfo = function(request_body=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+        )
       } else {
         body <- NULL
       }
@@ -4049,7 +4089,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(character)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(character)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -4063,8 +4103,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_set_property_metadata = function(entity.set.id, property.type.id, ...){
-      apiResponse <- self$get_entity_set_property_metadataWithHttpInfo(entity.set.id, property.type.id, ...)
+    get_entity_set_property_metadata = function(entity_set_id, property_type_id, ...){
+      apiResponse <- self$get_entity_set_property_metadataWithHttpInfo(entity_set_id, property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4077,26 +4117,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_entity_set_property_metadataWithHttpInfo = function(entity.set.id, property.type.id, ...){
+    get_entity_set_property_metadataWithHttpInfo = function(entity_set_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -4127,8 +4167,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_type = function(entity.type.id, ...){
-      apiResponse <- self$get_entity_typeWithHttpInfo(entity.type.id, ...)
+    get_entity_type = function(entity_type_id, ...){
+      apiResponse <- self$get_entity_typeWithHttpInfo(entity_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4141,18 +4181,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_entity_typeWithHttpInfo = function(entity.type.id, ...){
+    get_entity_typeWithHttpInfo = function(entity_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
 
@@ -4179,8 +4219,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_type_hierarchy = function(entity.type.id, ...){
-      apiResponse <- self$get_entity_type_hierarchyWithHttpInfo(entity.type.id, ...)
+    get_entity_type_hierarchy = function(entity_type_id, ...){
+      apiResponse <- self$get_entity_type_hierarchyWithHttpInfo(entity_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4193,18 +4233,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_entity_type_hierarchyWithHttpInfo = function(entity.type.id, ...){
+    get_entity_type_hierarchyWithHttpInfo = function(entity_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}/hierarchy"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -4293,8 +4333,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_type_property_metadata = function(entity.type.id, property.type.id, ...){
-      apiResponse <- self$get_entity_type_property_metadataWithHttpInfo(entity.type.id, property.type.id, ...)
+    get_entity_type_property_metadata = function(entity_type_id, property_type_id, ...){
+      apiResponse <- self$get_entity_type_property_metadataWithHttpInfo(entity_type_id, property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4307,26 +4347,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_entity_type_property_metadataWithHttpInfo = function(entity.type.id, property.type.id, ...){
+    get_entity_type_property_metadataWithHttpInfo = function(entity_type_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -4357,8 +4397,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_property_metadata_for_entity_sets = function(request.body=NULL, ...){
-      apiResponse <- self$get_property_metadata_for_entity_setsWithHttpInfo(request.body, ...)
+    get_property_metadata_for_entity_sets = function(request_body=NULL, ...){
+      apiResponse <- self$get_property_metadata_for_entity_setsWithHttpInfo(request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4371,14 +4411,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_property_metadata_for_entity_setsWithHttpInfo = function(request.body=NULL, ...){
+    get_property_metadata_for_entity_setsWithHttpInfo = function(request_body=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+        )
       } else {
         body <- NULL
       }
@@ -4398,7 +4442,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(map(EntitySetPropertyMetaData))", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(list(EntitySetPropertyMetaData))", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -4412,8 +4456,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_property_type = function(property.type.id, ...){
-      apiResponse <- self$get_property_typeWithHttpInfo(property.type.id, ...)
+    get_property_type = function(property_type_id, ...){
+      apiResponse <- self$get_property_typeWithHttpInfo(property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4426,18 +4470,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_property_typeWithHttpInfo = function(property.type.id, ...){
+    get_property_typeWithHttpInfo = function(property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/property/type/{propertyTypeId}"
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -4532,8 +4576,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_property_types_for_entity_set = function(entity.set.id, ...){
-      apiResponse <- self$get_property_types_for_entity_setWithHttpInfo(entity.set.id, ...)
+    get_property_types_for_entity_set = function(entity_set_id, ...){
+      apiResponse <- self$get_property_types_for_entity_setWithHttpInfo(entity_set_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4546,18 +4590,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_property_types_for_entity_setWithHttpInfo = function(entity.set.id, ...){
+    get_property_types_for_entity_setWithHttpInfo = function(entity_set_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
       urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -4574,7 +4618,7 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(PropertyType)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(PropertyType)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -4588,8 +4632,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_property_usage_summary = function(property.type.id, ...){
-      apiResponse <- self$get_property_usage_summaryWithHttpInfo(property.type.id, ...)
+    get_property_usage_summary = function(property_type_id, ...){
+      apiResponse <- self$get_property_usage_summaryWithHttpInfo(property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4602,18 +4646,18 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_property_usage_summaryWithHttpInfo = function(property.type.id, ...){
+    get_property_usage_summaryWithHttpInfo = function(property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/summary/{propertyTypeId}"
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -4644,8 +4688,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_schema_contents = function(namespace, name, file.type='yaml', ...){
-      apiResponse <- self$get_schema_contentsWithHttpInfo(namespace, name, file.type, ...)
+    get_schema_contents = function(namespace, name, file_type='yaml', ...){
+      apiResponse <- self$get_schema_contentsWithHttpInfo(namespace, name, file_type, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4658,7 +4702,7 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    get_schema_contentsWithHttpInfo = function(namespace, name, file.type='yaml', ...){
+    get_schema_contentsWithHttpInfo = function(namespace, name, file_type='yaml', ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -4671,7 +4715,7 @@ EdmApi <- R6::R6Class(
         stop("Missing required parameter `name`.")
       }
 
-      queryParams['fileType'] <- file.type
+      queryParams['fileType'] <- file_type
 
       urlPath <- "/datastore/edm/schema/{namespace}/{name}"
       if (!missing(`namespace`)) {
@@ -4814,8 +4858,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_dst_entity_type_from_association_type = function(association.type.id, entity.type.id, ...){
-      apiResponse <- self$remove_dst_entity_type_from_association_typeWithHttpInfo(association.type.id, entity.type.id, ...)
+    remove_dst_entity_type_from_association_type = function(association_type_id, entity_type_id, ...){
+      apiResponse <- self$remove_dst_entity_type_from_association_typeWithHttpInfo(association_type_id, entity_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4828,26 +4872,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    remove_dst_entity_type_from_association_typeWithHttpInfo = function(association.type.id, entity.type.id, ...){
+    remove_dst_entity_type_from_association_typeWithHttpInfo = function(association_type_id, entity_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`association.type.id`)) {
-        stop("Missing required parameter `association.type.id`.")
+      if (missing(`association_type_id`)) {
+        stop("Missing required parameter `association_type_id`.")
       }
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
       urlPath <- "/datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId}"
-      if (!missing(`association.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`association_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -4872,8 +4916,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_entity_sets_from_linking_entity_set = function(linking.entity.set.id, request.body=NULL, ...){
-      apiResponse <- self$remove_entity_sets_from_linking_entity_setWithHttpInfo(linking.entity.set.id, request.body, ...)
+    remove_entity_sets_from_linking_entity_set = function(linking_entity_set_id, request_body=NULL, ...){
+      apiResponse <- self$remove_entity_sets_from_linking_entity_setWithHttpInfo(linking_entity_set_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4886,25 +4930,29 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    remove_entity_sets_from_linking_entity_setWithHttpInfo = function(linking.entity.set.id, request.body=NULL, ...){
+    remove_entity_sets_from_linking_entity_setWithHttpInfo = function(linking_entity_set_id, request_body=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`linking.entity.set.id`)) {
-        stop("Missing required parameter `linking.entity.set.id`.")
+      if (missing(`linking_entity_set_id`)) {
+        stop("Missing required parameter `linking_entity_set_id`.")
       }
 
-      if (!missing(`request.body`)) {
-        body.items = paste(unlist(lapply(request.body, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/entity-sets/linking/{linkingEntitySetId}"
-      if (!missing(`linking.entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking.entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`linking_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking_entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -4935,8 +4983,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_entity_sets_from_linking_entity_sets = function(linking.entity.set.id, request.body, ...){
-      apiResponse <- self$remove_entity_sets_from_linking_entity_setsWithHttpInfo(linking.entity.set.id, request.body, ...)
+    remove_entity_sets_from_linking_entity_sets = function(linking_entity_set_id, request_body, ...){
+      apiResponse <- self$remove_entity_sets_from_linking_entity_setsWithHttpInfo(linking_entity_set_id, request_body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -4949,28 +4997,33 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    remove_entity_sets_from_linking_entity_setsWithHttpInfo = function(linking.entity.set.id, request.body, ...){
+    remove_entity_sets_from_linking_entity_setsWithHttpInfo = function(linking_entity_set_id, request_body, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`linking.entity.set.id`)) {
-        stop("Missing required parameter `linking.entity.set.id`.")
+      if (missing(`linking_entity_set_id`)) {
+        stop("Missing required parameter `linking_entity_set_id`.")
       }
 
-      if (missing(`request.body`)) {
-        stop("Missing required parameter `request.body`.")
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
       }
 
-      if (!missing(`request.body`)) {
-        body <- `request.body`$toJSONString()
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            %s
+',
+              jsonlite::toJSON(`request_body`, digits=NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/entity-sets/linking/"
-      if (!missing(`linking.entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking.entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`linking_entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking_entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -5001,8 +5054,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_primary_key_from_entity_type = function(entity.type.id, property.type.id, ...){
-      apiResponse <- self$remove_primary_key_from_entity_typeWithHttpInfo(entity.type.id, property.type.id, ...)
+    remove_primary_key_from_entity_type = function(entity_type_id, property_type_id, ...){
+      apiResponse <- self$remove_primary_key_from_entity_typeWithHttpInfo(entity_type_id, property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -5015,26 +5068,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    remove_primary_key_from_entity_typeWithHttpInfo = function(entity.type.id, property.type.id, ...){
+    remove_primary_key_from_entity_typeWithHttpInfo = function(entity_type_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId}"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -5059,8 +5112,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_property_type_from_entity_type = function(entity.type.id, property.type.id, ...){
-      apiResponse <- self$remove_property_type_from_entity_typeWithHttpInfo(entity.type.id, property.type.id, ...)
+    remove_property_type_from_entity_type = function(entity_type_id, property_type_id, ...){
+      apiResponse <- self$remove_property_type_from_entity_typeWithHttpInfo(entity_type_id, property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -5073,26 +5126,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    remove_property_type_from_entity_typeWithHttpInfo = function(entity.type.id, property.type.id, ...){
+    remove_property_type_from_entity_typeWithHttpInfo = function(entity_type_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -5117,8 +5170,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_src_entity_type_from_association_type = function(association.type.id, entity.type.id, ...){
-      apiResponse <- self$remove_src_entity_type_from_association_typeWithHttpInfo(association.type.id, entity.type.id, ...)
+    remove_src_entity_type_from_association_type = function(association_type_id, entity_type_id, ...){
+      apiResponse <- self$remove_src_entity_type_from_association_typeWithHttpInfo(association_type_id, entity_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -5131,26 +5184,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    remove_src_entity_type_from_association_typeWithHttpInfo = function(association.type.id, entity.type.id, ...){
+    remove_src_entity_type_from_association_typeWithHttpInfo = function(association_type_id, entity_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`association.type.id`)) {
-        stop("Missing required parameter `association.type.id`.")
+      if (missing(`association_type_id`)) {
+        stop("Missing required parameter `association_type_id`.")
       }
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
       urlPath <- "/datastore/edm/association/type/{associationTypeId}/src/{entityTypeId}"
-      if (!missing(`association.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`association_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -5175,8 +5228,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    reorder_property_types_in_entity_type = function(entity.type.id, property.type.ids, ...){
-      apiResponse <- self$reorder_property_types_in_entity_typeWithHttpInfo(entity.type.id, property.type.ids, ...)
+    reorder_property_types_in_entity_type = function(entity_type_id, property_type_ids, ...){
+      apiResponse <- self$reorder_property_types_in_entity_typeWithHttpInfo(entity_type_id, property_type_ids, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -5189,26 +5242,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    reorder_property_types_in_entity_typeWithHttpInfo = function(entity.type.id, property.type.ids, ...){
+    reorder_property_types_in_entity_typeWithHttpInfo = function(entity_type_id, property_type_ids, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
-      if (missing(`property.type.ids`)) {
-        stop("Missing required parameter `property.type.ids`.")
+      if (missing(`property_type_ids`)) {
+        stop("Missing required parameter `property_type_ids`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}/property/type"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.ids`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeIds", "\\}"), URLencode(as.character(`property.type.ids`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_ids`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeIds", "\\}"), URLencode(as.character(`property_type_ids`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -5257,7 +5310,12 @@ EdmApi <- R6::R6Class(
       }
 
       if (!missing(`EDM`)) {
-        body <- `EDM`$toJSONString()
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`EDM`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -5285,8 +5343,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_entity_set_meta_data = function(entity.set.id, metadata.update, ...){
-      apiResponse <- self$update_entity_set_meta_dataWithHttpInfo(entity.set.id, metadata.update, ...)
+    update_entity_set_meta_data = function(entity_set_id, metadata_update, ...){
+      apiResponse <- self$update_entity_set_meta_dataWithHttpInfo(entity_set_id, metadata_update, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -5299,28 +5357,33 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    update_entity_set_meta_dataWithHttpInfo = function(entity.set.id, metadata.update, ...){
+    update_entity_set_meta_dataWithHttpInfo = function(entity_set_id, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`metadata.update`)) {
-        stop("Missing required parameter `metadata.update`.")
+      if (missing(`metadata_update`)) {
+        stop("Missing required parameter `metadata_update`.")
       }
 
-      if (!missing(`metadata.update`)) {
-        body <- `metadata.update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/entity-sets/all/{entitySetId}/metadata/"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -5351,8 +5414,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_entity_set_property_metadata = function(entity.set.id, property.type.id, metadata.update, ...){
-      apiResponse <- self$update_entity_set_property_metadataWithHttpInfo(entity.set.id, property.type.id, metadata.update, ...)
+    update_entity_set_property_metadata = function(entity_set_id, property_type_id, metadata_update, ...){
+      apiResponse <- self$update_entity_set_property_metadataWithHttpInfo(entity_set_id, property_type_id, metadata_update, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -5365,36 +5428,41 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    update_entity_set_property_metadataWithHttpInfo = function(entity.set.id, property.type.id, metadata.update, ...){
+    update_entity_set_property_metadataWithHttpInfo = function(entity_set_id, property_type_id, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.set.id`)) {
-        stop("Missing required parameter `entity.set.id`.")
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
       }
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
-      if (missing(`metadata.update`)) {
-        stop("Missing required parameter `metadata.update`.")
+      if (missing(`metadata_update`)) {
+        stop("Missing required parameter `metadata_update`.")
       }
 
-      if (!missing(`metadata.update`)) {
-        body <- `metadata.update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/"
-      if (!missing(`entity.set.id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity.set.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -5419,8 +5487,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_entity_type_meta_data = function(entity.type.id, metadata.update, ...){
-      apiResponse <- self$update_entity_type_meta_dataWithHttpInfo(entity.type.id, metadata.update, ...)
+    update_entity_type_meta_data = function(entity_type_id, metadata_update, ...){
+      apiResponse <- self$update_entity_type_meta_dataWithHttpInfo(entity_type_id, metadata_update, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -5433,28 +5501,33 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    update_entity_type_meta_dataWithHttpInfo = function(entity.type.id, metadata.update, ...){
+    update_entity_type_meta_dataWithHttpInfo = function(entity_type_id, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
-      if (missing(`metadata.update`)) {
-        stop("Missing required parameter `metadata.update`.")
+      if (missing(`metadata_update`)) {
+        stop("Missing required parameter `metadata_update`.")
       }
 
-      if (!missing(`metadata.update`)) {
-        body <- `metadata.update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -5479,8 +5552,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_entity_type_property_metadata = function(entity.type.id, property.type.id, ...){
-      apiResponse <- self$update_entity_type_property_metadataWithHttpInfo(entity.type.id, property.type.id, ...)
+    update_entity_type_property_metadata = function(entity_type_id, property_type_id, ...){
+      apiResponse <- self$update_entity_type_property_metadataWithHttpInfo(entity_type_id, property_type_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -5493,26 +5566,26 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    update_entity_type_property_metadataWithHttpInfo = function(entity.type.id, property.type.id, ...){
+    update_entity_type_property_metadataWithHttpInfo = function(entity_type_id, property_type_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.type.id`)) {
-        stop("Missing required parameter `entity.type.id`.")
+      if (missing(`entity_type_id`)) {
+        stop("Missing required parameter `entity_type_id`.")
       }
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
       urlPath <- "/datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}"
-      if (!missing(`entity.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`entity_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "entityTypeId", "\\}"), URLencode(as.character(`entity_type_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -5537,8 +5610,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_property_type_meta_data = function(property.type.id, metadata.update, ...){
-      apiResponse <- self$update_property_type_meta_dataWithHttpInfo(property.type.id, metadata.update, ...)
+    update_property_type_meta_data = function(property_type_id, metadata_update, ...){
+      apiResponse <- self$update_property_type_meta_dataWithHttpInfo(property_type_id, metadata_update, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -5551,28 +5624,33 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    update_property_type_meta_dataWithHttpInfo = function(property.type.id, metadata.update, ...){
+    update_property_type_meta_dataWithHttpInfo = function(property_type_id, metadata_update, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`property.type.id`)) {
-        stop("Missing required parameter `property.type.id`.")
+      if (missing(`property_type_id`)) {
+        stop("Missing required parameter `property_type_id`.")
       }
 
-      if (missing(`metadata.update`)) {
-        stop("Missing required parameter `metadata.update`.")
+      if (missing(`metadata_update`)) {
+        stop("Missing required parameter `metadata_update`.")
       }
 
-      if (!missing(`metadata.update`)) {
-        body <- `metadata.update`$toJSONString()
+      if (!missing(`metadata_update`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
 
       urlPath <- "/datastore/edm/property/type/{propertyTypeId}"
-      if (!missing(`property.type.id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property.type.id`), reserved = TRUE), urlPath)
+      if (!missing(`property_type_id`)) {
+        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -5597,8 +5675,8 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_schema = function(namespace, name, edm.request, ...){
-      apiResponse <- self$update_schemaWithHttpInfo(namespace, name, edm.request, ...)
+    update_schema = function(namespace, name, edm_request, ...){
+      apiResponse <- self$update_schemaWithHttpInfo(namespace, name, edm_request, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -5611,7 +5689,7 @@ EdmApi <- R6::R6Class(
       }
     },
 
-    update_schemaWithHttpInfo = function(namespace, name, edm.request, ...){
+    update_schemaWithHttpInfo = function(namespace, name, edm_request, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -5624,12 +5702,17 @@ EdmApi <- R6::R6Class(
         stop("Missing required parameter `name`.")
       }
 
-      if (missing(`edm.request`)) {
-        stop("Missing required parameter `edm.request`.")
+      if (missing(`edm_request`)) {
+        stop("Missing required parameter `edm_request`.")
       }
 
-      if (!missing(`edm.request`)) {
-        body <- `edm.request`$toJSONString()
+      if (!missing(`edm_request`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`edm_request`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }

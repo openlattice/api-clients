@@ -79,7 +79,7 @@ class OrganizationMember(object):
 
 
         :param principal: The principal of this OrganizationMember.  # noqa: E501
-        :type: SecurablePrincipal
+        :type principal: SecurablePrincipal
         """
 
         self._principal = principal
@@ -100,7 +100,7 @@ class OrganizationMember(object):
 
 
         :param profile: The profile of this OrganizationMember.  # noqa: E501
-        :type: Auth0userBasic
+        :type profile: Auth0userBasic
         """
 
         self._profile = profile
@@ -121,7 +121,7 @@ class OrganizationMember(object):
 
 
         :param roles: The roles of this OrganizationMember.  # noqa: E501
-        :type: list[SecurablePrincipal]
+        :type roles: list[SecurablePrincipal]
         """
 
         self._roles = roles

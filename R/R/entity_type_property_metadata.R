@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title EntityTypePropertyMetadata
+#'
 #' @description EntityTypePropertyMetadata Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field title  character [optional]
 #'
 #' @field description  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ EntityTypePropertyMetadata <- R6::R6Class(
   public = list(
     `title` = NULL,
     `description` = NULL,
-    initialize = function(`title`=NULL, `description`=NULL, ...){
+    initialize = function(
+        `title`=NULL, `description`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`title`)) {
         stopifnot(is.character(`title`), length(`title`) == 1)
@@ -55,6 +59,7 @@ EntityTypePropertyMetadata <- R6::R6Class(
       if (!is.null(EntityTypePropertyMetadataObject$`description`)) {
         self$`description` <- EntityTypePropertyMetadataObject$`description`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -84,3 +89,4 @@ EntityTypePropertyMetadata <- R6::R6Class(
     }
   )
 )
+

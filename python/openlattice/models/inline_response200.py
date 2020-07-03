@@ -74,7 +74,7 @@ class InlineResponse200(object):
 
 
         :param user: The user of this InlineResponse200.  # noqa: E501
-        :type: str
+        :type user: str
         """
 
         self._user = user
@@ -95,7 +95,7 @@ class InlineResponse200(object):
 
 
         :param credential: The credential of this InlineResponse200.  # noqa: E501
-        :type: str
+        :type credential: str
         """
 
         self._credential = credential

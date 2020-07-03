@@ -74,7 +74,7 @@ class Acl(object):
 
 
         :param acl_key: The acl_key of this Acl.  # noqa: E501
-        :type: list[str]
+        :type acl_key: list[str]
         """
 
         self._acl_key = acl_key
@@ -95,7 +95,7 @@ class Acl(object):
 
 
         :param aces: The aces of this Acl.  # noqa: E501
-        :type: list[Ace]
+        :type aces: list[Ace]
         """
 
         self._aces = aces

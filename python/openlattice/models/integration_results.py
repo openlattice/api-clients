@@ -84,7 +84,7 @@ class IntegrationResults(object):
 
 
         :param entity_count: The entity_count of this IntegrationResults.  # noqa: E501
-        :type: int
+        :type entity_count: int
         """
 
         self._entity_count = entity_count
@@ -105,7 +105,7 @@ class IntegrationResults(object):
 
 
         :param association_count: The association_count of this IntegrationResults.  # noqa: E501
-        :type: int
+        :type association_count: int
         """
 
         self._association_count = association_count
@@ -126,7 +126,7 @@ class IntegrationResults(object):
 
 
         :param associations_entity_key_mappings: The associations_entity_key_mappings of this IntegrationResults.  # noqa: E501
-        :type: dict(str, dict(str, str))
+        :type associations_entity_key_mappings: dict(str, dict(str, str))
         """
 
         self._associations_entity_key_mappings = associations_entity_key_mappings
@@ -147,7 +147,7 @@ class IntegrationResults(object):
 
 
         :param entity_sets_entity_key_mappings: The entity_sets_entity_key_mappings of this IntegrationResults.  # noqa: E501
-        :type: dict(str, dict(str, str))
+        :type entity_sets_entity_key_mappings: dict(str, dict(str, str))
         """
 
         self._entity_sets_entity_key_mappings = entity_sets_entity_key_mappings

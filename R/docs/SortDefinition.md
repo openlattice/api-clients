@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **character** |  | [optional] 
-**descending** | **character** |  | [optional] 
+**isDescending** | **character** |  | [optional] 
 **propertyTypeId** | **character** |  | [optional] 
 **latitude** | **numeric** |  | [optional] 
 **longitude** | **numeric** |  | [optional] 

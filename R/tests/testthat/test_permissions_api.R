@@ -9,7 +9,7 @@ test_that("get_acl", {
   # tests for get_acl
   # base path: https://api.openlattice.com
   # Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
-  # @param array[character]  request.body   
+  # @param array[character]  request_body   
   # @return [Acl]
 
   # uncomment below to test the operation
@@ -20,7 +20,7 @@ test_that("update_acl", {
   # tests for update_acl
   # base path: https://api.openlattice.com
   # Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
-  # @param AclData  acl.data   
+  # @param AclData  acl_data   
   # @return [Void]
 
   # uncomment below to test the operation

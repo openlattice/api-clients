@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title AssociationType
+#'
 #' @description AssociationType Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entityType  \link{EntityType} [optional]
 #'
 #' @field src  list( character ) [optional]
@@ -17,7 +20,6 @@
 #' @field dst  list( character ) [optional]
 #'
 #' @field bidirectional  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -29,7 +31,9 @@ AssociationType <- R6::R6Class(
     `src` = NULL,
     `dst` = NULL,
     `bidirectional` = NULL,
-    initialize = function(`entityType`=NULL, `src`=NULL, `dst`=NULL, `bidirectional`=NULL, ...){
+    initialize = function(
+        `entityType`=NULL, `src`=NULL, `dst`=NULL, `bidirectional`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityType`)) {
         stopifnot(R6::is.R6(`entityType`))
@@ -86,6 +90,7 @@ AssociationType <- R6::R6Class(
       if (!is.null(AssociationTypeObject$`bidirectional`)) {
         self$`bidirectional` <- AssociationTypeObject$`bidirectional`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -131,3 +136,4 @@ AssociationType <- R6::R6Class(
     }
   )
 )
+

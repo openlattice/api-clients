@@ -21,6 +21,7 @@ from openlattice.models.acl import Acl
 from openlattice.models.acl_data import AclData
 from openlattice.models.advanced_search import AdvancedSearch
 from openlattice.models.association import Association
+from openlattice.models.association_definition import AssociationDefinition
 from openlattice.models.association_type import AssociationType
 from openlattice.models.auth0user_basic import Auth0userBasic
 from openlattice.models.authorization import Authorization
@@ -41,6 +42,7 @@ from openlattice.models.ed_mdiff import EDMdiff
 from openlattice.models.edm_request import EdmRequest
 from openlattice.models.entity import Entity
 from openlattice.models.entity_data_key import EntityDataKey
+from openlattice.models.entity_definition import EntityDefinition
 from openlattice.models.entity_key import EntityKey
 from openlattice.models.entity_key_pair import EntityKeyPair
 from openlattice.models.entity_linking_features import EntityLinkingFeatures
@@ -53,11 +55,17 @@ from openlattice.models.entity_set_selection import EntitySetSelection
 from openlattice.models.entity_type import EntityType
 from openlattice.models.entity_type_collection import EntityTypeCollection
 from openlattice.models.entity_type_property_metadata import EntityTypePropertyMetadata
+from openlattice.models.flight import Flight
+from openlattice.models.flight_plan_parameters import FlightPlanParameters
+from openlattice.models.flight_plan_parameters_update import FlightPlanParametersUpdate
 from openlattice.models.full_qualified_name import FullQualifiedName
 from openlattice.models.indexing_state import IndexingState
 from openlattice.models.inline_object import InlineObject
 from openlattice.models.inline_response200 import InlineResponse200
+from openlattice.models.integration import Integration
+from openlattice.models.integration_job import IntegrationJob
 from openlattice.models.integration_results import IntegrationResults
+from openlattice.models.integration_update import IntegrationUpdate
 from openlattice.models.linking_feedback import LinkingFeedback
 from openlattice.models.materialized_view_account import MaterializedViewAccount
 from openlattice.models.metadata_update import MetadataUpdate
@@ -70,6 +78,7 @@ from openlattice.models.organization_external_database_table import Organization
 from openlattice.models.organization_external_database_table_columns_pair import OrganizationExternalDatabaseTableColumnsPair
 from openlattice.models.organization_member import OrganizationMember
 from openlattice.models.principal import Principal
+from openlattice.models.property_definition import PropertyDefinition
 from openlattice.models.property_type import PropertyType
 from openlattice.models.property_usage_summary import PropertyUsageSummary
 from openlattice.models.role import Role

@@ -74,7 +74,7 @@ class DataGraph(object):
 
 
         :param entities: The entities of this DataGraph.  # noqa: E501
-        :type: dict(str, list[dict(str, list[str])])
+        :type entities: dict(str, list[dict(str, list[str])])
         """
 
         self._entities = entities
@@ -95,7 +95,7 @@ class DataGraph(object):
 
 
         :param associations: The associations of this DataGraph.  # noqa: E501
-        :type: dict(str, list[DataAssociation])
+        :type associations: dict(str, list[DataAssociation])
         """
 
         self._associations = associations

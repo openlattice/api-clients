@@ -74,7 +74,7 @@ class BulkDataCreation(object):
 
 
         :param entities: The entities of this BulkDataCreation.  # noqa: E501
-        :type: list[Entity]
+        :type entities: list[Entity]
         """
 
         self._entities = entities
@@ -95,7 +95,7 @@ class BulkDataCreation(object):
 
 
         :param associations: The associations of this BulkDataCreation.  # noqa: E501
-        :type: list[Association]
+        :type associations: list[Association]
         """
 
         self._associations = associations

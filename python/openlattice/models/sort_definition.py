@@ -89,7 +89,7 @@ class SortDefinition(object):
 
 
         :param type: The type of this SortDefinition.  # noqa: E501
-        :type: str
+        :type type: str
         """
         allowed_values = ["field", "score", "geoDistance"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
@@ -116,7 +116,7 @@ class SortDefinition(object):
 
 
         :param descending: The descending of this SortDefinition.  # noqa: E501
-        :type: bool
+        :type descending: bool
         """
 
         self._descending = descending
@@ -137,7 +137,7 @@ class SortDefinition(object):
 
 
         :param property_type_id: The property_type_id of this SortDefinition.  # noqa: E501
-        :type: str
+        :type property_type_id: str
         """
 
         self._property_type_id = property_type_id
@@ -158,7 +158,7 @@ class SortDefinition(object):
 
 
         :param latitude: The latitude of this SortDefinition.  # noqa: E501
-        :type: float
+        :type latitude: float
         """
 
         self._latitude = latitude
@@ -179,7 +179,7 @@ class SortDefinition(object):
 
 
         :param longitude: The longitude of this SortDefinition.  # noqa: E501
-        :type: float
+        :type longitude: float
         """
 
         self._longitude = longitude

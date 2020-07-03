@@ -36,16 +36,24 @@ class DataAssociation(object):
     openapi_types = {
         'src_entity_set_id': 'str',
         'src_entity_index': 'str',
-        'src_entity_key_id': 'str'
+        'src_entity_key_id': 'str',
+        'dst_entity_set_id': 'str',
+        'dst_entity_index': 'str',
+        'dst_entity_key_id': 'str',
+        'data': 'dict(str, list[str])'
     }
 
     attribute_map = {
         'src_entity_set_id': 'srcEntitySetId',
         'src_entity_index': 'srcEntityIndex',
-        'src_entity_key_id': 'srcEntityKeyId'
+        'src_entity_key_id': 'srcEntityKeyId',
+        'dst_entity_set_id': 'dstEntitySetId',
+        'dst_entity_index': 'dstEntityIndex',
+        'dst_entity_key_id': 'dstEntityKeyId',
+        'data': 'data'
     }
 
-    def __init__(self, src_entity_set_id=None, src_entity_index=None, src_entity_key_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, src_entity_set_id=None, src_entity_index=None, src_entity_key_id=None, dst_entity_set_id=None, dst_entity_index=None, dst_entity_key_id=None, data=None, local_vars_configuration=None):  # noqa: E501
         """DataAssociation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,6 +62,10 @@ class DataAssociation(object):
         self._src_entity_set_id = None
         self._src_entity_index = None
         self._src_entity_key_id = None
+        self._dst_entity_set_id = None
+        self._dst_entity_index = None
+        self._dst_entity_key_id = None
+        self._data = None
         self.discriminator = None
 
         if src_entity_set_id is not None:
@@ -62,6 +74,14 @@ class DataAssociation(object):
             self.src_entity_index = src_entity_index
         if src_entity_key_id is not None:
             self.src_entity_key_id = src_entity_key_id
+        if dst_entity_set_id is not None:
+            self.dst_entity_set_id = dst_entity_set_id
+        if dst_entity_index is not None:
+            self.dst_entity_index = dst_entity_index
+        if dst_entity_key_id is not None:
+            self.dst_entity_key_id = dst_entity_key_id
+        if data is not None:
+            self.data = data
 
     @property
     def src_entity_set_id(self):
@@ -81,7 +101,7 @@ class DataAssociation(object):
         the ID of the source entity set  # noqa: E501
 
         :param src_entity_set_id: The src_entity_set_id of this DataAssociation.  # noqa: E501
-        :type: str
+        :type src_entity_set_id: str
         """
 
         self._src_entity_set_id = src_entity_set_id
@@ -104,7 +124,7 @@ class DataAssociation(object):
         The index of an entity  # noqa: E501
 
         :param src_entity_index: The src_entity_index of this DataAssociation.  # noqa: E501
-        :type: str
+        :type src_entity_index: str
         """
 
         self._src_entity_index = src_entity_index
@@ -127,10 +147,102 @@ class DataAssociation(object):
         An existing entityKeyId  # noqa: E501
 
         :param src_entity_key_id: The src_entity_key_id of this DataAssociation.  # noqa: E501
-        :type: str
+        :type src_entity_key_id: str
         """
 
         self._src_entity_key_id = src_entity_key_id
+
+    @property
+    def dst_entity_set_id(self):
+        """Gets the dst_entity_set_id of this DataAssociation.  # noqa: E501
+
+        the ID of the dst entity set  # noqa: E501
+
+        :return: The dst_entity_set_id of this DataAssociation.  # noqa: E501
+        :rtype: str
+        """
+        return self._dst_entity_set_id
+
+    @dst_entity_set_id.setter
+    def dst_entity_set_id(self, dst_entity_set_id):
+        """Sets the dst_entity_set_id of this DataAssociation.
+
+        the ID of the dst entity set  # noqa: E501
+
+        :param dst_entity_set_id: The dst_entity_set_id of this DataAssociation.  # noqa: E501
+        :type dst_entity_set_id: str
+        """
+
+        self._dst_entity_set_id = dst_entity_set_id
+
+    @property
+    def dst_entity_index(self):
+        """Gets the dst_entity_index of this DataAssociation.  # noqa: E501
+
+        The index of an entity  # noqa: E501
+
+        :return: The dst_entity_index of this DataAssociation.  # noqa: E501
+        :rtype: str
+        """
+        return self._dst_entity_index
+
+    @dst_entity_index.setter
+    def dst_entity_index(self, dst_entity_index):
+        """Sets the dst_entity_index of this DataAssociation.
+
+        The index of an entity  # noqa: E501
+
+        :param dst_entity_index: The dst_entity_index of this DataAssociation.  # noqa: E501
+        :type dst_entity_index: str
+        """
+
+        self._dst_entity_index = dst_entity_index
+
+    @property
+    def dst_entity_key_id(self):
+        """Gets the dst_entity_key_id of this DataAssociation.  # noqa: E501
+
+        An existing entityKeyId  # noqa: E501
+
+        :return: The dst_entity_key_id of this DataAssociation.  # noqa: E501
+        :rtype: str
+        """
+        return self._dst_entity_key_id
+
+    @dst_entity_key_id.setter
+    def dst_entity_key_id(self, dst_entity_key_id):
+        """Sets the dst_entity_key_id of this DataAssociation.
+
+        An existing entityKeyId  # noqa: E501
+
+        :param dst_entity_key_id: The dst_entity_key_id of this DataAssociation.  # noqa: E501
+        :type dst_entity_key_id: str
+        """
+
+        self._dst_entity_key_id = dst_entity_key_id
+
+    @property
+    def data(self):
+        """Gets the data of this DataAssociation.  # noqa: E501
+
+        data  # noqa: E501
+
+        :return: The data of this DataAssociation.  # noqa: E501
+        :rtype: dict(str, list[str])
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this DataAssociation.
+
+        data  # noqa: E501
+
+        :param data: The data of this DataAssociation.  # noqa: E501
+        :type data: dict(str, list[str])
+        """
+
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

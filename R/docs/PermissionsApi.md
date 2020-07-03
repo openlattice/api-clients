@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_acl**
-> Acl get_acl(request.body)
+> Acl get_acl(request_body)
 
 Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 
@@ -17,7 +17,7 @@ Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 ```R
 library(openlattice)
 
-var.request.body <- list("property_example") # array[character] | 
+var.request_body <- list("property_example") # array[character] | 
 
 #Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 api.instance <- PermissionsApi$new()
@@ -26,7 +26,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_acl(var.request.body)
+result <- api.instance$get_acl(var.request_body)
 dput(result)
 ```
 
@@ -34,7 +34,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request.body** | list( **character** )|  | 
+ **request_body** | list( **character** )|  | 
 
 ### Return type
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **update_acl**
-> update_acl(acl.data)
+> update_acl(acl_data)
 
 Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
 
@@ -63,7 +63,7 @@ Updates the ACL for a particular ACL Key, only if the user is the owner of the A
 ```R
 library(openlattice)
 
-var.acl.data <- AclData$new("action_example", Acl$new(list("aclKey_example"), list(Ace$new(Principal$new("type_example", "id_example"), list("permissions_example"))))) # AclData | 
+var.acl_data <- AclData$new("action_example", Acl$new(list("aclKey_example"), list(Ace$new(Principal$new("type_example", "id_example"), list("permissions_example"))))) # AclData | 
 
 #Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
 api.instance <- PermissionsApi$new()
@@ -72,14 +72,14 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_acl(var.acl.data)
+api.instance$update_acl(var.acl_data)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **acl.data** | [**AclData**](AclData.md)|  | 
+ **acl_data** | [**AclData**](AclData.md)|  | 
 
 ### Return type
 

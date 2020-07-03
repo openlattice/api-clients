@@ -74,7 +74,7 @@ class Authorization(object):
 
 
         :param acl_key: The acl_key of this Authorization.  # noqa: E501
-        :type: list[str]
+        :type acl_key: list[str]
         """
 
         self._acl_key = acl_key
@@ -95,7 +95,7 @@ class Authorization(object):
 
 
         :param permissions: The permissions of this Authorization.  # noqa: E501
-        :type: dict(str, bool)
+        :type permissions: dict(str, bool)
         """
 
         self._permissions = permissions

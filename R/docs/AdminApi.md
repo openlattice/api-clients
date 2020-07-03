@@ -95,7 +95,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 # **reindex**
-> IndexingState reindex(request.body)
+> IndexingState reindex(request_body)
 
 Merge job descriptions for performing a partial or full reindex of provided entity sets.
 
@@ -103,7 +103,7 @@ Merge job descriptions for performing a partial or full reindex of provided enti
 ```R
 library(openlattice)
 
-var.request.body <- TODO # map(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
+var.request_body <- TODO # list(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
 
 #Merge job descriptions for performing a partial or full reindex of provided entity sets.
 api.instance <- AdminApi$new()
@@ -112,7 +112,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$reindex(var.request.body)
+result <- api.instance$reindex(var.request_body)
 dput(result)
 ```
 
@@ -120,7 +120,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request.body** | named list( [**map(array[character])**](array.md) )| A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. | 
+ **request_body** | named list( [**list(array[character])**](array.md) )| A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. | 
 
 ### Return type
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **update_reindex**
-> IndexingState update_reindex(request.body)
+> IndexingState update_reindex(request_body)
 
 Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 
@@ -149,7 +149,7 @@ Replaces job descriptions for performing a partial or full reindex of provided e
 ```R
 library(openlattice)
 
-var.request.body <- TODO # map(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
+var.request_body <- TODO # list(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
 
 #Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 api.instance <- AdminApi$new()
@@ -158,7 +158,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$update_reindex(var.request.body)
+result <- api.instance$update_reindex(var.request_body)
 dput(result)
 ```
 
@@ -166,7 +166,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request.body** | named list( [**map(array[character])**](array.md) )| A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. | 
+ **request_body** | named list( [**list(array[character])**](array.md) )| A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. | 
 
 ### Return type
 

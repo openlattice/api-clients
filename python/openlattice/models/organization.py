@@ -114,7 +114,7 @@ class Organization(object):
 
 
         :param id: The id of this Organization.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -135,7 +135,7 @@ class Organization(object):
 
 
         :param principal: The principal of this Organization.  # noqa: E501
-        :type: Principal
+        :type principal: Principal
         """
 
         self._principal = principal
@@ -156,7 +156,7 @@ class Organization(object):
 
 
         :param title: The title of this Organization.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -177,7 +177,7 @@ class Organization(object):
 
 
         :param description: The description of this Organization.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -198,7 +198,7 @@ class Organization(object):
 
 
         :param emails: The emails of this Organization.  # noqa: E501
-        :type: list[str]
+        :type emails: list[str]
         """
 
         self._emails = emails
@@ -219,7 +219,7 @@ class Organization(object):
 
 
         :param members: The members of this Organization.  # noqa: E501
-        :type: list[Principal]
+        :type members: list[Principal]
         """
 
         self._members = members
@@ -240,7 +240,7 @@ class Organization(object):
 
 
         :param roles: The roles of this Organization.  # noqa: E501
-        :type: list[Role]
+        :type roles: list[Role]
         """
 
         self._roles = roles
@@ -261,7 +261,7 @@ class Organization(object):
 
 
         :param apps: The apps of this Organization.  # noqa: E501
-        :type: list[str]
+        :type apps: list[str]
         """
 
         self._apps = apps
@@ -282,7 +282,7 @@ class Organization(object):
 
 
         :param sms_entity_set_info: The sms_entity_set_info of this Organization.  # noqa: E501
-        :type: list[SmsEntitySetInformation]
+        :type sms_entity_set_info: list[SmsEntitySetInformation]
         """
 
         self._sms_entity_set_info = sms_entity_set_info
@@ -303,7 +303,7 @@ class Organization(object):
 
 
         :param partitions: The partitions of this Organization.  # noqa: E501
-        :type: list[int]
+        :type partitions: list[int]
         """
 
         self._partitions = partitions

@@ -84,7 +84,7 @@ class AssociationType(object):
 
 
         :param entity_type: The entity_type of this AssociationType.  # noqa: E501
-        :type: EntityType
+        :type entity_type: EntityType
         """
 
         self._entity_type = entity_type
@@ -105,7 +105,7 @@ class AssociationType(object):
 
 
         :param src: The src of this AssociationType.  # noqa: E501
-        :type: list[str]
+        :type src: list[str]
         """
 
         self._src = src
@@ -126,7 +126,7 @@ class AssociationType(object):
 
 
         :param dst: The dst of this AssociationType.  # noqa: E501
-        :type: list[str]
+        :type dst: list[str]
         """
 
         self._dst = dst
@@ -147,7 +147,7 @@ class AssociationType(object):
 
 
         :param bidirectional: The bidirectional of this AssociationType.  # noqa: E501
-        :type: bool
+        :type bidirectional: bool
         """
 
         self._bidirectional = bidirectional

@@ -16,3 +16,4 @@ from openlattice.api.organizations_api import OrganizationsApi
 from openlattice.api.permissions_api import PermissionsApi
 from openlattice.api.principal_api import PrincipalApi
 from openlattice.api.search_api import SearchApi
+from openlattice.api.shuttle_api import ShuttleApi

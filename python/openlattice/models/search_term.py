@@ -84,7 +84,7 @@ class SearchTerm(object):
 
 
         :param search_term: The search_term of this SearchTerm.  # noqa: E501
-        :type: str
+        :type search_term: str
         """
 
         self._search_term = search_term
@@ -105,7 +105,7 @@ class SearchTerm(object):
 
 
         :param start: The start of this SearchTerm.  # noqa: E501
-        :type: int
+        :type start: int
         """
 
         self._start = start
@@ -126,7 +126,7 @@ class SearchTerm(object):
 
 
         :param max_hits: The max_hits of this SearchTerm.  # noqa: E501
-        :type: int
+        :type max_hits: int
         """
 
         self._max_hits = max_hits
@@ -147,7 +147,7 @@ class SearchTerm(object):
 
 
         :param fuzzy: The fuzzy of this SearchTerm.  # noqa: E501
-        :type: bool
+        :type fuzzy: bool
         """
 
         self._fuzzy = fuzzy

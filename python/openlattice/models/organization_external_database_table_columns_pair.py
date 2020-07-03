@@ -74,7 +74,7 @@ class OrganizationExternalDatabaseTableColumnsPair(object):
 
 
         :param table: The table of this OrganizationExternalDatabaseTableColumnsPair.  # noqa: E501
-        :type: OrganizationExternalDatabaseTable
+        :type table: OrganizationExternalDatabaseTable
         """
 
         self._table = table
@@ -95,7 +95,7 @@ class OrganizationExternalDatabaseTableColumnsPair(object):
 
 
         :param columns: The columns of this OrganizationExternalDatabaseTableColumnsPair.  # noqa: E501
-        :type: list[OrganizationExternalDatabaseColumn]
+        :type columns: list[OrganizationExternalDatabaseColumn]
         """
 
         self._columns = columns

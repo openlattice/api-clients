@@ -8,16 +8,18 @@
 
 #' @docType class
 #' @title EntityNeighborsFilter
+#'
 #' @description EntityNeighborsFilter Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entityKeyIds  list( character ) [optional]
 #'
-#' @field src  list( character ) [optional]
+#' @field srcEntitySetIds  list( character ) [optional]
 #'
-#' @field dst  list( character ) [optional]
+#' @field dstEntitySetIds  list( character ) [optional]
 #'
-#' @field edge  list( character ) [optional]
-#'
+#' @field associationEntitySetIds  list( character ) [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -26,30 +28,32 @@ EntityNeighborsFilter <- R6::R6Class(
   'EntityNeighborsFilter',
   public = list(
     `entityKeyIds` = NULL,
-    `src` = NULL,
-    `dst` = NULL,
-    `edge` = NULL,
-    initialize = function(`entityKeyIds`=NULL, `src`=NULL, `dst`=NULL, `edge`=NULL, ...){
+    `srcEntitySetIds` = NULL,
+    `dstEntitySetIds` = NULL,
+    `associationEntitySetIds` = NULL,
+    initialize = function(
+        `entityKeyIds`=NULL, `srcEntitySetIds`=NULL, `dstEntitySetIds`=NULL, `associationEntitySetIds`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityKeyIds`)) {
         stopifnot(is.vector(`entityKeyIds`))
         sapply(`entityKeyIds`, function(x) stopifnot(is.character(x)))
         self$`entityKeyIds` <- `entityKeyIds`
       }
-      if (!is.null(`src`)) {
-        stopifnot(is.vector(`src`))
-        sapply(`src`, function(x) stopifnot(is.character(x)))
-        self$`src` <- `src`
+      if (!is.null(`srcEntitySetIds`)) {
+        stopifnot(is.vector(`srcEntitySetIds`))
+        sapply(`srcEntitySetIds`, function(x) stopifnot(is.character(x)))
+        self$`srcEntitySetIds` <- `srcEntitySetIds`
       }
-      if (!is.null(`dst`)) {
-        stopifnot(is.vector(`dst`))
-        sapply(`dst`, function(x) stopifnot(is.character(x)))
-        self$`dst` <- `dst`
+      if (!is.null(`dstEntitySetIds`)) {
+        stopifnot(is.vector(`dstEntitySetIds`))
+        sapply(`dstEntitySetIds`, function(x) stopifnot(is.character(x)))
+        self$`dstEntitySetIds` <- `dstEntitySetIds`
       }
-      if (!is.null(`edge`)) {
-        stopifnot(is.vector(`edge`))
-        sapply(`edge`, function(x) stopifnot(is.character(x)))
-        self$`edge` <- `edge`
+      if (!is.null(`associationEntitySetIds`)) {
+        stopifnot(is.vector(`associationEntitySetIds`))
+        sapply(`associationEntitySetIds`, function(x) stopifnot(is.character(x)))
+        self$`associationEntitySetIds` <- `associationEntitySetIds`
       }
     },
     toJSON = function() {
@@ -58,17 +62,17 @@ EntityNeighborsFilter <- R6::R6Class(
         EntityNeighborsFilterObject[['entityKeyIds']] <-
           self$`entityKeyIds`
       }
-      if (!is.null(self$`src`)) {
-        EntityNeighborsFilterObject[['src']] <-
-          self$`src`
+      if (!is.null(self$`srcEntitySetIds`)) {
+        EntityNeighborsFilterObject[['srcEntitySetIds']] <-
+          self$`srcEntitySetIds`
       }
-      if (!is.null(self$`dst`)) {
-        EntityNeighborsFilterObject[['dst']] <-
-          self$`dst`
+      if (!is.null(self$`dstEntitySetIds`)) {
+        EntityNeighborsFilterObject[['dstEntitySetIds']] <-
+          self$`dstEntitySetIds`
       }
-      if (!is.null(self$`edge`)) {
-        EntityNeighborsFilterObject[['edge']] <-
-          self$`edge`
+      if (!is.null(self$`associationEntitySetIds`)) {
+        EntityNeighborsFilterObject[['associationEntitySetIds']] <-
+          self$`associationEntitySetIds`
       }
 
       EntityNeighborsFilterObject
@@ -78,15 +82,16 @@ EntityNeighborsFilter <- R6::R6Class(
       if (!is.null(EntityNeighborsFilterObject$`entityKeyIds`)) {
         self$`entityKeyIds` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`entityKeyIds`, "array[character]", loadNamespace("openlattice"))
       }
-      if (!is.null(EntityNeighborsFilterObject$`src`)) {
-        self$`src` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`src`, "array[character]", loadNamespace("openlattice"))
+      if (!is.null(EntityNeighborsFilterObject$`srcEntitySetIds`)) {
+        self$`srcEntitySetIds` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`srcEntitySetIds`, "array[character]", loadNamespace("openlattice"))
       }
-      if (!is.null(EntityNeighborsFilterObject$`dst`)) {
-        self$`dst` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`dst`, "array[character]", loadNamespace("openlattice"))
+      if (!is.null(EntityNeighborsFilterObject$`dstEntitySetIds`)) {
+        self$`dstEntitySetIds` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`dstEntitySetIds`, "array[character]", loadNamespace("openlattice"))
       }
-      if (!is.null(EntityNeighborsFilterObject$`edge`)) {
-        self$`edge` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`edge`, "array[character]", loadNamespace("openlattice"))
+      if (!is.null(EntityNeighborsFilterObject$`associationEntitySetIds`)) {
+        self$`associationEntitySetIds` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`associationEntitySetIds`, "array[character]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -97,26 +102,26 @@ EntityNeighborsFilter <- R6::R6Class(
         ',
         paste(unlist(lapply(self$`entityKeyIds`, function(x) paste0('"', x, '"'))), collapse=",")
         )},
-        if (!is.null(self$`src`)) {
+        if (!is.null(self$`srcEntitySetIds`)) {
         sprintf(
-        '"src":
+        '"srcEntitySetIds":
            [%s]
         ',
-        paste(unlist(lapply(self$`src`, function(x) paste0('"', x, '"'))), collapse=",")
+        paste(unlist(lapply(self$`srcEntitySetIds`, function(x) paste0('"', x, '"'))), collapse=",")
         )},
-        if (!is.null(self$`dst`)) {
+        if (!is.null(self$`dstEntitySetIds`)) {
         sprintf(
-        '"dst":
+        '"dstEntitySetIds":
            [%s]
         ',
-        paste(unlist(lapply(self$`dst`, function(x) paste0('"', x, '"'))), collapse=",")
+        paste(unlist(lapply(self$`dstEntitySetIds`, function(x) paste0('"', x, '"'))), collapse=",")
         )},
-        if (!is.null(self$`edge`)) {
+        if (!is.null(self$`associationEntitySetIds`)) {
         sprintf(
-        '"edge":
+        '"associationEntitySetIds":
            [%s]
         ',
-        paste(unlist(lapply(self$`edge`, function(x) paste0('"', x, '"'))), collapse=",")
+        paste(unlist(lapply(self$`associationEntitySetIds`, function(x) paste0('"', x, '"'))), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -125,10 +130,11 @@ EntityNeighborsFilter <- R6::R6Class(
     fromJSONString = function(EntityNeighborsFilterJson) {
       EntityNeighborsFilterObject <- jsonlite::fromJSON(EntityNeighborsFilterJson)
       self$`entityKeyIds` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`entityKeyIds`, "array[character]", loadNamespace("openlattice"))
-      self$`src` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`src`, "array[character]", loadNamespace("openlattice"))
-      self$`dst` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`dst`, "array[character]", loadNamespace("openlattice"))
-      self$`edge` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`edge`, "array[character]", loadNamespace("openlattice"))
+      self$`srcEntitySetIds` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`srcEntitySetIds`, "array[character]", loadNamespace("openlattice"))
+      self$`dstEntitySetIds` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`dstEntitySetIds`, "array[character]", loadNamespace("openlattice"))
+      self$`associationEntitySetIds` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`associationEntitySetIds`, "array[character]", loadNamespace("openlattice"))
       self
     }
   )
 )
+

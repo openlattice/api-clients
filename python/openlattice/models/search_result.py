@@ -74,7 +74,7 @@ class SearchResult(object):
 
 
         :param num_hits: The num_hits of this SearchResult.  # noqa: E501
-        :type: int
+        :type num_hits: int
         """
 
         self._num_hits = num_hits
@@ -95,7 +95,7 @@ class SearchResult(object):
 
 
         :param hits: The hits of this SearchResult.  # noqa: E501
-        :type: dict(str, str)
+        :type hits: dict(str, str)
         """
 
         self._hits = hits

@@ -8,14 +8,16 @@
 
 #' @docType class
 #' @title EdmRequest
+#'
 #' @description EdmRequest Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field action  character [optional]
 #'
 #' @field propertyTypes  list( character ) [optional]
 #'
 #' @field entityTypes  list( character ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -26,7 +28,9 @@ EdmRequest <- R6::R6Class(
     `action` = NULL,
     `propertyTypes` = NULL,
     `entityTypes` = NULL,
-    initialize = function(`action`=NULL, `propertyTypes`=NULL, `entityTypes`=NULL, ...){
+    initialize = function(
+        `action`=NULL, `propertyTypes`=NULL, `entityTypes`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`action`)) {
         stopifnot(is.character(`action`), length(`action`) == 1)
@@ -71,6 +75,7 @@ EdmRequest <- R6::R6Class(
       if (!is.null(EdmRequestObject$`entityTypes`)) {
         self$`entityTypes` <- ApiClient$new()$deserializeObj(EdmRequestObject$`entityTypes`, "array[character]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -108,3 +113,4 @@ EdmRequest <- R6::R6Class(
     }
   )
 )
+

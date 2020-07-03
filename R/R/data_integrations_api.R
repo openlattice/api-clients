@@ -18,7 +18,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } entity.key list( \link{EntityKey} )
+#' \item \emph{ @param } entity_key list( \link{EntityKey} )
 #'
 #'
 #' \item status code : 200 | A data search result object, containing the total number of hits for the given query, and the hits themselves
@@ -34,8 +34,8 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } detailed.results character
-#' \item \emph{ @param } bulk.data.creation \link{BulkDataCreation}
+#' \item \emph{ @param } detailed_results character
+#' \item \emph{ @param } bulk_data_creation \link{BulkDataCreation}
 #' \item \emph{ @returnType } \link{IntegrationResults} \cr
 #'
 #'
@@ -56,7 +56,7 @@
 #' ####################  get_entity_key_ids  ####################
 #'
 #' library(openlattice)
-#' var.entity.key <- list(EntityKey$new()) # array[EntityKey] | 
+#' var.entity_key <- list(EntityKey$new()) # array[EntityKey] | 
 #'
 #' #Get entity key IDs
 #' api.instance <- DataIntegrationsApi$new()
@@ -70,14 +70,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_entity_key_ids(var.entity.key)
+#' result <- api.instance$get_entity_key_ids(var.entity_key)
 #'
 #'
 #' ####################  integrate_entity_and_association_data  ####################
 #'
 #' library(openlattice)
-#' var.detailed.results <- 'detailed.results_example' # character | 
-#' var.bulk.data.creation <- BulkDataCreation$new() # BulkDataCreation | 
+#' var.detailed_results <- 'detailed_results_example' # character | 
+#' var.bulk_data_creation <- BulkDataCreation$new() # BulkDataCreation | 
 #'
 #' #Integrate entity and association data
 #' api.instance <- DataIntegrationsApi$new()
@@ -91,7 +91,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$integrate_entity_and_association_data(var.detailed.results, var.bulk.data.creation)
+#' result <- api.instance$integrate_entity_and_association_data(var.detailed_results, var.bulk_data_creation)
 #'
 #'
 #' }
@@ -110,8 +110,8 @@ DataIntegrationsApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    get_entity_key_ids = function(entity.key, ...){
-      apiResponse <- self$get_entity_key_idsWithHttpInfo(entity.key, ...)
+    get_entity_key_ids = function(entity_key, ...){
+      apiResponse <- self$get_entity_key_idsWithHttpInfo(entity_key, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -124,18 +124,22 @@ DataIntegrationsApi <- R6::R6Class(
       }
     },
 
-    get_entity_key_idsWithHttpInfo = function(entity.key, ...){
+    get_entity_key_idsWithHttpInfo = function(entity_key, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`entity.key`)) {
-        stop("Missing required parameter `entity.key`.")
+      if (missing(`entity_key`)) {
+        stop("Missing required parameter `entity_key`.")
       }
 
-      if (!missing(`entity.key`)) {
-        body.items = paste(unlist(lapply(entity.key, function(param){param$toJSONString()})), collapse = ",")
-        body <- paste0('[', body.items, ']')
+      if (!missing(`entity_key`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`entity_key`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+        )
       } else {
         body <- NULL
       }
@@ -169,8 +173,8 @@ DataIntegrationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    integrate_entity_and_association_data = function(detailed.results, bulk.data.creation, ...){
-      apiResponse <- self$integrate_entity_and_association_dataWithHttpInfo(detailed.results, bulk.data.creation, ...)
+    integrate_entity_and_association_data = function(detailed_results, bulk_data_creation, ...){
+      apiResponse <- self$integrate_entity_and_association_dataWithHttpInfo(detailed_results, bulk_data_creation, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -183,23 +187,28 @@ DataIntegrationsApi <- R6::R6Class(
       }
     },
 
-    integrate_entity_and_association_dataWithHttpInfo = function(detailed.results, bulk.data.creation, ...){
+    integrate_entity_and_association_dataWithHttpInfo = function(detailed_results, bulk_data_creation, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`detailed.results`)) {
-        stop("Missing required parameter `detailed.results`.")
+      if (missing(`detailed_results`)) {
+        stop("Missing required parameter `detailed_results`.")
       }
 
-      if (missing(`bulk.data.creation`)) {
-        stop("Missing required parameter `bulk.data.creation`.")
+      if (missing(`bulk_data_creation`)) {
+        stop("Missing required parameter `bulk_data_creation`.")
       }
 
-      queryParams['detailedResults'] <- detailed.results
+      queryParams['detailedResults'] <- detailed_results
 
-      if (!missing(`bulk.data.creation`)) {
-        body <- `bulk.data.creation`$toJSONString()
+      if (!missing(`bulk_data_creation`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`bulk_data_creation`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }

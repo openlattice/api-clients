@@ -74,7 +74,7 @@ class Entity(object):
 
 
         :param key: The key of this Entity.  # noqa: E501
-        :type: EntityKey
+        :type key: EntityKey
         """
 
         self._key = key
@@ -95,7 +95,7 @@ class Entity(object):
 
 
         :param details: The details of this Entity.  # noqa: E501
-        :type: dict(str, str)
+        :type details: dict(str, str)
         """
 
         self._details = details

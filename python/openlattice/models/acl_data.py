@@ -74,7 +74,7 @@ class AclData(object):
 
 
         :param action: The action of this AclData.  # noqa: E501
-        :type: str
+        :type action: str
         """
 
         self._action = action
@@ -95,7 +95,7 @@ class AclData(object):
 
 
         :param acl: The acl of this AclData.  # noqa: E501
-        :type: Acl
+        :type acl: Acl
         """
 
         self._acl = acl

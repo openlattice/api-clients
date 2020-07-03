@@ -6,14 +6,14 @@ context("Test DataGraph")
 model.instance <- DataGraph$new()
 
 test_that("entities", {
-  # tests for the property `entities` (map(array[map(array[character])]))
+  # tests for the property `entities` (list(array[list(array[character])]))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`entities`, "EXPECTED_RESULT")
 })
 
 test_that("associations", {
-  # tests for the property `associations` (map(array[DataAssociation]))
+  # tests for the property `associations` (list(array[DataAssociation]))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`associations`, "EXPECTED_RESULT")

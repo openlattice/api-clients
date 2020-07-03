@@ -129,7 +129,7 @@ class MetadataUpdate(object):
 
 
         :param title: The title of this MetadataUpdate.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -150,7 +150,7 @@ class MetadataUpdate(object):
 
 
         :param description: The description of this MetadataUpdate.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -171,7 +171,7 @@ class MetadataUpdate(object):
 
 
         :param name: The name of this MetadataUpdate.  # noqa: E501
-        :type: str
+        :type name: str
         """
 
         self._name = name
@@ -192,7 +192,7 @@ class MetadataUpdate(object):
 
 
         :param contacts: The contacts of this MetadataUpdate.  # noqa: E501
-        :type: list[str]
+        :type contacts: list[str]
         """
 
         self._contacts = contacts
@@ -213,7 +213,7 @@ class MetadataUpdate(object):
 
 
         :param type: The type of this MetadataUpdate.  # noqa: E501
-        :type: FullQualifiedName
+        :type type: FullQualifiedName
         """
 
         self._type = type
@@ -234,7 +234,7 @@ class MetadataUpdate(object):
 
 
         :param pii: The pii of this MetadataUpdate.  # noqa: E501
-        :type: bool
+        :type pii: bool
         """
 
         self._pii = pii
@@ -255,7 +255,7 @@ class MetadataUpdate(object):
 
 
         :param default_show: The default_show of this MetadataUpdate.  # noqa: E501
-        :type: bool
+        :type default_show: bool
         """
 
         self._default_show = default_show
@@ -276,7 +276,7 @@ class MetadataUpdate(object):
 
 
         :param url: The url of this MetadataUpdate.  # noqa: E501
-        :type: str
+        :type url: str
         """
 
         self._url = url
@@ -297,7 +297,7 @@ class MetadataUpdate(object):
 
 
         :param property_tags: The property_tags of this MetadataUpdate.  # noqa: E501
-        :type: dict(str, list[str])
+        :type property_tags: dict(str, list[str])
         """
 
         self._property_tags = property_tags
@@ -318,7 +318,7 @@ class MetadataUpdate(object):
 
 
         :param index_type: The index_type of this MetadataUpdate.  # noqa: E501
-        :type: str
+        :type index_type: str
         """
         allowed_values = ["BTREE", "HASH", "GIN", "NONE"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and index_type not in allowed_values:  # noqa: E501
@@ -345,7 +345,7 @@ class MetadataUpdate(object):
 
 
         :param organization_id: The organization_id of this MetadataUpdate.  # noqa: E501
-        :type: str
+        :type organization_id: str
         """
 
         self._organization_id = organization_id
@@ -366,7 +366,7 @@ class MetadataUpdate(object):
 
 
         :param partitions: The partitions of this MetadataUpdate.  # noqa: E501
-        :type: list[int]
+        :type partitions: list[int]
         """
 
         self._partitions = partitions
@@ -387,7 +387,7 @@ class MetadataUpdate(object):
 
 
         :param enum_values: The enum_values of this MetadataUpdate.  # noqa: E501
-        :type: list[str]
+        :type enum_values: list[str]
         """
 
         self._enum_values = enum_values

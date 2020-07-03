@@ -84,7 +84,7 @@ class Association(object):
 
 
         :param key: The key of this Association.  # noqa: E501
-        :type: EntityKey
+        :type key: EntityKey
         """
 
         self._key = key
@@ -105,7 +105,7 @@ class Association(object):
 
 
         :param src: The src of this Association.  # noqa: E501
-        :type: EntityKey
+        :type src: EntityKey
         """
 
         self._src = src
@@ -126,7 +126,7 @@ class Association(object):
 
 
         :param dst: The dst of this Association.  # noqa: E501
-        :type: EntityKey
+        :type dst: EntityKey
         """
 
         self._dst = dst
@@ -147,7 +147,7 @@ class Association(object):
 
 
         :param details: The details of this Association.  # noqa: E501
-        :type: dict(str, str)
+        :type details: dict(str, str)
         """
 
         self._details = details

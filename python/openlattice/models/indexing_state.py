@@ -89,7 +89,7 @@ class IndexingState(object):
 
 
         :param indexing: The indexing of this IndexingState.  # noqa: E501
-        :type: dict(str, list[str])
+        :type indexing: dict(str, list[str])
         """
 
         self._indexing = indexing
@@ -110,7 +110,7 @@ class IndexingState(object):
 
 
         :param queue: The queue of this IndexingState.  # noqa: E501
-        :type: list[str]
+        :type queue: list[str]
         """
 
         self._queue = queue
@@ -131,7 +131,7 @@ class IndexingState(object):
 
 
         :param current_entity_set: The current_entity_set of this IndexingState.  # noqa: E501
-        :type: str
+        :type current_entity_set: str
         """
 
         self._current_entity_set = current_entity_set
@@ -152,7 +152,7 @@ class IndexingState(object):
 
 
         :param queue_size: The queue_size of this IndexingState.  # noqa: E501
-        :type: int
+        :type queue_size: int
         """
 
         self._queue_size = queue_size
@@ -173,7 +173,7 @@ class IndexingState(object):
 
 
         :param count: The count of this IndexingState.  # noqa: E501
-        :type: int
+        :type count: int
         """
 
         self._count = count

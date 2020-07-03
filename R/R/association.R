@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title Association
+#'
 #' @description Association Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field key  \link{EntityKey} [optional]
 #'
 #' @field src  \link{EntityKey} [optional]
@@ -17,7 +20,6 @@
 #' @field dst  \link{EntityKey} [optional]
 #'
 #' @field details  named list( character ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -29,7 +31,9 @@ Association <- R6::R6Class(
     `src` = NULL,
     `dst` = NULL,
     `details` = NULL,
-    initialize = function(`key`=NULL, `src`=NULL, `dst`=NULL, `details`=NULL, ...){
+    initialize = function(
+        `key`=NULL, `src`=NULL, `dst`=NULL, `details`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`key`)) {
         stopifnot(R6::is.R6(`key`))
@@ -88,8 +92,9 @@ Association <- R6::R6Class(
         self$`dst` <- dstObject
       }
       if (!is.null(AssociationObject$`details`)) {
-        self$`details` <- ApiClient$new()$deserializeObj(AssociationObject$`details`, "map(character)", loadNamespace("openlattice"))
+        self$`details` <- ApiClient$new()$deserializeObj(AssociationObject$`details`, "list(character)", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -117,7 +122,7 @@ Association <- R6::R6Class(
         if (!is.null(self$`details`)) {
         sprintf(
         '"details":
-          "%s"
+          %s
         ',
         jsonlite::toJSON(lapply(self$`details`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}
@@ -130,8 +135,9 @@ Association <- R6::R6Class(
       self$`key` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$key, auto_unbox = TRUE, digits = NA))
       self$`src` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$src, auto_unbox = TRUE, digits = NA))
       self$`dst` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$dst, auto_unbox = TRUE, digits = NA))
-      self$`details` <- ApiClient$new()$deserializeObj(AssociationObject$`details`, "map(character)", loadNamespace("openlattice"))
+      self$`details` <- ApiClient$new()$deserializeObj(AssociationObject$`details`, "list(character)", loadNamespace("openlattice"))
       self
     }
   )
 )
+

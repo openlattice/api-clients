@@ -74,7 +74,7 @@ class ConstraintGroup(object):
 
 
         :param min: The min of this ConstraintGroup.  # noqa: E501
-        :type: int
+        :type min: int
         """
 
         self._min = min
@@ -95,7 +95,7 @@ class ConstraintGroup(object):
 
 
         :param constraints: The constraints of this ConstraintGroup.  # noqa: E501
-        :type: list[Constraint]
+        :type constraints: list[Constraint]
         """
 
         self._constraints = constraints

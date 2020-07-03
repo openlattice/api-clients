@@ -89,7 +89,7 @@ class EDM(object):
 
 
         :param namespaces: The namespaces of this EDM.  # noqa: E501
-        :type: list[str]
+        :type namespaces: list[str]
         """
 
         self._namespaces = namespaces
@@ -110,7 +110,7 @@ class EDM(object):
 
 
         :param schemas: The schemas of this EDM.  # noqa: E501
-        :type: list[Schema]
+        :type schemas: list[Schema]
         """
 
         self._schemas = schemas
@@ -131,7 +131,7 @@ class EDM(object):
 
 
         :param property_types: The property_types of this EDM.  # noqa: E501
-        :type: list[PropertyType]
+        :type property_types: list[PropertyType]
         """
 
         self._property_types = property_types
@@ -152,7 +152,7 @@ class EDM(object):
 
 
         :param entity_types: The entity_types of this EDM.  # noqa: E501
-        :type: list[EntityType]
+        :type entity_types: list[EntityType]
         """
 
         self._entity_types = entity_types
@@ -173,7 +173,7 @@ class EDM(object):
 
 
         :param association_types: The association_types of this EDM.  # noqa: E501
-        :type: list[AssociationType]
+        :type association_types: list[AssociationType]
         """
 
         self._association_types = association_types

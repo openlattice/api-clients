@@ -89,7 +89,7 @@ class SearchConstraints(object):
 
 
         :param entity_set_ids: The entity_set_ids of this SearchConstraints.  # noqa: E501
-        :type: list[str]
+        :type entity_set_ids: list[str]
         """
 
         self._entity_set_ids = entity_set_ids
@@ -110,7 +110,7 @@ class SearchConstraints(object):
 
 
         :param start: The start of this SearchConstraints.  # noqa: E501
-        :type: int
+        :type start: int
         """
 
         self._start = start
@@ -131,7 +131,7 @@ class SearchConstraints(object):
 
 
         :param max_hits: The max_hits of this SearchConstraints.  # noqa: E501
-        :type: int
+        :type max_hits: int
         """
 
         self._max_hits = max_hits
@@ -152,7 +152,7 @@ class SearchConstraints(object):
 
 
         :param constraints: The constraints of this SearchConstraints.  # noqa: E501
-        :type: list[ConstraintGroup]
+        :type constraints: list[ConstraintGroup]
         """
 
         self._constraints = constraints
@@ -173,7 +173,7 @@ class SearchConstraints(object):
 
 
         :param sort: The sort of this SearchConstraints.  # noqa: E501
-        :type: SortDefinition
+        :type sort: SortDefinition
         """
 
         self._sort = sort

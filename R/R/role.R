@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title Role
+#'
 #' @description Role Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field id  character [optional]
 #'
 #' @field organizationId  character [optional]
@@ -21,7 +24,6 @@
 #' @field description  character [optional]
 #'
 #' @field @class  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -35,7 +37,9 @@ Role <- R6::R6Class(
     `title` = NULL,
     `description` = NULL,
     `@class` = NULL,
-    initialize = function(`id`=NULL, `organizationId`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, `@class`=NULL, ...){
+    initialize = function(
+        `id`=NULL, `organizationId`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, `@class`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -113,6 +117,7 @@ Role <- R6::R6Class(
       if (!is.null(RoleObject$`@class`)) {
         self$`@class` <- RoleObject$`@class`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -174,3 +179,4 @@ Role <- R6::R6Class(
     }
   )
 )
+

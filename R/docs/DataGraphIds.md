@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entityKeyIds** | [**map(array[character])**](array.md) |  | [optional] 
-**entitySetIds** | [**map(array[character])**](array.md) |  | [optional] 
+**entityKeyIds** | **list(array[character])** |  | [optional] 
+**entitySetIds** | **list(array[character])** |  | [optional] 
 
 

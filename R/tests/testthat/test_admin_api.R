@@ -29,7 +29,7 @@ test_that("reindex", {
   # tests for reindex
   # base path: https://api.openlattice.com
   # Merge job descriptions for performing a partial or full reindex of provided entity sets.
-  # @param map(array[character])  request.body  A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. 
+  # @param list(array[character])  request_body  A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. 
   # @return [IndexingState]
 
   # uncomment below to test the operation
@@ -40,7 +40,7 @@ test_that("update_reindex", {
   # tests for update_reindex
   # base path: https://api.openlattice.com
   # Replaces job descriptions for performing a partial or full reindex of provided entity sets.
-  # @param map(array[character])  request.body  A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. 
+  # @param list(array[character])  request_body  A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing. 
   # @return [IndexingState]
 
   # uncomment below to test the operation

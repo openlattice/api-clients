@@ -79,7 +79,7 @@ class NeighborEntityIds(object):
 
 
         :param association_id: The association_id of this NeighborEntityIds.  # noqa: E501
-        :type: str
+        :type association_id: str
         """
 
         self._association_id = association_id
@@ -100,7 +100,7 @@ class NeighborEntityIds(object):
 
 
         :param neighbor_id: The neighbor_id of this NeighborEntityIds.  # noqa: E501
-        :type: str
+        :type neighbor_id: str
         """
 
         self._neighbor_id = neighbor_id
@@ -121,7 +121,7 @@ class NeighborEntityIds(object):
 
 
         :param src: The src of this NeighborEntityIds.  # noqa: E501
-        :type: bool
+        :type src: bool
         """
 
         self._src = src

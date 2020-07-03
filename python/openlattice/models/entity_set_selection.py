@@ -74,7 +74,7 @@ class EntitySetSelection(object):
 
 
         :param ids: The ids of this EntitySetSelection.  # noqa: E501
-        :type: list[str]
+        :type ids: list[str]
         """
 
         self._ids = ids
@@ -95,7 +95,7 @@ class EntitySetSelection(object):
 
 
         :param properties: The properties of this EntitySetSelection.  # noqa: E501
-        :type: list[str]
+        :type properties: list[str]
         """
 
         self._properties = properties

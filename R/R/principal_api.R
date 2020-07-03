@@ -23,7 +23,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(Auth0userBasic) 
+#' \item return type : list(Auth0userBasic) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -66,7 +66,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } user.id character
+#' \item \emph{ @param } user_id character
 #' \item \emph{ @returnType } \link{Auth0userBasic} \cr
 #'
 #'
@@ -79,49 +79,17 @@
 #' }
 #' }
 #'
-#' \strong{ search_all_users } \emph{ Get the user id for the given search. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } search.query character
-#' \item \emph{ @returnType } named list( \link{Auth0userBasic} ) \cr
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : map(Auth0userBasic) 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
 #' \strong{ search_all_users_by_email } \emph{ Get the user id for the given email address. }
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } email.address character
+#' \item \emph{ @param } email_address character
 #' \item \emph{ @returnType } named list( \link{Auth0userBasic} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : map(Auth0userBasic) 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ sync_calling_user } \emph{ Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies. }
-#' 
-#'
-#' \itemize{
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#'
+#' \item return type : list(Auth0userBasic) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -193,7 +161,7 @@
 #' ####################  get_user  ####################
 #'
 #' library(openlattice)
-#' var.user.id <- 'user.id_example' # character | 
+#' var.user_id <- 'user_id_example' # character | 
 #'
 #' #Get the user for the given id.
 #' api.instance <- PrincipalApi$new()
@@ -207,33 +175,13 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_user(var.user.id)
-#'
-#'
-#' ####################  search_all_users  ####################
-#'
-#' library(openlattice)
-#' var.search.query <- 'search.query_example' # character | 
-#'
-#' #Get the user id for the given search.
-#' api.instance <- PrincipalApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$search_all_users(var.search.query)
+#' result <- api.instance$get_user(var.user_id)
 #'
 #'
 #' ####################  search_all_users_by_email  ####################
 #'
 #' library(openlattice)
-#' var.email.address <- 'email.address_example' # character | 
+#' var.email_address <- 'email_address_example' # character | 
 #'
 #' #Get the user id for the given email address.
 #' api.instance <- PrincipalApi$new()
@@ -247,26 +195,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$search_all_users_by_email(var.email.address)
-#'
-#'
-#' ####################  sync_calling_user  ####################
-#'
-#' library(openlattice)
-#'
-#' #Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
-#' api.instance <- PrincipalApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$sync_calling_user()
+#' result <- api.instance$search_all_users_by_email(var.email_address)
 #'
 #'
 #' }
@@ -319,7 +248,7 @@ PrincipalApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(Auth0userBasic)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(Auth0userBasic)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -429,8 +358,8 @@ PrincipalApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_user = function(user.id, ...){
-      apiResponse <- self$get_userWithHttpInfo(user.id, ...)
+    get_user = function(user_id, ...){
+      apiResponse <- self$get_userWithHttpInfo(user_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -443,18 +372,18 @@ PrincipalApi <- R6::R6Class(
       }
     },
 
-    get_userWithHttpInfo = function(user.id, ...){
+    get_userWithHttpInfo = function(user_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`user.id`)) {
-        stop("Missing required parameter `user.id`.")
+      if (missing(`user_id`)) {
+        stop("Missing required parameter `user_id`.")
       }
 
       urlPath <- "/datastore/principals/users/{userId}"
-      if (!missing(`user.id`)) {
-        urlPath <- gsub(paste0("\\{", "userId", "\\}"), URLencode(as.character(`user.id`), reserved = TRUE), urlPath)
+      if (!missing(`user_id`)) {
+        urlPath <- gsub(paste0("\\{", "userId", "\\}"), URLencode(as.character(`user_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -485,8 +414,8 @@ PrincipalApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    search_all_users = function(search.query, ...){
-      apiResponse <- self$search_all_usersWithHttpInfo(search.query, ...)
+    search_all_users_by_email = function(email_address, ...){
+      apiResponse <- self$search_all_users_by_emailWithHttpInfo(email_address, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -499,74 +428,18 @@ PrincipalApi <- R6::R6Class(
       }
     },
 
-    search_all_usersWithHttpInfo = function(search.query, ...){
+    search_all_users_by_emailWithHttpInfo = function(email_address, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`search.query`)) {
-        stop("Missing required parameter `search.query`.")
-      }
-
-      urlPath <- "/datastore/principals/users/search/&quot;{searchQuery}&quot;"
-      if (!missing(`search.query`)) {
-        urlPath <- gsub(paste0("\\{", "searchQuery", "\\}"), URLencode(as.character(`search.query`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(Auth0userBasic)", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    search_all_users_by_email = function(email.address, ...){
-      apiResponse <- self$search_all_users_by_emailWithHttpInfo(email.address, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    search_all_users_by_emailWithHttpInfo = function(email.address, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`email.address`)) {
-        stop("Missing required parameter `email.address`.")
+      if (missing(`email_address`)) {
+        stop("Missing required parameter `email_address`.")
       }
 
       urlPath <- "/datastore/principals/users/search/email/&quot;{emailAddress}&quot;"
-      if (!missing(`email.address`)) {
-        urlPath <- gsub(paste0("\\{", "emailAddress", "\\}"), URLencode(as.character(`email.address`), reserved = TRUE), urlPath)
+      if (!missing(`email_address`)) {
+        urlPath <- gsub(paste0("\\{", "emailAddress", "\\}"), URLencode(as.character(`email_address`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -583,54 +456,12 @@ PrincipalApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "map(Auth0userBasic)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(Auth0userBasic)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
         )
         ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    sync_calling_user = function(...){
-      apiResponse <- self$sync_calling_userWithHttpInfo(...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    sync_calling_userWithHttpInfo = function(...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      urlPath <- "/datastore/principals/sync/"
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

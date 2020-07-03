@@ -79,7 +79,7 @@ class DataEdge(object):
 
 
         :param src: The src of this DataEdge.  # noqa: E501
-        :type: EntityDataKey
+        :type src: EntityDataKey
         """
 
         self._src = src
@@ -100,7 +100,7 @@ class DataEdge(object):
 
 
         :param dst: The dst of this DataEdge.  # noqa: E501
-        :type: EntityDataKey
+        :type dst: EntityDataKey
         """
 
         self._dst = dst
@@ -121,7 +121,7 @@ class DataEdge(object):
 
 
         :param data: The data of this DataEdge.  # noqa: E501
-        :type: DataEdgeData
+        :type data: DataEdgeData
         """
 
         self._data = data

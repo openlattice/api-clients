@@ -79,7 +79,7 @@ class SearchDetails(object):
 
 
         :param search_term: The search_term of this SearchDetails.  # noqa: E501
-        :type: str
+        :type search_term: str
         """
 
         self._search_term = search_term
@@ -100,7 +100,7 @@ class SearchDetails(object):
 
 
         :param _property: The _property of this SearchDetails.  # noqa: E501
-        :type: str
+        :type _property: str
         """
 
         self.__property = _property
@@ -121,7 +121,7 @@ class SearchDetails(object):
 
 
         :param exact: The exact of this SearchDetails.  # noqa: E501
-        :type: bool
+        :type exact: bool
         """
 
         self._exact = exact

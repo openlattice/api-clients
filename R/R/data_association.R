@@ -8,14 +8,16 @@
 
 #' @docType class
 #' @title DataAssociation
+#'
 #' @description DataAssociation Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field srcEntitySetId  character [optional]
 #'
 #' @field srcEntityIndex  character [optional]
 #'
 #' @field srcEntityKeyId  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -26,7 +28,9 @@ DataAssociation <- R6::R6Class(
     `srcEntitySetId` = NULL,
     `srcEntityIndex` = NULL,
     `srcEntityKeyId` = NULL,
-    initialize = function(`srcEntitySetId`=NULL, `srcEntityIndex`=NULL, `srcEntityKeyId`=NULL, ...){
+    initialize = function(
+        `srcEntitySetId`=NULL, `srcEntityIndex`=NULL, `srcEntityKeyId`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`srcEntitySetId`)) {
         stopifnot(is.character(`srcEntitySetId`), length(`srcEntitySetId`) == 1)
@@ -69,6 +73,7 @@ DataAssociation <- R6::R6Class(
       if (!is.null(DataAssociationObject$`srcEntityKeyId`)) {
         self$`srcEntityKeyId` <- DataAssociationObject$`srcEntityKeyId`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -106,3 +111,4 @@ DataAssociation <- R6::R6Class(
     }
   )
 )
+

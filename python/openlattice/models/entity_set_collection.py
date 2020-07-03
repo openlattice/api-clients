@@ -106,7 +106,7 @@ class EntitySetCollection(object):
         An optional UUID for the entity set collection.  # noqa: E501
 
         :param id: The id of this EntitySetCollection.  # noqa: E501
-        :type: str
+        :type id: str
         """
 
         self._id = id
@@ -129,7 +129,7 @@ class EntitySetCollection(object):
         The unique name of the entity set collection.  # noqa: E501
 
         :param name: The name of this EntitySetCollection.  # noqa: E501
-        :type: str
+        :type name: str
         """
 
         self._name = name
@@ -152,7 +152,7 @@ class EntitySetCollection(object):
         The friendly name for the entity set collection.  # noqa: E501
 
         :param title: The title of this EntitySetCollection.  # noqa: E501
-        :type: str
+        :type title: str
         """
 
         self._title = title
@@ -175,7 +175,7 @@ class EntitySetCollection(object):
         A description of the entity set collection.  # noqa: E501
 
         :param description: The description of this EntitySetCollection.  # noqa: E501
-        :type: str
+        :type description: str
         """
 
         self._description = description
@@ -198,7 +198,7 @@ class EntitySetCollection(object):
         The id of the entity type collection that this entity set collection maps to.  # noqa: E501
 
         :param entity_type_collection_id: The entity_type_collection_id of this EntitySetCollection.  # noqa: E501
-        :type: str
+        :type entity_type_collection_id: str
         """
 
         self._entity_type_collection_id = entity_type_collection_id
@@ -221,7 +221,7 @@ class EntitySetCollection(object):
         A mapping from collection template type ids to entity set ids.  # noqa: E501
 
         :param template: The template of this EntitySetCollection.  # noqa: E501
-        :type: dict(str, str)
+        :type template: dict(str, str)
         """
 
         self._template = template
@@ -244,7 +244,7 @@ class EntitySetCollection(object):
         A set of contact methods for the owners of this entity set collection.  # noqa: E501
 
         :param contacts: The contacts of this EntitySetCollection.  # noqa: E501
-        :type: list[str]
+        :type contacts: list[str]
         """
 
         self._contacts = contacts
@@ -267,7 +267,7 @@ class EntitySetCollection(object):
         The id of the organization that this entity set collection belongs to.  # noqa: E501
 
         :param organization_id: The organization_id of this EntitySetCollection.  # noqa: E501
-        :type: str
+        :type organization_id: str
         """
 
         self._organization_id = organization_id

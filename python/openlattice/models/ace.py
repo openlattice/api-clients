@@ -74,7 +74,7 @@ class Ace(object):
 
 
         :param principal: The principal of this Ace.  # noqa: E501
-        :type: Principal
+        :type principal: Principal
         """
 
         self._principal = principal
@@ -95,7 +95,7 @@ class Ace(object):
 
 
         :param permissions: The permissions of this Ace.  # noqa: E501
-        :type: list[str]
+        :type permissions: list[str]
         """
 
         self._permissions = permissions

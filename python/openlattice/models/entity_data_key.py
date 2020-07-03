@@ -74,7 +74,7 @@ class EntityDataKey(object):
 
 
         :param entity_set_id: The entity_set_id of this EntityDataKey.  # noqa: E501
-        :type: str
+        :type entity_set_id: str
         """
 
         self._entity_set_id = entity_set_id
@@ -95,7 +95,7 @@ class EntityDataKey(object):
 
 
         :param entity_key_id: The entity_key_id of this EntityDataKey.  # noqa: E501
-        :type: str
+        :type entity_key_id: str
         """
 
         self._entity_key_id = entity_key_id

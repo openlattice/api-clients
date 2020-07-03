@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title DataGraphIds
+#'
 #' @description DataGraphIds Class
+#'
 #' @format An \code{R6Class} generator object
-#' @field entityKeyIds  named list( \link{array[character]} ) [optional]
 #'
-#' @field entitySetIds  named list( \link{array[character]} ) [optional]
+#' @field entityKeyIds  named list( array[character] ) [optional]
 #'
+#' @field entitySetIds  named list( array[character] ) [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,16 +25,18 @@ DataGraphIds <- R6::R6Class(
   public = list(
     `entityKeyIds` = NULL,
     `entitySetIds` = NULL,
-    initialize = function(`entityKeyIds`=NULL, `entitySetIds`=NULL, ...){
+    initialize = function(
+        `entityKeyIds`=NULL, `entitySetIds`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityKeyIds`)) {
         stopifnot(is.vector(`entityKeyIds`))
-        sapply(`entityKeyIds`, function(x) stopifnot(R6::is.R6(x)))
+        sapply(`entityKeyIds`, function(x) stopifnot(is.character(x)))
         self$`entityKeyIds` <- `entityKeyIds`
       }
       if (!is.null(`entitySetIds`)) {
         stopifnot(is.vector(`entitySetIds`))
-        sapply(`entitySetIds`, function(x) stopifnot(R6::is.R6(x)))
+        sapply(`entitySetIds`, function(x) stopifnot(is.character(x)))
         self$`entitySetIds` <- `entitySetIds`
       }
     },
@@ -40,11 +44,11 @@ DataGraphIds <- R6::R6Class(
       DataGraphIdsObject <- list()
       if (!is.null(self$`entityKeyIds`)) {
         DataGraphIdsObject[['entityKeyIds']] <-
-          lapply(self$`entityKeyIds`, function(x) x$toJSON())
+          self$`entityKeyIds`
       }
       if (!is.null(self$`entitySetIds`)) {
         DataGraphIdsObject[['entitySetIds']] <-
-          lapply(self$`entitySetIds`, function(x) x$toJSON())
+          self$`entitySetIds`
       }
 
       DataGraphIdsObject
@@ -52,27 +56,28 @@ DataGraphIds <- R6::R6Class(
     fromJSON = function(DataGraphIdsJson) {
       DataGraphIdsObject <- jsonlite::fromJSON(DataGraphIdsJson)
       if (!is.null(DataGraphIdsObject$`entityKeyIds`)) {
-        self$`entityKeyIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entityKeyIds`, "map(array[character])", loadNamespace("openlattice"))
+        self$`entityKeyIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entityKeyIds`, "list(array[character])", loadNamespace("openlattice"))
       }
       if (!is.null(DataGraphIdsObject$`entitySetIds`)) {
-        self$`entitySetIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entitySetIds`, "map(array[character])", loadNamespace("openlattice"))
+        self$`entitySetIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entitySetIds`, "list(array[character])", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`entityKeyIds`)) {
         sprintf(
         '"entityKeyIds":
-        %s
-',
-        jsonlite::toJSON(lapply(self$`entityKeyIds`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+          %s
+        ',
+        jsonlite::toJSON(lapply(self$`entityKeyIds`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`entitySetIds`)) {
         sprintf(
         '"entitySetIds":
-        %s
-',
-        jsonlite::toJSON(lapply(self$`entitySetIds`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+          %s
+        ',
+        jsonlite::toJSON(lapply(self$`entitySetIds`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -80,9 +85,10 @@ DataGraphIds <- R6::R6Class(
     },
     fromJSONString = function(DataGraphIdsJson) {
       DataGraphIdsObject <- jsonlite::fromJSON(DataGraphIdsJson)
-      self$`entityKeyIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entityKeyIds`, "map(array[character])", loadNamespace("openlattice"))
-      self$`entitySetIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entitySetIds`, "map(array[character])", loadNamespace("openlattice"))
+      self$`entityKeyIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entityKeyIds`, "list(array[character])", loadNamespace("openlattice"))
+      self$`entitySetIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entitySetIds`, "list(array[character])", loadNamespace("openlattice"))
       self
     }
   )
 )
+

@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title Authorization
+#'
 #' @description Authorization Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field aclKey  list( character ) [optional]
 #'
 #' @field permissions  named list( character ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ Authorization <- R6::R6Class(
   public = list(
     `aclKey` = NULL,
     `permissions` = NULL,
-    initialize = function(`aclKey`=NULL, `permissions`=NULL, ...){
+    initialize = function(
+        `aclKey`=NULL, `permissions`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`aclKey`)) {
         stopifnot(is.vector(`aclKey`))
@@ -55,8 +59,9 @@ Authorization <- R6::R6Class(
         self$`aclKey` <- ApiClient$new()$deserializeObj(AuthorizationObject$`aclKey`, "array[character]", loadNamespace("openlattice"))
       }
       if (!is.null(AuthorizationObject$`permissions`)) {
-        self$`permissions` <- ApiClient$new()$deserializeObj(AuthorizationObject$`permissions`, "map(character)", loadNamespace("openlattice"))
+        self$`permissions` <- ApiClient$new()$deserializeObj(AuthorizationObject$`permissions`, "list(character)", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -70,7 +75,7 @@ Authorization <- R6::R6Class(
         if (!is.null(self$`permissions`)) {
         sprintf(
         '"permissions":
-          "%s"
+          %s
         ',
         jsonlite::toJSON(lapply(self$`permissions`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}
@@ -81,8 +86,9 @@ Authorization <- R6::R6Class(
     fromJSONString = function(AuthorizationJson) {
       AuthorizationObject <- jsonlite::fromJSON(AuthorizationJson)
       self$`aclKey` <- ApiClient$new()$deserializeObj(AuthorizationObject$`aclKey`, "array[character]", loadNamespace("openlattice"))
-      self$`permissions` <- ApiClient$new()$deserializeObj(AuthorizationObject$`permissions`, "map(character)", loadNamespace("openlattice"))
+      self$`permissions` <- ApiClient$new()$deserializeObj(AuthorizationObject$`permissions`, "list(character)", loadNamespace("openlattice"))
       self
     }
   )
 )
+

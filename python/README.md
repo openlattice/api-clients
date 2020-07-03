@@ -46,25 +46,39 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```python
 from __future__ import print_function
+
 import time
 import openlattice
 from openlattice.rest import ApiException
 from pprint import pprint
 
-configuration = openlattice.Configuration()
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure Bearer authorization (JWT): http_auth
-configuration.access_token = 'YOUR_BEARER_TOKEN'
-configuration = openlattice.Configuration()
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
 # Configure API key authorization: openlattice_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
 
-# Defining host is optional and default to https://api.openlattice.com
-configuration.host = "https://api.openlattice.com"
 # Enter a context with an instance of the API client
 with openlattice.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -112,7 +126,7 @@ Class | Method | HTTP request | Description
 *DataApi* | [**delete_all_entities_from_entity_set**](docs/DataApi.md#delete_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
 *DataApi* | [**delete_entities**](docs/DataApi.md#delete_entities) | **DELETE** /datastore/data/set/{entitySetId} | Deletes multiple entities from an entity set.
 *DataApi* | [**delete_entities_and_neighbors**](docs/DataApi.md#delete_entities_and_neighbors) | **POST** /datastore/data/set/{entitySetId}/neighbors | Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
-*DataApi* | [**delete_entity**](docs/DataApi.md#delete_entity) | **DELETE** /datastore/data/{entitySetId}/{entityKeyId} | Deletes a single entity from an entity set.
+*DataApi* | [**delete_entity**](docs/DataApi.md#delete_entity) | **DELETE** /datastore/data/set/{entitySetId}/{entityKeyId} | Deletes a single entity from an entity set.
 *DataApi* | [**delete_entity_properties**](docs/DataApi.md#delete_entity_properties) | **DELETE** /datastore/data/{entitySetId}/{entityKeyId}/properties | Deletes properties from an entity.
 *DataApi* | [**get_entity**](docs/DataApi.md#get_entity) | **GET** /datastore/data/{entitySetId}/{entityKeyId} | Loads a single entity by its entityKeyId and entitySetId
 *DataApi* | [**get_entity_property_values**](docs/DataApi.md#get_entity_property_values) | **GET** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
@@ -275,6 +289,14 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**get_entity_sets**](docs/SearchApi.md#get_entity_sets) | **GET** /datastore/search/entity-sets/{start}/{numResults} | Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
 *SearchApi* | [**get_popular_entity_set**](docs/SearchApi.md#get_popular_entity_set) | **GET** /datastore/search/popular | Get the most popular entity sets.
 *SearchApi* | [**search_entity_set_data**](docs/SearchApi.md#search_entity_set_data) | **PATCH** /datastore/search | Executes a search over the data of a given entity set to find rows that match the search term
+*ShuttleApi* | [**create_integration_definition**](docs/ShuttleApi.md#create_integration_definition) | **POST** /shuttle/integration/definition/{integrationName} | Creates a new integration definition for running recurring integrations
+*ShuttleApi* | [**delete_integration_definition**](docs/ShuttleApi.md#delete_integration_definition) | **DELETE** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
+*ShuttleApi* | [**delete_integration_job_status**](docs/ShuttleApi.md#delete_integration_job_status) | **DELETE** /shuttle/integration/status/{jobId} | Deletes an integration job status from the integrationJobs map
+*ShuttleApi* | [**enqueue_integration**](docs/ShuttleApi.md#enqueue_integration) | **GET** /shuttle/integration/{integrationName}/{integrationKey} | Enqueues an integration on Shuttle Server for a given integration
+*ShuttleApi* | [**poll_all_integrations**](docs/ShuttleApi.md#poll_all_integrations) | **GET** /shuttle/integration/status | Polls the statuses of all running integrations
+*ShuttleApi* | [**poll_integration**](docs/ShuttleApi.md#poll_integration) | **GET** /shuttle/integration/status/{jobId} | Polls the status of an integration
+*ShuttleApi* | [**read_integration_definition**](docs/ShuttleApi.md#read_integration_definition) | **GET** /shuttle/integration/definition/{integrationName} | Gets an existing integration definition
+*ShuttleApi* | [**update_integration_definition**](docs/ShuttleApi.md#update_integration_definition) | **PATCH** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
 
 
 ## Documentation For Models
@@ -285,6 +307,7 @@ Class | Method | HTTP request | Description
  - [AclData](docs/AclData.md)
  - [AdvancedSearch](docs/AdvancedSearch.md)
  - [Association](docs/Association.md)
+ - [AssociationDefinition](docs/AssociationDefinition.md)
  - [AssociationType](docs/AssociationType.md)
  - [Auth0userBasic](docs/Auth0userBasic.md)
  - [Authorization](docs/Authorization.md)
@@ -305,6 +328,7 @@ Class | Method | HTTP request | Description
  - [EdmRequest](docs/EdmRequest.md)
  - [Entity](docs/Entity.md)
  - [EntityDataKey](docs/EntityDataKey.md)
+ - [EntityDefinition](docs/EntityDefinition.md)
  - [EntityKey](docs/EntityKey.md)
  - [EntityKeyPair](docs/EntityKeyPair.md)
  - [EntityLinkingFeatures](docs/EntityLinkingFeatures.md)
@@ -317,11 +341,17 @@ Class | Method | HTTP request | Description
  - [EntityType](docs/EntityType.md)
  - [EntityTypeCollection](docs/EntityTypeCollection.md)
  - [EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
+ - [Flight](docs/Flight.md)
+ - [FlightPlanParameters](docs/FlightPlanParameters.md)
+ - [FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
  - [IndexingState](docs/IndexingState.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)
+ - [Integration](docs/Integration.md)
+ - [IntegrationJob](docs/IntegrationJob.md)
  - [IntegrationResults](docs/IntegrationResults.md)
+ - [IntegrationUpdate](docs/IntegrationUpdate.md)
  - [LinkingFeedback](docs/LinkingFeedback.md)
  - [MaterializedViewAccount](docs/MaterializedViewAccount.md)
  - [MetadataUpdate](docs/MetadataUpdate.md)
@@ -334,6 +364,7 @@ Class | Method | HTTP request | Description
  - [OrganizationExternalDatabaseTableColumnsPair](docs/OrganizationExternalDatabaseTableColumnsPair.md)
  - [OrganizationMember](docs/OrganizationMember.md)
  - [Principal](docs/Principal.md)
+ - [PropertyDefinition](docs/PropertyDefinition.md)
  - [PropertyType](docs/PropertyType.md)
  - [PropertyUsageSummary](docs/PropertyUsageSummary.md)
  - [Role](docs/Role.md)

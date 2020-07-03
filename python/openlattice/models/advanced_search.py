@@ -79,7 +79,7 @@ class AdvancedSearch(object):
 
 
         :param search_fields: The search_fields of this AdvancedSearch.  # noqa: E501
-        :type: list[SearchDetails]
+        :type search_fields: list[SearchDetails]
         """
 
         self._search_fields = search_fields
@@ -100,7 +100,7 @@ class AdvancedSearch(object):
 
 
         :param start: The start of this AdvancedSearch.  # noqa: E501
-        :type: int
+        :type start: int
         """
 
         self._start = start
@@ -121,7 +121,7 @@ class AdvancedSearch(object):
 
 
         :param max_hits: The max_hits of this AdvancedSearch.  # noqa: E501
-        :type: int
+        :type max_hits: int
         """
 
         self._max_hits = max_hits

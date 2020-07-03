@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entities** | [**map(array[map(array[character])])**](array.md) |  | [optional] 
-**associations** | [**map(array[DataAssociation])**](array.md) |  | [optional] 
+**entities** | **list(array[list(array[character])])** |  | [optional] 
+**associations** | **list(array[DataAssociation])** |  | [optional] 
 
 

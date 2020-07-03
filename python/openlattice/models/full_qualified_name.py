@@ -74,7 +74,7 @@ class FullQualifiedName(object):
 
 
         :param name: The name of this FullQualifiedName.  # noqa: E501
-        :type: str
+        :type name: str
         """
 
         self._name = name
@@ -95,7 +95,7 @@ class FullQualifiedName(object):
 
 
         :param namespace: The namespace of this FullQualifiedName.  # noqa: E501
-        :type: str
+        :type namespace: str
         """
 
         self._namespace = namespace

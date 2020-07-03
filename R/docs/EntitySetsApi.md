@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **add_entity_sets_to_linking_entity_set**
-> integer add_entity_sets_to_linking_entity_set(linking.entity.set.id, request.body=var.request.body)
+> integer add_entity_sets_to_linking_entity_set(linking_entity_set_id, request_body=var.request_body)
 
 Adds the entity sets as linked entity sets to the linking entity set
 
@@ -31,8 +31,8 @@ Adds the entity sets as linked entity sets to the linking entity set
 ```R
 library(openlattice)
 
-var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-var.request.body <- list("property_example") # array[character] | 
+var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
+var.request_body <- list("property_example") # array[character] | 
 
 #Adds the entity sets as linked entity sets to the linking entity set
 api.instance <- EntitySetsApi$new()
@@ -41,7 +41,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$add_entity_sets_to_linking_entity_set(var.linking.entity.set.id, request.body=var.request.body)
+result <- api.instance$add_entity_sets_to_linking_entity_set(var.linking_entity_set_id, request_body=var.request_body)
 dput(result)
 ```
 
@@ -49,8 +49,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linking.entity.set.id** | [**character**](.md)|  | 
- **request.body** | list( **character** )|  | [optional] 
+ **linking_entity_set_id** | [**character**](.md)|  | 
+ **request_body** | list( **character** )|  | [optional] 
 
 ### Return type
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **add_entity_sets_to_linking_entity_sets**
-> integer add_entity_sets_to_linking_entity_sets(linking.entity.set.id, request.body)
+> integer add_entity_sets_to_linking_entity_sets(linking_entity_set_id, request_body)
 
 Adds the entity sets as linked entity sets to the linking entity sets
 
@@ -79,8 +79,8 @@ Adds the entity sets as linked entity sets to the linking entity sets
 ```R
 library(openlattice)
 
-var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-var.request.body <- TODO # map(array[character]) | 
+var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
+var.request_body <- TODO # list(array[character]) | 
 
 #Adds the entity sets as linked entity sets to the linking entity sets
 api.instance <- EntitySetsApi$new()
@@ -89,7 +89,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$add_entity_sets_to_linking_entity_sets(var.linking.entity.set.id, var.request.body)
+result <- api.instance$add_entity_sets_to_linking_entity_sets(var.linking_entity_set_id, var.request_body)
 dput(result)
 ```
 
@@ -97,8 +97,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linking.entity.set.id** | **character**|  | 
- **request.body** | named list( [**map(array[character])**](array.md) )|  | 
+ **linking_entity_set_id** | **character**|  | 
+ **request_body** | named list( [**list(array[character])**](array.md) )|  | 
 
 ### Return type
 
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **create_entity_sets**
-> create_entity_sets(entity.set)
+> create_entity_sets(entity_set)
 
 Creates new EntitySet definitions if they don't exist.
 
@@ -127,7 +127,7 @@ Creates new EntitySet definitions if they don't exist.
 ```R
 library(openlattice)
 
-var.entity.set <- list(EntitySet$new("id_example", "entityTypeId_example", "name_example", "title_example", "description_example", list("contacts_example"), "linking_example", list("linkedEntitySets_example"), "organizationId_example", list("flags_example"), list(123))) # array[EntitySet] | 
+var.entity_set <- list(EntitySet$new("id_example", "entityTypeId_example", "name_example", "title_example", "description_example", list("contacts_example"), "linking_example", list("linkedEntitySets_example"), "organizationId_example", list("flags_example"), list(123))) # array[EntitySet] | 
 
 #Creates new EntitySet definitions if they don't exist.
 api.instance <- EntitySetsApi$new()
@@ -136,14 +136,14 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$create_entity_sets(var.entity.set)
+api.instance$create_entity_sets(var.entity_set)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set** | list( [**EntitySet**](EntitySet.md) )|  | 
+ **entity_set** | list( [**EntitySet**](EntitySet.md) )|  | 
 
 ### Return type
 
@@ -164,7 +164,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **delete_entity_set**
-> delete_entity_set(entity.set.id)
+> delete_entity_set(entity_set_id)
 
 Deletes the EntitySet definition for the given EntitySet UUID.
 
@@ -172,7 +172,7 @@ Deletes the EntitySet definition for the given EntitySet UUID.
 ```R
 library(openlattice)
 
-var.entity.set.id <- 'entity.set.id_example' # character | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
 
 #Deletes the EntitySet definition for the given EntitySet UUID.
 api.instance <- EntitySetsApi$new()
@@ -181,14 +181,14 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$delete_entity_set(var.entity.set.id)
+api.instance$delete_entity_set(var.entity_set_id)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.id** | [**character**](.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -209,7 +209,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **get_all_entity_set_property_metadata**
-> map(EntitySetPropertyMetaData) get_all_entity_set_property_metadata(entity.set.id)
+> list(EntitySetPropertyMetaData) get_all_entity_set_property_metadata(entity_set_id)
 
 Get all entity set property metadata.
 
@@ -217,7 +217,7 @@ Get all entity set property metadata.
 ```R
 library(openlattice)
 
-var.entity.set.id <- 'entity.set.id_example' # character | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
 
 #Get all entity set property metadata.
 api.instance <- EntitySetsApi$new()
@@ -226,7 +226,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_all_entity_set_property_metadata(var.entity.set.id)
+result <- api.instance$get_all_entity_set_property_metadata(var.entity_set_id)
 dput(result)
 ```
 
@@ -234,11 +234,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.id** | [**character**](.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
 
 ### Return type
 
-[**map(EntitySetPropertyMetaData)**](EntitySetPropertyMetaData.md)
+[**list(EntitySetPropertyMetaData)**](EntitySetPropertyMetaData.md)
 
 ### Authorization
 
@@ -297,7 +297,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 
 # **get_entity_set**
-> EntitySet get_entity_set(entity.set.id)
+> EntitySet get_entity_set(entity_set_id)
 
 Get the EntitySet definition for the given EntitySet UUID.
 
@@ -305,7 +305,7 @@ Get the EntitySet definition for the given EntitySet UUID.
 ```R
 library(openlattice)
 
-var.entity.set.id <- 'entity.set.id_example' # character | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
 
 #Get the EntitySet definition for the given EntitySet UUID.
 api.instance <- EntitySetsApi$new()
@@ -314,7 +314,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_entity_set(var.entity.set.id)
+result <- api.instance$get_entity_set(var.entity_set_id)
 dput(result)
 ```
 
@@ -322,7 +322,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.id** | [**character**](.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 | **200** | An Entity Set definition |  -  |
 
 # **get_entity_set_id**
-> character get_entity_set_id(entity.set.name)
+> character get_entity_set_id(entity_set_name)
 
 Gets the EntitySet UUID for the given EntitySet name.
 
@@ -351,7 +351,7 @@ Gets the EntitySet UUID for the given EntitySet name.
 ```R
 library(openlattice)
 
-var.entity.set.name <- 'entity.set.name_example' # character | 
+var.entity_set_name <- 'entity_set_name_example' # character | 
 
 #Gets the EntitySet UUID for the given EntitySet name.
 api.instance <- EntitySetsApi$new()
@@ -360,7 +360,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_entity_set_id(var.entity.set.name)
+result <- api.instance$get_entity_set_id(var.entity_set_name)
 dput(result)
 ```
 
@@ -368,7 +368,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.name** | **character**|  | 
+ **entity_set_name** | **character**|  | 
 
 ### Return type
 
@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_entity_set_ids**
-> map(character) get_entity_set_ids(request.body=var.request.body)
+> list(character) get_entity_set_ids(request_body=var.request_body)
 
 Get IDs for entity sets given their names.
 
@@ -397,7 +397,7 @@ Get IDs for entity sets given their names.
 ```R
 library(openlattice)
 
-var.request.body <- list("property_example") # array[character] | 
+var.request_body <- list("property_example") # array[character] | 
 
 #Get IDs for entity sets given their names.
 api.instance <- EntitySetsApi$new()
@@ -406,7 +406,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_entity_set_ids(request.body=var.request.body)
+result <- api.instance$get_entity_set_ids(request_body=var.request_body)
 dput(result)
 ```
 
@@ -414,11 +414,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request.body** | list( **character** )|  | [optional] 
+ **request_body** | list( **character** )|  | [optional] 
 
 ### Return type
 
-**map(character)**
+**list(character)**
 
 ### Authorization
 
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_entity_set_property_metadata**
-> EntitySetPropertyMetaData get_entity_set_property_metadata(entity.set.id, property.type.id)
+> EntitySetPropertyMetaData get_entity_set_property_metadata(entity_set_id, property_type_id)
 
 Get specified property type metadata for an entity set.
 
@@ -443,8 +443,8 @@ Get specified property type metadata for an entity set.
 ```R
 library(openlattice)
 
-var.entity.set.id <- 'entity.set.id_example' # character | 
-var.property.type.id <- 'property.type.id_example' # character | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
+var.property_type_id <- 'property_type_id_example' # character | 
 
 #Get specified property type metadata for an entity set.
 api.instance <- EntitySetsApi$new()
@@ -453,7 +453,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_entity_set_property_metadata(var.entity.set.id, var.property.type.id)
+result <- api.instance$get_entity_set_property_metadata(var.entity_set_id, var.property_type_id)
 dput(result)
 ```
 
@@ -461,8 +461,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.id** | [**character**](.md)|  | 
- **property.type.id** | [**character**](.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
+ **property_type_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_property_metadata_for_entity_sets**
-> map(map(EntitySetPropertyMetaData)) get_property_metadata_for_entity_sets(request.body=var.request.body)
+> list(list(EntitySetPropertyMetaData)) get_property_metadata_for_entity_sets(request_body=var.request_body)
 
 Get property metadata for entity sets.
 
@@ -491,7 +491,7 @@ Get property metadata for entity sets.
 ```R
 library(openlattice)
 
-var.request.body <- list("property_example") # array[character] | 
+var.request_body <- list("property_example") # array[character] | 
 
 #Get property metadata for entity sets.
 api.instance <- EntitySetsApi$new()
@@ -500,7 +500,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_property_metadata_for_entity_sets(request.body=var.request.body)
+result <- api.instance$get_property_metadata_for_entity_sets(request_body=var.request_body)
 dput(result)
 ```
 
@@ -508,11 +508,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request.body** | list( **character** )|  | [optional] 
+ **request_body** | list( **character** )|  | [optional] 
 
 ### Return type
 
-[**map(map(EntitySetPropertyMetaData))**](map.md)
+**list(list(EntitySetPropertyMetaData))**
 
 ### Authorization
 
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 | **200** | EntitySetPropertyMetaData |  -  |
 
 # **get_property_types_for_entity_set**
-> map(PropertyType) get_property_types_for_entity_set(entity.set.id)
+> list(PropertyType) get_property_types_for_entity_set(entity_set_id)
 
 Get all Property Types for entity set
 
@@ -537,7 +537,7 @@ Get all Property Types for entity set
 ```R
 library(openlattice)
 
-var.entity.set.id <- 'entity.set.id_example' # character | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
 
 #Get all Property Types for entity set
 api.instance <- EntitySetsApi$new()
@@ -546,7 +546,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_property_types_for_entity_set(var.entity.set.id)
+result <- api.instance$get_property_types_for_entity_set(var.entity_set_id)
 dput(result)
 ```
 
@@ -554,11 +554,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.id** | [**character**](.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
 
 ### Return type
 
-[**map(PropertyType)**](PropertyType.md)
+[**list(PropertyType)**](PropertyType.md)
 
 ### Authorization
 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **remove_entity_sets_from_linking_entity_set**
-> integer remove_entity_sets_from_linking_entity_set(linking.entity.set.id, request.body=var.request.body)
+> integer remove_entity_sets_from_linking_entity_set(linking_entity_set_id, request_body=var.request_body)
 
 Removes/unlinks the linked entity sets from the linking entity set
 
@@ -583,8 +583,8 @@ Removes/unlinks the linked entity sets from the linking entity set
 ```R
 library(openlattice)
 
-var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-var.request.body <- list("property_example") # array[character] | 
+var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
+var.request_body <- list("property_example") # array[character] | 
 
 #Removes/unlinks the linked entity sets from the linking entity set
 api.instance <- EntitySetsApi$new()
@@ -593,7 +593,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$remove_entity_sets_from_linking_entity_set(var.linking.entity.set.id, request.body=var.request.body)
+result <- api.instance$remove_entity_sets_from_linking_entity_set(var.linking_entity_set_id, request_body=var.request_body)
 dput(result)
 ```
 
@@ -601,8 +601,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linking.entity.set.id** | **character**|  | 
- **request.body** | list( **character** )|  | [optional] 
+ **linking_entity_set_id** | **character**|  | 
+ **request_body** | list( **character** )|  | [optional] 
 
 ### Return type
 
@@ -623,7 +623,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **remove_entity_sets_from_linking_entity_sets**
-> integer remove_entity_sets_from_linking_entity_sets(linking.entity.set.id, request.body)
+> integer remove_entity_sets_from_linking_entity_sets(linking_entity_set_id, request_body)
 
 Removes/unlinks the linked entity sets from the linking entity set
 
@@ -631,8 +631,8 @@ Removes/unlinks the linked entity sets from the linking entity set
 ```R
 library(openlattice)
 
-var.linking.entity.set.id <- 'linking.entity.set.id_example' # character | 
-var.request.body <- TODO # map(array[character]) | 
+var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
+var.request_body <- TODO # list(array[character]) | 
 
 #Removes/unlinks the linked entity sets from the linking entity set
 api.instance <- EntitySetsApi$new()
@@ -641,7 +641,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$remove_entity_sets_from_linking_entity_sets(var.linking.entity.set.id, var.request.body)
+result <- api.instance$remove_entity_sets_from_linking_entity_sets(var.linking_entity_set_id, var.request_body)
 dput(result)
 ```
 
@@ -649,8 +649,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linking.entity.set.id** | [**character**](.md)|  | 
- **request.body** | named list( [**map(array[character])**](array.md) )|  | 
+ **linking_entity_set_id** | [**character**](.md)|  | 
+ **request_body** | named list( [**list(array[character])**](array.md) )|  | 
 
 ### Return type
 
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **update_entity_set_meta_data**
-> integer update_entity_set_meta_data(entity.set.id, metadata.update)
+> integer update_entity_set_meta_data(entity_set_id, metadata_update)
 
 Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 
@@ -679,8 +679,8 @@ Updates the EntitySet definition for the given EntitySet UUID with the given met
 ```R
 library(openlattice)
 
-var.entity.set.id <- 'entity.set.id_example' # character | 
-var.metadata.update <- MetadataUpdate$new("title_example", "description_example", "name_example", list("contacts_example"), FullQualifiedName$new("name_example", "namespace_example"), "pii_example", "defaultShow_example", "url_example", TODO, "indexType_example", "organizationId_example", list(123), list("enumValues_example")) # MetadataUpdate | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
+var.metadata_update <- MetadataUpdate$new("title_example", "description_example", "name_example", list("contacts_example"), FullQualifiedName$new("name_example", "namespace_example"), "pii_example", "defaultShow_example", "url_example", TODO, "indexType_example", "organizationId_example", list(123), list("enumValues_example")) # MetadataUpdate | 
 
 #Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 api.instance <- EntitySetsApi$new()
@@ -689,7 +689,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$update_entity_set_meta_data(var.entity.set.id, var.metadata.update)
+result <- api.instance$update_entity_set_meta_data(var.entity_set_id, var.metadata_update)
 dput(result)
 ```
 
@@ -697,8 +697,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.id** | [**character**](.md)|  | 
- **metadata.update** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
+ **metadata_update** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
 
 ### Return type
 
@@ -719,7 +719,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **update_entity_set_property_metadata**
-> update_entity_set_property_metadata(entity.set.id, property.type.id, metadata.update)
+> update_entity_set_property_metadata(entity_set_id, property_type_id, metadata_update)
 
 Updates the property type metadata for the given entity set.
 
@@ -727,9 +727,9 @@ Updates the property type metadata for the given entity set.
 ```R
 library(openlattice)
 
-var.entity.set.id <- 'entity.set.id_example' # character | 
-var.property.type.id <- 'property.type.id_example' # character | 
-var.metadata.update <- MetadataUpdate$new("title_example", "description_example", "name_example", list("contacts_example"), FullQualifiedName$new("name_example", "namespace_example"), "pii_example", "defaultShow_example", "url_example", TODO, "indexType_example", "organizationId_example", list(123), list("enumValues_example")) # MetadataUpdate | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
+var.property_type_id <- 'property_type_id_example' # character | 
+var.metadata_update <- MetadataUpdate$new("title_example", "description_example", "name_example", list("contacts_example"), FullQualifiedName$new("name_example", "namespace_example"), "pii_example", "defaultShow_example", "url_example", TODO, "indexType_example", "organizationId_example", list(123), list("enumValues_example")) # MetadataUpdate | 
 
 #Updates the property type metadata for the given entity set.
 api.instance <- EntitySetsApi$new()
@@ -738,16 +738,16 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_entity_set_property_metadata(var.entity.set.id, var.property.type.id, var.metadata.update)
+api.instance$update_entity_set_property_metadata(var.entity_set_id, var.property_type_id, var.metadata_update)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entity.set.id** | [**character**](.md)|  | 
- **property.type.id** | [**character**](.md)|  | 
- **metadata.update** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
+ **property_type_id** | [**character**](.md)|  | 
+ **metadata_update** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
 
 ### Return type
 

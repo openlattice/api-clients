@@ -18,7 +18,7 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } access.check \link{AccessCheck}
+#' \item \emph{ @param } access_check \link{AccessCheck}
 #' \item \emph{ @returnType } list( \link{Authorization} ) \cr
 #'
 #'
@@ -35,9 +35,9 @@
 #' 
 #'
 #' \itemize{
-#' \item \emph{ @param } object.type Enum < [EntityType, EntitySet, PropertyTypeInEntitySet, Datasource, ComplexType, LinkingEntityType, AssociationType, Organization, App, AppType, Principal, Role, UnknownEdmTemplate] > 
+#' \item \emph{ @param } object_type Enum < [EntityType, EntitySet, PropertyTypeInEntitySet, Datasource, ComplexType, LinkingEntityType, AssociationType, Organization, App, AppType, Principal, Role, UnknownEdmTemplate] > 
 #' \item \emph{ @param } permission Enum < [DISCOVER, MATERIALIZE, LINK, READ, WRITE, OWNER] > 
-#' \item \emph{ @param } paging.token character
+#' \item \emph{ @param } paging_token character
 #' \item \emph{ @returnType } \link{AuthorizedObjectsSearchResult} \cr
 #'
 #'
@@ -58,7 +58,7 @@
 #' ####################  check_authorizations  ####################
 #'
 #' library(openlattice)
-#' var.access.check <- AccessCheck$new() # AccessCheck | 
+#' var.access_check <- AccessCheck$new() # AccessCheck | 
 #'
 #' #Check authorizations
 #' api.instance <- AuthorizationsApi$new()
@@ -72,15 +72,15 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$check_authorizations(var.access.check)
+#' result <- api.instance$check_authorizations(var.access_check)
 #'
 #'
 #' ####################  get_accessible_objects  ####################
 #'
 #' library(openlattice)
-#' var.object.type <- 'object.type_example' # character | 
+#' var.object_type <- 'object_type_example' # character | 
 #' var.permission <- 'permission_example' # character | 
-#' var.paging.token <- 'paging.token_example' # character | 
+#' var.paging_token <- 'paging_token_example' # character | 
 #'
 #' #Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 #' api.instance <- AuthorizationsApi$new()
@@ -94,7 +94,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_accessible_objects(object.type=var.object.type, permission=var.permission, paging.token=var.paging.token)
+#' result <- api.instance$get_accessible_objects(object_type=var.object_type, permission=var.permission, paging_token=var.paging_token)
 #'
 #'
 #' }
@@ -113,8 +113,8 @@ AuthorizationsApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    check_authorizations = function(access.check, ...){
-      apiResponse <- self$check_authorizationsWithHttpInfo(access.check, ...)
+    check_authorizations = function(access_check, ...){
+      apiResponse <- self$check_authorizationsWithHttpInfo(access_check, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -127,17 +127,22 @@ AuthorizationsApi <- R6::R6Class(
       }
     },
 
-    check_authorizationsWithHttpInfo = function(access.check, ...){
+    check_authorizationsWithHttpInfo = function(access_check, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`access.check`)) {
-        stop("Missing required parameter `access.check`.")
+      if (missing(`access_check`)) {
+        stop("Missing required parameter `access_check`.")
       }
 
-      if (!missing(`access.check`)) {
-        body <- `access.check`$toJSONString()
+      if (!missing(`access_check`)) {
+        body <- sprintf(
+        '
+          %s
+        ',
+            jsonlite::toJSON(`access_check`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )
       } else {
         body <- NULL
       }
@@ -171,8 +176,8 @@ AuthorizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_accessible_objects = function(object.type=NULL, permission=NULL, paging.token=NULL, ...){
-      apiResponse <- self$get_accessible_objectsWithHttpInfo(object.type, permission, paging.token, ...)
+    get_accessible_objects = function(object_type=NULL, permission=NULL, paging_token=NULL, ...){
+      apiResponse <- self$get_accessible_objectsWithHttpInfo(object_type, permission, paging_token, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -185,16 +190,16 @@ AuthorizationsApi <- R6::R6Class(
       }
     },
 
-    get_accessible_objectsWithHttpInfo = function(object.type=NULL, permission=NULL, paging.token=NULL, ...){
+    get_accessible_objectsWithHttpInfo = function(object_type=NULL, permission=NULL, paging_token=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      queryParams['objectType'] <- object.type
+      queryParams['objectType'] <- object_type
 
       queryParams['permission'] <- permission
 
-      queryParams['pagingToken'] <- paging.token
+      queryParams['pagingToken'] <- paging_token
 
       urlPath <- "/datastore/authorizations"
       # API key authentication

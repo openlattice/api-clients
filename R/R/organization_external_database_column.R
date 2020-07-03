@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title OrganizationExternalDatabaseColumn
+#'
 #' @description OrganizationExternalDatabaseColumn Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field id  character [optional]
 #'
 #' @field name  character [optional]
@@ -28,7 +31,6 @@
 #'
 #' @field ordinalPosition  integer [optional]
 #'
-#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -44,7 +46,9 @@ OrganizationExternalDatabaseColumn <- R6::R6Class(
     `dataType` = NULL,
     `primaryKey` = NULL,
     `ordinalPosition` = NULL,
-    initialize = function(`id`=NULL, `name`=NULL, `title`=NULL, `description`=NULL, `tableId`=NULL, `organizationId`=NULL, `dataType`=NULL, `primaryKey`=NULL, `ordinalPosition`=NULL, ...){
+    initialize = function(
+        `id`=NULL, `name`=NULL, `title`=NULL, `description`=NULL, `tableId`=NULL, `organizationId`=NULL, `dataType`=NULL, `primaryKey`=NULL, `ordinalPosition`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -152,6 +156,7 @@ OrganizationExternalDatabaseColumn <- R6::R6Class(
       if (!is.null(OrganizationExternalDatabaseColumnObject$`ordinalPosition`)) {
         self$`ordinalPosition` <- OrganizationExternalDatabaseColumnObject$`ordinalPosition`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -237,3 +242,4 @@ OrganizationExternalDatabaseColumn <- R6::R6Class(
     }
   )
 )
+

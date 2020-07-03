@@ -89,7 +89,7 @@ class Search(object):
 
 
         :param keyword: The keyword of this Search.  # noqa: E501
-        :type: str
+        :type keyword: str
         """
 
         self._keyword = keyword
@@ -110,7 +110,7 @@ class Search(object):
 
 
         :param entity_type_id: The entity_type_id of this Search.  # noqa: E501
-        :type: str
+        :type entity_type_id: str
         """
 
         self._entity_type_id = entity_type_id
@@ -131,7 +131,7 @@ class Search(object):
 
 
         :param property_type_ids: The property_type_ids of this Search.  # noqa: E501
-        :type: list[str]
+        :type property_type_ids: list[str]
         """
 
         self._property_type_ids = property_type_ids
@@ -152,7 +152,7 @@ class Search(object):
 
 
         :param start: The start of this Search.  # noqa: E501
-        :type: int
+        :type start: int
         """
 
         self._start = start
@@ -173,7 +173,7 @@ class Search(object):
 
 
         :param max_hits: The max_hits of this Search.  # noqa: E501
-        :type: int
+        :type max_hits: int
         """
 
         self._max_hits = max_hits

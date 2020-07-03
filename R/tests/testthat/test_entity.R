@@ -13,7 +13,7 @@ test_that("key", {
 })
 
 test_that("details", {
-  # tests for the property `details` (map(character))
+  # tests for the property `details` (list(character))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`details`, "EXPECTED_RESULT")
