@@ -138,7 +138,7 @@ DataIntegrationsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`entity_key`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`entity_key`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
         )
       } else {
         body <- NULL

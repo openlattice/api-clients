@@ -12,24 +12,24 @@ test_that("entityKeyIds", {
   #expect_equal(model.instance$`entityKeyIds`, "EXPECTED_RESULT")
 })
 
-test_that("src", {
-  # tests for the property `src` (array[character])
+test_that("srcEntitySetIds", {
+  # tests for the property `srcEntitySetIds` (array[character])
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`src`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`srcEntitySetIds`, "EXPECTED_RESULT")
 })
 
-test_that("dst", {
-  # tests for the property `dst` (array[character])
+test_that("dstEntitySetIds", {
+  # tests for the property `dstEntitySetIds` (array[character])
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`dst`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`dstEntitySetIds`, "EXPECTED_RESULT")
 })
 
-test_that("edge", {
-  # tests for the property `edge` (array[character])
+test_that("associationEntitySetIds", {
+  # tests for the property `associationEntitySetIds` (array[character])
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`edge`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`associationEntitySetIds`, "EXPECTED_RESULT")
 })
 

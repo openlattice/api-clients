@@ -13,7 +13,7 @@ test_that("numHits", {
 })
 
 test_that("hits", {
-  # tests for the property `hits` (list(character))
+  # tests for the property `hits` (array[SearchResultHits])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`hits`, "EXPECTED_RESULT")

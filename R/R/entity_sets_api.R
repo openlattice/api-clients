@@ -312,7 +312,7 @@
 #'
 #' library(openlattice)
 #' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
-#' var.request_body <- {'key' => array$new()} # list(array[character]) | 
+#' var.request_body <- NULL # list(array[character]) | 
 #'
 #' #Adds the entity sets as linked entity sets to the linking entity sets
 #' api.instance <- EntitySetsApi$new()
@@ -554,7 +554,7 @@
 #'
 #' library(openlattice)
 #' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
-#' var.request_body <- {'key' => array$new()} # list(array[character]) | 
+#' var.request_body <- NULL # list(array[character]) | 
 #'
 #' #Removes/unlinks the linked entity sets from the linking entity set
 #' api.instance <- EntitySetsApi$new()
@@ -658,7 +658,7 @@ EntitySetsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
         )
       } else {
         body <- NULL
@@ -796,7 +796,7 @@ EntitySetsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`entity_set`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`entity_set`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
         )
       } else {
         body <- NULL
@@ -1115,7 +1115,7 @@ EntitySetsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
         )
       } else {
         body <- NULL
@@ -1238,7 +1238,7 @@ EntitySetsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
         )
       } else {
         body <- NULL
@@ -1357,7 +1357,7 @@ EntitySetsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
         )
       } else {
         body <- NULL
