@@ -30,11 +30,6 @@ public class Role {
   private String title = null;
   @SerializedName("description")
   private String description = null;
-  public enum _classEnum {
-     com.openlattice.organization.roles.Role, 
-  };
-  @SerializedName("@class")
-  private _classEnum _class = null;
 
   /**
    **/
@@ -86,16 +81,6 @@ public class Role {
     this.description = description;
   }
 
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public _classEnum getClass() {
-    return _class;
-  }
-  public void setClass(_classEnum _class) {
-    this._class = _class;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -110,8 +95,7 @@ public class Role {
         (this.organizationId == null ? role.organizationId == null : this.organizationId.equals(role.organizationId)) &&
         (this.principal == null ? role.principal == null : this.principal.equals(role.principal)) &&
         (this.title == null ? role.title == null : this.title.equals(role.title)) &&
-        (this.description == null ? role.description == null : this.description.equals(role.description)) &&
-        (this._class == null ? role._class == null : this._class.equals(role._class));
+        (this.description == null ? role.description == null : this.description.equals(role.description));
   }
 
   @Override
@@ -122,7 +106,6 @@ public class Role {
     result = 31 * result + (this.principal == null ? 0: this.principal.hashCode());
     result = 31 * result + (this.title == null ? 0: this.title.hashCode());
     result = 31 * result + (this.description == null ? 0: this.description.hashCode());
-    result = 31 * result + (this._class == null ? 0: this._class.hashCode());
     return result;
   }
 
@@ -136,7 +119,6 @@ public class Role {
     sb.append("  principal: ").append(principal).append("\n");
     sb.append("  title: ").append(title).append("\n");
     sb.append("  description: ").append(description).append("\n");
-    sb.append("  _class: ").append(_class).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

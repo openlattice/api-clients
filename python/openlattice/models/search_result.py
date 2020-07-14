@@ -35,7 +35,7 @@ class SearchResult(object):
     """
     openapi_types = {
         'num_hits': 'int',
-        'hits': 'dict(str, str)'
+        'hits': 'list[SearchResultHits]'
     }
 
     attribute_map = {
@@ -85,7 +85,7 @@ class SearchResult(object):
 
 
         :return: The hits of this SearchResult.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: list[SearchResultHits]
         """
         return self._hits
 
@@ -95,7 +95,7 @@ class SearchResult(object):
 
 
         :param hits: The hits of this SearchResult.  # noqa: E501
-        :type hits: dict(str, str)
+        :type hits: list[SearchResultHits]
         """
 
         self._hits = hits

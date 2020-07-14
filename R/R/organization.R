@@ -8,11 +8,8 @@
 
 #' @docType class
 #' @title Organization
-#'
 #' @description Organization Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field id  character [optional]
 #'
 #' @field principal  \link{Principal} [optional]
@@ -33,6 +30,7 @@
 #'
 #' @field partitions  list( integer ) [optional]
 #'
+#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -49,9 +47,7 @@ Organization <- R6::R6Class(
     `apps` = NULL,
     `smsEntitySetInfo` = NULL,
     `partitions` = NULL,
-    initialize = function(
-        `id`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, `emails`=NULL, `members`=NULL, `roles`=NULL, `apps`=NULL, `smsEntitySetInfo`=NULL, `partitions`=NULL, ...
-    ) {
+    initialize = function(`id`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, `emails`=NULL, `members`=NULL, `roles`=NULL, `apps`=NULL, `smsEntitySetInfo`=NULL, `partitions`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -179,7 +175,6 @@ Organization <- R6::R6Class(
       if (!is.null(OrganizationObject$`partitions`)) {
         self$`partitions` <- ApiClient$new()$deserializeObj(OrganizationObject$`partitions`, "array[integer]", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -273,4 +268,3 @@ Organization <- R6::R6Class(
     }
   )
 )
-

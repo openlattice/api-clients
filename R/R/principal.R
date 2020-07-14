@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title Principal
-#'
 #' @description Principal Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field type  character [optional]
 #'
 #' @field id  character [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ Principal <- R6::R6Class(
   public = list(
     `type` = NULL,
     `id` = NULL,
-    initialize = function(
-        `type`=NULL, `id`=NULL, ...
-    ) {
+    initialize = function(`type`=NULL, `id`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`type`)) {
         stopifnot(is.character(`type`), length(`type`) == 1)
@@ -59,7 +55,6 @@ Principal <- R6::R6Class(
       if (!is.null(PrincipalObject$`id`)) {
         self$`id` <- PrincipalObject$`id`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -89,4 +84,3 @@ Principal <- R6::R6Class(
     }
   )
 )
-

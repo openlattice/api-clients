@@ -8,11 +8,8 @@
 
 #' @docType class
 #' @title EntityType
-#'
 #' @description EntityType Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field title  character [optional]
 #'
 #' @field description  character [optional]
@@ -27,11 +24,12 @@
 #'
 #' @field properties  list( character ) [optional]
 #'
-#' @field propertyTags  named list( array[character] ) [optional]
+#' @field propertyTags  named list( \link{array[character]} ) [optional]
 #'
 #' @field basetype  character [optional]
 #'
 #' @field category  character [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -49,9 +47,7 @@ EntityType <- R6::R6Class(
     `propertyTags` = NULL,
     `basetype` = NULL,
     `category` = NULL,
-    initialize = function(
-        `title`=NULL, `description`=NULL, `id`=NULL, `type`=NULL, `schemas`=NULL, `key`=NULL, `properties`=NULL, `propertyTags`=NULL, `basetype`=NULL, `category`=NULL, ...
-    ) {
+    initialize = function(`title`=NULL, `description`=NULL, `id`=NULL, `type`=NULL, `schemas`=NULL, `key`=NULL, `properties`=NULL, `propertyTags`=NULL, `basetype`=NULL, `category`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`title`)) {
         stopifnot(is.character(`title`), length(`title`) == 1)
@@ -86,7 +82,7 @@ EntityType <- R6::R6Class(
       }
       if (!is.null(`propertyTags`)) {
         stopifnot(is.vector(`propertyTags`))
-        sapply(`propertyTags`, function(x) stopifnot(is.character(x)))
+        sapply(`propertyTags`, function(x) stopifnot(R6::is.R6(x)))
         self$`propertyTags` <- `propertyTags`
       }
       if (!is.null(`basetype`)) {
@@ -130,7 +126,7 @@ EntityType <- R6::R6Class(
       }
       if (!is.null(self$`propertyTags`)) {
         EntityTypeObject[['propertyTags']] <-
-          self$`propertyTags`
+          lapply(self$`propertyTags`, function(x) x$toJSON())
       }
       if (!is.null(self$`basetype`)) {
         EntityTypeObject[['basetype']] <-
@@ -177,7 +173,6 @@ EntityType <- R6::R6Class(
       if (!is.null(EntityTypeObject$`category`)) {
         self$`category` <- EntityTypeObject$`category`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -233,9 +228,9 @@ EntityType <- R6::R6Class(
         if (!is.null(self$`propertyTags`)) {
         sprintf(
         '"propertyTags":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`propertyTags`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`propertyTags`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`basetype`)) {
         sprintf(
@@ -271,4 +266,3 @@ EntityType <- R6::R6Class(
     }
   )
 )
-

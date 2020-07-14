@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **pii** | **character** |  | [optional] 
 **defaultShow** | **character** |  | [optional] 
 **url** | **character** |  | [optional] 
-**propertyTags** | **list(array[character])** |  | [optional] 
+**propertyTags** | [**list(array[character])**](array.md) |  | [optional] 
 **indexType** | **character** |  | [optional] 
 **organizationId** | **character** |  | [optional] 
 **partitions** | **array[integer]** |  | [optional] 

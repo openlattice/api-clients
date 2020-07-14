@@ -8,11 +8,8 @@
 
 #' @docType class
 #' @title EntitySet
-#'
 #' @description EntitySet Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field id  character [optional]
 #'
 #' @field entityTypeId  character [optional]
@@ -35,6 +32,7 @@
 #'
 #' @field partitions  list( integer ) [optional]
 #'
+#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -52,9 +50,7 @@ EntitySet <- R6::R6Class(
     `organizationId` = NULL,
     `flags` = NULL,
     `partitions` = NULL,
-    initialize = function(
-        `id`=NULL, `entityTypeId`=NULL, `name`=NULL, `title`=NULL, `description`=NULL, `contacts`=NULL, `linking`=NULL, `linkedEntitySets`=NULL, `organizationId`=NULL, `flags`=NULL, `partitions`=NULL, ...
-    ) {
+    initialize = function(`id`=NULL, `entityTypeId`=NULL, `name`=NULL, `title`=NULL, `description`=NULL, `contacts`=NULL, `linking`=NULL, `linkedEntitySets`=NULL, `organizationId`=NULL, `flags`=NULL, `partitions`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -188,7 +184,6 @@ EntitySet <- R6::R6Class(
       if (!is.null(EntitySetObject$`partitions`)) {
         self$`partitions` <- ApiClient$new()$deserializeObj(EntitySetObject$`partitions`, "array[integer]", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -290,4 +285,3 @@ EntitySet <- R6::R6Class(
     }
   )
 )
-

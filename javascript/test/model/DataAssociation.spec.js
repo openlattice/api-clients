@@ -72,6 +72,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property dstEntitySetId (base name: "dstEntitySetId")', function() {
+      // uncomment below and update the code to test the property dstEntitySetId
+      //var instane = new OpenLatticeApi.DataAssociation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dstEntityIndex (base name: "dstEntityIndex")', function() {
+      // uncomment below and update the code to test the property dstEntityIndex
+      //var instane = new OpenLatticeApi.DataAssociation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dstEntityKeyId (base name: "dstEntityKeyId")', function() {
+      // uncomment below and update the code to test the property dstEntityKeyId
+      //var instane = new OpenLatticeApi.DataAssociation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
+      //var instane = new OpenLatticeApi.DataAssociation();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

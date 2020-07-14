@@ -8,16 +8,14 @@
 
 #' @docType class
 #' @title Schema
-#'
 #' @description Schema Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field entityTypes  list( \link{EntityType} ) [optional]
 #'
 #' @field propertyTypes  list( \link{PropertyType} ) [optional]
 #'
 #' @field fqn  \link{FullQualifiedName} [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -28,9 +26,7 @@ Schema <- R6::R6Class(
     `entityTypes` = NULL,
     `propertyTypes` = NULL,
     `fqn` = NULL,
-    initialize = function(
-        `entityTypes`=NULL, `propertyTypes`=NULL, `fqn`=NULL, ...
-    ) {
+    initialize = function(`entityTypes`=NULL, `propertyTypes`=NULL, `fqn`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`entityTypes`)) {
         stopifnot(is.vector(`entityTypes`))
@@ -77,7 +73,6 @@ Schema <- R6::R6Class(
         fqnObject$fromJSON(jsonlite::toJSON(SchemaObject$fqn, auto_unbox = TRUE, digits = NA))
         self$`fqn` <- fqnObject
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -115,4 +110,3 @@ Schema <- R6::R6Class(
     }
   )
 )
-

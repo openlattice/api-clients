@@ -8,20 +8,18 @@
 
 #' @docType class
 #' @title NeighborEntityDetails
-#'
 #' @description NeighborEntityDetails Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field associationEntitySet  \link{EntitySet} [optional]
 #'
-#' @field associationDetails  named list( array[character] ) [optional]
+#' @field associationDetails  named list( \link{array[character]} ) [optional]
 #'
 #' @field neighborEntitySet  \link{EntitySet} [optional]
 #'
 #' @field neighborId  character [optional]
 #'
-#' @field neighborDetails  named list( array[character] ) [optional]
+#' @field neighborDetails  named list( \link{array[character]} ) [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -34,9 +32,7 @@ NeighborEntityDetails <- R6::R6Class(
     `neighborEntitySet` = NULL,
     `neighborId` = NULL,
     `neighborDetails` = NULL,
-    initialize = function(
-        `associationEntitySet`=NULL, `associationDetails`=NULL, `neighborEntitySet`=NULL, `neighborId`=NULL, `neighborDetails`=NULL, ...
-    ) {
+    initialize = function(`associationEntitySet`=NULL, `associationDetails`=NULL, `neighborEntitySet`=NULL, `neighborId`=NULL, `neighborDetails`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`associationEntitySet`)) {
         stopifnot(R6::is.R6(`associationEntitySet`))
@@ -44,7 +40,7 @@ NeighborEntityDetails <- R6::R6Class(
       }
       if (!is.null(`associationDetails`)) {
         stopifnot(is.vector(`associationDetails`))
-        sapply(`associationDetails`, function(x) stopifnot(is.character(x)))
+        sapply(`associationDetails`, function(x) stopifnot(R6::is.R6(x)))
         self$`associationDetails` <- `associationDetails`
       }
       if (!is.null(`neighborEntitySet`)) {
@@ -57,7 +53,7 @@ NeighborEntityDetails <- R6::R6Class(
       }
       if (!is.null(`neighborDetails`)) {
         stopifnot(is.vector(`neighborDetails`))
-        sapply(`neighborDetails`, function(x) stopifnot(is.character(x)))
+        sapply(`neighborDetails`, function(x) stopifnot(R6::is.R6(x)))
         self$`neighborDetails` <- `neighborDetails`
       }
     },
@@ -69,7 +65,7 @@ NeighborEntityDetails <- R6::R6Class(
       }
       if (!is.null(self$`associationDetails`)) {
         NeighborEntityDetailsObject[['associationDetails']] <-
-          self$`associationDetails`
+          lapply(self$`associationDetails`, function(x) x$toJSON())
       }
       if (!is.null(self$`neighborEntitySet`)) {
         NeighborEntityDetailsObject[['neighborEntitySet']] <-
@@ -81,7 +77,7 @@ NeighborEntityDetails <- R6::R6Class(
       }
       if (!is.null(self$`neighborDetails`)) {
         NeighborEntityDetailsObject[['neighborDetails']] <-
-          self$`neighborDetails`
+          lapply(self$`neighborDetails`, function(x) x$toJSON())
       }
 
       NeighborEntityDetailsObject
@@ -107,7 +103,6 @@ NeighborEntityDetails <- R6::R6Class(
       if (!is.null(NeighborEntityDetailsObject$`neighborDetails`)) {
         self$`neighborDetails` <- ApiClient$new()$deserializeObj(NeighborEntityDetailsObject$`neighborDetails`, "list(array[character])", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -121,9 +116,9 @@ NeighborEntityDetails <- R6::R6Class(
         if (!is.null(self$`associationDetails`)) {
         sprintf(
         '"associationDetails":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`associationDetails`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`associationDetails`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`neighborEntitySet`)) {
         sprintf(
@@ -142,9 +137,9 @@ NeighborEntityDetails <- R6::R6Class(
         if (!is.null(self$`neighborDetails`)) {
         sprintf(
         '"neighborDetails":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`neighborDetails`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`neighborDetails`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -161,4 +156,3 @@ NeighborEntityDetails <- R6::R6Class(
     }
   )
 )
-

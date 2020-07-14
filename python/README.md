@@ -373,6 +373,7 @@ Class | Method | HTTP request | Description
  - [SearchConstraints](docs/SearchConstraints.md)
  - [SearchDetails](docs/SearchDetails.md)
  - [SearchResult](docs/SearchResult.md)
+ - [SearchResultHits](docs/SearchResultHits.md)
  - [SearchTerm](docs/SearchTerm.md)
  - [SecurablePrincipal](docs/SecurablePrincipal.md)
  - [SmsEntitySetInformation](docs/SmsEntitySetInformation.md)

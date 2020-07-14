@@ -8,11 +8,8 @@
 
 #' @docType class
 #' @title SecurablePrincipal
-#'
 #' @description SecurablePrincipal Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field id  character [optional]
 #'
 #' @field principal  \link{Principal} [optional]
@@ -20,6 +17,7 @@
 #' @field title  character [optional]
 #'
 #' @field description  character [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -31,9 +29,7 @@ SecurablePrincipal <- R6::R6Class(
     `principal` = NULL,
     `title` = NULL,
     `description` = NULL,
-    initialize = function(
-        `id`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, ...
-    ) {
+    initialize = function(`id`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -89,7 +85,6 @@ SecurablePrincipal <- R6::R6Class(
       if (!is.null(SecurablePrincipalObject$`description`)) {
         self$`description` <- SecurablePrincipalObject$`description`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -135,4 +130,3 @@ SecurablePrincipal <- R6::R6Class(
     }
   )
 )
-

@@ -8,16 +8,14 @@
 
 #' @docType class
 #' @title AdvancedSearch
-#'
 #' @description AdvancedSearch Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field searchFields  list( \link{SearchDetails} ) [optional]
 #'
 #' @field start  integer [optional]
 #'
 #' @field maxHits  integer [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -28,9 +26,7 @@ AdvancedSearch <- R6::R6Class(
     `searchFields` = NULL,
     `start` = NULL,
     `maxHits` = NULL,
-    initialize = function(
-        `searchFields`=NULL, `start`=NULL, `maxHits`=NULL, ...
-    ) {
+    initialize = function(`searchFields`=NULL, `start`=NULL, `maxHits`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`searchFields`)) {
         stopifnot(is.vector(`searchFields`))
@@ -74,7 +70,6 @@ AdvancedSearch <- R6::R6Class(
       if (!is.null(AdvancedSearchObject$`maxHits`)) {
         self$`maxHits` <- AdvancedSearchObject$`maxHits`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -112,4 +107,3 @@ AdvancedSearch <- R6::R6Class(
     }
   )
 )
-

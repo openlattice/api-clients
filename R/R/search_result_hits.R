@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title SearchResultHits
-#'
 #' @description SearchResultHits Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field propertyTypes  list( \link{PropertyType} ) [optional]
 #'
 #' @field entitySet  \link{EntitySet} [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ SearchResultHits <- R6::R6Class(
   public = list(
     `propertyTypes` = NULL,
     `entitySet` = NULL,
-    initialize = function(
-        `propertyTypes`=NULL, `entitySet`=NULL, ...
-    ) {
+    initialize = function(`propertyTypes`=NULL, `entitySet`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`propertyTypes`)) {
         stopifnot(is.vector(`propertyTypes`))
@@ -62,7 +58,6 @@ SearchResultHits <- R6::R6Class(
         entitySetObject$fromJSON(jsonlite::toJSON(SearchResultHitsObject$entitySet, auto_unbox = TRUE, digits = NA))
         self$`entitySet` <- entitySetObject
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -92,4 +87,3 @@ SearchResultHits <- R6::R6Class(
     }
   )
 )
-

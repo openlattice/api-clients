@@ -23,6 +23,7 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import org.openapitools.client.model.CollectionTemplateType;
 import org.openapitools.client.model.EntitySetCollection;
 import org.openapitools.client.model.EntityTypeCollection;
 import java.util.Map;
@@ -63,20 +64,20 @@ public class CollectionsApi {
   * Appends type to template of the specified EntityTypeCollection
   * 
    * @param entityTypeCollectionId 
-   * @param entityTypeCollection 
+   * @param collectionTemplateType 
    * @return void
   */
-  public void addTypeToEntityTypeCollectionTemplate (UUID entityTypeCollectionId, EntityTypeCollection entityTypeCollection) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = entityTypeCollection;
+  public void addTypeToEntityTypeCollectionTemplate (UUID entityTypeCollectionId, CollectionTemplateType collectionTemplateType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = collectionTemplateType;
     // verify the required parameter 'entityTypeCollectionId' is set
     if (entityTypeCollectionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'entityTypeCollectionId' when calling addTypeToEntityTypeCollectionTemplate",
         new ApiException(400, "Missing the required parameter 'entityTypeCollectionId' when calling addTypeToEntityTypeCollectionTemplate"));
     }
-    // verify the required parameter 'entityTypeCollection' is set
-    if (entityTypeCollection == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'entityTypeCollection' when calling addTypeToEntityTypeCollectionTemplate",
-        new ApiException(400, "Missing the required parameter 'entityTypeCollection' when calling addTypeToEntityTypeCollectionTemplate"));
+    // verify the required parameter 'collectionTemplateType' is set
+    if (collectionTemplateType == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'collectionTemplateType' when calling addTypeToEntityTypeCollectionTemplate",
+        new ApiException(400, "Missing the required parameter 'collectionTemplateType' when calling addTypeToEntityTypeCollectionTemplate"));
     }
 
     // create path and map variables
@@ -131,20 +132,20 @@ public class CollectionsApi {
       /**
    * Appends type to template of the specified EntityTypeCollection
    * 
-   * @param entityTypeCollectionId    * @param entityTypeCollection 
+   * @param entityTypeCollectionId    * @param collectionTemplateType 
   */
-  public void addTypeToEntityTypeCollectionTemplate (UUID entityTypeCollectionId, EntityTypeCollection entityTypeCollection, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = entityTypeCollection;
+  public void addTypeToEntityTypeCollectionTemplate (UUID entityTypeCollectionId, CollectionTemplateType collectionTemplateType, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = collectionTemplateType;
 
     // verify the required parameter 'entityTypeCollectionId' is set
     if (entityTypeCollectionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'entityTypeCollectionId' when calling addTypeToEntityTypeCollectionTemplate",
         new ApiException(400, "Missing the required parameter 'entityTypeCollectionId' when calling addTypeToEntityTypeCollectionTemplate"));
     }
-    // verify the required parameter 'entityTypeCollection' is set
-    if (entityTypeCollection == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'entityTypeCollection' when calling addTypeToEntityTypeCollectionTemplate",
-        new ApiException(400, "Missing the required parameter 'entityTypeCollection' when calling addTypeToEntityTypeCollectionTemplate"));
+    // verify the required parameter 'collectionTemplateType' is set
+    if (collectionTemplateType == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'collectionTemplateType' when calling addTypeToEntityTypeCollectionTemplate",
+        new ApiException(400, "Missing the required parameter 'collectionTemplateType' when calling addTypeToEntityTypeCollectionTemplate"));
     }
 
     // create path and map variables
@@ -1070,7 +1071,7 @@ public class CollectionsApi {
     }
 
     // create path and map variables
-    String path = "/datastore/collections/entity/type/entity/set/{entitySetCollectionId}".replaceAll("\\{" + "entitySetCollectionId" + "\\}", apiInvoker.escapeString(entitySetCollectionId.toString()));
+    String path = "/datastore/collections/entity/set/entity/type/{entitySetCollectionId}".replaceAll("\\{" + "entitySetCollectionId" + "\\}", apiInvoker.escapeString(entitySetCollectionId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1132,7 +1133,7 @@ public class CollectionsApi {
     }
 
     // create path and map variables
-    String path = "/datastore/collections/entity/type/entity/set/{entitySetCollectionId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "entitySetCollectionId" + "\\}", apiInvoker.escapeString(entitySetCollectionId.toString()));
+    String path = "/datastore/collections/entity/set/entity/type/{entitySetCollectionId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "entitySetCollectionId" + "\\}", apiInvoker.escapeString(entitySetCollectionId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

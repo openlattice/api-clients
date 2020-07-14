@@ -44,11 +44,11 @@ func (a *DatasetApiService) DeleteExternalDatabaseColumn(ctx _context.Context, o
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.QueryEscape(parameterToString(tableName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.PathEscape(parameterToString(tableName, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"columnName"+"}", _neturl.QueryEscape(parameterToString(columnName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"columnName"+"}", _neturl.PathEscape(parameterToString(columnName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -127,9 +127,9 @@ func (a *DatasetApiService) DeleteExternalDatabaseColumns(ctx _context.Context, 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableName}/external-database-column"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.QueryEscape(parameterToString(tableName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.PathEscape(parameterToString(tableName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -208,9 +208,9 @@ func (a *DatasetApiService) DeleteExternalDatabaseTable(ctx _context.Context, or
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableName}/external-database-table"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.QueryEscape(parameterToString(tableName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.PathEscape(parameterToString(tableName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -289,7 +289,7 @@ func (a *DatasetApiService) DeleteExternalDatabaseTables(ctx _context.Context, o
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/external-database-table"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -372,9 +372,9 @@ func (a *DatasetApiService) GetAuthorizedExternalDbTablesWithColumnMetadata(ctx 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"permission"+"}", _neturl.QueryEscape(parameterToString(permission, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"permission"+"}", _neturl.PathEscape(parameterToString(permission, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -429,15 +429,6 @@ func (a *DatasetApiService) GetAuthorizedExternalDbTablesWithColumnMetadata(ctx 
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []OrganizationExternalDatabaseTableColumnsPair
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -474,11 +465,11 @@ func (a *DatasetApiService) GetExternalDatabaseColumn(ctx _context.Context, orga
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.QueryEscape(parameterToString(tableName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.PathEscape(parameterToString(tableName, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"columnName"+"}", _neturl.QueryEscape(parameterToString(columnName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"columnName"+"}", _neturl.PathEscape(parameterToString(columnName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -533,15 +524,6 @@ func (a *DatasetApiService) GetExternalDatabaseColumn(ctx _context.Context, orga
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v OrganizationExternalDatabaseColumn
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -577,9 +559,9 @@ func (a *DatasetApiService) GetExternalDatabaseTable(ctx _context.Context, organ
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableName}/external-database-table"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.QueryEscape(parameterToString(tableName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.PathEscape(parameterToString(tableName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -634,15 +616,6 @@ func (a *DatasetApiService) GetExternalDatabaseTable(ctx _context.Context, organ
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v OrganizationExternalDatabaseTable
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -678,9 +651,9 @@ func (a *DatasetApiService) GetExternalDatabaseTableWithColumnMetadata(ctx _cont
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"tableId"+"}", _neturl.QueryEscape(parameterToString(tableId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tableId"+"}", _neturl.PathEscape(parameterToString(tableId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -735,15 +708,6 @@ func (a *DatasetApiService) GetExternalDatabaseTableWithColumnMetadata(ctx _cont
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v OrganizationExternalDatabaseTableColumnsPair
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -778,7 +742,7 @@ func (a *DatasetApiService) GetExternalDatabaseTables(ctx _context.Context, orga
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/external-database-table"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -833,15 +797,6 @@ func (a *DatasetApiService) GetExternalDatabaseTables(ctx _context.Context, orga
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []OrganizationExternalDatabaseTable
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -876,7 +831,7 @@ func (a *DatasetApiService) GetExternalDatabaseTablesWithColumnMetadata(ctx _con
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/external-database-table/external-database-column"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -931,15 +886,6 @@ func (a *DatasetApiService) GetExternalDatabaseTablesWithColumnMetadata(ctx _con
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []OrganizationExternalDatabaseTableColumnsPair
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -975,11 +921,11 @@ func (a *DatasetApiService) UpdateExternalDatabaseColumn(ctx _context.Context, o
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.QueryEscape(parameterToString(tableName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.PathEscape(parameterToString(tableName, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"columnName"+"}", _neturl.QueryEscape(parameterToString(columnName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"columnName"+"}", _neturl.PathEscape(parameterToString(columnName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1061,9 +1007,9 @@ func (a *DatasetApiService) UpdateExternalDatabaseTable(ctx _context.Context, or
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableName}/external-database-table"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.QueryEscape(parameterToString(tableName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.PathEscape(parameterToString(tableName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

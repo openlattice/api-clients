@@ -56,6 +56,18 @@ class DataAssociation {
             if (data.hasOwnProperty('srcEntityKeyId')) {
                 obj['srcEntityKeyId'] = ApiClient.convertToType(data['srcEntityKeyId'], 'String');
             }
+            if (data.hasOwnProperty('dstEntitySetId')) {
+                obj['dstEntitySetId'] = ApiClient.convertToType(data['dstEntitySetId'], 'String');
+            }
+            if (data.hasOwnProperty('dstEntityIndex')) {
+                obj['dstEntityIndex'] = ApiClient.convertToType(data['dstEntityIndex'], 'String');
+            }
+            if (data.hasOwnProperty('dstEntityKeyId')) {
+                obj['dstEntityKeyId'] = ApiClient.convertToType(data['dstEntityKeyId'], 'String');
+            }
+            if (data.hasOwnProperty('data')) {
+                obj['data'] = ApiClient.convertToType(data['data'], {'String': ['String']});
+            }
         }
         return obj;
     }
@@ -80,6 +92,30 @@ DataAssociation.prototype['srcEntityIndex'] = undefined;
  * @member {String} srcEntityKeyId
  */
 DataAssociation.prototype['srcEntityKeyId'] = undefined;
+
+/**
+ * the ID of the dst entity set
+ * @member {String} dstEntitySetId
+ */
+DataAssociation.prototype['dstEntitySetId'] = undefined;
+
+/**
+ * The index of an entity
+ * @member {String} dstEntityIndex
+ */
+DataAssociation.prototype['dstEntityIndex'] = undefined;
+
+/**
+ * An existing entityKeyId
+ * @member {String} dstEntityKeyId
+ */
+DataAssociation.prototype['dstEntityKeyId'] = undefined;
+
+/**
+ * data
+ * @member {Object.<String, Array.<String>>} data
+ */
+DataAssociation.prototype['data'] = undefined;
 
 
 

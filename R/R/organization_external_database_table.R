@@ -8,11 +8,8 @@
 
 #' @docType class
 #' @title OrganizationExternalDatabaseTable
-#'
 #' @description OrganizationExternalDatabaseTable Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field id  character [optional]
 #'
 #' @field name  character [optional]
@@ -22,6 +19,7 @@
 #' @field description  character [optional]
 #'
 #' @field organizationId  character [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -34,9 +32,7 @@ OrganizationExternalDatabaseTable <- R6::R6Class(
     `title` = NULL,
     `description` = NULL,
     `organizationId` = NULL,
-    initialize = function(
-        `id`=NULL, `name`=NULL, `title`=NULL, `description`=NULL, `organizationId`=NULL, ...
-    ) {
+    initialize = function(`id`=NULL, `name`=NULL, `title`=NULL, `description`=NULL, `organizationId`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -101,7 +97,6 @@ OrganizationExternalDatabaseTable <- R6::R6Class(
       if (!is.null(OrganizationExternalDatabaseTableObject$`organizationId`)) {
         self$`organizationId` <- OrganizationExternalDatabaseTableObject$`organizationId`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -155,4 +150,3 @@ OrganizationExternalDatabaseTable <- R6::R6Class(
     }
   )
 )
-

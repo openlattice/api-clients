@@ -13,20 +13,17 @@
 package org.openapitools.client.model;
 
 import java.util.*;
-import java.util.Map;
+import org.openapitools.client.model.SearchResultHits;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * A search result object, containing the total number of hits for the given query, and the hits themselves.
- **/
-@ApiModel(description = "A search result object, containing the total number of hits for the given query, and the hits themselves.")
+@ApiModel(description = "")
 public class SearchResult {
   
   @SerializedName("numHits")
   private Integer numHits = null;
   @SerializedName("hits")
-  private Map<String, String> hits = null;
+  private List<SearchResultHits> hits = null;
 
   /**
    **/
@@ -41,10 +38,10 @@ public class SearchResult {
   /**
    **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getHits() {
+  public List<SearchResultHits> getHits() {
     return hits;
   }
-  public void setHits(Map<String, String> hits) {
+  public void setHits(List<SearchResultHits> hits) {
     this.hits = hits;
   }
 

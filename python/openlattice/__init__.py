@@ -115,6 +115,7 @@ from openlattice.models.search import Search
 from openlattice.models.search_constraints import SearchConstraints
 from openlattice.models.search_details import SearchDetails
 from openlattice.models.search_result import SearchResult
+from openlattice.models.search_result_hits import SearchResultHits
 from openlattice.models.search_term import SearchTerm
 from openlattice.models.securable_principal import SecurablePrincipal
 from openlattice.models.sms_entity_set_information import SmsEntitySetInformation

@@ -63,9 +63,6 @@ class Role {
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('@class')) {
-                obj['@class'] = ApiClient.convertToType(data['@class'], 'String');
-            }
         }
         return obj;
     }
@@ -98,28 +95,8 @@ Role.prototype['title'] = undefined;
  */
 Role.prototype['description'] = undefined;
 
-/**
- * @member {module:model/Role.ClassEnum} @class
- */
-Role.prototype['@class'] = undefined;
 
 
-
-
-
-/**
- * Allowed values for the <code>@class</code> property.
- * @enum {String}
- * @readonly
- */
-Role['ClassEnum'] = {
-
-    /**
-     * value: "com.openlattice.organization.roles.Role"
-     * @const
-     */
-    "com.openlattice.organization.roles.Role": "com.openlattice.organization.roles.Role"
-};
 
 
 

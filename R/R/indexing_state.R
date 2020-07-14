@@ -8,12 +8,9 @@
 
 #' @docType class
 #' @title IndexingState
-#'
 #' @description IndexingState Class
-#'
 #' @format An \code{R6Class} generator object
-#'
-#' @field indexing  named list( array[character] ) [optional]
+#' @field indexing  named list( \link{array[character]} ) [optional]
 #'
 #' @field queue  list( character ) [optional]
 #'
@@ -22,6 +19,7 @@
 #' @field queueSize  integer [optional]
 #'
 #' @field count  integer [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -34,13 +32,11 @@ IndexingState <- R6::R6Class(
     `currentEntitySet` = NULL,
     `queueSize` = NULL,
     `count` = NULL,
-    initialize = function(
-        `indexing`=NULL, `queue`=NULL, `currentEntitySet`=NULL, `queueSize`=NULL, `count`=NULL, ...
-    ) {
+    initialize = function(`indexing`=NULL, `queue`=NULL, `currentEntitySet`=NULL, `queueSize`=NULL, `count`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`indexing`)) {
         stopifnot(is.vector(`indexing`))
-        sapply(`indexing`, function(x) stopifnot(is.character(x)))
+        sapply(`indexing`, function(x) stopifnot(R6::is.R6(x)))
         self$`indexing` <- `indexing`
       }
       if (!is.null(`queue`)) {
@@ -65,7 +61,7 @@ IndexingState <- R6::R6Class(
       IndexingStateObject <- list()
       if (!is.null(self$`indexing`)) {
         IndexingStateObject[['indexing']] <-
-          self$`indexing`
+          lapply(self$`indexing`, function(x) x$toJSON())
       }
       if (!is.null(self$`queue`)) {
         IndexingStateObject[['queue']] <-
@@ -103,16 +99,15 @@ IndexingState <- R6::R6Class(
       if (!is.null(IndexingStateObject$`count`)) {
         self$`count` <- IndexingStateObject$`count`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`indexing`)) {
         sprintf(
         '"indexing":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`indexing`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`indexing`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`queue`)) {
         sprintf(
@@ -157,4 +152,3 @@ IndexingState <- R6::R6Class(
     }
   )
 )
-

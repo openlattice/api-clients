@@ -30,9 +30,9 @@ type CollectionsApiService service
 AddTypeToEntityTypeCollectionTemplate Appends type to template of the specified EntityTypeCollection
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param entityTypeCollectionId
- * @param entityTypeCollection
+ * @param collectionTemplateType
 */
-func (a *CollectionsApiService) AddTypeToEntityTypeCollectionTemplate(ctx _context.Context, entityTypeCollectionId string, entityTypeCollection EntityTypeCollection) (*_nethttp.Response, error) {
+func (a *CollectionsApiService) AddTypeToEntityTypeCollectionTemplate(ctx _context.Context, entityTypeCollectionId string, collectionTemplateType CollectionTemplateType) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -43,7 +43,7 @@ func (a *CollectionsApiService) AddTypeToEntityTypeCollectionTemplate(ctx _conte
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/type/{entityTypeCollectionId}/template"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeCollectionId"+"}", _neturl.QueryEscape(parameterToString(entityTypeCollectionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeCollectionId"+"}", _neturl.PathEscape(parameterToString(entityTypeCollectionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -67,7 +67,7 @@ func (a *CollectionsApiService) AddTypeToEntityTypeCollectionTemplate(ctx _conte
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = &entityTypeCollection
+	localVarPostBody = &collectionTemplateType
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -181,15 +181,6 @@ func (a *CollectionsApiService) CreateEntitySetCollection(ctx _context.Context, 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -279,15 +270,6 @@ func (a *CollectionsApiService) CreateEntityTypeCollection(ctx _context.Context,
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -319,7 +301,7 @@ func (a *CollectionsApiService) DeleteEntitySetCollection(ctx _context.Context, 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/set/{entitySetCollectionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetCollectionId"+"}", _neturl.QueryEscape(parameterToString(entitySetCollectionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetCollectionId"+"}", _neturl.PathEscape(parameterToString(entitySetCollectionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -397,7 +379,7 @@ func (a *CollectionsApiService) DeleteEntityTypeCollection(ctx _context.Context,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/type/{entityTypeCollectionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeCollectionId"+"}", _neturl.QueryEscape(parameterToString(entityTypeCollectionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeCollectionId"+"}", _neturl.PathEscape(parameterToString(entityTypeCollectionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -530,15 +512,6 @@ func (a *CollectionsApiService) GetAllEntitySetCollections(ctx _context.Context)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []EntitySetCollection
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -625,15 +598,6 @@ func (a *CollectionsApiService) GetAllEntityTypeCollections(ctx _context.Context
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []EntityTypeCollection
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -667,7 +631,7 @@ func (a *CollectionsApiService) GetEntitySetCollection(ctx _context.Context, ent
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/set/{entitySetCollectionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetCollectionId"+"}", _neturl.QueryEscape(parameterToString(entitySetCollectionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetCollectionId"+"}", _neturl.PathEscape(parameterToString(entitySetCollectionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -722,15 +686,6 @@ func (a *CollectionsApiService) GetEntitySetCollection(ctx _context.Context, ent
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v EntitySetCollection
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -764,8 +719,8 @@ func (a *CollectionsApiService) GetEntitySetCollectionsOfType(ctx _context.Conte
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/type/entity/set/{entitySetCollectionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetCollectionId"+"}", _neturl.QueryEscape(parameterToString(entitySetCollectionId, "")) , -1)
+	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/set/entity/type/{entitySetCollectionId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetCollectionId"+"}", _neturl.PathEscape(parameterToString(entitySetCollectionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -820,15 +775,6 @@ func (a *CollectionsApiService) GetEntitySetCollectionsOfType(ctx _context.Conte
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []EntitySetCollection
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -863,7 +809,7 @@ func (a *CollectionsApiService) GetEntityTypeCollection(ctx _context.Context, en
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/type/{entityTypeCollectionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeCollectionId"+"}", _neturl.QueryEscape(parameterToString(entityTypeCollectionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeCollectionId"+"}", _neturl.PathEscape(parameterToString(entityTypeCollectionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -919,15 +865,6 @@ func (a *CollectionsApiService) GetEntityTypeCollection(ctx _context.Context, en
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v EntityTypeCollection
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -960,9 +897,9 @@ func (a *CollectionsApiService) RemoveTypeFromEntityTypeCollectionTemplate(ctx _
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/type/{entityTypeCollectionId}/template/{typeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeCollectionId"+"}", _neturl.QueryEscape(parameterToString(entityTypeCollectionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeCollectionId"+"}", _neturl.PathEscape(parameterToString(entityTypeCollectionId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"typeId"+"}", _neturl.QueryEscape(parameterToString(typeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"typeId"+"}", _neturl.PathEscape(parameterToString(typeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1041,7 +978,7 @@ func (a *CollectionsApiService) UpdateEntitySetCollectionMetadata(ctx _context.C
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/set/{entitySetCollectionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetCollectionId"+"}", _neturl.QueryEscape(parameterToString(entitySetCollectionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetCollectionId"+"}", _neturl.PathEscape(parameterToString(entitySetCollectionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1122,7 +1059,7 @@ func (a *CollectionsApiService) UpdateEntitySetCollectionTemplate(ctx _context.C
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/set/{entitySetCollectionId}/template"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetCollectionId"+"}", _neturl.QueryEscape(parameterToString(entitySetCollectionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetCollectionId"+"}", _neturl.PathEscape(parameterToString(entitySetCollectionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1203,7 +1140,7 @@ func (a *CollectionsApiService) UpdateEntityTypeCollectionMetadata(ctx _context.
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/collections/entity/type/{entityTypeCollectionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeCollectionId"+"}", _neturl.QueryEscape(parameterToString(entityTypeCollectionId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeCollectionId"+"}", _neturl.PathEscape(parameterToString(entityTypeCollectionId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

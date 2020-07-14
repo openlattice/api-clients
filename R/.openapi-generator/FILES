@@ -91,6 +91,7 @@ R/search_api.R
 R/search_constraints.R
 R/search_details.R
 R/search_result.R
+R/search_result_hits.R
 R/search_term.R
 R/securable_principal.R
 R/shuttle_api.R
@@ -182,6 +183,7 @@ docs/SearchApi.md
 docs/SearchConstraints.md
 docs/SearchDetails.md
 docs/SearchResult.md
+docs/SearchResultHits.md
 docs/SearchTerm.md
 docs/SecurablePrincipal.md
 docs/ShuttleApi.md
@@ -274,6 +276,7 @@ tests/testthat/test_search_api.R
 tests/testthat/test_search_constraints.R
 tests/testthat/test_search_details.R
 tests/testthat/test_search_result.R
+tests/testthat/test_search_result_hits.R
 tests/testthat/test_search_term.R
 tests/testthat/test_securable_principal.R
 tests/testthat/test_shuttle_api.R

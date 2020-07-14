@@ -97,15 +97,6 @@ func (a *PrincipalApiService) GetAllUsers(ctx _context.Context) (map[string]Auth
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]Auth0userBasic
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -191,15 +182,6 @@ func (a *PrincipalApiService) GetCurrentRoles(ctx _context.Context) ([]Securable
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []SecurablePrincipal
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -287,15 +269,6 @@ func (a *PrincipalApiService) GetMaterializedViewAccount(ctx _context.Context) (
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v MaterializedViewAccount
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -329,7 +302,7 @@ func (a *PrincipalApiService) GetUser(ctx _context.Context, userId string) (Auth
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/principals/users/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.QueryEscape(parameterToString(userId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(userId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -384,15 +357,6 @@ func (a *PrincipalApiService) GetUser(ctx _context.Context, userId string) (Auth
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Auth0userBasic
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -427,7 +391,7 @@ func (a *PrincipalApiService) SearchAllUsers(ctx _context.Context, searchQuery s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/principals/users/search/"{searchQuery}""
-	localVarPath = strings.Replace(localVarPath, "{"+"searchQuery"+"}", _neturl.QueryEscape(parameterToString(searchQuery, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"searchQuery"+"}", _neturl.PathEscape(parameterToString(searchQuery, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -482,15 +446,6 @@ func (a *PrincipalApiService) SearchAllUsers(ctx _context.Context, searchQuery s
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]Auth0userBasic
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -525,7 +480,7 @@ func (a *PrincipalApiService) SearchAllUsersByEmail(ctx _context.Context, emailA
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/principals/users/search/email/"{emailAddress}""
-	localVarPath = strings.Replace(localVarPath, "{"+"emailAddress"+"}", _neturl.QueryEscape(parameterToString(emailAddress, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"emailAddress"+"}", _neturl.PathEscape(parameterToString(emailAddress, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -580,15 +535,6 @@ func (a *PrincipalApiService) SearchAllUsersByEmail(ctx _context.Context, emailA
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]Auth0userBasic
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

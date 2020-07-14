@@ -8,11 +8,8 @@
 
 #' @docType class
 #' @title SearchConstraints
-#'
 #' @description SearchConstraints Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field entitySetIds  list( character ) [optional]
 #'
 #' @field start  integer [optional]
@@ -22,6 +19,7 @@
 #' @field constraints  list( \link{ConstraintGroup} ) [optional]
 #'
 #' @field sort  \link{SortDefinition} [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -34,9 +32,7 @@ SearchConstraints <- R6::R6Class(
     `maxHits` = NULL,
     `constraints` = NULL,
     `sort` = NULL,
-    initialize = function(
-        `entitySetIds`=NULL, `start`=NULL, `maxHits`=NULL, `constraints`=NULL, `sort`=NULL, ...
-    ) {
+    initialize = function(`entitySetIds`=NULL, `start`=NULL, `maxHits`=NULL, `constraints`=NULL, `sort`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`entitySetIds`)) {
         stopifnot(is.vector(`entitySetIds`))
@@ -105,7 +101,6 @@ SearchConstraints <- R6::R6Class(
         sortObject$fromJSON(jsonlite::toJSON(SearchConstraintsObject$sort, auto_unbox = TRUE, digits = NA))
         self$`sort` <- sortObject
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -159,4 +154,3 @@ SearchConstraints <- R6::R6Class(
     }
   )
 )
-

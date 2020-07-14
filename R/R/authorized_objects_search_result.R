@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title AuthorizedObjectsSearchResult
-#'
 #' @description AuthorizedObjectsSearchResult Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field pagingToken  character [optional]
 #'
-#' @field authorizedObjects  list( array[character] ) [optional]
+#' @field authorizedObjects  list( \link{array[character]} ) [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
   public = list(
     `pagingToken` = NULL,
     `authorizedObjects` = NULL,
-    initialize = function(
-        `pagingToken`=NULL, `authorizedObjects`=NULL, ...
-    ) {
+    initialize = function(`pagingToken`=NULL, `authorizedObjects`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`pagingToken`)) {
         stopifnot(is.character(`pagingToken`), length(`pagingToken`) == 1)
@@ -35,7 +31,7 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
       }
       if (!is.null(`authorizedObjects`)) {
         stopifnot(is.vector(`authorizedObjects`))
-        sapply(`authorizedObjects`, function(x) stopifnot(is.character(x)))
+        sapply(`authorizedObjects`, function(x) stopifnot(R6::is.R6(x)))
         self$`authorizedObjects` <- `authorizedObjects`
       }
     },
@@ -47,7 +43,7 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
       }
       if (!is.null(self$`authorizedObjects`)) {
         AuthorizedObjectsSearchResultObject[['authorizedObjects']] <-
-          self$`authorizedObjects`
+          lapply(self$`authorizedObjects`, function(x) x$toJSON())
       }
 
       AuthorizedObjectsSearchResultObject
@@ -60,7 +56,6 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
       if (!is.null(AuthorizedObjectsSearchResultObject$`authorizedObjects`)) {
         self$`authorizedObjects` <- ApiClient$new()$deserializeObj(AuthorizedObjectsSearchResultObject$`authorizedObjects`, "array[array[character]]", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -74,9 +69,9 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
         if (!is.null(self$`authorizedObjects`)) {
         sprintf(
         '"authorizedObjects":
-           [%s]
-        ',
-        paste(unlist(lapply(self$`authorizedObjects`, function(x) paste0('"', x, '"'))), collapse=",")
+        [%s]
+',
+        paste(sapply(self$`authorizedObjects`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -90,4 +85,3 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
     }
   )
 )
-

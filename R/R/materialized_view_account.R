@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title MaterializedViewAccount
-#'
 #' @description MaterializedViewAccount Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field username  character [optional]
 #'
 #' @field credential  character [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ MaterializedViewAccount <- R6::R6Class(
   public = list(
     `username` = NULL,
     `credential` = NULL,
-    initialize = function(
-        `username`=NULL, `credential`=NULL, ...
-    ) {
+    initialize = function(`username`=NULL, `credential`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`username`)) {
         stopifnot(is.character(`username`), length(`username`) == 1)
@@ -59,7 +55,6 @@ MaterializedViewAccount <- R6::R6Class(
       if (!is.null(MaterializedViewAccountObject$`credential`)) {
         self$`credential` <- MaterializedViewAccountObject$`credential`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -89,4 +84,3 @@ MaterializedViewAccount <- R6::R6Class(
     }
   )
 )
-

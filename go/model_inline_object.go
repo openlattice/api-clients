@@ -11,5 +11,5 @@
 package openlattice
 // InlineObject Set of associations to create. Keys are association entity set ids and values for each keys are the data to be created. AssociationEntityId's are not generated based on the key.
 type InlineObject struct {
-	AdditionalProperties []DataEdge `json:"additionalProperties,omitempty"`
+	AdditionalPropertiesField []DataEdge `json:"additionalProperties,omitempty"`
 }

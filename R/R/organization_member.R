@@ -8,16 +8,14 @@
 
 #' @docType class
 #' @title OrganizationMember
-#'
 #' @description OrganizationMember Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field principal  \link{SecurablePrincipal} [optional]
 #'
 #' @field profile  \link{Auth0userBasic} [optional]
 #'
 #' @field roles  list( \link{SecurablePrincipal} ) [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -28,9 +26,7 @@ OrganizationMember <- R6::R6Class(
     `principal` = NULL,
     `profile` = NULL,
     `roles` = NULL,
-    initialize = function(
-        `principal`=NULL, `profile`=NULL, `roles`=NULL, ...
-    ) {
+    initialize = function(`principal`=NULL, `profile`=NULL, `roles`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`principal`)) {
         stopifnot(R6::is.R6(`principal`))
@@ -78,7 +74,6 @@ OrganizationMember <- R6::R6Class(
       if (!is.null(OrganizationMemberObject$`roles`)) {
         self$`roles` <- ApiClient$new()$deserializeObj(OrganizationMemberObject$`roles`, "array[SecurablePrincipal]", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -116,4 +111,3 @@ OrganizationMember <- R6::R6Class(
     }
   )
 )
-

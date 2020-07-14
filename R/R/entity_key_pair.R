@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title EntityKeyPair
-#'
 #' @description EntityKeyPair Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field first  character [optional]
 #'
 #' @field second  character [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ EntityKeyPair <- R6::R6Class(
   public = list(
     `first` = NULL,
     `second` = NULL,
-    initialize = function(
-        `first`=NULL, `second`=NULL, ...
-    ) {
+    initialize = function(`first`=NULL, `second`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`first`)) {
         stopifnot(is.character(`first`), length(`first`) == 1)
@@ -59,7 +55,6 @@ EntityKeyPair <- R6::R6Class(
       if (!is.null(EntityKeyPairObject$`second`)) {
         self$`second` <- EntityKeyPairObject$`second`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -89,4 +84,3 @@ EntityKeyPair <- R6::R6Class(
     }
   )
 )
-

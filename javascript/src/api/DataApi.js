@@ -410,7 +410,7 @@ export default class DataApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/datastore/data/{entitySetId}/{entityKeyId}', 'DELETE',
+        '/datastore/data/set/{entitySetId}/{entityKeyId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

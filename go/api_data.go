@@ -100,15 +100,6 @@ func (a *DataApiService) CreateAssociations(ctx _context.Context, inlineObject I
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string][]string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -197,15 +188,6 @@ func (a *DataApiService) CreateEdges(ctx _context.Context, dataEdgeKey []DataEdg
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -298,15 +280,6 @@ func (a *DataApiService) CreateEntities(ctx _context.Context, setId string, requ
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -396,15 +369,6 @@ func (a *DataApiService) CreateEntityAndAssociationData(ctx _context.Context, da
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v DataGraphIds
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -437,7 +401,7 @@ func (a *DataApiService) DeleteAllEntitiesFromEntitySet(ctx _context.Context, en
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/set/{entitySetId}/all"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -520,7 +484,7 @@ func (a *DataApiService) DeleteEntities(ctx _context.Context, entitySetId string
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/set/{entitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -579,15 +543,6 @@ func (a *DataApiService) DeleteEntities(ctx _context.Context, entitySetId string
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -623,7 +578,7 @@ func (a *DataApiService) DeleteEntitiesAndNeighbors(ctx _context.Context, entity
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/set/{entitySetId}/neighbors"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -682,15 +637,6 @@ func (a *DataApiService) DeleteEntitiesAndNeighbors(ctx _context.Context, entity
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -723,10 +669,10 @@ func (a *DataApiService) DeleteEntity(ctx _context.Context, entitySetId string, 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/datastore/data/{entitySetId}/{entityKeyId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath := a.client.cfg.BasePath + "/datastore/data/set/{entitySetId}/{entityKeyId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entityKeyId"+"}", _neturl.QueryEscape(parameterToString(entityKeyId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityKeyId"+"}", _neturl.PathEscape(parameterToString(entityKeyId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -808,9 +754,9 @@ func (a *DataApiService) DeleteEntityProperties(ctx _context.Context, entitySetI
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/{entitySetId}/{entityKeyId}/properties"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entityKeyId"+"}", _neturl.QueryEscape(parameterToString(entityKeyId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityKeyId"+"}", _neturl.PathEscape(parameterToString(entityKeyId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -894,9 +840,9 @@ func (a *DataApiService) GetEntity(ctx _context.Context, entitySetId string, ent
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/{entitySetId}/{entityKeyId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entityKeyId"+"}", _neturl.QueryEscape(parameterToString(entityKeyId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityKeyId"+"}", _neturl.PathEscape(parameterToString(entityKeyId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -951,15 +897,6 @@ func (a *DataApiService) GetEntity(ctx _context.Context, entitySetId string, ent
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string][]string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -996,11 +933,11 @@ func (a *DataApiService) GetEntityPropertyValues(ctx _context.Context, entitySet
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entityKeyId"+"}", _neturl.QueryEscape(parameterToString(entityKeyId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityKeyId"+"}", _neturl.PathEscape(parameterToString(entityKeyId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1055,15 +992,6 @@ func (a *DataApiService) GetEntityPropertyValues(ctx _context.Context, entitySet
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1098,7 +1026,7 @@ func (a *DataApiService) GetEntitySetSize(ctx _context.Context, entitySetId stri
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/{entitySetId}/count"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1153,15 +1081,6 @@ func (a *DataApiService) GetEntitySetSize(ctx _context.Context, entitySetId stri
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1196,7 +1115,7 @@ func (a *DataApiService) LoadEntitySetData(ctx _context.Context, entitySetId str
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/set/{entitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1251,15 +1170,6 @@ func (a *DataApiService) LoadEntitySetData(ctx _context.Context, entitySetId str
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string][]string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1295,7 +1205,7 @@ func (a *DataApiService) LoadLinkedEntitySetBreakdown(ctx _context.Context, link
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/set/{linkedEntitySetId}/detailed"
-	localVarPath = strings.Replace(localVarPath, "{"+"linkedEntitySetId"+"}", _neturl.QueryEscape(parameterToString(linkedEntitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"linkedEntitySetId"+"}", _neturl.PathEscape(parameterToString(linkedEntitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1352,15 +1262,6 @@ func (a *DataApiService) LoadLinkedEntitySetBreakdown(ctx _context.Context, link
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]map[string]map[string]map[string][]string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1396,7 +1297,7 @@ func (a *DataApiService) LoadSelectedEntitySetData(ctx _context.Context, entityS
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/set/{entitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1453,15 +1354,6 @@ func (a *DataApiService) LoadSelectedEntitySetData(ctx _context.Context, entityS
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string][]string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1554,15 +1446,6 @@ func (a *DataApiService) ReplaceAssociationData(ctx _context.Context, partial bo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1597,7 +1480,7 @@ func (a *DataApiService) ReplaceEntityProperties(ctx _context.Context, entitySet
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/set/{entitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1655,15 +1538,6 @@ func (a *DataApiService) ReplaceEntityProperties(ctx _context.Context, entitySet
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1699,7 +1573,7 @@ func (a *DataApiService) UpdateEntitiesInEntitySet(ctx _context.Context, entityS
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/data/set/{entitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1757,15 +1631,6 @@ func (a *DataApiService) UpdateEntitiesInEntitySet(ctx _context.Context, entityS
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title InlineResponse200
-#'
 #' @description InlineResponse200 Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field user  character [optional]
 #'
 #' @field credential  character [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ InlineResponse200 <- R6::R6Class(
   public = list(
     `user` = NULL,
     `credential` = NULL,
-    initialize = function(
-        `user`=NULL, `credential`=NULL, ...
-    ) {
+    initialize = function(`user`=NULL, `credential`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`user`)) {
         stopifnot(is.character(`user`), length(`user`) == 1)
@@ -59,7 +55,6 @@ InlineResponse200 <- R6::R6Class(
       if (!is.null(InlineResponse200Object$`credential`)) {
         self$`credential` <- InlineResponse200Object$`credential`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -89,4 +84,3 @@ InlineResponse200 <- R6::R6Class(
     }
   )
 )
-

@@ -125,7 +125,7 @@
 #' ####################  reindex  ####################
 #'
 #' library(openlattice)
-#' var.request_body <- NULL # list(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
+#' var.request_body <- {'key' => array$new()} # list(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
 #'
 #' #Merge job descriptions for performing a partial or full reindex of provided entity sets.
 #' api.instance <- AdminApi$new()
@@ -145,7 +145,7 @@
 #' ####################  update_reindex  ####################
 #'
 #' library(openlattice)
-#' var.request_body <- NULL # list(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
+#' var.request_body <- {'key' => array$new()} # list(array[character]) | A map of entity set ids to entity key ids that determines what will be reindexed. If no entity key ids are provided then all entities in an entity set are reindexed. If no entity set ids are provided then all entity sets are scheduled for reindexing.
 #'
 #' #Replaces job descriptions for performing a partial or full reindex of provided entity sets.
 #' api.instance <- AdminApi$new()

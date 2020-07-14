@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title Acl
-#'
 #' @description Acl Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field aclKey  list( character ) [optional]
 #'
 #' @field aces  list( \link{Ace} ) [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ Acl <- R6::R6Class(
   public = list(
     `aclKey` = NULL,
     `aces` = NULL,
-    initialize = function(
-        `aclKey`=NULL, `aces`=NULL, ...
-    ) {
+    initialize = function(`aclKey`=NULL, `aces`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`aclKey`)) {
         stopifnot(is.vector(`aclKey`))
@@ -61,7 +57,6 @@ Acl <- R6::R6Class(
       if (!is.null(AclObject$`aces`)) {
         self$`aces` <- ApiClient$new()$deserializeObj(AclObject$`aces`, "array[Ace]", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -91,4 +86,3 @@ Acl <- R6::R6Class(
     }
   )
 )
-

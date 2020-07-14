@@ -17,4 +17,12 @@ type DataAssociation struct {
 	SrcEntityIndex string `json:"srcEntityIndex,omitempty"`
 	// An existing entityKeyId
 	SrcEntityKeyId string `json:"srcEntityKeyId,omitempty"`
+	// the ID of the dst entity set
+	DstEntitySetId string `json:"dstEntitySetId,omitempty"`
+	// The index of an entity
+	DstEntityIndex string `json:"dstEntityIndex,omitempty"`
+	// An existing entityKeyId
+	DstEntityKeyId string `json:"dstEntityKeyId,omitempty"`
+	// data
+	Data map[string][]string `json:"data,omitempty"`
 }

@@ -8,20 +8,18 @@
 
 #' @docType class
 #' @title SortDefinition
-#'
 #' @description SortDefinition Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field type  character [optional]
 #'
-#' @field isDescending  character [optional]
+#' @field descending  character [optional]
 #'
 #' @field propertyTypeId  character [optional]
 #'
 #' @field latitude  numeric [optional]
 #'
 #' @field longitude  numeric [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -30,20 +28,18 @@ SortDefinition <- R6::R6Class(
   'SortDefinition',
   public = list(
     `type` = NULL,
-    `isDescending` = NULL,
+    `descending` = NULL,
     `propertyTypeId` = NULL,
     `latitude` = NULL,
     `longitude` = NULL,
-    initialize = function(
-        `type`=NULL, `isDescending`=NULL, `propertyTypeId`=NULL, `latitude`=NULL, `longitude`=NULL, ...
-    ) {
+    initialize = function(`type`=NULL, `descending`=NULL, `propertyTypeId`=NULL, `latitude`=NULL, `longitude`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`type`)) {
         stopifnot(is.character(`type`), length(`type`) == 1)
         self$`type` <- `type`
       }
-      if (!is.null(`isDescending`)) {
-        self$`isDescending` <- `isDescending`
+      if (!is.null(`descending`)) {
+        self$`descending` <- `descending`
       }
       if (!is.null(`propertyTypeId`)) {
         stopifnot(is.character(`propertyTypeId`), length(`propertyTypeId`) == 1)
@@ -62,9 +58,9 @@ SortDefinition <- R6::R6Class(
         SortDefinitionObject[['type']] <-
           self$`type`
       }
-      if (!is.null(self$`isDescending`)) {
-        SortDefinitionObject[['isDescending']] <-
-          self$`isDescending`
+      if (!is.null(self$`descending`)) {
+        SortDefinitionObject[['descending']] <-
+          self$`descending`
       }
       if (!is.null(self$`propertyTypeId`)) {
         SortDefinitionObject[['propertyTypeId']] <-
@@ -86,8 +82,8 @@ SortDefinition <- R6::R6Class(
       if (!is.null(SortDefinitionObject$`type`)) {
         self$`type` <- SortDefinitionObject$`type`
       }
-      if (!is.null(SortDefinitionObject$`isDescending`)) {
-        self$`isDescending` <- SortDefinitionObject$`isDescending`
+      if (!is.null(SortDefinitionObject$`descending`)) {
+        self$`descending` <- SortDefinitionObject$`descending`
       }
       if (!is.null(SortDefinitionObject$`propertyTypeId`)) {
         self$`propertyTypeId` <- SortDefinitionObject$`propertyTypeId`
@@ -98,7 +94,6 @@ SortDefinition <- R6::R6Class(
       if (!is.null(SortDefinitionObject$`longitude`)) {
         self$`longitude` <- SortDefinitionObject$`longitude`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -109,12 +104,12 @@ SortDefinition <- R6::R6Class(
                 ',
         self$`type`
         )},
-        if (!is.null(self$`isDescending`)) {
+        if (!is.null(self$`descending`)) {
         sprintf(
-        '"isDescending":
+        '"descending":
           "%s"
                 ',
-        self$`isDescending`
+        self$`descending`
         )},
         if (!is.null(self$`propertyTypeId`)) {
         sprintf(
@@ -144,7 +139,7 @@ SortDefinition <- R6::R6Class(
     fromJSONString = function(SortDefinitionJson) {
       SortDefinitionObject <- jsonlite::fromJSON(SortDefinitionJson)
       self$`type` <- SortDefinitionObject$`type`
-      self$`isDescending` <- SortDefinitionObject$`isDescending`
+      self$`descending` <- SortDefinitionObject$`descending`
       self$`propertyTypeId` <- SortDefinitionObject$`propertyTypeId`
       self$`latitude` <- SortDefinitionObject$`latitude`
       self$`longitude` <- SortDefinitionObject$`longitude`
@@ -152,4 +147,3 @@ SortDefinition <- R6::R6Class(
     }
   )
 )
-

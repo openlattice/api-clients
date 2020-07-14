@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title EntityDataKey
-#'
 #' @description EntityDataKey Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field entitySetId  character [optional]
 #'
 #' @field entityKeyId  character [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ EntityDataKey <- R6::R6Class(
   public = list(
     `entitySetId` = NULL,
     `entityKeyId` = NULL,
-    initialize = function(
-        `entitySetId`=NULL, `entityKeyId`=NULL, ...
-    ) {
+    initialize = function(`entitySetId`=NULL, `entityKeyId`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`entitySetId`)) {
         stopifnot(is.character(`entitySetId`), length(`entitySetId`) == 1)
@@ -59,7 +55,6 @@ EntityDataKey <- R6::R6Class(
       if (!is.null(EntityDataKeyObject$`entityKeyId`)) {
         self$`entityKeyId` <- EntityDataKeyObject$`entityKeyId`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -89,4 +84,3 @@ EntityDataKey <- R6::R6Class(
     }
   )
 )
-

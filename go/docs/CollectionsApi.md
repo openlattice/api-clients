@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**GetAllEntitySetCollections**](CollectionsApi.md#GetAllEntitySetCollections) | **Get** /datastore/collections/entity/set | Returns all EntitySetCollection objects
 [**GetAllEntityTypeCollections**](CollectionsApi.md#GetAllEntityTypeCollections) | **Get** /datastore/collections/entity/type | Returns all EntityTypeCollection objects
 [**GetEntitySetCollection**](CollectionsApi.md#GetEntitySetCollection) | **Get** /datastore/collections/entity/set/{entitySetCollectionId} | Returns the EntitySetCollection object for a given id
-[**GetEntitySetCollectionsOfType**](CollectionsApi.md#GetEntitySetCollectionsOfType) | **Get** /datastore/collections/entity/type/entity/set/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
+[**GetEntitySetCollectionsOfType**](CollectionsApi.md#GetEntitySetCollectionsOfType) | **Get** /datastore/collections/entity/set/entity/type/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
 [**GetEntityTypeCollection**](CollectionsApi.md#GetEntityTypeCollection) | **Get** /datastore/collections/entity/type/{entityTypeCollectionId} | Returns the EntityTypeCollection object for a given id
 [**RemoveTypeFromEntityTypeCollectionTemplate**](CollectionsApi.md#RemoveTypeFromEntityTypeCollectionTemplate) | **Delete** /datastore/collections/entity/type/{entityTypeCollectionId}/template/{typeId} | Removes a key from an EntityTypeCollection template
 [**UpdateEntitySetCollectionMetadata**](CollectionsApi.md#UpdateEntitySetCollectionMetadata) | **Patch** /datastore/collections/entity/set/{entitySetCollectionId} | Updates metadata of the specified EntitySetCollection
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## AddTypeToEntityTypeCollectionTemplate
 
-> AddTypeToEntityTypeCollectionTemplate(ctx, entityTypeCollectionId, entityTypeCollection)
+> AddTypeToEntityTypeCollectionTemplate(ctx, entityTypeCollectionId, collectionTemplateType)
 
 Appends type to template of the specified EntityTypeCollection
 
@@ -34,7 +34,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **entityTypeCollectionId** | [**string**](.md)|  | 
-**entityTypeCollection** | [**EntityTypeCollection**](EntityTypeCollection.md)|  | 
+**collectionTemplateType** | [**CollectionTemplateType**](CollectionTemplateType.md)|  | 
 
 ### Return type
 

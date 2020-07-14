@@ -9,8 +9,8 @@
  */
 
 package openlattice
-// SearchResult A search result object, containing the total number of hits for the given query, and the hits themselves.
+// SearchResult struct for SearchResult
 type SearchResult struct {
 	NumHits int32 `json:"numHits,omitempty"`
-	Hits map[string]string `json:"hits,omitempty"`
+	Hits []SearchResultHits `json:"hits,omitempty"`
 }

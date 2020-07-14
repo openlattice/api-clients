@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**environment** | **str** | the retrofit environment (e.g. production, local) | [optional] 
+**environment** | **str** | the retrofit environment (e.g. PROD_INTEGRATION, LOCAL) | [optional] 
 **s3_bucket** | **str** | the url of the s3bucket to be used | [optional] 
 **contacts** | **list[str]** | the set of email addresses of those responsible for the integration | [optional] 
 **organization_id** | **str** | the id of the organization that owns the integration | [optional] 

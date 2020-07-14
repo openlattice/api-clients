@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**delete_all_entities_from_entity_set**](DataApi.md#delete_all_entities_from_entity_set) | **DELETE** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
 [**delete_entities**](DataApi.md#delete_entities) | **DELETE** /datastore/data/set/{entitySetId} | Deletes multiple entities from an entity set.
 [**delete_entities_and_neighbors**](DataApi.md#delete_entities_and_neighbors) | **POST** /datastore/data/set/{entitySetId}/neighbors | Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
-[**delete_entity**](DataApi.md#delete_entity) | **DELETE** /datastore/data/{entitySetId}/{entityKeyId} | Deletes a single entity from an entity set.
+[**delete_entity**](DataApi.md#delete_entity) | **DELETE** /datastore/data/set/{entitySetId}/{entityKeyId} | Deletes a single entity from an entity set.
 [**delete_entity_properties**](DataApi.md#delete_entity_properties) | **DELETE** /datastore/data/{entitySetId}/{entityKeyId}/properties | Deletes properties from an entity.
 [**get_entity**](DataApi.md#get_entity) | **GET** /datastore/data/{entitySetId}/{entityKeyId} | Loads a single entity by its entityKeyId and entitySetId
 [**get_entity_property_values**](DataApi.md#get_entity_property_values) | **GET** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list(array[character])**
+[**list(array[character])**](array.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **set_id** | [**character**](.md)|  | 
- **request_body** | list( **list(array[character])** )|  | 
+ **request_body** | list( [**list(array[character])**](list.md) )|  | 
 
 ### Return type
 
@@ -318,7 +318,7 @@ library(openlattice)
 
 var.entity_set_id <- 'entity_set_id_example' # character | 
 var.type <- 'type_example' # character | 
-var.entity_neighbors_filter <- list(EntityNeighborsFilter$new(list("entityKeyIds_example"), list("srcEntitySetIds_example"), list("dstEntitySetIds_example"), list("associationEntitySetIds_example"))) # array[EntityNeighborsFilter] | 
+var.entity_neighbors_filter <- list(EntityNeighborsFilter$new(list("entityKeyIds_example"), list("src_example"), list("dst_example"), list("edge_example"))) # array[EntityNeighborsFilter] | 
 
 #Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
 api.instance <- DataApi$new()
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list(array[character])**
+[**list(array[character])**](array.md)
 
 ### Authorization
 
@@ -705,7 +705,7 @@ Gets a list of entities by UUIDs
 library(openlattice)
 
 var.entity_set_id <- 'entity_set_id_example' # character | 
-var.entity_set_selection <- EntitySetSelection$new(list("ids_example"), list("properties_example")) # EntitySetSelection | 
+var.entity_set_selection <- list(EntitySetSelection$new(list("ids_example"), list("properties_example"))) # array[EntitySetSelection] | 
 
 #Gets a list of entities by UUIDs
 api.instance <- DataApi$new()
@@ -723,7 +723,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entity_set_id** | [**character**](.md)|  | 
- **entity_set_selection** | [**EntitySetSelection**](EntitySetSelection.md)|  | 
+ **entity_set_selection** | list( [**EntitySetSelection**](EntitySetSelection.md) )|  | 
 
 ### Return type
 
