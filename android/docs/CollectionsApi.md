@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**getAllEntitySetCollections**](CollectionsApi.md#getAllEntitySetCollections) | **GET** /datastore/collections/entity/set | Returns all EntitySetCollection objects
 [**getAllEntityTypeCollections**](CollectionsApi.md#getAllEntityTypeCollections) | **GET** /datastore/collections/entity/type | Returns all EntityTypeCollection objects
 [**getEntitySetCollection**](CollectionsApi.md#getEntitySetCollection) | **GET** /datastore/collections/entity/set/{entitySetCollectionId} | Returns the EntitySetCollection object for a given id
-[**getEntitySetCollectionsOfType**](CollectionsApi.md#getEntitySetCollectionsOfType) | **GET** /datastore/collections/entity/type/entity/set/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
+[**getEntitySetCollectionsOfType**](CollectionsApi.md#getEntitySetCollectionsOfType) | **GET** /datastore/collections/entity/set/entity/type/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
 [**getEntityTypeCollection**](CollectionsApi.md#getEntityTypeCollection) | **GET** /datastore/collections/entity/type/{entityTypeCollectionId} | Returns the EntityTypeCollection object for a given id
 [**removeTypeFromEntityTypeCollectionTemplate**](CollectionsApi.md#removeTypeFromEntityTypeCollectionTemplate) | **DELETE** /datastore/collections/entity/type/{entityTypeCollectionId}/template/{typeId} | Removes a key from an EntityTypeCollection template
 [**updateEntitySetCollectionMetadata**](CollectionsApi.md#updateEntitySetCollectionMetadata) | **PATCH** /datastore/collections/entity/set/{entitySetCollectionId} | Updates metadata of the specified EntitySetCollection
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## addTypeToEntityTypeCollectionTemplate
 
-> addTypeToEntityTypeCollectionTemplate(entityTypeCollectionId, entityTypeCollection)
+> addTypeToEntityTypeCollectionTemplate(entityTypeCollectionId, collectionTemplateType)
 
 Appends type to template of the specified EntityTypeCollection
 
@@ -35,9 +35,9 @@ Appends type to template of the specified EntityTypeCollection
 
 CollectionsApi apiInstance = new CollectionsApi();
 UUID entityTypeCollectionId = null; // UUID | 
-EntityTypeCollection entityTypeCollection = new EntityTypeCollection(); // EntityTypeCollection | 
+CollectionTemplateType collectionTemplateType = new CollectionTemplateType(); // CollectionTemplateType | 
 try {
-    apiInstance.addTypeToEntityTypeCollectionTemplate(entityTypeCollectionId, entityTypeCollection);
+    apiInstance.addTypeToEntityTypeCollectionTemplate(entityTypeCollectionId, collectionTemplateType);
 } catch (ApiException e) {
     System.err.println("Exception when calling CollectionsApi#addTypeToEntityTypeCollectionTemplate");
     e.printStackTrace();
@@ -50,7 +50,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entityTypeCollectionId** | [**UUID**](.md)|  | [default to null]
- **entityTypeCollection** | [**EntityTypeCollection**](EntityTypeCollection.md)|  |
+ **collectionTemplateType** | [**CollectionTemplateType**](CollectionTemplateType.md)|  |
 
 ### Return type
 

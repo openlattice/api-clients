@@ -38,9 +38,32 @@ class TestSearchResult(unittest.TestCase):
         if include_optional :
             return SearchResult(
                 num_hits = 56, 
-                hits = {
-                    'key' : '0'
-                    }
+                hits = [
+                    openlattice.models.search_result_hits.SearchResult_hits(
+                        property_types = [
+                            openlattice.models.property_type.PropertyType(
+                                title = '0', 
+                                id = '0', 
+                                type = openlattice.models.full_qualified_name.FullQualifiedName(
+                                    name = '0', 
+                                    namespace = '0', ), 
+                                description = '0', 
+                                schemas = [
+                                    openlattice.models.full_qualified_name.FullQualifiedName(
+                                        name = '0', 
+                                        namespace = '0', )
+                                    ], 
+                                datatype = 'Binary', 
+                                pii = True, 
+                                multi_valued = True, 
+                                analyzer = 'NONE', 
+                                enum_values = [
+                                    '0'
+                                    ], 
+                                index_type = 'BTREE', )
+                            ], 
+                        entity_set = {"entityTypeId":"963b597b-b28d-4f59-b2e6-4d443499e464","id":"843b597b-b28d-4f59-b2e6-4d443499e323","name":"NameOfMyEntitySet","title":"This is the title of the entitySet","contacts":["support@openlattice.com"],"description":"This is a more elaborate description of the entity set."}, )
+                    ]
             )
         else :
             return SearchResult(

@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title EntityLinkingFeedback
-#'
 #' @description EntityLinkingFeedback Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field entityKeyPair  \link{EntityKeyPair} [optional]
 #'
 #' @field linked  character [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ EntityLinkingFeedback <- R6::R6Class(
   public = list(
     `entityKeyPair` = NULL,
     `linked` = NULL,
-    initialize = function(
-        `entityKeyPair`=NULL, `linked`=NULL, ...
-    ) {
+    initialize = function(`entityKeyPair`=NULL, `linked`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`entityKeyPair`)) {
         stopifnot(R6::is.R6(`entityKeyPair`))
@@ -60,7 +56,6 @@ EntityLinkingFeedback <- R6::R6Class(
       if (!is.null(EntityLinkingFeedbackObject$`linked`)) {
         self$`linked` <- EntityLinkingFeedbackObject$`linked`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -90,4 +85,3 @@ EntityLinkingFeedback <- R6::R6Class(
     }
   )
 )
-

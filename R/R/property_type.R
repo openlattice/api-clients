@@ -8,11 +8,8 @@
 
 #' @docType class
 #' @title PropertyType
-#'
 #' @description PropertyType Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field title  character [optional]
 #'
 #' @field id  character [optional]
@@ -35,6 +32,7 @@
 #'
 #' @field indexType  character [optional]
 #'
+#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -52,9 +50,7 @@ PropertyType <- R6::R6Class(
     `analyzer` = NULL,
     `enumValues` = NULL,
     `indexType` = NULL,
-    initialize = function(
-        `title`=NULL, `id`=NULL, `type`=NULL, `description`=NULL, `schemas`=NULL, `datatype`=NULL, `pii`=NULL, `multiValued`=NULL, `analyzer`=NULL, `enumValues`=NULL, `indexType`=NULL, ...
-    ) {
+    initialize = function(`title`=NULL, `id`=NULL, `type`=NULL, `description`=NULL, `schemas`=NULL, `datatype`=NULL, `pii`=NULL, `multiValued`=NULL, `analyzer`=NULL, `enumValues`=NULL, `indexType`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`title`)) {
         stopifnot(is.character(`title`), length(`title`) == 1)
@@ -187,7 +183,6 @@ PropertyType <- R6::R6Class(
       if (!is.null(PropertyTypeObject$`indexType`)) {
         self$`indexType` <- PropertyTypeObject$`indexType`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -289,4 +284,3 @@ PropertyType <- R6::R6Class(
     }
   )
 )
-

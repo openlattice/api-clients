@@ -142,7 +142,7 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.CollectionsApi* | [**getAllEntitySetCollections**](docs/CollectionsApi.md#getAllEntitySetCollections) | **GET** /datastore/collections/entity/set | Returns all EntitySetCollection objects
 *OpenLatticeApi.CollectionsApi* | [**getAllEntityTypeCollections**](docs/CollectionsApi.md#getAllEntityTypeCollections) | **GET** /datastore/collections/entity/type | Returns all EntityTypeCollection objects
 *OpenLatticeApi.CollectionsApi* | [**getEntitySetCollection**](docs/CollectionsApi.md#getEntitySetCollection) | **GET** /datastore/collections/entity/set/{entitySetCollectionId} | Returns the EntitySetCollection object for a given id
-*OpenLatticeApi.CollectionsApi* | [**getEntitySetCollectionsOfType**](docs/CollectionsApi.md#getEntitySetCollectionsOfType) | **GET** /datastore/collections/entity/type/entity/set/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
+*OpenLatticeApi.CollectionsApi* | [**getEntitySetCollectionsOfType**](docs/CollectionsApi.md#getEntitySetCollectionsOfType) | **GET** /datastore/collections/entity/set/entity/type/{entitySetCollectionId} | Returns all authorized EntitySetCollections for a given EntityTypeCollection id
 *OpenLatticeApi.CollectionsApi* | [**getEntityTypeCollection**](docs/CollectionsApi.md#getEntityTypeCollection) | **GET** /datastore/collections/entity/type/{entityTypeCollectionId} | Returns the EntityTypeCollection object for a given id
 *OpenLatticeApi.CollectionsApi* | [**removeTypeFromEntityTypeCollectionTemplate**](docs/CollectionsApi.md#removeTypeFromEntityTypeCollectionTemplate) | **DELETE** /datastore/collections/entity/type/{entityTypeCollectionId}/template/{typeId} | Removes a key from an EntityTypeCollection template
 *OpenLatticeApi.CollectionsApi* | [**updateEntitySetCollectionMetadata**](docs/CollectionsApi.md#updateEntitySetCollectionMetadata) | **PATCH** /datastore/collections/entity/set/{entitySetCollectionId} | Updates metadata of the specified EntitySetCollection
@@ -155,7 +155,7 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.DataApi* | [**deleteAllEntitiesFromEntitySet**](docs/DataApi.md#deleteAllEntitiesFromEntitySet) | **DELETE** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
 *OpenLatticeApi.DataApi* | [**deleteEntities**](docs/DataApi.md#deleteEntities) | **DELETE** /datastore/data/set/{entitySetId} | Deletes multiple entities from an entity set.
 *OpenLatticeApi.DataApi* | [**deleteEntitiesAndNeighbors**](docs/DataApi.md#deleteEntitiesAndNeighbors) | **POST** /datastore/data/set/{entitySetId}/neighbors | Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
-*OpenLatticeApi.DataApi* | [**deleteEntity**](docs/DataApi.md#deleteEntity) | **DELETE** /datastore/data/{entitySetId}/{entityKeyId} | Deletes a single entity from an entity set.
+*OpenLatticeApi.DataApi* | [**deleteEntity**](docs/DataApi.md#deleteEntity) | **DELETE** /datastore/data/set/{entitySetId}/{entityKeyId} | Deletes a single entity from an entity set.
 *OpenLatticeApi.DataApi* | [**deleteEntityProperties**](docs/DataApi.md#deleteEntityProperties) | **DELETE** /datastore/data/{entitySetId}/{entityKeyId}/properties | Deletes properties from an entity.
 *OpenLatticeApi.DataApi* | [**getEntity**](docs/DataApi.md#getEntity) | **GET** /datastore/data/{entitySetId}/{entityKeyId} | Loads a single entity by its entityKeyId and entitySetId
 *OpenLatticeApi.DataApi* | [**getEntityPropertyValues**](docs/DataApi.md#getEntityPropertyValues) | **GET** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
@@ -318,6 +318,14 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.SearchApi* | [**getEntitySets**](docs/SearchApi.md#getEntitySets) | **GET** /datastore/search/entity-sets/{start}/{numResults} | Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
 *OpenLatticeApi.SearchApi* | [**getPopularEntitySet**](docs/SearchApi.md#getPopularEntitySet) | **GET** /datastore/search/popular | Get the most popular entity sets.
 *OpenLatticeApi.SearchApi* | [**searchEntitySetData**](docs/SearchApi.md#searchEntitySetData) | **PATCH** /datastore/search | Executes a search over the data of a given entity set to find rows that match the search term
+*OpenLatticeApi.ShuttleApi* | [**createIntegrationDefinition**](docs/ShuttleApi.md#createIntegrationDefinition) | **POST** /shuttle/integration/definition/{integrationName} | Creates a new integration definition for running recurring integrations
+*OpenLatticeApi.ShuttleApi* | [**deleteIntegrationDefinition**](docs/ShuttleApi.md#deleteIntegrationDefinition) | **DELETE** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
+*OpenLatticeApi.ShuttleApi* | [**deleteIntegrationJobStatus**](docs/ShuttleApi.md#deleteIntegrationJobStatus) | **DELETE** /shuttle/integration/status/{jobId} | Deletes an integration job status from the integrationJobs map
+*OpenLatticeApi.ShuttleApi* | [**enqueueIntegration**](docs/ShuttleApi.md#enqueueIntegration) | **GET** /shuttle/integration/{integrationName}/{integrationKey} | Enqueues an integration on Shuttle Server for a given integration
+*OpenLatticeApi.ShuttleApi* | [**pollAllIntegrations**](docs/ShuttleApi.md#pollAllIntegrations) | **GET** /shuttle/integration/status | Polls the statuses of all running integrations
+*OpenLatticeApi.ShuttleApi* | [**pollIntegration**](docs/ShuttleApi.md#pollIntegration) | **GET** /shuttle/integration/status/{jobId} | Polls the status of an integration
+*OpenLatticeApi.ShuttleApi* | [**readIntegrationDefinition**](docs/ShuttleApi.md#readIntegrationDefinition) | **GET** /shuttle/integration/definition/{integrationName} | Gets an existing integration definition
+*OpenLatticeApi.ShuttleApi* | [**updateIntegrationDefinition**](docs/ShuttleApi.md#updateIntegrationDefinition) | **PATCH** /shuttle/integration/definition/{integrationName} | Replaces any number of fields within an existing integration definition
 
 
 ## Documentation for Models
@@ -328,6 +336,7 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.AclData](docs/AclData.md)
  - [OpenLatticeApi.AdvancedSearch](docs/AdvancedSearch.md)
  - [OpenLatticeApi.Association](docs/Association.md)
+ - [OpenLatticeApi.AssociationDefinition](docs/AssociationDefinition.md)
  - [OpenLatticeApi.AssociationType](docs/AssociationType.md)
  - [OpenLatticeApi.Auth0userBasic](docs/Auth0userBasic.md)
  - [OpenLatticeApi.Authorization](docs/Authorization.md)
@@ -348,6 +357,7 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.EdmRequest](docs/EdmRequest.md)
  - [OpenLatticeApi.Entity](docs/Entity.md)
  - [OpenLatticeApi.EntityDataKey](docs/EntityDataKey.md)
+ - [OpenLatticeApi.EntityDefinition](docs/EntityDefinition.md)
  - [OpenLatticeApi.EntityKey](docs/EntityKey.md)
  - [OpenLatticeApi.EntityKeyPair](docs/EntityKeyPair.md)
  - [OpenLatticeApi.EntityLinkingFeatures](docs/EntityLinkingFeatures.md)
@@ -360,11 +370,17 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.EntityType](docs/EntityType.md)
  - [OpenLatticeApi.EntityTypeCollection](docs/EntityTypeCollection.md)
  - [OpenLatticeApi.EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
+ - [OpenLatticeApi.Flight](docs/Flight.md)
+ - [OpenLatticeApi.FlightPlanParameters](docs/FlightPlanParameters.md)
+ - [OpenLatticeApi.FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [OpenLatticeApi.FullQualifiedName](docs/FullQualifiedName.md)
  - [OpenLatticeApi.IndexingState](docs/IndexingState.md)
  - [OpenLatticeApi.InlineObject](docs/InlineObject.md)
  - [OpenLatticeApi.InlineResponse200](docs/InlineResponse200.md)
+ - [OpenLatticeApi.Integration](docs/Integration.md)
+ - [OpenLatticeApi.IntegrationJob](docs/IntegrationJob.md)
  - [OpenLatticeApi.IntegrationResults](docs/IntegrationResults.md)
+ - [OpenLatticeApi.IntegrationUpdate](docs/IntegrationUpdate.md)
  - [OpenLatticeApi.LinkingFeedback](docs/LinkingFeedback.md)
  - [OpenLatticeApi.MaterializedViewAccount](docs/MaterializedViewAccount.md)
  - [OpenLatticeApi.MetadataUpdate](docs/MetadataUpdate.md)
@@ -377,6 +393,7 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.OrganizationExternalDatabaseTableColumnsPair](docs/OrganizationExternalDatabaseTableColumnsPair.md)
  - [OpenLatticeApi.OrganizationMember](docs/OrganizationMember.md)
  - [OpenLatticeApi.Principal](docs/Principal.md)
+ - [OpenLatticeApi.PropertyDefinition](docs/PropertyDefinition.md)
  - [OpenLatticeApi.PropertyType](docs/PropertyType.md)
  - [OpenLatticeApi.PropertyUsageSummary](docs/PropertyUsageSummary.md)
  - [OpenLatticeApi.Role](docs/Role.md)
@@ -385,6 +402,7 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.SearchConstraints](docs/SearchConstraints.md)
  - [OpenLatticeApi.SearchDetails](docs/SearchDetails.md)
  - [OpenLatticeApi.SearchResult](docs/SearchResult.md)
+ - [OpenLatticeApi.SearchResultHits](docs/SearchResultHits.md)
  - [OpenLatticeApi.SearchTerm](docs/SearchTerm.md)
  - [OpenLatticeApi.SecurablePrincipal](docs/SecurablePrincipal.md)
  - [OpenLatticeApi.SmsEntitySetInformation](docs/SmsEntitySetInformation.md)

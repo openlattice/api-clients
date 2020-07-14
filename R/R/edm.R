@@ -8,11 +8,8 @@
 
 #' @docType class
 #' @title EDM
-#'
 #' @description EDM Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field namespaces  list( character ) [optional]
 #'
 #' @field schemas  list( \link{Schema} ) [optional]
@@ -22,6 +19,7 @@
 #' @field entityTypes  list( \link{EntityType} ) [optional]
 #'
 #' @field associationTypes  list( \link{AssociationType} ) [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -34,9 +32,7 @@ EDM <- R6::R6Class(
     `propertyTypes` = NULL,
     `entityTypes` = NULL,
     `associationTypes` = NULL,
-    initialize = function(
-        `namespaces`=NULL, `schemas`=NULL, `propertyTypes`=NULL, `entityTypes`=NULL, `associationTypes`=NULL, ...
-    ) {
+    initialize = function(`namespaces`=NULL, `schemas`=NULL, `propertyTypes`=NULL, `entityTypes`=NULL, `associationTypes`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`namespaces`)) {
         stopifnot(is.vector(`namespaces`))
@@ -106,7 +102,6 @@ EDM <- R6::R6Class(
       if (!is.null(EDMObject$`associationTypes`)) {
         self$`associationTypes` <- ApiClient$new()$deserializeObj(EDMObject$`associationTypes`, "array[AssociationType]", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -160,4 +155,3 @@ EDM <- R6::R6Class(
     }
   )
 )
-

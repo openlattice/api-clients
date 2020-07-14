@@ -44,9 +44,9 @@ func (a *EdmApiService) AddDstEntityTypeToAssociationType(ctx _context.Context, 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.QueryEscape(parameterToString(associationTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.PathEscape(parameterToString(associationTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -133,7 +133,7 @@ func (a *EdmApiService) AddEntitySetsToLinkingEntitySet(ctx _context.Context, li
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/linking/{linkingEntitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"linkingEntitySetId"+"}", _neturl.QueryEscape(parameterToString(linkingEntitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"linkingEntitySetId"+"}", _neturl.PathEscape(parameterToString(linkingEntitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -198,15 +198,6 @@ func (a *EdmApiService) AddEntitySetsToLinkingEntitySet(ctx _context.Context, li
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -241,7 +232,7 @@ func (a *EdmApiService) AddEntitySetsToLinkingEntitySets(ctx _context.Context, l
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/linking/"
-	localVarPath = strings.Replace(localVarPath, "{"+"linkingEntitySetId"+"}", _neturl.QueryEscape(parameterToString(linkingEntitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"linkingEntitySetId"+"}", _neturl.PathEscape(parameterToString(linkingEntitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -299,15 +290,6 @@ func (a *EdmApiService) AddEntitySetsToLinkingEntitySets(ctx _context.Context, l
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -340,9 +322,9 @@ func (a *EdmApiService) AddPrimaryKeyToEntityType(ctx _context.Context, entityTy
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -421,9 +403,9 @@ func (a *EdmApiService) AddPropertyTypeToEntityType(ctx _context.Context, entity
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -502,9 +484,9 @@ func (a *EdmApiService) AddSrcEntityTypeToAssociationType(ctx _context.Context, 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/association/type/{associationTypeId}/src/{entityTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.QueryEscape(parameterToString(associationTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.PathEscape(parameterToString(associationTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -649,9 +631,9 @@ func (a *EdmApiService) CreateEmptySchema(ctx _context.Context, namespace string
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/schema/{namespace}/{name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.QueryEscape(parameterToString(namespace, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.PathEscape(parameterToString(namespace, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", _neturl.QueryEscape(parameterToString(name, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", _neturl.PathEscape(parameterToString(name, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1029,7 +1011,7 @@ func (a *EdmApiService) DeleteAssociationType(ctx _context.Context, associationT
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/association/type/{associationTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.QueryEscape(parameterToString(associationTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.PathEscape(parameterToString(associationTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1095,7 +1077,7 @@ func (a *EdmApiService) DeleteEntitySet(ctx _context.Context, entitySetId string
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/all/{entitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1173,7 +1155,7 @@ func (a *EdmApiService) DeleteEntityType(ctx _context.Context, entityTypeId stri
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1239,7 +1221,7 @@ func (a *EdmApiService) DeletePropertyType(ctx _context.Context, propertyTypeId 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/property/type/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1317,7 +1299,7 @@ func (a *EdmApiService) ForceDeletePropertyType(ctx _context.Context, propertyTy
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/property/type/{propertyTypeId}/force"
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1396,9 +1378,9 @@ func (a *EdmApiService) ForceRemovePropertyTypeFromEntityType(ctx _context.Conte
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}/force"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1531,15 +1513,6 @@ func (a *EdmApiService) GetAllAssociationEntityTypes(ctx _context.Context) ([]As
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []AssociationType
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1573,7 +1546,7 @@ func (a *EdmApiService) GetAllAvailableAssociationTypes(ctx _context.Context, as
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/association/type/{associationTypeId}/available"
-	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.QueryEscape(parameterToString(associationTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.PathEscape(parameterToString(associationTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1628,15 +1601,6 @@ func (a *EdmApiService) GetAllAvailableAssociationTypes(ctx _context.Context, as
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []AssociationType
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1671,7 +1635,7 @@ func (a *EdmApiService) GetAllEntitySetPropertyMetadata(ctx _context.Context, en
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/all/{entitySetId}/metadata"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1726,15 +1690,6 @@ func (a *EdmApiService) GetAllEntitySetPropertyMetadata(ctx _context.Context, en
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]EntitySetPropertyMetaData
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1822,15 +1777,6 @@ func (a *EdmApiService) GetAllEntitySets(ctx _context.Context) ([]EntitySet, *_n
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []EntitySet
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1864,7 +1810,7 @@ func (a *EdmApiService) GetAllEntityTypePropertyMetadata(ctx _context.Context, e
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}/property/type"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1919,15 +1865,6 @@ func (a *EdmApiService) GetAllEntityTypePropertyMetadata(ctx _context.Context, e
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]EntityTypePropertyMetadata
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2015,15 +1952,6 @@ func (a *EdmApiService) GetAllEntityTypes(ctx _context.Context) ([]EntityType, *
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []EntityType
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2110,15 +2038,6 @@ func (a *EdmApiService) GetAllPropertyTypes(ctx _context.Context) ([]PropertyTyp
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []PropertyType
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2152,7 +2071,7 @@ func (a *EdmApiService) GetAllPropertyTypesInNamespace(ctx _context.Context, nam
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/property/type/namespace/{namespace}"
-	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.QueryEscape(parameterToString(namespace, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.PathEscape(parameterToString(namespace, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2207,15 +2126,6 @@ func (a *EdmApiService) GetAllPropertyTypesInNamespace(ctx _context.Context, nam
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []PropertyType
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2303,15 +2213,6 @@ func (a *EdmApiService) GetAllPropertyUsageSummaries(ctx _context.Context) (map[
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]PropertyUsageSummary
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2345,7 +2246,7 @@ func (a *EdmApiService) GetAssociationType(ctx _context.Context, associationType
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/association/type/{associationTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.QueryEscape(parameterToString(associationTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.PathEscape(parameterToString(associationTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2400,15 +2301,6 @@ func (a *EdmApiService) GetAssociationType(ctx _context.Context, associationType
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v AssociationType
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2443,7 +2335,7 @@ func (a *EdmApiService) GetAssociationTypeDetails(ctx _context.Context, associat
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/association/type/{associationTypeId}/detailed"
-	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.QueryEscape(parameterToString(associationTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.PathEscape(parameterToString(associationTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2498,15 +2390,6 @@ func (a *EdmApiService) GetAssociationTypeDetails(ctx _context.Context, associat
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v AssociationType
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2581,15 +2464,6 @@ func (a *EdmApiService) GetEntityDataModel(ctx _context.Context) (Edm, *_nethttp
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Edm
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2680,15 +2554,6 @@ func (a *EdmApiService) GetEntityDataModelDiff(ctx _context.Context, edMdiff EdM
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v EdMdiff
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2722,7 +2587,7 @@ func (a *EdmApiService) GetEntitySet(ctx _context.Context, entitySetId string) (
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/all/{entitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2777,15 +2642,6 @@ func (a *EdmApiService) GetEntitySet(ctx _context.Context, entitySetId string) (
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v EntitySet
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2820,7 +2676,7 @@ func (a *EdmApiService) GetEntitySetId(ctx _context.Context, entitySetName strin
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/ids/{entitySetName}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetName"+"}", _neturl.QueryEscape(parameterToString(entitySetName, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetName"+"}", _neturl.PathEscape(parameterToString(entitySetName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2875,15 +2731,6 @@ func (a *EdmApiService) GetEntitySetId(ctx _context.Context, entitySetName strin
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2987,15 +2834,6 @@ func (a *EdmApiService) GetEntitySetIds(ctx _context.Context, localVarOptionals 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3030,9 +2868,9 @@ func (a *EdmApiService) GetEntitySetPropertyMetadata(ctx _context.Context, entit
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3088,15 +2926,6 @@ func (a *EdmApiService) GetEntitySetPropertyMetadata(ctx _context.Context, entit
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v EntitySetPropertyMetaData
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3130,7 +2959,7 @@ func (a *EdmApiService) GetEntityType(ctx _context.Context, entityTypeId string)
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3174,15 +3003,6 @@ func (a *EdmApiService) GetEntityType(ctx _context.Context, entityTypeId string)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v EntityType
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3214,7 +3034,7 @@ func (a *EdmApiService) GetEntityTypeHierarchy(ctx _context.Context, entityTypeI
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}/hierarchy"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3295,9 +3115,9 @@ func (a *EdmApiService) GetEntityTypeId(ctx _context.Context, namespace string, 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/ids/entity/type/{namespace}/{name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.QueryEscape(parameterToString(namespace, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.PathEscape(parameterToString(namespace, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", _neturl.QueryEscape(parameterToString(name, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", _neturl.PathEscape(parameterToString(name, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3352,15 +3172,6 @@ func (a *EdmApiService) GetEntityTypeId(ctx _context.Context, namespace string, 
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3396,9 +3207,9 @@ func (a *EdmApiService) GetEntityTypePropertyMetadata(ctx _context.Context, enti
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3453,15 +3264,6 @@ func (a *EdmApiService) GetEntityTypePropertyMetadata(ctx _context.Context, enti
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v EntityTypePropertyMetadata
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3565,15 +3367,6 @@ func (a *EdmApiService) GetPropertyMetadataForEntitySets(ctx _context.Context, l
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]map[string]EntitySetPropertyMetaData
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3607,7 +3400,7 @@ func (a *EdmApiService) GetPropertyType(ctx _context.Context, propertyTypeId str
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/property/type/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3662,15 +3455,6 @@ func (a *EdmApiService) GetPropertyType(ctx _context.Context, propertyTypeId str
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v PropertyType
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3706,9 +3490,9 @@ func (a *EdmApiService) GetPropertyTypeId(ctx _context.Context, namespace string
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/ids/property/type/{namespace}/{name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.QueryEscape(parameterToString(namespace, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.PathEscape(parameterToString(namespace, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", _neturl.QueryEscape(parameterToString(name, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", _neturl.PathEscape(parameterToString(name, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3763,15 +3547,6 @@ func (a *EdmApiService) GetPropertyTypeId(ctx _context.Context, namespace string
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3806,7 +3581,7 @@ func (a *EdmApiService) GetPropertyTypesForEntitySet(ctx _context.Context, entit
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/all/{entitySetId}/properties"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3861,15 +3636,6 @@ func (a *EdmApiService) GetPropertyTypesForEntitySet(ctx _context.Context, entit
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]PropertyType
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3904,7 +3670,7 @@ func (a *EdmApiService) GetPropertyUsageSummary(ctx _context.Context, propertyTy
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/summary/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -3959,15 +3725,6 @@ func (a *EdmApiService) GetPropertyUsageSummary(ctx _context.Context, propertyTy
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []PropertyUsageSummary
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4010,9 +3767,9 @@ func (a *EdmApiService) GetSchemaContents(ctx _context.Context, namespace string
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/schema/{namespace}/{name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.QueryEscape(parameterToString(namespace, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.PathEscape(parameterToString(namespace, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", _neturl.QueryEscape(parameterToString(name, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", _neturl.PathEscape(parameterToString(name, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4070,15 +3827,6 @@ func (a *EdmApiService) GetSchemaContents(ctx _context.Context, namespace string
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Schema
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4166,15 +3914,6 @@ func (a *EdmApiService) GetSchemas(ctx _context.Context) ([]Schema, *_nethttp.Re
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []Schema
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4208,7 +3947,7 @@ func (a *EdmApiService) GetSchemasInNamespace(ctx _context.Context, namespace st
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/schema/{namespace}"
-	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.QueryEscape(parameterToString(namespace, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.PathEscape(parameterToString(namespace, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4264,15 +4003,6 @@ func (a *EdmApiService) GetSchemasInNamespace(ctx _context.Context, namespace st
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []Schema
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4305,9 +4035,9 @@ func (a *EdmApiService) RemoveDstEntityTypeFromAssociationType(ctx _context.Cont
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.QueryEscape(parameterToString(associationTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.PathEscape(parameterToString(associationTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4394,7 +4124,7 @@ func (a *EdmApiService) RemoveEntitySetsFromLinkingEntitySet(ctx _context.Contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/linking/{linkingEntitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"linkingEntitySetId"+"}", _neturl.QueryEscape(parameterToString(linkingEntitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"linkingEntitySetId"+"}", _neturl.PathEscape(parameterToString(linkingEntitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4459,15 +4189,6 @@ func (a *EdmApiService) RemoveEntitySetsFromLinkingEntitySet(ctx _context.Contex
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4502,7 +4223,7 @@ func (a *EdmApiService) RemoveEntitySetsFromLinkingEntitySets(ctx _context.Conte
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/linking/"
-	localVarPath = strings.Replace(localVarPath, "{"+"linkingEntitySetId"+"}", _neturl.QueryEscape(parameterToString(linkingEntitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"linkingEntitySetId"+"}", _neturl.PathEscape(parameterToString(linkingEntitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4560,15 +4281,6 @@ func (a *EdmApiService) RemoveEntitySetsFromLinkingEntitySets(ctx _context.Conte
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -4601,9 +4313,9 @@ func (a *EdmApiService) RemovePrimaryKeyFromEntityType(ctx _context.Context, ent
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4682,9 +4394,9 @@ func (a *EdmApiService) RemovePropertyTypeFromEntityType(ctx _context.Context, e
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4763,9 +4475,9 @@ func (a *EdmApiService) RemoveSrcEntityTypeFromAssociationType(ctx _context.Cont
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/association/type/{associationTypeId}/src/{entityTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.QueryEscape(parameterToString(associationTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"associationTypeId"+"}", _neturl.PathEscape(parameterToString(associationTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -4844,9 +4556,9 @@ func (a *EdmApiService) ReorderPropertyTypesInEntityType(ctx _context.Context, e
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}/property/type"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeIds"+"}", _neturl.QueryEscape(parameterToString(propertyTypeIds, "csv")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeIds"+"}", _neturl.PathEscape(parameterToString(propertyTypeIds, "csv")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5005,7 +4717,7 @@ func (a *EdmApiService) UpdateEntitySetMetaData(ctx _context.Context, entitySetI
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/all/{entitySetId}/metadata/"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5063,15 +4775,6 @@ func (a *EdmApiService) UpdateEntitySetMetaData(ctx _context.Context, entitySetI
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v int32
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -5105,9 +4808,9 @@ func (a *EdmApiService) UpdateEntitySetPropertyMetadata(ctx _context.Context, en
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5188,7 +4891,7 @@ func (a *EdmApiService) UpdateEntityTypeMetaData(ctx _context.Context, entityTyp
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5269,9 +4972,9 @@ func (a *EdmApiService) UpdateEntityTypePropertyMetadata(ctx _context.Context, e
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.QueryEscape(parameterToString(entityTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityTypeId"+"}", _neturl.PathEscape(parameterToString(entityTypeId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5350,7 +5053,7 @@ func (a *EdmApiService) UpdatePropertyTypeMetaData(ctx _context.Context, propert
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/property/type/{propertyTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.QueryEscape(parameterToString(propertyTypeId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyTypeId"+"}", _neturl.PathEscape(parameterToString(propertyTypeId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -5432,9 +5135,9 @@ func (a *EdmApiService) UpdateSchema(ctx _context.Context, namespace string, nam
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/edm/schema/{namespace}/{name}"
-	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.QueryEscape(parameterToString(namespace, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"namespace"+"}", _neturl.PathEscape(parameterToString(namespace, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", _neturl.QueryEscape(parameterToString(name, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", _neturl.PathEscape(parameterToString(name, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

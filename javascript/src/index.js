@@ -19,6 +19,7 @@ import Acl from './model/Acl';
 import AclData from './model/AclData';
 import AdvancedSearch from './model/AdvancedSearch';
 import Association from './model/Association';
+import AssociationDefinition from './model/AssociationDefinition';
 import AssociationType from './model/AssociationType';
 import Auth0userBasic from './model/Auth0userBasic';
 import Authorization from './model/Authorization';
@@ -39,6 +40,7 @@ import EDMdiff from './model/EDMdiff';
 import EdmRequest from './model/EdmRequest';
 import Entity from './model/Entity';
 import EntityDataKey from './model/EntityDataKey';
+import EntityDefinition from './model/EntityDefinition';
 import EntityKey from './model/EntityKey';
 import EntityKeyPair from './model/EntityKeyPair';
 import EntityLinkingFeatures from './model/EntityLinkingFeatures';
@@ -51,11 +53,17 @@ import EntitySetSelection from './model/EntitySetSelection';
 import EntityType from './model/EntityType';
 import EntityTypeCollection from './model/EntityTypeCollection';
 import EntityTypePropertyMetadata from './model/EntityTypePropertyMetadata';
+import Flight from './model/Flight';
+import FlightPlanParameters from './model/FlightPlanParameters';
+import FlightPlanParametersUpdate from './model/FlightPlanParametersUpdate';
 import FullQualifiedName from './model/FullQualifiedName';
 import IndexingState from './model/IndexingState';
 import InlineObject from './model/InlineObject';
 import InlineResponse200 from './model/InlineResponse200';
+import Integration from './model/Integration';
+import IntegrationJob from './model/IntegrationJob';
 import IntegrationResults from './model/IntegrationResults';
+import IntegrationUpdate from './model/IntegrationUpdate';
 import LinkingFeedback from './model/LinkingFeedback';
 import MaterializedViewAccount from './model/MaterializedViewAccount';
 import MetadataUpdate from './model/MetadataUpdate';
@@ -68,6 +76,7 @@ import OrganizationExternalDatabaseTable from './model/OrganizationExternalDatab
 import OrganizationExternalDatabaseTableColumnsPair from './model/OrganizationExternalDatabaseTableColumnsPair';
 import OrganizationMember from './model/OrganizationMember';
 import Principal from './model/Principal';
+import PropertyDefinition from './model/PropertyDefinition';
 import PropertyType from './model/PropertyType';
 import PropertyUsageSummary from './model/PropertyUsageSummary';
 import Role from './model/Role';
@@ -76,6 +85,7 @@ import Search from './model/Search';
 import SearchConstraints from './model/SearchConstraints';
 import SearchDetails from './model/SearchDetails';
 import SearchResult from './model/SearchResult';
+import SearchResultHits from './model/SearchResultHits';
 import SearchTerm from './model/SearchTerm';
 import SecurablePrincipal from './model/SecurablePrincipal';
 import SmsEntitySetInformation from './model/SmsEntitySetInformation';
@@ -93,6 +103,7 @@ import OrganizationsApi from './api/OrganizationsApi';
 import PermissionsApi from './api/PermissionsApi';
 import PrincipalApi from './api/PrincipalApi';
 import SearchApi from './api/SearchApi';
+import ShuttleApi from './api/ShuttleApi';
 
 
 /**
@@ -168,6 +179,12 @@ export {
      * @property {module:model/Association}
      */
     Association,
+
+    /**
+     * The AssociationDefinition model constructor.
+     * @property {module:model/AssociationDefinition}
+     */
+    AssociationDefinition,
 
     /**
      * The AssociationType model constructor.
@@ -290,6 +307,12 @@ export {
     EntityDataKey,
 
     /**
+     * The EntityDefinition model constructor.
+     * @property {module:model/EntityDefinition}
+     */
+    EntityDefinition,
+
+    /**
      * The EntityKey model constructor.
      * @property {module:model/EntityKey}
      */
@@ -362,6 +385,24 @@ export {
     EntityTypePropertyMetadata,
 
     /**
+     * The Flight model constructor.
+     * @property {module:model/Flight}
+     */
+    Flight,
+
+    /**
+     * The FlightPlanParameters model constructor.
+     * @property {module:model/FlightPlanParameters}
+     */
+    FlightPlanParameters,
+
+    /**
+     * The FlightPlanParametersUpdate model constructor.
+     * @property {module:model/FlightPlanParametersUpdate}
+     */
+    FlightPlanParametersUpdate,
+
+    /**
      * The FullQualifiedName model constructor.
      * @property {module:model/FullQualifiedName}
      */
@@ -386,10 +427,28 @@ export {
     InlineResponse200,
 
     /**
+     * The Integration model constructor.
+     * @property {module:model/Integration}
+     */
+    Integration,
+
+    /**
+     * The IntegrationJob model constructor.
+     * @property {module:model/IntegrationJob}
+     */
+    IntegrationJob,
+
+    /**
      * The IntegrationResults model constructor.
      * @property {module:model/IntegrationResults}
      */
     IntegrationResults,
+
+    /**
+     * The IntegrationUpdate model constructor.
+     * @property {module:model/IntegrationUpdate}
+     */
+    IntegrationUpdate,
 
     /**
      * The LinkingFeedback model constructor.
@@ -464,6 +523,12 @@ export {
     Principal,
 
     /**
+     * The PropertyDefinition model constructor.
+     * @property {module:model/PropertyDefinition}
+     */
+    PropertyDefinition,
+
+    /**
      * The PropertyType model constructor.
      * @property {module:model/PropertyType}
      */
@@ -510,6 +575,12 @@ export {
      * @property {module:model/SearchResult}
      */
     SearchResult,
+
+    /**
+     * The SearchResultHits model constructor.
+     * @property {module:model/SearchResultHits}
+     */
+    SearchResultHits,
 
     /**
      * The SearchTerm model constructor.
@@ -611,5 +682,11 @@ export {
     * The SearchApi service constructor.
     * @property {module:api/SearchApi}
     */
-    SearchApi
+    SearchApi,
+
+    /**
+    * The ShuttleApi service constructor.
+    * @property {module:api/ShuttleApi}
+    */
+    ShuttleApi
 };

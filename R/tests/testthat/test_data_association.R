@@ -29,3 +29,35 @@ test_that("srcEntityKeyId", {
   #expect_equal(model.instance$`srcEntityKeyId`, "EXPECTED_RESULT")
 })
 
+test_that("dstEntitySetId", {
+  # tests for the property `dstEntitySetId` (character)
+  # the ID of the dst entity set
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`dstEntitySetId`, "EXPECTED_RESULT")
+})
+
+test_that("dstEntityIndex", {
+  # tests for the property `dstEntityIndex` (character)
+  # The index of an entity
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`dstEntityIndex`, "EXPECTED_RESULT")
+})
+
+test_that("dstEntityKeyId", {
+  # tests for the property `dstEntityKeyId` (character)
+  # An existing entityKeyId
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`dstEntityKeyId`, "EXPECTED_RESULT")
+})
+
+test_that("data", {
+  # tests for the property `data` (list(array[character]))
+  # data
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`data`, "EXPECTED_RESULT")
+})
+

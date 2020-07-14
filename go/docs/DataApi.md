@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**DeleteAllEntitiesFromEntitySet**](DataApi.md#DeleteAllEntitiesFromEntitySet) | **Delete** /datastore/data/set/{entitySetId}/all | Clears the Entity matching the given Entity id and all of its neighbor Entities
 [**DeleteEntities**](DataApi.md#DeleteEntities) | **Delete** /datastore/data/set/{entitySetId} | Deletes multiple entities from an entity set.
 [**DeleteEntitiesAndNeighbors**](DataApi.md#DeleteEntitiesAndNeighbors) | **Post** /datastore/data/set/{entitySetId}/neighbors | Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
-[**DeleteEntity**](DataApi.md#DeleteEntity) | **Delete** /datastore/data/{entitySetId}/{entityKeyId} | Deletes a single entity from an entity set.
+[**DeleteEntity**](DataApi.md#DeleteEntity) | **Delete** /datastore/data/set/{entitySetId}/{entityKeyId} | Deletes a single entity from an entity set.
 [**DeleteEntityProperties**](DataApi.md#DeleteEntityProperties) | **Delete** /datastore/data/{entitySetId}/{entityKeyId}/properties | Deletes properties from an entity.
 [**GetEntity**](DataApi.md#GetEntity) | **Get** /datastore/data/{entitySetId}/{entityKeyId} | Loads a single entity by its entityKeyId and entitySetId
 [**GetEntityPropertyValues**](DataApi.md#GetEntityPropertyValues) | **Get** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId

@@ -8,16 +8,14 @@
 
 #' @docType class
 #' @title DataEdge
-#'
 #' @description DataEdge Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field src  \link{EntityDataKey} [optional]
 #'
 #' @field dst  \link{EntityDataKey} [optional]
 #'
 #' @field data  \link{DataEdgeData} [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -28,9 +26,7 @@ DataEdge <- R6::R6Class(
     `src` = NULL,
     `dst` = NULL,
     `data` = NULL,
-    initialize = function(
-        `src`=NULL, `dst`=NULL, `data`=NULL, ...
-    ) {
+    initialize = function(`src`=NULL, `dst`=NULL, `data`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`src`)) {
         stopifnot(R6::is.R6(`src`))
@@ -79,7 +75,6 @@ DataEdge <- R6::R6Class(
         dataObject$fromJSON(jsonlite::toJSON(DataEdgeObject$data, auto_unbox = TRUE, digits = NA))
         self$`data` <- dataObject
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -117,4 +112,3 @@ DataEdge <- R6::R6Class(
     }
   )
 )
-

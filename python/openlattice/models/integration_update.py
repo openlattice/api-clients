@@ -87,7 +87,7 @@ class IntegrationUpdate(object):
     def environment(self):
         """Gets the environment of this IntegrationUpdate.  # noqa: E501
 
-        the retrofit environment (e.g. production, local)  # noqa: E501
+        the retrofit environment (e.g. PROD_INTEGRATION, LOCAL)  # noqa: E501
 
         :return: The environment of this IntegrationUpdate.  # noqa: E501
         :rtype: str
@@ -98,7 +98,7 @@ class IntegrationUpdate(object):
     def environment(self, environment):
         """Sets the environment of this IntegrationUpdate.
 
-        the retrofit environment (e.g. production, local)  # noqa: E501
+        the retrofit environment (e.g. PROD_INTEGRATION, LOCAL)  # noqa: E501
 
         :param environment: The environment of this IntegrationUpdate.  # noqa: E501
         :type environment: str

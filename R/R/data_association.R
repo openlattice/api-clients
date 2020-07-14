@@ -8,16 +8,22 @@
 
 #' @docType class
 #' @title DataAssociation
-#'
 #' @description DataAssociation Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field srcEntitySetId  character [optional]
 #'
 #' @field srcEntityIndex  character [optional]
 #'
 #' @field srcEntityKeyId  character [optional]
+#'
+#' @field dstEntitySetId  character [optional]
+#'
+#' @field dstEntityIndex  character [optional]
+#'
+#' @field dstEntityKeyId  character [optional]
+#'
+#' @field data  named list( \link{array[character]} ) [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -28,9 +34,11 @@ DataAssociation <- R6::R6Class(
     `srcEntitySetId` = NULL,
     `srcEntityIndex` = NULL,
     `srcEntityKeyId` = NULL,
-    initialize = function(
-        `srcEntitySetId`=NULL, `srcEntityIndex`=NULL, `srcEntityKeyId`=NULL, ...
-    ) {
+    `dstEntitySetId` = NULL,
+    `dstEntityIndex` = NULL,
+    `dstEntityKeyId` = NULL,
+    `data` = NULL,
+    initialize = function(`srcEntitySetId`=NULL, `srcEntityIndex`=NULL, `srcEntityKeyId`=NULL, `dstEntitySetId`=NULL, `dstEntityIndex`=NULL, `dstEntityKeyId`=NULL, `data`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`srcEntitySetId`)) {
         stopifnot(is.character(`srcEntitySetId`), length(`srcEntitySetId`) == 1)
@@ -43,6 +51,23 @@ DataAssociation <- R6::R6Class(
       if (!is.null(`srcEntityKeyId`)) {
         stopifnot(is.character(`srcEntityKeyId`), length(`srcEntityKeyId`) == 1)
         self$`srcEntityKeyId` <- `srcEntityKeyId`
+      }
+      if (!is.null(`dstEntitySetId`)) {
+        stopifnot(is.character(`dstEntitySetId`), length(`dstEntitySetId`) == 1)
+        self$`dstEntitySetId` <- `dstEntitySetId`
+      }
+      if (!is.null(`dstEntityIndex`)) {
+        stopifnot(is.character(`dstEntityIndex`), length(`dstEntityIndex`) == 1)
+        self$`dstEntityIndex` <- `dstEntityIndex`
+      }
+      if (!is.null(`dstEntityKeyId`)) {
+        stopifnot(is.character(`dstEntityKeyId`), length(`dstEntityKeyId`) == 1)
+        self$`dstEntityKeyId` <- `dstEntityKeyId`
+      }
+      if (!is.null(`data`)) {
+        stopifnot(is.vector(`data`))
+        sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+        self$`data` <- `data`
       }
     },
     toJSON = function() {
@@ -59,6 +84,22 @@ DataAssociation <- R6::R6Class(
         DataAssociationObject[['srcEntityKeyId']] <-
           self$`srcEntityKeyId`
       }
+      if (!is.null(self$`dstEntitySetId`)) {
+        DataAssociationObject[['dstEntitySetId']] <-
+          self$`dstEntitySetId`
+      }
+      if (!is.null(self$`dstEntityIndex`)) {
+        DataAssociationObject[['dstEntityIndex']] <-
+          self$`dstEntityIndex`
+      }
+      if (!is.null(self$`dstEntityKeyId`)) {
+        DataAssociationObject[['dstEntityKeyId']] <-
+          self$`dstEntityKeyId`
+      }
+      if (!is.null(self$`data`)) {
+        DataAssociationObject[['data']] <-
+          lapply(self$`data`, function(x) x$toJSON())
+      }
 
       DataAssociationObject
     },
@@ -73,7 +114,18 @@ DataAssociation <- R6::R6Class(
       if (!is.null(DataAssociationObject$`srcEntityKeyId`)) {
         self$`srcEntityKeyId` <- DataAssociationObject$`srcEntityKeyId`
       }
-      self
+      if (!is.null(DataAssociationObject$`dstEntitySetId`)) {
+        self$`dstEntitySetId` <- DataAssociationObject$`dstEntitySetId`
+      }
+      if (!is.null(DataAssociationObject$`dstEntityIndex`)) {
+        self$`dstEntityIndex` <- DataAssociationObject$`dstEntityIndex`
+      }
+      if (!is.null(DataAssociationObject$`dstEntityKeyId`)) {
+        self$`dstEntityKeyId` <- DataAssociationObject$`dstEntityKeyId`
+      }
+      if (!is.null(DataAssociationObject$`data`)) {
+        self$`data` <- ApiClient$new()$deserializeObj(DataAssociationObject$`data`, "list(array[character])", loadNamespace("openlattice"))
+      }
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -97,6 +149,34 @@ DataAssociation <- R6::R6Class(
           "%s"
                 ',
         self$`srcEntityKeyId`
+        )},
+        if (!is.null(self$`dstEntitySetId`)) {
+        sprintf(
+        '"dstEntitySetId":
+          "%s"
+                ',
+        self$`dstEntitySetId`
+        )},
+        if (!is.null(self$`dstEntityIndex`)) {
+        sprintf(
+        '"dstEntityIndex":
+          "%s"
+                ',
+        self$`dstEntityIndex`
+        )},
+        if (!is.null(self$`dstEntityKeyId`)) {
+        sprintf(
+        '"dstEntityKeyId":
+          "%s"
+                ',
+        self$`dstEntityKeyId`
+        )},
+        if (!is.null(self$`data`)) {
+        sprintf(
+        '"data":
+        %s
+',
+        jsonlite::toJSON(lapply(self$`data`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -107,8 +187,11 @@ DataAssociation <- R6::R6Class(
       self$`srcEntitySetId` <- DataAssociationObject$`srcEntitySetId`
       self$`srcEntityIndex` <- DataAssociationObject$`srcEntityIndex`
       self$`srcEntityKeyId` <- DataAssociationObject$`srcEntityKeyId`
+      self$`dstEntitySetId` <- DataAssociationObject$`dstEntitySetId`
+      self$`dstEntityIndex` <- DataAssociationObject$`dstEntityIndex`
+      self$`dstEntityKeyId` <- DataAssociationObject$`dstEntityKeyId`
+      self$`data` <- ApiClient$new()$deserializeObj(DataAssociationObject$`data`, "list(array[character])", loadNamespace("openlattice"))
       self
     }
   )
 )
-

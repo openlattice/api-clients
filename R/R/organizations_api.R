@@ -55,6 +55,7 @@
 #' \itemize{
 #' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @param } request_body named list( \link{list(integer)} )
+#' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
@@ -221,6 +222,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
@@ -668,7 +670,7 @@
 #'
 #' library(openlattice)
 #' var.organization_id <- 'organization_id_example' # character | 
-#' var.request_body <- NULL # list(array[character]) | 
+#' var.request_body <- {'key' => array$new()} # list(array[character]) | 
 #'
 #' #Get the entity sets for an organization for a certain flag
 #' api.instance <- OrganizationsApi$new()
@@ -2156,7 +2158,7 @@ OrganizationsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )
       } else {
         body <- NULL
@@ -2345,7 +2347,7 @@ OrganizationsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )
       } else {
         body <- NULL

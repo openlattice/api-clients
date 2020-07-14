@@ -84,12 +84,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property _class (base name: "@class")', function() {
-      // uncomment below and update the code to test the property _class
-      //var instane = new OpenLatticeApi.Role();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

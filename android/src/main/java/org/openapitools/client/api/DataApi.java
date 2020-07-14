@@ -1056,7 +1056,7 @@ public class DataApi {
     }
 
     // create path and map variables
-    String path = "/datastore/data/{entitySetId}/{entityKeyId}".replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString())).replaceAll("\\{" + "entityKeyId" + "\\}", apiInvoker.escapeString(entityKeyId.toString()));
+    String path = "/datastore/data/set/{entitySetId}/{entityKeyId}".replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString())).replaceAll("\\{" + "entityKeyId" + "\\}", apiInvoker.escapeString(entityKeyId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1129,7 +1129,7 @@ public class DataApi {
     }
 
     // create path and map variables
-    String path = "/datastore/data/{entitySetId}/{entityKeyId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString())).replaceAll("\\{" + "entityKeyId" + "\\}", apiInvoker.escapeString(entityKeyId.toString()));
+    String path = "/datastore/data/set/{entitySetId}/{entityKeyId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString())).replaceAll("\\{" + "entityKeyId" + "\\}", apiInvoker.escapeString(entityKeyId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

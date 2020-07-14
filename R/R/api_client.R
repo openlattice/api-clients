@@ -164,9 +164,7 @@ ApiClient  <- R6::R6Class(
       else if (exists(returnType, pkgEnv) && !(c(returnType) %in% primitiveTypes)) {
         returnType <- get(returnType, envir = as.environment(pkgEnv))
         returnObj <- returnType$new()
-        returnObj$fromJSON(
-          jsonlite::toJSON(obj, digits = NA, auto_unbox = TRUE)
-        )
+        returnObj$fromJSON(jsonlite::toJSON(obj, digits = NA))
       } 
 
       # To handle primitive type

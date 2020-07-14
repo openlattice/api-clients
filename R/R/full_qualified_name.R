@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title FullQualifiedName
-#'
 #' @description FullQualifiedName Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field name  character [optional]
 #'
 #' @field namespace  character [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ FullQualifiedName <- R6::R6Class(
   public = list(
     `name` = NULL,
     `namespace` = NULL,
-    initialize = function(
-        `name`=NULL, `namespace`=NULL, ...
-    ) {
+    initialize = function(`name`=NULL, `namespace`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -59,7 +55,6 @@ FullQualifiedName <- R6::R6Class(
       if (!is.null(FullQualifiedNameObject$`namespace`)) {
         self$`namespace` <- FullQualifiedNameObject$`namespace`
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -89,4 +84,3 @@ FullQualifiedName <- R6::R6Class(
     }
   )
 )
-

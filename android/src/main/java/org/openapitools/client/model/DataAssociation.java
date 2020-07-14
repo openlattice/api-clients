@@ -12,6 +12,8 @@
 
 package org.openapitools.client.model;
 
+import java.util.*;
+import java.util.Map;
 import java.util.UUID;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -25,6 +27,14 @@ public class DataAssociation {
   private UUID srcEntityIndex = null;
   @SerializedName("srcEntityKeyId")
   private UUID srcEntityKeyId = null;
+  @SerializedName("dstEntitySetId")
+  private UUID dstEntitySetId = null;
+  @SerializedName("dstEntityIndex")
+  private UUID dstEntityIndex = null;
+  @SerializedName("dstEntityKeyId")
+  private UUID dstEntityKeyId = null;
+  @SerializedName("data")
+  private Map<String, List<String>> data = null;
 
   /**
    * the ID of the source entity set
@@ -59,6 +69,50 @@ public class DataAssociation {
     this.srcEntityKeyId = srcEntityKeyId;
   }
 
+  /**
+   * the ID of the dst entity set
+   **/
+  @ApiModelProperty(value = "the ID of the dst entity set")
+  public UUID getDstEntitySetId() {
+    return dstEntitySetId;
+  }
+  public void setDstEntitySetId(UUID dstEntitySetId) {
+    this.dstEntitySetId = dstEntitySetId;
+  }
+
+  /**
+   * The index of an entity
+   **/
+  @ApiModelProperty(value = "The index of an entity")
+  public UUID getDstEntityIndex() {
+    return dstEntityIndex;
+  }
+  public void setDstEntityIndex(UUID dstEntityIndex) {
+    this.dstEntityIndex = dstEntityIndex;
+  }
+
+  /**
+   * An existing entityKeyId
+   **/
+  @ApiModelProperty(value = "An existing entityKeyId")
+  public UUID getDstEntityKeyId() {
+    return dstEntityKeyId;
+  }
+  public void setDstEntityKeyId(UUID dstEntityKeyId) {
+    this.dstEntityKeyId = dstEntityKeyId;
+  }
+
+  /**
+   * data
+   **/
+  @ApiModelProperty(value = "data")
+  public Map<String, List<String>> getData() {
+    return data;
+  }
+  public void setData(Map<String, List<String>> data) {
+    this.data = data;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -71,7 +125,11 @@ public class DataAssociation {
     DataAssociation dataAssociation = (DataAssociation) o;
     return (this.srcEntitySetId == null ? dataAssociation.srcEntitySetId == null : this.srcEntitySetId.equals(dataAssociation.srcEntitySetId)) &&
         (this.srcEntityIndex == null ? dataAssociation.srcEntityIndex == null : this.srcEntityIndex.equals(dataAssociation.srcEntityIndex)) &&
-        (this.srcEntityKeyId == null ? dataAssociation.srcEntityKeyId == null : this.srcEntityKeyId.equals(dataAssociation.srcEntityKeyId));
+        (this.srcEntityKeyId == null ? dataAssociation.srcEntityKeyId == null : this.srcEntityKeyId.equals(dataAssociation.srcEntityKeyId)) &&
+        (this.dstEntitySetId == null ? dataAssociation.dstEntitySetId == null : this.dstEntitySetId.equals(dataAssociation.dstEntitySetId)) &&
+        (this.dstEntityIndex == null ? dataAssociation.dstEntityIndex == null : this.dstEntityIndex.equals(dataAssociation.dstEntityIndex)) &&
+        (this.dstEntityKeyId == null ? dataAssociation.dstEntityKeyId == null : this.dstEntityKeyId.equals(dataAssociation.dstEntityKeyId)) &&
+        (this.data == null ? dataAssociation.data == null : this.data.equals(dataAssociation.data));
   }
 
   @Override
@@ -80,6 +138,10 @@ public class DataAssociation {
     result = 31 * result + (this.srcEntitySetId == null ? 0: this.srcEntitySetId.hashCode());
     result = 31 * result + (this.srcEntityIndex == null ? 0: this.srcEntityIndex.hashCode());
     result = 31 * result + (this.srcEntityKeyId == null ? 0: this.srcEntityKeyId.hashCode());
+    result = 31 * result + (this.dstEntitySetId == null ? 0: this.dstEntitySetId.hashCode());
+    result = 31 * result + (this.dstEntityIndex == null ? 0: this.dstEntityIndex.hashCode());
+    result = 31 * result + (this.dstEntityKeyId == null ? 0: this.dstEntityKeyId.hashCode());
+    result = 31 * result + (this.data == null ? 0: this.data.hashCode());
     return result;
   }
 
@@ -91,6 +153,10 @@ public class DataAssociation {
     sb.append("  srcEntitySetId: ").append(srcEntitySetId).append("\n");
     sb.append("  srcEntityIndex: ").append(srcEntityIndex).append("\n");
     sb.append("  srcEntityKeyId: ").append(srcEntityKeyId).append("\n");
+    sb.append("  dstEntitySetId: ").append(dstEntitySetId).append("\n");
+    sb.append("  dstEntityIndex: ").append(dstEntityIndex).append("\n");
+    sb.append("  dstEntityKeyId: ").append(dstEntityKeyId).append("\n");
+    sb.append("  data: ").append(data).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

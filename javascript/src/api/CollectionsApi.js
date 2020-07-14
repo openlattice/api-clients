@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import CollectionTemplateType from '../model/CollectionTemplateType';
 import EntitySetCollection from '../model/EntitySetCollection';
 import EntityTypeCollection from '../model/EntityTypeCollection';
 import MetadataUpdate from '../model/MetadataUpdate';
@@ -47,18 +48,18 @@ export default class CollectionsApi {
     /**
      * Appends type to template of the specified EntityTypeCollection
      * @param {String} entityTypeCollectionId 
-     * @param {module:model/EntityTypeCollection} entityTypeCollection 
+     * @param {module:model/CollectionTemplateType} collectionTemplateType 
      * @param {module:api/CollectionsApi~addTypeToEntityTypeCollectionTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    addTypeToEntityTypeCollectionTemplate(entityTypeCollectionId, entityTypeCollection, callback) {
-      let postBody = entityTypeCollection;
+    addTypeToEntityTypeCollectionTemplate(entityTypeCollectionId, collectionTemplateType, callback) {
+      let postBody = collectionTemplateType;
       // verify the required parameter 'entityTypeCollectionId' is set
       if (entityTypeCollectionId === undefined || entityTypeCollectionId === null) {
         throw new Error("Missing the required parameter 'entityTypeCollectionId' when calling addTypeToEntityTypeCollectionTemplate");
       }
-      // verify the required parameter 'entityTypeCollection' is set
-      if (entityTypeCollection === undefined || entityTypeCollection === null) {
-        throw new Error("Missing the required parameter 'entityTypeCollection' when calling addTypeToEntityTypeCollectionTemplate");
+      // verify the required parameter 'collectionTemplateType' is set
+      if (collectionTemplateType === undefined || collectionTemplateType === null) {
+        throw new Error("Missing the required parameter 'collectionTemplateType' when calling addTypeToEntityTypeCollectionTemplate");
       }
 
       let pathParams = {
@@ -396,7 +397,7 @@ export default class CollectionsApi {
       let accepts = ['application/json'];
       let returnType = [EntitySetCollection];
       return this.apiClient.callApi(
-        '/datastore/collections/entity/type/entity/set/{entitySetCollectionId}', 'GET',
+        '/datastore/collections/entity/set/entity/type/{entitySetCollectionId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

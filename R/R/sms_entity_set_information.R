@@ -8,11 +8,8 @@
 
 #' @docType class
 #' @title SmsEntitySetInformation
-#'
 #' @description SmsEntitySetInformation Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field phoneNumber  character [optional]
 #'
 #' @field organizationId  character [optional]
@@ -20,6 +17,7 @@
 #' @field entitysetIds  list( character ) [optional]
 #'
 #' @field tags  list( character ) [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -31,9 +29,7 @@ SmsEntitySetInformation <- R6::R6Class(
     `organizationId` = NULL,
     `entitysetIds` = NULL,
     `tags` = NULL,
-    initialize = function(
-        `phoneNumber`=NULL, `organizationId`=NULL, `entitysetIds`=NULL, `tags`=NULL, ...
-    ) {
+    initialize = function(`phoneNumber`=NULL, `organizationId`=NULL, `entitysetIds`=NULL, `tags`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`phoneNumber`)) {
         stopifnot(is.character(`phoneNumber`), length(`phoneNumber`) == 1)
@@ -89,7 +85,6 @@ SmsEntitySetInformation <- R6::R6Class(
       if (!is.null(SmsEntitySetInformationObject$`tags`)) {
         self$`tags` <- ApiClient$new()$deserializeObj(SmsEntitySetInformationObject$`tags`, "array[character]", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -135,4 +130,3 @@ SmsEntitySetInformation <- R6::R6Class(
     }
   )
 )
-

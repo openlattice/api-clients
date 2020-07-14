@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **numHits** | **Integer** |  |  [optional]
-**hits** | **Map&lt;String, String&gt;** |  |  [optional]
+**hits** | [**List&lt;SearchResultHits&gt;**](SearchResultHits.md) |  |  [optional]
 
 
 

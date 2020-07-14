@@ -8,14 +8,12 @@
 
 #' @docType class
 #' @title AccessCheck
-#'
 #' @description AccessCheck Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field aclKey  list( character ) [optional]
 #'
 #' @field permissions  list( character ) [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,9 +23,7 @@ AccessCheck <- R6::R6Class(
   public = list(
     `aclKey` = NULL,
     `permissions` = NULL,
-    initialize = function(
-        `aclKey`=NULL, `permissions`=NULL, ...
-    ) {
+    initialize = function(`aclKey`=NULL, `permissions`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`aclKey`)) {
         stopifnot(is.vector(`aclKey`))
@@ -61,7 +57,6 @@ AccessCheck <- R6::R6Class(
       if (!is.null(AccessCheckObject$`permissions`)) {
         self$`permissions` <- ApiClient$new()$deserializeObj(AccessCheckObject$`permissions`, "array[character]", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -91,4 +86,3 @@ AccessCheck <- R6::R6Class(
     }
   )
 )
-

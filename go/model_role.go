@@ -16,5 +16,4 @@ type Role struct {
 	Principal Principal `json:"principal,omitempty"`
 	Title string `json:"title,omitempty"`
 	Description string `json:"description,omitempty"`
-	Class string `json:"@class,omitempty"`
 }

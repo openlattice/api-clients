@@ -11,13 +11,6 @@ Name | Type | Description | Notes
 **principal** | [**Principal**](Principal.md) |  |  [optional]
 **title** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
-**_class** | [**_classEnum**](#_classEnum) |  |  [optional]
-
-
-## Enum: _classEnum
-
-Name | Value
----- | -----
 
 
 

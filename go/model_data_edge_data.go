@@ -11,5 +11,5 @@
 package openlattice
 // DataEdgeData struct for DataEdgeData
 type DataEdgeData struct {
-	AdditionalProperties []string `json:"additionalProperties,omitempty"`
+	AdditionalPropertiesField []string `json:"additionalProperties,omitempty"`
 }

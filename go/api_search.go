@@ -45,7 +45,7 @@ func (a *SearchApiService) ExecuteAdvancedEntitySetDataQuery(ctx _context.Contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/search/advanced/{entitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -102,15 +102,6 @@ func (a *SearchApiService) ExecuteAdvancedEntitySetDataQuery(ctx _context.Contex
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v DataSearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -201,15 +192,6 @@ func (a *SearchApiService) ExecuteAppSearch(ctx _context.Context, searchTerm Sea
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -298,15 +280,6 @@ func (a *SearchApiService) ExecuteAppTypeSearch(ctx _context.Context, searchTerm
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -397,15 +370,6 @@ func (a *SearchApiService) ExecuteAssociationTypeSearch(ctx _context.Context, se
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -440,9 +404,9 @@ func (a *SearchApiService) ExecuteEntityNeighborSearch(ctx _context.Context, ent
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/search/{entitySetId}/{entityKeyId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entityKeyId"+"}", _neturl.QueryEscape(parameterToString(entityKeyId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entityKeyId"+"}", _neturl.PathEscape(parameterToString(entityKeyId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -498,15 +462,6 @@ func (a *SearchApiService) ExecuteEntityNeighborSearch(ctx _context.Context, ent
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []NeighborEntityDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -541,7 +496,7 @@ func (a *SearchApiService) ExecuteEntityNeighborSearchBulk(ctx _context.Context,
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/search/{entitySetId}/neighbors"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -598,15 +553,6 @@ func (a *SearchApiService) ExecuteEntityNeighborSearchBulk(ctx _context.Context,
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string][]NeighborEntityDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -697,15 +643,6 @@ func (a *SearchApiService) ExecuteEntitySetCollectionSearch(ctx _context.Context
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -740,7 +677,7 @@ func (a *SearchApiService) ExecuteEntitySetDataQuery(ctx _context.Context, entit
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/search/{entitySetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -797,15 +734,6 @@ func (a *SearchApiService) ExecuteEntitySetDataQuery(ctx _context.Context, entit
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v DataSearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -896,15 +824,6 @@ func (a *SearchApiService) ExecuteEntitySetKeywordQuery(ctx _context.Context, se
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -993,15 +912,6 @@ func (a *SearchApiService) ExecuteEntityTypeCollectionSearch(ctx _context.Contex
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1092,15 +1002,6 @@ func (a *SearchApiService) ExecuteEntityTypeSearch(ctx _context.Context, searchT
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1190,15 +1091,6 @@ func (a *SearchApiService) ExecuteFQNPropertyTypeSearch(ctx _context.Context, se
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1233,7 +1125,7 @@ func (a *SearchApiService) ExecuteFilteredEntityNeighborIdSearch(ctx _context.Co
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/search/{entitySetId}/neighbors/advanced/ids"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1290,15 +1182,6 @@ func (a *SearchApiService) ExecuteFilteredEntityNeighborIdSearch(ctx _context.Co
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]map[string]map[string][]NeighborEntityIds
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1334,7 +1217,7 @@ func (a *SearchApiService) ExecuteFilteredEntityNeighborSearch(ctx _context.Cont
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/search/{entitySetId}/neighbors/advanced"
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1391,15 +1274,6 @@ func (a *SearchApiService) ExecuteFilteredEntityNeighborSearch(ctx _context.Cont
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string][]NeighborEntityDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1490,15 +1364,6 @@ func (a *SearchApiService) ExecuteOrganizationSearch(ctx _context.Context, searc
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1588,15 +1453,6 @@ func (a *SearchApiService) ExecutePropertyTypeSearch(ctx _context.Context, searc
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1631,9 +1487,9 @@ func (a *SearchApiService) GetEntitySets(ctx _context.Context, start int32, numR
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/search/entity-sets/{start}/{numResults}"
-	localVarPath = strings.Replace(localVarPath, "{"+"start"+"}", _neturl.QueryEscape(parameterToString(start, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"start"+"}", _neturl.PathEscape(parameterToString(start, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"numResults"+"}", _neturl.QueryEscape(parameterToString(numResults, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"numResults"+"}", _neturl.PathEscape(parameterToString(numResults, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1688,15 +1544,6 @@ func (a *SearchApiService) GetEntitySets(ctx _context.Context, start int32, numR
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []SearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1783,15 +1630,6 @@ func (a *SearchApiService) GetPopularEntitySet(ctx _context.Context) ([]EntitySe
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []EntitySet
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1881,15 +1719,6 @@ func (a *SearchApiService) SearchEntitySetData(ctx _context.Context, searchConst
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v DataSearchResult
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

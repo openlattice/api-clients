@@ -19,6 +19,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } inline_object \link{InlineObject}
+#' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | Edges
@@ -51,7 +52,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } set_id \link{character}
-#' \item \emph{ @param } request_body list( list(array[character]) )
+#' \item \emph{ @param } request_body list( \link{list(array[character])} )
 #'
 #'
 #' \item status code : 200 | Edges
@@ -176,6 +177,7 @@
 #' \itemize{
 #' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @param } entity_key_id \link{character}
+#' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | An entity details object, with property type FQNs as keys.
@@ -259,7 +261,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } entity_set_id \link{character}
-#' \item \emph{ @param } entity_set_selection \link{EntitySetSelection}
+#' \item \emph{ @param } entity_set_selection list( \link{EntitySetSelection} )
 #'
 #'
 #' \item status code : 200 | A list of entity keys that were generated
@@ -627,7 +629,7 @@
 #'
 #' library(openlattice)
 #' var.entity_set_id <- 'entity_set_id_example' # character | 
-#' var.entity_set_selection <- EntitySetSelection$new() # EntitySetSelection | 
+#' var.entity_set_selection <- list(EntitySetSelection$new()) # array[EntitySetSelection] | 
 #'
 #' #Gets a list of entities by UUIDs
 #' api.instance <- DataApi$new()
@@ -815,7 +817,7 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`data_edge_key`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+              paste(sapply(`data_edge_key`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )
       } else {
         body <- NULL
@@ -884,7 +886,7 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )
       } else {
         body <- NULL
@@ -1076,7 +1078,7 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )
       } else {
         body <- NULL
@@ -1153,7 +1155,7 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`entity_neighbors_filter`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+              paste(sapply(`entity_neighbors_filter`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )
       } else {
         body <- NULL
@@ -1225,7 +1227,7 @@ DataApi <- R6::R6Class(
 
       queryParams['type'] <- type
 
-      urlPath <- "/datastore/data/{entitySetId}/{entityKeyId}"
+      urlPath <- "/datastore/data/set/{entitySetId}/{entityKeyId}"
       if (!missing(`entity_set_id`)) {
         urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
       }
@@ -1298,7 +1300,7 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )
       } else {
         body <- NULL
@@ -1615,7 +1617,7 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`entity_set_selection`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)}}), collapse=",")
+              paste(sapply(`entity_set_selection`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )
       } else {
         body <- NULL
@@ -1684,9 +1686,9 @@ DataApi <- R6::R6Class(
       if (!missing(`entity_set_selection`)) {
         body <- sprintf(
         '
-          %s
-        ',
-            jsonlite::toJSON(`entity_set_selection`$toJSON(), auto_unbox=TRUE, digits = NA)
+            [%s]
+',
+              paste(sapply(`entity_set_selection`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )
       } else {
         body <- NULL

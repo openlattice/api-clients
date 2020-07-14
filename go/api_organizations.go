@@ -43,9 +43,9 @@ func (a *OrganizationsApiService) AddMember(ctx _context.Context, organizationId
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/members/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.QueryEscape(parameterToString(userId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(userId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -125,11 +125,11 @@ func (a *OrganizationsApiService) AddRoleToUser(ctx _context.Context, organizati
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.QueryEscape(parameterToString(roleId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.PathEscape(parameterToString(roleId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.QueryEscape(parameterToString(userId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(userId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -210,7 +210,7 @@ func (a *OrganizationsApiService) AssembleEntitySets(ctx _context.Context, organ
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/entity-sets/assemble"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -267,15 +267,6 @@ func (a *OrganizationsApiService) AssembleEntitySets(ctx _context.Context, organ
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string][]string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -366,15 +357,6 @@ func (a *OrganizationsApiService) CreateOrganizationIfNotExists(ctx _context.Con
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -464,15 +446,6 @@ func (a *OrganizationsApiService) CreateRole(ctx _context.Context, role Role) (s
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -505,9 +478,9 @@ func (a *OrganizationsApiService) DeleteRole(ctx _context.Context, organizationI
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/roles/{roleId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.QueryEscape(parameterToString(roleId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.PathEscape(parameterToString(roleId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -585,7 +558,7 @@ func (a *OrganizationsApiService) DestroyOrganization(ctx _context.Context, orga
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -666,9 +639,9 @@ func (a *OrganizationsApiService) GetAllUsersOfRole(ctx _context.Context, organi
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/roles/{roleId}/members/"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.QueryEscape(parameterToString(roleId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.PathEscape(parameterToString(roleId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -723,15 +696,6 @@ func (a *OrganizationsApiService) GetAllUsersOfRole(ctx _context.Context, organi
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []Auth0userBasic
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -766,7 +730,7 @@ func (a *OrganizationsApiService) GetAutoApprovedEmailDomains(ctx _context.Conte
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/email-domains"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -821,15 +785,6 @@ func (a *OrganizationsApiService) GetAutoApprovedEmailDomains(ctx _context.Conte
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -865,7 +820,7 @@ func (a *OrganizationsApiService) GetFlaggedOrganizationEntitySets(ctx _context.
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/entity-sets"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -923,15 +878,6 @@ func (a *OrganizationsApiService) GetFlaggedOrganizationEntitySets(ctx _context.
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []map[string][]string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -965,7 +911,7 @@ func (a *OrganizationsApiService) GetMembers(ctx _context.Context, organizationI
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/members"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1020,15 +966,6 @@ func (a *OrganizationsApiService) GetMembers(ctx _context.Context, organizationI
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []OrganizationMember
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1063,7 +1000,7 @@ func (a *OrganizationsApiService) GetOrganization(ctx _context.Context, organiza
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1118,15 +1055,6 @@ func (a *OrganizationsApiService) GetOrganization(ctx _context.Context, organiza
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Organization
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1161,7 +1089,7 @@ func (a *OrganizationsApiService) GetOrganizationEntitySets(ctx _context.Context
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/entity-sets"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1216,15 +1144,6 @@ func (a *OrganizationsApiService) GetOrganizationEntitySets(ctx _context.Context
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string][]string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1259,7 +1178,7 @@ func (a *OrganizationsApiService) GetOrganizationIntegrationAccount(ctx _context
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/integration"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1314,15 +1233,6 @@ func (a *OrganizationsApiService) GetOrganizationIntegrationAccount(ctx _context
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse200
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1410,15 +1320,6 @@ func (a *OrganizationsApiService) GetOrganizations(ctx _context.Context) ([]Orga
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []Organization
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1453,9 +1354,9 @@ func (a *OrganizationsApiService) GetRole(ctx _context.Context, organizationId s
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/roles/{roleId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.QueryEscape(parameterToString(roleId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.PathEscape(parameterToString(roleId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1510,15 +1411,6 @@ func (a *OrganizationsApiService) GetRole(ctx _context.Context, organizationId s
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v Role
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1553,7 +1445,7 @@ func (a *OrganizationsApiService) GetRoles(ctx _context.Context, organizationId 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/roles"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1609,15 +1501,6 @@ func (a *OrganizationsApiService) GetRoles(ctx _context.Context, organizationId 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v []Role
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -1650,9 +1533,9 @@ func (a *OrganizationsApiService) RefreshDataChanges(ctx _context.Context, organ
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/{entitySetId}/refresh"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1731,7 +1614,7 @@ func (a *OrganizationsApiService) RemoveAutoApprovedEmailDomains(ctx _context.Co
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/email-domains"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1812,9 +1695,9 @@ func (a *OrganizationsApiService) RemoveMember(ctx _context.Context, organizatio
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/members/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.QueryEscape(parameterToString(userId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(userId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1894,11 +1777,11 @@ func (a *OrganizationsApiService) RemoveRoleFromUser(ctx _context.Context, organ
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.QueryEscape(parameterToString(roleId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.PathEscape(parameterToString(roleId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.QueryEscape(parameterToString(userId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", _neturl.PathEscape(parameterToString(userId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -1977,7 +1860,7 @@ func (a *OrganizationsApiService) SetAutoApprovedEmailDomain(ctx _context.Contex
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/email-domains"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2058,9 +1941,9 @@ func (a *OrganizationsApiService) SynchronizeEdmChanges(ctx _context.Context, or
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/{entitySetId}/synchronize"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.QueryEscape(parameterToString(entitySetId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"entitySetId"+"}", _neturl.PathEscape(parameterToString(entitySetId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2139,7 +2022,7 @@ func (a *OrganizationsApiService) UpdateDescription(ctx _context.Context, organi
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/description"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2221,9 +2104,9 @@ func (a *OrganizationsApiService) UpdateRoleDescription(ctx _context.Context, or
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/roles/{roleId}/description"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.QueryEscape(parameterToString(roleId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.PathEscape(parameterToString(roleId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2305,9 +2188,9 @@ func (a *OrganizationsApiService) UpdateRoleTitle(ctx _context.Context, organiza
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/principals/roles/{roleId}/title"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.QueryEscape(parameterToString(roleId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"roleId"+"}", _neturl.PathEscape(parameterToString(roleId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
@@ -2388,7 +2271,7 @@ func (a *OrganizationsApiService) UpdateTitle(ctx _context.Context, organization
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/datastore/organizations/{organizationId}/title"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.QueryEscape(parameterToString(organizationId, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

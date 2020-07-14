@@ -88,6 +88,7 @@ docs/SearchApi.md
 docs/SearchConstraints.md
 docs/SearchDetails.md
 docs/SearchResult.md
+docs/SearchResultHits.md
 docs/SearchTerm.md
 docs/SecurablePrincipal.md
 docs/ShuttleApi.md
@@ -186,6 +187,7 @@ openlattice/models/search.py
 openlattice/models/search_constraints.py
 openlattice/models/search_details.py
 openlattice/models/search_result.py
+openlattice/models/search_result_hits.py
 openlattice/models/search_term.py
 openlattice/models/securable_principal.py
 openlattice/models/sms_entity_set_information.py
@@ -281,6 +283,7 @@ test/test_search_api.py
 test/test_search_constraints.py
 test/test_search_details.py
 test/test_search_result.py
+test/test_search_result_hits.py
 test/test_search_term.py
 test/test_securable_principal.py
 test/test_shuttle_api.py

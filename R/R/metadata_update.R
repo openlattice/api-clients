@@ -8,11 +8,8 @@
 
 #' @docType class
 #' @title MetadataUpdate
-#'
 #' @description MetadataUpdate Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field title  character [optional]
 #'
 #' @field description  character [optional]
@@ -29,7 +26,7 @@
 #'
 #' @field url  character [optional]
 #'
-#' @field propertyTags  named list( array[character] ) [optional]
+#' @field propertyTags  named list( \link{array[character]} ) [optional]
 #'
 #' @field indexType  character [optional]
 #'
@@ -38,6 +35,7 @@
 #' @field partitions  list( integer ) [optional]
 #'
 #' @field enumValues  list( character ) [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -58,9 +56,7 @@ MetadataUpdate <- R6::R6Class(
     `organizationId` = NULL,
     `partitions` = NULL,
     `enumValues` = NULL,
-    initialize = function(
-        `title`=NULL, `description`=NULL, `name`=NULL, `contacts`=NULL, `type`=NULL, `pii`=NULL, `defaultShow`=NULL, `url`=NULL, `propertyTags`=NULL, `indexType`=NULL, `organizationId`=NULL, `partitions`=NULL, `enumValues`=NULL, ...
-    ) {
+    initialize = function(`title`=NULL, `description`=NULL, `name`=NULL, `contacts`=NULL, `type`=NULL, `pii`=NULL, `defaultShow`=NULL, `url`=NULL, `propertyTags`=NULL, `indexType`=NULL, `organizationId`=NULL, `partitions`=NULL, `enumValues`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`title`)) {
         stopifnot(is.character(`title`), length(`title`) == 1)
@@ -95,7 +91,7 @@ MetadataUpdate <- R6::R6Class(
       }
       if (!is.null(`propertyTags`)) {
         stopifnot(is.vector(`propertyTags`))
-        sapply(`propertyTags`, function(x) stopifnot(is.character(x)))
+        sapply(`propertyTags`, function(x) stopifnot(R6::is.R6(x)))
         self$`propertyTags` <- `propertyTags`
       }
       if (!is.null(`indexType`)) {
@@ -153,7 +149,7 @@ MetadataUpdate <- R6::R6Class(
       }
       if (!is.null(self$`propertyTags`)) {
         MetadataUpdateObject[['propertyTags']] <-
-          self$`propertyTags`
+          lapply(self$`propertyTags`, function(x) x$toJSON())
       }
       if (!is.null(self$`indexType`)) {
         MetadataUpdateObject[['indexType']] <-
@@ -217,7 +213,6 @@ MetadataUpdate <- R6::R6Class(
       if (!is.null(MetadataUpdateObject$`enumValues`)) {
         self$`enumValues` <- ApiClient$new()$deserializeObj(MetadataUpdateObject$`enumValues`, "array[character]", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -280,9 +275,9 @@ MetadataUpdate <- R6::R6Class(
         if (!is.null(self$`propertyTags`)) {
         sprintf(
         '"propertyTags":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`propertyTags`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`propertyTags`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`indexType`)) {
         sprintf(
@@ -335,4 +330,3 @@ MetadataUpdate <- R6::R6Class(
     }
   )
 )
-

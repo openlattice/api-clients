@@ -8,12 +8,10 @@
 
 #' @docType class
 #' @title DataEdgeData
-#'
 #' @description DataEdgeData Class
-#'
 #' @format An \code{R6Class} generator object
-#'
 #' @field additionalProperties  list( character ) [optional]
+#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -22,9 +20,7 @@ DataEdgeData <- R6::R6Class(
   'DataEdgeData',
   public = list(
     `additionalProperties` = NULL,
-    initialize = function(
-        `additionalProperties`=NULL, ...
-    ) {
+    initialize = function(`additionalProperties`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`additionalProperties`)) {
         stopifnot(is.vector(`additionalProperties`))
@@ -46,7 +42,6 @@ DataEdgeData <- R6::R6Class(
       if (!is.null(DataEdgeDataObject$`additionalProperties`)) {
         self$`additionalProperties` <- ApiClient$new()$deserializeObj(DataEdgeDataObject$`additionalProperties`, "array[character]", loadNamespace("openlattice"))
       }
-      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -68,4 +63,3 @@ DataEdgeData <- R6::R6Class(
     }
   )
 )
-

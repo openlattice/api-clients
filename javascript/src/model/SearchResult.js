@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import SearchResultHits from './SearchResultHits';
 
 /**
  * The SearchResult model module.
@@ -21,7 +22,6 @@ import ApiClient from '../ApiClient';
 class SearchResult {
     /**
      * Constructs a new <code>SearchResult</code>.
-     * A search result object, containing the total number of hits for the given query, and the hits themselves.
      * @alias module:model/SearchResult
      */
     constructor() { 
@@ -52,7 +52,7 @@ class SearchResult {
                 obj['numHits'] = ApiClient.convertToType(data['numHits'], 'Number');
             }
             if (data.hasOwnProperty('hits')) {
-                obj['hits'] = ApiClient.convertToType(data['hits'], {'String': 'String'});
+                obj['hits'] = ApiClient.convertToType(data['hits'], [SearchResultHits]);
             }
         }
         return obj;
@@ -67,7 +67,7 @@ class SearchResult {
 SearchResult.prototype['numHits'] = undefined;
 
 /**
- * @member {Object.<String, String>} hits
+ * @member {Array.<module:model/SearchResultHits>} hits
  */
 SearchResult.prototype['hits'] = undefined;
 
