@@ -85,7 +85,7 @@ func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		BasePath:      "https://api.openlattice.com",
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "OpenAPI-Generator/0.1.0/go",
+		UserAgent:     "OpenAPI-Generator/0.1.1/go",
 		Debug:         false,
 		Servers:       []ServerConfiguration{
 			{

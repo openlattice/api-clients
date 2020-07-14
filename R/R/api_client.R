@@ -39,7 +39,7 @@ ApiClient  <- R6::R6Class(
     # base path of all requests
     basePath = "https://api.openlattice.com",
     # user agent in the HTTP request
-    userAgent = "OpenAPI-Generator/0.1.0/r",
+    userAgent = "OpenAPI-Generator/0.1.1/r",
     # default headers in the HTTP request
     defaultHeaders = NULL,
     # username (HTTP basic authentication)
