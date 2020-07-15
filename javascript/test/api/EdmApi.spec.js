@@ -58,26 +58,6 @@
         done();
       });
     });
-    describe('addEntitySetsToLinkingEntitySet', function() {
-      it('should call addEntitySetsToLinkingEntitySet successfully', function(done) {
-        //uncomment below and update the code to test addEntitySetsToLinkingEntitySet
-        //instance.addEntitySetsToLinkingEntitySet(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('addEntitySetsToLinkingEntitySets', function() {
-      it('should call addEntitySetsToLinkingEntitySets successfully', function(done) {
-        //uncomment below and update the code to test addEntitySetsToLinkingEntitySets
-        //instance.addEntitySetsToLinkingEntitySets(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('addPrimaryKeyToEntityType', function() {
       it('should call addPrimaryKeyToEntityType successfully', function(done) {
         //uncomment below and update the code to test addPrimaryKeyToEntityType
@@ -128,16 +108,6 @@
         done();
       });
     });
-    describe('createEntitySets', function() {
-      it('should call createEntitySets successfully', function(done) {
-        //uncomment below and update the code to test createEntitySets
-        //instance.createEntitySets(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('createEntityType', function() {
       it('should call createEntityType successfully', function(done) {
         //uncomment below and update the code to test createEntityType
@@ -172,16 +142,6 @@
       it('should call deleteAssociationType successfully', function(done) {
         //uncomment below and update the code to test deleteAssociationType
         //instance.deleteAssociationType(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('deleteEntitySet', function() {
-      it('should call deleteEntitySet successfully', function(done) {
-        //uncomment below and update the code to test deleteEntitySet
-        //instance.deleteEntitySet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -242,26 +202,6 @@
       it('should call getAllAvailableAssociationTypes successfully', function(done) {
         //uncomment below and update the code to test getAllAvailableAssociationTypes
         //instance.getAllAvailableAssociationTypes(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getAllEntitySetPropertyMetadata', function() {
-      it('should call getAllEntitySetPropertyMetadata successfully', function(done) {
-        //uncomment below and update the code to test getAllEntitySetPropertyMetadata
-        //instance.getAllEntitySetPropertyMetadata(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getAllEntitySets', function() {
-      it('should call getAllEntitySets successfully', function(done) {
-        //uncomment below and update the code to test getAllEntitySets
-        //instance.getAllEntitySets(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -358,46 +298,6 @@
         done();
       });
     });
-    describe('getEntitySet', function() {
-      it('should call getEntitySet successfully', function(done) {
-        //uncomment below and update the code to test getEntitySet
-        //instance.getEntitySet(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getEntitySetId', function() {
-      it('should call getEntitySetId successfully', function(done) {
-        //uncomment below and update the code to test getEntitySetId
-        //instance.getEntitySetId(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getEntitySetIds', function() {
-      it('should call getEntitySetIds successfully', function(done) {
-        //uncomment below and update the code to test getEntitySetIds
-        //instance.getEntitySetIds(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getEntitySetPropertyMetadata', function() {
-      it('should call getEntitySetPropertyMetadata successfully', function(done) {
-        //uncomment below and update the code to test getEntitySetPropertyMetadata
-        //instance.getEntitySetPropertyMetadata(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getEntityType', function() {
       it('should call getEntityType successfully', function(done) {
         //uncomment below and update the code to test getEntityType
@@ -438,16 +338,6 @@
         done();
       });
     });
-    describe('getPropertyMetadataForEntitySets', function() {
-      it('should call getPropertyMetadataForEntitySets successfully', function(done) {
-        //uncomment below and update the code to test getPropertyMetadataForEntitySets
-        //instance.getPropertyMetadataForEntitySets(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getPropertyType', function() {
       it('should call getPropertyType successfully', function(done) {
         //uncomment below and update the code to test getPropertyType
@@ -462,16 +352,6 @@
       it('should call getPropertyTypeId successfully', function(done) {
         //uncomment below and update the code to test getPropertyTypeId
         //instance.getPropertyTypeId(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getPropertyTypesForEntitySet', function() {
-      it('should call getPropertyTypesForEntitySet successfully', function(done) {
-        //uncomment below and update the code to test getPropertyTypesForEntitySet
-        //instance.getPropertyTypesForEntitySet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -528,26 +408,6 @@
         done();
       });
     });
-    describe('removeEntitySetsFromLinkingEntitySet', function() {
-      it('should call removeEntitySetsFromLinkingEntitySet successfully', function(done) {
-        //uncomment below and update the code to test removeEntitySetsFromLinkingEntitySet
-        //instance.removeEntitySetsFromLinkingEntitySet(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('removeEntitySetsFromLinkingEntitySets', function() {
-      it('should call removeEntitySetsFromLinkingEntitySets successfully', function(done) {
-        //uncomment below and update the code to test removeEntitySetsFromLinkingEntitySets
-        //instance.removeEntitySetsFromLinkingEntitySets(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('removePrimaryKeyFromEntityType', function() {
       it('should call removePrimaryKeyFromEntityType successfully', function(done) {
         //uncomment below and update the code to test removePrimaryKeyFromEntityType
@@ -592,26 +452,6 @@
       it('should call updateEntityDataModel successfully', function(done) {
         //uncomment below and update the code to test updateEntityDataModel
         //instance.updateEntityDataModel(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('updateEntitySetMetaData', function() {
-      it('should call updateEntitySetMetaData successfully', function(done) {
-        //uncomment below and update the code to test updateEntitySetMetaData
-        //instance.updateEntitySetMetaData(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('updateEntitySetPropertyMetadata', function() {
-      it('should call updateEntitySetPropertyMetadata successfully', function(done) {
-        //uncomment below and update the code to test updateEntitySetPropertyMetadata
-        //instance.updateEntitySetPropertyMetadata(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

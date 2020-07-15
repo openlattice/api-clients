@@ -31,40 +31,6 @@
 #' }
 #' }
 #'
-#' \strong{ add_entity_sets_to_linking_entity_set } \emph{ Adds the entity sets as linked entity sets to the linking entity set }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } linking_entity_set_id \link{character}
-#' \item \emph{ @param } request_body list( character )
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : integer 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ add_entity_sets_to_linking_entity_sets } \emph{ Adds the entity sets as linked entity sets to the linking entity sets }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } linking_entity_set_id character
-#' \item \emph{ @param } request_body named list( \link{list(array[character])} )
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : integer 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
 #' \strong{ add_primary_key_to_entity_type } \emph{ Adds a primary key with a given ID to an entity type with a given ID. }
 #' 
 #'
@@ -149,22 +115,6 @@
 #' }
 #' }
 #'
-#' \strong{ create_entity_sets } \emph{ Creates new EntitySet definitions if they don&#39;t exist. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } entity_set list( \link{EntitySet} )
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#'
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
 #' \strong{ create_entity_type } \emph{ Creates a new EntityType definition, if it doesn&#39;t exist. }
 #' 
 #'
@@ -218,22 +168,6 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } association_type_id \link{character}
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#'
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ delete_entity_set } \emph{ Deletes the EntitySet definition for the given EntitySet UUID. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } entity_set_id \link{character}
 #'
 #'
 #' \item status code : 200 | Success
@@ -337,39 +271,6 @@
 #' \item status code : 200 | Success
 #'
 #' \item return type : array[AssociationType] 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ get_all_entity_set_property_metadata } \emph{ Get all entity set property metadata. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } entity_set_id \link{character}
-#' \item \emph{ @returnType } named list( \link{EntitySetPropertyMetaData} ) \cr
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : list(EntitySetPropertyMetaData) 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ get_all_entity_sets } \emph{ Get all EntitySet definitions. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @returnType } list( \link{EntitySet} ) \cr
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : array[EntitySet] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -525,73 +426,6 @@
 #' }
 #' }
 #'
-#' \strong{ get_entity_set } \emph{ Get the EntitySet definition for the given EntitySet UUID. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } entity_set_id \link{character}
-#' \item \emph{ @returnType } \link{EntitySet} \cr
-#'
-#'
-#' \item status code : 200 | An Entity Set definition
-#'
-#' \item return type : EntitySet 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ get_entity_set_id } \emph{ Gets the EntitySet UUID for the given EntitySet name. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } entity_set_name character
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : character 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ get_entity_set_ids } \emph{ Get IDs for entity sets given their names. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } request_body list( character )
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : list(character) 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ get_entity_set_property_metadata } \emph{ Get specified property type metadata for an entity set. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } entity_set_id \link{character}
-#' \item \emph{ @param } property_type_id \link{character}
-#' \item \emph{ @returnType } \link{EntitySetPropertyMetaData} \cr
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : EntitySetPropertyMetaData 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
 #' \strong{ get_entity_type } \emph{ Gets the EntityType definition for the given EntityType UUID. }
 #' 
 #'
@@ -660,22 +494,6 @@
 #' }
 #' }
 #'
-#' \strong{ get_property_metadata_for_entity_sets } \emph{ Get property metadata for entity sets. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } request_body list( character )
-#'
-#'
-#' \item status code : 200 | EntitySetPropertyMetaData
-#'
-#' \item return type : list(list(EntitySetPropertyMetaData)) 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
 #' \strong{ get_property_type } \emph{ Gets the PropertyType definition for the given PropertyType UUID. }
 #' 
 #'
@@ -704,23 +522,6 @@
 #' \item status code : 200 | Success
 #'
 #' \item return type : character 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ get_property_types_for_entity_set } \emph{ Get all Property Types for entity set }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } entity_set_id \link{character}
-#' \item \emph{ @returnType } named list( \link{PropertyType} ) \cr
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : list(PropertyType) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -813,40 +614,6 @@
 #' }
 #' }
 #'
-#' \strong{ remove_entity_sets_from_linking_entity_set } \emph{ Removes/unlinks the linked entity sets from the linking entity set }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } linking_entity_set_id character
-#' \item \emph{ @param } request_body list( character )
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : integer 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ remove_entity_sets_from_linking_entity_sets } \emph{ Removes/unlinks the linked entity sets from the linking entity set }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } linking_entity_set_id \link{character}
-#' \item \emph{ @param } request_body named list( \link{list(array[character])} )
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : integer 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
 #' \strong{ remove_primary_key_from_entity_type } \emph{ Removes a primary key with a given ID from an entity type with a given ID. }
 #' 
 #'
@@ -920,41 +687,6 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } EDM \link{EDM}
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#'
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ update_entity_set_meta_data } \emph{ Updates the EntitySet definition for the given EntitySet UUID with the given metadata. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } entity_set_id \link{character}
-#' \item \emph{ @param } metadata_update \link{MetadataUpdate}
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#' \item return type : integer 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ update_entity_set_property_metadata } \emph{ Updates the property type metadata for the given entity set. }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } entity_set_id \link{character}
-#' \item \emph{ @param } property_type_id \link{character}
-#' \item \emph{ @param } metadata_update \link{MetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -1061,48 +793,6 @@
 #' result <- api.instance$add_dst_entity_type_to_association_type(var.association_type_id, var.entity_type_id)
 #'
 #'
-#' ####################  add_entity_sets_to_linking_entity_set  ####################
-#'
-#' library(openlattice)
-#' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
-#' var.request_body <- list('request_body_example') # array[character] | 
-#'
-#' #Adds the entity sets as linked entity sets to the linking entity set
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$add_entity_sets_to_linking_entity_set(var.linking_entity_set_id, request_body=var.request_body)
-#'
-#'
-#' ####################  add_entity_sets_to_linking_entity_sets  ####################
-#'
-#' library(openlattice)
-#' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
-#' var.request_body <- {'key' => array$new()} # list(array[character]) | 
-#'
-#' #Adds the entity sets as linked entity sets to the linking entity sets
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$add_entity_sets_to_linking_entity_sets(var.linking_entity_set_id, var.request_body)
-#'
-#'
 #' ####################  add_primary_key_to_entity_type  ####################
 #'
 #' library(openlattice)
@@ -1198,26 +888,6 @@
 #' result <- api.instance$create_empty_schema(var.namespace, var.name)
 #'
 #'
-#' ####################  create_entity_sets  ####################
-#'
-#' library(openlattice)
-#' var.entity_set <- list(EntitySet$new()) # array[EntitySet] | 
-#'
-#' #Creates new EntitySet definitions if they don't exist.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$create_entity_sets(var.entity_set)
-#'
-#'
 #' ####################  create_entity_type  ####################
 #'
 #' library(openlattice)
@@ -1278,26 +948,6 @@
 #' api.instance <- EdmApi$new()
 #'
 #' result <- api.instance$delete_association_type(var.association_type_id)
-#'
-#'
-#' ####################  delete_entity_set  ####################
-#'
-#' library(openlattice)
-#' var.entity_set_id <- 'entity_set_id_example' # character | 
-#'
-#' #Deletes the EntitySet definition for the given EntitySet UUID.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$delete_entity_set(var.entity_set_id)
 #'
 #'
 #' ####################  delete_entity_type  ####################
@@ -1409,45 +1059,6 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$get_all_available_association_types(var.association_type_id)
-#'
-#'
-#' ####################  get_all_entity_set_property_metadata  ####################
-#'
-#' library(openlattice)
-#' var.entity_set_id <- 'entity_set_id_example' # character | 
-#'
-#' #Get all entity set property metadata.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$get_all_entity_set_property_metadata(var.entity_set_id)
-#'
-#'
-#' ####################  get_all_entity_sets  ####################
-#'
-#' library(openlattice)
-#'
-#' #Get all EntitySet definitions.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$get_all_entity_sets()
 #'
 #'
 #' ####################  get_all_entity_type_property_metadata  ####################
@@ -1617,87 +1228,6 @@
 #' result <- api.instance$get_entity_data_model_diff(var.ed_mdiff)
 #'
 #'
-#' ####################  get_entity_set  ####################
-#'
-#' library(openlattice)
-#' var.entity_set_id <- 'entity_set_id_example' # character | 
-#'
-#' #Get the EntitySet definition for the given EntitySet UUID.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$get_entity_set(var.entity_set_id)
-#'
-#'
-#' ####################  get_entity_set_id  ####################
-#'
-#' library(openlattice)
-#' var.entity_set_name <- 'entity_set_name_example' # character | 
-#'
-#' #Gets the EntitySet UUID for the given EntitySet name.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$get_entity_set_id(var.entity_set_name)
-#'
-#'
-#' ####################  get_entity_set_ids  ####################
-#'
-#' library(openlattice)
-#' var.request_body <- list('request_body_example') # array[character] | 
-#'
-#' #Get IDs for entity sets given their names.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$get_entity_set_ids(request_body=var.request_body)
-#'
-#'
-#' ####################  get_entity_set_property_metadata  ####################
-#'
-#' library(openlattice)
-#' var.entity_set_id <- 'entity_set_id_example' # character | 
-#' var.property_type_id <- 'property_type_id_example' # character | 
-#'
-#' #Get specified property type metadata for an entity set.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$get_entity_set_property_metadata(var.entity_set_id, var.property_type_id)
-#'
-#'
 #' ####################  get_entity_type  ####################
 #'
 #' library(openlattice)
@@ -1771,26 +1301,6 @@
 #' result <- api.instance$get_entity_type_property_metadata(var.entity_type_id, var.property_type_id)
 #'
 #'
-#' ####################  get_property_metadata_for_entity_sets  ####################
-#'
-#' library(openlattice)
-#' var.request_body <- list('request_body_example') # array[character] | 
-#'
-#' #Get property metadata for entity sets.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$get_property_metadata_for_entity_sets(request_body=var.request_body)
-#'
-#'
 #' ####################  get_property_type  ####################
 #'
 #' library(openlattice)
@@ -1830,26 +1340,6 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$get_property_type_id(var.namespace, var.name)
-#'
-#'
-#' ####################  get_property_types_for_entity_set  ####################
-#'
-#' library(openlattice)
-#' var.entity_set_id <- 'entity_set_id_example' # character | 
-#'
-#' #Get all Property Types for entity set
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$get_property_types_for_entity_set(var.entity_set_id)
 #'
 #'
 #' ####################  get_property_usage_summary  ####################
@@ -1954,48 +1444,6 @@
 #' result <- api.instance$remove_dst_entity_type_from_association_type(var.association_type_id, var.entity_type_id)
 #'
 #'
-#' ####################  remove_entity_sets_from_linking_entity_set  ####################
-#'
-#' library(openlattice)
-#' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
-#' var.request_body <- list('request_body_example') # array[character] | 
-#'
-#' #Removes/unlinks the linked entity sets from the linking entity set
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$remove_entity_sets_from_linking_entity_set(var.linking_entity_set_id, request_body=var.request_body)
-#'
-#'
-#' ####################  remove_entity_sets_from_linking_entity_sets  ####################
-#'
-#' library(openlattice)
-#' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
-#' var.request_body <- {'key' => array$new()} # list(array[character]) | 
-#'
-#' #Removes/unlinks the linked entity sets from the linking entity set
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$remove_entity_sets_from_linking_entity_sets(var.linking_entity_set_id, var.request_body)
-#'
-#'
 #' ####################  remove_primary_key_from_entity_type  ####################
 #'
 #' library(openlattice)
@@ -2098,49 +1546,6 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$update_entity_data_model(var.EDM)
-#'
-#'
-#' ####################  update_entity_set_meta_data  ####################
-#'
-#' library(openlattice)
-#' var.entity_set_id <- 'entity_set_id_example' # character | 
-#' var.metadata_update <- MetadataUpdate$new() # MetadataUpdate | 
-#'
-#' #Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$update_entity_set_meta_data(var.entity_set_id, var.metadata_update)
-#'
-#'
-#' ####################  update_entity_set_property_metadata  ####################
-#'
-#' library(openlattice)
-#' var.entity_set_id <- 'entity_set_id_example' # character | 
-#' var.property_type_id <- 'property_type_id_example' # character | 
-#' var.metadata_update <- MetadataUpdate$new() # MetadataUpdate | 
-#'
-#' #Updates the property type metadata for the given entity set.
-#' api.instance <- EdmApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$update_entity_set_property_metadata(var.entity_set_id, var.property_type_id, var.metadata_update)
 #'
 #'
 #' ####################  update_entity_type_meta_data  ####################
@@ -2294,144 +1699,6 @@ EdmApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    add_entity_sets_to_linking_entity_set = function(linking_entity_set_id, request_body=NULL, ...){
-      apiResponse <- self$add_entity_sets_to_linking_entity_setWithHttpInfo(linking_entity_set_id, request_body, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    add_entity_sets_to_linking_entity_setWithHttpInfo = function(linking_entity_set_id, request_body=NULL, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`linking_entity_set_id`)) {
-        stop("Missing required parameter `linking_entity_set_id`.")
-      }
-
-      if (!missing(`request_body`)) {
-        body <- sprintf(
-        '
-            [%s]
-',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
-        )
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/entity-sets/linking/{linkingEntitySetId}"
-      if (!missing(`linking_entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking_entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "integer", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    add_entity_sets_to_linking_entity_sets = function(linking_entity_set_id, request_body, ...){
-      apiResponse <- self$add_entity_sets_to_linking_entity_setsWithHttpInfo(linking_entity_set_id, request_body, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    add_entity_sets_to_linking_entity_setsWithHttpInfo = function(linking_entity_set_id, request_body, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`linking_entity_set_id`)) {
-        stop("Missing required parameter `linking_entity_set_id`.")
-      }
-
-      if (missing(`request_body`)) {
-        stop("Missing required parameter `request_body`.")
-      }
-
-      if (!missing(`request_body`)) {
-        body <- sprintf(
-        '
-            %s
-',
-              jsonlite::toJSON(`request_body`, digits=NA)
-        )
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/entity-sets/linking/"
-      if (!missing(`linking_entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking_entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "PUT",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "integer", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2725,63 +1992,6 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    create_entity_sets = function(entity_set, ...){
-      apiResponse <- self$create_entity_setsWithHttpInfo(entity_set, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    create_entity_setsWithHttpInfo = function(entity_set, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`entity_set`)) {
-        stop("Missing required parameter `entity_set`.")
-      }
-
-      if (!missing(`entity_set`)) {
-        body <- sprintf(
-        '
-            [%s]
-',
-              paste(sapply(`entity_set`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
-        )
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/entity-sets"
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
     create_entity_type = function(entity_type, ...){
       apiResponse <- self$create_entity_typeWithHttpInfo(entity_type, ...)
       resp <- apiResponse$response
@@ -2977,56 +2187,6 @@ EdmApi <- R6::R6Class(
         urlPath <- gsub(paste0("\\{", "associationTypeId", "\\}"), URLencode(as.character(`association_type_id`), reserved = TRUE), urlPath)
       }
 
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "DELETE",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    delete_entity_set = function(entity_set_id, ...){
-      apiResponse <- self$delete_entity_setWithHttpInfo(entity_set_id, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    delete_entity_setWithHttpInfo = function(entity_set_id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`entity_set_id`)) {
-        stop("Missing required parameter `entity_set_id`.")
-      }
-
-      urlPath <- "/datastore/entity-sets/all/{entitySetId}"
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "DELETE",
@@ -3340,110 +2500,6 @@ EdmApi <- R6::R6Class(
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
           self$apiClient$deserialize(resp, "array[AssociationType]", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    get_all_entity_set_property_metadata = function(entity_set_id, ...){
-      apiResponse <- self$get_all_entity_set_property_metadataWithHttpInfo(entity_set_id, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    get_all_entity_set_property_metadataWithHttpInfo = function(entity_set_id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`entity_set_id`)) {
-        stop("Missing required parameter `entity_set_id`.")
-      }
-
-      urlPath <- "/datastore/entity-sets/all/{entitySetId}/metadata"
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "list(EntitySetPropertyMetaData)", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    get_all_entity_sets = function(...){
-      apiResponse <- self$get_all_entity_setsWithHttpInfo(...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    get_all_entity_setsWithHttpInfo = function(...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      urlPath <- "/datastore/entity-sets"
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[EntitySet]", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -3932,241 +2988,6 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_entity_set = function(entity_set_id, ...){
-      apiResponse <- self$get_entity_setWithHttpInfo(entity_set_id, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    get_entity_setWithHttpInfo = function(entity_set_id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`entity_set_id`)) {
-        stop("Missing required parameter `entity_set_id`.")
-      }
-
-      urlPath <- "/datastore/entity-sets/all/{entitySetId}"
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "EntitySet", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    get_entity_set_id = function(entity_set_name, ...){
-      apiResponse <- self$get_entity_set_idWithHttpInfo(entity_set_name, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    get_entity_set_idWithHttpInfo = function(entity_set_name, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`entity_set_name`)) {
-        stop("Missing required parameter `entity_set_name`.")
-      }
-
-      urlPath <- "/datastore/entity-sets/ids/{entitySetName}"
-      if (!missing(`entity_set_name`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetName", "\\}"), URLencode(as.character(`entity_set_name`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "character", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    get_entity_set_ids = function(request_body=NULL, ...){
-      apiResponse <- self$get_entity_set_idsWithHttpInfo(request_body, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    get_entity_set_idsWithHttpInfo = function(request_body=NULL, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (!missing(`request_body`)) {
-        body <- sprintf(
-        '
-            [%s]
-',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
-        )
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/entity-sets/ids/"
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "list(character)", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    get_entity_set_property_metadata = function(entity_set_id, property_type_id, ...){
-      apiResponse <- self$get_entity_set_property_metadataWithHttpInfo(entity_set_id, property_type_id, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    get_entity_set_property_metadataWithHttpInfo = function(entity_set_id, property_type_id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`entity_set_id`)) {
-        stop("Missing required parameter `entity_set_id`.")
-      }
-
-      if (missing(`property_type_id`)) {
-        stop("Missing required parameter `property_type_id`.")
-      }
-
-      urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/"
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      if (!missing(`property_type_id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "EntitySetPropertyMetaData", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
     get_entity_type = function(entity_type_id, ...){
       apiResponse <- self$get_entity_typeWithHttpInfo(entity_type_id, ...)
       resp <- apiResponse$response
@@ -4397,65 +3218,6 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_property_metadata_for_entity_sets = function(request_body=NULL, ...){
-      apiResponse <- self$get_property_metadata_for_entity_setsWithHttpInfo(request_body, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    get_property_metadata_for_entity_setsWithHttpInfo = function(request_body=NULL, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (!missing(`request_body`)) {
-        body <- sprintf(
-        '
-            [%s]
-',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
-        )
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/entity-sets/all/metadata"
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "list(list(EntitySetPropertyMetaData))", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
     get_property_type = function(property_type_id, ...){
       apiResponse <- self$get_property_typeWithHttpInfo(property_type_id, ...)
       resp <- apiResponse$response
@@ -4563,62 +3325,6 @@ EdmApi <- R6::R6Class(
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
           self$apiClient$deserialize(resp, "character", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    get_property_types_for_entity_set = function(entity_set_id, ...){
-      apiResponse <- self$get_property_types_for_entity_setWithHttpInfo(entity_set_id, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    get_property_types_for_entity_setWithHttpInfo = function(entity_set_id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`entity_set_id`)) {
-        stop("Missing required parameter `entity_set_id`.")
-      }
-
-      urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties"
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "list(PropertyType)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -4916,144 +3622,6 @@ EdmApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    remove_entity_sets_from_linking_entity_set = function(linking_entity_set_id, request_body=NULL, ...){
-      apiResponse <- self$remove_entity_sets_from_linking_entity_setWithHttpInfo(linking_entity_set_id, request_body, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    remove_entity_sets_from_linking_entity_setWithHttpInfo = function(linking_entity_set_id, request_body=NULL, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`linking_entity_set_id`)) {
-        stop("Missing required parameter `linking_entity_set_id`.")
-      }
-
-      if (!missing(`request_body`)) {
-        body <- sprintf(
-        '
-            [%s]
-',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
-        )
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/entity-sets/linking/{linkingEntitySetId}"
-      if (!missing(`linking_entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking_entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "DELETE",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "integer", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    remove_entity_sets_from_linking_entity_sets = function(linking_entity_set_id, request_body, ...){
-      apiResponse <- self$remove_entity_sets_from_linking_entity_setsWithHttpInfo(linking_entity_set_id, request_body, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    remove_entity_sets_from_linking_entity_setsWithHttpInfo = function(linking_entity_set_id, request_body, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`linking_entity_set_id`)) {
-        stop("Missing required parameter `linking_entity_set_id`.")
-      }
-
-      if (missing(`request_body`)) {
-        stop("Missing required parameter `request_body`.")
-      }
-
-      if (!missing(`request_body`)) {
-        body <- sprintf(
-        '
-            %s
-',
-              jsonlite::toJSON(`request_body`, digits=NA)
-        )
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/entity-sets/linking/"
-      if (!missing(`linking_entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "linkingEntitySetId", "\\}"), URLencode(as.character(`linking_entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "DELETE",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "integer", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
     remove_primary_key_from_entity_type = function(entity_type_id, property_type_id, ...){
       apiResponse <- self$remove_primary_key_from_entity_typeWithHttpInfo(entity_type_id, property_type_id, ...)
       resp <- apiResponse$response
@@ -5328,150 +3896,6 @@ EdmApi <- R6::R6Class(
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "PATCH",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    update_entity_set_meta_data = function(entity_set_id, metadata_update, ...){
-      apiResponse <- self$update_entity_set_meta_dataWithHttpInfo(entity_set_id, metadata_update, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    update_entity_set_meta_dataWithHttpInfo = function(entity_set_id, metadata_update, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`entity_set_id`)) {
-        stop("Missing required parameter `entity_set_id`.")
-      }
-
-      if (missing(`metadata_update`)) {
-        stop("Missing required parameter `metadata_update`.")
-      }
-
-      if (!missing(`metadata_update`)) {
-        body <- sprintf(
-        '
-          %s
-        ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
-        )
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/entity-sets/all/{entitySetId}/metadata/"
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "PATCH",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "integer", loadNamespace("openlattice")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    update_entity_set_property_metadata = function(entity_set_id, property_type_id, metadata_update, ...){
-      apiResponse <- self$update_entity_set_property_metadataWithHttpInfo(entity_set_id, property_type_id, metadata_update, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    update_entity_set_property_metadataWithHttpInfo = function(entity_set_id, property_type_id, metadata_update, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`entity_set_id`)) {
-        stop("Missing required parameter `entity_set_id`.")
-      }
-
-      if (missing(`property_type_id`)) {
-        stop("Missing required parameter `property_type_id`.")
-      }
-
-      if (missing(`metadata_update`)) {
-        stop("Missing required parameter `metadata_update`.")
-      }
-
-      if (!missing(`metadata_update`)) {
-        body <- sprintf(
-        '
-          %s
-        ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
-        )
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/"
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      if (!missing(`property_type_id`)) {
-        urlPath <- gsub(paste0("\\{", "propertyTypeId", "\\}"), URLencode(as.character(`property_type_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,

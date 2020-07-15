@@ -44,30 +44,6 @@ describe 'EdmApi' do
     end
   end
 
-  # unit tests for add_entity_sets_to_linking_entity_set
-  # Adds the entity sets as linked entity sets to the linking entity set
-  # @param linking_entity_set_id 
-  # @param [Hash] opts the optional parameters
-  # @option opts [Array<String>] :request_body 
-  # @return [Integer]
-  describe 'add_entity_sets_to_linking_entity_set test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for add_entity_sets_to_linking_entity_sets
-  # Adds the entity sets as linked entity sets to the linking entity sets
-  # @param linking_entity_set_id 
-  # @param request_body 
-  # @param [Hash] opts the optional parameters
-  # @return [Integer]
-  describe 'add_entity_sets_to_linking_entity_sets test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for add_primary_key_to_entity_type
   # Adds a primary key with a given ID to an entity type with a given ID.
   # @param entity_type_id 
@@ -127,17 +103,6 @@ describe 'EdmApi' do
     end
   end
 
-  # unit tests for create_entity_sets
-  # Creates new EntitySet definitions if they don&#39;t exist.
-  # @param entity_set 
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'create_entity_sets test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for create_entity_type
   # Creates a new EntityType definition, if it doesn&#39;t exist.
   # @param entity_type 
@@ -177,17 +142,6 @@ describe 'EdmApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_association_type test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for delete_entity_set
-  # Deletes the EntitySet definition for the given EntitySet UUID.
-  # @param entity_set_id 
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'delete_entity_set test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -254,27 +208,6 @@ describe 'EdmApi' do
   # @param [Hash] opts the optional parameters
   # @return [Array<AssociationType>]
   describe 'get_all_available_association_types test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_all_entity_set_property_metadata
-  # Get all entity set property metadata.
-  # @param entity_set_id 
-  # @param [Hash] opts the optional parameters
-  # @return [Hash<String, EntitySetPropertyMetaData>]
-  describe 'get_all_entity_set_property_metadata test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_all_entity_sets
-  # Get all EntitySet definitions.
-  # @param [Hash] opts the optional parameters
-  # @return [Array<EntitySet>]
-  describe 'get_all_entity_sets test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -375,51 +308,6 @@ describe 'EdmApi' do
     end
   end
 
-  # unit tests for get_entity_set
-  # Get the EntitySet definition for the given EntitySet UUID.
-  # @param entity_set_id 
-  # @param [Hash] opts the optional parameters
-  # @return [EntitySet]
-  describe 'get_entity_set test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_entity_set_id
-  # Gets the EntitySet UUID for the given EntitySet name.
-  # @param entity_set_name 
-  # @param [Hash] opts the optional parameters
-  # @return [String]
-  describe 'get_entity_set_id test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_entity_set_ids
-  # Get IDs for entity sets given their names.
-  # @param [Hash] opts the optional parameters
-  # @option opts [Array<String>] :request_body 
-  # @return [Hash<String, String>]
-  describe 'get_entity_set_ids test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_entity_set_property_metadata
-  # Get specified property type metadata for an entity set.
-  # @param entity_set_id 
-  # @param property_type_id 
-  # @param [Hash] opts the optional parameters
-  # @return [EntitySetPropertyMetaData]
-  describe 'get_entity_set_property_metadata test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for get_entity_type
   # Gets the EntityType definition for the given EntityType UUID.
   # @param entity_type_id 
@@ -466,17 +354,6 @@ describe 'EdmApi' do
     end
   end
 
-  # unit tests for get_property_metadata_for_entity_sets
-  # Get property metadata for entity sets.
-  # @param [Hash] opts the optional parameters
-  # @option opts [Array<String>] :request_body 
-  # @return [Hash<String, Hash<String, EntitySetPropertyMetaData>>]
-  describe 'get_property_metadata_for_entity_sets test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for get_property_type
   # Gets the PropertyType definition for the given PropertyType UUID.
   # @param property_type_id 
@@ -495,17 +372,6 @@ describe 'EdmApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'get_property_type_id test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_property_types_for_entity_set
-  # Get all Property Types for entity set
-  # @param entity_set_id 
-  # @param [Hash] opts the optional parameters
-  # @return [Hash<String, PropertyType>]
-  describe 'get_property_types_for_entity_set test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -568,30 +434,6 @@ describe 'EdmApi' do
     end
   end
 
-  # unit tests for remove_entity_sets_from_linking_entity_set
-  # Removes/unlinks the linked entity sets from the linking entity set
-  # @param linking_entity_set_id 
-  # @param [Hash] opts the optional parameters
-  # @option opts [Array<String>] :request_body 
-  # @return [Integer]
-  describe 'remove_entity_sets_from_linking_entity_set test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for remove_entity_sets_from_linking_entity_sets
-  # Removes/unlinks the linked entity sets from the linking entity set
-  # @param linking_entity_set_id 
-  # @param request_body 
-  # @param [Hash] opts the optional parameters
-  # @return [Integer]
-  describe 'remove_entity_sets_from_linking_entity_sets test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   # unit tests for remove_primary_key_from_entity_type
   # Removes a primary key with a given ID from an entity type with a given ID.
   # @param entity_type_id 
@@ -646,31 +488,6 @@ describe 'EdmApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'update_entity_data_model test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for update_entity_set_meta_data
-  # Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
-  # @param entity_set_id 
-  # @param metadata_update 
-  # @param [Hash] opts the optional parameters
-  # @return [Integer]
-  describe 'update_entity_set_meta_data test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for update_entity_set_property_metadata
-  # Updates the property type metadata for the given entity set.
-  # @param entity_set_id 
-  # @param property_type_id 
-  # @param metadata_update 
-  # @param [Hash] opts the optional parameters
-  # @return [nil]
-  describe 'update_entity_set_property_metadata test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

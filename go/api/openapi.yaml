@@ -1174,7 +1174,6 @@ paths:
       summary: Get all EntitySet definitions.
       tags:
       - entitySets
-      - edm
     post:
       operationId: createEntitySets
       requestBody:
@@ -1194,7 +1193,6 @@ paths:
       summary: Creates new EntitySet definitions if they don't exist.
       tags:
       - entitySets
-      - edm
   /datastore/entity-sets/ids/:
     post:
       operationId: getEntitySetIds
@@ -1221,7 +1219,6 @@ paths:
       summary: Get IDs for entity sets given their names.
       tags:
       - entitySets
-      - edm
   /datastore/entity-sets/ids/{entitySetName}:
     get:
       operationId: getEntitySetId
@@ -1247,7 +1244,6 @@ paths:
       summary: Gets the EntitySet UUID for the given EntitySet name.
       tags:
       - entitySets
-      - edm
   /datastore/entity-sets/all/{entitySetId}:
     delete:
       operationId: deleteEntitySet
@@ -1269,7 +1265,6 @@ paths:
       summary: Deletes the EntitySet definition for the given EntitySet UUID.
       tags:
       - entitySets
-      - edm
     get:
       operationId: getEntitySet
       parameters:
@@ -1294,7 +1289,6 @@ paths:
       summary: Get the EntitySet definition for the given EntitySet UUID.
       tags:
       - entitySets
-      - edm
   /datastore/entity-sets/all/metadata:
     post:
       operationId: getPropertyMetadataForEntitySets
@@ -1322,7 +1316,6 @@ paths:
       summary: Get property metadata for entity sets.
       tags:
       - entitySets
-      - edm
   /datastore/entity-sets/all/{entitySetId}/metadata:
     get:
       operationId: getAllEntitySetPropertyMetadata
@@ -1350,7 +1343,6 @@ paths:
       summary: Get all entity set property metadata.
       tags:
       - entitySets
-      - edm
   /datastore/entity-sets/all/{entitySetId}/properties:
     get:
       operationId: getPropertyTypesForEntitySet
@@ -1378,7 +1370,6 @@ paths:
       summary: Get all Property Types for entity set
       tags:
       - entitySets
-      - edm
   /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/:
     get:
       operationId: getEntitySetPropertyMetadata
@@ -1412,7 +1403,6 @@ paths:
       summary: Get specified property type metadata for an entity set.
       tags:
       - entitySets
-      - edm
     post:
       operationId: updateEntitySetPropertyMetadata
       parameters:
@@ -1447,7 +1437,6 @@ paths:
       summary: Updates the property type metadata for the given entity set.
       tags:
       - entitySets
-      - edm
   /datastore/entity-sets/all/{entitySetId}/metadata/:
     patch:
       operationId: updateEntitySetMetaData
@@ -1480,7 +1469,6 @@ paths:
         the given metadata.
       tags:
       - entitySets
-      - edm
   /datastore/entity-sets/linking/{linkingEntitySetId}:
     delete:
       operationId: removeEntitySetsFromLinkingEntitySet
@@ -1513,7 +1501,6 @@ paths:
       summary: Removes/unlinks the linked entity sets from the linking entity set
       tags:
       - entitySets
-      - edm
     post:
       operationId: addEntitySetsToLinkingEntitySet
       parameters:
@@ -1546,7 +1533,6 @@ paths:
       summary: Adds the entity sets as linked entity sets to the linking entity set
       tags:
       - entitySets
-      - edm
   /datastore/entity-sets/linking/:
     delete:
       operationId: removeEntitySetsFromLinkingEntitySets
@@ -1583,7 +1569,6 @@ paths:
       summary: Removes/unlinks the linked entity sets from the linking entity set
       tags:
       - entitySets
-      - edm
     put:
       operationId: addEntitySetsToLinkingEntitySets
       parameters:
@@ -1618,7 +1603,6 @@ paths:
       summary: Adds the entity sets as linked entity sets to the linking entity sets
       tags:
       - entitySets
-      - edm
   /datastore/organization-database/{organizationId}/external-database-table:
     delete:
       operationId: deleteExternalDatabaseTables
