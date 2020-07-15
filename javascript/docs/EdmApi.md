@@ -5,27 +5,21 @@ All URIs are relative to *https://api.openlattice.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addDstEntityTypeToAssociationType**](EdmApi.md#addDstEntityTypeToAssociationType) | **PUT** /datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId} | Update the AssociationType dst entity types for the given AssociationType UUID by adding the given EntityType UUID.
-[**addEntitySetsToLinkingEntitySet**](EdmApi.md#addEntitySetsToLinkingEntitySet) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
-[**addEntitySetsToLinkingEntitySets**](EdmApi.md#addEntitySetsToLinkingEntitySets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
 [**addPrimaryKeyToEntityType**](EdmApi.md#addPrimaryKeyToEntityType) | **PUT** /datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId} | Adds a primary key with a given ID to an entity type with a given ID.
 [**addPropertyTypeToEntityType**](EdmApi.md#addPropertyTypeToEntityType) | **PUT** /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId} | Updates the EntityType definition for the given EntityType UUID by adding the given PropertyType UUID.
 [**addSrcEntityTypeToAssociationType**](EdmApi.md#addSrcEntityTypeToAssociationType) | **PUT** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
 [**createAssociationType**](EdmApi.md#createAssociationType) | **POST** /datastore/edm/association/type/ | Creates a new AssociationType definition, if it doesn&#39;t exist.
 [**createEmptySchema**](EdmApi.md#createEmptySchema) | **PUT** /datastore/edm/schema/{namespace}/{name} | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-[**createEntitySets**](EdmApi.md#createEntitySets) | **POST** /datastore/entity-sets | Creates new EntitySet definitions if they don&#39;t exist.
 [**createEntityType**](EdmApi.md#createEntityType) | **POST** /datastore/edm/entity/type/ | Creates a new EntityType definition, if it doesn&#39;t exist.
 [**createPropertyType**](EdmApi.md#createPropertyType) | **POST** /datastore/edm/property/type/ | Creates a new PropertyType definition, if it doesn\&quot;t exist.
 [**createSchemaIfNotExists**](EdmApi.md#createSchemaIfNotExists) | **POST** /datastore/edm/schema | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
 [**deleteAssociationType**](EdmApi.md#deleteAssociationType) | **DELETE** /datastore/edm/association/type/{associationTypeId} | Deletes the AssociationType definition for the given AssociationType UUID.
-[**deleteEntitySet**](EdmApi.md#deleteEntitySet) | **DELETE** /datastore/entity-sets/all/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
 [**deleteEntityType**](EdmApi.md#deleteEntityType) | **DELETE** /datastore/edm/entity/type/{entityTypeId} | Deletes the EntityType definition for the given EntityType UUID.
 [**deletePropertyType**](EdmApi.md#deletePropertyType) | **DELETE** /datastore/edm/property/type/{propertyTypeId} | Deletes the PropertyType definition for the given PropertyType UUID.
 [**forceDeletePropertyType**](EdmApi.md#forceDeletePropertyType) | **DELETE** /datastore/edm/property/type/{propertyTypeId}/force | Deletes the PropertyType definition for the given PropertyType UUID regardless of whether or not there is data associated with it.
 [**forceRemovePropertyTypeFromEntityType**](EdmApi.md#forceRemovePropertyTypeFromEntityType) | **DELETE** /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}/force | Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID, regardless of whether or not there is data associated with the entity type.
 [**getAllAssociationEntityTypes**](EdmApi.md#getAllAssociationEntityTypes) | **GET** /datastore/edm/association/type/ | Gets all association EntityType definitions.
 [**getAllAvailableAssociationTypes**](EdmApi.md#getAllAvailableAssociationTypes) | **GET** /datastore/edm/association/type/{associationTypeId}/available | Get all available associations for the given AssociationType UUID.
-[**getAllEntitySetPropertyMetadata**](EdmApi.md#getAllEntitySetPropertyMetadata) | **GET** /datastore/entity-sets/all/{entitySetId}/metadata | Get all entity set property metadata.
-[**getAllEntitySets**](EdmApi.md#getAllEntitySets) | **GET** /datastore/entity-sets | Get all EntitySet definitions.
 [**getAllEntityTypePropertyMetadata**](EdmApi.md#getAllEntityTypePropertyMetadata) | **GET** /datastore/edm/entity/type/{entityTypeId}/property/type | Get all EntityType propertyType metadata
 [**getAllEntityTypes**](EdmApi.md#getAllEntityTypes) | **GET** /datastore/edm/entity/type/ | Gets all EntityType definitions.
 [**getAllPropertyTypes**](EdmApi.md#getAllPropertyTypes) | **GET** /datastore/edm/property/type/ | Gets all PropertyType definitions.
@@ -35,32 +29,22 @@ Method | HTTP request | Description
 [**getAssociationTypeDetails**](EdmApi.md#getAssociationTypeDetails) | **GET** /datastore/edm/association/type/{associationTypeId}/detailed | Get details about the AssociationType for the given AssociationType UUID.
 [**getEntityDataModel**](EdmApi.md#getEntityDataModel) | **GET** /datastore/edm/ | Gets the entity data model, including namespaces, schemas, entity types, association types, and property types.
 [**getEntityDataModelDiff**](EdmApi.md#getEntityDataModelDiff) | **POST** /datastore/edm/diff/ | Gets the changes between the existing entity data model and the entity data model passed in, including schemas, association types, entity types, and property types.
-[**getEntitySet**](EdmApi.md#getEntitySet) | **GET** /datastore/entity-sets/all/{entitySetId} | Get the EntitySet definition for the given EntitySet UUID.
-[**getEntitySetId**](EdmApi.md#getEntitySetId) | **GET** /datastore/entity-sets/ids/{entitySetName} | Gets the EntitySet UUID for the given EntitySet name.
-[**getEntitySetIds**](EdmApi.md#getEntitySetIds) | **POST** /datastore/entity-sets/ids/ | Get IDs for entity sets given their names.
-[**getEntitySetPropertyMetadata**](EdmApi.md#getEntitySetPropertyMetadata) | **GET** /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/ | Get specified property type metadata for an entity set.
 [**getEntityType**](EdmApi.md#getEntityType) | **GET** /datastore/edm/entity/type/{entityTypeId} | Gets the EntityType definition for the given EntityType UUID.
 [**getEntityTypeHierarchy**](EdmApi.md#getEntityTypeHierarchy) | **PATCH** /datastore/edm/entity/type/{entityTypeId}/hierarchy | Get the EntityType hierarchy for the given EntityType UUID.
 [**getEntityTypeId**](EdmApi.md#getEntityTypeId) | **GET** /datastore/edm/ids/entity/type/{namespace}/{name} | Gets the EntityType UUID for the given EntityType FQN.
 [**getEntityTypePropertyMetadata**](EdmApi.md#getEntityTypePropertyMetadata) | **GET** /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId} | Get EntityType propertyType metadata
-[**getPropertyMetadataForEntitySets**](EdmApi.md#getPropertyMetadataForEntitySets) | **POST** /datastore/entity-sets/all/metadata | Get property metadata for entity sets.
 [**getPropertyType**](EdmApi.md#getPropertyType) | **GET** /datastore/edm/property/type/{propertyTypeId} | Gets the PropertyType definition for the given PropertyType UUID.
 [**getPropertyTypeId**](EdmApi.md#getPropertyTypeId) | **GET** /datastore/edm/ids/property/type/{namespace}/{name} | Gets the PropertyType UUID for the given PropertyType FQN.
-[**getPropertyTypesForEntitySet**](EdmApi.md#getPropertyTypesForEntitySet) | **GET** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
 [**getPropertyUsageSummary**](EdmApi.md#getPropertyUsageSummary) | **GET** /datastore/edm/summary/{propertyTypeId} | Get Property Usage Summary for property with given ID.
 [**getSchemaContents**](EdmApi.md#getSchemaContents) | **GET** /datastore/edm/schema/{namespace}/{name} | Gets the schema contents for a corresponding namespace and name.
 [**getSchemas**](EdmApi.md#getSchemas) | **GET** /datastore/edm/schema | Gets all schemas.
 [**getSchemasInNamespace**](EdmApi.md#getSchemasInNamespace) | **GET** /datastore/edm/schema/{namespace} | Gets all schemas associated with a given namespace and accessible by the caller.
 [**removeDstEntityTypeFromAssociationType**](EdmApi.md#removeDstEntityTypeFromAssociationType) | **DELETE** /datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId} | Updates the AssociationType dst entity types for the given AssociationType UUID by removing the given EntityType UUID.
-[**removeEntitySetsFromLinkingEntitySet**](EdmApi.md#removeEntitySetsFromLinkingEntitySet) | **DELETE** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
-[**removeEntitySetsFromLinkingEntitySets**](EdmApi.md#removeEntitySetsFromLinkingEntitySets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
 [**removePrimaryKeyFromEntityType**](EdmApi.md#removePrimaryKeyFromEntityType) | **DELETE** /datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId} | Removes a primary key with a given ID from an entity type with a given ID.
 [**removePropertyTypeFromEntityType**](EdmApi.md#removePropertyTypeFromEntityType) | **DELETE** /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId} | Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID.
 [**removeSrcEntityTypeFromAssociationType**](EdmApi.md#removeSrcEntityTypeFromAssociationType) | **DELETE** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Updates the AssociationType src entity types for the given AssociationType UUID by removing the given EntityType UUID.
 [**reorderPropertyTypesInEntityType**](EdmApi.md#reorderPropertyTypesInEntityType) | **PATCH** /datastore/edm/entity/type/{entityTypeId}/property/type | Updates the EntityType definition for the given EntityType UUID by reordering its properties as specified by the provided list.
 [**updateEntityDataModel**](EdmApi.md#updateEntityDataModel) | **PATCH** /datastore/edm/ | Updates the entity data model, including schemas, entity types, association types, and property types.
-[**updateEntitySetMetaData**](EdmApi.md#updateEntitySetMetaData) | **PATCH** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
-[**updateEntitySetPropertyMetadata**](EdmApi.md#updateEntitySetPropertyMetadata) | **POST** /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 [**updateEntityTypeMetaData**](EdmApi.md#updateEntityTypeMetaData) | **PATCH** /datastore/edm/entity/type/{entityTypeId} | Updates the EntityType definition for the given EntityType UUID with the given metadata.
 [**updateEntityTypePropertyMetadata**](EdmApi.md#updateEntityTypePropertyMetadata) | **POST** /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId} | Update EntityType Property metadata
 [**updatePropertyTypeMetaData**](EdmApi.md#updatePropertyTypeMetaData) | **PATCH** /datastore/edm/property/type/{propertyTypeId} | Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
@@ -120,116 +104,6 @@ null (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
-
-
-## addEntitySetsToLinkingEntitySet
-
-> Number addEntitySetsToLinkingEntitySet(linkingEntitySetId, opts)
-
-Adds the entity sets as linked entity sets to the linking entity set
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let linkingEntitySetId = null; // String | 
-let opts = {
-  'requestBody': ["null"] // [String] | 
-};
-apiInstance.addEntitySetsToLinkingEntitySet(linkingEntitySetId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **linkingEntitySetId** | [**String**](.md)|  | 
- **requestBody** | [**[String]**](String.md)|  | [optional] 
-
-### Return type
-
-**Number**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## addEntitySetsToLinkingEntitySets
-
-> Number addEntitySetsToLinkingEntitySets(linkingEntitySetId, requestBody)
-
-Adds the entity sets as linked entity sets to the linking entity sets
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let linkingEntitySetId = "linkingEntitySetId_example"; // String | 
-let requestBody = {key: null}; // {String: [String]} | 
-apiInstance.addEntitySetsToLinkingEntitySets(linkingEntitySetId, requestBody, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **linkingEntitySetId** | **String**|  | 
- **requestBody** | [**{String: [String]}**](Array.md)|  | 
-
-### Return type
-
-**Number**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
 
 
 ## addPrimaryKeyToEntityType
@@ -491,58 +365,6 @@ null (empty response body)
 - **Accept**: Not defined
 
 
-## createEntitySets
-
-> createEntitySets(entitySet)
-
-Creates new EntitySet definitions if they don&#39;t exist.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let entitySet = [new OpenLatticeApi.EntitySet()]; // [EntitySet] | 
-apiInstance.createEntitySets(entitySet, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySet** | [**[EntitySet]**](EntitySet.md)|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: Not defined
-
-
 ## createEntityType
 
 > createEntityType(entityType)
@@ -726,58 +548,6 @@ null (empty response body)
 ### Authorization
 
 No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## deleteEntitySet
-
-> deleteEntitySet(entitySetId)
-
-Deletes the EntitySet definition for the given EntitySet UUID.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let entitySetId = null; // String | 
-apiInstance.deleteEntitySet(entitySetId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**String**](.md)|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
 
 ### HTTP request headers
 
@@ -1075,106 +845,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[AssociationType]**](AssociationType.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getAllEntitySetPropertyMetadata
-
-> {String: EntitySetPropertyMetaData} getAllEntitySetPropertyMetadata(entitySetId)
-
-Get all entity set property metadata.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let entitySetId = null; // String | 
-apiInstance.getAllEntitySetPropertyMetadata(entitySetId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**String**](.md)|  | 
-
-### Return type
-
-[**{String: EntitySetPropertyMetaData}**](EntitySetPropertyMetaData.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getAllEntitySets
-
-> [EntitySet] getAllEntitySets()
-
-Get all EntitySet definitions.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-apiInstance.getAllEntitySets((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**[EntitySet]**](EntitySet.md)
 
 ### Authorization
 
@@ -1629,218 +1299,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getEntitySet
-
-> EntitySet getEntitySet(entitySetId)
-
-Get the EntitySet definition for the given EntitySet UUID.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let entitySetId = null; // String | 
-apiInstance.getEntitySet(entitySetId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**String**](.md)|  | 
-
-### Return type
-
-[**EntitySet**](EntitySet.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getEntitySetId
-
-> String getEntitySetId(entitySetName)
-
-Gets the EntitySet UUID for the given EntitySet name.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let entitySetName = "entitySetName_example"; // String | 
-apiInstance.getEntitySetId(entitySetName, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetName** | **String**|  | 
-
-### Return type
-
-**String**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getEntitySetIds
-
-> {String: String} getEntitySetIds(opts)
-
-Get IDs for entity sets given their names.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let opts = {
-  'requestBody': ["null"] // [String] | 
-};
-apiInstance.getEntitySetIds(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | [**[String]**](String.md)|  | [optional] 
-
-### Return type
-
-**{String: String}**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## getEntitySetPropertyMetadata
-
-> EntitySetPropertyMetaData getEntitySetPropertyMetadata(entitySetId, propertyTypeId)
-
-Get specified property type metadata for an entity set.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let entitySetId = null; // String | 
-let propertyTypeId = null; // String | 
-apiInstance.getEntitySetPropertyMetadata(entitySetId, propertyTypeId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**String**](.md)|  | 
- **propertyTypeId** | [**String**](.md)|  | 
-
-### Return type
-
-[**EntitySetPropertyMetaData**](EntitySetPropertyMetaData.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
 ## getEntityType
 
 > EntityType getEntityType(entityTypeId)
@@ -2044,60 +1502,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getPropertyMetadataForEntitySets
-
-> {String: {String: EntitySetPropertyMetaData}} getPropertyMetadataForEntitySets(opts)
-
-Get property metadata for entity sets.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let opts = {
-  'requestBody': ["null"] // [String] | 
-};
-apiInstance.getPropertyMetadataForEntitySets(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | [**[String]**](String.md)|  | [optional] 
-
-### Return type
-
-**{String: {String: EntitySetPropertyMetaData}}**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## getPropertyType
 
 > PropertyType getPropertyType(propertyTypeId)
@@ -2193,58 +1597,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **String**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getPropertyTypesForEntitySet
-
-> {String: PropertyType} getPropertyTypesForEntitySet(entitySetId)
-
-Get all Property Types for entity set
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let entitySetId = null; // String | 
-apiInstance.getPropertyTypesForEntitySet(entitySetId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**String**](.md)|  | 
-
-### Return type
-
-[**{String: PropertyType}**](PropertyType.md)
 
 ### Authorization
 
@@ -2520,116 +1872,6 @@ null (empty response body)
 - **Accept**: Not defined
 
 
-## removeEntitySetsFromLinkingEntitySet
-
-> Number removeEntitySetsFromLinkingEntitySet(linkingEntitySetId, opts)
-
-Removes/unlinks the linked entity sets from the linking entity set
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let linkingEntitySetId = "linkingEntitySetId_example"; // String | 
-let opts = {
-  'requestBody': ["null"] // [String] | 
-};
-apiInstance.removeEntitySetsFromLinkingEntitySet(linkingEntitySetId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **linkingEntitySetId** | **String**|  | 
- **requestBody** | [**[String]**](String.md)|  | [optional] 
-
-### Return type
-
-**Number**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## removeEntitySetsFromLinkingEntitySets
-
-> Number removeEntitySetsFromLinkingEntitySets(linkingEntitySetId, requestBody)
-
-Removes/unlinks the linked entity sets from the linking entity set
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let linkingEntitySetId = null; // String | 
-let requestBody = {key: null}; // {String: [String]} | 
-apiInstance.removeEntitySetsFromLinkingEntitySets(linkingEntitySetId, requestBody, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **linkingEntitySetId** | [**String**](.md)|  | 
- **requestBody** | [**{String: [String]}**](Array.md)|  | 
-
-### Return type
-
-**Number**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## removePrimaryKeyFromEntityType
 
 > removePrimaryKeyFromEntityType(entityTypeId, propertyTypeId)
@@ -2883,116 +2125,6 @@ apiInstance.updateEntityDataModel(EDM, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **EDM** | [**EDM**](EDM.md)|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: Not defined
-
-
-## updateEntitySetMetaData
-
-> Number updateEntitySetMetaData(entitySetId, metadataUpdate)
-
-Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let entitySetId = null; // String | 
-let metadataUpdate = new OpenLatticeApi.MetadataUpdate(); // MetadataUpdate | 
-apiInstance.updateEntitySetMetaData(entitySetId, metadataUpdate, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**String**](.md)|  | 
- **metadataUpdate** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
-
-### Return type
-
-**Number**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## updateEntitySetPropertyMetadata
-
-> updateEntitySetPropertyMetadata(entitySetId, propertyTypeId, metadataUpdate)
-
-Updates the property type metadata for the given entity set.
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.EdmApi();
-let entitySetId = null; // String | 
-let propertyTypeId = null; // String | 
-let metadataUpdate = new OpenLatticeApi.MetadataUpdate(); // MetadataUpdate | 
-apiInstance.updateEntitySetPropertyMetadata(entitySetId, propertyTypeId, metadataUpdate, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**String**](.md)|  | 
- **propertyTypeId** | [**String**](.md)|  | 
- **metadataUpdate** | [**MetadataUpdate**](MetadataUpdate.md)|  | 
 
 ### Return type
 

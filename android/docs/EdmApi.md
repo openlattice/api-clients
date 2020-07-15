@@ -5,27 +5,21 @@ All URIs are relative to *https://api.openlattice.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addDstEntityTypeToAssociationType**](EdmApi.md#addDstEntityTypeToAssociationType) | **PUT** /datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId} | Update the AssociationType dst entity types for the given AssociationType UUID by adding the given EntityType UUID.
-[**addEntitySetsToLinkingEntitySet**](EdmApi.md#addEntitySetsToLinkingEntitySet) | **POST** /datastore/entity-sets/linking/{linkingEntitySetId} | Adds the entity sets as linked entity sets to the linking entity set
-[**addEntitySetsToLinkingEntitySets**](EdmApi.md#addEntitySetsToLinkingEntitySets) | **PUT** /datastore/entity-sets/linking/ | Adds the entity sets as linked entity sets to the linking entity sets
 [**addPrimaryKeyToEntityType**](EdmApi.md#addPrimaryKeyToEntityType) | **PUT** /datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId} | Adds a primary key with a given ID to an entity type with a given ID.
 [**addPropertyTypeToEntityType**](EdmApi.md#addPropertyTypeToEntityType) | **PUT** /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId} | Updates the EntityType definition for the given EntityType UUID by adding the given PropertyType UUID.
 [**addSrcEntityTypeToAssociationType**](EdmApi.md#addSrcEntityTypeToAssociationType) | **PUT** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
 [**createAssociationType**](EdmApi.md#createAssociationType) | **POST** /datastore/edm/association/type/ | Creates a new AssociationType definition, if it doesn&#39;t exist.
 [**createEmptySchema**](EdmApi.md#createEmptySchema) | **PUT** /datastore/edm/schema/{namespace}/{name} | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-[**createEntitySets**](EdmApi.md#createEntitySets) | **POST** /datastore/entity-sets | Creates new EntitySet definitions if they don&#39;t exist.
 [**createEntityType**](EdmApi.md#createEntityType) | **POST** /datastore/edm/entity/type/ | Creates a new EntityType definition, if it doesn&#39;t exist.
 [**createPropertyType**](EdmApi.md#createPropertyType) | **POST** /datastore/edm/property/type/ | Creates a new PropertyType definition, if it doesn\&quot;t exist.
 [**createSchemaIfNotExists**](EdmApi.md#createSchemaIfNotExists) | **POST** /datastore/edm/schema | Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
 [**deleteAssociationType**](EdmApi.md#deleteAssociationType) | **DELETE** /datastore/edm/association/type/{associationTypeId} | Deletes the AssociationType definition for the given AssociationType UUID.
-[**deleteEntitySet**](EdmApi.md#deleteEntitySet) | **DELETE** /datastore/entity-sets/all/{entitySetId} | Deletes the EntitySet definition for the given EntitySet UUID.
 [**deleteEntityType**](EdmApi.md#deleteEntityType) | **DELETE** /datastore/edm/entity/type/{entityTypeId} | Deletes the EntityType definition for the given EntityType UUID.
 [**deletePropertyType**](EdmApi.md#deletePropertyType) | **DELETE** /datastore/edm/property/type/{propertyTypeId} | Deletes the PropertyType definition for the given PropertyType UUID.
 [**forceDeletePropertyType**](EdmApi.md#forceDeletePropertyType) | **DELETE** /datastore/edm/property/type/{propertyTypeId}/force | Deletes the PropertyType definition for the given PropertyType UUID regardless of whether or not there is data associated with it.
 [**forceRemovePropertyTypeFromEntityType**](EdmApi.md#forceRemovePropertyTypeFromEntityType) | **DELETE** /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId}/force | Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID, regardless of whether or not there is data associated with the entity type.
 [**getAllAssociationEntityTypes**](EdmApi.md#getAllAssociationEntityTypes) | **GET** /datastore/edm/association/type/ | Gets all association EntityType definitions.
 [**getAllAvailableAssociationTypes**](EdmApi.md#getAllAvailableAssociationTypes) | **GET** /datastore/edm/association/type/{associationTypeId}/available | Get all available associations for the given AssociationType UUID.
-[**getAllEntitySetPropertyMetadata**](EdmApi.md#getAllEntitySetPropertyMetadata) | **GET** /datastore/entity-sets/all/{entitySetId}/metadata | Get all entity set property metadata.
-[**getAllEntitySets**](EdmApi.md#getAllEntitySets) | **GET** /datastore/entity-sets | Get all EntitySet definitions.
 [**getAllEntityTypePropertyMetadata**](EdmApi.md#getAllEntityTypePropertyMetadata) | **GET** /datastore/edm/entity/type/{entityTypeId}/property/type | Get all EntityType propertyType metadata
 [**getAllEntityTypes**](EdmApi.md#getAllEntityTypes) | **GET** /datastore/edm/entity/type/ | Gets all EntityType definitions.
 [**getAllPropertyTypes**](EdmApi.md#getAllPropertyTypes) | **GET** /datastore/edm/property/type/ | Gets all PropertyType definitions.
@@ -35,32 +29,22 @@ Method | HTTP request | Description
 [**getAssociationTypeDetails**](EdmApi.md#getAssociationTypeDetails) | **GET** /datastore/edm/association/type/{associationTypeId}/detailed | Get details about the AssociationType for the given AssociationType UUID.
 [**getEntityDataModel**](EdmApi.md#getEntityDataModel) | **GET** /datastore/edm/ | Gets the entity data model, including namespaces, schemas, entity types, association types, and property types.
 [**getEntityDataModelDiff**](EdmApi.md#getEntityDataModelDiff) | **POST** /datastore/edm/diff/ | Gets the changes between the existing entity data model and the entity data model passed in, including schemas, association types, entity types, and property types.
-[**getEntitySet**](EdmApi.md#getEntitySet) | **GET** /datastore/entity-sets/all/{entitySetId} | Get the EntitySet definition for the given EntitySet UUID.
-[**getEntitySetId**](EdmApi.md#getEntitySetId) | **GET** /datastore/entity-sets/ids/{entitySetName} | Gets the EntitySet UUID for the given EntitySet name.
-[**getEntitySetIds**](EdmApi.md#getEntitySetIds) | **POST** /datastore/entity-sets/ids/ | Get IDs for entity sets given their names.
-[**getEntitySetPropertyMetadata**](EdmApi.md#getEntitySetPropertyMetadata) | **GET** /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/ | Get specified property type metadata for an entity set.
 [**getEntityType**](EdmApi.md#getEntityType) | **GET** /datastore/edm/entity/type/{entityTypeId} | Gets the EntityType definition for the given EntityType UUID.
 [**getEntityTypeHierarchy**](EdmApi.md#getEntityTypeHierarchy) | **PATCH** /datastore/edm/entity/type/{entityTypeId}/hierarchy | Get the EntityType hierarchy for the given EntityType UUID.
 [**getEntityTypeId**](EdmApi.md#getEntityTypeId) | **GET** /datastore/edm/ids/entity/type/{namespace}/{name} | Gets the EntityType UUID for the given EntityType FQN.
 [**getEntityTypePropertyMetadata**](EdmApi.md#getEntityTypePropertyMetadata) | **GET** /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId} | Get EntityType propertyType metadata
-[**getPropertyMetadataForEntitySets**](EdmApi.md#getPropertyMetadataForEntitySets) | **POST** /datastore/entity-sets/all/metadata | Get property metadata for entity sets.
 [**getPropertyType**](EdmApi.md#getPropertyType) | **GET** /datastore/edm/property/type/{propertyTypeId} | Gets the PropertyType definition for the given PropertyType UUID.
 [**getPropertyTypeId**](EdmApi.md#getPropertyTypeId) | **GET** /datastore/edm/ids/property/type/{namespace}/{name} | Gets the PropertyType UUID for the given PropertyType FQN.
-[**getPropertyTypesForEntitySet**](EdmApi.md#getPropertyTypesForEntitySet) | **GET** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
 [**getPropertyUsageSummary**](EdmApi.md#getPropertyUsageSummary) | **GET** /datastore/edm/summary/{propertyTypeId} | Get Property Usage Summary for property with given ID.
 [**getSchemaContents**](EdmApi.md#getSchemaContents) | **GET** /datastore/edm/schema/{namespace}/{name} | Gets the schema contents for a corresponding namespace and name.
 [**getSchemas**](EdmApi.md#getSchemas) | **GET** /datastore/edm/schema | Gets all schemas.
 [**getSchemasInNamespace**](EdmApi.md#getSchemasInNamespace) | **GET** /datastore/edm/schema/{namespace} | Gets all schemas associated with a given namespace and accessible by the caller.
 [**removeDstEntityTypeFromAssociationType**](EdmApi.md#removeDstEntityTypeFromAssociationType) | **DELETE** /datastore/edm/association/type/{associationTypeId}/dst/{entityTypeId} | Updates the AssociationType dst entity types for the given AssociationType UUID by removing the given EntityType UUID.
-[**removeEntitySetsFromLinkingEntitySet**](EdmApi.md#removeEntitySetsFromLinkingEntitySet) | **DELETE** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
-[**removeEntitySetsFromLinkingEntitySets**](EdmApi.md#removeEntitySetsFromLinkingEntitySets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
 [**removePrimaryKeyFromEntityType**](EdmApi.md#removePrimaryKeyFromEntityType) | **DELETE** /datastore/edm/entity/type/key/{entityTypeId}/{propertyTypeId} | Removes a primary key with a given ID from an entity type with a given ID.
 [**removePropertyTypeFromEntityType**](EdmApi.md#removePropertyTypeFromEntityType) | **DELETE** /datastore/edm/entity/type/{entityTypeId}/{propertyTypeId} | Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID.
 [**removeSrcEntityTypeFromAssociationType**](EdmApi.md#removeSrcEntityTypeFromAssociationType) | **DELETE** /datastore/edm/association/type/{associationTypeId}/src/{entityTypeId} | Updates the AssociationType src entity types for the given AssociationType UUID by removing the given EntityType UUID.
 [**reorderPropertyTypesInEntityType**](EdmApi.md#reorderPropertyTypesInEntityType) | **PATCH** /datastore/edm/entity/type/{entityTypeId}/property/type | Updates the EntityType definition for the given EntityType UUID by reordering its properties as specified by the provided list.
 [**updateEntityDataModel**](EdmApi.md#updateEntityDataModel) | **PATCH** /datastore/edm/ | Updates the entity data model, including schemas, entity types, association types, and property types.
-[**updateEntitySetMetaData**](EdmApi.md#updateEntitySetMetaData) | **PATCH** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
-[**updateEntitySetPropertyMetadata**](EdmApi.md#updateEntitySetPropertyMetadata) | **POST** /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 [**updateEntityTypeMetaData**](EdmApi.md#updateEntityTypeMetaData) | **PATCH** /datastore/edm/entity/type/{entityTypeId} | Updates the EntityType definition for the given EntityType UUID with the given metadata.
 [**updateEntityTypePropertyMetadata**](EdmApi.md#updateEntityTypePropertyMetadata) | **POST** /datastore/edm/entity/type/{entityTypeId}/property/type/{propertyTypeId} | Update EntityType Property metadata
 [**updatePropertyTypeMetaData**](EdmApi.md#updatePropertyTypeMetaData) | **PATCH** /datastore/edm/property/type/{propertyTypeId} | Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
@@ -111,98 +95,6 @@ null (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
-
-
-## addEntitySetsToLinkingEntitySet
-
-> Integer addEntitySetsToLinkingEntitySet(linkingEntitySetId, UUID)
-
-Adds the entity sets as linked entity sets to the linking entity set
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-UUID linkingEntitySetId = null; // UUID | 
-List<UUID> UUID = Arrays.asList(new UUID()); // List<UUID> | 
-try {
-    Integer result = apiInstance.addEntitySetsToLinkingEntitySet(linkingEntitySetId, UUID);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#addEntitySetsToLinkingEntitySet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **linkingEntitySetId** | [**UUID**](.md)|  | [default to null]
- **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional]
-
-### Return type
-
-**Integer**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## addEntitySetsToLinkingEntitySets
-
-> Integer addEntitySetsToLinkingEntitySets(linkingEntitySetId, requestBody)
-
-Adds the entity sets as linked entity sets to the linking entity sets
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-String linkingEntitySetId = null; // String | 
-Map<String, List<UUID>> requestBody = new HashMap(); // Map<String, List<UUID>> | 
-try {
-    Integer result = apiInstance.addEntitySetsToLinkingEntitySets(linkingEntitySetId, requestBody);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#addEntitySetsToLinkingEntitySets");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **linkingEntitySetId** | **String**|  | [default to null]
- **requestBody** | [**Map&lt;String, List&lt;UUID&gt;&gt;**](List.md)|  |
-
-### Return type
-
-**Integer**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
 
 
 ## addPrimaryKeyToEntityType
@@ -428,49 +320,6 @@ null (empty response body)
 - **Accept**: Not defined
 
 
-## createEntitySets
-
-> createEntitySets(entitySet)
-
-Creates new EntitySet definitions if they don&#39;t exist.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-List<EntitySet> entitySet = Arrays.asList(new EntitySet()); // List<EntitySet> | 
-try {
-    apiInstance.createEntitySets(entitySet);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#createEntitySets");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySet** | [**List&lt;EntitySet&gt;**](EntitySet.md)|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: Not defined
-
-
 ## createEntityType
 
 > createEntityType(entityType)
@@ -636,49 +485,6 @@ null (empty response body)
 ### Authorization
 
 No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## deleteEntitySet
-
-> deleteEntitySet(entitySetId)
-
-Deletes the EntitySet definition for the given EntitySet UUID.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-UUID entitySetId = null; // UUID | 
-try {
-    apiInstance.deleteEntitySet(entitySetId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#deleteEntitySet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**UUID**](.md)|  | [default to null]
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
 
 ### HTTP request headers
 
@@ -933,90 +739,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;AssociationType&gt;**](AssociationType.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getAllEntitySetPropertyMetadata
-
-> Map&lt;String, EntitySetPropertyMetaData&gt; getAllEntitySetPropertyMetadata(entitySetId)
-
-Get all entity set property metadata.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-UUID entitySetId = null; // UUID | 
-try {
-    Map<String, EntitySetPropertyMetaData> result = apiInstance.getAllEntitySetPropertyMetadata(entitySetId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#getAllEntitySetPropertyMetadata");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**UUID**](.md)|  | [default to null]
-
-### Return type
-
-[**Map&lt;String, EntitySetPropertyMetaData&gt;**](EntitySetPropertyMetaData.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getAllEntitySets
-
-> List&lt;EntitySet&gt; getAllEntitySets()
-
-Get all EntitySet definitions.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-try {
-    List<EntitySet> result = apiInstance.getAllEntitySets();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#getAllEntitySets");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**List&lt;EntitySet&gt;**](EntitySet.md)
 
 ### Authorization
 
@@ -1408,184 +1130,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getEntitySet
-
-> EntitySet getEntitySet(entitySetId)
-
-Get the EntitySet definition for the given EntitySet UUID.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-UUID entitySetId = null; // UUID | 
-try {
-    EntitySet result = apiInstance.getEntitySet(entitySetId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#getEntitySet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**UUID**](.md)|  | [default to null]
-
-### Return type
-
-[**EntitySet**](EntitySet.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getEntitySetId
-
-> UUID getEntitySetId(entitySetName)
-
-Gets the EntitySet UUID for the given EntitySet name.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-String entitySetName = null; // String | 
-try {
-    UUID result = apiInstance.getEntitySetId(entitySetName);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#getEntitySetId");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetName** | **String**|  | [default to null]
-
-### Return type
-
-[**UUID**](UUID.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getEntitySetIds
-
-> Map&lt;String, UUID&gt; getEntitySetIds(requestBody)
-
-Get IDs for entity sets given their names.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-List<String> requestBody = Arrays.asList("requestBody_example"); // List<String> | 
-try {
-    Map<String, UUID> result = apiInstance.getEntitySetIds(requestBody);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#getEntitySetIds");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | [**List&lt;String&gt;**](String.md)|  | [optional]
-
-### Return type
-
-[**Map&lt;String, UUID&gt;**](UUID.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## getEntitySetPropertyMetadata
-
-> EntitySetPropertyMetaData getEntitySetPropertyMetadata(entitySetId, propertyTypeId)
-
-Get specified property type metadata for an entity set.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-UUID entitySetId = null; // UUID | 
-UUID propertyTypeId = null; // UUID | 
-try {
-    EntitySetPropertyMetaData result = apiInstance.getEntitySetPropertyMetadata(entitySetId, propertyTypeId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#getEntitySetPropertyMetadata");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**UUID**](.md)|  | [default to null]
- **propertyTypeId** | [**UUID**](.md)|  | [default to null]
-
-### Return type
-
-[**EntitySetPropertyMetaData**](EntitySetPropertyMetaData.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
 ## getEntityType
 
 > EntityType getEntityType(entityTypeId)
@@ -1765,50 +1309,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getPropertyMetadataForEntitySets
-
-> Map&lt;String, Map&lt;String, EntitySetPropertyMetaData&gt;&gt; getPropertyMetadataForEntitySets(requestBody)
-
-Get property metadata for entity sets.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-List<String> requestBody = Arrays.asList("requestBody_example"); // List<String> | 
-try {
-    Map<String, Map<String, EntitySetPropertyMetaData>> result = apiInstance.getPropertyMetadataForEntitySets(requestBody);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#getPropertyMetadataForEntitySets");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | [**List&lt;String&gt;**](String.md)|  | [optional]
-
-### Return type
-
-[**Map&lt;String, Map&lt;String, EntitySetPropertyMetaData&gt;&gt;**](Map.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## getPropertyType
 
 > PropertyType getPropertyType(propertyTypeId)
@@ -1888,50 +1388,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UUID**](UUID.md)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getPropertyTypesForEntitySet
-
-> Map&lt;String, PropertyType&gt; getPropertyTypesForEntitySet(entitySetId)
-
-Get all Property Types for entity set
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-UUID entitySetId = null; // UUID | 
-try {
-    Map<String, PropertyType> result = apiInstance.getPropertyTypesForEntitySet(entitySetId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#getPropertyTypesForEntitySet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**UUID**](.md)|  | [default to null]
-
-### Return type
-
-[**Map&lt;String, PropertyType&gt;**](PropertyType.md)
 
 ### Authorization
 
@@ -2164,98 +1620,6 @@ null (empty response body)
 - **Accept**: Not defined
 
 
-## removeEntitySetsFromLinkingEntitySet
-
-> Integer removeEntitySetsFromLinkingEntitySet(linkingEntitySetId, UUID)
-
-Removes/unlinks the linked entity sets from the linking entity set
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-String linkingEntitySetId = null; // String | 
-List<UUID> UUID = Arrays.asList(new UUID()); // List<UUID> | 
-try {
-    Integer result = apiInstance.removeEntitySetsFromLinkingEntitySet(linkingEntitySetId, UUID);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#removeEntitySetsFromLinkingEntitySet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **linkingEntitySetId** | **String**|  | [default to null]
- **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional]
-
-### Return type
-
-**Integer**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## removeEntitySetsFromLinkingEntitySets
-
-> Integer removeEntitySetsFromLinkingEntitySets(linkingEntitySetId, requestBody)
-
-Removes/unlinks the linked entity sets from the linking entity set
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-UUID linkingEntitySetId = null; // UUID | 
-Map<String, List<UUID>> requestBody = new HashMap(); // Map<String, List<UUID>> | 
-try {
-    Integer result = apiInstance.removeEntitySetsFromLinkingEntitySets(linkingEntitySetId, requestBody);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#removeEntitySetsFromLinkingEntitySets");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **linkingEntitySetId** | [**UUID**](.md)|  | [default to null]
- **requestBody** | [**Map&lt;String, List&lt;UUID&gt;&gt;**](List.md)|  |
-
-### Return type
-
-**Integer**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## removePrimaryKeyFromEntityType
 
 > removePrimaryKeyFromEntityType(entityTypeId, propertyTypeId)
@@ -2464,99 +1828,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **EDM** | [**EDM**](EDM.md)|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: Not defined
-
-
-## updateEntitySetMetaData
-
-> Integer updateEntitySetMetaData(entitySetId, metadataUpdate)
-
-Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-UUID entitySetId = null; // UUID | 
-MetadataUpdate metadataUpdate = new MetadataUpdate(); // MetadataUpdate | 
-try {
-    Integer result = apiInstance.updateEntitySetMetaData(entitySetId, metadataUpdate);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#updateEntitySetMetaData");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**UUID**](.md)|  | [default to null]
- **metadataUpdate** | [**MetadataUpdate**](MetadataUpdate.md)|  |
-
-### Return type
-
-**Integer**
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## updateEntitySetPropertyMetadata
-
-> updateEntitySetPropertyMetadata(entitySetId, propertyTypeId, metadataUpdate)
-
-Updates the property type metadata for the given entity set.
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.EdmApi;
-
-EdmApi apiInstance = new EdmApi();
-UUID entitySetId = null; // UUID | 
-UUID propertyTypeId = null; // UUID | 
-MetadataUpdate metadataUpdate = new MetadataUpdate(); // MetadataUpdate | 
-try {
-    apiInstance.updateEntitySetPropertyMetadata(entitySetId, propertyTypeId, metadataUpdate);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EdmApi#updateEntitySetPropertyMetadata");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **entitySetId** | [**UUID**](.md)|  | [default to null]
- **propertyTypeId** | [**UUID**](.md)|  | [default to null]
- **metadataUpdate** | [**MetadataUpdate**](MetadataUpdate.md)|  |
 
 ### Return type
 
