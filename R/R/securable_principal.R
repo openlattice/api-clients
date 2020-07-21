@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title SecurablePrincipal
+#'
 #' @description SecurablePrincipal Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field id  character [optional]
 #'
 #' @field principal  \link{Principal} [optional]
@@ -17,7 +20,6 @@
 #' @field title  character [optional]
 #'
 #' @field description  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -29,7 +31,9 @@ SecurablePrincipal <- R6::R6Class(
     `principal` = NULL,
     `title` = NULL,
     `description` = NULL,
-    initialize = function(`id`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, ...){
+    initialize = function(
+        `id`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -76,7 +80,7 @@ SecurablePrincipal <- R6::R6Class(
       }
       if (!is.null(SecurablePrincipalObject$`principal`)) {
         principalObject <- Principal$new()
-        principalObject$fromJSON(jsonlite::toJSON(SecurablePrincipalObject$principal, auto_unbox = TRUE, digits = NA))
+        principalObject$fromJSON(jsonlite::toJSON(SecurablePrincipalObject$principal, auto_unbox = FALSE, digits = NA))
         self$`principal` <- principalObject
       }
       if (!is.null(SecurablePrincipalObject$`title`)) {
@@ -85,6 +89,7 @@ SecurablePrincipal <- R6::R6Class(
       if (!is.null(SecurablePrincipalObject$`description`)) {
         self$`description` <- SecurablePrincipalObject$`description`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -100,7 +105,7 @@ SecurablePrincipal <- R6::R6Class(
         '"principal":
         %s
         ',
-        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=FALSE, digits = NA)
         )},
         if (!is.null(self$`title`)) {
         sprintf(
@@ -123,10 +128,11 @@ SecurablePrincipal <- R6::R6Class(
     fromJSONString = function(SecurablePrincipalJson) {
       SecurablePrincipalObject <- jsonlite::fromJSON(SecurablePrincipalJson)
       self$`id` <- SecurablePrincipalObject$`id`
-      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(SecurablePrincipalObject$principal, auto_unbox = TRUE, digits = NA))
+      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(SecurablePrincipalObject$principal, auto_unbox = FALSE, digits = NA))
       self$`title` <- SecurablePrincipalObject$`title`
       self$`description` <- SecurablePrincipalObject$`description`
       self
     }
   )
 )
+

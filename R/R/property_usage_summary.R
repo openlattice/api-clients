@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title PropertyUsageSummary
+#'
 #' @description PropertyUsageSummary Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entityTypeId  character [optional]
 #'
 #' @field entitySetId  character [optional]
@@ -17,7 +20,6 @@
 #' @field entitySetName  character [optional]
 #'
 #' @field count  integer [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -29,7 +31,9 @@ PropertyUsageSummary <- R6::R6Class(
     `entitySetId` = NULL,
     `entitySetName` = NULL,
     `count` = NULL,
-    initialize = function(`entityTypeId`=NULL, `entitySetId`=NULL, `entitySetName`=NULL, `count`=NULL, ...){
+    initialize = function(
+        `entityTypeId`=NULL, `entitySetId`=NULL, `entitySetName`=NULL, `count`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityTypeId`)) {
         stopifnot(is.character(`entityTypeId`), length(`entityTypeId`) == 1)
@@ -83,6 +87,7 @@ PropertyUsageSummary <- R6::R6Class(
       if (!is.null(PropertyUsageSummaryObject$`count`)) {
         self$`count` <- PropertyUsageSummaryObject$`count`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -128,3 +133,4 @@ PropertyUsageSummary <- R6::R6Class(
     }
   )
 )
+

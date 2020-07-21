@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title FlightPlanParameters
+#'
 #' @description FlightPlanParameters Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field sql  character [optional]
 #'
 #' @field src  named list( character ) [optional]
@@ -19,7 +22,6 @@
 #' @field path  character [optional]
 #'
 #' @field flight  \link{Flight} [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -32,7 +34,9 @@ FlightPlanParameters <- R6::R6Class(
     `srcPrimaryKeyColumns` = NULL,
     `path` = NULL,
     `flight` = NULL,
-    initialize = function(`sql`=NULL, `src`=NULL, `srcPrimaryKeyColumns`=NULL, `path`=NULL, `flight`=NULL, ...){
+    initialize = function(
+        `sql`=NULL, `src`=NULL, `srcPrimaryKeyColumns`=NULL, `path`=NULL, `flight`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`sql`)) {
         stopifnot(is.character(`sql`), length(`sql`) == 1)
@@ -98,9 +102,10 @@ FlightPlanParameters <- R6::R6Class(
       }
       if (!is.null(FlightPlanParametersObject$`flight`)) {
         flightObject <- Flight$new()
-        flightObject$fromJSON(jsonlite::toJSON(FlightPlanParametersObject$flight, auto_unbox = TRUE, digits = NA))
+        flightObject$fromJSON(jsonlite::toJSON(FlightPlanParametersObject$flight, auto_unbox = FALSE, digits = NA))
         self$`flight` <- flightObject
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -116,7 +121,7 @@ FlightPlanParameters <- R6::R6Class(
         '"src":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`src`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        jsonlite::toJSON(lapply(self$`src`, function(x){ x }), auto_unbox = FALSE, digits=NA)
         )},
         if (!is.null(self$`srcPrimaryKeyColumns`)) {
         sprintf(
@@ -137,7 +142,7 @@ FlightPlanParameters <- R6::R6Class(
         '"flight":
         %s
         ',
-        jsonlite::toJSON(self$`flight`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`flight`$toJSON(), auto_unbox=FALSE, digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -149,8 +154,9 @@ FlightPlanParameters <- R6::R6Class(
       self$`src` <- ApiClient$new()$deserializeObj(FlightPlanParametersObject$`src`, "list(character)", loadNamespace("openlattice"))
       self$`srcPrimaryKeyColumns` <- ApiClient$new()$deserializeObj(FlightPlanParametersObject$`srcPrimaryKeyColumns`, "array[character]", loadNamespace("openlattice"))
       self$`path` <- FlightPlanParametersObject$`path`
-      self$`flight` <- Flight$new()$fromJSON(jsonlite::toJSON(FlightPlanParametersObject$flight, auto_unbox = TRUE, digits = NA))
+      self$`flight` <- Flight$new()$fromJSON(jsonlite::toJSON(FlightPlanParametersObject$flight, auto_unbox = FALSE, digits = NA))
       self
     }
   )
 )
+

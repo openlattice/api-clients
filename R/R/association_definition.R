@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title AssociationDefinition
+#'
 #' @description AssociationDefinition Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field fqn  \link{FullQualifiedName} [optional]
 #'
 #' @field entitySetName  character [optional]
@@ -21,7 +24,6 @@
 #' @field src  character [optional]
 #'
 #' @field dst  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -35,7 +37,9 @@ AssociationDefinition <- R6::R6Class(
     `updateType` = NULL,
     `src` = NULL,
     `dst` = NULL,
-    initialize = function(`fqn`=NULL, `entitySetName`=NULL, `propertyDefinitions`=NULL, `updateType`=NULL, `src`=NULL, `dst`=NULL, ...){
+    initialize = function(
+        `fqn`=NULL, `entitySetName`=NULL, `propertyDefinitions`=NULL, `updateType`=NULL, `src`=NULL, `dst`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`fqn`)) {
         stopifnot(R6::is.R6(`fqn`))
@@ -96,7 +100,7 @@ AssociationDefinition <- R6::R6Class(
       AssociationDefinitionObject <- jsonlite::fromJSON(AssociationDefinitionJson)
       if (!is.null(AssociationDefinitionObject$`fqn`)) {
         fqnObject <- FullQualifiedName$new()
-        fqnObject$fromJSON(jsonlite::toJSON(AssociationDefinitionObject$fqn, auto_unbox = TRUE, digits = NA))
+        fqnObject$fromJSON(jsonlite::toJSON(AssociationDefinitionObject$fqn, auto_unbox = FALSE, digits = NA))
         self$`fqn` <- fqnObject
       }
       if (!is.null(AssociationDefinitionObject$`entitySetName`)) {
@@ -114,6 +118,7 @@ AssociationDefinition <- R6::R6Class(
       if (!is.null(AssociationDefinitionObject$`dst`)) {
         self$`dst` <- AssociationDefinitionObject$`dst`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -122,7 +127,7 @@ AssociationDefinition <- R6::R6Class(
         '"fqn":
         %s
         ',
-        jsonlite::toJSON(self$`fqn`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`fqn`$toJSON(), auto_unbox=FALSE, digits = NA)
         )},
         if (!is.null(self$`entitySetName`)) {
         sprintf(
@@ -136,7 +141,7 @@ AssociationDefinition <- R6::R6Class(
         '"propertyDefinitions":
         %s
 ',
-        jsonlite::toJSON(lapply(self$`propertyDefinitions`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        jsonlite::toJSON(lapply(self$`propertyDefinitions`, function(x){ x$toJSON() }), auto_unbox = FALSE, digits=NA)
         )},
         if (!is.null(self$`updateType`)) {
         sprintf(
@@ -165,7 +170,7 @@ AssociationDefinition <- R6::R6Class(
     },
     fromJSONString = function(AssociationDefinitionJson) {
       AssociationDefinitionObject <- jsonlite::fromJSON(AssociationDefinitionJson)
-      self$`fqn` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(AssociationDefinitionObject$fqn, auto_unbox = TRUE, digits = NA))
+      self$`fqn` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(AssociationDefinitionObject$fqn, auto_unbox = FALSE, digits = NA))
       self$`entitySetName` <- AssociationDefinitionObject$`entitySetName`
       self$`propertyDefinitions` <- ApiClient$new()$deserializeObj(AssociationDefinitionObject$`propertyDefinitions`, "list(PropertyDefinition)", loadNamespace("openlattice"))
       self$`updateType` <- AssociationDefinitionObject$`updateType`
@@ -175,3 +180,4 @@ AssociationDefinition <- R6::R6Class(
     }
   )
 )
+

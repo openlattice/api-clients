@@ -9,7 +9,7 @@ test_that("create_associations", {
   # tests for create_associations
   # base path: https://api.openlattice.com
   # Creates a new set of associations.
-  # @param InlineObject  inline_object   
+  # @param inline_object InlineObject 
   # @return [list(array[character])]
 
   # uncomment below to test the operation
@@ -20,7 +20,7 @@ test_that("create_edges", {
   # tests for create_edges
   # base path: https://api.openlattice.com
   # Creates a new set of associations.
-  # @param array[DataEdgeKey]  data_edge_key   
+  # @param data_edge_key array[DataEdgeKey] 
   # @return [integer]
 
   # uncomment below to test the operation
@@ -31,8 +31,8 @@ test_that("create_entities", {
   # tests for create_entities
   # base path: https://api.openlattice.com
   # Creates a new set of entities.
-  # @param character  set_id   
-  # @param array[list(array[character])]  request_body   
+  # @param set_id character 
+  # @param request_body array[list(array[character])] 
   # @return [array[character]]
 
   # uncomment below to test the operation
@@ -43,7 +43,7 @@ test_that("create_entity_and_association_data", {
   # tests for create_entity_and_association_data
   # base path: https://api.openlattice.com
   # Creates entities and assocations
-  # @param DataGraph  data_graph   
+  # @param data_graph DataGraph 
   # @return [DataGraphIds]
 
   # uncomment below to test the operation
@@ -54,8 +54,8 @@ test_that("delete_all_entities_from_entity_set", {
   # tests for delete_all_entities_from_entity_set
   # base path: https://api.openlattice.com
   # Clears the Entity matching the given Entity id and all of its neighbor Entities
-  # @param character  entity_set_id   
-  # @param character  type   
+  # @param entity_set_id character 
+  # @param type character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -66,9 +66,9 @@ test_that("delete_entities", {
   # tests for delete_entities
   # base path: https://api.openlattice.com
   # Deletes multiple entities from an entity set.
-  # @param character  entity_set_id   
-  # @param character  type   
-  # @param array[character]  request_body   
+  # @param entity_set_id character 
+  # @param type character 
+  # @param request_body array[character] 
   # @return [integer]
 
   # uncomment below to test the operation
@@ -79,9 +79,9 @@ test_that("delete_entities_and_neighbors", {
   # tests for delete_entities_and_neighbors
   # base path: https://api.openlattice.com
   # Deletes the entities matching the given entity ids and all of its neighbor entities provided in the filter.
-  # @param character  entity_set_id   
-  # @param character  type   
-  # @param array[EntityNeighborsFilter]  entity_neighbors_filter   
+  # @param entity_set_id character 
+  # @param type character 
+  # @param entity_neighbors_filter array[EntityNeighborsFilter] 
   # @return [integer]
 
   # uncomment below to test the operation
@@ -92,9 +92,9 @@ test_that("delete_entity", {
   # tests for delete_entity
   # base path: https://api.openlattice.com
   # Deletes a single entity from an entity set.
-  # @param character  entity_set_id   
-  # @param character  entity_key_id   
-  # @param character  type   
+  # @param entity_set_id character 
+  # @param entity_key_id character 
+  # @param type character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -105,10 +105,10 @@ test_that("delete_entity_properties", {
   # tests for delete_entity_properties
   # base path: https://api.openlattice.com
   # Deletes properties from an entity.
-  # @param character  entity_set_id   
-  # @param character  entity_key_id   
-  # @param character  type   
-  # @param array[character]  request_body   
+  # @param entity_set_id character 
+  # @param entity_key_id character 
+  # @param type character 
+  # @param request_body array[character] 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -119,8 +119,8 @@ test_that("get_entity", {
   # tests for get_entity
   # base path: https://api.openlattice.com
   # Loads a single entity by its entityKeyId and entitySetId
-  # @param character  entity_set_id   
-  # @param character  entity_key_id   
+  # @param entity_set_id character 
+  # @param entity_key_id character 
   # @return [list(array[character])]
 
   # uncomment below to test the operation
@@ -131,9 +131,9 @@ test_that("get_entity_property_values", {
   # tests for get_entity_property_values
   # base path: https://api.openlattice.com
   # Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
-  # @param character  entity_set_id   
-  # @param character  entity_key_id   
-  # @param character  property_type_id   
+  # @param entity_set_id character 
+  # @param entity_key_id character 
+  # @param property_type_id character 
   # @return [array[character]]
 
   # uncomment below to test the operation
@@ -144,7 +144,7 @@ test_that("get_entity_set_size", {
   # tests for get_entity_set_size
   # base path: https://api.openlattice.com
   # Gets the number of entities in an entity set.
-  # @param character  entity_set_id   
+  # @param entity_set_id character 
   # @return [integer]
 
   # uncomment below to test the operation
@@ -155,7 +155,7 @@ test_that("load_entity_set_data", {
   # tests for load_entity_set_data
   # base path: https://api.openlattice.com
   # Gets an iterable containing the entity data, using property type FQNs as key
-  # @param character  entity_set_id   
+  # @param entity_set_id character 
   # @return [array[list(array[character])]]
 
   # uncomment below to test the operation
@@ -166,8 +166,8 @@ test_that("load_linked_entity_set_breakdown", {
   # tests for load_linked_entity_set_breakdown
   # base path: https://api.openlattice.com
   # Loads a linked entity set breakdown with the selected linked entities and properties.
-  # @param character  linked_entity_set_id   
-  # @param array[EntitySetSelection]  entity_set_selection   
+  # @param linked_entity_set_id character 
+  # @param entity_set_selection array[EntitySetSelection] 
   # @return [list(list(list(list(array[character]))))]
 
   # uncomment below to test the operation
@@ -178,8 +178,8 @@ test_that("load_selected_entity_set_data", {
   # tests for load_selected_entity_set_data
   # base path: https://api.openlattice.com
   # Gets a list of entities by UUIDs
-  # @param character  entity_set_id   
-  # @param array[EntitySetSelection]  entity_set_selection   
+  # @param entity_set_id character 
+  # @param entity_set_selection array[EntitySetSelection] 
   # @return [array[list(array[character])]]
 
   # uncomment below to test the operation
@@ -190,8 +190,8 @@ test_that("replace_association_data", {
   # tests for replace_association_data
   # base path: https://api.openlattice.com
   # Replaces Association Data
-  # @param character  partial   
-  # @param list(list(DataEdge))  request_body   
+  # @param partial character 
+  # @param request_body list(list(DataEdge)) 
   # @return [integer]
 
   # uncomment below to test the operation
@@ -202,8 +202,8 @@ test_that("replace_entity_properties", {
   # tests for replace_entity_properties
   # base path: https://api.openlattice.com
   # Replaces Entity Properties
-  # @param character  entity_set_id   
-  # @param list(list(array[list(character)]))  request_body   
+  # @param entity_set_id character 
+  # @param request_body list(list(array[list(character)])) 
   # @return [integer]
 
   # uncomment below to test the operation
@@ -214,9 +214,9 @@ test_that("update_entities_in_entity_set", {
   # tests for update_entities_in_entity_set
   # base path: https://api.openlattice.com
   # Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
-  # @param character  entity_set_id   
-  # @param character  type   
-  # @param list(list(array[character]))  request_body   
+  # @param entity_set_id character 
+  # @param type character 
+  # @param request_body list(list(array[character])) 
   # @return [integer]
 
   # uncomment below to test the operation

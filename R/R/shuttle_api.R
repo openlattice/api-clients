@@ -361,7 +361,7 @@ ShuttleApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`integration`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`integration`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -756,7 +756,7 @@ ShuttleApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`integration_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`integration_update`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL

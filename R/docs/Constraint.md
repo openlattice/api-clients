@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **longitude** | **numeric** |  | [optional] 
 **radius** | **numeric** |  | [optional] 
 **unit** | **character** |  | [optional] 
-**zones** | [**array[array[array[numeric]]]**](array.md) |  | [optional] 
+**zones** | **array[array[array[numeric]]]** |  | [optional] 
 **start** | **character** |  | [optional] 
 **end** | **character** |  | [optional] 
 

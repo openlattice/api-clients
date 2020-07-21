@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title CollectionTemplateType
+#'
 #' @description CollectionTemplateType Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field id  character [optional]
 #'
 #' @field name  character [optional]
@@ -19,7 +22,6 @@
 #' @field description  character [optional]
 #'
 #' @field entityTypeId  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -32,7 +34,9 @@ CollectionTemplateType <- R6::R6Class(
     `title` = NULL,
     `description` = NULL,
     `entityTypeId` = NULL,
-    initialize = function(`id`=NULL, `name`=NULL, `title`=NULL, `description`=NULL, `entityTypeId`=NULL, ...){
+    initialize = function(
+        `id`=NULL, `name`=NULL, `title`=NULL, `description`=NULL, `entityTypeId`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -97,6 +101,7 @@ CollectionTemplateType <- R6::R6Class(
       if (!is.null(CollectionTemplateTypeObject$`entityTypeId`)) {
         self$`entityTypeId` <- CollectionTemplateTypeObject$`entityTypeId`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -150,3 +155,4 @@ CollectionTemplateType <- R6::R6Class(
     }
   )
 )
+

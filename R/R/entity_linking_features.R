@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title EntityLinkingFeatures
+#'
 #' @description EntityLinkingFeatures Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entityLinkingFeedback  \link{EntityLinkingFeedback} [optional]
 #'
 #' @field features  named list( numeric ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ EntityLinkingFeatures <- R6::R6Class(
   public = list(
     `entityLinkingFeedback` = NULL,
     `features` = NULL,
-    initialize = function(`entityLinkingFeedback`=NULL, `features`=NULL, ...){
+    initialize = function(
+        `entityLinkingFeedback`=NULL, `features`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityLinkingFeedback`)) {
         stopifnot(R6::is.R6(`entityLinkingFeedback`))
@@ -52,12 +56,13 @@ EntityLinkingFeatures <- R6::R6Class(
       EntityLinkingFeaturesObject <- jsonlite::fromJSON(EntityLinkingFeaturesJson)
       if (!is.null(EntityLinkingFeaturesObject$`entityLinkingFeedback`)) {
         entityLinkingFeedbackObject <- EntityLinkingFeedback$new()
-        entityLinkingFeedbackObject$fromJSON(jsonlite::toJSON(EntityLinkingFeaturesObject$entityLinkingFeedback, auto_unbox = TRUE, digits = NA))
+        entityLinkingFeedbackObject$fromJSON(jsonlite::toJSON(EntityLinkingFeaturesObject$entityLinkingFeedback, auto_unbox = FALSE, digits = NA))
         self$`entityLinkingFeedback` <- entityLinkingFeedbackObject
       }
       if (!is.null(EntityLinkingFeaturesObject$`features`)) {
         self$`features` <- ApiClient$new()$deserializeObj(EntityLinkingFeaturesObject$`features`, "list(numeric)", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -66,14 +71,14 @@ EntityLinkingFeatures <- R6::R6Class(
         '"entityLinkingFeedback":
         %s
         ',
-        jsonlite::toJSON(self$`entityLinkingFeedback`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`entityLinkingFeedback`$toJSON(), auto_unbox=FALSE, digits = NA)
         )},
         if (!is.null(self$`features`)) {
         sprintf(
         '"features":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`features`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        jsonlite::toJSON(lapply(self$`features`, function(x){ x }), auto_unbox = FALSE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -81,9 +86,10 @@ EntityLinkingFeatures <- R6::R6Class(
     },
     fromJSONString = function(EntityLinkingFeaturesJson) {
       EntityLinkingFeaturesObject <- jsonlite::fromJSON(EntityLinkingFeaturesJson)
-      self$`entityLinkingFeedback` <- EntityLinkingFeedback$new()$fromJSON(jsonlite::toJSON(EntityLinkingFeaturesObject$entityLinkingFeedback, auto_unbox = TRUE, digits = NA))
+      self$`entityLinkingFeedback` <- EntityLinkingFeedback$new()$fromJSON(jsonlite::toJSON(EntityLinkingFeaturesObject$entityLinkingFeedback, auto_unbox = FALSE, digits = NA))
       self$`features` <- ApiClient$new()$deserializeObj(EntityLinkingFeaturesObject$`features`, "list(numeric)", loadNamespace("openlattice"))
       self
     }
   )
 )
+

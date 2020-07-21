@@ -582,7 +582,7 @@ CollectionsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`collection_template_type`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`collection_template_type`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -643,7 +643,7 @@ CollectionsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`entity_set_collection`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`entity_set_collection`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -706,7 +706,7 @@ CollectionsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`entity_type_collection`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`entity_type_collection`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -1195,7 +1195,7 @@ CollectionsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -1325,7 +1325,7 @@ CollectionsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL

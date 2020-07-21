@@ -8,14 +8,16 @@
 
 #' @docType class
 #' @title Schema
+#'
 #' @description Schema Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entityTypes  list( \link{EntityType} ) [optional]
 #'
 #' @field propertyTypes  list( \link{PropertyType} ) [optional]
 #'
 #' @field fqn  \link{FullQualifiedName} [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -26,7 +28,9 @@ Schema <- R6::R6Class(
     `entityTypes` = NULL,
     `propertyTypes` = NULL,
     `fqn` = NULL,
-    initialize = function(`entityTypes`=NULL, `propertyTypes`=NULL, `fqn`=NULL, ...){
+    initialize = function(
+        `entityTypes`=NULL, `propertyTypes`=NULL, `fqn`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityTypes`)) {
         stopifnot(is.vector(`entityTypes`))
@@ -70,9 +74,10 @@ Schema <- R6::R6Class(
       }
       if (!is.null(SchemaObject$`fqn`)) {
         fqnObject <- FullQualifiedName$new()
-        fqnObject$fromJSON(jsonlite::toJSON(SchemaObject$fqn, auto_unbox = TRUE, digits = NA))
+        fqnObject$fromJSON(jsonlite::toJSON(SchemaObject$fqn, auto_unbox = FALSE, digits = NA))
         self$`fqn` <- fqnObject
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -81,21 +86,21 @@ Schema <- R6::R6Class(
         '"entityTypes":
         [%s]
 ',
-        paste(sapply(self$`entityTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`entityTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
         )},
         if (!is.null(self$`propertyTypes`)) {
         sprintf(
         '"propertyTypes":
         [%s]
 ',
-        paste(sapply(self$`propertyTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`propertyTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
         )},
         if (!is.null(self$`fqn`)) {
         sprintf(
         '"fqn":
         %s
         ',
-        jsonlite::toJSON(self$`fqn`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`fqn`$toJSON(), auto_unbox=FALSE, digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -105,8 +110,9 @@ Schema <- R6::R6Class(
       SchemaObject <- jsonlite::fromJSON(SchemaJson)
       self$`entityTypes` <- ApiClient$new()$deserializeObj(SchemaObject$`entityTypes`, "array[EntityType]", loadNamespace("openlattice"))
       self$`propertyTypes` <- ApiClient$new()$deserializeObj(SchemaObject$`propertyTypes`, "array[PropertyType]", loadNamespace("openlattice"))
-      self$`fqn` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(SchemaObject$fqn, auto_unbox = TRUE, digits = NA))
+      self$`fqn` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(SchemaObject$fqn, auto_unbox = FALSE, digits = NA))
       self
     }
   )
 )
+

@@ -9,8 +9,8 @@ test_that("add_member", {
   # tests for add_member
   # base path: https://api.openlattice.com
   # Add member to an organization
-  # @param character  organization_id   
-  # @param character  user_id   
+  # @param organization_id character 
+  # @param user_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -21,9 +21,9 @@ test_that("add_role_to_user", {
   # tests for add_role_to_user
   # base path: https://api.openlattice.com
   # Add a role to a user
-  # @param character  organization_id   
-  # @param character  role_id   
-  # @param character  user_id   
+  # @param organization_id character 
+  # @param role_id character 
+  # @param user_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -34,8 +34,8 @@ test_that("assemble_entity_sets", {
   # tests for assemble_entity_sets
   # base path: https://api.openlattice.com
   # Materializes entity sets into the organization database.
-  # @param character  organization_id   
-  # @param list(integer)  request_body   
+  # @param organization_id character 
+  # @param request_body list(integer) 
   # @return [list(array[character])]
 
   # uncomment below to test the operation
@@ -46,7 +46,7 @@ test_that("create_organization_if_not_exists", {
   # tests for create_organization_if_not_exists
   # base path: https://api.openlattice.com
   # Creates an organization if it doesn&#39;t exist.
-  # @param Organization  organization   
+  # @param organization Organization 
   # @return [character]
 
   # uncomment below to test the operation
@@ -57,7 +57,7 @@ test_that("create_role", {
   # tests for create_role
   # base path: https://api.openlattice.com
   # Creates role
-  # @param Role  role   
+  # @param role Role 
   # @return [character]
 
   # uncomment below to test the operation
@@ -68,8 +68,8 @@ test_that("delete_role", {
   # tests for delete_role
   # base path: https://api.openlattice.com
   # Remove role for an organization
-  # @param character  organization_id   
-  # @param character  role_id   
+  # @param organization_id character 
+  # @param role_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -80,7 +80,7 @@ test_that("destroy_organization", {
   # tests for destroy_organization
   # base path: https://api.openlattice.com
   # Remove an organization from the organizationId
-  # @param character  organization_id   
+  # @param organization_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -91,8 +91,8 @@ test_that("get_all_users_of_role", {
   # tests for get_all_users_of_role
   # base path: https://api.openlattice.com
   # Get members of a role for an organization from a roleId
-  # @param character  organization_id   
-  # @param character  role_id   
+  # @param organization_id character 
+  # @param role_id character 
   # @return [array[Auth0userBasic]]
 
   # uncomment below to test the operation
@@ -103,7 +103,7 @@ test_that("get_auto_approved_email_domains", {
   # tests for get_auto_approved_email_domains
   # base path: https://api.openlattice.com
   # Get auto-approved email domains
-  # @param character  organization_id   
+  # @param organization_id character 
   # @return [array[character]]
 
   # uncomment below to test the operation
@@ -114,8 +114,8 @@ test_that("get_flagged_organization_entity_sets", {
   # tests for get_flagged_organization_entity_sets
   # base path: https://api.openlattice.com
   # Get the entity sets for an organization for a certain flag
-  # @param character  organization_id   
-  # @param list(array[character])  request_body   
+  # @param organization_id character 
+  # @param request_body list(array[character]) 
   # @return [array[list(array[character])]]
 
   # uncomment below to test the operation
@@ -126,7 +126,7 @@ test_that("get_members", {
   # tests for get_members
   # base path: https://api.openlattice.com
   # Get members of a certain organization
-  # @param character  organization_id   
+  # @param organization_id character 
   # @return [array[OrganizationMember]]
 
   # uncomment below to test the operation
@@ -137,7 +137,7 @@ test_that("get_organization", {
   # tests for get_organization
   # base path: https://api.openlattice.com
   # Get an organization from the organizationId
-  # @param character  organization_id   
+  # @param organization_id character 
   # @return [Organization]
 
   # uncomment below to test the operation
@@ -148,7 +148,7 @@ test_that("get_organization_entity_sets", {
   # tests for get_organization_entity_sets
   # base path: https://api.openlattice.com
   # Get the entity sets for an organization for a certain filter
-  # @param character  organization_id   
+  # @param organization_id character 
   # @return [list(array[character])]
 
   # uncomment below to test the operation
@@ -159,7 +159,7 @@ test_that("get_organization_integration_account", {
   # tests for get_organization_integration_account
   # base path: https://api.openlattice.com
   # Get the integrations account for an organization from the organizationId
-  # @param character  organization_id   
+  # @param organization_id character 
   # @return [InlineResponse200]
 
   # uncomment below to test the operation
@@ -180,8 +180,8 @@ test_that("get_role", {
   # tests for get_role
   # base path: https://api.openlattice.com
   # Get role for an organization from a roleId
-  # @param character  organization_id   
-  # @param character  role_id   
+  # @param organization_id character 
+  # @param role_id character 
   # @return [Role]
 
   # uncomment below to test the operation
@@ -192,7 +192,7 @@ test_that("get_roles", {
   # tests for get_roles
   # base path: https://api.openlattice.com
   # Get roles for an organization
-  # @param character  organization_id   
+  # @param organization_id character 
   # @return [array[Role]]
 
   # uncomment below to test the operation
@@ -203,8 +203,8 @@ test_that("refresh_data_changes", {
   # tests for refresh_data_changes
   # base path: https://api.openlattice.com
   # Refreshes the requested materialized entity set with data changes in the organization.
-  # @param character  organization_id   
-  # @param character  entity_set_id   
+  # @param organization_id character 
+  # @param entity_set_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -215,8 +215,8 @@ test_that("remove_auto_approved_email_domains", {
   # tests for remove_auto_approved_email_domains
   # base path: https://api.openlattice.com
   # Remove auto-approved email domains
-  # @param character  organization_id   
-  # @param array[character]  request_body   
+  # @param organization_id character 
+  # @param request_body array[character] 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -227,8 +227,8 @@ test_that("remove_member", {
   # tests for remove_member
   # base path: https://api.openlattice.com
   # Remove member from an organization
-  # @param character  organization_id   
-  # @param character  user_id   
+  # @param organization_id character 
+  # @param user_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -239,9 +239,9 @@ test_that("remove_role_from_user", {
   # tests for remove_role_from_user
   # base path: https://api.openlattice.com
   # Remove a role from a user
-  # @param character  organization_id   
-  # @param character  role_id   
-  # @param character  user_id   
+  # @param organization_id character 
+  # @param role_id character 
+  # @param user_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -252,8 +252,8 @@ test_that("set_auto_approved_email_domain", {
   # tests for set_auto_approved_email_domain
   # base path: https://api.openlattice.com
   # Set auto-approved email domains
-  # @param character  organization_id   
-  # @param array[character]  request_body   
+  # @param organization_id character 
+  # @param request_body array[character] 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -264,8 +264,8 @@ test_that("synchronize_edm_changes", {
   # tests for synchronize_edm_changes
   # base path: https://api.openlattice.com
   # Synchronizes EDM changes to the requested materialized entity set in the organization.
-  # @param character  organization_id   
-  # @param character  entity_set_id   
+  # @param organization_id character 
+  # @param entity_set_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -276,8 +276,8 @@ test_that("update_description", {
   # tests for update_description
   # base path: https://api.openlattice.com
   # Update the organization description
-  # @param character  organization_id   
-  # @param character  body   
+  # @param organization_id character 
+  # @param body character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -288,9 +288,9 @@ test_that("update_role_description", {
   # tests for update_role_description
   # base path: https://api.openlattice.com
   # Update role description for an organization from a roleId
-  # @param character  organization_id   
-  # @param character  role_id   
-  # @param character  body   
+  # @param organization_id character 
+  # @param role_id character 
+  # @param body character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -301,9 +301,9 @@ test_that("update_role_title", {
   # tests for update_role_title
   # base path: https://api.openlattice.com
   # Update role title for an organization from a roleId
-  # @param character  organization_id   
-  # @param character  role_id   
-  # @param character  body   
+  # @param organization_id character 
+  # @param role_id character 
+  # @param body character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -314,8 +314,8 @@ test_that("update_title", {
   # tests for update_title
   # base path: https://api.openlattice.com
   # Update the organization title
-  # @param character  organization_id   
-  # @param character  body   
+  # @param organization_id character 
+  # @param body character 
   # @return [Void]
 
   # uncomment below to test the operation

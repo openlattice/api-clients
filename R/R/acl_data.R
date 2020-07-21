@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title AclData
+#'
 #' @description AclData Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field action  character [optional]
 #'
 #' @field acl  \link{Acl} [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ AclData <- R6::R6Class(
   public = list(
     `action` = NULL,
     `acl` = NULL,
-    initialize = function(`action`=NULL, `acl`=NULL, ...){
+    initialize = function(
+        `action`=NULL, `acl`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`action`)) {
         stopifnot(is.character(`action`), length(`action`) == 1)
@@ -54,9 +58,10 @@ AclData <- R6::R6Class(
       }
       if (!is.null(AclDataObject$`acl`)) {
         aclObject <- Acl$new()
-        aclObject$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = TRUE, digits = NA))
+        aclObject$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = FALSE, digits = NA))
         self$`acl` <- aclObject
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -72,7 +77,7 @@ AclData <- R6::R6Class(
         '"acl":
         %s
         ',
-        jsonlite::toJSON(self$`acl`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`acl`$toJSON(), auto_unbox=FALSE, digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -81,8 +86,9 @@ AclData <- R6::R6Class(
     fromJSONString = function(AclDataJson) {
       AclDataObject <- jsonlite::fromJSON(AclDataJson)
       self$`action` <- AclDataObject$`action`
-      self$`acl` <- Acl$new()$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = TRUE, digits = NA))
+      self$`acl` <- Acl$new()$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = FALSE, digits = NA))
       self
     }
   )
 )
+

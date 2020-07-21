@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title PropertyDefinition
+#'
 #' @description PropertyDefinition Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field type  \link{FullQualifiedName} [optional]
 #'
 #' @field column  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ PropertyDefinition <- R6::R6Class(
   public = list(
     `type` = NULL,
     `column` = NULL,
-    initialize = function(`type`=NULL, `column`=NULL, ...){
+    initialize = function(
+        `type`=NULL, `column`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`type`)) {
         stopifnot(R6::is.R6(`type`))
@@ -51,12 +55,13 @@ PropertyDefinition <- R6::R6Class(
       PropertyDefinitionObject <- jsonlite::fromJSON(PropertyDefinitionJson)
       if (!is.null(PropertyDefinitionObject$`type`)) {
         typeObject <- FullQualifiedName$new()
-        typeObject$fromJSON(jsonlite::toJSON(PropertyDefinitionObject$type, auto_unbox = TRUE, digits = NA))
+        typeObject$fromJSON(jsonlite::toJSON(PropertyDefinitionObject$type, auto_unbox = FALSE, digits = NA))
         self$`type` <- typeObject
       }
       if (!is.null(PropertyDefinitionObject$`column`)) {
         self$`column` <- PropertyDefinitionObject$`column`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -65,7 +70,7 @@ PropertyDefinition <- R6::R6Class(
         '"type":
         %s
         ',
-        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=FALSE, digits = NA)
         )},
         if (!is.null(self$`column`)) {
         sprintf(
@@ -80,9 +85,10 @@ PropertyDefinition <- R6::R6Class(
     },
     fromJSONString = function(PropertyDefinitionJson) {
       PropertyDefinitionObject <- jsonlite::fromJSON(PropertyDefinitionJson)
-      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(PropertyDefinitionObject$type, auto_unbox = TRUE, digits = NA))
+      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(PropertyDefinitionObject$type, auto_unbox = FALSE, digits = NA))
       self$`column` <- PropertyDefinitionObject$`column`
       self
     }
   )
 )
+

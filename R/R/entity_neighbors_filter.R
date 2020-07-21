@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title EntityNeighborsFilter
+#'
 #' @description EntityNeighborsFilter Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entityKeyIds  list( character ) [optional]
 #'
 #' @field src  list( character ) [optional]
@@ -17,7 +20,6 @@
 #' @field dst  list( character ) [optional]
 #'
 #' @field edge  list( character ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -29,7 +31,9 @@ EntityNeighborsFilter <- R6::R6Class(
     `src` = NULL,
     `dst` = NULL,
     `edge` = NULL,
-    initialize = function(`entityKeyIds`=NULL, `src`=NULL, `dst`=NULL, `edge`=NULL, ...){
+    initialize = function(
+        `entityKeyIds`=NULL, `src`=NULL, `dst`=NULL, `edge`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityKeyIds`)) {
         stopifnot(is.vector(`entityKeyIds`))
@@ -87,6 +91,7 @@ EntityNeighborsFilter <- R6::R6Class(
       if (!is.null(EntityNeighborsFilterObject$`edge`)) {
         self$`edge` <- ApiClient$new()$deserializeObj(EntityNeighborsFilterObject$`edge`, "array[character]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -132,3 +137,4 @@ EntityNeighborsFilter <- R6::R6Class(
     }
   )
 )
+

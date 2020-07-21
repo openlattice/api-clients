@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title SearchResult
+#'
 #' @description SearchResult Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field numHits  integer [optional]
 #'
 #' @field hits  list( \link{SearchResultHits} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ SearchResult <- R6::R6Class(
   public = list(
     `numHits` = NULL,
     `hits` = NULL,
-    initialize = function(`numHits`=NULL, `hits`=NULL, ...){
+    initialize = function(
+        `numHits`=NULL, `hits`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`numHits`)) {
         stopifnot(is.numeric(`numHits`), length(`numHits`) == 1)
@@ -56,6 +60,7 @@ SearchResult <- R6::R6Class(
       if (!is.null(SearchResultObject$`hits`)) {
         self$`hits` <- ApiClient$new()$deserializeObj(SearchResultObject$`hits`, "array[SearchResultHits]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -71,7 +76,7 @@ SearchResult <- R6::R6Class(
         '"hits":
         [%s]
 ',
-        paste(sapply(self$`hits`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`hits`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -85,3 +90,4 @@ SearchResult <- R6::R6Class(
     }
   )
 )
+

@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(array[character])**](array.md)
+**list(array[character])**
 
 ### Authorization
 
@@ -144,7 +144,7 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **set_id** | [**character**](.md)|  | 
- **request_body** | list( [**list(array[character])**](list.md) )|  | 
+ **request_body** | list( **list(array[character])** )|  | 
 
 ### Return type
 
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(array[character])**](array.md)
+**list(array[character])**
 
 ### Authorization
 

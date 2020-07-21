@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title EntityLinkingFeedback
+#'
 #' @description EntityLinkingFeedback Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entityKeyPair  \link{EntityKeyPair} [optional]
 #'
 #' @field linked  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ EntityLinkingFeedback <- R6::R6Class(
   public = list(
     `entityKeyPair` = NULL,
     `linked` = NULL,
-    initialize = function(`entityKeyPair`=NULL, `linked`=NULL, ...){
+    initialize = function(
+        `entityKeyPair`=NULL, `linked`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityKeyPair`)) {
         stopifnot(R6::is.R6(`entityKeyPair`))
@@ -50,12 +54,13 @@ EntityLinkingFeedback <- R6::R6Class(
       EntityLinkingFeedbackObject <- jsonlite::fromJSON(EntityLinkingFeedbackJson)
       if (!is.null(EntityLinkingFeedbackObject$`entityKeyPair`)) {
         entityKeyPairObject <- EntityKeyPair$new()
-        entityKeyPairObject$fromJSON(jsonlite::toJSON(EntityLinkingFeedbackObject$entityKeyPair, auto_unbox = TRUE, digits = NA))
+        entityKeyPairObject$fromJSON(jsonlite::toJSON(EntityLinkingFeedbackObject$entityKeyPair, auto_unbox = FALSE, digits = NA))
         self$`entityKeyPair` <- entityKeyPairObject
       }
       if (!is.null(EntityLinkingFeedbackObject$`linked`)) {
         self$`linked` <- EntityLinkingFeedbackObject$`linked`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -64,7 +69,7 @@ EntityLinkingFeedback <- R6::R6Class(
         '"entityKeyPair":
         %s
         ',
-        jsonlite::toJSON(self$`entityKeyPair`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`entityKeyPair`$toJSON(), auto_unbox=FALSE, digits = NA)
         )},
         if (!is.null(self$`linked`)) {
         sprintf(
@@ -79,9 +84,10 @@ EntityLinkingFeedback <- R6::R6Class(
     },
     fromJSONString = function(EntityLinkingFeedbackJson) {
       EntityLinkingFeedbackObject <- jsonlite::fromJSON(EntityLinkingFeedbackJson)
-      self$`entityKeyPair` <- EntityKeyPair$new()$fromJSON(jsonlite::toJSON(EntityLinkingFeedbackObject$entityKeyPair, auto_unbox = TRUE, digits = NA))
+      self$`entityKeyPair` <- EntityKeyPair$new()$fromJSON(jsonlite::toJSON(EntityLinkingFeedbackObject$entityKeyPair, auto_unbox = FALSE, digits = NA))
       self$`linked` <- EntityLinkingFeedbackObject$`linked`
       self
     }
   )
 )
+
