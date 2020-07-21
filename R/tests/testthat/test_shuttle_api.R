@@ -9,8 +9,8 @@ test_that("create_integration_definition", {
   # tests for create_integration_definition
   # base path: https://api.openlattice.com
   # Creates a new integration definition for running recurring integrations
-  # @param character  integration_name   
-  # @param Integration  integration   
+  # @param integration_name character 
+  # @param integration Integration 
   # @return [character]
 
   # uncomment below to test the operation
@@ -21,7 +21,7 @@ test_that("delete_integration_definition", {
   # tests for delete_integration_definition
   # base path: https://api.openlattice.com
   # Replaces any number of fields within an existing integration definition
-  # @param character  integration_name   
+  # @param integration_name character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -32,7 +32,7 @@ test_that("delete_integration_job_status", {
   # tests for delete_integration_job_status
   # base path: https://api.openlattice.com
   # Deletes an integration job status from the integrationJobs map
-  # @param character  job_id  the unique id of the integration job 
+  # @param job_id character the unique id of the integration job
   # @return [Void]
 
   # uncomment below to test the operation
@@ -43,8 +43,8 @@ test_that("enqueue_integration", {
   # tests for enqueue_integration
   # base path: https://api.openlattice.com
   # Enqueues an integration on Shuttle Server for a given integration
-  # @param character  integration_name  the name of the integration to be run 
-  # @param character  integration_key  the unique id used to authenticate an integration run 
+  # @param integration_name character the name of the integration to be run
+  # @param integration_key character the unique id used to authenticate an integration run
   # @return [character]
 
   # uncomment below to test the operation
@@ -65,7 +65,7 @@ test_that("poll_integration", {
   # tests for poll_integration
   # base path: https://api.openlattice.com
   # Polls the status of an integration
-  # @param character  job_id  the unique id of the integration job 
+  # @param job_id character the unique id of the integration job
   # @return [character]
 
   # uncomment below to test the operation
@@ -76,7 +76,7 @@ test_that("read_integration_definition", {
   # tests for read_integration_definition
   # base path: https://api.openlattice.com
   # Gets an existing integration definition
-  # @param character  integration_name   
+  # @param integration_name character 
   # @return [Integration]
 
   # uncomment below to test the operation
@@ -87,8 +87,8 @@ test_that("update_integration_definition", {
   # tests for update_integration_definition
   # base path: https://api.openlattice.com
   # Replaces any number of fields within an existing integration definition
-  # @param character  integration_name   
-  # @param IntegrationUpdate  integration_update   
+  # @param integration_name character 
+  # @param integration_update IntegrationUpdate 
   # @return [Void]
 
   # uncomment below to test the operation

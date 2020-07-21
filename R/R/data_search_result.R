@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title DataSearchResult
+#'
 #' @description DataSearchResult Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field numHits  integer [optional]
 #'
 #' @field hits  list( list(array[character]) ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ DataSearchResult <- R6::R6Class(
   public = list(
     `numHits` = NULL,
     `hits` = NULL,
-    initialize = function(`numHits`=NULL, `hits`=NULL, ...){
+    initialize = function(
+        `numHits`=NULL, `hits`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`numHits`)) {
         stopifnot(is.numeric(`numHits`), length(`numHits`) == 1)
@@ -56,6 +60,7 @@ DataSearchResult <- R6::R6Class(
       if (!is.null(DataSearchResultObject$`hits`)) {
         self$`hits` <- ApiClient$new()$deserializeObj(DataSearchResultObject$`hits`, "array[list(array[character])]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -85,3 +90,4 @@ DataSearchResult <- R6::R6Class(
     }
   )
 )
+

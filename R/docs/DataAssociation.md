@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **dstEntitySetId** | **character** | the ID of the dst entity set | [optional] 
 **dstEntityIndex** | **character** | The index of an entity | [optional] 
 **dstEntityKeyId** | **character** | An existing entityKeyId | [optional] 
-**data** | [**list(array[character])**](array.md) | data | [optional] 
+**data** | **list(array[character])** | data | [optional] 
 
 

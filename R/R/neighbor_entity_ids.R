@@ -8,14 +8,16 @@
 
 #' @docType class
 #' @title NeighborEntityIds
+#'
 #' @description NeighborEntityIds Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field associationId  character [optional]
 #'
 #' @field neighborId  character [optional]
 #'
 #' @field src  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -26,7 +28,9 @@ NeighborEntityIds <- R6::R6Class(
     `associationId` = NULL,
     `neighborId` = NULL,
     `src` = NULL,
-    initialize = function(`associationId`=NULL, `neighborId`=NULL, `src`=NULL, ...){
+    initialize = function(
+        `associationId`=NULL, `neighborId`=NULL, `src`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`associationId`)) {
         stopifnot(is.character(`associationId`), length(`associationId`) == 1)
@@ -68,6 +72,7 @@ NeighborEntityIds <- R6::R6Class(
       if (!is.null(NeighborEntityIdsObject$`src`)) {
         self$`src` <- NeighborEntityIdsObject$`src`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -105,3 +110,4 @@ NeighborEntityIds <- R6::R6Class(
     }
   )
 )
+

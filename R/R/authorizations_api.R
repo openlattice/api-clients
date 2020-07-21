@@ -141,7 +141,7 @@ AuthorizationsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`access_check`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`access_check`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL

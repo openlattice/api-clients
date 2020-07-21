@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title FlightPlanParametersUpdate
+#'
 #' @description FlightPlanParametersUpdate Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field sql  character [optional]
 #'
 #' @field src  named list( character ) [optional]
@@ -17,7 +20,6 @@
 #' @field srcPrimaryKeyColumns  list( character ) [optional]
 #'
 #' @field path  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -29,7 +31,9 @@ FlightPlanParametersUpdate <- R6::R6Class(
     `src` = NULL,
     `srcPrimaryKeyColumns` = NULL,
     `path` = NULL,
-    initialize = function(`sql`=NULL, `src`=NULL, `srcPrimaryKeyColumns`=NULL, `path`=NULL, ...){
+    initialize = function(
+        `sql`=NULL, `src`=NULL, `srcPrimaryKeyColumns`=NULL, `path`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`sql`)) {
         stopifnot(is.character(`sql`), length(`sql`) == 1)
@@ -85,6 +89,7 @@ FlightPlanParametersUpdate <- R6::R6Class(
       if (!is.null(FlightPlanParametersUpdateObject$`path`)) {
         self$`path` <- FlightPlanParametersUpdateObject$`path`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -100,7 +105,7 @@ FlightPlanParametersUpdate <- R6::R6Class(
         '"src":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`src`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        jsonlite::toJSON(lapply(self$`src`, function(x){ x }), auto_unbox = FALSE, digits=NA)
         )},
         if (!is.null(self$`srcPrimaryKeyColumns`)) {
         sprintf(
@@ -130,3 +135,4 @@ FlightPlanParametersUpdate <- R6::R6Class(
     }
   )
 )
+

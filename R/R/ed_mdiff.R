@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title EDMdiff
+#'
 #' @description EDMdiff Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field conflicts  \link{EDM} [optional]
 #'
 #' @field diff  \link{EDM} [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ EDMdiff <- R6::R6Class(
   public = list(
     `conflicts` = NULL,
     `diff` = NULL,
-    initialize = function(`conflicts`=NULL, `diff`=NULL, ...){
+    initialize = function(
+        `conflicts`=NULL, `diff`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`conflicts`)) {
         stopifnot(R6::is.R6(`conflicts`))
@@ -51,14 +55,15 @@ EDMdiff <- R6::R6Class(
       EDMdiffObject <- jsonlite::fromJSON(EDMdiffJson)
       if (!is.null(EDMdiffObject$`conflicts`)) {
         conflictsObject <- EDM$new()
-        conflictsObject$fromJSON(jsonlite::toJSON(EDMdiffObject$conflicts, auto_unbox = TRUE, digits = NA))
+        conflictsObject$fromJSON(jsonlite::toJSON(EDMdiffObject$conflicts, auto_unbox = FALSE, digits = NA))
         self$`conflicts` <- conflictsObject
       }
       if (!is.null(EDMdiffObject$`diff`)) {
         diffObject <- EDM$new()
-        diffObject$fromJSON(jsonlite::toJSON(EDMdiffObject$diff, auto_unbox = TRUE, digits = NA))
+        diffObject$fromJSON(jsonlite::toJSON(EDMdiffObject$diff, auto_unbox = FALSE, digits = NA))
         self$`diff` <- diffObject
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -67,14 +72,14 @@ EDMdiff <- R6::R6Class(
         '"conflicts":
         %s
         ',
-        jsonlite::toJSON(self$`conflicts`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`conflicts`$toJSON(), auto_unbox=FALSE, digits = NA)
         )},
         if (!is.null(self$`diff`)) {
         sprintf(
         '"diff":
         %s
         ',
-        jsonlite::toJSON(self$`diff`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`diff`$toJSON(), auto_unbox=FALSE, digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -82,9 +87,10 @@ EDMdiff <- R6::R6Class(
     },
     fromJSONString = function(EDMdiffJson) {
       EDMdiffObject <- jsonlite::fromJSON(EDMdiffJson)
-      self$`conflicts` <- EDM$new()$fromJSON(jsonlite::toJSON(EDMdiffObject$conflicts, auto_unbox = TRUE, digits = NA))
-      self$`diff` <- EDM$new()$fromJSON(jsonlite::toJSON(EDMdiffObject$diff, auto_unbox = TRUE, digits = NA))
+      self$`conflicts` <- EDM$new()$fromJSON(jsonlite::toJSON(EDMdiffObject$conflicts, auto_unbox = FALSE, digits = NA))
+      self$`diff` <- EDM$new()$fromJSON(jsonlite::toJSON(EDMdiffObject$diff, auto_unbox = FALSE, digits = NA))
       self
     }
   )
 )
+

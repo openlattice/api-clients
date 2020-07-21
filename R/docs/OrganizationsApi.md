@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(array[character])**](array.md)
+**list(array[character])**
 
 ### Authorization
 
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(array[character])**](array.md)
+**list(array[character])**
 
 ### Authorization
 

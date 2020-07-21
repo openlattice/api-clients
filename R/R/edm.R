@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title EDM
+#'
 #' @description EDM Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field namespaces  list( character ) [optional]
 #'
 #' @field schemas  list( \link{Schema} ) [optional]
@@ -19,7 +22,6 @@
 #' @field entityTypes  list( \link{EntityType} ) [optional]
 #'
 #' @field associationTypes  list( \link{AssociationType} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -32,7 +34,9 @@ EDM <- R6::R6Class(
     `propertyTypes` = NULL,
     `entityTypes` = NULL,
     `associationTypes` = NULL,
-    initialize = function(`namespaces`=NULL, `schemas`=NULL, `propertyTypes`=NULL, `entityTypes`=NULL, `associationTypes`=NULL, ...){
+    initialize = function(
+        `namespaces`=NULL, `schemas`=NULL, `propertyTypes`=NULL, `entityTypes`=NULL, `associationTypes`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`namespaces`)) {
         stopifnot(is.vector(`namespaces`))
@@ -102,6 +106,7 @@ EDM <- R6::R6Class(
       if (!is.null(EDMObject$`associationTypes`)) {
         self$`associationTypes` <- ApiClient$new()$deserializeObj(EDMObject$`associationTypes`, "array[AssociationType]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -117,28 +122,28 @@ EDM <- R6::R6Class(
         '"schemas":
         [%s]
 ',
-        paste(sapply(self$`schemas`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`schemas`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
         )},
         if (!is.null(self$`propertyTypes`)) {
         sprintf(
         '"propertyTypes":
         [%s]
 ',
-        paste(sapply(self$`propertyTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`propertyTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
         )},
         if (!is.null(self$`entityTypes`)) {
         sprintf(
         '"entityTypes":
         [%s]
 ',
-        paste(sapply(self$`entityTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`entityTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
         )},
         if (!is.null(self$`associationTypes`)) {
         sprintf(
         '"associationTypes":
         [%s]
 ',
-        paste(sapply(self$`associationTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`associationTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -155,3 +160,4 @@ EDM <- R6::R6Class(
     }
   )
 )
+

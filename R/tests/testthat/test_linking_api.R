@@ -9,7 +9,7 @@ test_that("add_linking_feedback", {
   # tests for add_linking_feedback
   # base path: https://api.openlattice.com
   # Submits feedbacks for a given linking entity set and linking id in a batch format.
-  # @param LinkingFeedback  linking_feedback   
+  # @param linking_feedback LinkingFeedback 
   # @return [integer]
 
   # uncomment below to test the operation
@@ -20,7 +20,7 @@ test_that("delete_linking_feedback", {
   # tests for delete_linking_feedback
   # base path: https://api.openlattice.com
   # Deletes linking feedback
-  # @param EntityKeyPair  entity_key_pair   
+  # @param entity_key_pair EntityKeyPair 
   # @return [integer]
 
   # uncomment below to test the operation
@@ -51,7 +51,7 @@ test_that("get_linking_feedback_with_features", {
   # tests for get_linking_feedback_with_features
   # base path: https://api.openlattice.com
   # Returns the feedback on the given entity pair along with their features
-  # @param EntityKeyPair  entity_key_pair   
+  # @param entity_key_pair EntityKeyPair 
   # @return [EntityLinkingFeatures]
 
   # uncomment below to test the operation
@@ -62,8 +62,8 @@ test_that("get_linking_feedbacks_on_entity", {
   # tests for get_linking_feedbacks_on_entity
   # base path: https://api.openlattice.com
   # Returns positive/negative/all linking feedbacks on the given entity.
-  # @param character  feedback_type   
-  # @param EntityDataKey  entity_data_key   
+  # @param feedback_type character 
+  # @param entity_data_key EntityDataKey 
   # @return [array[EntityLinkingFeedback]]
 
   # uncomment below to test the operation

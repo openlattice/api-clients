@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title Ace
+#'
 #' @description Ace Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field principal  \link{Principal} [optional]
 #'
 #' @field permissions  list( character ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ Ace <- R6::R6Class(
   public = list(
     `principal` = NULL,
     `permissions` = NULL,
-    initialize = function(`principal`=NULL, `permissions`=NULL, ...){
+    initialize = function(
+        `principal`=NULL, `permissions`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`principal`)) {
         stopifnot(R6::is.R6(`principal`))
@@ -52,12 +56,13 @@ Ace <- R6::R6Class(
       AceObject <- jsonlite::fromJSON(AceJson)
       if (!is.null(AceObject$`principal`)) {
         principalObject <- Principal$new()
-        principalObject$fromJSON(jsonlite::toJSON(AceObject$principal, auto_unbox = TRUE, digits = NA))
+        principalObject$fromJSON(jsonlite::toJSON(AceObject$principal, auto_unbox = FALSE, digits = NA))
         self$`principal` <- principalObject
       }
       if (!is.null(AceObject$`permissions`)) {
         self$`permissions` <- ApiClient$new()$deserializeObj(AceObject$`permissions`, "array[character]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -66,7 +71,7 @@ Ace <- R6::R6Class(
         '"principal":
         %s
         ',
-        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=FALSE, digits = NA)
         )},
         if (!is.null(self$`permissions`)) {
         sprintf(
@@ -81,9 +86,10 @@ Ace <- R6::R6Class(
     },
     fromJSONString = function(AceJson) {
       AceObject <- jsonlite::fromJSON(AceJson)
-      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(AceObject$principal, auto_unbox = TRUE, digits = NA))
+      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(AceObject$principal, auto_unbox = FALSE, digits = NA))
       self$`permissions` <- ApiClient$new()$deserializeObj(AceObject$`permissions`, "array[character]", loadNamespace("openlattice"))
       self
     }
   )
 )
+

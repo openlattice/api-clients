@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title SearchTerm
+#'
 #' @description SearchTerm Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field searchTerm  character [optional]
 #'
 #' @field start  integer [optional]
@@ -17,7 +20,6 @@
 #' @field maxHits  integer [optional]
 #'
 #' @field fuzzy  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -29,7 +31,9 @@ SearchTerm <- R6::R6Class(
     `start` = NULL,
     `maxHits` = NULL,
     `fuzzy` = NULL,
-    initialize = function(`searchTerm`=NULL, `start`=NULL, `maxHits`=NULL, `fuzzy`=NULL, ...){
+    initialize = function(
+        `searchTerm`=NULL, `start`=NULL, `maxHits`=NULL, `fuzzy`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`searchTerm`)) {
         stopifnot(is.character(`searchTerm`), length(`searchTerm`) == 1)
@@ -82,6 +86,7 @@ SearchTerm <- R6::R6Class(
       if (!is.null(SearchTermObject$`fuzzy`)) {
         self$`fuzzy` <- SearchTermObject$`fuzzy`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -127,3 +132,4 @@ SearchTerm <- R6::R6Class(
     }
   )
 )
+

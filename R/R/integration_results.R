@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title IntegrationResults
+#'
 #' @description IntegrationResults Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entityCount  integer [optional]
 #'
 #' @field associationCount  integer [optional]
@@ -17,7 +20,6 @@
 #' @field associationsEntityKeyMappings  named list( list(character) ) [optional]
 #'
 #' @field entitySetsEntityKeyMappings  named list( list(character) ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -29,7 +31,9 @@ IntegrationResults <- R6::R6Class(
     `associationCount` = NULL,
     `associationsEntityKeyMappings` = NULL,
     `entitySetsEntityKeyMappings` = NULL,
-    initialize = function(`entityCount`=NULL, `associationCount`=NULL, `associationsEntityKeyMappings`=NULL, `entitySetsEntityKeyMappings`=NULL, ...){
+    initialize = function(
+        `entityCount`=NULL, `associationCount`=NULL, `associationsEntityKeyMappings`=NULL, `entitySetsEntityKeyMappings`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityCount`)) {
         stopifnot(is.numeric(`entityCount`), length(`entityCount`) == 1)
@@ -85,6 +89,7 @@ IntegrationResults <- R6::R6Class(
       if (!is.null(IntegrationResultsObject$`entitySetsEntityKeyMappings`)) {
         self$`entitySetsEntityKeyMappings` <- ApiClient$new()$deserializeObj(IntegrationResultsObject$`entitySetsEntityKeyMappings`, "list(list(character))", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -107,14 +112,14 @@ IntegrationResults <- R6::R6Class(
         '"associationsEntityKeyMappings":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`associationsEntityKeyMappings`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        jsonlite::toJSON(lapply(self$`associationsEntityKeyMappings`, function(x){ x }), auto_unbox = FALSE, digits=NA)
         )},
         if (!is.null(self$`entitySetsEntityKeyMappings`)) {
         sprintf(
         '"entitySetsEntityKeyMappings":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`entitySetsEntityKeyMappings`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        jsonlite::toJSON(lapply(self$`entitySetsEntityKeyMappings`, function(x){ x }), auto_unbox = FALSE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -130,3 +135,4 @@ IntegrationResults <- R6::R6Class(
     }
   )
 )
+

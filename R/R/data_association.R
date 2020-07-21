@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title DataAssociation
+#'
 #' @description DataAssociation Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field srcEntitySetId  character [optional]
 #'
 #' @field srcEntityIndex  character [optional]
@@ -22,8 +25,7 @@
 #'
 #' @field dstEntityKeyId  character [optional]
 #'
-#' @field data  named list( \link{array[character]} ) [optional]
-#'
+#' @field data  named list( array[character] ) [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -38,7 +40,9 @@ DataAssociation <- R6::R6Class(
     `dstEntityIndex` = NULL,
     `dstEntityKeyId` = NULL,
     `data` = NULL,
-    initialize = function(`srcEntitySetId`=NULL, `srcEntityIndex`=NULL, `srcEntityKeyId`=NULL, `dstEntitySetId`=NULL, `dstEntityIndex`=NULL, `dstEntityKeyId`=NULL, `data`=NULL, ...){
+    initialize = function(
+        `srcEntitySetId`=NULL, `srcEntityIndex`=NULL, `srcEntityKeyId`=NULL, `dstEntitySetId`=NULL, `dstEntityIndex`=NULL, `dstEntityKeyId`=NULL, `data`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`srcEntitySetId`)) {
         stopifnot(is.character(`srcEntitySetId`), length(`srcEntitySetId`) == 1)
@@ -66,7 +70,7 @@ DataAssociation <- R6::R6Class(
       }
       if (!is.null(`data`)) {
         stopifnot(is.vector(`data`))
-        sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+        sapply(`data`, function(x) stopifnot(is.character(x)))
         self$`data` <- `data`
       }
     },
@@ -98,7 +102,7 @@ DataAssociation <- R6::R6Class(
       }
       if (!is.null(self$`data`)) {
         DataAssociationObject[['data']] <-
-          lapply(self$`data`, function(x) x$toJSON())
+          self$`data`
       }
 
       DataAssociationObject
@@ -126,6 +130,7 @@ DataAssociation <- R6::R6Class(
       if (!is.null(DataAssociationObject$`data`)) {
         self$`data` <- ApiClient$new()$deserializeObj(DataAssociationObject$`data`, "list(array[character])", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -174,9 +179,9 @@ DataAssociation <- R6::R6Class(
         if (!is.null(self$`data`)) {
         sprintf(
         '"data":
-        %s
-',
-        jsonlite::toJSON(lapply(self$`data`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+          %s
+        ',
+        jsonlite::toJSON(lapply(self$`data`, function(x){ x }), auto_unbox = FALSE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -195,3 +200,4 @@ DataAssociation <- R6::R6Class(
     }
   )
 )
+
