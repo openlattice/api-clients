@@ -390,7 +390,7 @@ func (a *PrincipalApiService) SearchAllUsers(ctx _context.Context, searchQuery s
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/datastore/principals/users/search/"{searchQuery}""
+	localVarPath := a.client.cfg.BasePath + "/datastore/principals/users/search/{searchQuery}"
 	localVarPath = strings.Replace(localVarPath, "{"+"searchQuery"+"}", _neturl.PathEscape(parameterToString(searchQuery, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)

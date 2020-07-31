@@ -3310,7 +3310,7 @@ paths:
       summary: Get the user id for the given email address.
       tags:
       - principal
-  /datastore/principals/users/search/"{searchQuery}":
+  /datastore/principals/users/search/{searchQuery}:
     get:
       operationId: searchAllUsers
       parameters:
