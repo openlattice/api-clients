@@ -508,7 +508,7 @@ PrincipalApi <- R6::R6Class(
         stop("Missing required parameter `search_query`.")
       }
 
-      urlPath <- "/datastore/principals/users/search/&quot;{searchQuery}&quot;"
+      urlPath <- "/datastore/principals/users/search/{searchQuery}"
       if (!missing(`search_query`)) {
         urlPath <- gsub(paste0("\\{", "searchQuery", "\\}"), URLencode(as.character(`search_query`), reserved = TRUE), urlPath)
       }

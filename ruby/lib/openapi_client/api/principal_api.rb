@@ -263,7 +263,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'search_query' when calling PrincipalApi.search_all_users"
       end
       # resource path
-      local_var_path = '/datastore/principals/users/search/"{searchQuery}"'.sub('{' + 'searchQuery' + '}', CGI.escape(search_query.to_s))
+      local_var_path = '/datastore/principals/users/search/{searchQuery}'.sub('{' + 'searchQuery' + '}', CGI.escape(search_query.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

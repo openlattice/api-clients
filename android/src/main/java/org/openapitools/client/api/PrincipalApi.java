@@ -547,7 +547,7 @@ public class PrincipalApi {
     }
 
     // create path and map variables
-    String path = "/datastore/principals/users/search/"{searchQuery}"".replaceAll("\\{" + "searchQuery" + "\\}", apiInvoker.escapeString(searchQuery.toString()));
+    String path = "/datastore/principals/users/search/{searchQuery}".replaceAll("\\{" + "searchQuery" + "\\}", apiInvoker.escapeString(searchQuery.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -609,7 +609,7 @@ public class PrincipalApi {
     }
 
     // create path and map variables
-    String path = "/datastore/principals/users/search/"{searchQuery}"".replaceAll("\\{format\\}","json").replaceAll("\\{" + "searchQuery" + "\\}", apiInvoker.escapeString(searchQuery.toString()));
+    String path = "/datastore/principals/users/search/{searchQuery}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "searchQuery" + "\\}", apiInvoker.escapeString(searchQuery.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
