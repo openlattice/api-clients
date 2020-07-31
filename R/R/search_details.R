@@ -8,14 +8,16 @@
 
 #' @docType class
 #' @title SearchDetails
+#'
 #' @description SearchDetails Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field searchTerm  character [optional]
 #'
 #' @field property  character [optional]
 #'
 #' @field exact  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -26,7 +28,9 @@ SearchDetails <- R6::R6Class(
     `searchTerm` = NULL,
     `property` = NULL,
     `exact` = NULL,
-    initialize = function(`searchTerm`=NULL, `property`=NULL, `exact`=NULL, ...){
+    initialize = function(
+        `searchTerm`=NULL, `property`=NULL, `exact`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`searchTerm`)) {
         stopifnot(is.character(`searchTerm`), length(`searchTerm`) == 1)
@@ -68,6 +72,7 @@ SearchDetails <- R6::R6Class(
       if (!is.null(SearchDetailsObject$`exact`)) {
         self$`exact` <- SearchDetailsObject$`exact`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -105,3 +110,4 @@ SearchDetails <- R6::R6Class(
     }
   )
 )
+

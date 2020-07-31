@@ -237,7 +237,7 @@ Class | Method | HTTP request | Description
 *OpenapiClient::PrincipalApi* | [**get_current_roles**](docs/PrincipalApi.md#get_current_roles) | **GET** /datastore/principals/roles/current/ | Get current roles.
 *OpenapiClient::PrincipalApi* | [**get_materialized_view_account**](docs/PrincipalApi.md#get_materialized_view_account) | **GET** /datastore/principals/db | Get the db access credentials.
 *OpenapiClient::PrincipalApi* | [**get_user**](docs/PrincipalApi.md#get_user) | **GET** /datastore/principals/users/{userId} | Get the user for the given id.
-*OpenapiClient::PrincipalApi* | [**search_all_users**](docs/PrincipalApi.md#search_all_users) | **GET** /datastore/principals/users/search/&quot;{searchQuery}&quot; | Get the user id for the given search.
+*OpenapiClient::PrincipalApi* | [**search_all_users**](docs/PrincipalApi.md#search_all_users) | **GET** /datastore/principals/users/search/{searchQuery} | Get the user id for the given search.
 *OpenapiClient::PrincipalApi* | [**search_all_users_by_email**](docs/PrincipalApi.md#search_all_users_by_email) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 *OpenapiClient::PrincipalApi* | [**sync_calling_user**](docs/PrincipalApi.md#sync_calling_user) | **GET** /datastore/principals/sync/ | Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
 *OpenapiClient::SearchApi* | [**execute_advanced_entity_set_data_query**](docs/SearchApi.md#execute_advanced_entity_set_data_query) | **POST** /datastore/search/advanced/{entitySetId} | Executes a search over the data of a given entity set to find rows that match the search term

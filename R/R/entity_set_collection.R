@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title EntitySetCollection
+#'
 #' @description EntitySetCollection Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field id  character [optional]
 #'
 #' @field name  character [optional]
@@ -26,7 +29,6 @@
 #'
 #' @field organizationId  character [optional]
 #'
-#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -41,7 +43,9 @@ EntitySetCollection <- R6::R6Class(
     `template` = NULL,
     `contacts` = NULL,
     `organizationId` = NULL,
-    initialize = function(`id`=NULL, `name`=NULL, `title`=NULL, `description`=NULL, `entityTypeCollectionId`=NULL, `template`=NULL, `contacts`=NULL, `organizationId`=NULL, ...){
+    initialize = function(
+        `id`=NULL, `name`=NULL, `title`=NULL, `description`=NULL, `entityTypeCollectionId`=NULL, `template`=NULL, `contacts`=NULL, `organizationId`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -141,6 +145,7 @@ EntitySetCollection <- R6::R6Class(
       if (!is.null(EntitySetCollectionObject$`organizationId`)) {
         self$`organizationId` <- EntitySetCollectionObject$`organizationId`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -184,7 +189,7 @@ EntitySetCollection <- R6::R6Class(
         '"template":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`template`, function(x){ x }), auto_unbox = TRUE, digits=NA)
+        jsonlite::toJSON(lapply(self$`template`, function(x){ x }), auto_unbox = FALSE, digits=NA)
         )},
         if (!is.null(self$`contacts`)) {
         sprintf(
@@ -218,3 +223,4 @@ EntitySetCollection <- R6::R6Class(
     }
   )
 )
+

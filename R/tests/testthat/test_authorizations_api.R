@@ -9,7 +9,7 @@ test_that("check_authorizations", {
   # tests for check_authorizations
   # base path: https://api.openlattice.com
   # Check authorizations
-  # @param AccessCheck  access_check   
+  # @param access_check AccessCheck 
   # @return [array[Authorization]]
 
   # uncomment below to test the operation
@@ -20,9 +20,9 @@ test_that("get_accessible_objects", {
   # tests for get_accessible_objects
   # base path: https://api.openlattice.com
   # Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
-  # @param character  object_type    (optional)
-  # @param character  permission    (optional)
-  # @param character  paging_token    (optional)
+  # @param object_type character  (optional)
+  # @param permission character  (optional)
+  # @param paging_token character  (optional)
   # @return [AuthorizedObjectsSearchResult]
 
   # uncomment below to test the operation

@@ -717,7 +717,7 @@ DatasetApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
         )
       } else {
         body <- NULL
@@ -1166,7 +1166,7 @@ DatasetApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -1243,7 +1243,7 @@ DatasetApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL

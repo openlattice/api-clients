@@ -1909,7 +1909,7 @@ EdmApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`association_type`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`association_type`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
         )
       } else {
         body <- NULL
@@ -2020,7 +2020,7 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`entity_type`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`entity_type`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -2073,7 +2073,7 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`property_type`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`property_type`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -2130,7 +2130,7 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`schema`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`schema`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -2953,7 +2953,7 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`ed_mdiff`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`ed_mdiff`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -3882,7 +3882,7 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`EDM`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`EDM`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -3943,7 +3943,7 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -4066,7 +4066,7 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL
@@ -4135,7 +4135,7 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`edm_request`$toJSON(), auto_unbox=TRUE, digits = NA)
+            jsonlite::toJSON(`edm_request`$toJSON(), auto_unbox=FALSE, digits = NA)
         )
       } else {
         body <- NULL

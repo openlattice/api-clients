@@ -39,7 +39,7 @@ test_that("get_user", {
   # tests for get_user
   # base path: https://api.openlattice.com
   # Get the user for the given id.
-  # @param character  user_id   
+  # @param user_id character 
   # @return [Auth0userBasic]
 
   # uncomment below to test the operation
@@ -50,7 +50,7 @@ test_that("search_all_users", {
   # tests for search_all_users
   # base path: https://api.openlattice.com
   # Get the user id for the given search.
-  # @param character  search_query   
+  # @param search_query character 
   # @return [list(Auth0userBasic)]
 
   # uncomment below to test the operation
@@ -61,7 +61,7 @@ test_that("search_all_users_by_email", {
   # tests for search_all_users_by_email
   # base path: https://api.openlattice.com
   # Get the user id for the given email address.
-  # @param character  email_address   
+  # @param email_address character 
   # @return [list(Auth0userBasic)]
 
   # uncomment below to test the operation

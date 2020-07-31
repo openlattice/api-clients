@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title Integration
+#'
 #' @description Integration Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field key  character [optional]
 #'
 #' @field environment  character [optional]
@@ -28,7 +31,6 @@
 #'
 #' @field flightPlanParameters  named list( \link{FlightPlanParameters} ) [optional]
 #'
-#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -44,7 +46,9 @@ Integration <- R6::R6Class(
     `maxConnections` = NULL,
     `callback` = NULL,
     `flightPlanParameters` = NULL,
-    initialize = function(`key`=NULL, `environment`=NULL, `s3Bucket`=NULL, `contacts`=NULL, `organizationId`=NULL, `entitySetId`=NULL, `maxConnections`=NULL, `callback`=NULL, `flightPlanParameters`=NULL, ...){
+    initialize = function(
+        `key`=NULL, `environment`=NULL, `s3Bucket`=NULL, `contacts`=NULL, `organizationId`=NULL, `entitySetId`=NULL, `maxConnections`=NULL, `callback`=NULL, `flightPlanParameters`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`key`)) {
         stopifnot(is.character(`key`), length(`key`) == 1)
@@ -156,6 +160,7 @@ Integration <- R6::R6Class(
       if (!is.null(IntegrationObject$`flightPlanParameters`)) {
         self$`flightPlanParameters` <- ApiClient$new()$deserializeObj(IntegrationObject$`flightPlanParameters`, "list(FlightPlanParameters)", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -220,7 +225,7 @@ Integration <- R6::R6Class(
         '"flightPlanParameters":
         %s
 ',
-        jsonlite::toJSON(lapply(self$`flightPlanParameters`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        jsonlite::toJSON(lapply(self$`flightPlanParameters`, function(x){ x$toJSON() }), auto_unbox = FALSE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -241,3 +246,4 @@ Integration <- R6::R6Class(
     }
   )
 )
+

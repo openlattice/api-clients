@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title Flight
+#'
 #' @description Flight Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field name  character [optional]
 #'
 #' @field tags  list( character ) [optional]
@@ -19,7 +22,6 @@
 #' @field entityDefinitions  named list( \link{EntityDefinition} ) [optional]
 #'
 #' @field associationDefinitions  named list( \link{AssociationDefinition} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -32,7 +34,9 @@ Flight <- R6::R6Class(
     `organizationId` = NULL,
     `entityDefinitions` = NULL,
     `associationDefinitions` = NULL,
-    initialize = function(`name`=NULL, `tags`=NULL, `organizationId`=NULL, `entityDefinitions`=NULL, `associationDefinitions`=NULL, ...){
+    initialize = function(
+        `name`=NULL, `tags`=NULL, `organizationId`=NULL, `entityDefinitions`=NULL, `associationDefinitions`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -100,6 +104,7 @@ Flight <- R6::R6Class(
       if (!is.null(FlightObject$`associationDefinitions`)) {
         self$`associationDefinitions` <- ApiClient$new()$deserializeObj(FlightObject$`associationDefinitions`, "list(AssociationDefinition)", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -129,14 +134,14 @@ Flight <- R6::R6Class(
         '"entityDefinitions":
         %s
 ',
-        jsonlite::toJSON(lapply(self$`entityDefinitions`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        jsonlite::toJSON(lapply(self$`entityDefinitions`, function(x){ x$toJSON() }), auto_unbox = FALSE, digits=NA)
         )},
         if (!is.null(self$`associationDefinitions`)) {
         sprintf(
         '"associationDefinitions":
         %s
 ',
-        jsonlite::toJSON(lapply(self$`associationDefinitions`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
+        jsonlite::toJSON(lapply(self$`associationDefinitions`, function(x){ x$toJSON() }), auto_unbox = FALSE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -153,3 +158,4 @@ Flight <- R6::R6Class(
     }
   )
 )
+

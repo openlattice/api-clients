@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title Role
+#'
 #' @description Role Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field id  character [optional]
 #'
 #' @field organizationId  character [optional]
@@ -19,7 +22,6 @@
 #' @field title  character [optional]
 #'
 #' @field description  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -32,7 +34,9 @@ Role <- R6::R6Class(
     `principal` = NULL,
     `title` = NULL,
     `description` = NULL,
-    initialize = function(`id`=NULL, `organizationId`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, ...){
+    initialize = function(
+        `id`=NULL, `organizationId`=NULL, `principal`=NULL, `title`=NULL, `description`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -90,7 +94,7 @@ Role <- R6::R6Class(
       }
       if (!is.null(RoleObject$`principal`)) {
         principalObject <- Principal$new()
-        principalObject$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = TRUE, digits = NA))
+        principalObject$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = FALSE, digits = NA))
         self$`principal` <- principalObject
       }
       if (!is.null(RoleObject$`title`)) {
@@ -99,6 +103,7 @@ Role <- R6::R6Class(
       if (!is.null(RoleObject$`description`)) {
         self$`description` <- RoleObject$`description`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -121,7 +126,7 @@ Role <- R6::R6Class(
         '"principal":
         %s
         ',
-        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=FALSE, digits = NA)
         )},
         if (!is.null(self$`title`)) {
         sprintf(
@@ -145,10 +150,11 @@ Role <- R6::R6Class(
       RoleObject <- jsonlite::fromJSON(RoleJson)
       self$`id` <- RoleObject$`id`
       self$`organizationId` <- RoleObject$`organizationId`
-      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = TRUE, digits = NA))
+      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = FALSE, digits = NA))
       self$`title` <- RoleObject$`title`
       self$`description` <- RoleObject$`description`
       self
     }
   )
 )
+

@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(array[NeighborEntityDetails])**](array.md)
+**list(array[NeighborEntityDetails])**
 
 ### Authorization
 
@@ -619,7 +619,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(array[NeighborEntityDetails])**](array.md)
+**list(array[NeighborEntityDetails])**
 
 ### Authorization
 

@@ -8,14 +8,16 @@
 
 #' @docType class
 #' @title OrganizationMember
+#'
 #' @description OrganizationMember Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field principal  \link{SecurablePrincipal} [optional]
 #'
 #' @field profile  \link{Auth0userBasic} [optional]
 #'
 #' @field roles  list( \link{SecurablePrincipal} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -26,7 +28,9 @@ OrganizationMember <- R6::R6Class(
     `principal` = NULL,
     `profile` = NULL,
     `roles` = NULL,
-    initialize = function(`principal`=NULL, `profile`=NULL, `roles`=NULL, ...){
+    initialize = function(
+        `principal`=NULL, `profile`=NULL, `roles`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`principal`)) {
         stopifnot(R6::is.R6(`principal`))
@@ -63,17 +67,18 @@ OrganizationMember <- R6::R6Class(
       OrganizationMemberObject <- jsonlite::fromJSON(OrganizationMemberJson)
       if (!is.null(OrganizationMemberObject$`principal`)) {
         principalObject <- SecurablePrincipal$new()
-        principalObject$fromJSON(jsonlite::toJSON(OrganizationMemberObject$principal, auto_unbox = TRUE, digits = NA))
+        principalObject$fromJSON(jsonlite::toJSON(OrganizationMemberObject$principal, auto_unbox = FALSE, digits = NA))
         self$`principal` <- principalObject
       }
       if (!is.null(OrganizationMemberObject$`profile`)) {
         profileObject <- Auth0userBasic$new()
-        profileObject$fromJSON(jsonlite::toJSON(OrganizationMemberObject$profile, auto_unbox = TRUE, digits = NA))
+        profileObject$fromJSON(jsonlite::toJSON(OrganizationMemberObject$profile, auto_unbox = FALSE, digits = NA))
         self$`profile` <- profileObject
       }
       if (!is.null(OrganizationMemberObject$`roles`)) {
         self$`roles` <- ApiClient$new()$deserializeObj(OrganizationMemberObject$`roles`, "array[SecurablePrincipal]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -82,21 +87,21 @@ OrganizationMember <- R6::R6Class(
         '"principal":
         %s
         ',
-        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=FALSE, digits = NA)
         )},
         if (!is.null(self$`profile`)) {
         sprintf(
         '"profile":
         %s
         ',
-        jsonlite::toJSON(self$`profile`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`profile`$toJSON(), auto_unbox=FALSE, digits = NA)
         )},
         if (!is.null(self$`roles`)) {
         sprintf(
         '"roles":
         [%s]
 ',
-        paste(sapply(self$`roles`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`roles`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -104,10 +109,11 @@ OrganizationMember <- R6::R6Class(
     },
     fromJSONString = function(OrganizationMemberJson) {
       OrganizationMemberObject <- jsonlite::fromJSON(OrganizationMemberJson)
-      self$`principal` <- SecurablePrincipal$new()$fromJSON(jsonlite::toJSON(OrganizationMemberObject$principal, auto_unbox = TRUE, digits = NA))
-      self$`profile` <- Auth0userBasic$new()$fromJSON(jsonlite::toJSON(OrganizationMemberObject$profile, auto_unbox = TRUE, digits = NA))
+      self$`principal` <- SecurablePrincipal$new()$fromJSON(jsonlite::toJSON(OrganizationMemberObject$principal, auto_unbox = FALSE, digits = NA))
+      self$`profile` <- Auth0userBasic$new()$fromJSON(jsonlite::toJSON(OrganizationMemberObject$profile, auto_unbox = FALSE, digits = NA))
       self$`roles` <- ApiClient$new()$deserializeObj(OrganizationMemberObject$`roles`, "array[SecurablePrincipal]", loadNamespace("openlattice"))
       self
     }
   )
 )
+
