@@ -9,8 +9,8 @@ test_that("execute_advanced_entity_set_data_query", {
   # tests for execute_advanced_entity_set_data_query
   # base path: https://api.openlattice.com
   # Executes a search over the data of a given entity set to find rows that match the search term
-  # @param character  entity_set_id   
-  # @param AdvancedSearch  advanced_search   
+  # @param entity_set_id character 
+  # @param advanced_search AdvancedSearch 
   # @return [DataSearchResult]
 
   # uncomment below to test the operation
@@ -21,7 +21,7 @@ test_that("execute_app_search", {
   # tests for execute_app_search
   # base path: https://api.openlattice.com
   # Executes a search over all apps to find ones that match the given search term
-  # @param SearchTerm  search_term   
+  # @param search_term SearchTerm 
   # @return [SearchResult]
 
   # uncomment below to test the operation
@@ -32,7 +32,7 @@ test_that("execute_app_type_search", {
   # tests for execute_app_type_search
   # base path: https://api.openlattice.com
   # Executes a search over all app types to find ones that match the given search term
-  # @param SearchTerm  search_term   
+  # @param search_term SearchTerm 
   # @return [SearchResult]
 
   # uncomment below to test the operation
@@ -43,7 +43,7 @@ test_that("execute_association_type_search", {
   # tests for execute_association_type_search
   # base path: https://api.openlattice.com
   # Executes a search over all association types to find ones that match the given search term
-  # @param SearchTerm  search_term   
+  # @param search_term SearchTerm 
   # @return [SearchResult]
 
   # uncomment below to test the operation
@@ -54,8 +54,8 @@ test_that("execute_entity_neighbor_search", {
   # tests for execute_entity_neighbor_search
   # base path: https://api.openlattice.com
   # Executes a search for all neighbors of an entity that are connected by an association
-  # @param character  entity_set_id   
-  # @param character  entity_key_id   
+  # @param entity_set_id character 
+  # @param entity_key_id character 
   # @return [array[NeighborEntityDetails]]
 
   # uncomment below to test the operation
@@ -66,8 +66,8 @@ test_that("execute_entity_neighbor_search_bulk", {
   # tests for execute_entity_neighbor_search_bulk
   # base path: https://api.openlattice.com
   # Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
-  # @param character  entity_set_id   
-  # @param array[character]  request_body   
+  # @param entity_set_id character 
+  # @param request_body array[character] 
   # @return [list(array[NeighborEntityDetails])]
 
   # uncomment below to test the operation
@@ -78,7 +78,7 @@ test_that("execute_entity_set_collection_search", {
   # tests for execute_entity_set_collection_search
   # base path: https://api.openlattice.com
   # Executes a search over all EntitySetCollections to find ones that match the given search term
-  # @param SearchTerm  search_term   
+  # @param search_term SearchTerm 
   # @return [SearchResult]
 
   # uncomment below to test the operation
@@ -89,8 +89,8 @@ test_that("execute_entity_set_data_query", {
   # tests for execute_entity_set_data_query
   # base path: https://api.openlattice.com
   # Executes a search over the data of a given entity set to find rows that match the search term
-  # @param character  entity_set_id   
-  # @param SearchTerm  search_term  A JSON object that contains three parameters, \"start\", which specifies the hit number to start returning results on for paging, \"maxHits\", which specifies the maximum number of hits to return, and \"searchTerm\", which is the search term results will match on. 
+  # @param entity_set_id character 
+  # @param search_term SearchTerm A JSON object that contains three parameters, \"start\", which specifies the hit number to start returning results on for paging, \"maxHits\", which specifies the maximum number of hits to return, and \"searchTerm\", which is the search term results will match on.
   # @return [DataSearchResult]
 
   # uncomment below to test the operation
@@ -101,7 +101,7 @@ test_that("execute_entity_set_keyword_query", {
   # tests for execute_entity_set_keyword_query
   # base path: https://api.openlattice.com
   # The query, entityType, and propertyTypes params are all optional, but at least one must be specified otherwise an error will be thrown. All specified params are required to be present in each entity set returned. If entityType and propertyTypes are both specified, the propertyTypes param will be ignored.
-  # @param Search  search   
+  # @param search Search 
   # @return [SearchResult]
 
   # uncomment below to test the operation
@@ -112,7 +112,7 @@ test_that("execute_entity_type_collection_search", {
   # tests for execute_entity_type_collection_search
   # base path: https://api.openlattice.com
   # Executes a search over all EntityTypeCollections to find ones that match the given search term
-  # @param SearchTerm  search_term   
+  # @param search_term SearchTerm 
   # @return [SearchResult]
 
   # uncomment below to test the operation
@@ -123,7 +123,7 @@ test_that("execute_entity_type_search", {
   # tests for execute_entity_type_search
   # base path: https://api.openlattice.com
   # Executes a search over all entity types to find ones that match the given search term
-  # @param SearchTerm  search_term   
+  # @param search_term SearchTerm 
   # @return [SearchResult]
 
   # uncomment below to test the operation
@@ -134,8 +134,8 @@ test_that("execute_filtered_entity_neighbor_id_search", {
   # tests for execute_filtered_entity_neighbor_id_search
   # base path: https://api.openlattice.com
   # Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association and returns a simple version of the neighborDetails
-  # @param character  entity_set_id   
-  # @param NeighborSearchFilter  neighbor_search_filter   
+  # @param entity_set_id character 
+  # @param neighbor_search_filter NeighborSearchFilter 
   # @return [list(list(list(array[NeighborEntityIds])))]
 
   # uncomment below to test the operation
@@ -146,8 +146,8 @@ test_that("execute_filtered_entity_neighbor_search", {
   # tests for execute_filtered_entity_neighbor_search
   # base path: https://api.openlattice.com
   # Executes a search for all neighbors of multiple entities of the same entity set that are connected by an association
-  # @param character  entity_set_id   
-  # @param NeighborSearchFilter  neighbor_search_filter   
+  # @param entity_set_id character 
+  # @param neighbor_search_filter NeighborSearchFilter 
   # @return [list(array[NeighborEntityDetails])]
 
   # uncomment below to test the operation
@@ -158,7 +158,7 @@ test_that("execute_fqn_property_type_search", {
   # tests for execute_fqn_property_type_search
   # base path: https://api.openlattice.com
   # Executes a search over all property types to find ones that match the given name and namespace, including partial matches
-  # @param SearchTerm  search_term   
+  # @param search_term SearchTerm 
   # @return [SearchResult]
 
   # uncomment below to test the operation
@@ -169,7 +169,7 @@ test_that("execute_organization_search", {
   # tests for execute_organization_search
   # base path: https://api.openlattice.com
   # Executes a search over all organizations to find ones that match the given search term
-  # @param SearchTerm  search_term   
+  # @param search_term SearchTerm 
   # @return [SearchResult]
 
   # uncomment below to test the operation
@@ -180,7 +180,7 @@ test_that("execute_property_type_search", {
   # tests for execute_property_type_search
   # base path: https://api.openlattice.com
   # Executes a search over all property types to find ones that match the given search term
-  # @param SearchTerm  search_term   
+  # @param search_term SearchTerm 
   # @return [SearchResult]
 
   # uncomment below to test the operation
@@ -191,8 +191,8 @@ test_that("get_entity_sets", {
   # tests for get_entity_sets
   # base path: https://api.openlattice.com
   # Executes a search over all existing entity sets to populate the home page. The path parameters instruct which page to return and how large the page should be.
-  # @param integer  start  The first result number to return 
-  # @param integer  num_results  The total number of results to return 
+  # @param start integer The first result number to return
+  # @param num_results integer The total number of results to return
   # @return [array[SearchResult]]
 
   # uncomment below to test the operation
@@ -213,7 +213,7 @@ test_that("search_entity_set_data", {
   # tests for search_entity_set_data
   # base path: https://api.openlattice.com
   # Executes a search over the data of a given entity set to find rows that match the search term
-  # @param SearchConstraints  search_constraints   
+  # @param search_constraints SearchConstraints 
   # @return [DataSearchResult]
 
   # uncomment below to test the operation

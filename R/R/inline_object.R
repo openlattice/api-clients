@@ -8,10 +8,12 @@
 
 #' @docType class
 #' @title InlineObject
-#' @description InlineObject Class
-#' @format An \code{R6Class} generator object
-#' @field additionalProperties  list( \link{DataEdge} ) [optional]
 #'
+#' @description InlineObject Class
+#'
+#' @format An \code{R6Class} generator object
+#'
+#' @field additionalProperties  list( \link{DataEdge} ) [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -20,7 +22,9 @@ InlineObject <- R6::R6Class(
   'InlineObject',
   public = list(
     `additionalProperties` = NULL,
-    initialize = function(`additionalProperties`=NULL, ...){
+    initialize = function(
+        `additionalProperties`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`additionalProperties`)) {
         stopifnot(is.vector(`additionalProperties`))
@@ -42,6 +46,7 @@ InlineObject <- R6::R6Class(
       if (!is.null(InlineObjectObject$`additionalProperties`)) {
         self$`additionalProperties` <- ApiClient$new()$deserializeObj(InlineObjectObject$`additionalProperties`, "array[DataEdge]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -50,7 +55,19 @@ InlineObject <- R6::R6Class(
         '"additionalProperties":
         [%s]
 ',
-        paste(sapply(self$`additionalProperties`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`additionalProperties`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -63,3 +80,4 @@ InlineObject <- R6::R6Class(
     }
   )
 )
+

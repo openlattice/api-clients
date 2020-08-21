@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title DataGraphIds
+#'
 #' @description DataGraphIds Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entityKeyIds  named list( \link{array[character]} ) [optional]
 #'
 #' @field entitySetIds  named list( \link{array[character]} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ DataGraphIds <- R6::R6Class(
   public = list(
     `entityKeyIds` = NULL,
     `entitySetIds` = NULL,
-    initialize = function(`entityKeyIds`=NULL, `entitySetIds`=NULL, ...){
+    initialize = function(
+        `entityKeyIds`=NULL, `entitySetIds`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityKeyIds`)) {
         stopifnot(is.vector(`entityKeyIds`))
@@ -57,6 +61,7 @@ DataGraphIds <- R6::R6Class(
       if (!is.null(DataGraphIdsObject$`entitySetIds`)) {
         self$`entitySetIds` <- ApiClient$new()$deserializeObj(DataGraphIdsObject$`entitySetIds`, "list(array[character])", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -86,3 +91,4 @@ DataGraphIds <- R6::R6Class(
     }
   )
 )
+

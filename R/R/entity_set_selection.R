@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title EntitySetSelection
+#'
 #' @description EntitySetSelection Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field ids  list( character ) [optional]
 #'
 #' @field properties  list( character ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ EntitySetSelection <- R6::R6Class(
   public = list(
     `ids` = NULL,
     `properties` = NULL,
-    initialize = function(`ids`=NULL, `properties`=NULL, ...){
+    initialize = function(
+        `ids`=NULL, `properties`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`ids`)) {
         stopifnot(is.vector(`ids`))
@@ -57,6 +61,7 @@ EntitySetSelection <- R6::R6Class(
       if (!is.null(EntitySetSelectionObject$`properties`)) {
         self$`properties` <- ApiClient$new()$deserializeObj(EntitySetSelectionObject$`properties`, "array[character]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -86,3 +91,4 @@ EntitySetSelection <- R6::R6Class(
     }
   )
 )
+

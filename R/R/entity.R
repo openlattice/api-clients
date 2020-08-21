@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title Entity
+#'
 #' @description Entity Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field key  \link{EntityKey} [optional]
 #'
 #' @field details  named list( character ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ Entity <- R6::R6Class(
   public = list(
     `key` = NULL,
     `details` = NULL,
-    initialize = function(`key`=NULL, `details`=NULL, ...){
+    initialize = function(
+        `key`=NULL, `details`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`key`)) {
         stopifnot(R6::is.R6(`key`))
@@ -58,6 +62,7 @@ Entity <- R6::R6Class(
       if (!is.null(EntityObject$`details`)) {
         self$`details` <- ApiClient$new()$deserializeObj(EntityObject$`details`, "list(character)", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -87,3 +92,4 @@ Entity <- R6::R6Class(
     }
   )
 )
+

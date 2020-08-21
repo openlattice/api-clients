@@ -222,7 +222,7 @@ export default class PrincipalApi {
       let accepts = ['application/json'];
       let returnType = {'String': Auth0userBasic};
       return this.apiClient.callApi(
-        '/datastore/principals/users/search/"{searchQuery}"', 'GET',
+        '/datastore/principals/users/search/{searchQuery}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

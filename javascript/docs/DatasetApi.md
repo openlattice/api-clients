@@ -10,7 +10,8 @@ Method | HTTP request | Description
 [**deleteExternalDatabaseTables**](DatasetApi.md#deleteExternalDatabaseTables) | **DELETE** /datastore/organization-database/{organizationId}/external-database-table | Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
 [**getAuthorizedExternalDbTablesWithColumnMetadata**](DatasetApi.md#getAuthorizedExternalDbTablesWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
 [**getExternalDatabaseColumn**](DatasetApi.md#getExternalDatabaseColumn) | **GET** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization&#39;s table in an external database.
-[**getExternalDatabaseTable**](DatasetApi.md#getExternalDatabaseTable) | **GET** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
+[**getExternalDatabaseTable**](DatasetApi.md#getExternalDatabaseTable) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
+[**getExternalDatabaseTableData**](DatasetApi.md#getExternalDatabaseTableData) | **GET** /datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data | Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
 [**getExternalDatabaseTableWithColumnMetadata**](DatasetApi.md#getExternalDatabaseTableWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
 [**getExternalDatabaseTables**](DatasetApi.md#getExternalDatabaseTables) | **GET** /datastore/organization-database/{organizationId}/external-database-table | Gets all OrganizationExternalDatabaseTable objects for an organization
 [**getExternalDatabaseTablesWithColumnMetadata**](DatasetApi.md#getExternalDatabaseTablesWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
@@ -349,7 +350,7 @@ Name | Type | Description  | Notes
 
 ## getExternalDatabaseTable
 
-> OrganizationExternalDatabaseTable getExternalDatabaseTable(organizationId, tableName)
+> OrganizationExternalDatabaseTable getExternalDatabaseTable(organizationId, tableId)
 
 Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
 
@@ -369,8 +370,8 @@ openlattice_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new OpenLatticeApi.DatasetApi();
 let organizationId = null; // String | 
-let tableName = "tableName_example"; // String | 
-apiInstance.getExternalDatabaseTable(organizationId, tableName, (error, data, response) => {
+let tableId = null; // String | 
+apiInstance.getExternalDatabaseTable(organizationId, tableId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -385,11 +386,67 @@ apiInstance.getExternalDatabaseTable(organizationId, tableName, (error, data, re
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | [**String**](.md)|  | 
- **tableName** | **String**|  | 
+ **tableId** | [**String**](.md)|  | 
 
 ### Return type
 
 [**OrganizationExternalDatabaseTable**](OrganizationExternalDatabaseTable.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getExternalDatabaseTableData
+
+> {String: Object} getExternalDatabaseTableData(organizationId, tableId, rowCount)
+
+Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.DatasetApi();
+let organizationId = null; // String | 
+let tableId = null; // String | 
+let rowCount = 56; // Number | 
+apiInstance.getExternalDatabaseTableData(organizationId, tableId, rowCount, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**String**](.md)|  | 
+ **tableId** | [**String**](.md)|  | 
+ **rowCount** | **Number**|  | 
+
+### Return type
+
+**{String: Object}**
 
 ### Authorization
 

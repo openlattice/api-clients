@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**getCurrentRoles**](PrincipalApi.md#getCurrentRoles) | **GET** /datastore/principals/roles/current/ | Get current roles.
 [**getMaterializedViewAccount**](PrincipalApi.md#getMaterializedViewAccount) | **GET** /datastore/principals/db | Get the db access credentials.
 [**getUser**](PrincipalApi.md#getUser) | **GET** /datastore/principals/users/{userId} | Get the user for the given id.
-[**searchAllUsers**](PrincipalApi.md#searchAllUsers) | **GET** /datastore/principals/users/search/&quot;{searchQuery}&quot; | Get the user id for the given search.
+[**searchAllUsers**](PrincipalApi.md#searchAllUsers) | **GET** /datastore/principals/users/search/{searchQuery} | Get the user id for the given search.
 [**searchAllUsersByEmail**](PrincipalApi.md#searchAllUsersByEmail) | **GET** /datastore/principals/users/search/email/&quot;{emailAddress}&quot; | Get the user id for the given email address.
 [**syncCallingUser**](PrincipalApi.md#syncCallingUser) | **GET** /datastore/principals/sync/ | Activates a user in the OpenLattice system. This call must be made once before a user will be available for use in authorization policies.
 

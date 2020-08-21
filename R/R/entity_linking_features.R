@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title EntityLinkingFeatures
+#'
 #' @description EntityLinkingFeatures Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entityLinkingFeedback  \link{EntityLinkingFeedback} [optional]
 #'
 #' @field features  named list( numeric ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ EntityLinkingFeatures <- R6::R6Class(
   public = list(
     `entityLinkingFeedback` = NULL,
     `features` = NULL,
-    initialize = function(`entityLinkingFeedback`=NULL, `features`=NULL, ...){
+    initialize = function(
+        `entityLinkingFeedback`=NULL, `features`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entityLinkingFeedback`)) {
         stopifnot(R6::is.R6(`entityLinkingFeedback`))
@@ -58,6 +62,7 @@ EntityLinkingFeatures <- R6::R6Class(
       if (!is.null(EntityLinkingFeaturesObject$`features`)) {
         self$`features` <- ApiClient$new()$deserializeObj(EntityLinkingFeaturesObject$`features`, "list(numeric)", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -87,3 +92,4 @@ EntityLinkingFeatures <- R6::R6Class(
     }
   )
 )
+

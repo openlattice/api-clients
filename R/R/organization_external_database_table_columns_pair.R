@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title OrganizationExternalDatabaseTableColumnsPair
+#'
 #' @description OrganizationExternalDatabaseTableColumnsPair Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field table  \link{OrganizationExternalDatabaseTable} [optional]
 #'
 #' @field columns  list( \link{OrganizationExternalDatabaseColumn} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ OrganizationExternalDatabaseTableColumnsPair <- R6::R6Class(
   public = list(
     `table` = NULL,
     `columns` = NULL,
-    initialize = function(`table`=NULL, `columns`=NULL, ...){
+    initialize = function(
+        `table`=NULL, `columns`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`table`)) {
         stopifnot(R6::is.R6(`table`))
@@ -58,6 +62,7 @@ OrganizationExternalDatabaseTableColumnsPair <- R6::R6Class(
       if (!is.null(OrganizationExternalDatabaseTableColumnsPairObject$`columns`)) {
         self$`columns` <- ApiClient$new()$deserializeObj(OrganizationExternalDatabaseTableColumnsPairObject$`columns`, "array[OrganizationExternalDatabaseColumn]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -73,7 +78,19 @@ OrganizationExternalDatabaseTableColumnsPair <- R6::R6Class(
         '"columns":
         [%s]
 ',
-        paste(sapply(self$`columns`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`columns`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -87,3 +104,4 @@ OrganizationExternalDatabaseTableColumnsPair <- R6::R6Class(
     }
   )
 )
+

@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title MetadataUpdate
+#'
 #' @description MetadataUpdate Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field title  character [optional]
 #'
 #' @field description  character [optional]
@@ -36,7 +39,6 @@
 #'
 #' @field enumValues  list( character ) [optional]
 #'
-#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -56,7 +58,9 @@ MetadataUpdate <- R6::R6Class(
     `organizationId` = NULL,
     `partitions` = NULL,
     `enumValues` = NULL,
-    initialize = function(`title`=NULL, `description`=NULL, `name`=NULL, `contacts`=NULL, `type`=NULL, `pii`=NULL, `defaultShow`=NULL, `url`=NULL, `propertyTags`=NULL, `indexType`=NULL, `organizationId`=NULL, `partitions`=NULL, `enumValues`=NULL, ...){
+    initialize = function(
+        `title`=NULL, `description`=NULL, `name`=NULL, `contacts`=NULL, `type`=NULL, `pii`=NULL, `defaultShow`=NULL, `url`=NULL, `propertyTags`=NULL, `indexType`=NULL, `organizationId`=NULL, `partitions`=NULL, `enumValues`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`title`)) {
         stopifnot(is.character(`title`), length(`title`) == 1)
@@ -213,6 +217,7 @@ MetadataUpdate <- R6::R6Class(
       if (!is.null(MetadataUpdateObject$`enumValues`)) {
         self$`enumValues` <- ApiClient$new()$deserializeObj(MetadataUpdateObject$`enumValues`, "array[character]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -330,3 +335,4 @@ MetadataUpdate <- R6::R6Class(
     }
   )
 )
+

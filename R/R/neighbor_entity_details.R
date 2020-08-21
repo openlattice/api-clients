@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title NeighborEntityDetails
+#'
 #' @description NeighborEntityDetails Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field associationEntitySet  \link{EntitySet} [optional]
 #'
 #' @field associationDetails  named list( \link{array[character]} ) [optional]
@@ -19,7 +22,6 @@
 #' @field neighborId  character [optional]
 #'
 #' @field neighborDetails  named list( \link{array[character]} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -32,7 +34,9 @@ NeighborEntityDetails <- R6::R6Class(
     `neighborEntitySet` = NULL,
     `neighborId` = NULL,
     `neighborDetails` = NULL,
-    initialize = function(`associationEntitySet`=NULL, `associationDetails`=NULL, `neighborEntitySet`=NULL, `neighborId`=NULL, `neighborDetails`=NULL, ...){
+    initialize = function(
+        `associationEntitySet`=NULL, `associationDetails`=NULL, `neighborEntitySet`=NULL, `neighborId`=NULL, `neighborDetails`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`associationEntitySet`)) {
         stopifnot(R6::is.R6(`associationEntitySet`))
@@ -103,6 +107,7 @@ NeighborEntityDetails <- R6::R6Class(
       if (!is.null(NeighborEntityDetailsObject$`neighborDetails`)) {
         self$`neighborDetails` <- ApiClient$new()$deserializeObj(NeighborEntityDetailsObject$`neighborDetails`, "list(array[character])", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -156,3 +161,4 @@ NeighborEntityDetails <- R6::R6Class(
     }
   )
 )
+

@@ -8,14 +8,16 @@
 
 #' @docType class
 #' @title LinkingFeedback
+#'
 #' @description LinkingFeedback Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field linkingEntity  \link{EntityDataKey} [optional]
 #'
 #' @field link  list( \link{EntityDataKey} ) [optional]
 #'
 #' @field unlink  list( \link{EntityDataKey} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -26,7 +28,9 @@ LinkingFeedback <- R6::R6Class(
     `linkingEntity` = NULL,
     `link` = NULL,
     `unlink` = NULL,
-    initialize = function(`linkingEntity`=NULL, `link`=NULL, `unlink`=NULL, ...){
+    initialize = function(
+        `linkingEntity`=NULL, `link`=NULL, `unlink`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`linkingEntity`)) {
         stopifnot(R6::is.R6(`linkingEntity`))
@@ -73,6 +77,7 @@ LinkingFeedback <- R6::R6Class(
       if (!is.null(LinkingFeedbackObject$`unlink`)) {
         self$`unlink` <- ApiClient$new()$deserializeObj(LinkingFeedbackObject$`unlink`, "array[EntityDataKey]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -88,14 +93,38 @@ LinkingFeedback <- R6::R6Class(
         '"link":
         [%s]
 ',
-        paste(sapply(self$`link`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`link`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`unlink`)) {
         sprintf(
         '"unlink":
         [%s]
 ',
-        paste(sapply(self$`unlink`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`unlink`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -110,3 +139,4 @@ LinkingFeedback <- R6::R6Class(
     }
   )
 )
+

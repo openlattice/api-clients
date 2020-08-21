@@ -1,6 +1,6 @@
 Package: openlattice
 Title: R Package Client for OpenLattice API
-Version: 0.1.1
+Version: 0.1.0
 Authors@R: person("OpenAPI Generator community", email = "support@openlattice.com", role = c("aut", "cre"))
 Description: OpenLattice API
 URL: https://github.com/GIT_USER_ID/GIT_REPO_ID

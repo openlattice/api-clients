@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title BulkDataCreation
+#'
 #' @description BulkDataCreation Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field entities  list( \link{Entity} ) [optional]
 #'
 #' @field associations  list( \link{Association} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ BulkDataCreation <- R6::R6Class(
   public = list(
     `entities` = NULL,
     `associations` = NULL,
-    initialize = function(`entities`=NULL, `associations`=NULL, ...){
+    initialize = function(
+        `entities`=NULL, `associations`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`entities`)) {
         stopifnot(is.vector(`entities`))
@@ -57,6 +61,7 @@ BulkDataCreation <- R6::R6Class(
       if (!is.null(BulkDataCreationObject$`associations`)) {
         self$`associations` <- ApiClient$new()$deserializeObj(BulkDataCreationObject$`associations`, "array[Association]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -65,14 +70,38 @@ BulkDataCreation <- R6::R6Class(
         '"entities":
         [%s]
 ',
-        paste(sapply(self$`entities`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`entities`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`associations`)) {
         sprintf(
         '"associations":
         [%s]
 ',
-        paste(sapply(self$`associations`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`associations`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -86,3 +115,4 @@ BulkDataCreation <- R6::R6Class(
     }
   )
 )
+

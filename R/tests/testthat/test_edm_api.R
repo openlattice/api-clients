@@ -9,8 +9,8 @@ test_that("add_dst_entity_type_to_association_type", {
   # tests for add_dst_entity_type_to_association_type
   # base path: https://api.openlattice.com
   # Update the AssociationType dst entity types for the given AssociationType UUID by adding the given EntityType UUID.
-  # @param character  association_type_id   
-  # @param character  entity_type_id   
+  # @param association_type_id character 
+  # @param entity_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -21,8 +21,8 @@ test_that("add_primary_key_to_entity_type", {
   # tests for add_primary_key_to_entity_type
   # base path: https://api.openlattice.com
   # Adds a primary key with a given ID to an entity type with a given ID.
-  # @param character  entity_type_id   
-  # @param character  property_type_id   
+  # @param entity_type_id character 
+  # @param property_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -33,8 +33,8 @@ test_that("add_property_type_to_entity_type", {
   # tests for add_property_type_to_entity_type
   # base path: https://api.openlattice.com
   # Updates the EntityType definition for the given EntityType UUID by adding the given PropertyType UUID.
-  # @param character  entity_type_id   
-  # @param character  property_type_id   
+  # @param entity_type_id character 
+  # @param property_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -45,8 +45,8 @@ test_that("add_src_entity_type_to_association_type", {
   # tests for add_src_entity_type_to_association_type
   # base path: https://api.openlattice.com
   # Update the AssociationType src entity types for the given AssociationType UUID by adding the given EntityType UUID.
-  # @param character  association_type_id   
-  # @param character  entity_type_id   
+  # @param association_type_id character 
+  # @param entity_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -57,7 +57,7 @@ test_that("create_association_type", {
   # tests for create_association_type
   # base path: https://api.openlattice.com
   # Creates a new AssociationType definition, if it doesn&#39;t exist.
-  # @param array[AssociationType]  association_type   
+  # @param association_type array[AssociationType] 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -68,8 +68,8 @@ test_that("create_empty_schema", {
   # tests for create_empty_schema
   # base path: https://api.openlattice.com
   # Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-  # @param character  namespace   
-  # @param character  name   
+  # @param namespace character 
+  # @param name character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -80,7 +80,7 @@ test_that("create_entity_type", {
   # tests for create_entity_type
   # base path: https://api.openlattice.com
   # Creates a new EntityType definition, if it doesn&#39;t exist.
-  # @param EntityType  entity_type   
+  # @param entity_type EntityType 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -91,7 +91,7 @@ test_that("create_property_type", {
   # tests for create_property_type
   # base path: https://api.openlattice.com
   # Creates a new PropertyType definition, if it doesn\&quot;t exist.
-  # @param PropertyType  property_type   
+  # @param property_type PropertyType 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -102,7 +102,7 @@ test_that("create_schema_if_not_exists", {
   # tests for create_schema_if_not_exists
   # base path: https://api.openlattice.com
   # Creates an empty schema, if it doesn&#39;t exist. If schema exists then no action is taken.
-  # @param Schema  schema   
+  # @param schema Schema 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -113,7 +113,7 @@ test_that("delete_association_type", {
   # tests for delete_association_type
   # base path: https://api.openlattice.com
   # Deletes the AssociationType definition for the given AssociationType UUID.
-  # @param character  association_type_id   
+  # @param association_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -124,7 +124,7 @@ test_that("delete_entity_type", {
   # tests for delete_entity_type
   # base path: https://api.openlattice.com
   # Deletes the EntityType definition for the given EntityType UUID.
-  # @param character  entity_type_id   
+  # @param entity_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -135,7 +135,7 @@ test_that("delete_property_type", {
   # tests for delete_property_type
   # base path: https://api.openlattice.com
   # Deletes the PropertyType definition for the given PropertyType UUID.
-  # @param character  property_type_id   
+  # @param property_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -146,7 +146,7 @@ test_that("force_delete_property_type", {
   # tests for force_delete_property_type
   # base path: https://api.openlattice.com
   # Deletes the PropertyType definition for the given PropertyType UUID regardless of whether or not there is data associated with it.
-  # @param character  property_type_id   
+  # @param property_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -157,8 +157,8 @@ test_that("force_remove_property_type_from_entity_type", {
   # tests for force_remove_property_type_from_entity_type
   # base path: https://api.openlattice.com
   # Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID, regardless of whether or not there is data associated with the entity type.
-  # @param character  entity_type_id   
-  # @param character  property_type_id   
+  # @param entity_type_id character 
+  # @param property_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -179,7 +179,7 @@ test_that("get_all_available_association_types", {
   # tests for get_all_available_association_types
   # base path: https://api.openlattice.com
   # Get all available associations for the given AssociationType UUID.
-  # @param character  association_type_id   
+  # @param association_type_id character 
   # @return [array[AssociationType]]
 
   # uncomment below to test the operation
@@ -190,7 +190,7 @@ test_that("get_all_entity_type_property_metadata", {
   # tests for get_all_entity_type_property_metadata
   # base path: https://api.openlattice.com
   # Get all EntityType propertyType metadata
-  # @param character  entity_type_id   
+  # @param entity_type_id character 
   # @return [list(EntityTypePropertyMetadata)]
 
   # uncomment below to test the operation
@@ -221,7 +221,7 @@ test_that("get_all_property_types_in_namespace", {
   # tests for get_all_property_types_in_namespace
   # base path: https://api.openlattice.com
   # Gets all PropertyType definitions under the given namespace.
-  # @param character  namespace   
+  # @param namespace character 
   # @return [array[PropertyType]]
 
   # uncomment below to test the operation
@@ -242,7 +242,7 @@ test_that("get_association_type", {
   # tests for get_association_type
   # base path: https://api.openlattice.com
   # Get the AssociationType definition for the given AssociationType UUID.
-  # @param character  association_type_id   
+  # @param association_type_id character 
   # @return [AssociationType]
 
   # uncomment below to test the operation
@@ -253,7 +253,7 @@ test_that("get_association_type_details", {
   # tests for get_association_type_details
   # base path: https://api.openlattice.com
   # Get details about the AssociationType for the given AssociationType UUID.
-  # @param character  association_type_id   
+  # @param association_type_id character 
   # @return [AssociationType]
 
   # uncomment below to test the operation
@@ -274,7 +274,7 @@ test_that("get_entity_data_model_diff", {
   # tests for get_entity_data_model_diff
   # base path: https://api.openlattice.com
   # Gets the changes between the existing entity data model and the entity data model passed in, including schemas, association types, entity types, and property types.
-  # @param EDMdiff  ed_mdiff   
+  # @param ed_mdiff EDMdiff 
   # @return [EDMdiff]
 
   # uncomment below to test the operation
@@ -285,7 +285,7 @@ test_that("get_entity_type", {
   # tests for get_entity_type
   # base path: https://api.openlattice.com
   # Gets the EntityType definition for the given EntityType UUID.
-  # @param character  entity_type_id   
+  # @param entity_type_id character 
   # @return [EntityType]
 
   # uncomment below to test the operation
@@ -296,7 +296,7 @@ test_that("get_entity_type_hierarchy", {
   # tests for get_entity_type_hierarchy
   # base path: https://api.openlattice.com
   # Get the EntityType hierarchy for the given EntityType UUID.
-  # @param character  entity_type_id   
+  # @param entity_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -307,8 +307,8 @@ test_that("get_entity_type_id", {
   # tests for get_entity_type_id
   # base path: https://api.openlattice.com
   # Gets the EntityType UUID for the given EntityType FQN.
-  # @param character  namespace   
-  # @param character  name   
+  # @param namespace character 
+  # @param name character 
   # @return [character]
 
   # uncomment below to test the operation
@@ -319,8 +319,8 @@ test_that("get_entity_type_property_metadata", {
   # tests for get_entity_type_property_metadata
   # base path: https://api.openlattice.com
   # Get EntityType propertyType metadata
-  # @param character  entity_type_id   
-  # @param character  property_type_id   
+  # @param entity_type_id character 
+  # @param property_type_id character 
   # @return [EntityTypePropertyMetadata]
 
   # uncomment below to test the operation
@@ -331,7 +331,7 @@ test_that("get_property_type", {
   # tests for get_property_type
   # base path: https://api.openlattice.com
   # Gets the PropertyType definition for the given PropertyType UUID.
-  # @param character  property_type_id   
+  # @param property_type_id character 
   # @return [PropertyType]
 
   # uncomment below to test the operation
@@ -342,8 +342,8 @@ test_that("get_property_type_id", {
   # tests for get_property_type_id
   # base path: https://api.openlattice.com
   # Gets the PropertyType UUID for the given PropertyType FQN.
-  # @param character  namespace   
-  # @param character  name   
+  # @param namespace character 
+  # @param name character 
   # @return [character]
 
   # uncomment below to test the operation
@@ -354,7 +354,7 @@ test_that("get_property_usage_summary", {
   # tests for get_property_usage_summary
   # base path: https://api.openlattice.com
   # Get Property Usage Summary for property with given ID.
-  # @param character  property_type_id   
+  # @param property_type_id character 
   # @return [array[PropertyUsageSummary]]
 
   # uncomment below to test the operation
@@ -365,9 +365,9 @@ test_that("get_schema_contents", {
   # tests for get_schema_contents
   # base path: https://api.openlattice.com
   # Gets the schema contents for a corresponding namespace and name.
-  # @param character  namespace   
-  # @param character  name   
-  # @param character  file_type    (optional)
+  # @param namespace character 
+  # @param name character 
+  # @param file_type character  (optional)
   # @return [Schema]
 
   # uncomment below to test the operation
@@ -388,7 +388,7 @@ test_that("get_schemas_in_namespace", {
   # tests for get_schemas_in_namespace
   # base path: https://api.openlattice.com
   # Gets all schemas associated with a given namespace and accessible by the caller.
-  # @param character  namespace   
+  # @param namespace character 
   # @return [array[Schema]]
 
   # uncomment below to test the operation
@@ -399,8 +399,8 @@ test_that("remove_dst_entity_type_from_association_type", {
   # tests for remove_dst_entity_type_from_association_type
   # base path: https://api.openlattice.com
   # Updates the AssociationType dst entity types for the given AssociationType UUID by removing the given EntityType UUID.
-  # @param character  association_type_id   
-  # @param character  entity_type_id   
+  # @param association_type_id character 
+  # @param entity_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -411,8 +411,8 @@ test_that("remove_primary_key_from_entity_type", {
   # tests for remove_primary_key_from_entity_type
   # base path: https://api.openlattice.com
   # Removes a primary key with a given ID from an entity type with a given ID.
-  # @param character  entity_type_id   
-  # @param character  property_type_id   
+  # @param entity_type_id character 
+  # @param property_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -423,8 +423,8 @@ test_that("remove_property_type_from_entity_type", {
   # tests for remove_property_type_from_entity_type
   # base path: https://api.openlattice.com
   # Updates the EntityType definition for the given EntityType UUID by removing the given PropertyType UUID.
-  # @param character  entity_type_id   
-  # @param character  property_type_id   
+  # @param entity_type_id character 
+  # @param property_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -435,8 +435,8 @@ test_that("remove_src_entity_type_from_association_type", {
   # tests for remove_src_entity_type_from_association_type
   # base path: https://api.openlattice.com
   # Updates the AssociationType src entity types for the given AssociationType UUID by removing the given EntityType UUID.
-  # @param character  association_type_id   
-  # @param character  entity_type_id   
+  # @param association_type_id character 
+  # @param entity_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -447,8 +447,8 @@ test_that("reorder_property_types_in_entity_type", {
   # tests for reorder_property_types_in_entity_type
   # base path: https://api.openlattice.com
   # Updates the EntityType definition for the given EntityType UUID by reordering its properties as specified by the provided list.
-  # @param character  entity_type_id   
-  # @param array[character]  property_type_ids   
+  # @param entity_type_id character 
+  # @param property_type_ids array[character] 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -459,7 +459,7 @@ test_that("update_entity_data_model", {
   # tests for update_entity_data_model
   # base path: https://api.openlattice.com
   # Updates the entity data model, including schemas, entity types, association types, and property types.
-  # @param EDM  EDM   
+  # @param EDM EDM 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -470,8 +470,8 @@ test_that("update_entity_type_meta_data", {
   # tests for update_entity_type_meta_data
   # base path: https://api.openlattice.com
   # Updates the EntityType definition for the given EntityType UUID with the given metadata.
-  # @param character  entity_type_id   
-  # @param MetadataUpdate  metadata_update   
+  # @param entity_type_id character 
+  # @param metadata_update MetadataUpdate 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -482,8 +482,8 @@ test_that("update_entity_type_property_metadata", {
   # tests for update_entity_type_property_metadata
   # base path: https://api.openlattice.com
   # Update EntityType Property metadata
-  # @param character  entity_type_id   
-  # @param character  property_type_id   
+  # @param entity_type_id character 
+  # @param property_type_id character 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -494,8 +494,8 @@ test_that("update_property_type_meta_data", {
   # tests for update_property_type_meta_data
   # base path: https://api.openlattice.com
   # Updates the PropertyType definition for the given PropertyType UUID with the given metadata.
-  # @param character  property_type_id   
-  # @param MetadataUpdate  metadata_update   
+  # @param property_type_id character 
+  # @param metadata_update MetadataUpdate 
   # @return [Void]
 
   # uncomment below to test the operation
@@ -506,9 +506,9 @@ test_that("update_schema", {
   # tests for update_schema
   # base path: https://api.openlattice.com
   # Edits the schema contents for a corresponding namespace and name.
-  # @param character  namespace   
-  # @param character  name   
-  # @param EdmRequest  edm_request   
+  # @param namespace character 
+  # @param name character 
+  # @param edm_request EdmRequest 
   # @return [Void]
 
   # uncomment below to test the operation

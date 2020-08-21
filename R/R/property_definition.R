@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title PropertyDefinition
+#'
 #' @description PropertyDefinition Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field type  \link{FullQualifiedName} [optional]
 #'
 #' @field column  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ PropertyDefinition <- R6::R6Class(
   public = list(
     `type` = NULL,
     `column` = NULL,
-    initialize = function(`type`=NULL, `column`=NULL, ...){
+    initialize = function(
+        `type`=NULL, `column`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`type`)) {
         stopifnot(R6::is.R6(`type`))
@@ -57,6 +61,7 @@ PropertyDefinition <- R6::R6Class(
       if (!is.null(PropertyDefinitionObject$`column`)) {
         self$`column` <- PropertyDefinitionObject$`column`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -86,3 +91,4 @@ PropertyDefinition <- R6::R6Class(
     }
   )
 )
+

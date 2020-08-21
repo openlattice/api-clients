@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title FlightPlanParameters
+#'
 #' @description FlightPlanParameters Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field sql  character [optional]
 #'
 #' @field src  named list( character ) [optional]
@@ -19,7 +22,6 @@
 #' @field path  character [optional]
 #'
 #' @field flight  \link{Flight} [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -32,7 +34,9 @@ FlightPlanParameters <- R6::R6Class(
     `srcPrimaryKeyColumns` = NULL,
     `path` = NULL,
     `flight` = NULL,
-    initialize = function(`sql`=NULL, `src`=NULL, `srcPrimaryKeyColumns`=NULL, `path`=NULL, `flight`=NULL, ...){
+    initialize = function(
+        `sql`=NULL, `src`=NULL, `srcPrimaryKeyColumns`=NULL, `path`=NULL, `flight`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`sql`)) {
         stopifnot(is.character(`sql`), length(`sql`) == 1)
@@ -101,6 +105,7 @@ FlightPlanParameters <- R6::R6Class(
         flightObject$fromJSON(jsonlite::toJSON(FlightPlanParametersObject$flight, auto_unbox = TRUE, digits = NA))
         self$`flight` <- flightObject
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -154,3 +159,4 @@ FlightPlanParameters <- R6::R6Class(
     }
   )
 )
+

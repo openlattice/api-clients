@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title IndexingState
+#'
 #' @description IndexingState Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field indexing  named list( \link{array[character]} ) [optional]
 #'
 #' @field queue  list( character ) [optional]
@@ -19,7 +22,6 @@
 #' @field queueSize  integer [optional]
 #'
 #' @field count  integer [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -32,7 +34,9 @@ IndexingState <- R6::R6Class(
     `currentEntitySet` = NULL,
     `queueSize` = NULL,
     `count` = NULL,
-    initialize = function(`indexing`=NULL, `queue`=NULL, `currentEntitySet`=NULL, `queueSize`=NULL, `count`=NULL, ...){
+    initialize = function(
+        `indexing`=NULL, `queue`=NULL, `currentEntitySet`=NULL, `queueSize`=NULL, `count`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`indexing`)) {
         stopifnot(is.vector(`indexing`))
@@ -99,6 +103,7 @@ IndexingState <- R6::R6Class(
       if (!is.null(IndexingStateObject$`count`)) {
         self$`count` <- IndexingStateObject$`count`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -152,3 +157,4 @@ IndexingState <- R6::R6Class(
     }
   )
 )
+

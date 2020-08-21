@@ -24,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import java.util.*;
+import java.util.Map;
 import org.openapitools.client.model.MetadataUpdate;
 import org.openapitools.client.model.OrganizationExternalDatabaseColumn;
 import org.openapitools.client.model.OrganizationExternalDatabaseTable;
@@ -899,24 +900,24 @@ public class DatasetApi {
   * Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
   * 
    * @param organizationId 
-   * @param tableName 
+   * @param tableId 
    * @return OrganizationExternalDatabaseTable
   */
-  public OrganizationExternalDatabaseTable getExternalDatabaseTable (UUID organizationId, String tableName) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrganizationExternalDatabaseTable getExternalDatabaseTable (UUID organizationId, UUID tableId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'organizationId' is set
     if (organizationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTable",
         new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTable"));
     }
-    // verify the required parameter 'tableName' is set
-    if (tableName == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling getExternalDatabaseTable",
-        new ApiException(400, "Missing the required parameter 'tableName' when calling getExternalDatabaseTable"));
+    // verify the required parameter 'tableId' is set
+    if (tableId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableId' when calling getExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'tableId' when calling getExternalDatabaseTable"));
     }
 
     // create path and map variables
-    String path = "/datastore/organization-database/{organizationId}/{tableName}/external-database-table".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString()));
+    String path = "/datastore/organization-database/{organizationId}/{tableId}/external-database-table".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableId" + "\\}", apiInvoker.escapeString(tableId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -966,9 +967,9 @@ public class DatasetApi {
       /**
    * Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
    * 
-   * @param organizationId    * @param tableName 
+   * @param organizationId    * @param tableId 
   */
-  public void getExternalDatabaseTable (UUID organizationId, String tableName, final Response.Listener<OrganizationExternalDatabaseTable> responseListener, final Response.ErrorListener errorListener) {
+  public void getExternalDatabaseTable (UUID organizationId, UUID tableId, final Response.Listener<OrganizationExternalDatabaseTable> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'organizationId' is set
@@ -976,14 +977,14 @@ public class DatasetApi {
       VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTable",
         new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTable"));
     }
-    // verify the required parameter 'tableName' is set
-    if (tableName == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'tableName' when calling getExternalDatabaseTable",
-        new ApiException(400, "Missing the required parameter 'tableName' when calling getExternalDatabaseTable"));
+    // verify the required parameter 'tableId' is set
+    if (tableId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableId' when calling getExternalDatabaseTable",
+        new ApiException(400, "Missing the required parameter 'tableId' when calling getExternalDatabaseTable"));
     }
 
     // create path and map variables
-    String path = "/datastore/organization-database/{organizationId}/{tableName}/external-database-table".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableName" + "\\}", apiInvoker.escapeString(tableName.toString()));
+    String path = "/datastore/organization-database/{organizationId}/{tableId}/external-database-table".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableId" + "\\}", apiInvoker.escapeString(tableId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1019,6 +1020,155 @@ public class DatasetApi {
           public void onResponse(String localVarResponse) {
             try {
               responseListener.onResponse((OrganizationExternalDatabaseTable) ApiInvoker.deserialize(localVarResponse,  "", OrganizationExternalDatabaseTable.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
+  * 
+   * @param organizationId 
+   * @param tableId 
+   * @param rowCount 
+   * @return Map<String, Object>
+  */
+  public Map<String, Object> getExternalDatabaseTableData (UUID organizationId, UUID tableId, Integer rowCount) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTableData",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTableData"));
+    }
+    // verify the required parameter 'tableId' is set
+    if (tableId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableId' when calling getExternalDatabaseTableData",
+        new ApiException(400, "Missing the required parameter 'tableId' when calling getExternalDatabaseTableData"));
+    }
+    // verify the required parameter 'rowCount' is set
+    if (rowCount == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'rowCount' when calling getExternalDatabaseTableData",
+        new ApiException(400, "Missing the required parameter 'rowCount' when calling getExternalDatabaseTableData"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableId" + "\\}", apiInvoker.escapeString(tableId.toString())).replaceAll("\\{" + "rowCount" + "\\}", apiInvoker.escapeString(rowCount.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (Map<String, Object>) ApiInvoker.deserialize(localVarResponse, "map", Object.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
+   * 
+   * @param organizationId    * @param tableId    * @param rowCount 
+  */
+  public void getExternalDatabaseTableData (UUID organizationId, UUID tableId, Integer rowCount, final Response.Listener<Map<String, Object>> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling getExternalDatabaseTableData",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling getExternalDatabaseTableData"));
+    }
+    // verify the required parameter 'tableId' is set
+    if (tableId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'tableId' when calling getExternalDatabaseTableData",
+        new ApiException(400, "Missing the required parameter 'tableId' when calling getExternalDatabaseTableData"));
+    }
+    // verify the required parameter 'rowCount' is set
+    if (rowCount == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'rowCount' when calling getExternalDatabaseTableData",
+        new ApiException(400, "Missing the required parameter 'rowCount' when calling getExternalDatabaseTableData"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "tableId" + "\\}", apiInvoker.escapeString(tableId.toString())).replaceAll("\\{" + "rowCount" + "\\}", apiInvoker.escapeString(rowCount.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((Map<String, Object>) ApiInvoker.deserialize(localVarResponse,  "map", Object.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

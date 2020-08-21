@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title EntityDefinition
+#'
 #' @description EntityDefinition Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field fqn  \link{FullQualifiedName} [optional]
 #'
 #' @field entitySetName  character [optional]
@@ -17,7 +20,6 @@
 #' @field propertyDefinitions  named list( \link{PropertyDefinition} ) [optional]
 #'
 #' @field updateType  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -29,7 +31,9 @@ EntityDefinition <- R6::R6Class(
     `entitySetName` = NULL,
     `propertyDefinitions` = NULL,
     `updateType` = NULL,
-    initialize = function(`fqn`=NULL, `entitySetName`=NULL, `propertyDefinitions`=NULL, `updateType`=NULL, ...){
+    initialize = function(
+        `fqn`=NULL, `entitySetName`=NULL, `propertyDefinitions`=NULL, `updateType`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`fqn`)) {
         stopifnot(R6::is.R6(`fqn`))
@@ -86,6 +90,7 @@ EntityDefinition <- R6::R6Class(
       if (!is.null(EntityDefinitionObject$`updateType`)) {
         self$`updateType` <- EntityDefinitionObject$`updateType`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -131,3 +136,4 @@ EntityDefinition <- R6::R6Class(
     }
   )
 )
+

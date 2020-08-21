@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title EntityType
+#'
 #' @description EntityType Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field title  character [optional]
 #'
 #' @field description  character [optional]
@@ -30,7 +33,6 @@
 #'
 #' @field category  character [optional]
 #'
-#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -47,7 +49,9 @@ EntityType <- R6::R6Class(
     `propertyTags` = NULL,
     `basetype` = NULL,
     `category` = NULL,
-    initialize = function(`title`=NULL, `description`=NULL, `id`=NULL, `type`=NULL, `schemas`=NULL, `key`=NULL, `properties`=NULL, `propertyTags`=NULL, `basetype`=NULL, `category`=NULL, ...){
+    initialize = function(
+        `title`=NULL, `description`=NULL, `id`=NULL, `type`=NULL, `schemas`=NULL, `key`=NULL, `properties`=NULL, `propertyTags`=NULL, `basetype`=NULL, `category`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`title`)) {
         stopifnot(is.character(`title`), length(`title`) == 1)
@@ -173,6 +177,7 @@ EntityType <- R6::R6Class(
       if (!is.null(EntityTypeObject$`category`)) {
         self$`category` <- EntityTypeObject$`category`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -209,7 +214,19 @@ EntityType <- R6::R6Class(
         '"schemas":
         [%s]
 ',
-        paste(sapply(self$`schemas`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`schemas`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`key`)) {
         sprintf(
@@ -266,3 +283,4 @@ EntityType <- R6::R6Class(
     }
   )
 )
+

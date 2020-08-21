@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title Auth0userBasic
+#'
 #' @description Auth0userBasic Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field user_id  character [optional]
 #'
 #' @field email  character [optional]
@@ -21,7 +24,6 @@
 #' @field roles  list( character ) [optional]
 #'
 #' @field com/openlattice/organization  list( character ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -35,7 +37,9 @@ Auth0userBasic <- R6::R6Class(
     `username` = NULL,
     `roles` = NULL,
     `com/openlattice/organization` = NULL,
-    initialize = function(`user_id`=NULL, `email`=NULL, `nickname`=NULL, `username`=NULL, `roles`=NULL, `com/openlattice/organization`=NULL, ...){
+    initialize = function(
+        `user_id`=NULL, `email`=NULL, `nickname`=NULL, `username`=NULL, `roles`=NULL, `com/openlattice/organization`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`user_id`)) {
         stopifnot(is.character(`user_id`), length(`user_id`) == 1)
@@ -113,6 +117,7 @@ Auth0userBasic <- R6::R6Class(
       if (!is.null(Auth0userBasicObject$`com/openlattice/organization`)) {
         self$`com/openlattice/organization` <- ApiClient$new()$deserializeObj(Auth0userBasicObject$`com/openlattice/organization`, "array[character]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -174,3 +179,4 @@ Auth0userBasic <- R6::R6Class(
     }
   )
 )
+

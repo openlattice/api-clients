@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title EntityTypeCollection
+#'
 #' @description EntityTypeCollection Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field id  character [optional]
 #'
 #' @field type  \link{FullQualifiedName} [optional]
@@ -21,7 +24,6 @@
 #' @field schemas  list( \link{FullQualifiedName} ) [optional]
 #'
 #' @field template  list( \link{CollectionTemplateType} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -35,7 +37,9 @@ EntityTypeCollection <- R6::R6Class(
     `description` = NULL,
     `schemas` = NULL,
     `template` = NULL,
-    initialize = function(`id`=NULL, `type`=NULL, `title`=NULL, `description`=NULL, `schemas`=NULL, `template`=NULL, ...){
+    initialize = function(
+        `id`=NULL, `type`=NULL, `title`=NULL, `description`=NULL, `schemas`=NULL, `template`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -115,6 +119,7 @@ EntityTypeCollection <- R6::R6Class(
       if (!is.null(EntityTypeCollectionObject$`template`)) {
         self$`template` <- ApiClient$new()$deserializeObj(EntityTypeCollectionObject$`template`, "array[CollectionTemplateType]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -151,14 +156,38 @@ EntityTypeCollection <- R6::R6Class(
         '"schemas":
         [%s]
 ',
-        paste(sapply(self$`schemas`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`schemas`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`template`)) {
         sprintf(
         '"template":
         [%s]
 ',
-        paste(sapply(self$`template`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`template`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -176,3 +205,4 @@ EntityTypeCollection <- R6::R6Class(
     }
   )
 )
+

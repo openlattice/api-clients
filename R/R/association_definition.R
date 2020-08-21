@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title AssociationDefinition
+#'
 #' @description AssociationDefinition Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field fqn  \link{FullQualifiedName} [optional]
 #'
 #' @field entitySetName  character [optional]
@@ -21,7 +24,6 @@
 #' @field src  character [optional]
 #'
 #' @field dst  character [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -35,7 +37,9 @@ AssociationDefinition <- R6::R6Class(
     `updateType` = NULL,
     `src` = NULL,
     `dst` = NULL,
-    initialize = function(`fqn`=NULL, `entitySetName`=NULL, `propertyDefinitions`=NULL, `updateType`=NULL, `src`=NULL, `dst`=NULL, ...){
+    initialize = function(
+        `fqn`=NULL, `entitySetName`=NULL, `propertyDefinitions`=NULL, `updateType`=NULL, `src`=NULL, `dst`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`fqn`)) {
         stopifnot(R6::is.R6(`fqn`))
@@ -114,6 +118,7 @@ AssociationDefinition <- R6::R6Class(
       if (!is.null(AssociationDefinitionObject$`dst`)) {
         self$`dst` <- AssociationDefinitionObject$`dst`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -175,3 +180,4 @@ AssociationDefinition <- R6::R6Class(
     }
   )
 )
+

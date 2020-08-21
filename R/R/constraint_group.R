@@ -8,12 +8,14 @@
 
 #' @docType class
 #' @title ConstraintGroup
+#'
 #' @description ConstraintGroup Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field min  integer [optional]
 #'
 #' @field constraints  list( \link{Constraint} ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -23,7 +25,9 @@ ConstraintGroup <- R6::R6Class(
   public = list(
     `min` = NULL,
     `constraints` = NULL,
-    initialize = function(`min`=NULL, `constraints`=NULL, ...){
+    initialize = function(
+        `min`=NULL, `constraints`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`min`)) {
         stopifnot(is.numeric(`min`), length(`min`) == 1)
@@ -56,6 +60,7 @@ ConstraintGroup <- R6::R6Class(
       if (!is.null(ConstraintGroupObject$`constraints`)) {
         self$`constraints` <- ApiClient$new()$deserializeObj(ConstraintGroupObject$`constraints`, "array[Constraint]", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -71,7 +76,19 @@ ConstraintGroup <- R6::R6Class(
         '"constraints":
         [%s]
 ',
-        paste(sapply(self$`constraints`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`constraints`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -85,3 +102,4 @@ ConstraintGroup <- R6::R6Class(
     }
   )
 )
+

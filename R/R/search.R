@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title Search
+#'
 #' @description Search Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field keyword  character [optional]
 #'
 #' @field entityTypeId  character [optional]
@@ -19,7 +22,6 @@
 #' @field start  integer [optional]
 #'
 #' @field maxHits  integer [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -32,7 +34,9 @@ Search <- R6::R6Class(
     `propertyTypeIds` = NULL,
     `start` = NULL,
     `maxHits` = NULL,
-    initialize = function(`keyword`=NULL, `entityTypeId`=NULL, `propertyTypeIds`=NULL, `start`=NULL, `maxHits`=NULL, ...){
+    initialize = function(
+        `keyword`=NULL, `entityTypeId`=NULL, `propertyTypeIds`=NULL, `start`=NULL, `maxHits`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`keyword`)) {
         stopifnot(is.character(`keyword`), length(`keyword`) == 1)
@@ -98,6 +102,7 @@ Search <- R6::R6Class(
       if (!is.null(SearchObject$`maxHits`)) {
         self$`maxHits` <- SearchObject$`maxHits`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -151,3 +156,4 @@ Search <- R6::R6Class(
     }
   )
 )
+

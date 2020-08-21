@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title Constraint
+#'
 #' @description Constraint Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field type  character [optional]
 #'
 #' @field searchTerm  character [optional]
@@ -34,7 +37,6 @@
 #'
 #' @field end  character [optional]
 #'
-#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -53,7 +55,9 @@ Constraint <- R6::R6Class(
     `zones` = NULL,
     `start` = NULL,
     `end` = NULL,
-    initialize = function(`type`=NULL, `searchTerm`=NULL, `fuzzy`=NULL, `searchFields`=NULL, `propertyTypeId`=NULL, `latitude`=NULL, `longitude`=NULL, `radius`=NULL, `unit`=NULL, `zones`=NULL, `start`=NULL, `end`=NULL, ...){
+    initialize = function(
+        `type`=NULL, `searchTerm`=NULL, `fuzzy`=NULL, `searchFields`=NULL, `propertyTypeId`=NULL, `latitude`=NULL, `longitude`=NULL, `radius`=NULL, `unit`=NULL, `zones`=NULL, `start`=NULL, `end`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`type`)) {
         stopifnot(is.character(`type`), length(`type`) == 1)
@@ -193,6 +197,7 @@ Constraint <- R6::R6Class(
       if (!is.null(ConstraintObject$`end`)) {
         self$`end` <- ConstraintObject$`end`
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -222,7 +227,19 @@ Constraint <- R6::R6Class(
         '"searchFields":
         [%s]
 ',
-        paste(sapply(self$`searchFields`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`searchFields`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`propertyTypeId`)) {
         sprintf(
@@ -264,7 +281,19 @@ Constraint <- R6::R6Class(
         '"zones":
         [%s]
 ',
-        paste(sapply(self$`zones`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`zones`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`start`)) {
         sprintf(
@@ -302,3 +331,4 @@ Constraint <- R6::R6Class(
     }
   )
 )
+

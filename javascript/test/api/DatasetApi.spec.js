@@ -118,6 +118,16 @@
         done();
       });
     });
+    describe('getExternalDatabaseTableData', function() {
+      it('should call getExternalDatabaseTableData successfully', function(done) {
+        //uncomment below and update the code to test getExternalDatabaseTableData
+        //instance.getExternalDatabaseTableData(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getExternalDatabaseTableWithColumnMetadata', function() {
       it('should call getExternalDatabaseTableWithColumnMetadata successfully', function(done) {
         //uncomment below and update the code to test getExternalDatabaseTableWithColumnMetadata

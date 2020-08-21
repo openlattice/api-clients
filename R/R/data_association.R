@@ -8,8 +8,11 @@
 
 #' @docType class
 #' @title DataAssociation
+#'
 #' @description DataAssociation Class
+#'
 #' @format An \code{R6Class} generator object
+#'
 #' @field srcEntitySetId  character [optional]
 #'
 #' @field srcEntityIndex  character [optional]
@@ -24,7 +27,6 @@
 #'
 #' @field data  named list( \link{array[character]} ) [optional]
 #'
-#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -38,7 +40,9 @@ DataAssociation <- R6::R6Class(
     `dstEntityIndex` = NULL,
     `dstEntityKeyId` = NULL,
     `data` = NULL,
-    initialize = function(`srcEntitySetId`=NULL, `srcEntityIndex`=NULL, `srcEntityKeyId`=NULL, `dstEntitySetId`=NULL, `dstEntityIndex`=NULL, `dstEntityKeyId`=NULL, `data`=NULL, ...){
+    initialize = function(
+        `srcEntitySetId`=NULL, `srcEntityIndex`=NULL, `srcEntityKeyId`=NULL, `dstEntitySetId`=NULL, `dstEntityIndex`=NULL, `dstEntityKeyId`=NULL, `data`=NULL, ...
+    ) {
       local.optional.var <- list(...)
       if (!is.null(`srcEntitySetId`)) {
         stopifnot(is.character(`srcEntitySetId`), length(`srcEntitySetId`) == 1)
@@ -126,6 +130,7 @@ DataAssociation <- R6::R6Class(
       if (!is.null(DataAssociationObject$`data`)) {
         self$`data` <- ApiClient$new()$deserializeObj(DataAssociationObject$`data`, "list(array[character])", loadNamespace("openlattice"))
       }
+      self
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -195,3 +200,4 @@ DataAssociation <- R6::R6Class(
     }
   )
 )
+
