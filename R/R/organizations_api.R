@@ -1279,7 +1279,11 @@ OrganizationsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`organization`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`organization`)) {
+                  `organization`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`organization`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1342,7 +1346,11 @@ OrganizationsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`role`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`role`)) {
+                  `role`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`role`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -2158,7 +2166,13 @@ OrganizationsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -2347,7 +2361,13 @@ OrganizationsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL

@@ -1909,7 +1909,13 @@ EdmApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`association_type`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`association_type`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -2020,7 +2026,11 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`entity_type`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`entity_type`)) {
+                  `entity_type`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`entity_type`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -2073,7 +2083,11 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`property_type`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`property_type`)) {
+                  `property_type`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`property_type`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -2130,7 +2144,11 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`schema`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`schema`)) {
+                  `schema`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`schema`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -2953,7 +2971,11 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`ed_mdiff`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`ed_mdiff`)) {
+                  `ed_mdiff`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`ed_mdiff`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -3882,7 +3904,11 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`EDM`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`EDM`)) {
+                  `EDM`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`EDM`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -3943,7 +3969,11 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`metadata_update`)) {
+                  `metadata_update`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -4066,7 +4096,11 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`metadata_update`)) {
+                  `metadata_update`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -4135,7 +4169,11 @@ EdmApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`edm_request`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`edm_request`)) {
+                  `edm_request`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`edm_request`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL

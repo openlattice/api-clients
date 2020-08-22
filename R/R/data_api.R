@@ -754,7 +754,11 @@ DataApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`inline_object`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`inline_object`)) {
+                  `inline_object`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`inline_object`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -817,7 +821,13 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`data_edge_key`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`data_edge_key`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -886,7 +896,13 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -949,7 +965,11 @@ DataApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`data_graph`$toJSON(), auto_unbox=TRUE, digits = NA)
+                  if ('toJSONString' %in% names(`data_graph`)) {
+                  `data_graph`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`data_graph`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1078,7 +1098,13 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -1155,7 +1181,13 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`entity_neighbors_filter`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`entity_neighbors_filter`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -1300,7 +1332,13 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -1617,7 +1655,13 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`entity_set_selection`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`entity_set_selection`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -1688,7 +1732,13 @@ DataApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`entity_set_selection`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+              paste(sapply(`entity_set_selection`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
