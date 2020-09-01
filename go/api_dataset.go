@@ -551,10 +551,10 @@ func (a *DatasetApiService) GetExternalDatabaseColumn(ctx _context.Context, orga
 GetExternalDatabaseTable Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param organizationId
- * @param tableId
+ * @param tableName
 @return OrganizationExternalDatabaseTable
 */
-func (a *DatasetApiService) GetExternalDatabaseTable(ctx _context.Context, organizationId string, tableId string) (OrganizationExternalDatabaseTable, *_nethttp.Response, error) {
+func (a *DatasetApiService) GetExternalDatabaseTable(ctx _context.Context, organizationId string, tableName string) (OrganizationExternalDatabaseTable, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -565,106 +565,10 @@ func (a *DatasetApiService) GetExternalDatabaseTable(ctx _context.Context, organ
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableId}/external-database-table"
+	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableName}/external-database-table"
 	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
 
-	localVarPath = strings.Replace(localVarPath, "{"+"tableId"+"}", _neturl.PathEscape(parameterToString(tableId, "")) , -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if ctx != nil {
-		// API Key Authentication
-		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
-			var key string
-			if auth.Prefix != "" {
-				key = auth.Prefix + " " + auth.Key
-			} else {
-				key = auth.Key
-			}
-			localVarHeaderParams["Authorization"] = key
-		}
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(_bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-/*
-GetExternalDatabaseTableData Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param organizationId
- * @param tableId
- * @param rowCount
-@return map[string]map[string]interface{}
-*/
-func (a *DatasetApiService) GetExternalDatabaseTableData(ctx _context.Context, organizationId string, tableId string, rowCount int32) (map[string]map[string]interface{}, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  map[string]map[string]interface{}
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data"
-	localVarPath = strings.Replace(localVarPath, "{"+"organizationId"+"}", _neturl.PathEscape(parameterToString(organizationId, "")) , -1)
-
-	localVarPath = strings.Replace(localVarPath, "{"+"tableId"+"}", _neturl.PathEscape(parameterToString(tableId, "")) , -1)
-
-	localVarPath = strings.Replace(localVarPath, "{"+"rowCount"+"}", _neturl.PathEscape(parameterToString(rowCount, "")) , -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"tableName"+"}", _neturl.PathEscape(parameterToString(tableName, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}

@@ -1530,7 +1530,7 @@ EntitySetsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`metadata_update`)) {
-                  `metadata_update`$toJSONString()
+                    `metadata_update`$toJSONString()
                   } else {
                     jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -1609,7 +1609,7 @@ EntitySetsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`metadata_update`)) {
-                  `metadata_update`$toJSONString()
+                    `metadata_update`$toJSONString()
                   } else {
                     jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }

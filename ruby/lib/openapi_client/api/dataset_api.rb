@@ -428,20 +428,20 @@ module OpenapiClient
 
     # Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.
     # @param organization_id [String] 
-    # @param table_id [String] 
+    # @param table_name [String] 
     # @param [Hash] opts the optional parameters
     # @return [OrganizationExternalDatabaseTable]
-    def get_external_database_table(organization_id, table_id, opts = {})
-      data, _status_code, _headers = get_external_database_table_with_http_info(organization_id, table_id, opts)
+    def get_external_database_table(organization_id, table_name, opts = {})
+      data, _status_code, _headers = get_external_database_table_with_http_info(organization_id, table_name, opts)
       data
     end
 
     # Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
     # @param organization_id [String] 
-    # @param table_id [String] 
+    # @param table_name [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrganizationExternalDatabaseTable, Integer, Hash)>] OrganizationExternalDatabaseTable data, response status code and response headers
-    def get_external_database_table_with_http_info(organization_id, table_id, opts = {})
+    def get_external_database_table_with_http_info(organization_id, table_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DatasetApi.get_external_database_table ...'
       end
@@ -449,12 +449,12 @@ module OpenapiClient
       if @api_client.config.client_side_validation && organization_id.nil?
         fail ArgumentError, "Missing the required parameter 'organization_id' when calling DatasetApi.get_external_database_table"
       end
-      # verify the required parameter 'table_id' is set
-      if @api_client.config.client_side_validation && table_id.nil?
-        fail ArgumentError, "Missing the required parameter 'table_id' when calling DatasetApi.get_external_database_table"
+      # verify the required parameter 'table_name' is set
+      if @api_client.config.client_side_validation && table_name.nil?
+        fail ArgumentError, "Missing the required parameter 'table_name' when calling DatasetApi.get_external_database_table"
       end
       # resource path
-      local_var_path = '/datastore/organization-database/{organizationId}/{tableId}/external-database-table'.sub('{' + 'organizationId' + '}', CGI.escape(organization_id.to_s)).sub('{' + 'tableId' + '}', CGI.escape(table_id.to_s))
+      local_var_path = '/datastore/organization-database/{organizationId}/{tableName}/external-database-table'.sub('{' + 'organizationId' + '}', CGI.escape(organization_id.to_s)).sub('{' + 'tableName' + '}', CGI.escape(table_name.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -488,78 +488,6 @@ module OpenapiClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DatasetApi#get_external_database_table\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
-    # @param organization_id [String] 
-    # @param table_id [String] 
-    # @param row_count [Integer] 
-    # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
-    def get_external_database_table_data(organization_id, table_id, row_count, opts = {})
-      data, _status_code, _headers = get_external_database_table_data_with_http_info(organization_id, table_id, row_count, opts)
-      data
-    end
-
-    # Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
-    # @param organization_id [String] 
-    # @param table_id [String] 
-    # @param row_count [Integer] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
-    def get_external_database_table_data_with_http_info(organization_id, table_id, row_count, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DatasetApi.get_external_database_table_data ...'
-      end
-      # verify the required parameter 'organization_id' is set
-      if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling DatasetApi.get_external_database_table_data"
-      end
-      # verify the required parameter 'table_id' is set
-      if @api_client.config.client_side_validation && table_id.nil?
-        fail ArgumentError, "Missing the required parameter 'table_id' when calling DatasetApi.get_external_database_table_data"
-      end
-      # verify the required parameter 'row_count' is set
-      if @api_client.config.client_side_validation && row_count.nil?
-        fail ArgumentError, "Missing the required parameter 'row_count' when calling DatasetApi.get_external_database_table_data"
-      end
-      # resource path
-      local_var_path = '/datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data'.sub('{' + 'organizationId' + '}', CGI.escape(organization_id.to_s)).sub('{' + 'tableId' + '}', CGI.escape(table_id.to_s)).sub('{' + 'rowCount' + '}', CGI.escape(row_count.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
-      # return_type
-      return_type = opts[:return_type] || 'Hash<String, Object>' 
-
-      # auth_names
-      auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
-
-      new_options = opts.merge(
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DatasetApi#get_external_database_table_data\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

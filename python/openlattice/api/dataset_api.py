@@ -887,19 +887,19 @@ class DatasetApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def get_external_database_table(self, organization_id, table_id, **kwargs):  # noqa: E501
+    def get_external_database_table(self, organization_id, table_name, **kwargs):  # noqa: E501
         """Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_external_database_table(organization_id, table_id, async_req=True)
+        >>> thread = api.get_external_database_table(organization_id, table_name, async_req=True)
         >>> result = thread.get()
 
         :param organization_id: (required)
         :type organization_id: str
-        :param table_id: (required)
-        :type table_id: str
+        :param table_name: (required)
+        :type table_name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -916,21 +916,21 @@ class DatasetApi(object):
         :rtype: OrganizationExternalDatabaseTable
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_external_database_table_with_http_info(organization_id, table_id, **kwargs)  # noqa: E501
+        return self.get_external_database_table_with_http_info(organization_id, table_name, **kwargs)  # noqa: E501
 
-    def get_external_database_table_with_http_info(self, organization_id, table_id, **kwargs):  # noqa: E501
+    def get_external_database_table_with_http_info(self, organization_id, table_name, **kwargs):  # noqa: E501
         """Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_external_database_table_with_http_info(organization_id, table_id, async_req=True)
+        >>> thread = api.get_external_database_table_with_http_info(organization_id, table_name, async_req=True)
         >>> result = thread.get()
 
         :param organization_id: (required)
         :type organization_id: str
-        :param table_id: (required)
-        :type table_id: str
+        :param table_name: (required)
+        :type table_name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -958,7 +958,7 @@ class DatasetApi(object):
 
         all_params = [
             'organization_id',
-            'table_id'
+            'table_name'
         ]
         all_params.extend(
             [
@@ -982,18 +982,18 @@ class DatasetApi(object):
         if self.api_client.client_side_validation and ('organization_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['organization_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `organization_id` when calling `get_external_database_table`")  # noqa: E501
-        # verify the required parameter 'table_id' is set
-        if self.api_client.client_side_validation and ('table_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['table_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `table_id` when calling `get_external_database_table`")  # noqa: E501
+        # verify the required parameter 'table_name' is set
+        if self.api_client.client_side_validation and ('table_name' not in local_var_params or  # noqa: E501
+                                                        local_var_params['table_name'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `table_name` when calling `get_external_database_table`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
         if 'organization_id' in local_var_params:
             path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
-        if 'table_id' in local_var_params:
-            path_params['tableId'] = local_var_params['table_id']  # noqa: E501
+        if 'table_name' in local_var_params:
+            path_params['tableName'] = local_var_params['table_name']  # noqa: E501
 
         query_params = []
 
@@ -1011,7 +1011,7 @@ class DatasetApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/organization-database/{organizationId}/{tableId}/external-database-table', 'GET',
+            '/datastore/organization-database/{organizationId}/{tableName}/external-database-table', 'GET',
             path_params,
             query_params,
             header_params,
@@ -1019,157 +1019,6 @@ class DatasetApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='OrganizationExternalDatabaseTable',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
-    def get_external_database_table_data(self, organization_id, table_id, row_count, **kwargs):  # noqa: E501
-        """Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_external_database_table_data(organization_id, table_id, row_count, async_req=True)
-        >>> result = thread.get()
-
-        :param organization_id: (required)
-        :type organization_id: str
-        :param table_id: (required)
-        :type table_id: str
-        :param row_count: (required)
-        :type row_count: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: dict(str, object)
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_external_database_table_data_with_http_info(organization_id, table_id, row_count, **kwargs)  # noqa: E501
-
-    def get_external_database_table_data_with_http_info(self, organization_id, table_id, row_count, **kwargs):  # noqa: E501
-        """Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_external_database_table_data_with_http_info(organization_id, table_id, row_count, async_req=True)
-        >>> result = thread.get()
-
-        :param organization_id: (required)
-        :type organization_id: str
-        :param table_id: (required)
-        :type table_id: str
-        :param row_count: (required)
-        :type row_count: int
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: tuple(dict(str, object), status_code(int), headers(HTTPHeaderDict))
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organization_id',
-            'table_id',
-            'row_count'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_external_database_table_data" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organization_id' is set
-        if self.api_client.client_side_validation and ('organization_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organization_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organization_id` when calling `get_external_database_table_data`")  # noqa: E501
-        # verify the required parameter 'table_id' is set
-        if self.api_client.client_side_validation and ('table_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['table_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `table_id` when calling `get_external_database_table_data`")  # noqa: E501
-        # verify the required parameter 'row_count' is set
-        if self.api_client.client_side_validation and ('row_count' not in local_var_params or  # noqa: E501
-                                                        local_var_params['row_count'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `row_count` when calling `get_external_database_table_data`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organization_id' in local_var_params:
-            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
-        if 'table_id' in local_var_params:
-            path_params['tableId'] = local_var_params['table_id']  # noqa: E501
-        if 'row_count' in local_var_params:
-            path_params['rowCount'] = local_var_params['row_count']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='dict(str, object)',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

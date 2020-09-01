@@ -362,7 +362,7 @@ ShuttleApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`integration`)) {
-                  `integration`$toJSONString()
+                    `integration`$toJSONString()
                   } else {
                     jsonlite::toJSON(`integration`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -761,7 +761,7 @@ ShuttleApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`integration_update`)) {
-                  `integration_update`$toJSONString()
+                    `integration_update`$toJSONString()
                   } else {
                     jsonlite::toJSON(`integration_update`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }

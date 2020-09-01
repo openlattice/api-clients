@@ -214,7 +214,7 @@ DataIntegrationsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`bulk_data_creation`)) {
-                  `bulk_data_creation`$toJSONString()
+                    `bulk_data_creation`$toJSONString()
                   } else {
                     jsonlite::toJSON(`bulk_data_creation`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }

@@ -109,23 +109,10 @@ describe 'DatasetApi' do
   # unit tests for get_external_database_table
   # Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
   # @param organization_id 
-  # @param table_id 
+  # @param table_name 
   # @param [Hash] opts the optional parameters
   # @return [OrganizationExternalDatabaseTable]
   describe 'get_external_database_table test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for get_external_database_table_data
-  # Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
-  # @param organization_id 
-  # @param table_id 
-  # @param row_count 
-  # @param [Hash] opts the optional parameters
-  # @return [Hash<String, Object>]
-  describe 'get_external_database_table_data test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

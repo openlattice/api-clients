@@ -206,7 +206,7 @@ PermissionsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`acl_data`)) {
-                  `acl_data`$toJSONString()
+                    `acl_data`$toJSONString()
                   } else {
                     jsonlite::toJSON(`acl_data`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }

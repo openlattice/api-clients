@@ -755,7 +755,7 @@ DataApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`inline_object`)) {
-                  `inline_object`$toJSONString()
+                    `inline_object`$toJSONString()
                   } else {
                     jsonlite::toJSON(`inline_object`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -966,7 +966,7 @@ DataApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`data_graph`)) {
-                  `data_graph`$toJSONString()
+                    `data_graph`$toJSONString()
                   } else {
                     jsonlite::toJSON(`data_graph`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }

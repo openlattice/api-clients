@@ -1280,7 +1280,7 @@ OrganizationsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`organization`)) {
-                  `organization`$toJSONString()
+                    `organization`$toJSONString()
                   } else {
                     jsonlite::toJSON(`organization`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -1347,7 +1347,7 @@ OrganizationsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`role`)) {
-                  `role`$toJSONString()
+                    `role`$toJSONString()
                   } else {
                     jsonlite::toJSON(`role`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }

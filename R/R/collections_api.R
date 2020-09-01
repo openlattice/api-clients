@@ -583,7 +583,7 @@ CollectionsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`collection_template_type`)) {
-                  `collection_template_type`$toJSONString()
+                    `collection_template_type`$toJSONString()
                   } else {
                     jsonlite::toJSON(`collection_template_type`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -648,7 +648,7 @@ CollectionsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`entity_set_collection`)) {
-                  `entity_set_collection`$toJSONString()
+                    `entity_set_collection`$toJSONString()
                   } else {
                     jsonlite::toJSON(`entity_set_collection`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -715,7 +715,7 @@ CollectionsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`entity_type_collection`)) {
-                  `entity_type_collection`$toJSONString()
+                    `entity_type_collection`$toJSONString()
                   } else {
                     jsonlite::toJSON(`entity_type_collection`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -1208,7 +1208,7 @@ CollectionsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`metadata_update`)) {
-                  `metadata_update`$toJSONString()
+                    `metadata_update`$toJSONString()
                   } else {
                     jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -1342,7 +1342,7 @@ CollectionsApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`metadata_update`)) {
-                  `metadata_update`$toJSONString()
+                    `metadata_update`$toJSONString()
                   } else {
                     jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
