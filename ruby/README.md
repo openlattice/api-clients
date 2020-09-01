@@ -89,6 +89,14 @@ Class | Method | HTTP request | Description
 *OpenapiClient::AdminApi* | [**get_indexing_state**](docs/AdminApi.md#get_indexing_state) | **GET** /indexer/index/reindex | Retrieve the current state of reindexing jobs
 *OpenapiClient::AdminApi* | [**reindex**](docs/AdminApi.md#reindex) | **POST** /indexer/index/reindex | Merge job descriptions for performing a partial or full reindex of provided entity sets.
 *OpenapiClient::AdminApi* | [**update_reindex**](docs/AdminApi.md#update_reindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
+*OpenapiClient::AppApi* | [**create_app**](docs/AppApi.md#create_app) | **POST** /datastore/app | Create an app if it doesn't exist.
+*OpenapiClient::AppApi* | [**create_app_role**](docs/AppApi.md#create_app_role) | **POST** /datastore/app/update/{appId}/role | Create an app role
+*OpenapiClient::AppApi* | [**delete_app**](docs/AppApi.md#delete_app) | **DELETE** /datastore/app/{appId} | Delete an app
+*OpenapiClient::AppApi* | [**delete_role_from_app**](docs/AppApi.md#delete_role_from_app) | **DELETE** /datastore/app/update/{appId}/role/{roleId} | Delete an app role
+*OpenapiClient::AppApi* | [**get_app**](docs/AppApi.md#get_app) | **GET** /datastore/app/{appId} | Get an app based on the ID
+*OpenapiClient::AppApi* | [**get_app_by_name**](docs/AppApi.md#get_app_by_name) | **GET** /datastore/app/lookup/{name} | Get an app based on the name
+*OpenapiClient::AppApi* | [**get_apps**](docs/AppApi.md#get_apps) | **GET** /datastore/app | Get all apps
+*OpenapiClient::AppApi* | [**get_available_app_configs_old**](docs/AppApi.md#get_available_app_configs_old) | **GET** /datastore/app/config/{appId} | Get historical app configurations for an app
 *OpenapiClient::AuthorizationsApi* | [**check_authorizations**](docs/AuthorizationsApi.md#check_authorizations) | **POST** /datastore/authorizations | Check authorizations
 *OpenapiClient::AuthorizationsApi* | [**get_accessible_objects**](docs/AuthorizationsApi.md#get_accessible_objects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 *OpenapiClient::CollectionsApi* | [**add_type_to_entity_type_collection_template**](docs/CollectionsApi.md#add_type_to_entity_type_collection_template) | **PATCH** /datastore/collections/entity/type/{entityTypeCollectionId}/template | Appends type to template of the specified EntityTypeCollection
@@ -131,8 +139,7 @@ Class | Method | HTTP request | Description
 *OpenapiClient::DatasetApi* | [**delete_external_database_tables**](docs/DatasetApi.md#delete_external_database_tables) | **DELETE** /datastore/organization-database/{organizationId}/external-database-table | Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
 *OpenapiClient::DatasetApi* | [**get_authorized_external_db_tables_with_column_metadata**](docs/DatasetApi.md#get_authorized_external_db_tables_with_column_metadata) | **GET** /datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
 *OpenapiClient::DatasetApi* | [**get_external_database_column**](docs/DatasetApi.md#get_external_database_column) | **GET** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization's table in an external database.
-*OpenapiClient::DatasetApi* | [**get_external_database_table**](docs/DatasetApi.md#get_external_database_table) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.
-*OpenapiClient::DatasetApi* | [**get_external_database_table_data**](docs/DatasetApi.md#get_external_database_table_data) | **GET** /datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data | Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
+*OpenapiClient::DatasetApi* | [**get_external_database_table**](docs/DatasetApi.md#get_external_database_table) | **GET** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.
 *OpenapiClient::DatasetApi* | [**get_external_database_table_with_column_metadata**](docs/DatasetApi.md#get_external_database_table_with_column_metadata) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
 *OpenapiClient::DatasetApi* | [**get_external_database_tables**](docs/DatasetApi.md#get_external_database_tables) | **GET** /datastore/organization-database/{organizationId}/external-database-table | Gets all OrganizationExternalDatabaseTable objects for an organization
 *OpenapiClient::DatasetApi* | [**get_external_database_tables_with_column_metadata**](docs/DatasetApi.md#get_external_database_tables_with_column_metadata) | **GET** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
@@ -277,6 +284,9 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::Acl](docs/Acl.md)
  - [OpenapiClient::AclData](docs/AclData.md)
  - [OpenapiClient::AdvancedSearch](docs/AdvancedSearch.md)
+ - [OpenapiClient::App](docs/App.md)
+ - [OpenapiClient::AppRole](docs/AppRole.md)
+ - [OpenapiClient::AppRolePermissions](docs/AppRolePermissions.md)
  - [OpenapiClient::Association](docs/Association.md)
  - [OpenapiClient::AssociationDefinition](docs/AssociationDefinition.md)
  - [OpenapiClient::AssociationType](docs/AssociationType.md)
@@ -316,6 +326,8 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::FlightPlanParameters](docs/FlightPlanParameters.md)
  - [OpenapiClient::FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [OpenapiClient::FullQualifiedName](docs/FullQualifiedName.md)
+ - [OpenapiClient::HistoricalAppConfig](docs/HistoricalAppConfig.md)
+ - [OpenapiClient::HistoricalAppTypeSetting](docs/HistoricalAppTypeSetting.md)
  - [OpenapiClient::IndexingState](docs/IndexingState.md)
  - [OpenapiClient::InlineObject](docs/InlineObject.md)
  - [OpenapiClient::InlineResponse200](docs/InlineResponse200.md)

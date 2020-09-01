@@ -132,6 +132,14 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.AdminApi* | [**getIndexingState**](docs/AdminApi.md#getIndexingState) | **GET** /indexer/index/reindex | Retrieve the current state of reindexing jobs
 *OpenLatticeApi.AdminApi* | [**reindex**](docs/AdminApi.md#reindex) | **POST** /indexer/index/reindex | Merge job descriptions for performing a partial or full reindex of provided entity sets.
 *OpenLatticeApi.AdminApi* | [**updateReindex**](docs/AdminApi.md#updateReindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
+*OpenLatticeApi.AppApi* | [**createApp**](docs/AppApi.md#createApp) | **POST** /datastore/app | Create an app if it doesn&#39;t exist.
+*OpenLatticeApi.AppApi* | [**createAppRole**](docs/AppApi.md#createAppRole) | **POST** /datastore/app/update/{appId}/role | Create an app role
+*OpenLatticeApi.AppApi* | [**deleteApp**](docs/AppApi.md#deleteApp) | **DELETE** /datastore/app/{appId} | Delete an app
+*OpenLatticeApi.AppApi* | [**deleteRoleFromApp**](docs/AppApi.md#deleteRoleFromApp) | **DELETE** /datastore/app/update/{appId}/role/{roleId} | Delete an app role
+*OpenLatticeApi.AppApi* | [**getApp**](docs/AppApi.md#getApp) | **GET** /datastore/app/{appId} | Get an app based on the ID
+*OpenLatticeApi.AppApi* | [**getAppByName**](docs/AppApi.md#getAppByName) | **GET** /datastore/app/lookup/{name} | Get an app based on the name
+*OpenLatticeApi.AppApi* | [**getApps**](docs/AppApi.md#getApps) | **GET** /datastore/app | Get all apps
+*OpenLatticeApi.AppApi* | [**getAvailableAppConfigsOld**](docs/AppApi.md#getAvailableAppConfigsOld) | **GET** /datastore/app/config/{appId} | Get historical app configurations for an app
 *OpenLatticeApi.AuthorizationsApi* | [**checkAuthorizations**](docs/AuthorizationsApi.md#checkAuthorizations) | **POST** /datastore/authorizations | Check authorizations
 *OpenLatticeApi.AuthorizationsApi* | [**getAccessibleObjects**](docs/AuthorizationsApi.md#getAccessibleObjects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 *OpenLatticeApi.CollectionsApi* | [**addTypeToEntityTypeCollectionTemplate**](docs/CollectionsApi.md#addTypeToEntityTypeCollectionTemplate) | **PATCH** /datastore/collections/entity/type/{entityTypeCollectionId}/template | Appends type to template of the specified EntityTypeCollection
@@ -174,8 +182,7 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.DatasetApi* | [**deleteExternalDatabaseTables**](docs/DatasetApi.md#deleteExternalDatabaseTables) | **DELETE** /datastore/organization-database/{organizationId}/external-database-table | Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
 *OpenLatticeApi.DatasetApi* | [**getAuthorizedExternalDbTablesWithColumnMetadata**](docs/DatasetApi.md#getAuthorizedExternalDbTablesWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
 *OpenLatticeApi.DatasetApi* | [**getExternalDatabaseColumn**](docs/DatasetApi.md#getExternalDatabaseColumn) | **GET** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization&#39;s table in an external database.
-*OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTable**](docs/DatasetApi.md#getExternalDatabaseTable) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
-*OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTableData**](docs/DatasetApi.md#getExternalDatabaseTableData) | **GET** /datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data | Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
+*OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTable**](docs/DatasetApi.md#getExternalDatabaseTable) | **GET** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
 *OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTableWithColumnMetadata**](docs/DatasetApi.md#getExternalDatabaseTableWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
 *OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTables**](docs/DatasetApi.md#getExternalDatabaseTables) | **GET** /datastore/organization-database/{organizationId}/external-database-table | Gets all OrganizationExternalDatabaseTable objects for an organization
 *OpenLatticeApi.DatasetApi* | [**getExternalDatabaseTablesWithColumnMetadata**](docs/DatasetApi.md#getExternalDatabaseTablesWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
@@ -320,6 +327,9 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.Acl](docs/Acl.md)
  - [OpenLatticeApi.AclData](docs/AclData.md)
  - [OpenLatticeApi.AdvancedSearch](docs/AdvancedSearch.md)
+ - [OpenLatticeApi.App](docs/App.md)
+ - [OpenLatticeApi.AppRole](docs/AppRole.md)
+ - [OpenLatticeApi.AppRolePermissions](docs/AppRolePermissions.md)
  - [OpenLatticeApi.Association](docs/Association.md)
  - [OpenLatticeApi.AssociationDefinition](docs/AssociationDefinition.md)
  - [OpenLatticeApi.AssociationType](docs/AssociationType.md)
@@ -359,6 +369,8 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.FlightPlanParameters](docs/FlightPlanParameters.md)
  - [OpenLatticeApi.FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [OpenLatticeApi.FullQualifiedName](docs/FullQualifiedName.md)
+ - [OpenLatticeApi.HistoricalAppConfig](docs/HistoricalAppConfig.md)
+ - [OpenLatticeApi.HistoricalAppTypeSetting](docs/HistoricalAppTypeSetting.md)
  - [OpenLatticeApi.IndexingState](docs/IndexingState.md)
  - [OpenLatticeApi.InlineObject](docs/InlineObject.md)
  - [OpenLatticeApi.InlineResponse200](docs/InlineResponse200.md)

@@ -77,6 +77,18 @@ public class JsonUtil {
       return new TypeToken<List<AdvancedSearch>>(){}.getType();
     }
     
+    if ("App".equalsIgnoreCase(className)) {
+      return new TypeToken<List<App>>(){}.getType();
+    }
+    
+    if ("AppRole".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AppRole>>(){}.getType();
+    }
+    
+    if ("AppRolePermissions".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AppRolePermissions>>(){}.getType();
+    }
+    
     if ("Association".equalsIgnoreCase(className)) {
       return new TypeToken<List<Association>>(){}.getType();
     }
@@ -231,6 +243,14 @@ public class JsonUtil {
     
     if ("FullQualifiedName".equalsIgnoreCase(className)) {
       return new TypeToken<List<FullQualifiedName>>(){}.getType();
+    }
+    
+    if ("HistoricalAppConfig".equalsIgnoreCase(className)) {
+      return new TypeToken<List<HistoricalAppConfig>>(){}.getType();
+    }
+    
+    if ("HistoricalAppTypeSetting".equalsIgnoreCase(className)) {
+      return new TypeToken<List<HistoricalAppTypeSetting>>(){}.getType();
     }
     
     if ("IndexingState".equalsIgnoreCase(className)) {
@@ -391,6 +411,18 @@ public class JsonUtil {
       return new TypeToken<AdvancedSearch>(){}.getType();
     }
     
+    if ("App".equalsIgnoreCase(className)) {
+      return new TypeToken<App>(){}.getType();
+    }
+    
+    if ("AppRole".equalsIgnoreCase(className)) {
+      return new TypeToken<AppRole>(){}.getType();
+    }
+    
+    if ("AppRolePermissions".equalsIgnoreCase(className)) {
+      return new TypeToken<AppRolePermissions>(){}.getType();
+    }
+    
     if ("Association".equalsIgnoreCase(className)) {
       return new TypeToken<Association>(){}.getType();
     }
@@ -545,6 +577,14 @@ public class JsonUtil {
     
     if ("FullQualifiedName".equalsIgnoreCase(className)) {
       return new TypeToken<FullQualifiedName>(){}.getType();
+    }
+    
+    if ("HistoricalAppConfig".equalsIgnoreCase(className)) {
+      return new TypeToken<HistoricalAppConfig>(){}.getType();
+    }
+    
+    if ("HistoricalAppTypeSetting".equalsIgnoreCase(className)) {
+      return new TypeToken<HistoricalAppTypeSetting>(){}.getType();
     }
     
     if ("IndexingState".equalsIgnoreCase(className)) {

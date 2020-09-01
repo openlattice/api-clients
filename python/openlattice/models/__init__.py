@@ -20,6 +20,9 @@ from openlattice.models.ace import Ace
 from openlattice.models.acl import Acl
 from openlattice.models.acl_data import AclData
 from openlattice.models.advanced_search import AdvancedSearch
+from openlattice.models.app import App
+from openlattice.models.app_role import AppRole
+from openlattice.models.app_role_permissions import AppRolePermissions
 from openlattice.models.association import Association
 from openlattice.models.association_definition import AssociationDefinition
 from openlattice.models.association_type import AssociationType
@@ -59,6 +62,8 @@ from openlattice.models.flight import Flight
 from openlattice.models.flight_plan_parameters import FlightPlanParameters
 from openlattice.models.flight_plan_parameters_update import FlightPlanParametersUpdate
 from openlattice.models.full_qualified_name import FullQualifiedName
+from openlattice.models.historical_app_config import HistoricalAppConfig
+from openlattice.models.historical_app_type_setting import HistoricalAppTypeSetting
 from openlattice.models.indexing_state import IndexingState
 from openlattice.models.inline_object import InlineObject
 from openlattice.models.inline_response200 import InlineResponse200

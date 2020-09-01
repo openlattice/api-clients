@@ -86,6 +86,14 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**getIndexingState**](docs/AdminApi.md#getIndexingState) | **GET** /indexer/index/reindex | Retrieve the current state of reindexing jobs
 *AdminApi* | [**reindex**](docs/AdminApi.md#reindex) | **POST** /indexer/index/reindex | Merge job descriptions for performing a partial or full reindex of provided entity sets.
 *AdminApi* | [**updateReindex**](docs/AdminApi.md#updateReindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
+*AppApi* | [**createApp**](docs/AppApi.md#createApp) | **POST** /datastore/app | Create an app if it doesn&#39;t exist.
+*AppApi* | [**createAppRole**](docs/AppApi.md#createAppRole) | **POST** /datastore/app/update/{appId}/role | Create an app role
+*AppApi* | [**deleteApp**](docs/AppApi.md#deleteApp) | **DELETE** /datastore/app/{appId} | Delete an app
+*AppApi* | [**deleteRoleFromApp**](docs/AppApi.md#deleteRoleFromApp) | **DELETE** /datastore/app/update/{appId}/role/{roleId} | Delete an app role
+*AppApi* | [**getApp**](docs/AppApi.md#getApp) | **GET** /datastore/app/{appId} | Get an app based on the ID
+*AppApi* | [**getAppByName**](docs/AppApi.md#getAppByName) | **GET** /datastore/app/lookup/{name} | Get an app based on the name
+*AppApi* | [**getApps**](docs/AppApi.md#getApps) | **GET** /datastore/app | Get all apps
+*AppApi* | [**getAvailableAppConfigsOld**](docs/AppApi.md#getAvailableAppConfigsOld) | **GET** /datastore/app/config/{appId} | Get historical app configurations for an app
 *AuthorizationsApi* | [**checkAuthorizations**](docs/AuthorizationsApi.md#checkAuthorizations) | **POST** /datastore/authorizations | Check authorizations
 *AuthorizationsApi* | [**getAccessibleObjects**](docs/AuthorizationsApi.md#getAccessibleObjects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 *CollectionsApi* | [**addTypeToEntityTypeCollectionTemplate**](docs/CollectionsApi.md#addTypeToEntityTypeCollectionTemplate) | **PATCH** /datastore/collections/entity/type/{entityTypeCollectionId}/template | Appends type to template of the specified EntityTypeCollection
@@ -128,8 +136,7 @@ Class | Method | HTTP request | Description
 *DatasetApi* | [**deleteExternalDatabaseTables**](docs/DatasetApi.md#deleteExternalDatabaseTables) | **DELETE** /datastore/organization-database/{organizationId}/external-database-table | Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
 *DatasetApi* | [**getAuthorizedExternalDbTablesWithColumnMetadata**](docs/DatasetApi.md#getAuthorizedExternalDbTablesWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
 *DatasetApi* | [**getExternalDatabaseColumn**](docs/DatasetApi.md#getExternalDatabaseColumn) | **GET** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization&#39;s table in an external database.
-*DatasetApi* | [**getExternalDatabaseTable**](docs/DatasetApi.md#getExternalDatabaseTable) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
-*DatasetApi* | [**getExternalDatabaseTableData**](docs/DatasetApi.md#getExternalDatabaseTableData) | **GET** /datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data | Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
+*DatasetApi* | [**getExternalDatabaseTable**](docs/DatasetApi.md#getExternalDatabaseTable) | **GET** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
 *DatasetApi* | [**getExternalDatabaseTableWithColumnMetadata**](docs/DatasetApi.md#getExternalDatabaseTableWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
 *DatasetApi* | [**getExternalDatabaseTables**](docs/DatasetApi.md#getExternalDatabaseTables) | **GET** /datastore/organization-database/{organizationId}/external-database-table | Gets all OrganizationExternalDatabaseTable objects for an organization
 *DatasetApi* | [**getExternalDatabaseTablesWithColumnMetadata**](docs/DatasetApi.md#getExternalDatabaseTablesWithColumnMetadata) | **GET** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
@@ -274,6 +281,9 @@ Class | Method | HTTP request | Description
  - [Acl](docs/Acl.md)
  - [AclData](docs/AclData.md)
  - [AdvancedSearch](docs/AdvancedSearch.md)
+ - [App](docs/App.md)
+ - [AppRole](docs/AppRole.md)
+ - [AppRolePermissions](docs/AppRolePermissions.md)
  - [Association](docs/Association.md)
  - [AssociationDefinition](docs/AssociationDefinition.md)
  - [AssociationType](docs/AssociationType.md)
@@ -313,6 +323,8 @@ Class | Method | HTTP request | Description
  - [FlightPlanParameters](docs/FlightPlanParameters.md)
  - [FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
+ - [HistoricalAppConfig](docs/HistoricalAppConfig.md)
+ - [HistoricalAppTypeSetting](docs/HistoricalAppTypeSetting.md)
  - [IndexingState](docs/IndexingState.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)

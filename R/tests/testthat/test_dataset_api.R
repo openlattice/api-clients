@@ -84,21 +84,8 @@ test_that("get_external_database_table", {
   # base path: https://api.openlattice.com
   # Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
   # @param organization_id character 
-  # @param table_id character 
+  # @param table_name character 
   # @return [OrganizationExternalDatabaseTable]
-
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
-})
-
-test_that("get_external_database_table_data", {
-  # tests for get_external_database_table_data
-  # base path: https://api.openlattice.com
-  # Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
-  # @param organization_id character 
-  # @param table_id character 
-  # @param row_count integer 
-  # @return [list(object)]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

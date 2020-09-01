@@ -2027,7 +2027,7 @@ EdmApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`entity_type`)) {
-                  `entity_type`$toJSONString()
+                    `entity_type`$toJSONString()
                   } else {
                     jsonlite::toJSON(`entity_type`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -2084,7 +2084,7 @@ EdmApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`property_type`)) {
-                  `property_type`$toJSONString()
+                    `property_type`$toJSONString()
                   } else {
                     jsonlite::toJSON(`property_type`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -2145,7 +2145,7 @@ EdmApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`schema`)) {
-                  `schema`$toJSONString()
+                    `schema`$toJSONString()
                   } else {
                     jsonlite::toJSON(`schema`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -2972,7 +2972,7 @@ EdmApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`ed_mdiff`)) {
-                  `ed_mdiff`$toJSONString()
+                    `ed_mdiff`$toJSONString()
                   } else {
                     jsonlite::toJSON(`ed_mdiff`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -3905,7 +3905,7 @@ EdmApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`EDM`)) {
-                  `EDM`$toJSONString()
+                    `EDM`$toJSONString()
                   } else {
                     jsonlite::toJSON(`EDM`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -3970,7 +3970,7 @@ EdmApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`metadata_update`)) {
-                  `metadata_update`$toJSONString()
+                    `metadata_update`$toJSONString()
                   } else {
                     jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -4097,7 +4097,7 @@ EdmApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`metadata_update`)) {
-                  `metadata_update`$toJSONString()
+                    `metadata_update`$toJSONString()
                   } else {
                     jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
@@ -4170,7 +4170,7 @@ EdmApi <- R6::R6Class(
           %s
         ',
                   if ('toJSONString' %in% names(`edm_request`)) {
-                  `edm_request`$toJSONString()
+                    `edm_request`$toJSONString()
                   } else {
                     jsonlite::toJSON(`edm_request`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
