@@ -99,6 +99,7 @@ require 'openapi_client/models/search_term'
 require 'openapi_client/models/securable_principal'
 require 'openapi_client/models/sms_entity_set_information'
 require 'openapi_client/models/sort_definition'
+require 'openapi_client/models/user_app_config'
 
 # APIs
 require 'openapi_client/api/admin_api'

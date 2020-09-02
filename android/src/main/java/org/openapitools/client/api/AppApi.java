@@ -27,6 +27,7 @@ import org.openapitools.client.model.App;
 import org.openapitools.client.model.AppRole;
 import org.openapitools.client.model.HistoricalAppConfig;
 import java.util.UUID;
+import org.openapitools.client.model.UserAppConfig;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -938,6 +939,135 @@ public class AppApi {
           public void onResponse(String localVarResponse) {
             try {
               responseListener.onResponse((List<App>) ApiInvoker.deserialize(localVarResponse,  "array", App.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Get available app configurations
+  * 
+   * @param appId 
+   * @return List<UserAppConfig>
+  */
+  public List<UserAppConfig> getAvailableAppConfigs (UUID appId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'appId' when calling getAvailableAppConfigs",
+        new ApiException(400, "Missing the required parameter 'appId' when calling getAvailableAppConfigs"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/app/config";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "appId", appId));
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (List<UserAppConfig>) ApiInvoker.deserialize(localVarResponse, "array", UserAppConfig.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Get available app configurations
+   * 
+   * @param appId 
+  */
+  public void getAvailableAppConfigs (UUID appId, final Response.Listener<List<UserAppConfig>> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'appId' is set
+    if (appId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'appId' when calling getAvailableAppConfigs",
+        new ApiException(400, "Missing the required parameter 'appId' when calling getAvailableAppConfigs"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/app/config".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "appId", appId));
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((List<UserAppConfig>) ApiInvoker.deserialize(localVarResponse,  "array", UserAppConfig.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

@@ -5295,6 +5295,33 @@ paths:
       summary: Delete an app role
       tags:
       - app
+  /datastore/app/config:
+    get:
+      operationId: getAvailableAppConfigs
+      parameters:
+      - explode: true
+        in: query
+        name: appId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserAppConfig'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get available app configurations
+      tags:
+      - app
   /datastore/app/config/{appId}:
     get:
       operationId: getAvailableAppConfigsOld
@@ -8919,6 +8946,32 @@ components:
           items:
             type: string
           type: array
+      type: object
+    UserAppConfig:
+      example:
+        organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        settings:
+          key: '{}'
+        entitySetCollectionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        roles:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        organizationId:
+          format: uuid
+          type: string
+        entitySetCollectionId:
+          format: uuid
+          type: string
+        roles:
+          items:
+            format: uuid
+            type: string
+          type: array
+        settings:
+          additionalProperties:
+            type: object
+          type: object
       type: object
     inline_object:
       description: Set of associations to create. Keys are association entity set

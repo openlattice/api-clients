@@ -97,3 +97,4 @@ from openlattice.models.search_term import SearchTerm
 from openlattice.models.securable_principal import SecurablePrincipal
 from openlattice.models.sms_entity_set_information import SmsEntitySetInformation
 from openlattice.models.sort_definition import SortDefinition
+from openlattice.models.user_app_config import UserAppConfig

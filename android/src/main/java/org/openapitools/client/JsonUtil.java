@@ -385,6 +385,10 @@ public class JsonUtil {
       return new TypeToken<List<SortDefinition>>(){}.getType();
     }
     
+    if ("UserAppConfig".equalsIgnoreCase(className)) {
+      return new TypeToken<List<UserAppConfig>>(){}.getType();
+    }
+    
     return new TypeToken<List<Object>>(){}.getType();
   }
 
@@ -717,6 +721,10 @@ public class JsonUtil {
     
     if ("SortDefinition".equalsIgnoreCase(className)) {
       return new TypeToken<SortDefinition>(){}.getType();
+    }
+    
+    if ("UserAppConfig".equalsIgnoreCase(className)) {
+      return new TypeToken<UserAppConfig>(){}.getType();
     }
     
     return new TypeToken<Object>(){}.getType();

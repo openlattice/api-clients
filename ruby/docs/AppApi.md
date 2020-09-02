@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_app**](AppApi.md#get_app) | **GET** /datastore/app/{appId} | Get an app based on the ID
 [**get_app_by_name**](AppApi.md#get_app_by_name) | **GET** /datastore/app/lookup/{name} | Get an app based on the name
 [**get_apps**](AppApi.md#get_apps) | **GET** /datastore/app | Get all apps
+[**get_available_app_configs**](AppApi.md#get_available_app_configs) | **GET** /datastore/app/config | Get available app configurations
 [**get_available_app_configs_old**](AppApi.md#get_available_app_configs_old) | **GET** /datastore/app/config/{appId} | Get historical app configurations for an app
 
 
@@ -387,6 +388,61 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**Array&lt;App&gt;**](App.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_available_app_configs
+
+> Array&lt;UserAppConfig&gt; get_available_app_configs(app_id)
+
+Get available app configurations
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure Bearer authorization (JWT): http_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure API key authorization: openlattice_auth
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::AppApi.new
+app_id = 'app_id_example' # String | 
+
+begin
+  #Get available app configurations
+  result = api_instance.get_available_app_configs(app_id)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling AppApi->get_available_app_configs: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **app_id** | [**String**](.md)|  | 
+
+### Return type
+
+[**Array&lt;UserAppConfig&gt;**](UserAppConfig.md)
 
 ### Authorization
 

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**getApp**](AppApi.md#getApp) | **GET** /datastore/app/{appId} | Get an app based on the ID
 [**getAppByName**](AppApi.md#getAppByName) | **GET** /datastore/app/lookup/{name} | Get an app based on the name
 [**getApps**](AppApi.md#getApps) | **GET** /datastore/app | Get all apps
+[**getAvailableAppConfigs**](AppApi.md#getAvailableAppConfigs) | **GET** /datastore/app/config | Get available app configurations
 [**getAvailableAppConfigsOld**](AppApi.md#getAvailableAppConfigsOld) | **GET** /datastore/app/config/{appId} | Get historical app configurations for an app
 
 
@@ -310,6 +311,50 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;App&gt;**](App.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getAvailableAppConfigs
+
+> List&lt;UserAppConfig&gt; getAvailableAppConfigs(appId)
+
+Get available app configurations
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.AppApi;
+
+AppApi apiInstance = new AppApi();
+UUID appId = null; // UUID | 
+try {
+    List<UserAppConfig> result = apiInstance.getAvailableAppConfigs(appId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling AppApi#getAvailableAppConfigs");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | [**UUID**](.md)|  | [default to null]
+
+### Return type
+
+[**List&lt;UserAppConfig&gt;**](UserAppConfig.md)
 
 ### Authorization
 

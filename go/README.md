@@ -43,6 +43,7 @@ Class | Method | HTTP request | Description
 *AppApi* | [**GetApp**](docs/AppApi.md#getapp) | **Get** /datastore/app/{appId} | Get an app based on the ID
 *AppApi* | [**GetAppByName**](docs/AppApi.md#getappbyname) | **Get** /datastore/app/lookup/{name} | Get an app based on the name
 *AppApi* | [**GetApps**](docs/AppApi.md#getapps) | **Get** /datastore/app | Get all apps
+*AppApi* | [**GetAvailableAppConfigs**](docs/AppApi.md#getavailableappconfigs) | **Get** /datastore/app/config | Get available app configurations
 *AppApi* | [**GetAvailableAppConfigsOld**](docs/AppApi.md#getavailableappconfigsold) | **Get** /datastore/app/config/{appId} | Get historical app configurations for an app
 *AuthorizationsApi* | [**CheckAuthorizations**](docs/AuthorizationsApi.md#checkauthorizations) | **Post** /datastore/authorizations | Check authorizations
 *AuthorizationsApi* | [**GetAccessibleObjects**](docs/AuthorizationsApi.md#getaccessibleobjects) | **Get** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
@@ -308,6 +309,7 @@ Class | Method | HTTP request | Description
  - [SecurablePrincipal](docs/SecurablePrincipal.md)
  - [SmsEntitySetInformation](docs/SmsEntitySetInformation.md)
  - [SortDefinition](docs/SortDefinition.md)
+ - [UserAppConfig](docs/UserAppConfig.md)
 
 
 ## Documentation For Authorization

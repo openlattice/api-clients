@@ -88,6 +88,7 @@ export(SearchTerm)
 export(SecurablePrincipal)
 export(SmsEntitySetInformation)
 export(SortDefinition)
+export(UserAppConfig)
 
 # APIs
 export(AdminApi)

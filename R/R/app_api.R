@@ -130,6 +130,23 @@
 #' }
 #' }
 #'
+#' \strong{ get_available_app_configs } \emph{ Get available app configurations }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } app_id \link{character}
+#' \item \emph{ @returnType } list( \link{UserAppConfig} ) \cr
+#'
+#'
+#' \item status code : 200 | Success
+#'
+#' \item return type : array[UserAppConfig] 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ get_available_app_configs_old } \emph{ Get historical app configurations for an app }
 #' 
 #'
@@ -291,6 +308,26 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$get_apps()
+#'
+#'
+#' ####################  get_available_app_configs  ####################
+#'
+#' library(openlattice)
+#' var.app_id <- 'app_id_example' # character | 
+#'
+#' #Get available app configurations
+#' api.instance <- AppApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$get_available_app_configs(var.app_id)
 #'
 #'
 #' ####################  get_available_app_configs_old  ####################
@@ -726,6 +763,60 @@ AppApi <- R6::R6Class(
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
           self$apiClient$deserialize(resp, "array[App]", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    get_available_app_configs = function(app_id, ...){
+      apiResponse <- self$get_available_app_configsWithHttpInfo(app_id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    get_available_app_configsWithHttpInfo = function(app_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`app_id`)) {
+        stop("Missing required parameter `app_id`.")
+      }
+
+      queryParams['appId'] <- app_id
+
+      urlPath <- "/datastore/app/config"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "array[UserAppConfig]", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }

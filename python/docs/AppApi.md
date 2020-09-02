@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_app**](AppApi.md#get_app) | **GET** /datastore/app/{appId} | Get an app based on the ID
 [**get_app_by_name**](AppApi.md#get_app_by_name) | **GET** /datastore/app/lookup/{name} | Get an app based on the name
 [**get_apps**](AppApi.md#get_apps) | **GET** /datastore/app | Get all apps
+[**get_available_app_configs**](AppApi.md#get_available_app_configs) | **GET** /datastore/app/config | Get available app configurations
 [**get_available_app_configs_old**](AppApi.md#get_available_app_configs_old) | **GET** /datastore/app/config/{appId} | Get historical app configurations for an app
 
 
@@ -883,6 +884,133 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**list[App]**](App.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_available_app_configs**
+> list[UserAppConfig] get_available_app_configs(app_id)
+
+Get available app configurations
+
+### Example
+
+* Bearer (JWT) Authentication (http_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.AppApi(api_client)
+    app_id = 'app_id_example' # str | 
+
+    try:
+        # Get available app configurations
+        api_response = api_instance.get_available_app_configs(app_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AppApi->get_available_app_configs: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.AppApi(api_client)
+    app_id = 'app_id_example' # str | 
+
+    try:
+        # Get available app configurations
+        api_response = api_instance.get_available_app_configs(app_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AppApi->get_available_app_configs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **app_id** | [**str**](.md)|  | 
+
+### Return type
+
+[**list[UserAppConfig]**](UserAppConfig.md)
 
 ### Authorization
 

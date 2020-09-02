@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -117,6 +116,7 @@ docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
 docs/SortDefinition.md
+docs/UserAppConfig.md
 git_push.sh
 go.mod
 go.sum
@@ -202,4 +202,5 @@ model_search_term.go
 model_securable_principal.go
 model_sms_entity_set_information.go
 model_sort_definition.go
+model_user_app_config.go
 response.go

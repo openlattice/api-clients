@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_app**](AppApi.md#get_app) | **GET** /datastore/app/{appId} | Get an app based on the ID
 [**get_app_by_name**](AppApi.md#get_app_by_name) | **GET** /datastore/app/lookup/{name} | Get an app based on the name
 [**get_apps**](AppApi.md#get_apps) | **GET** /datastore/app | Get all apps
+[**get_available_app_configs**](AppApi.md#get_available_app_configs) | **GET** /datastore/app/config | Get available app configurations
 [**get_available_app_configs_old**](AppApi.md#get_available_app_configs_old) | **GET** /datastore/app/config/{appId} | Get historical app configurations for an app
 
 
@@ -319,6 +320,52 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**array[App]**](App.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+# **get_available_app_configs**
+> array[UserAppConfig] get_available_app_configs(app_id)
+
+Get available app configurations
+
+### Example
+```R
+library(openlattice)
+
+var.app_id <- 'app_id_example' # character | 
+
+#Get available app configurations
+api.instance <- AppApi$new()
+# Configure HTTP basic authorization: http_auth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+# Configure API key authorization: openlattice_auth
+api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+result <- api.instance$get_available_app_configs(var.app_id)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **app_id** | [**character**](.md)|  | 
+
+### Return type
+
+[**array[UserAppConfig]**](UserAppConfig.md)
 
 ### Authorization
 

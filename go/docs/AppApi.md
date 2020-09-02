@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**GetApp**](AppApi.md#GetApp) | **Get** /datastore/app/{appId} | Get an app based on the ID
 [**GetAppByName**](AppApi.md#GetAppByName) | **Get** /datastore/app/lookup/{name} | Get an app based on the name
 [**GetApps**](AppApi.md#GetApps) | **Get** /datastore/app | Get all apps
+[**GetAvailableAppConfigs**](AppApi.md#GetAvailableAppConfigs) | **Get** /datastore/app/config | Get available app configurations
 [**GetAvailableAppConfigsOld**](AppApi.md#GetAvailableAppConfigsOld) | **Get** /datastore/app/config/{appId} | Get historical app configurations for an app
 
 
@@ -222,6 +223,38 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**[]App**](App.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAvailableAppConfigs
+
+> []UserAppConfig GetAvailableAppConfigs(ctx, appId)
+
+Get available app configurations
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**appId** | [**string**](.md)|  | 
+
+### Return type
+
+[**[]UserAppConfig**](UserAppConfig.md)
 
 ### Authorization
 
