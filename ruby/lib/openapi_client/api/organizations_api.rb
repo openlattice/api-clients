@@ -781,6 +781,66 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Get database name for an organization
+    # @param organization_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def get_organization_database_name(organization_id, opts = {})
+      data, _status_code, _headers = get_organization_database_name_with_http_info(organization_id, opts)
+      data
+    end
+
+    # Get database name for an organization
+    # @param organization_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
+    def get_organization_database_name_with_http_info(organization_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsApi.get_organization_database_name ...'
+      end
+      # verify the required parameter 'organization_id' is set
+      if @api_client.config.client_side_validation && organization_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling OrganizationsApi.get_organization_database_name"
+      end
+      # resource path
+      local_var_path = '/datastore/organizations/{organizationId}/database'.sub('{' + 'organizationId' + '}', CGI.escape(organization_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'String' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsApi#get_organization_database_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get the entity sets for an organization for a certain filter
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
@@ -1341,6 +1401,72 @@ module OpenapiClient
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrganizationsApi#remove_role_from_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Rename the database of organization
+    # @param organization_id [String] 
+    # @param body [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def rename_organization_database(organization_id, body, opts = {})
+      rename_organization_database_with_http_info(organization_id, body, opts)
+      nil
+    end
+
+    # Rename the database of organization
+    # @param organization_id [String] 
+    # @param body [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def rename_organization_database_with_http_info(organization_id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsApi.rename_organization_database ...'
+      end
+      # verify the required parameter 'organization_id' is set
+      if @api_client.config.client_side_validation && organization_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling OrganizationsApi.rename_organization_database"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OrganizationsApi.rename_organization_database"
+      end
+      # resource path
+      local_var_path = '/datastore/organizations/{organizationId}/database'.sub('{' + 'organizationId' + '}', CGI.escape(organization_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(body) 
+
+      # return_type
+      return_type = opts[:return_type] 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsApi#rename_organization_database\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

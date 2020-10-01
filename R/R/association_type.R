@@ -78,7 +78,7 @@ AssociationType <- R6::R6Class(
       AssociationTypeObject <- jsonlite::fromJSON(AssociationTypeJson)
       if (!is.null(AssociationTypeObject$`entityType`)) {
         entityTypeObject <- EntityType$new()
-        entityTypeObject$fromJSON(jsonlite::toJSON(AssociationTypeObject$entityType, auto_unbox = FALSE, digits = NA))
+        entityTypeObject$fromJSON(jsonlite::toJSON(AssociationTypeObject$entityType, auto_unbox = TRUE, digits = NA))
         self$`entityType` <- entityTypeObject
       }
       if (!is.null(AssociationTypeObject$`src`)) {
@@ -99,7 +99,7 @@ AssociationType <- R6::R6Class(
         '"entityType":
         %s
         ',
-        jsonlite::toJSON(self$`entityType`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`entityType`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`src`)) {
         sprintf(
@@ -128,7 +128,7 @@ AssociationType <- R6::R6Class(
     },
     fromJSONString = function(AssociationTypeJson) {
       AssociationTypeObject <- jsonlite::fromJSON(AssociationTypeJson)
-      self$`entityType` <- EntityType$new()$fromJSON(jsonlite::toJSON(AssociationTypeObject$entityType, auto_unbox = FALSE, digits = NA))
+      self$`entityType` <- EntityType$new()$fromJSON(jsonlite::toJSON(AssociationTypeObject$entityType, auto_unbox = TRUE, digits = NA))
       self$`src` <- ApiClient$new()$deserializeObj(AssociationTypeObject$`src`, "array[character]", loadNamespace("openlattice"))
       self$`dst` <- ApiClient$new()$deserializeObj(AssociationTypeObject$`dst`, "array[character]", loadNamespace("openlattice"))
       self$`bidirectional` <- AssociationTypeObject$`bidirectional`

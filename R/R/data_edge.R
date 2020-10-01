@@ -66,17 +66,17 @@ DataEdge <- R6::R6Class(
       DataEdgeObject <- jsonlite::fromJSON(DataEdgeJson)
       if (!is.null(DataEdgeObject$`src`)) {
         srcObject <- EntityDataKey$new()
-        srcObject$fromJSON(jsonlite::toJSON(DataEdgeObject$src, auto_unbox = FALSE, digits = NA))
+        srcObject$fromJSON(jsonlite::toJSON(DataEdgeObject$src, auto_unbox = TRUE, digits = NA))
         self$`src` <- srcObject
       }
       if (!is.null(DataEdgeObject$`dst`)) {
         dstObject <- EntityDataKey$new()
-        dstObject$fromJSON(jsonlite::toJSON(DataEdgeObject$dst, auto_unbox = FALSE, digits = NA))
+        dstObject$fromJSON(jsonlite::toJSON(DataEdgeObject$dst, auto_unbox = TRUE, digits = NA))
         self$`dst` <- dstObject
       }
       if (!is.null(DataEdgeObject$`data`)) {
         dataObject <- DataEdgeData$new()
-        dataObject$fromJSON(jsonlite::toJSON(DataEdgeObject$data, auto_unbox = FALSE, digits = NA))
+        dataObject$fromJSON(jsonlite::toJSON(DataEdgeObject$data, auto_unbox = TRUE, digits = NA))
         self$`data` <- dataObject
       }
       self
@@ -88,21 +88,21 @@ DataEdge <- R6::R6Class(
         '"src":
         %s
         ',
-        jsonlite::toJSON(self$`src`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`src`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`dst`)) {
         sprintf(
         '"dst":
         %s
         ',
-        jsonlite::toJSON(self$`dst`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`dst`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`data`)) {
         sprintf(
         '"data":
         %s
         ',
-        jsonlite::toJSON(self$`data`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`data`$toJSON(), auto_unbox=TRUE, digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -110,9 +110,9 @@ DataEdge <- R6::R6Class(
     },
     fromJSONString = function(DataEdgeJson) {
       DataEdgeObject <- jsonlite::fromJSON(DataEdgeJson)
-      self$`src` <- EntityDataKey$new()$fromJSON(jsonlite::toJSON(DataEdgeObject$src, auto_unbox = FALSE, digits = NA))
-      self$`dst` <- EntityDataKey$new()$fromJSON(jsonlite::toJSON(DataEdgeObject$dst, auto_unbox = FALSE, digits = NA))
-      self$`data` <- DataEdgeData$new()$fromJSON(jsonlite::toJSON(DataEdgeObject$data, auto_unbox = FALSE, digits = NA))
+      self$`src` <- EntityDataKey$new()$fromJSON(jsonlite::toJSON(DataEdgeObject$src, auto_unbox = TRUE, digits = NA))
+      self$`dst` <- EntityDataKey$new()$fromJSON(jsonlite::toJSON(DataEdgeObject$dst, auto_unbox = TRUE, digits = NA))
+      self$`data` <- DataEdgeData$new()$fromJSON(jsonlite::toJSON(DataEdgeObject$data, auto_unbox = TRUE, digits = NA))
       self
     }
   )

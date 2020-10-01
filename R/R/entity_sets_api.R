@@ -247,6 +247,23 @@
 #' }
 #' }
 #'
+#' \strong{ repartition_entity_set } \emph{ Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set. }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } request_body list( integer )
+#'
+#'
+#' \item status code : 200 | Success
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ update_entity_set_meta_data } \emph{ Updates the EntitySet definition for the given EntitySet UUID with the given metadata. }
 #' 
 #'
@@ -312,7 +329,7 @@
 #'
 #' library(openlattice)
 #' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
-#' var.request_body <- NULL # list(array[character]) | 
+#' var.request_body <- {'key' => array$new()} # list(array[character]) | 
 #'
 #' #Adds the entity sets as linked entity sets to the linking entity sets
 #' api.instance <- EntitySetsApi$new()
@@ -554,7 +571,7 @@
 #'
 #' library(openlattice)
 #' var.linking_entity_set_id <- 'linking_entity_set_id_example' # character | 
-#' var.request_body <- NULL # list(array[character]) | 
+#' var.request_body <- {'key' => array$new()} # list(array[character]) | 
 #'
 #' #Removes/unlinks the linked entity sets from the linking entity set
 #' api.instance <- EntitySetsApi$new()
@@ -569,6 +586,27 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$remove_entity_sets_from_linking_entity_sets(var.linking_entity_set_id, var.request_body)
+#'
+#'
+#' ####################  repartition_entity_set  ####################
+#'
+#' library(openlattice)
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.request_body <- list(56) # array[integer] | 
+#'
+#' #Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+#' api.instance <- EntitySetsApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$repartition_entity_set(var.entity_set_id, var.request_body)
 #'
 #'
 #' ####################  update_entity_set_meta_data  ####################
@@ -658,7 +696,13 @@ EntitySetsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -796,7 +840,13 @@ EntitySetsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`entity_set`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
+              paste(sapply(`entity_set`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -1115,7 +1165,13 @@ EntitySetsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -1238,7 +1294,13 @@ EntitySetsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -1357,7 +1419,13 @@ EntitySetsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -1467,6 +1535,77 @@ EntitySetsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
+    repartition_entity_set = function(entity_set_id, request_body, ...){
+      apiResponse <- self$repartition_entity_setWithHttpInfo(entity_set_id, request_body, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    repartition_entity_setWithHttpInfo = function(entity_set_id, request_body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
+      }
+
+      if (missing(`request_body`)) {
+        stop("Missing required parameter `request_body`.")
+      }
+
+      if (!missing(`request_body`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/entity-sets/{entitySetId}/partitions"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PUT",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
     update_entity_set_meta_data = function(entity_set_id, metadata_update, ...){
       apiResponse <- self$update_entity_set_meta_dataWithHttpInfo(entity_set_id, metadata_update, ...)
       resp <- apiResponse$response
@@ -1499,7 +1638,11 @@ EntitySetsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`metadata_update`)) {
+                  `metadata_update`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1574,7 +1717,11 @@ EntitySetsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`metadata_update`)) {
+                  `metadata_update`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL

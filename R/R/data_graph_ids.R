@@ -13,9 +13,9 @@
 #'
 #' @format An \code{R6Class} generator object
 #'
-#' @field entityKeyIds  named list( array[character] ) [optional]
+#' @field entityKeyIds  named list( \link{array[character]} ) [optional]
 #'
-#' @field entitySetIds  named list( array[character] ) [optional]
+#' @field entitySetIds  named list( \link{array[character]} ) [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -31,12 +31,12 @@ DataGraphIds <- R6::R6Class(
       local.optional.var <- list(...)
       if (!is.null(`entityKeyIds`)) {
         stopifnot(is.vector(`entityKeyIds`))
-        sapply(`entityKeyIds`, function(x) stopifnot(is.character(x)))
+        sapply(`entityKeyIds`, function(x) stopifnot(R6::is.R6(x)))
         self$`entityKeyIds` <- `entityKeyIds`
       }
       if (!is.null(`entitySetIds`)) {
         stopifnot(is.vector(`entitySetIds`))
-        sapply(`entitySetIds`, function(x) stopifnot(is.character(x)))
+        sapply(`entitySetIds`, function(x) stopifnot(R6::is.R6(x)))
         self$`entitySetIds` <- `entitySetIds`
       }
     },
@@ -44,11 +44,11 @@ DataGraphIds <- R6::R6Class(
       DataGraphIdsObject <- list()
       if (!is.null(self$`entityKeyIds`)) {
         DataGraphIdsObject[['entityKeyIds']] <-
-          self$`entityKeyIds`
+          lapply(self$`entityKeyIds`, function(x) x$toJSON())
       }
       if (!is.null(self$`entitySetIds`)) {
         DataGraphIdsObject[['entitySetIds']] <-
-          self$`entitySetIds`
+          lapply(self$`entitySetIds`, function(x) x$toJSON())
       }
 
       DataGraphIdsObject
@@ -68,16 +68,16 @@ DataGraphIds <- R6::R6Class(
         if (!is.null(self$`entityKeyIds`)) {
         sprintf(
         '"entityKeyIds":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`entityKeyIds`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`entityKeyIds`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`entitySetIds`)) {
         sprintf(
         '"entitySetIds":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`entitySetIds`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`entitySetIds`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

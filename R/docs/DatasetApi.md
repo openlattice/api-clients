@@ -10,7 +10,8 @@ Method | HTTP request | Description
 [**delete_external_database_tables**](DatasetApi.md#delete_external_database_tables) | **DELETE** /datastore/organization-database/{organizationId}/external-database-table | Deletes multiple OrganizationExternalDatabaseTable objects and the tables they represent in the database. It is a hard delete.
 [**get_authorized_external_db_tables_with_column_metadata**](DatasetApi.md#get_authorized_external_db_tables_with_column_metadata) | **GET** /datastore/organization-database/{organizationId}/{permission}/external-database-table/external-database-column/authorized | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
 [**get_external_database_column**](DatasetApi.md#get_external_database_column) | **GET** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Gets an OrganizationExternalDatabaseColumn object, which represents a column within an organization&#39;s table in an external database.
-[**get_external_database_table**](DatasetApi.md#get_external_database_table) | **GET** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
+[**get_external_database_table**](DatasetApi.md#get_external_database_table) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table | Gets an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database.
+[**get_external_database_table_data**](DatasetApi.md#get_external_database_table_data) | **GET** /datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data | Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
 [**get_external_database_table_with_column_metadata**](DatasetApi.md#get_external_database_table_with_column_metadata) | **GET** /datastore/organization-database/{organizationId}/{tableId}/external-database-table/external-database-column | Gets an object containing an OrganizationExternalDatabaseTable object and its OrganizationExternalDatabase columns for an organization
 [**get_external_database_tables**](DatasetApi.md#get_external_database_tables) | **GET** /datastore/organization-database/{organizationId}/external-database-table | Gets all OrganizationExternalDatabaseTable objects for an organization
 [**get_external_database_tables_with_column_metadata**](DatasetApi.md#get_external_database_tables_with_column_metadata) | **GET** /datastore/organization-database/{organizationId}/external-database-table/external-database-column | Gets a map of all OrganizationExternalDatabaseTable objects to OrganizationExternalDatabase columns that are contained within each table.
@@ -307,7 +308,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_external_database_table**
-> OrganizationExternalDatabaseTable get_external_database_table(organization_id, table_name)
+> OrganizationExternalDatabaseTable get_external_database_table(organization_id, table_id)
 
 Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.
 
@@ -316,7 +317,7 @@ Gets an OrganizationExternalDatabaseTable object, which represents an organizati
 library(openlattice)
 
 var.organization_id <- 'organization_id_example' # character | 
-var.table_name <- 'table_name_example' # character | 
+var.table_id <- 'table_id_example' # character | 
 
 #Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.
 api.instance <- DatasetApi$new()
@@ -325,7 +326,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$get_external_database_table(var.organization_id, var.table_name)
+result <- api.instance$get_external_database_table(var.organization_id, var.table_id)
 dput(result)
 ```
 
@@ -334,11 +335,61 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | [**character**](.md)|  | 
- **table_name** | **character**|  | 
+ **table_id** | [**character**](.md)|  | 
 
 ### Return type
 
 [**OrganizationExternalDatabaseTable**](OrganizationExternalDatabaseTable.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+# **get_external_database_table_data**
+> list(object) get_external_database_table_data(organization_id, table_id, row_count)
+
+Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
+
+### Example
+```R
+library(openlattice)
+
+var.organization_id <- 'organization_id_example' # character | 
+var.table_id <- 'table_id_example' # character | 
+var.row_count <- 56 # integer | 
+
+#Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
+api.instance <- DatasetApi$new()
+# Configure HTTP basic authorization: http_auth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+# Configure API key authorization: openlattice_auth
+api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+result <- api.instance$get_external_database_table_data(var.organization_id, var.table_id, var.row_count)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**character**](.md)|  | 
+ **table_id** | [**character**](.md)|  | 
+ **row_count** | **integer**|  | 
+
+### Return type
+
+**list(object)**
 
 ### Authorization
 

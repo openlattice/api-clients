@@ -125,13 +125,31 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } organization_id \link{character}
-#' \item \emph{ @param } table_name character
+#' \item \emph{ @param } table_id \link{character}
 #' \item \emph{ @returnType } \link{OrganizationExternalDatabaseTable} \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
 #' \item return type : OrganizationExternalDatabaseTable 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ get_external_database_table_data } \emph{ Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } table_id \link{character}
+#' \item \emph{ @param } row_count integer
+#'
+#'
+#' \item status code : 200 | Success
+#'
+#' \item return type : list(object) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -364,7 +382,7 @@
 #'
 #' library(openlattice)
 #' var.organization_id <- 'organization_id_example' # character | 
-#' var.table_name <- 'table_name_example' # character | 
+#' var.table_id <- 'table_id_example' # character | 
 #'
 #' #Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.
 #' api.instance <- DatasetApi$new()
@@ -378,7 +396,29 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$get_external_database_table(var.organization_id, var.table_name)
+#' result <- api.instance$get_external_database_table(var.organization_id, var.table_id)
+#'
+#'
+#' ####################  get_external_database_table_data  ####################
+#'
+#' library(openlattice)
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.table_id <- 'table_id_example' # character | 
+#' var.row_count <- 56 # integer | 
+#'
+#' #Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
+#' api.instance <- DatasetApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$get_external_database_table_data(var.organization_id, var.table_id, var.row_count)
 #'
 #'
 #' ####################  get_external_database_table_with_column_metadata  ####################
@@ -717,7 +757,13 @@ DatasetApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -886,8 +932,8 @@ DatasetApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    get_external_database_table = function(organization_id, table_name, ...){
-      apiResponse <- self$get_external_database_tableWithHttpInfo(organization_id, table_name, ...)
+    get_external_database_table = function(organization_id, table_id, ...){
+      apiResponse <- self$get_external_database_tableWithHttpInfo(organization_id, table_id, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -900,7 +946,7 @@ DatasetApi <- R6::R6Class(
       }
     },
 
-    get_external_database_tableWithHttpInfo = function(organization_id, table_name, ...){
+    get_external_database_tableWithHttpInfo = function(organization_id, table_id, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -909,17 +955,17 @@ DatasetApi <- R6::R6Class(
         stop("Missing required parameter `organization_id`.")
       }
 
-      if (missing(`table_name`)) {
-        stop("Missing required parameter `table_name`.")
+      if (missing(`table_id`)) {
+        stop("Missing required parameter `table_id`.")
       }
 
-      urlPath <- "/datastore/organization-database/{organizationId}/{tableName}/external-database-table"
+      urlPath <- "/datastore/organization-database/{organizationId}/{tableId}/external-database-table"
       if (!missing(`organization_id`)) {
         urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
       }
 
-      if (!missing(`table_name`)) {
-        urlPath <- gsub(paste0("\\{", "tableName", "\\}"), URLencode(as.character(`table_name`), reserved = TRUE), urlPath)
+      if (!missing(`table_id`)) {
+        urlPath <- gsub(paste0("\\{", "tableId", "\\}"), URLencode(as.character(`table_id`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -937,6 +983,78 @@ DatasetApi <- R6::R6Class(
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
           self$apiClient$deserialize(resp, "OrganizationExternalDatabaseTable", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    get_external_database_table_data = function(organization_id, table_id, row_count, ...){
+      apiResponse <- self$get_external_database_table_dataWithHttpInfo(organization_id, table_id, row_count, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    get_external_database_table_dataWithHttpInfo = function(organization_id, table_id, row_count, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
+      }
+
+      if (missing(`table_id`)) {
+        stop("Missing required parameter `table_id`.")
+      }
+
+      if (missing(`row_count`)) {
+        stop("Missing required parameter `row_count`.")
+      }
+
+      urlPath <- "/datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data"
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`table_id`)) {
+        urlPath <- gsub(paste0("\\{", "tableId", "\\}"), URLencode(as.character(`table_id`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`row_count`)) {
+        urlPath <- gsub(paste0("\\{", "rowCount", "\\}"), URLencode(as.character(`row_count`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "list(object)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -1166,7 +1284,11 @@ DatasetApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`metadata_update`)) {
+                  `metadata_update`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1243,7 +1365,11 @@ DatasetApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`metadata_update`)) {
+                  `metadata_update`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL

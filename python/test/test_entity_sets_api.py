@@ -127,6 +127,13 @@ class TestEntitySetsApi(unittest.TestCase):
         """
         pass
 
+    def test_repartition_entity_set(self):
+        """Test case for repartition_entity_set
+
+        Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.  # noqa: E501
+        """
+        pass
+
     def test_update_entity_set_meta_data(self):
         """Test case for update_entity_set_meta_data
 

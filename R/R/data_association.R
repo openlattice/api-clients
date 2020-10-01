@@ -25,7 +25,7 @@
 #'
 #' @field dstEntityKeyId  character [optional]
 #'
-#' @field data  named list( array[character] ) [optional]
+#' @field data  named list( \link{array[character]} ) [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -70,7 +70,7 @@ DataAssociation <- R6::R6Class(
       }
       if (!is.null(`data`)) {
         stopifnot(is.vector(`data`))
-        sapply(`data`, function(x) stopifnot(is.character(x)))
+        sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
         self$`data` <- `data`
       }
     },
@@ -102,7 +102,7 @@ DataAssociation <- R6::R6Class(
       }
       if (!is.null(self$`data`)) {
         DataAssociationObject[['data']] <-
-          self$`data`
+          lapply(self$`data`, function(x) x$toJSON())
       }
 
       DataAssociationObject
@@ -179,9 +179,9 @@ DataAssociation <- R6::R6Class(
         if (!is.null(self$`data`)) {
         sprintf(
         '"data":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`data`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`data`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

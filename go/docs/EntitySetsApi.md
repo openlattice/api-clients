@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**GetPropertyTypesForEntitySet**](EntitySetsApi.md#GetPropertyTypesForEntitySet) | **Get** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
 [**RemoveEntitySetsFromLinkingEntitySet**](EntitySetsApi.md#RemoveEntitySetsFromLinkingEntitySet) | **Delete** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
 [**RemoveEntitySetsFromLinkingEntitySets**](EntitySetsApi.md#RemoveEntitySetsFromLinkingEntitySets) | **Delete** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
+[**RepartitionEntitySet**](EntitySetsApi.md#RepartitionEntitySet) | **Put** /datastore/entity-sets/{entitySetId}/partitions | Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
 [**UpdateEntitySetMetaData**](EntitySetsApi.md#UpdateEntitySetMetaData) | **Patch** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 [**UpdateEntitySetPropertyMetadata**](EntitySetsApi.md#UpdateEntitySetPropertyMetadata) | **Post** /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 
@@ -504,6 +505,39 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RepartitionEntitySet
+
+> RepartitionEntitySet(ctx, entitySetId, requestBody)
+
+Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entitySetId** | [**string**](.md)|  | 
+**requestBody** | [**[]int32**](int32.md)|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

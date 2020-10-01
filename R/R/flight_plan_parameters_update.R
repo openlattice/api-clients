@@ -105,7 +105,7 @@ FlightPlanParametersUpdate <- R6::R6Class(
         '"src":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`src`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`src`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`srcPrimaryKeyColumns`)) {
         sprintf(

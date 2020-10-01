@@ -27,7 +27,7 @@
 #'
 #' @field properties  list( character ) [optional]
 #'
-#' @field propertyTags  named list( array[character] ) [optional]
+#' @field propertyTags  named list( \link{array[character]} ) [optional]
 #'
 #' @field basetype  character [optional]
 #'
@@ -86,7 +86,7 @@ EntityType <- R6::R6Class(
       }
       if (!is.null(`propertyTags`)) {
         stopifnot(is.vector(`propertyTags`))
-        sapply(`propertyTags`, function(x) stopifnot(is.character(x)))
+        sapply(`propertyTags`, function(x) stopifnot(R6::is.R6(x)))
         self$`propertyTags` <- `propertyTags`
       }
       if (!is.null(`basetype`)) {
@@ -130,7 +130,7 @@ EntityType <- R6::R6Class(
       }
       if (!is.null(self$`propertyTags`)) {
         EntityTypeObject[['propertyTags']] <-
-          self$`propertyTags`
+          lapply(self$`propertyTags`, function(x) x$toJSON())
       }
       if (!is.null(self$`basetype`)) {
         EntityTypeObject[['basetype']] <-
@@ -156,7 +156,7 @@ EntityType <- R6::R6Class(
       }
       if (!is.null(EntityTypeObject$`type`)) {
         typeObject <- FullQualifiedName$new()
-        typeObject$fromJSON(jsonlite::toJSON(EntityTypeObject$type, auto_unbox = FALSE, digits = NA))
+        typeObject$fromJSON(jsonlite::toJSON(EntityTypeObject$type, auto_unbox = TRUE, digits = NA))
         self$`type` <- typeObject
       }
       if (!is.null(EntityTypeObject$`schemas`)) {
@@ -207,14 +207,26 @@ EntityType <- R6::R6Class(
         '"type":
         %s
         ',
-        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`schemas`)) {
         sprintf(
         '"schemas":
         [%s]
 ',
-        paste(sapply(self$`schemas`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`schemas`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`key`)) {
         sprintf(
@@ -233,9 +245,9 @@ EntityType <- R6::R6Class(
         if (!is.null(self$`propertyTags`)) {
         sprintf(
         '"propertyTags":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`propertyTags`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`propertyTags`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`basetype`)) {
         sprintf(
@@ -260,7 +272,7 @@ EntityType <- R6::R6Class(
       self$`title` <- EntityTypeObject$`title`
       self$`description` <- EntityTypeObject$`description`
       self$`id` <- EntityTypeObject$`id`
-      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(EntityTypeObject$type, auto_unbox = FALSE, digits = NA))
+      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(EntityTypeObject$type, auto_unbox = TRUE, digits = NA))
       self$`schemas` <- ApiClient$new()$deserializeObj(EntityTypeObject$`schemas`, "array[FullQualifiedName]", loadNamespace("openlattice"))
       self$`key` <- ApiClient$new()$deserializeObj(EntityTypeObject$`key`, "array[character]", loadNamespace("openlattice"))
       self$`properties` <- ApiClient$new()$deserializeObj(EntityTypeObject$`properties`, "array[character]", loadNamespace("openlattice"))

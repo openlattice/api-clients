@@ -55,6 +55,7 @@
 #' \itemize{
 #' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @param } request_body named list( \link{list(integer)} )
+#' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
@@ -216,11 +217,28 @@
 #' }
 #' }
 #'
+#' \strong{ get_organization_database_name } \emph{ Get database name for an organization }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } organization_id \link{character}
+#'
+#'
+#' \item status code : 200 | Success
+#'
+#' \item return type : character 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ get_organization_entity_sets } \emph{ Get the entity sets for an organization for a certain filter }
 #' 
 #'
 #' \itemize{
 #' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
@@ -358,6 +376,23 @@
 #' \item \emph{ @param } organization_id \link{character}
 #' \item \emph{ @param } role_id \link{character}
 #' \item \emph{ @param } user_id \link{character}
+#'
+#'
+#' \item status code : 200 | Success
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ rename_organization_database } \emph{ Rename the database of organization }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } body character
 #'
 #'
 #' \item status code : 200 | Success
@@ -668,7 +703,7 @@
 #'
 #' library(openlattice)
 #' var.organization_id <- 'organization_id_example' # character | 
-#' var.request_body <- NULL # list(array[character]) | 
+#' var.request_body <- {'key' => array$new()} # list(array[character]) | 
 #'
 #' #Get the entity sets for an organization for a certain flag
 #' api.instance <- OrganizationsApi$new()
@@ -723,6 +758,26 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$get_organization(var.organization_id)
+#'
+#'
+#' ####################  get_organization_database_name  ####################
+#'
+#' library(openlattice)
+#' var.organization_id <- 'organization_id_example' # character | 
+#'
+#' #Get database name for an organization
+#' api.instance <- OrganizationsApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$get_organization_database_name(var.organization_id)
 #'
 #'
 #' ####################  get_organization_entity_sets  ####################
@@ -908,6 +963,27 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$remove_role_from_user(var.organization_id, var.role_id, var.user_id)
+#'
+#'
+#' ####################  rename_organization_database  ####################
+#'
+#' library(openlattice)
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.body <- 'body_example' # character | 
+#'
+#' #Rename the database of organization
+#' api.instance <- OrganizationsApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$rename_organization_database(var.organization_id, var.body)
 #'
 #'
 #' ####################  set_auto_approved_email_domain  ####################
@@ -1277,7 +1353,11 @@ OrganizationsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`organization`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`organization`)) {
+                  `organization`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`organization`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1340,7 +1420,11 @@ OrganizationsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`role`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`role`)) {
+                  `role`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`role`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1786,6 +1870,62 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
+    get_organization_database_name = function(organization_id, ...){
+      apiResponse <- self$get_organization_database_nameWithHttpInfo(organization_id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    get_organization_database_nameWithHttpInfo = function(organization_id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
+      }
+
+      urlPath <- "/datastore/organizations/{organizationId}/database"
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "character", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
     get_organization_entity_sets = function(organization_id, ...){
       apiResponse <- self$get_organization_entity_setsWithHttpInfo(organization_id, ...)
       resp <- apiResponse$response
@@ -2156,7 +2296,13 @@ OrganizationsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -2313,6 +2459,71 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
+    rename_organization_database = function(organization_id, body, ...){
+      apiResponse <- self$rename_organization_databaseWithHttpInfo(organization_id, body, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    rename_organization_databaseWithHttpInfo = function(organization_id, body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
+      }
+
+      if (missing(`body`)) {
+        stop("Missing required parameter `body`.")
+      }
+
+      if (!missing(`body`)) {
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/organizations/{organizationId}/database"
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PATCH",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
     set_auto_approved_email_domain = function(organization_id, request_body, ...){
       apiResponse <- self$set_auto_approved_email_domainWithHttpInfo(organization_id, request_body, ...)
       resp <- apiResponse$response
@@ -2345,7 +2556,13 @@ OrganizationsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL

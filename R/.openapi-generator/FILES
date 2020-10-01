@@ -12,6 +12,10 @@ R/admin_api.R
 R/advanced_search.R
 R/api_client.R
 R/api_response.R
+R/app.R
+R/app_api.R
+R/app_role.R
+R/app_role_permissions.R
 R/association.R
 R/association_definition.R
 R/association_type.R
@@ -58,6 +62,8 @@ R/flight.R
 R/flight_plan_parameters.R
 R/flight_plan_parameters_update.R
 R/full_qualified_name.R
+R/historical_app_config.R
+R/historical_app_type_setting.R
 R/indexing_state.R
 R/inline_object.R
 R/inline_response200.R
@@ -97,6 +103,7 @@ R/securable_principal.R
 R/shuttle_api.R
 R/sms_entity_set_information.R
 R/sort_definition.R
+R/user_app_config.R
 README.md
 docs/AccessCheck.md
 docs/Ace.md
@@ -104,6 +111,10 @@ docs/Acl.md
 docs/AclData.md
 docs/AdminApi.md
 docs/AdvancedSearch.md
+docs/App.md
+docs/AppApi.md
+docs/AppRole.md
+docs/AppRolePermissions.md
 docs/Association.md
 docs/AssociationDefinition.md
 docs/AssociationType.md
@@ -150,6 +161,8 @@ docs/Flight.md
 docs/FlightPlanParameters.md
 docs/FlightPlanParametersUpdate.md
 docs/FullQualifiedName.md
+docs/HistoricalAppConfig.md
+docs/HistoricalAppTypeSetting.md
 docs/IndexingState.md
 docs/InlineObject.md
 docs/InlineResponse200.md
@@ -189,6 +202,7 @@ docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
 docs/SortDefinition.md
+docs/UserAppConfig.md
 git_push.sh
 tests/testthat.R
 tests/testthat/test_access_check.R
@@ -197,6 +211,10 @@ tests/testthat/test_acl.R
 tests/testthat/test_acl_data.R
 tests/testthat/test_admin_api.R
 tests/testthat/test_advanced_search.R
+tests/testthat/test_app.R
+tests/testthat/test_app_api.R
+tests/testthat/test_app_role.R
+tests/testthat/test_app_role_permissions.R
 tests/testthat/test_association.R
 tests/testthat/test_association_definition.R
 tests/testthat/test_association_type.R
@@ -243,6 +261,8 @@ tests/testthat/test_flight.R
 tests/testthat/test_flight_plan_parameters.R
 tests/testthat/test_flight_plan_parameters_update.R
 tests/testthat/test_full_qualified_name.R
+tests/testthat/test_historical_app_config.R
+tests/testthat/test_historical_app_type_setting.R
 tests/testthat/test_indexing_state.R
 tests/testthat/test_inline_object.R
 tests/testthat/test_inline_response200.R
@@ -282,3 +302,4 @@ tests/testthat/test_securable_principal.R
 tests/testthat/test_shuttle_api.R
 tests/testthat/test_sms_entity_set_information.R
 tests/testthat/test_sort_definition.R
+tests/testthat/test_user_app_config.R

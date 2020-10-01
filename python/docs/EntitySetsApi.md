@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**get_property_types_for_entity_set**](EntitySetsApi.md#get_property_types_for_entity_set) | **GET** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
 [**remove_entity_sets_from_linking_entity_set**](EntitySetsApi.md#remove_entity_sets_from_linking_entity_set) | **DELETE** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
 [**remove_entity_sets_from_linking_entity_sets**](EntitySetsApi.md#remove_entity_sets_from_linking_entity_sets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
+[**repartition_entity_set**](EntitySetsApi.md#repartition_entity_set) | **PUT** /datastore/entity-sets/{entitySetId}/partitions | Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
 [**update_entity_set_meta_data**](EntitySetsApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 [**update_entity_set_property_metadata**](EntitySetsApi.md#update_entity_set_property_metadata) | **POST** /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 
@@ -1798,6 +1799,134 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repartition_entity_set**
+> repartition_entity_set(entity_set_id, request_body)
+
+Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+
+### Example
+
+* Bearer (JWT) Authentication (http_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.EntitySetsApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+request_body = [56] # list[int] | 
+
+    try:
+        # Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+        api_instance.repartition_entity_set(entity_set_id, request_body)
+    except ApiException as e:
+        print("Exception when calling EntitySetsApi->repartition_entity_set: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.EntitySetsApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+request_body = [56] # list[int] | 
+
+    try:
+        # Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+        api_instance.repartition_entity_set(entity_set_id, request_body)
+    except ApiException as e:
+        print("Exception when calling EntitySetsApi->repartition_entity_set: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity_set_id** | [**str**](.md)|  | 
+ **request_body** | [**list[int]**](int.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |

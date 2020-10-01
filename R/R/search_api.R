@@ -107,6 +107,7 @@
 #' \itemize{
 #' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @param } request_body list( character )
+#' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | A list of objects containing information about the neighbor and association.
@@ -227,6 +228,7 @@
 #' \itemize{
 #' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @param } neighbor_search_filter \link{NeighborSearchFilter}
+#' \item \emph{ @returnType } named list( \link{array} ) \cr
 #'
 #'
 #' \item status code : 200 | A list of objects containing information about the neighbor and association.
@@ -779,7 +781,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`advanced_search`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`advanced_search`)) {
+                  `advanced_search`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`advanced_search`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -846,7 +852,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_term`)) {
+                  `search_term`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -909,7 +919,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_term`)) {
+                  `search_term`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -972,7 +986,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_term`)) {
+                  `search_term`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1103,7 +1121,13 @@ SearchApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -1170,7 +1194,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_term`)) {
+                  `search_term`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1237,7 +1265,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_term`)) {
+                  `search_term`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1304,7 +1336,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search`)) {
+                  `search`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1367,7 +1403,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_term`)) {
+                  `search_term`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1430,7 +1470,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_term`)) {
+                  `search_term`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1497,7 +1541,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`neighbor_search_filter`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`neighbor_search_filter`)) {
+                  `neighbor_search_filter`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`neighbor_search_filter`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1568,7 +1616,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`neighbor_search_filter`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`neighbor_search_filter`)) {
+                  `neighbor_search_filter`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`neighbor_search_filter`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1635,7 +1687,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_term`)) {
+                  `search_term`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1698,7 +1754,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_term`)) {
+                  `search_term`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1761,7 +1821,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_term`)) {
+                  `search_term`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_term`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -1936,7 +2000,11 @@ SearchApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`search_constraints`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`search_constraints`)) {
+                  `search_constraints`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`search_constraints`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL

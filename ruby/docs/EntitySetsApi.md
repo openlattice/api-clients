@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**get_property_types_for_entity_set**](EntitySetsApi.md#get_property_types_for_entity_set) | **GET** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
 [**remove_entity_sets_from_linking_entity_set**](EntitySetsApi.md#remove_entity_sets_from_linking_entity_set) | **DELETE** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
 [**remove_entity_sets_from_linking_entity_sets**](EntitySetsApi.md#remove_entity_sets_from_linking_entity_sets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
+[**repartition_entity_set**](EntitySetsApi.md#repartition_entity_set) | **PUT** /datastore/entity-sets/{entitySetId}/partitions | Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
 [**update_entity_set_meta_data**](EntitySetsApi.md#update_entity_set_meta_data) | **PATCH** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 [**update_entity_set_property_metadata**](EntitySetsApi.md#update_entity_set_property_metadata) | **POST** /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 
@@ -803,6 +804,62 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## repartition_entity_set
+
+> repartition_entity_set(entity_set_id, request_body)
+
+Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure Bearer authorization (JWT): http_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure API key authorization: openlattice_auth
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::EntitySetsApi.new
+entity_set_id = 'entity_set_id_example' # String | 
+request_body = [56] # Array<Integer> | 
+
+begin
+  #Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+  api_instance.repartition_entity_set(entity_set_id, request_body)
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling EntitySetsApi->repartition_entity_set: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity_set_id** | [**String**](.md)|  | 
+ **request_body** | [**Array&lt;Integer&gt;**](Integer.md)|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## update_entity_set_meta_data

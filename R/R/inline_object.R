@@ -55,7 +55,19 @@ InlineObject <- R6::R6Class(
         '"additionalProperties":
         [%s]
 ',
-        paste(sapply(self$`additionalProperties`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`additionalProperties`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

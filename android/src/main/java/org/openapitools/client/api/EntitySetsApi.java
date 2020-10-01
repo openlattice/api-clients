@@ -1843,6 +1843,141 @@ public class EntitySetsApi {
     }
   }
   /**
+  * Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+  * 
+   * @param entitySetId 
+   * @param requestBody 
+   * @return void
+  */
+  public void repartitionEntitySet (UUID entitySetId, List<Integer> requestBody) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = requestBody;
+    // verify the required parameter 'entitySetId' is set
+    if (entitySetId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'entitySetId' when calling repartitionEntitySet",
+        new ApiException(400, "Missing the required parameter 'entitySetId' when calling repartitionEntitySet"));
+    }
+    // verify the required parameter 'requestBody' is set
+    if (requestBody == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'requestBody' when calling repartitionEntitySet",
+        new ApiException(400, "Missing the required parameter 'requestBody' when calling repartitionEntitySet"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/entity-sets/{entitySetId}/partitions".replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+   * 
+   * @param entitySetId    * @param requestBody 
+  */
+  public void repartitionEntitySet (UUID entitySetId, List<Integer> requestBody, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = requestBody;
+
+    // verify the required parameter 'entitySetId' is set
+    if (entitySetId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'entitySetId' when calling repartitionEntitySet",
+        new ApiException(400, "Missing the required parameter 'entitySetId' when calling repartitionEntitySet"));
+    }
+    // verify the required parameter 'requestBody' is set
+    if (requestBody == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'requestBody' when calling repartitionEntitySet",
+        new ApiException(400, "Missing the required parameter 'requestBody' when calling repartitionEntitySet"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/entity-sets/{entitySetId}/partitions".replaceAll("\\{format\\}","json").replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
   * Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
   * 
    * @param entitySetId 

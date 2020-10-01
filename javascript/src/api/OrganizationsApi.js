@@ -577,6 +577,48 @@ export default class OrganizationsApi {
     }
 
     /**
+     * Callback function to receive the result of the getOrganizationDatabaseName operation.
+     * @callback module:api/OrganizationsApi~getOrganizationDatabaseNameCallback
+     * @param {String} error Error message, if any.
+     * @param {String} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get database name for an organization
+     * @param {String} organizationId 
+     * @param {module:api/OrganizationsApi~getOrganizationDatabaseNameCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link String}
+     */
+    getOrganizationDatabaseName(organizationId, callback) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling getOrganizationDatabaseName");
+      }
+
+      let pathParams = {
+        'organizationId': organizationId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = 'String';
+      return this.apiClient.callApi(
+        '/datastore/organizations/{organizationId}/database', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getOrganizationEntitySets operation.
      * @callback module:api/OrganizationsApi~getOrganizationEntitySetsCallback
      * @param {String} error Error message, if any.
@@ -974,6 +1016,52 @@ export default class OrganizationsApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the renameOrganizationDatabase operation.
+     * @callback module:api/OrganizationsApi~renameOrganizationDatabaseCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Rename the database of organization
+     * @param {String} organizationId 
+     * @param {String} body 
+     * @param {module:api/OrganizationsApi~renameOrganizationDatabaseCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    renameOrganizationDatabase(organizationId, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling renameOrganizationDatabase");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling renameOrganizationDatabase");
+      }
+
+      let pathParams = {
+        'organizationId': organizationId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/datastore/organizations/{organizationId}/database', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -58,7 +58,7 @@ AclData <- R6::R6Class(
       }
       if (!is.null(AclDataObject$`acl`)) {
         aclObject <- Acl$new()
-        aclObject$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = FALSE, digits = NA))
+        aclObject$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = TRUE, digits = NA))
         self$`acl` <- aclObject
       }
       self
@@ -77,7 +77,7 @@ AclData <- R6::R6Class(
         '"acl":
         %s
         ',
-        jsonlite::toJSON(self$`acl`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`acl`$toJSON(), auto_unbox=TRUE, digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -86,7 +86,7 @@ AclData <- R6::R6Class(
     fromJSONString = function(AclDataJson) {
       AclDataObject <- jsonlite::fromJSON(AclDataJson)
       self$`action` <- AclDataObject$`action`
-      self$`acl` <- Acl$new()$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = FALSE, digits = NA))
+      self$`acl` <- Acl$new()$fromJSON(jsonlite::toJSON(AclDataObject$acl, auto_unbox = TRUE, digits = NA))
       self
     }
   )

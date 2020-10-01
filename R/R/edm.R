@@ -122,28 +122,76 @@ EDM <- R6::R6Class(
         '"schemas":
         [%s]
 ',
-        paste(sapply(self$`schemas`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`schemas`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`propertyTypes`)) {
         sprintf(
         '"propertyTypes":
         [%s]
 ',
-        paste(sapply(self$`propertyTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`propertyTypes`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`entityTypes`)) {
         sprintf(
         '"entityTypes":
         [%s]
 ',
-        paste(sapply(self$`entityTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`entityTypes`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`associationTypes`)) {
         sprintf(
         '"associationTypes":
         [%s]
 ',
-        paste(sapply(self$`associationTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`associationTypes`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

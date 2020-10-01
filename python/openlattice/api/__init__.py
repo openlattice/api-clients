@@ -4,6 +4,7 @@ from __future__ import absolute_import
 
 # import apis into api package
 from openlattice.api.admin_api import AdminApi
+from openlattice.api.app_api import AppApi
 from openlattice.api.authorizations_api import AuthorizationsApi
 from openlattice.api.collections_api import CollectionsApi
 from openlattice.api.data_api import DataApi

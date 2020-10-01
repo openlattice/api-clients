@@ -78,6 +78,13 @@ class TestDatasetApi(unittest.TestCase):
         """
         pass
 
+    def test_get_external_database_table_data(self):
+        """Test case for get_external_database_table_data
+
+        Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization  # noqa: E501
+        """
+        pass
+
     def test_get_external_database_table_with_column_metadata(self):
         """Test case for get_external_database_table_with_column_metadata
 

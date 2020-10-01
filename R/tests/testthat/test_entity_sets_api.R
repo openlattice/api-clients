@@ -163,6 +163,18 @@ test_that("remove_entity_sets_from_linking_entity_sets", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("repartition_entity_set", {
+  # tests for repartition_entity_set
+  # base path: https://api.openlattice.com
+  # Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+  # @param entity_set_id character 
+  # @param request_body array[integer] 
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("update_entity_set_meta_data", {
   # tests for update_entity_set_meta_data
   # base path: https://api.openlattice.com

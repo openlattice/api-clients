@@ -144,6 +144,17 @@ test_that("get_organization", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("get_organization_database_name", {
+  # tests for get_organization_database_name
+  # base path: https://api.openlattice.com
+  # Get database name for an organization
+  # @param organization_id character 
+  # @return [character]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("get_organization_entity_sets", {
   # tests for get_organization_entity_sets
   # base path: https://api.openlattice.com
@@ -242,6 +253,18 @@ test_that("remove_role_from_user", {
   # @param organization_id character 
   # @param role_id character 
   # @param user_id character 
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("rename_organization_database", {
+  # tests for rename_organization_database
+  # base path: https://api.openlattice.com
+  # Rename the database of organization
+  # @param organization_id character 
+  # @param body character 
   # @return [Void]
 
   # uncomment below to test the operation
