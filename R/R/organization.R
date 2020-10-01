@@ -152,7 +152,7 @@ Organization <- R6::R6Class(
       }
       if (!is.null(OrganizationObject$`principal`)) {
         principalObject <- Principal$new()
-        principalObject$fromJSON(jsonlite::toJSON(OrganizationObject$principal, auto_unbox = FALSE, digits = NA))
+        principalObject$fromJSON(jsonlite::toJSON(OrganizationObject$principal, auto_unbox = TRUE, digits = NA))
         self$`principal` <- principalObject
       }
       if (!is.null(OrganizationObject$`title`)) {
@@ -195,7 +195,7 @@ Organization <- R6::R6Class(
         '"principal":
         %s
         ',
-        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`title`)) {
         sprintf(
@@ -223,14 +223,38 @@ Organization <- R6::R6Class(
         '"members":
         [%s]
 ',
-        paste(sapply(self$`members`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`members`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`roles`)) {
         sprintf(
         '"roles":
         [%s]
 ',
-        paste(sapply(self$`roles`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`roles`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`apps`)) {
         sprintf(
@@ -244,7 +268,19 @@ Organization <- R6::R6Class(
         '"smsEntitySetInfo":
         [%s]
 ',
-        paste(sapply(self$`smsEntitySetInfo`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`smsEntitySetInfo`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`partitions`)) {
         sprintf(
@@ -260,7 +296,7 @@ Organization <- R6::R6Class(
     fromJSONString = function(OrganizationJson) {
       OrganizationObject <- jsonlite::fromJSON(OrganizationJson)
       self$`id` <- OrganizationObject$`id`
-      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(OrganizationObject$principal, auto_unbox = FALSE, digits = NA))
+      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(OrganizationObject$principal, auto_unbox = TRUE, digits = NA))
       self$`title` <- OrganizationObject$`title`
       self$`description` <- OrganizationObject$`description`
       self$`emails` <- ApiClient$new()$deserializeObj(OrganizationObject$`emails`, "array[character]", loadNamespace("openlattice"))

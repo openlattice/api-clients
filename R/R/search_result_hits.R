@@ -59,7 +59,7 @@ SearchResultHits <- R6::R6Class(
       }
       if (!is.null(SearchResultHitsObject$`entitySet`)) {
         entitySetObject <- EntitySet$new()
-        entitySetObject$fromJSON(jsonlite::toJSON(SearchResultHitsObject$entitySet, auto_unbox = FALSE, digits = NA))
+        entitySetObject$fromJSON(jsonlite::toJSON(SearchResultHitsObject$entitySet, auto_unbox = TRUE, digits = NA))
         self$`entitySet` <- entitySetObject
       }
       self
@@ -71,14 +71,26 @@ SearchResultHits <- R6::R6Class(
         '"propertyTypes":
         [%s]
 ',
-        paste(sapply(self$`propertyTypes`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`propertyTypes`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`entitySet`)) {
         sprintf(
         '"entitySet":
         %s
         ',
-        jsonlite::toJSON(self$`entitySet`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`entitySet`$toJSON(), auto_unbox=TRUE, digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -87,7 +99,7 @@ SearchResultHits <- R6::R6Class(
     fromJSONString = function(SearchResultHitsJson) {
       SearchResultHitsObject <- jsonlite::fromJSON(SearchResultHitsJson)
       self$`propertyTypes` <- ApiClient$new()$deserializeObj(SearchResultHitsObject$`propertyTypes`, "array[PropertyType]", loadNamespace("openlattice"))
-      self$`entitySet` <- EntitySet$new()$fromJSON(jsonlite::toJSON(SearchResultHitsObject$entitySet, auto_unbox = FALSE, digits = NA))
+      self$`entitySet` <- EntitySet$new()$fromJSON(jsonlite::toJSON(SearchResultHitsObject$entitySet, auto_unbox = TRUE, digits = NA))
       self
     }
   )

@@ -112,14 +112,14 @@ IntegrationResults <- R6::R6Class(
         '"associationsEntityKeyMappings":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`associationsEntityKeyMappings`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`associationsEntityKeyMappings`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`entitySetsEntityKeyMappings`)) {
         sprintf(
         '"entitySetsEntityKeyMappings":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`entitySetsEntityKeyMappings`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`entitySetsEntityKeyMappings`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

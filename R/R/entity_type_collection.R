@@ -104,7 +104,7 @@ EntityTypeCollection <- R6::R6Class(
       }
       if (!is.null(EntityTypeCollectionObject$`type`)) {
         typeObject <- FullQualifiedName$new()
-        typeObject$fromJSON(jsonlite::toJSON(EntityTypeCollectionObject$type, auto_unbox = FALSE, digits = NA))
+        typeObject$fromJSON(jsonlite::toJSON(EntityTypeCollectionObject$type, auto_unbox = TRUE, digits = NA))
         self$`type` <- typeObject
       }
       if (!is.null(EntityTypeCollectionObject$`title`)) {
@@ -135,7 +135,7 @@ EntityTypeCollection <- R6::R6Class(
         '"type":
         %s
         ',
-        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`title`)) {
         sprintf(
@@ -156,14 +156,38 @@ EntityTypeCollection <- R6::R6Class(
         '"schemas":
         [%s]
 ',
-        paste(sapply(self$`schemas`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`schemas`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`template`)) {
         sprintf(
         '"template":
         [%s]
 ',
-        paste(sapply(self$`template`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`template`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -172,7 +196,7 @@ EntityTypeCollection <- R6::R6Class(
     fromJSONString = function(EntityTypeCollectionJson) {
       EntityTypeCollectionObject <- jsonlite::fromJSON(EntityTypeCollectionJson)
       self$`id` <- EntityTypeCollectionObject$`id`
-      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(EntityTypeCollectionObject$type, auto_unbox = FALSE, digits = NA))
+      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(EntityTypeCollectionObject$type, auto_unbox = TRUE, digits = NA))
       self$`title` <- EntityTypeCollectionObject$`title`
       self$`description` <- EntityTypeCollectionObject$`description`
       self$`schemas` <- ApiClient$new()$deserializeObj(EntityTypeCollectionObject$`schemas`, "array[FullQualifiedName]", loadNamespace("openlattice"))

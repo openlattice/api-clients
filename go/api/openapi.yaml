@@ -5125,6 +5125,230 @@ paths:
       summary: Polls the statuses of all running integrations
       tags:
       - shuttle
+  /datastore/app:
+    get:
+      operationId: getApps
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/App'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get all apps
+      tags:
+      - app
+    post:
+      operationId: createApp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/App'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: uuid
+                type: string
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Create an app if it doesn't exist.
+      tags:
+      - app
+  /datastore/app/{appId}:
+    delete:
+      operationId: deleteApp
+      parameters:
+      - explode: false
+        in: path
+        name: appId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Delete an app
+      tags:
+      - app
+    get:
+      operationId: getApp
+      parameters:
+      - explode: false
+        in: path
+        name: appId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get an app based on the ID
+      tags:
+      - app
+  /datastore/app/lookup/{name}:
+    get:
+      operationId: getAppByName
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get an app based on the name
+      tags:
+      - app
+  /datastore/app/update/{appId}/role:
+    post:
+      operationId: createAppRole
+      parameters:
+      - explode: false
+        in: path
+        name: appId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppRole'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: uuid
+                type: string
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Create an app role
+      tags:
+      - app
+  /datastore/app/update/{appId}/role/{roleId}:
+    delete:
+      operationId: deleteRoleFromApp
+      parameters:
+      - explode: false
+        in: path
+        name: appId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: roleId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Delete an app role
+      tags:
+      - app
+  /datastore/app/config:
+    get:
+      operationId: getAvailableAppConfigs
+      parameters:
+      - explode: true
+        in: query
+        name: appId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserAppConfig'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get available app configurations
+      tags:
+      - app
+  /datastore/app/config/{appId}:
+    get:
+      operationId: getAvailableAppConfigsOld
+      parameters:
+      - explode: false
+        in: path
+        name: appId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/HistoricalAppConfig'
+                type: array
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Get historical app configurations for an app
+      tags:
+      - app
 components:
   requestBodies:
     inline_object:
@@ -8543,6 +8767,212 @@ components:
           format: uuid
           type: string
       type: object
+    App:
+      example:
+        entityTypeCollectionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        url: url
+        appRoles:
+        - permissions:
+            additionalProperties:
+              key:
+              - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+        - permissions:
+            additionalProperties:
+              key:
+              - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          title: title
+        defaultSettings:
+          key: '{}'
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+        entityTypeCollectionId:
+          format: uuid
+          type: string
+        appRoles:
+          items:
+            $ref: '#/components/AppRole'
+          type: array
+        defaultSettings:
+          additionalProperties:
+            type: object
+          type: object
+      type: object
+    AppRole:
+      example:
+        permissions:
+          additionalProperties:
+            key:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+      properties:
+        id:
+          format: uuid
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        permissions:
+          $ref: '#/components/schemas/AppRole_permissions'
+      type: object
+    HistoricalAppConfig:
+      example:
+        principal:
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          type: type
+        appId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        organization:
+          principal:
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          emails:
+          - emails
+          - emails
+          partitions:
+          - 0
+          - 0
+          members:
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            type: type
+          roles:
+          - organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            principal:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              type: type
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            title: title
+          - organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            principal:
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              type: type
+            description: description
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            title: title
+          description: description
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          smsEntitySetInfo:
+          - organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            phoneNumber: phoneNumber
+            entitysetIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tags:
+            - tags
+            - tags
+          - organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            phoneNumber: phoneNumber
+            entitysetIds:
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            tags:
+            - tags
+            - tags
+          title: title
+          apps:
+          - apps
+          - apps
+        description: description
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        title: title
+        config:
+          key:
+            permissions:
+            - permissions
+            - permissions
+            entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+        principal:
+          $ref: '#/components/Principal'
+        title:
+          type: string
+        description:
+          type: string
+        appId:
+          format: uuid
+          type: string
+        organization:
+          $ref: '#/components/Organization'
+        config:
+          additionalProperties:
+            $ref: '#/components/HistoricalAppTypeSetting'
+          type: object
+      type: object
+    HistoricalAppTypeSetting:
+      example:
+        permissions:
+        - permissions
+        - permissions
+        entitySetId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        entitySetId:
+          format: uuid
+          type: string
+        permissions:
+          items:
+            type: string
+          type: array
+      type: object
+    UserAppConfig:
+      example:
+        organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        settings:
+          key: '{}'
+        entitySetCollectionId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        roles:
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        organizationId:
+          format: uuid
+          type: string
+        entitySetCollectionId:
+          format: uuid
+          type: string
+        roles:
+          items:
+            format: uuid
+            type: string
+          type: array
+        settings:
+          additionalProperties:
+            type: object
+          type: object
+      type: object
     inline_object:
       description: Set of associations to create. Keys are association entity set
         ids and values for each keys are the data to be created. AssociationEntityId's
@@ -8562,6 +8992,7 @@ components:
           type: string
         credential:
           type: string
+      type: object
     SearchResult_hits:
       example:
         propertyTypes:
@@ -8618,12 +9049,30 @@ components:
           type: array
         entitySet:
           $ref: '#/components/schemas/EntitySet'
+      type: object
     DataEdge_data:
       properties:
         additionalProperties:
           items:
             type: string
           type: array
+      type: object
+    AppRole_permissions:
+      description: 'A map from permissions, eg. {''READ'': ''<UUID>'': [<UUID>, <UUID>]}'
+      example:
+        additionalProperties:
+          key:
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          - 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        additionalProperties:
+          additionalProperties:
+            items:
+              format: uuid
+              type: string
+            type: array
+          type: object
+      type: object
   securitySchemes:
     http_auth:
       bearerFormat: JWT

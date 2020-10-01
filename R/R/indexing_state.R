@@ -13,7 +13,7 @@
 #'
 #' @format An \code{R6Class} generator object
 #'
-#' @field indexing  named list( array[character] ) [optional]
+#' @field indexing  named list( \link{array[character]} ) [optional]
 #'
 #' @field queue  list( character ) [optional]
 #'
@@ -40,7 +40,7 @@ IndexingState <- R6::R6Class(
       local.optional.var <- list(...)
       if (!is.null(`indexing`)) {
         stopifnot(is.vector(`indexing`))
-        sapply(`indexing`, function(x) stopifnot(is.character(x)))
+        sapply(`indexing`, function(x) stopifnot(R6::is.R6(x)))
         self$`indexing` <- `indexing`
       }
       if (!is.null(`queue`)) {
@@ -65,7 +65,7 @@ IndexingState <- R6::R6Class(
       IndexingStateObject <- list()
       if (!is.null(self$`indexing`)) {
         IndexingStateObject[['indexing']] <-
-          self$`indexing`
+          lapply(self$`indexing`, function(x) x$toJSON())
       }
       if (!is.null(self$`queue`)) {
         IndexingStateObject[['queue']] <-
@@ -110,9 +110,9 @@ IndexingState <- R6::R6Class(
         if (!is.null(self$`indexing`)) {
         sprintf(
         '"indexing":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`indexing`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`indexing`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`queue`)) {
         sprintf(

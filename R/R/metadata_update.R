@@ -29,7 +29,7 @@
 #'
 #' @field url  character [optional]
 #'
-#' @field propertyTags  named list( array[character] ) [optional]
+#' @field propertyTags  named list( \link{array[character]} ) [optional]
 #'
 #' @field indexType  character [optional]
 #'
@@ -95,7 +95,7 @@ MetadataUpdate <- R6::R6Class(
       }
       if (!is.null(`propertyTags`)) {
         stopifnot(is.vector(`propertyTags`))
-        sapply(`propertyTags`, function(x) stopifnot(is.character(x)))
+        sapply(`propertyTags`, function(x) stopifnot(R6::is.R6(x)))
         self$`propertyTags` <- `propertyTags`
       }
       if (!is.null(`indexType`)) {
@@ -153,7 +153,7 @@ MetadataUpdate <- R6::R6Class(
       }
       if (!is.null(self$`propertyTags`)) {
         MetadataUpdateObject[['propertyTags']] <-
-          self$`propertyTags`
+          lapply(self$`propertyTags`, function(x) x$toJSON())
       }
       if (!is.null(self$`indexType`)) {
         MetadataUpdateObject[['indexType']] <-
@@ -190,7 +190,7 @@ MetadataUpdate <- R6::R6Class(
       }
       if (!is.null(MetadataUpdateObject$`type`)) {
         typeObject <- FullQualifiedName$new()
-        typeObject$fromJSON(jsonlite::toJSON(MetadataUpdateObject$type, auto_unbox = FALSE, digits = NA))
+        typeObject$fromJSON(jsonlite::toJSON(MetadataUpdateObject$type, auto_unbox = TRUE, digits = NA))
         self$`type` <- typeObject
       }
       if (!is.null(MetadataUpdateObject$`pii`)) {
@@ -254,7 +254,7 @@ MetadataUpdate <- R6::R6Class(
         '"type":
         %s
         ',
-        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`pii`)) {
         sprintf(
@@ -280,9 +280,9 @@ MetadataUpdate <- R6::R6Class(
         if (!is.null(self$`propertyTags`)) {
         sprintf(
         '"propertyTags":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`propertyTags`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`propertyTags`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`indexType`)) {
         sprintf(
@@ -322,7 +322,7 @@ MetadataUpdate <- R6::R6Class(
       self$`description` <- MetadataUpdateObject$`description`
       self$`name` <- MetadataUpdateObject$`name`
       self$`contacts` <- ApiClient$new()$deserializeObj(MetadataUpdateObject$`contacts`, "array[character]", loadNamespace("openlattice"))
-      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(MetadataUpdateObject$type, auto_unbox = FALSE, digits = NA))
+      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(MetadataUpdateObject$type, auto_unbox = TRUE, digits = NA))
       self$`pii` <- MetadataUpdateObject$`pii`
       self$`defaultShow` <- MetadataUpdateObject$`defaultShow`
       self$`url` <- MetadataUpdateObject$`url`

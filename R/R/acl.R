@@ -77,7 +77,19 @@ Acl <- R6::R6Class(
         '"aces":
         [%s]
 ',
-        paste(sapply(self$`aces`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`aces`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

@@ -102,7 +102,7 @@ SearchConstraints <- R6::R6Class(
       }
       if (!is.null(SearchConstraintsObject$`sort`)) {
         sortObject <- SortDefinition$new()
-        sortObject$fromJSON(jsonlite::toJSON(SearchConstraintsObject$sort, auto_unbox = FALSE, digits = NA))
+        sortObject$fromJSON(jsonlite::toJSON(SearchConstraintsObject$sort, auto_unbox = TRUE, digits = NA))
         self$`sort` <- sortObject
       }
       self
@@ -135,14 +135,26 @@ SearchConstraints <- R6::R6Class(
         '"constraints":
         [%s]
 ',
-        paste(sapply(self$`constraints`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`constraints`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`sort`)) {
         sprintf(
         '"sort":
         %s
         ',
-        jsonlite::toJSON(self$`sort`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`sort`$toJSON(), auto_unbox=TRUE, digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -154,7 +166,7 @@ SearchConstraints <- R6::R6Class(
       self$`start` <- SearchConstraintsObject$`start`
       self$`maxHits` <- SearchConstraintsObject$`maxHits`
       self$`constraints` <- ApiClient$new()$deserializeObj(SearchConstraintsObject$`constraints`, "array[ConstraintGroup]", loadNamespace("openlattice"))
-      self$`sort` <- SortDefinition$new()$fromJSON(jsonlite::toJSON(SearchConstraintsObject$sort, auto_unbox = FALSE, digits = NA))
+      self$`sort` <- SortDefinition$new()$fromJSON(jsonlite::toJSON(SearchConstraintsObject$sort, auto_unbox = TRUE, digits = NA))
       self
     }
   )

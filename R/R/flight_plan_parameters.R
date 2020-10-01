@@ -102,7 +102,7 @@ FlightPlanParameters <- R6::R6Class(
       }
       if (!is.null(FlightPlanParametersObject$`flight`)) {
         flightObject <- Flight$new()
-        flightObject$fromJSON(jsonlite::toJSON(FlightPlanParametersObject$flight, auto_unbox = FALSE, digits = NA))
+        flightObject$fromJSON(jsonlite::toJSON(FlightPlanParametersObject$flight, auto_unbox = TRUE, digits = NA))
         self$`flight` <- flightObject
       }
       self
@@ -121,7 +121,7 @@ FlightPlanParameters <- R6::R6Class(
         '"src":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`src`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`src`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`srcPrimaryKeyColumns`)) {
         sprintf(
@@ -142,7 +142,7 @@ FlightPlanParameters <- R6::R6Class(
         '"flight":
         %s
         ',
-        jsonlite::toJSON(self$`flight`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`flight`$toJSON(), auto_unbox=TRUE, digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -154,7 +154,7 @@ FlightPlanParameters <- R6::R6Class(
       self$`src` <- ApiClient$new()$deserializeObj(FlightPlanParametersObject$`src`, "list(character)", loadNamespace("openlattice"))
       self$`srcPrimaryKeyColumns` <- ApiClient$new()$deserializeObj(FlightPlanParametersObject$`srcPrimaryKeyColumns`, "array[character]", loadNamespace("openlattice"))
       self$`path` <- FlightPlanParametersObject$`path`
-      self$`flight` <- Flight$new()$fromJSON(jsonlite::toJSON(FlightPlanParametersObject$flight, auto_unbox = FALSE, digits = NA))
+      self$`flight` <- Flight$new()$fromJSON(jsonlite::toJSON(FlightPlanParametersObject$flight, auto_unbox = TRUE, digits = NA))
       self
     }
   )

@@ -78,17 +78,17 @@ Association <- R6::R6Class(
       AssociationObject <- jsonlite::fromJSON(AssociationJson)
       if (!is.null(AssociationObject$`key`)) {
         keyObject <- EntityKey$new()
-        keyObject$fromJSON(jsonlite::toJSON(AssociationObject$key, auto_unbox = FALSE, digits = NA))
+        keyObject$fromJSON(jsonlite::toJSON(AssociationObject$key, auto_unbox = TRUE, digits = NA))
         self$`key` <- keyObject
       }
       if (!is.null(AssociationObject$`src`)) {
         srcObject <- EntityKey$new()
-        srcObject$fromJSON(jsonlite::toJSON(AssociationObject$src, auto_unbox = FALSE, digits = NA))
+        srcObject$fromJSON(jsonlite::toJSON(AssociationObject$src, auto_unbox = TRUE, digits = NA))
         self$`src` <- srcObject
       }
       if (!is.null(AssociationObject$`dst`)) {
         dstObject <- EntityKey$new()
-        dstObject$fromJSON(jsonlite::toJSON(AssociationObject$dst, auto_unbox = FALSE, digits = NA))
+        dstObject$fromJSON(jsonlite::toJSON(AssociationObject$dst, auto_unbox = TRUE, digits = NA))
         self$`dst` <- dstObject
       }
       if (!is.null(AssociationObject$`details`)) {
@@ -103,28 +103,28 @@ Association <- R6::R6Class(
         '"key":
         %s
         ',
-        jsonlite::toJSON(self$`key`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`key`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`src`)) {
         sprintf(
         '"src":
         %s
         ',
-        jsonlite::toJSON(self$`src`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`src`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`dst`)) {
         sprintf(
         '"dst":
         %s
         ',
-        jsonlite::toJSON(self$`dst`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`dst`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`details`)) {
         sprintf(
         '"details":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`details`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`details`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -132,9 +132,9 @@ Association <- R6::R6Class(
     },
     fromJSONString = function(AssociationJson) {
       AssociationObject <- jsonlite::fromJSON(AssociationJson)
-      self$`key` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$key, auto_unbox = FALSE, digits = NA))
-      self$`src` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$src, auto_unbox = FALSE, digits = NA))
-      self$`dst` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$dst, auto_unbox = FALSE, digits = NA))
+      self$`key` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$key, auto_unbox = TRUE, digits = NA))
+      self$`src` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$src, auto_unbox = TRUE, digits = NA))
+      self$`dst` <- EntityKey$new()$fromJSON(jsonlite::toJSON(AssociationObject$dst, auto_unbox = TRUE, digits = NA))
       self$`details` <- ApiClient$new()$deserializeObj(AssociationObject$`details`, "list(character)", loadNamespace("openlattice"))
       self
     }

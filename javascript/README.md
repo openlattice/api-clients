@@ -132,6 +132,14 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.AdminApi* | [**getIndexingState**](docs/AdminApi.md#getIndexingState) | **GET** /indexer/index/reindex | Retrieve the current state of reindexing jobs
 *OpenLatticeApi.AdminApi* | [**reindex**](docs/AdminApi.md#reindex) | **POST** /indexer/index/reindex | Merge job descriptions for performing a partial or full reindex of provided entity sets.
 *OpenLatticeApi.AdminApi* | [**updateReindex**](docs/AdminApi.md#updateReindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
+*OpenLatticeApi.AppApi* | [**createApp**](docs/AppApi.md#createApp) | **POST** /datastore/app | Create an app if it doesn&#39;t exist.
+*OpenLatticeApi.AppApi* | [**createAppRole**](docs/AppApi.md#createAppRole) | **POST** /datastore/app/update/{appId}/role | Create an app role
+*OpenLatticeApi.AppApi* | [**deleteApp**](docs/AppApi.md#deleteApp) | **DELETE** /datastore/app/{appId} | Delete an app
+*OpenLatticeApi.AppApi* | [**deleteRoleFromApp**](docs/AppApi.md#deleteRoleFromApp) | **DELETE** /datastore/app/update/{appId}/role/{roleId} | Delete an app role
+*OpenLatticeApi.AppApi* | [**getApp**](docs/AppApi.md#getApp) | **GET** /datastore/app/{appId} | Get an app based on the ID
+*OpenLatticeApi.AppApi* | [**getAppByName**](docs/AppApi.md#getAppByName) | **GET** /datastore/app/lookup/{name} | Get an app based on the name
+*OpenLatticeApi.AppApi* | [**getApps**](docs/AppApi.md#getApps) | **GET** /datastore/app | Get all apps
+*OpenLatticeApi.AppApi* | [**getAvailableAppConfigsOld**](docs/AppApi.md#getAvailableAppConfigsOld) | **GET** /datastore/app/config/{appId} | Get historical app configurations for an app
 *OpenLatticeApi.AuthorizationsApi* | [**checkAuthorizations**](docs/AuthorizationsApi.md#checkAuthorizations) | **POST** /datastore/authorizations | Check authorizations
 *OpenLatticeApi.AuthorizationsApi* | [**getAccessibleObjects**](docs/AuthorizationsApi.md#getAccessibleObjects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 *OpenLatticeApi.CollectionsApi* | [**addTypeToEntityTypeCollectionTemplate**](docs/CollectionsApi.md#addTypeToEntityTypeCollectionTemplate) | **PATCH** /datastore/collections/entity/type/{entityTypeCollectionId}/template | Appends type to template of the specified EntityTypeCollection
@@ -319,6 +327,9 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.Acl](docs/Acl.md)
  - [OpenLatticeApi.AclData](docs/AclData.md)
  - [OpenLatticeApi.AdvancedSearch](docs/AdvancedSearch.md)
+ - [OpenLatticeApi.App](docs/App.md)
+ - [OpenLatticeApi.AppRole](docs/AppRole.md)
+ - [OpenLatticeApi.AppRolePermissions](docs/AppRolePermissions.md)
  - [OpenLatticeApi.Association](docs/Association.md)
  - [OpenLatticeApi.AssociationDefinition](docs/AssociationDefinition.md)
  - [OpenLatticeApi.AssociationType](docs/AssociationType.md)
@@ -358,6 +369,8 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.FlightPlanParameters](docs/FlightPlanParameters.md)
  - [OpenLatticeApi.FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [OpenLatticeApi.FullQualifiedName](docs/FullQualifiedName.md)
+ - [OpenLatticeApi.HistoricalAppConfig](docs/HistoricalAppConfig.md)
+ - [OpenLatticeApi.HistoricalAppTypeSetting](docs/HistoricalAppTypeSetting.md)
  - [OpenLatticeApi.IndexingState](docs/IndexingState.md)
  - [OpenLatticeApi.InlineObject](docs/InlineObject.md)
  - [OpenLatticeApi.InlineResponse200](docs/InlineResponse200.md)

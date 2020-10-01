@@ -18,6 +18,9 @@ import Ace from './model/Ace';
 import Acl from './model/Acl';
 import AclData from './model/AclData';
 import AdvancedSearch from './model/AdvancedSearch';
+import App from './model/App';
+import AppRole from './model/AppRole';
+import AppRolePermissions from './model/AppRolePermissions';
 import Association from './model/Association';
 import AssociationDefinition from './model/AssociationDefinition';
 import AssociationType from './model/AssociationType';
@@ -57,6 +60,8 @@ import Flight from './model/Flight';
 import FlightPlanParameters from './model/FlightPlanParameters';
 import FlightPlanParametersUpdate from './model/FlightPlanParametersUpdate';
 import FullQualifiedName from './model/FullQualifiedName';
+import HistoricalAppConfig from './model/HistoricalAppConfig';
+import HistoricalAppTypeSetting from './model/HistoricalAppTypeSetting';
 import IndexingState from './model/IndexingState';
 import InlineObject from './model/InlineObject';
 import InlineResponse200 from './model/InlineResponse200';
@@ -91,6 +96,7 @@ import SecurablePrincipal from './model/SecurablePrincipal';
 import SmsEntitySetInformation from './model/SmsEntitySetInformation';
 import SortDefinition from './model/SortDefinition';
 import AdminApi from './api/AdminApi';
+import AppApi from './api/AppApi';
 import AuthorizationsApi from './api/AuthorizationsApi';
 import CollectionsApi from './api/CollectionsApi';
 import DataApi from './api/DataApi';
@@ -173,6 +179,24 @@ export {
      * @property {module:model/AdvancedSearch}
      */
     AdvancedSearch,
+
+    /**
+     * The App model constructor.
+     * @property {module:model/App}
+     */
+    App,
+
+    /**
+     * The AppRole model constructor.
+     * @property {module:model/AppRole}
+     */
+    AppRole,
+
+    /**
+     * The AppRolePermissions model constructor.
+     * @property {module:model/AppRolePermissions}
+     */
+    AppRolePermissions,
 
     /**
      * The Association model constructor.
@@ -409,6 +433,18 @@ export {
     FullQualifiedName,
 
     /**
+     * The HistoricalAppConfig model constructor.
+     * @property {module:model/HistoricalAppConfig}
+     */
+    HistoricalAppConfig,
+
+    /**
+     * The HistoricalAppTypeSetting model constructor.
+     * @property {module:model/HistoricalAppTypeSetting}
+     */
+    HistoricalAppTypeSetting,
+
+    /**
      * The IndexingState model constructor.
      * @property {module:model/IndexingState}
      */
@@ -611,6 +647,12 @@ export {
     * @property {module:api/AdminApi}
     */
     AdminApi,
+
+    /**
+    * The AppApi service constructor.
+    * @property {module:api/AppApi}
+    */
+    AppApi,
 
     /**
     * The AuthorizationsApi service constructor.

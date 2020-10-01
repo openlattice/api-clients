@@ -275,7 +275,11 @@ LinkingApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`linking_feedback`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`linking_feedback`)) {
+                    `linking_feedback`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`linking_feedback`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -338,7 +342,11 @@ LinkingApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`entity_key_pair`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`entity_key_pair`)) {
+                    `entity_key_pair`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`entity_key_pair`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -497,7 +505,11 @@ LinkingApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`entity_key_pair`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`entity_key_pair`)) {
+                    `entity_key_pair`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`entity_key_pair`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL
@@ -566,7 +578,11 @@ LinkingApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`entity_data_key`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`entity_data_key`)) {
+                    `entity_data_key`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`entity_data_key`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL

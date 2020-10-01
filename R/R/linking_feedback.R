@@ -68,7 +68,7 @@ LinkingFeedback <- R6::R6Class(
       LinkingFeedbackObject <- jsonlite::fromJSON(LinkingFeedbackJson)
       if (!is.null(LinkingFeedbackObject$`linkingEntity`)) {
         linkingEntityObject <- EntityDataKey$new()
-        linkingEntityObject$fromJSON(jsonlite::toJSON(LinkingFeedbackObject$linkingEntity, auto_unbox = FALSE, digits = NA))
+        linkingEntityObject$fromJSON(jsonlite::toJSON(LinkingFeedbackObject$linkingEntity, auto_unbox = TRUE, digits = NA))
         self$`linkingEntity` <- linkingEntityObject
       }
       if (!is.null(LinkingFeedbackObject$`link`)) {
@@ -86,21 +86,45 @@ LinkingFeedback <- R6::R6Class(
         '"linkingEntity":
         %s
         ',
-        jsonlite::toJSON(self$`linkingEntity`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`linkingEntity`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`link`)) {
         sprintf(
         '"link":
         [%s]
 ',
-        paste(sapply(self$`link`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`link`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`unlink`)) {
         sprintf(
         '"unlink":
         [%s]
 ',
-        paste(sapply(self$`unlink`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`unlink`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -108,7 +132,7 @@ LinkingFeedback <- R6::R6Class(
     },
     fromJSONString = function(LinkingFeedbackJson) {
       LinkingFeedbackObject <- jsonlite::fromJSON(LinkingFeedbackJson)
-      self$`linkingEntity` <- EntityDataKey$new()$fromJSON(jsonlite::toJSON(LinkingFeedbackObject$linkingEntity, auto_unbox = FALSE, digits = NA))
+      self$`linkingEntity` <- EntityDataKey$new()$fromJSON(jsonlite::toJSON(LinkingFeedbackObject$linkingEntity, auto_unbox = TRUE, digits = NA))
       self$`link` <- ApiClient$new()$deserializeObj(LinkingFeedbackObject$`link`, "array[EntityDataKey]", loadNamespace("openlattice"))
       self$`unlink` <- ApiClient$new()$deserializeObj(LinkingFeedbackObject$`unlink`, "array[EntityDataKey]", loadNamespace("openlattice"))
       self

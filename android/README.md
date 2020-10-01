@@ -86,6 +86,15 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**getIndexingState**](docs/AdminApi.md#getIndexingState) | **GET** /indexer/index/reindex | Retrieve the current state of reindexing jobs
 *AdminApi* | [**reindex**](docs/AdminApi.md#reindex) | **POST** /indexer/index/reindex | Merge job descriptions for performing a partial or full reindex of provided entity sets.
 *AdminApi* | [**updateReindex**](docs/AdminApi.md#updateReindex) | **PUT** /indexer/index/reindex | Replaces job descriptions for performing a partial or full reindex of provided entity sets.
+*AppApi* | [**createApp**](docs/AppApi.md#createApp) | **POST** /datastore/app | Create an app if it doesn&#39;t exist.
+*AppApi* | [**createAppRole**](docs/AppApi.md#createAppRole) | **POST** /datastore/app/update/{appId}/role | Create an app role
+*AppApi* | [**deleteApp**](docs/AppApi.md#deleteApp) | **DELETE** /datastore/app/{appId} | Delete an app
+*AppApi* | [**deleteRoleFromApp**](docs/AppApi.md#deleteRoleFromApp) | **DELETE** /datastore/app/update/{appId}/role/{roleId} | Delete an app role
+*AppApi* | [**getApp**](docs/AppApi.md#getApp) | **GET** /datastore/app/{appId} | Get an app based on the ID
+*AppApi* | [**getAppByName**](docs/AppApi.md#getAppByName) | **GET** /datastore/app/lookup/{name} | Get an app based on the name
+*AppApi* | [**getApps**](docs/AppApi.md#getApps) | **GET** /datastore/app | Get all apps
+*AppApi* | [**getAvailableAppConfigs**](docs/AppApi.md#getAvailableAppConfigs) | **GET** /datastore/app/config | Get available app configurations
+*AppApi* | [**getAvailableAppConfigsOld**](docs/AppApi.md#getAvailableAppConfigsOld) | **GET** /datastore/app/config/{appId} | Get historical app configurations for an app
 *AuthorizationsApi* | [**checkAuthorizations**](docs/AuthorizationsApi.md#checkAuthorizations) | **POST** /datastore/authorizations | Check authorizations
 *AuthorizationsApi* | [**getAccessibleObjects**](docs/AuthorizationsApi.md#getAccessibleObjects) | **GET** /datastore/authorizations | Returns paged results for all authorized objects of specified objectType, that the current user has specified permission for.
 *CollectionsApi* | [**addTypeToEntityTypeCollectionTemplate**](docs/CollectionsApi.md#addTypeToEntityTypeCollectionTemplate) | **PATCH** /datastore/collections/entity/type/{entityTypeCollectionId}/template | Appends type to template of the specified EntityTypeCollection
@@ -273,6 +282,9 @@ Class | Method | HTTP request | Description
  - [Acl](docs/Acl.md)
  - [AclData](docs/AclData.md)
  - [AdvancedSearch](docs/AdvancedSearch.md)
+ - [App](docs/App.md)
+ - [AppRole](docs/AppRole.md)
+ - [AppRolePermissions](docs/AppRolePermissions.md)
  - [Association](docs/Association.md)
  - [AssociationDefinition](docs/AssociationDefinition.md)
  - [AssociationType](docs/AssociationType.md)
@@ -312,6 +324,8 @@ Class | Method | HTTP request | Description
  - [FlightPlanParameters](docs/FlightPlanParameters.md)
  - [FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)
  - [FullQualifiedName](docs/FullQualifiedName.md)
+ - [HistoricalAppConfig](docs/HistoricalAppConfig.md)
+ - [HistoricalAppTypeSetting](docs/HistoricalAppTypeSetting.md)
  - [IndexingState](docs/IndexingState.md)
  - [InlineObject](docs/InlineObject.md)
  - [InlineResponse200](docs/InlineResponse200.md)
@@ -345,6 +359,7 @@ Class | Method | HTTP request | Description
  - [SecurablePrincipal](docs/SecurablePrincipal.md)
  - [SmsEntitySetInformation](docs/SmsEntitySetInformation.md)
  - [SortDefinition](docs/SortDefinition.md)
+ - [UserAppConfig](docs/UserAppConfig.md)
 
 
 ## Documentation for Authorization

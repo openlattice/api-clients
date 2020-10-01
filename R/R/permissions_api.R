@@ -136,7 +136,13 @@ PermissionsApi <- R6::R6Class(
         '
             [%s]
 ',
-              paste(sapply(`request_body`, function(x) { if (is.null(names(x) )) {paste0('"', x, '"')} else {jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)}}), collapse=",")
+              paste(sapply(`request_body`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
         )
       } else {
         body <- NULL
@@ -199,7 +205,11 @@ PermissionsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`acl_data`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`acl_data`)) {
+                    `acl_data`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`acl_data`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL

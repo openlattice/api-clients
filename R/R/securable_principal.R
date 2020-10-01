@@ -80,7 +80,7 @@ SecurablePrincipal <- R6::R6Class(
       }
       if (!is.null(SecurablePrincipalObject$`principal`)) {
         principalObject <- Principal$new()
-        principalObject$fromJSON(jsonlite::toJSON(SecurablePrincipalObject$principal, auto_unbox = FALSE, digits = NA))
+        principalObject$fromJSON(jsonlite::toJSON(SecurablePrincipalObject$principal, auto_unbox = TRUE, digits = NA))
         self$`principal` <- principalObject
       }
       if (!is.null(SecurablePrincipalObject$`title`)) {
@@ -105,7 +105,7 @@ SecurablePrincipal <- R6::R6Class(
         '"principal":
         %s
         ',
-        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`title`)) {
         sprintf(
@@ -128,7 +128,7 @@ SecurablePrincipal <- R6::R6Class(
     fromJSONString = function(SecurablePrincipalJson) {
       SecurablePrincipalObject <- jsonlite::fromJSON(SecurablePrincipalJson)
       self$`id` <- SecurablePrincipalObject$`id`
-      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(SecurablePrincipalObject$principal, auto_unbox = FALSE, digits = NA))
+      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(SecurablePrincipalObject$principal, auto_unbox = TRUE, digits = NA))
       self$`title` <- SecurablePrincipalObject$`title`
       self$`description` <- SecurablePrincipalObject$`description`
       self

@@ -225,7 +225,7 @@ Integration <- R6::R6Class(
         '"flightPlanParameters":
         %s
 ',
-        jsonlite::toJSON(lapply(self$`flightPlanParameters`, function(x){ x$toJSON() }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`flightPlanParameters`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

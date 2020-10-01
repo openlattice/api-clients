@@ -77,7 +77,7 @@ Authorization <- R6::R6Class(
         '"permissions":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`permissions`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`permissions`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

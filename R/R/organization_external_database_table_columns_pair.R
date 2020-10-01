@@ -56,7 +56,7 @@ OrganizationExternalDatabaseTableColumnsPair <- R6::R6Class(
       OrganizationExternalDatabaseTableColumnsPairObject <- jsonlite::fromJSON(OrganizationExternalDatabaseTableColumnsPairJson)
       if (!is.null(OrganizationExternalDatabaseTableColumnsPairObject$`table`)) {
         tableObject <- OrganizationExternalDatabaseTable$new()
-        tableObject$fromJSON(jsonlite::toJSON(OrganizationExternalDatabaseTableColumnsPairObject$table, auto_unbox = FALSE, digits = NA))
+        tableObject$fromJSON(jsonlite::toJSON(OrganizationExternalDatabaseTableColumnsPairObject$table, auto_unbox = TRUE, digits = NA))
         self$`table` <- tableObject
       }
       if (!is.null(OrganizationExternalDatabaseTableColumnsPairObject$`columns`)) {
@@ -71,14 +71,26 @@ OrganizationExternalDatabaseTableColumnsPair <- R6::R6Class(
         '"table":
         %s
         ',
-        jsonlite::toJSON(self$`table`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`table`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`columns`)) {
         sprintf(
         '"columns":
         [%s]
 ',
-        paste(sapply(self$`columns`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`columns`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -86,7 +98,7 @@ OrganizationExternalDatabaseTableColumnsPair <- R6::R6Class(
     },
     fromJSONString = function(OrganizationExternalDatabaseTableColumnsPairJson) {
       OrganizationExternalDatabaseTableColumnsPairObject <- jsonlite::fromJSON(OrganizationExternalDatabaseTableColumnsPairJson)
-      self$`table` <- OrganizationExternalDatabaseTable$new()$fromJSON(jsonlite::toJSON(OrganizationExternalDatabaseTableColumnsPairObject$table, auto_unbox = FALSE, digits = NA))
+      self$`table` <- OrganizationExternalDatabaseTable$new()$fromJSON(jsonlite::toJSON(OrganizationExternalDatabaseTableColumnsPairObject$table, auto_unbox = TRUE, digits = NA))
       self$`columns` <- ApiClient$new()$deserializeObj(OrganizationExternalDatabaseTableColumnsPairObject$`columns`, "array[OrganizationExternalDatabaseColumn]", loadNamespace("openlattice"))
       self
     }

@@ -77,6 +77,18 @@ public class JsonUtil {
       return new TypeToken<List<AdvancedSearch>>(){}.getType();
     }
     
+    if ("App".equalsIgnoreCase(className)) {
+      return new TypeToken<List<App>>(){}.getType();
+    }
+    
+    if ("AppRole".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AppRole>>(){}.getType();
+    }
+    
+    if ("AppRolePermissions".equalsIgnoreCase(className)) {
+      return new TypeToken<List<AppRolePermissions>>(){}.getType();
+    }
+    
     if ("Association".equalsIgnoreCase(className)) {
       return new TypeToken<List<Association>>(){}.getType();
     }
@@ -233,6 +245,14 @@ public class JsonUtil {
       return new TypeToken<List<FullQualifiedName>>(){}.getType();
     }
     
+    if ("HistoricalAppConfig".equalsIgnoreCase(className)) {
+      return new TypeToken<List<HistoricalAppConfig>>(){}.getType();
+    }
+    
+    if ("HistoricalAppTypeSetting".equalsIgnoreCase(className)) {
+      return new TypeToken<List<HistoricalAppTypeSetting>>(){}.getType();
+    }
+    
     if ("IndexingState".equalsIgnoreCase(className)) {
       return new TypeToken<List<IndexingState>>(){}.getType();
     }
@@ -365,6 +385,10 @@ public class JsonUtil {
       return new TypeToken<List<SortDefinition>>(){}.getType();
     }
     
+    if ("UserAppConfig".equalsIgnoreCase(className)) {
+      return new TypeToken<List<UserAppConfig>>(){}.getType();
+    }
+    
     return new TypeToken<List<Object>>(){}.getType();
   }
 
@@ -389,6 +413,18 @@ public class JsonUtil {
     
     if ("AdvancedSearch".equalsIgnoreCase(className)) {
       return new TypeToken<AdvancedSearch>(){}.getType();
+    }
+    
+    if ("App".equalsIgnoreCase(className)) {
+      return new TypeToken<App>(){}.getType();
+    }
+    
+    if ("AppRole".equalsIgnoreCase(className)) {
+      return new TypeToken<AppRole>(){}.getType();
+    }
+    
+    if ("AppRolePermissions".equalsIgnoreCase(className)) {
+      return new TypeToken<AppRolePermissions>(){}.getType();
     }
     
     if ("Association".equalsIgnoreCase(className)) {
@@ -547,6 +583,14 @@ public class JsonUtil {
       return new TypeToken<FullQualifiedName>(){}.getType();
     }
     
+    if ("HistoricalAppConfig".equalsIgnoreCase(className)) {
+      return new TypeToken<HistoricalAppConfig>(){}.getType();
+    }
+    
+    if ("HistoricalAppTypeSetting".equalsIgnoreCase(className)) {
+      return new TypeToken<HistoricalAppTypeSetting>(){}.getType();
+    }
+    
     if ("IndexingState".equalsIgnoreCase(className)) {
       return new TypeToken<IndexingState>(){}.getType();
     }
@@ -677,6 +721,10 @@ public class JsonUtil {
     
     if ("SortDefinition".equalsIgnoreCase(className)) {
       return new TypeToken<SortDefinition>(){}.getType();
+    }
+    
+    if ("UserAppConfig".equalsIgnoreCase(className)) {
+      return new TypeToken<UserAppConfig>(){}.getType();
     }
     
     return new TypeToken<Object>(){}.getType();
