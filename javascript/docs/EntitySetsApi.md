@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**getPropertyTypesForEntitySet**](EntitySetsApi.md#getPropertyTypesForEntitySet) | **GET** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
 [**removeEntitySetsFromLinkingEntitySet**](EntitySetsApi.md#removeEntitySetsFromLinkingEntitySet) | **DELETE** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
 [**removeEntitySetsFromLinkingEntitySets**](EntitySetsApi.md#removeEntitySetsFromLinkingEntitySets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
+[**repartitionEntitySet**](EntitySetsApi.md#repartitionEntitySet) | **PUT** /datastore/entity-sets/{entitySetId}/partitions | Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
 [**updateEntitySetMetaData**](EntitySetsApi.md#updateEntitySetMetaData) | **PATCH** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 [**updateEntitySetPropertyMetadata**](EntitySetsApi.md#updateEntitySetPropertyMetadata) | **POST** /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 
@@ -763,6 +764,60 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## repartitionEntitySet
+
+> repartitionEntitySet(entitySetId, requestBody)
+
+Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.EntitySetsApi();
+let entitySetId = null; // String | 
+let requestBody = [null]; // [Number] | 
+apiInstance.repartitionEntitySet(entitySetId, requestBody, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entitySetId** | [**String**](.md)|  | 
+ **requestBody** | [**[Number]**](Number.md)|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## updateEntitySetMetaData

@@ -190,6 +190,18 @@ describe 'EntitySetsApi' do
     end
   end
 
+  # unit tests for repartition_entity_set
+  # Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+  # @param entity_set_id 
+  # @param request_body 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'repartition_entity_set test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for update_entity_set_meta_data
   # Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
   # @param entity_set_id 

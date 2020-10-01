@@ -94,7 +94,7 @@ Role <- R6::R6Class(
       }
       if (!is.null(RoleObject$`principal`)) {
         principalObject <- Principal$new()
-        principalObject$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = FALSE, digits = NA))
+        principalObject$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = TRUE, digits = NA))
         self$`principal` <- principalObject
       }
       if (!is.null(RoleObject$`title`)) {
@@ -126,7 +126,7 @@ Role <- R6::R6Class(
         '"principal":
         %s
         ',
-        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`title`)) {
         sprintf(
@@ -150,7 +150,7 @@ Role <- R6::R6Class(
       RoleObject <- jsonlite::fromJSON(RoleJson)
       self$`id` <- RoleObject$`id`
       self$`organizationId` <- RoleObject$`organizationId`
-      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = FALSE, digits = NA))
+      self$`principal` <- Principal$new()$fromJSON(jsonlite::toJSON(RoleObject$principal, auto_unbox = TRUE, digits = NA))
       self$`title` <- RoleObject$`title`
       self$`description` <- RoleObject$`description`
       self

@@ -1891,6 +1891,146 @@ class EntitySetsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
+    def repartition_entity_set(self, entity_set_id, request_body, **kwargs):  # noqa: E501
+        """Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.repartition_entity_set(entity_set_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param entity_set_id: (required)
+        :type entity_set_id: str
+        :param request_body: (required)
+        :type request_body: list[int]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.repartition_entity_set_with_http_info(entity_set_id, request_body, **kwargs)  # noqa: E501
+
+    def repartition_entity_set_with_http_info(self, entity_set_id, request_body, **kwargs):  # noqa: E501
+        """Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.repartition_entity_set_with_http_info(entity_set_id, request_body, async_req=True)
+        >>> result = thread.get()
+
+        :param entity_set_id: (required)
+        :type entity_set_id: str
+        :param request_body: (required)
+        :type request_body: list[int]
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'entity_set_id',
+            'request_body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method repartition_entity_set" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_set_id' is set
+        if self.api_client.client_side_validation and ('entity_set_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['entity_set_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `entity_set_id` when calling `repartition_entity_set`")  # noqa: E501
+        # verify the required parameter 'request_body' is set
+        if self.api_client.client_side_validation and ('request_body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['request_body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `request_body` when calling `repartition_entity_set`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'entity_set_id' in local_var_params:
+            path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/entity-sets/{entitySetId}/partitions', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
     def update_entity_set_meta_data(self, entity_set_id, metadata_update, **kwargs):  # noqa: E501
         """Updates the EntitySet definition for the given EntitySet UUID with the given metadata.  # noqa: E501
 

@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**getFlaggedOrganizationEntitySets**](OrganizationsApi.md#getFlaggedOrganizationEntitySets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
 [**getMembers**](OrganizationsApi.md#getMembers) | **GET** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
 [**getOrganization**](OrganizationsApi.md#getOrganization) | **GET** /datastore/organizations/{organizationId} | Get an organization from the organizationId
+[**getOrganizationDatabaseName**](OrganizationsApi.md#getOrganizationDatabaseName) | **GET** /datastore/organizations/{organizationId}/database | Get database name for an organization
 [**getOrganizationEntitySets**](OrganizationsApi.md#getOrganizationEntitySets) | **GET** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain filter
 [**getOrganizationIntegrationAccount**](OrganizationsApi.md#getOrganizationIntegrationAccount) | **GET** /datastore/organizations/{organizationId}/integration | Get the integrations account for an organization from the organizationId
 [**getOrganizations**](OrganizationsApi.md#getOrganizations) | **GET** /datastore/organizations | Get all organizations
@@ -25,6 +26,7 @@ Method | HTTP request | Description
 [**removeAutoApprovedEmailDomains**](OrganizationsApi.md#removeAutoApprovedEmailDomains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 [**removeMember**](OrganizationsApi.md#removeMember) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
 [**removeRoleFromUser**](OrganizationsApi.md#removeRoleFromUser) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Remove a role from a user
+[**renameOrganizationDatabase**](OrganizationsApi.md#renameOrganizationDatabase) | **PATCH** /datastore/organizations/{organizationId}/database | Rename the database of organization
 [**setAutoApprovedEmailDomain**](OrganizationsApi.md#setAutoApprovedEmailDomain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 [**synchronizeEdmChanges**](OrganizationsApi.md#synchronizeEdmChanges) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
 [**updateDescription**](OrganizationsApi.md#updateDescription) | **PUT** /datastore/organizations/{organizationId}/description | Update the organization description
@@ -672,6 +674,58 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getOrganizationDatabaseName
+
+> String getOrganizationDatabaseName(organizationId)
+
+Get database name for an organization
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.OrganizationsApi();
+let organizationId = null; // String | 
+apiInstance.getOrganizationDatabaseName(organizationId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**String**](.md)|  | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getOrganizationEntitySets
 
 > {String: [String]} getOrganizationEntitySets(organizationId)
@@ -1145,6 +1199,60 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## renameOrganizationDatabase
+
+> renameOrganizationDatabase(organizationId, body)
+
+Rename the database of organization
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.OrganizationsApi();
+let organizationId = null; // String | 
+let body = "body_example"; // String | 
+apiInstance.renameOrganizationDatabase(organizationId, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**String**](.md)|  | 
+ **body** | **String**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 

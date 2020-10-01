@@ -31,7 +31,7 @@
 #'
 #' @field unit  character [optional]
 #'
-#' @field zones  list( array[array[numeric]] ) [optional]
+#' @field zones  list( \link{array[array[numeric]]} ) [optional]
 #'
 #' @field start  character [optional]
 #'
@@ -94,7 +94,7 @@ Constraint <- R6::R6Class(
       }
       if (!is.null(`zones`)) {
         stopifnot(is.vector(`zones`))
-        sapply(`zones`, function(x) stopifnot(is.character(x)))
+        sapply(`zones`, function(x) stopifnot(R6::is.R6(x)))
         self$`zones` <- `zones`
       }
       if (!is.null(`start`)) {
@@ -146,7 +146,7 @@ Constraint <- R6::R6Class(
       }
       if (!is.null(self$`zones`)) {
         ConstraintObject[['zones']] <-
-          self$`zones`
+          lapply(self$`zones`, function(x) x$toJSON())
       }
       if (!is.null(self$`start`)) {
         ConstraintObject[['start']] <-
@@ -227,7 +227,19 @@ Constraint <- R6::R6Class(
         '"searchFields":
         [%s]
 ',
-        paste(sapply(self$`searchFields`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`searchFields`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`propertyTypeId`)) {
         sprintf(
@@ -267,9 +279,21 @@ Constraint <- R6::R6Class(
         if (!is.null(self$`zones`)) {
         sprintf(
         '"zones":
-           [%s]
-        ',
-        paste(unlist(lapply(self$`zones`, function(x) paste0('"', x, '"'))), collapse=",")
+        [%s]
+',
+        paste(
+            sapply(
+                self$`zones`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`start`)) {
         sprintf(

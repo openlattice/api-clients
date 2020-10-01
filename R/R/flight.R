@@ -134,14 +134,14 @@ Flight <- R6::R6Class(
         '"entityDefinitions":
         %s
 ',
-        jsonlite::toJSON(lapply(self$`entityDefinitions`, function(x){ x$toJSON() }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`entityDefinitions`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`associationDefinitions`)) {
         sprintf(
         '"associationDefinitions":
         %s
 ',
-        jsonlite::toJSON(lapply(self$`associationDefinitions`, function(x){ x$toJSON() }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`associationDefinitions`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

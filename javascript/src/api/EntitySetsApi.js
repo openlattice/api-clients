@@ -633,6 +633,52 @@ export default class EntitySetsApi {
     }
 
     /**
+     * Callback function to receive the result of the repartitionEntitySet operation.
+     * @callback module:api/EntitySetsApi~repartitionEntitySetCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+     * @param {String} entitySetId 
+     * @param {Array.<Number>} requestBody 
+     * @param {module:api/EntitySetsApi~repartitionEntitySetCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    repartitionEntitySet(entitySetId, requestBody, callback) {
+      let postBody = requestBody;
+      // verify the required parameter 'entitySetId' is set
+      if (entitySetId === undefined || entitySetId === null) {
+        throw new Error("Missing the required parameter 'entitySetId' when calling repartitionEntitySet");
+      }
+      // verify the required parameter 'requestBody' is set
+      if (requestBody === undefined || requestBody === null) {
+        throw new Error("Missing the required parameter 'requestBody' when calling repartitionEntitySet");
+      }
+
+      let pathParams = {
+        'entitySetId': entitySetId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/datastore/entity-sets/{entitySetId}/partitions', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the updateEntitySetMetaData operation.
      * @callback module:api/EntitySetsApi~updateEntitySetMetaDataCallback
      * @param {String} error Error message, if any.

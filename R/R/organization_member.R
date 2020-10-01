@@ -67,12 +67,12 @@ OrganizationMember <- R6::R6Class(
       OrganizationMemberObject <- jsonlite::fromJSON(OrganizationMemberJson)
       if (!is.null(OrganizationMemberObject$`principal`)) {
         principalObject <- SecurablePrincipal$new()
-        principalObject$fromJSON(jsonlite::toJSON(OrganizationMemberObject$principal, auto_unbox = FALSE, digits = NA))
+        principalObject$fromJSON(jsonlite::toJSON(OrganizationMemberObject$principal, auto_unbox = TRUE, digits = NA))
         self$`principal` <- principalObject
       }
       if (!is.null(OrganizationMemberObject$`profile`)) {
         profileObject <- Auth0userBasic$new()
-        profileObject$fromJSON(jsonlite::toJSON(OrganizationMemberObject$profile, auto_unbox = FALSE, digits = NA))
+        profileObject$fromJSON(jsonlite::toJSON(OrganizationMemberObject$profile, auto_unbox = TRUE, digits = NA))
         self$`profile` <- profileObject
       }
       if (!is.null(OrganizationMemberObject$`roles`)) {
@@ -87,21 +87,33 @@ OrganizationMember <- R6::R6Class(
         '"principal":
         %s
         ',
-        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`principal`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`profile`)) {
         sprintf(
         '"profile":
         %s
         ',
-        jsonlite::toJSON(self$`profile`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`profile`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`roles`)) {
         sprintf(
         '"roles":
         [%s]
 ',
-        paste(sapply(self$`roles`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`roles`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -109,8 +121,8 @@ OrganizationMember <- R6::R6Class(
     },
     fromJSONString = function(OrganizationMemberJson) {
       OrganizationMemberObject <- jsonlite::fromJSON(OrganizationMemberJson)
-      self$`principal` <- SecurablePrincipal$new()$fromJSON(jsonlite::toJSON(OrganizationMemberObject$principal, auto_unbox = FALSE, digits = NA))
-      self$`profile` <- Auth0userBasic$new()$fromJSON(jsonlite::toJSON(OrganizationMemberObject$profile, auto_unbox = FALSE, digits = NA))
+      self$`principal` <- SecurablePrincipal$new()$fromJSON(jsonlite::toJSON(OrganizationMemberObject$principal, auto_unbox = TRUE, digits = NA))
+      self$`profile` <- Auth0userBasic$new()$fromJSON(jsonlite::toJSON(OrganizationMemberObject$profile, auto_unbox = TRUE, digits = NA))
       self$`roles` <- ApiClient$new()$deserializeObj(OrganizationMemberObject$`roles`, "array[SecurablePrincipal]", loadNamespace("openlattice"))
       self
     }

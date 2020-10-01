@@ -54,7 +54,7 @@ EntityLinkingFeedback <- R6::R6Class(
       EntityLinkingFeedbackObject <- jsonlite::fromJSON(EntityLinkingFeedbackJson)
       if (!is.null(EntityLinkingFeedbackObject$`entityKeyPair`)) {
         entityKeyPairObject <- EntityKeyPair$new()
-        entityKeyPairObject$fromJSON(jsonlite::toJSON(EntityLinkingFeedbackObject$entityKeyPair, auto_unbox = FALSE, digits = NA))
+        entityKeyPairObject$fromJSON(jsonlite::toJSON(EntityLinkingFeedbackObject$entityKeyPair, auto_unbox = TRUE, digits = NA))
         self$`entityKeyPair` <- entityKeyPairObject
       }
       if (!is.null(EntityLinkingFeedbackObject$`linked`)) {
@@ -69,7 +69,7 @@ EntityLinkingFeedback <- R6::R6Class(
         '"entityKeyPair":
         %s
         ',
-        jsonlite::toJSON(self$`entityKeyPair`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`entityKeyPair`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`linked`)) {
         sprintf(
@@ -84,7 +84,7 @@ EntityLinkingFeedback <- R6::R6Class(
     },
     fromJSONString = function(EntityLinkingFeedbackJson) {
       EntityLinkingFeedbackObject <- jsonlite::fromJSON(EntityLinkingFeedbackJson)
-      self$`entityKeyPair` <- EntityKeyPair$new()$fromJSON(jsonlite::toJSON(EntityLinkingFeedbackObject$entityKeyPair, auto_unbox = FALSE, digits = NA))
+      self$`entityKeyPair` <- EntityKeyPair$new()$fromJSON(jsonlite::toJSON(EntityLinkingFeedbackObject$entityKeyPair, auto_unbox = TRUE, digits = NA))
       self$`linked` <- EntityLinkingFeedbackObject$`linked`
       self
     }

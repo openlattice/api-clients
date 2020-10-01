@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**get_flagged_organization_entity_sets**](OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
 [**get_members**](OrganizationsApi.md#get_members) | **GET** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
 [**get_organization**](OrganizationsApi.md#get_organization) | **GET** /datastore/organizations/{organizationId} | Get an organization from the organizationId
+[**get_organization_database_name**](OrganizationsApi.md#get_organization_database_name) | **GET** /datastore/organizations/{organizationId}/database | Get database name for an organization
 [**get_organization_entity_sets**](OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain filter
 [**get_organization_integration_account**](OrganizationsApi.md#get_organization_integration_account) | **GET** /datastore/organizations/{organizationId}/integration | Get the integrations account for an organization from the organizationId
 [**get_organizations**](OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organizations
@@ -25,6 +26,7 @@ Method | HTTP request | Description
 [**remove_auto_approved_email_domains**](OrganizationsApi.md#remove_auto_approved_email_domains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 [**remove_member**](OrganizationsApi.md#remove_member) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
 [**remove_role_from_user**](OrganizationsApi.md#remove_role_from_user) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Remove a role from a user
+[**rename_organization_database**](OrganizationsApi.md#rename_organization_database) | **PATCH** /datastore/organizations/{organizationId}/database | Rename the database of organization
 [**set_auto_approved_email_domain**](OrganizationsApi.md#set_auto_approved_email_domain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 [**synchronize_edm_changes**](OrganizationsApi.md#synchronize_edm_changes) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
 [**update_description**](OrganizationsApi.md#update_description) | **PUT** /datastore/organizations/{organizationId}/description | Update the organization description
@@ -704,6 +706,61 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## get_organization_database_name
+
+> String get_organization_database_name(organization_id)
+
+Get database name for an organization
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure Bearer authorization (JWT): http_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure API key authorization: openlattice_auth
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::OrganizationsApi.new
+organization_id = 'organization_id_example' # String | 
+
+begin
+  #Get database name for an organization
+  result = api_instance.get_organization_database_name(organization_id)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling OrganizationsApi->get_organization_database_name: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**String**](.md)|  | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_organization_entity_sets
 
 > Hash&lt;String, Array&lt;String&gt;&gt; get_organization_entity_sets(organization_id)
@@ -1200,6 +1257,62 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## rename_organization_database
+
+> rename_organization_database(organization_id, body)
+
+Rename the database of organization
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure Bearer authorization (JWT): http_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure API key authorization: openlattice_auth
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::OrganizationsApi.new
+organization_id = 'organization_id_example' # String | 
+body = 'body_example' # String | 
+
+begin
+  #Rename the database of organization
+  api_instance.rename_organization_database(organization_id, body)
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling OrganizationsApi->rename_organization_database: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**String**](.md)|  | 
+ **body** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 

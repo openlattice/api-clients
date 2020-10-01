@@ -8,6 +8,10 @@ docs/Acl.md
 docs/AclData.md
 docs/AdminApi.md
 docs/AdvancedSearch.md
+docs/App.md
+docs/AppApi.md
+docs/AppRole.md
+docs/AppRolePermissions.md
 docs/Association.md
 docs/AssociationDefinition.md
 docs/AssociationType.md
@@ -54,6 +58,8 @@ docs/Flight.md
 docs/FlightPlanParameters.md
 docs/FlightPlanParametersUpdate.md
 docs/FullQualifiedName.md
+docs/HistoricalAppConfig.md
+docs/HistoricalAppTypeSetting.md
 docs/IndexingState.md
 docs/InlineObject.md
 docs/InlineResponse200.md
@@ -93,6 +99,7 @@ docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
 docs/SortDefinition.md
+docs/UserAppConfig.md
 git_push.sh
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
@@ -105,6 +112,7 @@ src/main/java/org/openapitools/client/ApiInvoker.java
 src/main/java/org/openapitools/client/JsonUtil.java
 src/main/java/org/openapitools/client/Pair.java
 src/main/java/org/openapitools/client/api/AdminApi.java
+src/main/java/org/openapitools/client/api/AppApi.java
 src/main/java/org/openapitools/client/api/AuthorizationsApi.java
 src/main/java/org/openapitools/client/api/CollectionsApi.java
 src/main/java/org/openapitools/client/api/DataApi.java
@@ -126,6 +134,9 @@ src/main/java/org/openapitools/client/model/Ace.java
 src/main/java/org/openapitools/client/model/Acl.java
 src/main/java/org/openapitools/client/model/AclData.java
 src/main/java/org/openapitools/client/model/AdvancedSearch.java
+src/main/java/org/openapitools/client/model/App.java
+src/main/java/org/openapitools/client/model/AppRole.java
+src/main/java/org/openapitools/client/model/AppRolePermissions.java
 src/main/java/org/openapitools/client/model/Association.java
 src/main/java/org/openapitools/client/model/AssociationDefinition.java
 src/main/java/org/openapitools/client/model/AssociationType.java
@@ -165,6 +176,8 @@ src/main/java/org/openapitools/client/model/Flight.java
 src/main/java/org/openapitools/client/model/FlightPlanParameters.java
 src/main/java/org/openapitools/client/model/FlightPlanParametersUpdate.java
 src/main/java/org/openapitools/client/model/FullQualifiedName.java
+src/main/java/org/openapitools/client/model/HistoricalAppConfig.java
+src/main/java/org/openapitools/client/model/HistoricalAppTypeSetting.java
 src/main/java/org/openapitools/client/model/IndexingState.java
 src/main/java/org/openapitools/client/model/InlineObject.java
 src/main/java/org/openapitools/client/model/InlineResponse200.java
@@ -198,6 +211,7 @@ src/main/java/org/openapitools/client/model/SearchTerm.java
 src/main/java/org/openapitools/client/model/SecurablePrincipal.java
 src/main/java/org/openapitools/client/model/SmsEntitySetInformation.java
 src/main/java/org/openapitools/client/model/SortDefinition.java
+src/main/java/org/openapitools/client/model/UserAppConfig.java
 src/main/java/org/openapitools/client/request/DeleteRequest.java
 src/main/java/org/openapitools/client/request/GetRequest.java
 src/main/java/org/openapitools/client/request/PatchRequest.java

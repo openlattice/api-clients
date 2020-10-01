@@ -55,7 +55,7 @@ PropertyDefinition <- R6::R6Class(
       PropertyDefinitionObject <- jsonlite::fromJSON(PropertyDefinitionJson)
       if (!is.null(PropertyDefinitionObject$`type`)) {
         typeObject <- FullQualifiedName$new()
-        typeObject$fromJSON(jsonlite::toJSON(PropertyDefinitionObject$type, auto_unbox = FALSE, digits = NA))
+        typeObject$fromJSON(jsonlite::toJSON(PropertyDefinitionObject$type, auto_unbox = TRUE, digits = NA))
         self$`type` <- typeObject
       }
       if (!is.null(PropertyDefinitionObject$`column`)) {
@@ -70,7 +70,7 @@ PropertyDefinition <- R6::R6Class(
         '"type":
         %s
         ',
-        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`column`)) {
         sprintf(
@@ -85,7 +85,7 @@ PropertyDefinition <- R6::R6Class(
     },
     fromJSONString = function(PropertyDefinitionJson) {
       PropertyDefinitionObject <- jsonlite::fromJSON(PropertyDefinitionJson)
-      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(PropertyDefinitionObject$type, auto_unbox = FALSE, digits = NA))
+      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(PropertyDefinitionObject$type, auto_unbox = TRUE, digits = NA))
       self$`column` <- PropertyDefinitionObject$`column`
       self
     }

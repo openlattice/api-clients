@@ -168,6 +168,16 @@
         done();
       });
     });
+    describe('getOrganizationDatabaseName', function() {
+      it('should call getOrganizationDatabaseName successfully', function(done) {
+        //uncomment below and update the code to test getOrganizationDatabaseName
+        //instance.getOrganizationDatabaseName(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getOrganizationEntitySets', function() {
       it('should call getOrganizationEntitySets successfully', function(done) {
         //uncomment below and update the code to test getOrganizationEntitySets
@@ -252,6 +262,16 @@
       it('should call removeRoleFromUser successfully', function(done) {
         //uncomment below and update the code to test removeRoleFromUser
         //instance.removeRoleFromUser(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('renameOrganizationDatabase', function() {
+      it('should call renameOrganizationDatabase successfully', function(done) {
+        //uncomment below and update the code to test renameOrganizationDatabase
+        //instance.renameOrganizationDatabase(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

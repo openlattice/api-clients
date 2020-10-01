@@ -8,6 +8,10 @@ docs/Acl.md
 docs/AclData.md
 docs/AdminApi.md
 docs/AdvancedSearch.md
+docs/App.md
+docs/AppApi.md
+docs/AppRole.md
+docs/AppRolePermissions.md
 docs/Association.md
 docs/AssociationDefinition.md
 docs/AssociationType.md
@@ -54,6 +58,8 @@ docs/Flight.md
 docs/FlightPlanParameters.md
 docs/FlightPlanParametersUpdate.md
 docs/FullQualifiedName.md
+docs/HistoricalAppConfig.md
+docs/HistoricalAppTypeSetting.md
 docs/IndexingState.md
 docs/InlineObject.md
 docs/InlineResponse200.md
@@ -93,11 +99,13 @@ docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
 docs/SortDefinition.md
+docs/UserAppConfig.md
 git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js
 src/api/AdminApi.js
+src/api/AppApi.js
 src/api/AuthorizationsApi.js
 src/api/CollectionsApi.js
 src/api/DataApi.js
@@ -117,6 +125,9 @@ src/model/Ace.js
 src/model/Acl.js
 src/model/AclData.js
 src/model/AdvancedSearch.js
+src/model/App.js
+src/model/AppRole.js
+src/model/AppRolePermissions.js
 src/model/Association.js
 src/model/AssociationDefinition.js
 src/model/AssociationType.js
@@ -156,6 +167,8 @@ src/model/Flight.js
 src/model/FlightPlanParameters.js
 src/model/FlightPlanParametersUpdate.js
 src/model/FullQualifiedName.js
+src/model/HistoricalAppConfig.js
+src/model/HistoricalAppTypeSetting.js
 src/model/IndexingState.js
 src/model/InlineObject.js
 src/model/InlineResponse200.js
@@ -189,7 +202,9 @@ src/model/SearchTerm.js
 src/model/SecurablePrincipal.js
 src/model/SmsEntitySetInformation.js
 src/model/SortDefinition.js
+src/model/UserAppConfig.js
 test/api/AdminApi.spec.js
+test/api/AppApi.spec.js
 test/api/AuthorizationsApi.spec.js
 test/api/CollectionsApi.spec.js
 test/api/DataApi.spec.js
@@ -208,6 +223,9 @@ test/model/Ace.spec.js
 test/model/Acl.spec.js
 test/model/AclData.spec.js
 test/model/AdvancedSearch.spec.js
+test/model/App.spec.js
+test/model/AppRole.spec.js
+test/model/AppRolePermissions.spec.js
 test/model/Association.spec.js
 test/model/AssociationDefinition.spec.js
 test/model/AssociationType.spec.js
@@ -247,6 +265,8 @@ test/model/Flight.spec.js
 test/model/FlightPlanParameters.spec.js
 test/model/FlightPlanParametersUpdate.spec.js
 test/model/FullQualifiedName.spec.js
+test/model/HistoricalAppConfig.spec.js
+test/model/HistoricalAppTypeSetting.spec.js
 test/model/IndexingState.spec.js
 test/model/InlineObject.spec.js
 test/model/InlineResponse200.spec.js
@@ -280,3 +300,4 @@ test/model/SearchTerm.spec.js
 test/model/SecurablePrincipal.spec.js
 test/model/SmsEntitySetInformation.spec.js
 test/model/SortDefinition.spec.js
+test/model/UserAppConfig.spec.js

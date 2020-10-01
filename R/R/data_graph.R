@@ -13,9 +13,9 @@
 #'
 #' @format An \code{R6Class} generator object
 #'
-#' @field entities  named list( array[list(array[character])] ) [optional]
+#' @field entities  named list( \link{array[list(array[character])]} ) [optional]
 #'
-#' @field associations  named list( array[DataAssociation] ) [optional]
+#' @field associations  named list( \link{array[DataAssociation]} ) [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -31,12 +31,12 @@ DataGraph <- R6::R6Class(
       local.optional.var <- list(...)
       if (!is.null(`entities`)) {
         stopifnot(is.vector(`entities`))
-        sapply(`entities`, function(x) stopifnot(is.character(x)))
+        sapply(`entities`, function(x) stopifnot(R6::is.R6(x)))
         self$`entities` <- `entities`
       }
       if (!is.null(`associations`)) {
         stopifnot(is.vector(`associations`))
-        sapply(`associations`, function(x) stopifnot(is.character(x)))
+        sapply(`associations`, function(x) stopifnot(R6::is.R6(x)))
         self$`associations` <- `associations`
       }
     },
@@ -44,11 +44,11 @@ DataGraph <- R6::R6Class(
       DataGraphObject <- list()
       if (!is.null(self$`entities`)) {
         DataGraphObject[['entities']] <-
-          self$`entities`
+          lapply(self$`entities`, function(x) x$toJSON())
       }
       if (!is.null(self$`associations`)) {
         DataGraphObject[['associations']] <-
-          self$`associations`
+          lapply(self$`associations`, function(x) x$toJSON())
       }
 
       DataGraphObject
@@ -68,16 +68,16 @@ DataGraph <- R6::R6Class(
         if (!is.null(self$`entities`)) {
         sprintf(
         '"entities":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`entities`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`entities`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`associations`)) {
         sprintf(
         '"associations":
-          %s
-        ',
-        jsonlite::toJSON(lapply(self$`associations`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        %s
+',
+        jsonlite::toJSON(lapply(self$`associations`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

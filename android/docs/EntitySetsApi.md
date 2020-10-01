@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**getPropertyTypesForEntitySet**](EntitySetsApi.md#getPropertyTypesForEntitySet) | **GET** /datastore/entity-sets/all/{entitySetId}/properties | Get all Property Types for entity set
 [**removeEntitySetsFromLinkingEntitySet**](EntitySetsApi.md#removeEntitySetsFromLinkingEntitySet) | **DELETE** /datastore/entity-sets/linking/{linkingEntitySetId} | Removes/unlinks the linked entity sets from the linking entity set
 [**removeEntitySetsFromLinkingEntitySets**](EntitySetsApi.md#removeEntitySetsFromLinkingEntitySets) | **DELETE** /datastore/entity-sets/linking/ | Removes/unlinks the linked entity sets from the linking entity set
+[**repartitionEntitySet**](EntitySetsApi.md#repartitionEntitySet) | **PUT** /datastore/entity-sets/{entitySetId}/partitions | Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
 [**updateEntitySetMetaData**](EntitySetsApi.md#updateEntitySetMetaData) | **PATCH** /datastore/entity-sets/all/{entitySetId}/metadata/ | Updates the EntitySet definition for the given EntitySet UUID with the given metadata.
 [**updateEntitySetPropertyMetadata**](EntitySetsApi.md#updateEntitySetPropertyMetadata) | **POST** /datastore/entity-sets/all/{entitySetId}/properties/{propertyTypeId}/ | Updates the property type metadata for the given entity set.
 
@@ -641,6 +642,51 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## repartitionEntitySet
+
+> repartitionEntitySet(entitySetId, requestBody)
+
+Used to repartition an entity set. This will shuffle corresponding ids, edges, and data table rows for the entity set.
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.EntitySetsApi;
+
+EntitySetsApi apiInstance = new EntitySetsApi();
+UUID entitySetId = null; // UUID | 
+List<Integer> requestBody = Arrays.asList(56); // List<Integer> | 
+try {
+    apiInstance.repartitionEntitySet(entitySetId, requestBody);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EntitySetsApi#repartitionEntitySet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entitySetId** | [**UUID**](.md)|  | [default to null]
+ **requestBody** | [**List&lt;Integer&gt;**](Integer.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 
 ## updateEntitySetMetaData

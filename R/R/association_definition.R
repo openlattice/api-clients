@@ -100,7 +100,7 @@ AssociationDefinition <- R6::R6Class(
       AssociationDefinitionObject <- jsonlite::fromJSON(AssociationDefinitionJson)
       if (!is.null(AssociationDefinitionObject$`fqn`)) {
         fqnObject <- FullQualifiedName$new()
-        fqnObject$fromJSON(jsonlite::toJSON(AssociationDefinitionObject$fqn, auto_unbox = FALSE, digits = NA))
+        fqnObject$fromJSON(jsonlite::toJSON(AssociationDefinitionObject$fqn, auto_unbox = TRUE, digits = NA))
         self$`fqn` <- fqnObject
       }
       if (!is.null(AssociationDefinitionObject$`entitySetName`)) {
@@ -127,7 +127,7 @@ AssociationDefinition <- R6::R6Class(
         '"fqn":
         %s
         ',
-        jsonlite::toJSON(self$`fqn`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`fqn`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`entitySetName`)) {
         sprintf(
@@ -141,7 +141,7 @@ AssociationDefinition <- R6::R6Class(
         '"propertyDefinitions":
         %s
 ',
-        jsonlite::toJSON(lapply(self$`propertyDefinitions`, function(x){ x$toJSON() }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`propertyDefinitions`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`updateType`)) {
         sprintf(
@@ -170,7 +170,7 @@ AssociationDefinition <- R6::R6Class(
     },
     fromJSONString = function(AssociationDefinitionJson) {
       AssociationDefinitionObject <- jsonlite::fromJSON(AssociationDefinitionJson)
-      self$`fqn` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(AssociationDefinitionObject$fqn, auto_unbox = FALSE, digits = NA))
+      self$`fqn` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(AssociationDefinitionObject$fqn, auto_unbox = TRUE, digits = NA))
       self$`entitySetName` <- AssociationDefinitionObject$`entitySetName`
       self$`propertyDefinitions` <- ApiClient$new()$deserializeObj(AssociationDefinitionObject$`propertyDefinitions`, "list(PropertyDefinition)", loadNamespace("openlattice"))
       self$`updateType` <- AssociationDefinitionObject$`updateType`

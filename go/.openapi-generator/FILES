@@ -4,6 +4,7 @@
 README.md
 api/openapi.yaml
 api_admin.go
+api_app.go
 api_authorizations.go
 api_collections.go
 api_data.go
@@ -25,6 +26,10 @@ docs/Acl.md
 docs/AclData.md
 docs/AdminApi.md
 docs/AdvancedSearch.md
+docs/App.md
+docs/AppApi.md
+docs/AppRole.md
+docs/AppRolePermissions.md
 docs/Association.md
 docs/AssociationDefinition.md
 docs/AssociationType.md
@@ -71,6 +76,8 @@ docs/Flight.md
 docs/FlightPlanParameters.md
 docs/FlightPlanParametersUpdate.md
 docs/FullQualifiedName.md
+docs/HistoricalAppConfig.md
+docs/HistoricalAppTypeSetting.md
 docs/IndexingState.md
 docs/InlineObject.md
 docs/InlineResponse200.md
@@ -110,6 +117,7 @@ docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
 docs/SortDefinition.md
+docs/UserAppConfig.md
 git_push.sh
 go.mod
 go.sum
@@ -118,6 +126,9 @@ model_ace.go
 model_acl.go
 model_acl_data.go
 model_advanced_search.go
+model_app.go
+model_app_role.go
+model_app_role_permissions.go
 model_association.go
 model_association_definition.go
 model_association_type.go
@@ -157,6 +168,8 @@ model_flight.go
 model_flight_plan_parameters.go
 model_flight_plan_parameters_update.go
 model_full_qualified_name.go
+model_historical_app_config.go
+model_historical_app_type_setting.go
 model_indexing_state.go
 model_inline_object.go
 model_inline_response_200.go
@@ -190,4 +203,5 @@ model_search_term.go
 model_securable_principal.go
 model_sms_entity_set_information.go
 model_sort_definition.go
+model_user_app_config.go
 response.go

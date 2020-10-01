@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**GetFlaggedOrganizationEntitySets**](OrganizationsApi.md#GetFlaggedOrganizationEntitySets) | **Post** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
 [**GetMembers**](OrganizationsApi.md#GetMembers) | **Get** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
 [**GetOrganization**](OrganizationsApi.md#GetOrganization) | **Get** /datastore/organizations/{organizationId} | Get an organization from the organizationId
+[**GetOrganizationDatabaseName**](OrganizationsApi.md#GetOrganizationDatabaseName) | **Get** /datastore/organizations/{organizationId}/database | Get database name for an organization
 [**GetOrganizationEntitySets**](OrganizationsApi.md#GetOrganizationEntitySets) | **Get** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain filter
 [**GetOrganizationIntegrationAccount**](OrganizationsApi.md#GetOrganizationIntegrationAccount) | **Get** /datastore/organizations/{organizationId}/integration | Get the integrations account for an organization from the organizationId
 [**GetOrganizations**](OrganizationsApi.md#GetOrganizations) | **Get** /datastore/organizations | Get all organizations
@@ -25,6 +26,7 @@ Method | HTTP request | Description
 [**RemoveAutoApprovedEmailDomains**](OrganizationsApi.md#RemoveAutoApprovedEmailDomains) | **Delete** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 [**RemoveMember**](OrganizationsApi.md#RemoveMember) | **Delete** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
 [**RemoveRoleFromUser**](OrganizationsApi.md#RemoveRoleFromUser) | **Delete** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Remove a role from a user
+[**RenameOrganizationDatabase**](OrganizationsApi.md#RenameOrganizationDatabase) | **Patch** /datastore/organizations/{organizationId}/database | Rename the database of organization
 [**SetAutoApprovedEmailDomain**](OrganizationsApi.md#SetAutoApprovedEmailDomain) | **Put** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 [**SynchronizeEdmChanges**](OrganizationsApi.md#SynchronizeEdmChanges) | **Post** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
 [**UpdateDescription**](OrganizationsApi.md#UpdateDescription) | **Put** /datastore/organizations/{organizationId}/description | Update the organization description
@@ -425,6 +427,38 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetOrganizationDatabaseName
+
+> string GetOrganizationDatabaseName(ctx, organizationId)
+
+Get database name for an organization
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**organizationId** | [**string**](.md)|  | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetOrganizationEntitySets
 
 > map[string][]string GetOrganizationEntitySets(ctx, organizationId)
@@ -708,6 +742,39 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RenameOrganizationDatabase
+
+> RenameOrganizationDatabase(ctx, organizationId, body)
+
+Rename the database of organization
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**organizationId** | [**string**](.md)|  | 
+**body** | **string**|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

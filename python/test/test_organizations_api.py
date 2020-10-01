@@ -113,6 +113,13 @@ class TestOrganizationsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_organization_database_name(self):
+        """Test case for get_organization_database_name
+
+        Get database name for an organization  # noqa: E501
+        """
+        pass
+
     def test_get_organization_entity_sets(self):
         """Test case for get_organization_entity_sets
 
@@ -173,6 +180,13 @@ class TestOrganizationsApi(unittest.TestCase):
         """Test case for remove_role_from_user
 
         Remove a role from a user  # noqa: E501
+        """
+        pass
+
+    def test_rename_organization_database(self):
+        """Test case for rename_organization_database
+
+        Rename the database of organization  # noqa: E501
         """
         pass
 

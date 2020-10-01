@@ -56,7 +56,7 @@ Entity <- R6::R6Class(
       EntityObject <- jsonlite::fromJSON(EntityJson)
       if (!is.null(EntityObject$`key`)) {
         keyObject <- EntityKey$new()
-        keyObject$fromJSON(jsonlite::toJSON(EntityObject$key, auto_unbox = FALSE, digits = NA))
+        keyObject$fromJSON(jsonlite::toJSON(EntityObject$key, auto_unbox = TRUE, digits = NA))
         self$`key` <- keyObject
       }
       if (!is.null(EntityObject$`details`)) {
@@ -71,14 +71,14 @@ Entity <- R6::R6Class(
         '"key":
         %s
         ',
-        jsonlite::toJSON(self$`key`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`key`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`details`)) {
         sprintf(
         '"details":
           %s
         ',
-        jsonlite::toJSON(lapply(self$`details`, function(x){ x }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`details`, function(x){ x }), auto_unbox = TRUE, digits=NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -86,7 +86,7 @@ Entity <- R6::R6Class(
     },
     fromJSONString = function(EntityJson) {
       EntityObject <- jsonlite::fromJSON(EntityJson)
-      self$`key` <- EntityKey$new()$fromJSON(jsonlite::toJSON(EntityObject$key, auto_unbox = FALSE, digits = NA))
+      self$`key` <- EntityKey$new()$fromJSON(jsonlite::toJSON(EntityObject$key, auto_unbox = TRUE, digits = NA))
       self$`details` <- ApiClient$new()$deserializeObj(EntityObject$`details`, "list(character)", loadNamespace("openlattice"))
       self
     }

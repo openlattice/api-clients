@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**get_flagged_organization_entity_sets**](OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
 [**get_members**](OrganizationsApi.md#get_members) | **GET** /datastore/organizations/{organizationId}/principals/members | Get members of a certain organization
 [**get_organization**](OrganizationsApi.md#get_organization) | **GET** /datastore/organizations/{organizationId} | Get an organization from the organizationId
+[**get_organization_database_name**](OrganizationsApi.md#get_organization_database_name) | **GET** /datastore/organizations/{organizationId}/database | Get database name for an organization
 [**get_organization_entity_sets**](OrganizationsApi.md#get_organization_entity_sets) | **GET** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain filter
 [**get_organization_integration_account**](OrganizationsApi.md#get_organization_integration_account) | **GET** /datastore/organizations/{organizationId}/integration | Get the integrations account for an organization from the organizationId
 [**get_organizations**](OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organizations
@@ -25,6 +26,7 @@ Method | HTTP request | Description
 [**remove_auto_approved_email_domains**](OrganizationsApi.md#remove_auto_approved_email_domains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 [**remove_member**](OrganizationsApi.md#remove_member) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
 [**remove_role_from_user**](OrganizationsApi.md#remove_role_from_user) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Remove a role from a user
+[**rename_organization_database**](OrganizationsApi.md#rename_organization_database) | **PATCH** /datastore/organizations/{organizationId}/database | Rename the database of organization
 [**set_auto_approved_email_domain**](OrganizationsApi.md#set_auto_approved_email_domain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 [**synchronize_edm_changes**](OrganizationsApi.md#synchronize_edm_changes) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
 [**update_description**](OrganizationsApi.md#update_description) | **PUT** /datastore/organizations/{organizationId}/description | Update the organization description
@@ -161,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list(array[character])**
+[**list(array[character])**](array.md)
 
 ### Authorization
 
@@ -595,6 +597,52 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 
+# **get_organization_database_name**
+> character get_organization_database_name(organization_id)
+
+Get database name for an organization
+
+### Example
+```R
+library(openlattice)
+
+var.organization_id <- 'organization_id_example' # character | 
+
+#Get database name for an organization
+api.instance <- OrganizationsApi$new()
+# Configure HTTP basic authorization: http_auth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+# Configure API key authorization: openlattice_auth
+api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+result <- api.instance$get_organization_database_name(var.organization_id)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**character**](.md)|  | 
+
+### Return type
+
+**character**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
 # **get_organization_entity_sets**
 > list(array[character]) get_organization_entity_sets(organization_id)
 
@@ -625,7 +673,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**list(array[character])**
+[**list(array[character])**](array.md)
 
 ### Authorization
 
@@ -1006,6 +1054,53 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+# **rename_organization_database**
+> rename_organization_database(organization_id, body)
+
+Rename the database of organization
+
+### Example
+```R
+library(openlattice)
+
+var.organization_id <- 'organization_id_example' # character | 
+var.body <- 'body_example' # character | 
+
+#Rename the database of organization
+api.instance <- OrganizationsApi$new()
+# Configure HTTP basic authorization: http_auth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+# Configure API key authorization: openlattice_auth
+api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+api.instance$rename_organization_database(var.organization_id, var.body)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**character**](.md)|  | 
+ **body** | **character**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 ### HTTP response details

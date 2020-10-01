@@ -78,7 +78,7 @@ EntityDefinition <- R6::R6Class(
       EntityDefinitionObject <- jsonlite::fromJSON(EntityDefinitionJson)
       if (!is.null(EntityDefinitionObject$`fqn`)) {
         fqnObject <- FullQualifiedName$new()
-        fqnObject$fromJSON(jsonlite::toJSON(EntityDefinitionObject$fqn, auto_unbox = FALSE, digits = NA))
+        fqnObject$fromJSON(jsonlite::toJSON(EntityDefinitionObject$fqn, auto_unbox = TRUE, digits = NA))
         self$`fqn` <- fqnObject
       }
       if (!is.null(EntityDefinitionObject$`entitySetName`)) {
@@ -99,7 +99,7 @@ EntityDefinition <- R6::R6Class(
         '"fqn":
         %s
         ',
-        jsonlite::toJSON(self$`fqn`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`fqn`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`entitySetName`)) {
         sprintf(
@@ -113,7 +113,7 @@ EntityDefinition <- R6::R6Class(
         '"propertyDefinitions":
         %s
 ',
-        jsonlite::toJSON(lapply(self$`propertyDefinitions`, function(x){ x$toJSON() }), auto_unbox = FALSE, digits=NA)
+        jsonlite::toJSON(lapply(self$`propertyDefinitions`, function(x){ x$toJSON() }), auto_unbox = TRUE, digits=NA)
         )},
         if (!is.null(self$`updateType`)) {
         sprintf(
@@ -128,7 +128,7 @@ EntityDefinition <- R6::R6Class(
     },
     fromJSONString = function(EntityDefinitionJson) {
       EntityDefinitionObject <- jsonlite::fromJSON(EntityDefinitionJson)
-      self$`fqn` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(EntityDefinitionObject$fqn, auto_unbox = FALSE, digits = NA))
+      self$`fqn` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(EntityDefinitionObject$fqn, auto_unbox = TRUE, digits = NA))
       self$`entitySetName` <- EntityDefinitionObject$`entitySetName`
       self$`propertyDefinitions` <- ApiClient$new()$deserializeObj(EntityDefinitionObject$`propertyDefinitions`, "list(PropertyDefinition)", loadNamespace("openlattice"))
       self$`updateType` <- EntityDefinitionObject$`updateType`

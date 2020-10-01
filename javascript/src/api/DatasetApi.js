@@ -343,24 +343,24 @@ export default class DatasetApi {
     /**
      * Gets an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database.
      * @param {String} organizationId 
-     * @param {String} tableName 
+     * @param {String} tableId 
      * @param {module:api/DatasetApi~getExternalDatabaseTableCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrganizationExternalDatabaseTable}
      */
-    getExternalDatabaseTable(organizationId, tableName, callback) {
+    getExternalDatabaseTable(organizationId, tableId, callback) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
         throw new Error("Missing the required parameter 'organizationId' when calling getExternalDatabaseTable");
       }
-      // verify the required parameter 'tableName' is set
-      if (tableName === undefined || tableName === null) {
-        throw new Error("Missing the required parameter 'tableName' when calling getExternalDatabaseTable");
+      // verify the required parameter 'tableId' is set
+      if (tableId === undefined || tableId === null) {
+        throw new Error("Missing the required parameter 'tableId' when calling getExternalDatabaseTable");
       }
 
       let pathParams = {
         'organizationId': organizationId,
-        'tableName': tableName
+        'tableId': tableId
       };
       let queryParams = {
       };
@@ -374,7 +374,61 @@ export default class DatasetApi {
       let accepts = ['application/json'];
       let returnType = OrganizationExternalDatabaseTable;
       return this.apiClient.callApi(
-        '/datastore/organization-database/{organizationId}/{tableName}/external-database-table', 'GET',
+        '/datastore/organization-database/{organizationId}/{tableId}/external-database-table', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getExternalDatabaseTableData operation.
+     * @callback module:api/DatasetApi~getExternalDatabaseTableDataCallback
+     * @param {String} error Error message, if any.
+     * @param {Object.<String, {String: Object}>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Gets an OrganizationExternalDatabaseTable object with user specified number of rows of raw data for an organization
+     * @param {String} organizationId 
+     * @param {String} tableId 
+     * @param {Number} rowCount 
+     * @param {module:api/DatasetApi~getExternalDatabaseTableDataCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object.<String, {String: Object}>}
+     */
+    getExternalDatabaseTableData(organizationId, tableId, rowCount, callback) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling getExternalDatabaseTableData");
+      }
+      // verify the required parameter 'tableId' is set
+      if (tableId === undefined || tableId === null) {
+        throw new Error("Missing the required parameter 'tableId' when calling getExternalDatabaseTableData");
+      }
+      // verify the required parameter 'rowCount' is set
+      if (rowCount === undefined || rowCount === null) {
+        throw new Error("Missing the required parameter 'rowCount' when calling getExternalDatabaseTableData");
+      }
+
+      let pathParams = {
+        'organizationId': organizationId,
+        'tableId': tableId,
+        'rowCount': rowCount
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = {'String': Object};
+      return this.apiClient.callApi(
+        '/datastore/organization-database/{organizationId}/{tableId}/{rowCount}/data', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

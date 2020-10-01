@@ -141,7 +141,11 @@ AuthorizationsApi <- R6::R6Class(
         '
           %s
         ',
-            jsonlite::toJSON(`access_check`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  if ('toJSONString' %in% names(`access_check`)) {
+                  `access_check`$toJSONString()
+                  } else {
+                    jsonlite::toJSON(`access_check`$toJSON(), auto_unbox=FALSE, digits = NA)
+                  }
         )
       } else {
         body <- NULL

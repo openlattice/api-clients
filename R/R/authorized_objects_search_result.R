@@ -15,7 +15,7 @@
 #'
 #' @field pagingToken  character [optional]
 #'
-#' @field authorizedObjects  list( array[character] ) [optional]
+#' @field authorizedObjects  list( \link{array[character]} ) [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -35,7 +35,7 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
       }
       if (!is.null(`authorizedObjects`)) {
         stopifnot(is.vector(`authorizedObjects`))
-        sapply(`authorizedObjects`, function(x) stopifnot(is.character(x)))
+        sapply(`authorizedObjects`, function(x) stopifnot(R6::is.R6(x)))
         self$`authorizedObjects` <- `authorizedObjects`
       }
     },
@@ -47,7 +47,7 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
       }
       if (!is.null(self$`authorizedObjects`)) {
         AuthorizedObjectsSearchResultObject[['authorizedObjects']] <-
-          self$`authorizedObjects`
+          lapply(self$`authorizedObjects`, function(x) x$toJSON())
       }
 
       AuthorizedObjectsSearchResultObject
@@ -74,9 +74,21 @@ AuthorizedObjectsSearchResult <- R6::R6Class(
         if (!is.null(self$`authorizedObjects`)) {
         sprintf(
         '"authorizedObjects":
-           [%s]
-        ',
-        paste(unlist(lapply(self$`authorizedObjects`, function(x) paste0('"', x, '"'))), collapse=",")
+        [%s]
+',
+        paste(
+            sapply(
+                self$`authorizedObjects`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

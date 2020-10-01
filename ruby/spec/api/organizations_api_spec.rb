@@ -171,6 +171,17 @@ describe 'OrganizationsApi' do
     end
   end
 
+  # unit tests for get_organization_database_name
+  # Get database name for an organization
+  # @param organization_id 
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'get_organization_database_name test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_organization_entity_sets
   # Get the entity sets for an organization for a certain filter
   # @param organization_id 
@@ -270,6 +281,18 @@ describe 'OrganizationsApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'remove_role_from_user test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for rename_organization_database
+  # Rename the database of organization
+  # @param organization_id 
+  # @param body 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'rename_organization_database test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

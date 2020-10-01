@@ -160,7 +160,7 @@ PropertyType <- R6::R6Class(
       }
       if (!is.null(PropertyTypeObject$`type`)) {
         typeObject <- FullQualifiedName$new()
-        typeObject$fromJSON(jsonlite::toJSON(PropertyTypeObject$type, auto_unbox = FALSE, digits = NA))
+        typeObject$fromJSON(jsonlite::toJSON(PropertyTypeObject$type, auto_unbox = TRUE, digits = NA))
         self$`type` <- typeObject
       }
       if (!is.null(PropertyTypeObject$`description`)) {
@@ -210,7 +210,7 @@ PropertyType <- R6::R6Class(
         '"type":
         %s
         ',
-        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=FALSE, digits = NA)
+        jsonlite::toJSON(self$`type`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`description`)) {
         sprintf(
@@ -224,7 +224,19 @@ PropertyType <- R6::R6Class(
         '"schemas":
         [%s]
 ',
-        paste(sapply(self$`schemas`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)), collapse=",")
+        paste(
+            sapply(
+                self$`schemas`,
+                function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)
+                    }
+                }
+            ),
+            collapse=","
+        )
         )},
         if (!is.null(self$`datatype`)) {
         sprintf(
@@ -276,7 +288,7 @@ PropertyType <- R6::R6Class(
       PropertyTypeObject <- jsonlite::fromJSON(PropertyTypeJson)
       self$`title` <- PropertyTypeObject$`title`
       self$`id` <- PropertyTypeObject$`id`
-      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(PropertyTypeObject$type, auto_unbox = FALSE, digits = NA))
+      self$`type` <- FullQualifiedName$new()$fromJSON(jsonlite::toJSON(PropertyTypeObject$type, auto_unbox = TRUE, digits = NA))
       self$`description` <- PropertyTypeObject$`description`
       self$`schemas` <- ApiClient$new()$deserializeObj(PropertyTypeObject$`schemas`, "array[FullQualifiedName]", loadNamespace("openlattice"))
       self$`datatype` <- PropertyTypeObject$`datatype`
