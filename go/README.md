@@ -169,6 +169,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**CreateRole**](docs/OrganizationsApi.md#createrole) | **Post** /datastore/organizations/roles | Creates role
 *OrganizationsApi* | [**DeleteRole**](docs/OrganizationsApi.md#deleterole) | **Delete** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 *OrganizationsApi* | [**DestroyOrganization**](docs/OrganizationsApi.md#destroyorganization) | **Delete** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
+*OrganizationsApi* | [**DestroyTransportedEntitySet**](docs/OrganizationsApi.md#destroytransportedentityset) | **Get** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 *OrganizationsApi* | [**GetAllUsersOfRole**](docs/OrganizationsApi.md#getallusersofrole) | **Get** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 *OrganizationsApi* | [**GetAutoApprovedEmailDomains**](docs/OrganizationsApi.md#getautoapprovedemaildomains) | **Get** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 *OrganizationsApi* | [**GetFlaggedOrganizationEntitySets**](docs/OrganizationsApi.md#getflaggedorganizationentitysets) | **Post** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -187,6 +188,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**RenameOrganizationDatabase**](docs/OrganizationsApi.md#renameorganizationdatabase) | **Patch** /datastore/organizations/{organizationId}/database | Rename the database of organization
 *OrganizationsApi* | [**SetAutoApprovedEmailDomain**](docs/OrganizationsApi.md#setautoapprovedemaildomain) | **Put** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 *OrganizationsApi* | [**SynchronizeEdmChanges**](docs/OrganizationsApi.md#synchronizeedmchanges) | **Post** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
+*OrganizationsApi* | [**TransportEntitySet**](docs/OrganizationsApi.md#transportentityset) | **Get** /datastore/organizations/{organizationId}/{entitySetId}/transport | Marks entity set for transporter for materialized views
 *OrganizationsApi* | [**UpdateDescription**](docs/OrganizationsApi.md#updatedescription) | **Put** /datastore/organizations/{organizationId}/description | Update the organization description
 *OrganizationsApi* | [**UpdateRoleDescription**](docs/OrganizationsApi.md#updateroledescription) | **Post** /datastore/organizations/{organizationId}/principals/roles/{roleId}/description | Update role description for an organization from a roleId
 *OrganizationsApi* | [**UpdateRoleTitle**](docs/OrganizationsApi.md#updateroletitle) | **Put** /datastore/organizations/{organizationId}/principals/roles/{roleId}/title | Update role title for an organization from a roleId

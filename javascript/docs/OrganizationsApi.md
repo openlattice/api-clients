@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**createRole**](OrganizationsApi.md#createRole) | **POST** /datastore/organizations/roles | Creates role
 [**deleteRole**](OrganizationsApi.md#deleteRole) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroyOrganization**](OrganizationsApi.md#destroyOrganization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
+[**destroyTransportedEntitySet**](OrganizationsApi.md#destroyTransportedEntitySet) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**getAllUsersOfRole**](OrganizationsApi.md#getAllUsersOfRole) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**getAutoApprovedEmailDomains**](OrganizationsApi.md#getAutoApprovedEmailDomains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**getFlaggedOrganizationEntitySets**](OrganizationsApi.md#getFlaggedOrganizationEntitySets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**renameOrganizationDatabase**](OrganizationsApi.md#renameOrganizationDatabase) | **PATCH** /datastore/organizations/{organizationId}/database | Rename the database of organization
 [**setAutoApprovedEmailDomain**](OrganizationsApi.md#setAutoApprovedEmailDomain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 [**synchronizeEdmChanges**](OrganizationsApi.md#synchronizeEdmChanges) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
+[**transportEntitySet**](OrganizationsApi.md#transportEntitySet) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/transport | Marks entity set for transporter for materialized views
 [**updateDescription**](OrganizationsApi.md#updateDescription) | **PUT** /datastore/organizations/{organizationId}/description | Update the organization description
 [**updateRoleDescription**](OrganizationsApi.md#updateRoleDescription) | **POST** /datastore/organizations/{organizationId}/principals/roles/{roleId}/description | Update role description for an organization from a roleId
 [**updateRoleTitle**](OrganizationsApi.md#updateRoleTitle) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/title | Update role title for an organization from a roleId
@@ -395,6 +397,60 @@ apiInstance.destroyOrganization(organizationId, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | [**String**](.md)|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## destroyTransportedEntitySet
+
+> destroyTransportedEntitySet(organizationId, entitySetId)
+
+Marks entity set for transporter for materialized views
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.OrganizationsApi();
+let organizationId = null; // String | 
+let entitySetId = null; // String | 
+apiInstance.destroyTransportedEntitySet(organizationId, entitySetId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**String**](.md)|  | 
+ **entitySetId** | [**String**](.md)|  | 
 
 ### Return type
 
@@ -1334,6 +1390,60 @@ let apiInstance = new OpenLatticeApi.OrganizationsApi();
 let organizationId = null; // String | 
 let entitySetId = null; // String | 
 apiInstance.synchronizeEdmChanges(organizationId, entitySetId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**String**](.md)|  | 
+ **entitySetId** | [**String**](.md)|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## transportEntitySet
+
+> transportEntitySet(organizationId, entitySetId)
+
+Marks entity set for transporter for materialized views
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.OrganizationsApi();
+let organizationId = null; // String | 
+let entitySetId = null; // String | 
+apiInstance.transportEntitySet(organizationId, entitySetId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

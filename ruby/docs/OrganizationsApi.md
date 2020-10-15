@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Creates role
 [**delete_role**](OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroy_organization**](OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
+[**destroy_transported_entity_set**](OrganizationsApi.md#destroy_transported_entity_set) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**get_all_users_of_role**](OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**get_auto_approved_email_domains**](OrganizationsApi.md#get_auto_approved_email_domains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**get_flagged_organization_entity_sets**](OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**rename_organization_database**](OrganizationsApi.md#rename_organization_database) | **PATCH** /datastore/organizations/{organizationId}/database | Rename the database of organization
 [**set_auto_approved_email_domain**](OrganizationsApi.md#set_auto_approved_email_domain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 [**synchronize_edm_changes**](OrganizationsApi.md#synchronize_edm_changes) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
+[**transport_entity_set**](OrganizationsApi.md#transport_entity_set) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/transport | Marks entity set for transporter for materialized views
 [**update_description**](OrganizationsApi.md#update_description) | **PUT** /datastore/organizations/{organizationId}/description | Update the organization description
 [**update_role_description**](OrganizationsApi.md#update_role_description) | **POST** /datastore/organizations/{organizationId}/principals/roles/{roleId}/description | Update role description for an organization from a roleId
 [**update_role_title**](OrganizationsApi.md#update_role_title) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/title | Update role title for an organization from a roleId
@@ -412,6 +414,62 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | [**String**](.md)|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## destroy_transported_entity_set
+
+> destroy_transported_entity_set(organization_id, entity_set_id)
+
+Marks entity set for transporter for materialized views
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure Bearer authorization (JWT): http_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure API key authorization: openlattice_auth
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::OrganizationsApi.new
+organization_id = 'organization_id_example' # String | 
+entity_set_id = 'entity_set_id_example' # String | 
+
+begin
+  #Marks entity set for transporter for materialized views
+  api_instance.destroy_transported_entity_set(organization_id, entity_set_id)
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling OrganizationsApi->destroy_transported_entity_set: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**String**](.md)|  | 
+ **entity_set_id** | [**String**](.md)|  | 
 
 ### Return type
 
@@ -1403,6 +1461,62 @@ begin
   api_instance.synchronize_edm_changes(organization_id, entity_set_id)
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling OrganizationsApi->synchronize_edm_changes: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**String**](.md)|  | 
+ **entity_set_id** | [**String**](.md)|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## transport_entity_set
+
+> transport_entity_set(organization_id, entity_set_id)
+
+Marks entity set for transporter for materialized views
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure Bearer authorization (JWT): http_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure API key authorization: openlattice_auth
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::OrganizationsApi.new
+organization_id = 'organization_id_example' # String | 
+entity_set_id = 'entity_set_id_example' # String | 
+
+begin
+  #Marks entity set for transporter for materialized views
+  api_instance.transport_entity_set(organization_id, entity_set_id)
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling OrganizationsApi->transport_entity_set: #{e}"
 end
 ```
 
