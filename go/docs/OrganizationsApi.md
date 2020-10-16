@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**CreateRole**](OrganizationsApi.md#CreateRole) | **Post** /datastore/organizations/roles | Creates role
 [**DeleteRole**](OrganizationsApi.md#DeleteRole) | **Delete** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**DestroyOrganization**](OrganizationsApi.md#DestroyOrganization) | **Delete** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
+[**DestroyTransportedEntitySet**](OrganizationsApi.md#DestroyTransportedEntitySet) | **Get** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**GetAllUsersOfRole**](OrganizationsApi.md#GetAllUsersOfRole) | **Get** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**GetAutoApprovedEmailDomains**](OrganizationsApi.md#GetAutoApprovedEmailDomains) | **Get** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**GetFlaggedOrganizationEntitySets**](OrganizationsApi.md#GetFlaggedOrganizationEntitySets) | **Post** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**RenameOrganizationDatabase**](OrganizationsApi.md#RenameOrganizationDatabase) | **Patch** /datastore/organizations/{organizationId}/database | Rename the database of organization
 [**SetAutoApprovedEmailDomain**](OrganizationsApi.md#SetAutoApprovedEmailDomain) | **Put** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 [**SynchronizeEdmChanges**](OrganizationsApi.md#SynchronizeEdmChanges) | **Post** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
+[**TransportEntitySet**](OrganizationsApi.md#TransportEntitySet) | **Get** /datastore/organizations/{organizationId}/{entitySetId}/transport | Marks entity set for transporter for materialized views
 [**UpdateDescription**](OrganizationsApi.md#UpdateDescription) | **Put** /datastore/organizations/{organizationId}/description | Update the organization description
 [**UpdateRoleDescription**](OrganizationsApi.md#UpdateRoleDescription) | **Post** /datastore/organizations/{organizationId}/principals/roles/{roleId}/description | Update role description for an organization from a roleId
 [**UpdateRoleTitle**](OrganizationsApi.md#UpdateRoleTitle) | **Put** /datastore/organizations/{organizationId}/principals/roles/{roleId}/title | Update role title for an organization from a roleId
@@ -246,6 +248,39 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **organizationId** | [**string**](.md)|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DestroyTransportedEntitySet
+
+> DestroyTransportedEntitySet(ctx, organizationId, entitySetId)
+
+Marks entity set for transporter for materialized views
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**organizationId** | [**string**](.md)|  | 
+**entitySetId** | [**string**](.md)|  | 
 
 ### Return type
 
@@ -820,6 +855,39 @@ Name | Type | Description  | Notes
 > SynchronizeEdmChanges(ctx, organizationId, entitySetId)
 
 Synchronizes EDM changes to the requested materialized entity set in the organization.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**organizationId** | [**string**](.md)|  | 
+**entitySetId** | [**string**](.md)|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TransportEntitySet
+
+> TransportEntitySet(ctx, organizationId, entitySetId)
+
+Marks entity set for transporter for materialized views
 
 ### Required Parameters
 

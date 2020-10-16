@@ -994,6 +994,140 @@ public class OrganizationsApi {
     }
   }
   /**
+  * Marks entity set for transporter for materialized views
+  * 
+   * @param organizationId 
+   * @param entitySetId 
+   * @return void
+  */
+  public void destroyTransportedEntitySet (UUID organizationId, UUID entitySetId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling destroyTransportedEntitySet",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling destroyTransportedEntitySet"));
+    }
+    // verify the required parameter 'entitySetId' is set
+    if (entitySetId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'entitySetId' when calling destroyTransportedEntitySet",
+        new ApiException(400, "Missing the required parameter 'entitySetId' when calling destroyTransportedEntitySet"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organizations/{organizationId}/{entitySetId}/destroy".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Marks entity set for transporter for materialized views
+   * 
+   * @param organizationId    * @param entitySetId 
+  */
+  public void destroyTransportedEntitySet (UUID organizationId, UUID entitySetId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling destroyTransportedEntitySet",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling destroyTransportedEntitySet"));
+    }
+    // verify the required parameter 'entitySetId' is set
+    if (entitySetId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'entitySetId' when calling destroyTransportedEntitySet",
+        new ApiException(400, "Missing the required parameter 'entitySetId' when calling destroyTransportedEntitySet"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organizations/{organizationId}/{entitySetId}/destroy".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
   * Get members of a role for an organization from a roleId
   * 
    * @param organizationId 
@@ -3350,6 +3484,140 @@ public class OrganizationsApi {
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Marks entity set for transporter for materialized views
+  * 
+   * @param organizationId 
+   * @param entitySetId 
+   * @return void
+  */
+  public void transportEntitySet (UUID organizationId, UUID entitySetId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling transportEntitySet",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling transportEntitySet"));
+    }
+    // verify the required parameter 'entitySetId' is set
+    if (entitySetId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'entitySetId' when calling transportEntitySet",
+        new ApiException(400, "Missing the required parameter 'entitySetId' when calling transportEntitySet"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organizations/{organizationId}/{entitySetId}/transport".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Marks entity set for transporter for materialized views
+   * 
+   * @param organizationId    * @param entitySetId 
+  */
+  public void transportEntitySet (UUID organizationId, UUID entitySetId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling transportEntitySet",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling transportEntitySet"));
+    }
+    // verify the required parameter 'entitySetId' is set
+    if (entitySetId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'entitySetId' when calling transportEntitySet",
+        new ApiException(400, "Missing the required parameter 'entitySetId' when calling transportEntitySet"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organizations/{organizationId}/{entitySetId}/transport".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
         new Response.Listener<String>() {
           @Override
           public void onResponse(String localVarResponse) {

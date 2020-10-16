@@ -4479,6 +4479,64 @@ paths:
       summary: Rename the database of organization
       tags:
       - organizations
+  /datastore/organizations/{organizationId}/{entitySetId}/transport:
+    get:
+      operationId: transportEntitySet
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Marks entity set for transporter for materialized views
+      tags:
+      - organizations
+  /datastore/organizations/{organizationId}/{entitySetId}/destroy:
+    get:
+      operationId: destroyTransportedEntitySet
+      parameters:
+      - explode: false
+        in: path
+        name: organizationId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Marks entity set for transporter for materialized views
+      tags:
+      - organizations
   /linker/linkingfeedback:
     delete:
       operationId: deleteLinkingFeedback

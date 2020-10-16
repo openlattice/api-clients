@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Creates role
 [**delete_role**](OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroy_organization**](OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
+[**destroy_transported_entity_set**](OrganizationsApi.md#destroy_transported_entity_set) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**get_all_users_of_role**](OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**get_auto_approved_email_domains**](OrganizationsApi.md#get_auto_approved_email_domains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**get_flagged_organization_entity_sets**](OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**rename_organization_database**](OrganizationsApi.md#rename_organization_database) | **PATCH** /datastore/organizations/{organizationId}/database | Rename the database of organization
 [**set_auto_approved_email_domain**](OrganizationsApi.md#set_auto_approved_email_domain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 [**synchronize_edm_changes**](OrganizationsApi.md#synchronize_edm_changes) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
+[**transport_entity_set**](OrganizationsApi.md#transport_entity_set) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/transport | Marks entity set for transporter for materialized views
 [**update_description**](OrganizationsApi.md#update_description) | **PUT** /datastore/organizations/{organizationId}/description | Update the organization description
 [**update_role_description**](OrganizationsApi.md#update_role_description) | **POST** /datastore/organizations/{organizationId}/principals/roles/{roleId}/description | Update role description for an organization from a roleId
 [**update_role_title**](OrganizationsApi.md#update_role_title) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/title | Update role title for an organization from a roleId
@@ -344,6 +346,53 @@ api.instance$destroy_organization(var.organization_id)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | [**character**](.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+# **destroy_transported_entity_set**
+> destroy_transported_entity_set(organization_id, entity_set_id)
+
+Marks entity set for transporter for materialized views
+
+### Example
+```R
+library(openlattice)
+
+var.organization_id <- 'organization_id_example' # character | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
+
+#Marks entity set for transporter for materialized views
+api.instance <- OrganizationsApi$new()
+# Configure HTTP basic authorization: http_auth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+# Configure API key authorization: openlattice_auth
+api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+api.instance$destroy_transported_entity_set(var.organization_id, var.entity_set_id)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**character**](.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
 
 ### Return type
 
@@ -1175,6 +1224,53 @@ api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 api.instance$synchronize_edm_changes(var.organization_id, var.entity_set_id)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**character**](.md)|  | 
+ **entity_set_id** | [**character**](.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+# **transport_entity_set**
+> transport_entity_set(organization_id, entity_set_id)
+
+Marks entity set for transporter for materialized views
+
+### Example
+```R
+library(openlattice)
+
+var.organization_id <- 'organization_id_example' # character | 
+var.entity_set_id <- 'entity_set_id_example' # character | 
+
+#Marks entity set for transporter for materialized views
+api.instance <- OrganizationsApi$new()
+# Configure HTTP basic authorization: http_auth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+# Configure API key authorization: openlattice_auth
+api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+api.instance$transport_entity_set(var.organization_id, var.entity_set_id)
 ```
 
 ### Parameters

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Creates role
 [**delete_role**](OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroy_organization**](OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
+[**destroy_transported_entity_set**](OrganizationsApi.md#destroy_transported_entity_set) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**get_all_users_of_role**](OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**get_auto_approved_email_domains**](OrganizationsApi.md#get_auto_approved_email_domains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**get_flagged_organization_entity_sets**](OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**rename_organization_database**](OrganizationsApi.md#rename_organization_database) | **PATCH** /datastore/organizations/{organizationId}/database | Rename the database of organization
 [**set_auto_approved_email_domain**](OrganizationsApi.md#set_auto_approved_email_domain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 [**synchronize_edm_changes**](OrganizationsApi.md#synchronize_edm_changes) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
+[**transport_entity_set**](OrganizationsApi.md#transport_entity_set) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/transport | Marks entity set for transporter for materialized views
 [**update_description**](OrganizationsApi.md#update_description) | **PUT** /datastore/organizations/{organizationId}/description | Update the organization description
 [**update_role_description**](OrganizationsApi.md#update_role_description) | **POST** /datastore/organizations/{organizationId}/principals/roles/{roleId}/description | Update role description for an organization from a roleId
 [**update_role_title**](OrganizationsApi.md#update_role_title) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/title | Update role title for an organization from a roleId
@@ -910,6 +912,134 @@ with openlattice.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | [**str**](.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **destroy_transported_entity_set**
+> destroy_transported_entity_set(organization_id, entity_set_id)
+
+Marks entity set for transporter for materialized views
+
+### Example
+
+* Bearer (JWT) Authentication (http_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+entity_set_id = 'entity_set_id_example' # str | 
+
+    try:
+        # Marks entity set for transporter for materialized views
+        api_instance.destroy_transported_entity_set(organization_id, entity_set_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->destroy_transported_entity_set: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+entity_set_id = 'entity_set_id_example' # str | 
+
+    try:
+        # Marks entity set for transporter for materialized views
+        api_instance.destroy_transported_entity_set(organization_id, entity_set_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->destroy_transported_entity_set: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**str**](.md)|  | 
+ **entity_set_id** | [**str**](.md)|  | 
 
 ### Return type
 
@@ -3202,6 +3332,134 @@ entity_set_id = 'entity_set_id_example' # str |
         api_instance.synchronize_edm_changes(organization_id, entity_set_id)
     except ApiException as e:
         print("Exception when calling OrganizationsApi->synchronize_edm_changes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**str**](.md)|  | 
+ **entity_set_id** | [**str**](.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **transport_entity_set**
+> transport_entity_set(organization_id, entity_set_id)
+
+Marks entity set for transporter for materialized views
+
+### Example
+
+* Bearer (JWT) Authentication (http_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+entity_set_id = 'entity_set_id_example' # str | 
+
+    try:
+        # Marks entity set for transporter for materialized views
+        api_instance.transport_entity_set(organization_id, entity_set_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->transport_entity_set: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+entity_set_id = 'entity_set_id_example' # str | 
+
+    try:
+        # Marks entity set for transporter for materialized views
+        api_instance.transport_entity_set(organization_id, entity_set_id)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->transport_entity_set: %s\n" % e)
 ```
 
 ### Parameters

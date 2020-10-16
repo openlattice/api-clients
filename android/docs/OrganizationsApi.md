@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**createRole**](OrganizationsApi.md#createRole) | **POST** /datastore/organizations/roles | Creates role
 [**deleteRole**](OrganizationsApi.md#deleteRole) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroyOrganization**](OrganizationsApi.md#destroyOrganization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
+[**destroyTransportedEntitySet**](OrganizationsApi.md#destroyTransportedEntitySet) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**getAllUsersOfRole**](OrganizationsApi.md#getAllUsersOfRole) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**getAutoApprovedEmailDomains**](OrganizationsApi.md#getAutoApprovedEmailDomains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**getFlaggedOrganizationEntitySets**](OrganizationsApi.md#getFlaggedOrganizationEntitySets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**renameOrganizationDatabase**](OrganizationsApi.md#renameOrganizationDatabase) | **PATCH** /datastore/organizations/{organizationId}/database | Rename the database of organization
 [**setAutoApprovedEmailDomain**](OrganizationsApi.md#setAutoApprovedEmailDomain) | **PUT** /datastore/organizations/{organizationId}/email-domains | Set auto-approved email domains
 [**synchronizeEdmChanges**](OrganizationsApi.md#synchronizeEdmChanges) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/synchronize | Synchronizes EDM changes to the requested materialized entity set in the organization.
+[**transportEntitySet**](OrganizationsApi.md#transportEntitySet) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/transport | Marks entity set for transporter for materialized views
 [**updateDescription**](OrganizationsApi.md#updateDescription) | **PUT** /datastore/organizations/{organizationId}/description | Update the organization description
 [**updateRoleDescription**](OrganizationsApi.md#updateRoleDescription) | **POST** /datastore/organizations/{organizationId}/principals/roles/{roleId}/description | Update role description for an organization from a roleId
 [**updateRoleTitle**](OrganizationsApi.md#updateRoleTitle) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/title | Update role title for an organization from a roleId
@@ -335,6 +337,51 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | [**UUID**](.md)|  | [default to null]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## destroyTransportedEntitySet
+
+> destroyTransportedEntitySet(organizationId, entitySetId)
+
+Marks entity set for transporter for materialized views
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.OrganizationsApi;
+
+OrganizationsApi apiInstance = new OrganizationsApi();
+UUID organizationId = null; // UUID | 
+UUID entitySetId = null; // UUID | 
+try {
+    apiInstance.destroyTransportedEntitySet(organizationId, entitySetId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrganizationsApi#destroyTransportedEntitySet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**UUID**](.md)|  | [default to null]
+ **entitySetId** | [**UUID**](.md)|  | [default to null]
 
 ### Return type
 
@@ -1127,6 +1174,51 @@ try {
     apiInstance.synchronizeEdmChanges(organizationId, entitySetId);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrganizationsApi#synchronizeEdmChanges");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**UUID**](.md)|  | [default to null]
+ **entitySetId** | [**UUID**](.md)|  | [default to null]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## transportEntitySet
+
+> transportEntitySet(organizationId, entitySetId)
+
+Marks entity set for transporter for materialized views
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.OrganizationsApi;
+
+OrganizationsApi apiInstance = new OrganizationsApi();
+UUID organizationId = null; // UUID | 
+UUID entitySetId = null; // UUID | 
+try {
+    apiInstance.transportEntitySet(organizationId, entitySetId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrganizationsApi#transportEntitySet");
     e.printStackTrace();
 }
 ```
