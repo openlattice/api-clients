@@ -132,23 +132,6 @@
 #' }
 #' }
 #'
-#' \strong{ destroy_transported_entity_set } \emph{ Marks entity set for transporter for materialized views }
-#' 
-#'
-#' \itemize{
-#' \item \emph{ @param } organization_id \link{character}
-#' \item \emph{ @param } entity_set_id \link{character}
-#'
-#'
-#' \item status code : 200 | Success
-#'
-#'
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
 #' \strong{ get_all_users_of_role } \emph{ Get members of a role for an organization from a roleId }
 #' 
 #'
@@ -329,6 +312,23 @@
 #' \item status code : 200 | Success
 #'
 #' \item return type : array[Role] 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ promote_staging_table } \emph{ Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } organization_id \link{character}
+#' \item \emph{ @param } body character
+#'
+#'
+#' \item status code : 200 | Success
+#'
+#'
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -692,27 +692,6 @@
 #' result <- api.instance$destroy_organization(var.organization_id)
 #'
 #'
-#' ####################  destroy_transported_entity_set  ####################
-#'
-#' library(openlattice)
-#' var.organization_id <- 'organization_id_example' # character | 
-#' var.entity_set_id <- 'entity_set_id_example' # character | 
-#'
-#' #Marks entity set for transporter for materialized views
-#' api.instance <- OrganizationsApi$new()
-#'
-#' #Configure HTTP basic authorization: http_auth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' #Configure API key authorization: openlattice_auth
-#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-#'
-#' result <- api.instance$destroy_transported_entity_set(var.organization_id, var.entity_set_id)
-#'
-#'
 #' ####################  get_all_users_of_role  ####################
 #'
 #' library(openlattice)
@@ -933,6 +912,27 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$get_roles(var.organization_id)
+#'
+#'
+#' ####################  promote_staging_table  ####################
+#'
+#' library(openlattice)
+#' var.organization_id <- 'organization_id_example' # character | 
+#' var.body <- 'body_example' # character | 
+#'
+#' #Moves the specified table from the staging schema to the openlattice schema in organization's external database
+#' api.instance <- OrganizationsApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$promote_staging_table(var.organization_id, var.body)
 #'
 #'
 #' ####################  refresh_data_changes  ####################
@@ -1643,64 +1643,6 @@ OrganizationsApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    destroy_transported_entity_set = function(organization_id, entity_set_id, ...){
-      apiResponse <- self$destroy_transported_entity_setWithHttpInfo(organization_id, entity_set_id, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    destroy_transported_entity_setWithHttpInfo = function(organization_id, entity_set_id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`organization_id`)) {
-        stop("Missing required parameter `organization_id`.")
-      }
-
-      if (missing(`entity_set_id`)) {
-        stop("Missing required parameter `entity_set_id`.")
-      }
-
-      urlPath <- "/datastore/organizations/{organizationId}/{entitySetId}/destroy"
-      if (!missing(`organization_id`)) {
-        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
-      }
-
-      if (!missing(`entity_set_id`)) {
-        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
-        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
-      }
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
     get_all_users_of_role = function(organization_id, role_id, ...){
       apiResponse <- self$get_all_users_of_roleWithHttpInfo(organization_id, role_id, ...)
       resp <- apiResponse$response
@@ -2332,6 +2274,71 @@ OrganizationsApi <- R6::R6Class(
           }
         )
         ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    promote_staging_table = function(organization_id, body, ...){
+      apiResponse <- self$promote_staging_tableWithHttpInfo(organization_id, body, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    promote_staging_tableWithHttpInfo = function(organization_id, body, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`organization_id`)) {
+        stop("Missing required parameter `organization_id`.")
+      }
+
+      if (missing(`body`)) {
+        stop("Missing required parameter `body`.")
+      }
+
+      if (!missing(`body`)) {
+        body <- sprintf(
+        '
+            "%s"
+                  ',
+            `body`
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/organizations/promote/{organizationId}"
+      if (!missing(`organization_id`)) {
+        urlPath <- gsub(paste0("\\{", "organizationId", "\\}"), URLencode(as.character(`organization_id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

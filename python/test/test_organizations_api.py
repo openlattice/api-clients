@@ -155,6 +155,13 @@ class TestOrganizationsApi(unittest.TestCase):
         """
         pass
 
+    def test_promote_staging_table(self):
+        """Test case for promote_staging_table
+
+        Moves the specified table from the staging schema to the openlattice schema in organization's external database  # noqa: E501
+        """
+        pass
+
     def test_refresh_data_changes(self):
         """Test case for refresh_data_changes
 
@@ -201,6 +208,13 @@ class TestOrganizationsApi(unittest.TestCase):
         """Test case for synchronize_edm_changes
 
         Synchronizes EDM changes to the requested materialized entity set in the organization.  # noqa: E501
+        """
+        pass
+
+    def test_transport_entity_set(self):
+        """Test case for transport_entity_set
+
+        Marks entity set for transporter for materialized views  # noqa: E501
         """
         pass
 

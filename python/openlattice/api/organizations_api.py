@@ -991,142 +991,6 @@ class OrganizationsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def destroy_transported_entity_set(self, organization_id, entity_set_id, **kwargs):  # noqa: E501
-        """Marks entity set for transporter for materialized views  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.destroy_transported_entity_set(organization_id, entity_set_id, async_req=True)
-        >>> result = thread.get()
-
-        :param organization_id: (required)
-        :type organization_id: str
-        :param entity_set_id: (required)
-        :type entity_set_id: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.destroy_transported_entity_set_with_http_info(organization_id, entity_set_id, **kwargs)  # noqa: E501
-
-    def destroy_transported_entity_set_with_http_info(self, organization_id, entity_set_id, **kwargs):  # noqa: E501
-        """Marks entity set for transporter for materialized views  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.destroy_transported_entity_set_with_http_info(organization_id, entity_set_id, async_req=True)
-        >>> result = thread.get()
-
-        :param organization_id: (required)
-        :type organization_id: str
-        :param entity_set_id: (required)
-        :type entity_set_id: str
-        :param async_req: Whether to execute the request asynchronously.
-        :type async_req: bool, optional
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :type _return_http_data_only: bool, optional
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :type _preload_content: bool, optional
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the authentication
-                              in the spec for a single request.
-        :type _request_auth: dict, optional
-        :return: Returns the result object.
-                 If the method is called asynchronously,
-                 returns the request thread.
-        :rtype: None
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'organization_id',
-            'entity_set_id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout',
-                '_request_auth'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method destroy_transported_entity_set" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'organization_id' is set
-        if self.api_client.client_side_validation and ('organization_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['organization_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `organization_id` when calling `destroy_transported_entity_set`")  # noqa: E501
-        # verify the required parameter 'entity_set_id' is set
-        if self.api_client.client_side_validation and ('entity_set_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['entity_set_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `entity_set_id` when calling `destroy_transported_entity_set`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'organization_id' in local_var_params:
-            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
-        if 'entity_set_id' in local_var_params:
-            path_params['entitySetId'] = local_var_params['entity_set_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/datastore/organizations/{organizationId}/{entitySetId}/destroy', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats,
-            _request_auth=local_var_params.get('_request_auth'))
-
     def get_all_users_of_role(self, organization_id, role_id, **kwargs):  # noqa: E501
         """Get members of a role for an organization from a roleId  # noqa: E501
 
@@ -2572,6 +2436,146 @@ class OrganizationsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
+    def promote_staging_table(self, organization_id, body, **kwargs):  # noqa: E501
+        """Moves the specified table from the staging schema to the openlattice schema in organization's external database  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.promote_staging_table(organization_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param organization_id: (required)
+        :type organization_id: str
+        :param body: (required)
+        :type body: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.promote_staging_table_with_http_info(organization_id, body, **kwargs)  # noqa: E501
+
+    def promote_staging_table_with_http_info(self, organization_id, body, **kwargs):  # noqa: E501
+        """Moves the specified table from the staging schema to the openlattice schema in organization's external database  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.promote_staging_table_with_http_info(organization_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param organization_id: (required)
+        :type organization_id: str
+        :param body: (required)
+        :type body: str
+        :param async_req: Whether to execute the request asynchronously.
+        :type async_req: bool, optional
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :type _return_http_data_only: bool, optional
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :type _preload_content: bool, optional
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the authentication
+                              in the spec for a single request.
+        :type _request_auth: dict, optional
+        :return: Returns the result object.
+                 If the method is called asynchronously,
+                 returns the request thread.
+        :rtype: None
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'organization_id',
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout',
+                '_request_auth'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method promote_staging_table" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'organization_id' is set
+        if self.api_client.client_side_validation and ('organization_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['organization_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `organization_id` when calling `promote_staging_table`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `promote_staging_table`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization_id' in local_var_params:
+            path_params['organizationId'] = local_var_params['organization_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['text/plain'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/datastore/organizations/promote/{organizationId}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats,
+            _request_auth=local_var_params.get('_request_auth'))
+
     def refresh_data_changes(self, organization_id, entity_set_id, **kwargs):  # noqa: E501
         """Refreshes the requested materialized entity set with data changes in the organization.  # noqa: E501
 
@@ -3249,7 +3253,7 @@ class OrganizationsApi(object):
             body_params = local_var_params['body']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501

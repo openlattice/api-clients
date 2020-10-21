@@ -210,6 +210,18 @@ test_that("get_roles", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("promote_staging_table", {
+  # tests for promote_staging_table
+  # base path: https://api.openlattice.com
+  # Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
+  # @param organization_id character 
+  # @param body character 
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("refresh_data_changes", {
   # tests for refresh_data_changes
   # base path: https://api.openlattice.com
@@ -287,6 +299,18 @@ test_that("synchronize_edm_changes", {
   # tests for synchronize_edm_changes
   # base path: https://api.openlattice.com
   # Synchronizes EDM changes to the requested materialized entity set in the organization.
+  # @param organization_id character 
+  # @param entity_set_id character 
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("transport_entity_set", {
+  # tests for transport_entity_set
+  # base path: https://api.openlattice.com
+  # Marks entity set for transporter for materialized views
   # @param organization_id character 
   # @param entity_set_id character 
   # @return [Void]

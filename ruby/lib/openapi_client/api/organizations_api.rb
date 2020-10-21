@@ -467,70 +467,6 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Marks entity set for transporter for materialized views
-    # @param organization_id [String] 
-    # @param entity_set_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def destroy_transported_entity_set(organization_id, entity_set_id, opts = {})
-      destroy_transported_entity_set_with_http_info(organization_id, entity_set_id, opts)
-      nil
-    end
-
-    # Marks entity set for transporter for materialized views
-    # @param organization_id [String] 
-    # @param entity_set_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def destroy_transported_entity_set_with_http_info(organization_id, entity_set_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OrganizationsApi.destroy_transported_entity_set ...'
-      end
-      # verify the required parameter 'organization_id' is set
-      if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling OrganizationsApi.destroy_transported_entity_set"
-      end
-      # verify the required parameter 'entity_set_id' is set
-      if @api_client.config.client_side_validation && entity_set_id.nil?
-        fail ArgumentError, "Missing the required parameter 'entity_set_id' when calling OrganizationsApi.destroy_transported_entity_set"
-      end
-      # resource path
-      local_var_path = '/datastore/organizations/{organizationId}/{entitySetId}/destroy'.sub('{' + 'organizationId' + '}', CGI.escape(organization_id.to_s)).sub('{' + 'entitySetId' + '}', CGI.escape(entity_set_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:body] 
-
-      # return_type
-      return_type = opts[:return_type] 
-
-      # auth_names
-      auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
-
-      new_options = opts.merge(
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OrganizationsApi#destroy_transported_entity_set\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Get members of a role for an organization from a roleId
     # @param organization_id [String] 
     # @param role_id [String] 
@@ -1205,6 +1141,72 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Moves the specified table from the staging schema to the openlattice schema in organization's external database
+    # @param organization_id [String] 
+    # @param body [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def promote_staging_table(organization_id, body, opts = {})
+      promote_staging_table_with_http_info(organization_id, body, opts)
+      nil
+    end
+
+    # Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
+    # @param organization_id [String] 
+    # @param body [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def promote_staging_table_with_http_info(organization_id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsApi.promote_staging_table ...'
+      end
+      # verify the required parameter 'organization_id' is set
+      if @api_client.config.client_side_validation && organization_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling OrganizationsApi.promote_staging_table"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling OrganizationsApi.promote_staging_table"
+      end
+      # resource path
+      local_var_path = '/datastore/organizations/promote/{organizationId}'.sub('{' + 'organizationId' + '}', CGI.escape(organization_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['text/plain'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(body) 
+
+      # return_type
+      return_type = opts[:return_type] 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsApi#promote_staging_table\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Refreshes the requested materialized entity set with data changes in the organization.
     # @param organization_id [String] 
     # @param entity_set_id [String] 
@@ -1505,7 +1507,7 @@ module OpenapiClient
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params['Content-Type'] = @api_client.select_header_content_type(['text/plain'])
 
       # form parameters
       form_params = opts[:form_params] || {}
