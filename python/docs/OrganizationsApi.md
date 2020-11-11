@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Creates role
 [**delete_role**](OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroy_organization**](OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
-[**destroy_transported_entity_set**](OrganizationsApi.md#destroy_transported_entity_set) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**get_all_users_of_role**](OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**get_auto_approved_email_domains**](OrganizationsApi.md#get_auto_approved_email_domains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**get_flagged_organization_entity_sets**](OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -23,6 +22,7 @@ Method | HTTP request | Description
 [**get_organizations**](OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organizations
 [**get_role**](OrganizationsApi.md#get_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 [**get_roles**](OrganizationsApi.md#get_roles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
+[**promote_staging_table**](OrganizationsApi.md#promote_staging_table) | **POST** /datastore/organizations/promote/{organizationId} | Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
 [**refresh_data_changes**](OrganizationsApi.md#refresh_data_changes) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/refresh | Refreshes the requested materialized entity set with data changes in the organization.
 [**remove_auto_approved_email_domains**](OrganizationsApi.md#remove_auto_approved_email_domains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 [**remove_member**](OrganizationsApi.md#remove_member) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
@@ -912,134 +912,6 @@ with openlattice.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | [**str**](.md)|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **destroy_transported_entity_set**
-> destroy_transported_entity_set(organization_id, entity_set_id)
-
-Marks entity set for transporter for materialized views
-
-### Example
-
-* Bearer (JWT) Authentication (http_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.openlattice.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice.Configuration(
-    host = "https://api.openlattice.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): http_auth
-configuration = openlattice.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Configure API key authorization: openlattice_auth
-configuration = openlattice.Configuration(
-    host = "https://api.openlattice.com",
-    api_key = {
-        'openlattice_auth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with openlattice.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = openlattice.OrganizationsApi(api_client)
-    organization_id = 'organization_id_example' # str | 
-entity_set_id = 'entity_set_id_example' # str | 
-
-    try:
-        # Marks entity set for transporter for materialized views
-        api_instance.destroy_transported_entity_set(organization_id, entity_set_id)
-    except ApiException as e:
-        print("Exception when calling OrganizationsApi->destroy_transported_entity_set: %s\n" % e)
-```
-
-* Api Key Authentication (openlattice_auth):
-```python
-from __future__ import print_function
-import time
-import openlattice
-from openlattice.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.openlattice.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openlattice.Configuration(
-    host = "https://api.openlattice.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): http_auth
-configuration = openlattice.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Configure API key authorization: openlattice_auth
-configuration = openlattice.Configuration(
-    host = "https://api.openlattice.com",
-    api_key = {
-        'openlattice_auth': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with openlattice.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = openlattice.OrganizationsApi(api_client)
-    organization_id = 'organization_id_example' # str | 
-entity_set_id = 'entity_set_id_example' # str | 
-
-    try:
-        # Marks entity set for transporter for materialized views
-        api_instance.destroy_transported_entity_set(organization_id, entity_set_id)
-    except ApiException as e:
-        print("Exception when calling OrganizationsApi->destroy_transported_entity_set: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organization_id** | [**str**](.md)|  | 
- **entity_set_id** | [**str**](.md)|  | 
 
 ### Return type
 
@@ -2462,6 +2334,134 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **promote_staging_table**
+> promote_staging_table(organization_id, body)
+
+Moves the specified table from the staging schema to the openlattice schema in organization's external database
+
+### Example
+
+* Bearer (JWT) Authentication (http_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+body = 'body_example' # str | 
+
+    try:
+        # Moves the specified table from the staging schema to the openlattice schema in organization's external database
+        api_instance.promote_staging_table(organization_id, body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->promote_staging_table: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.OrganizationsApi(api_client)
+    organization_id = 'organization_id_example' # str | 
+body = 'body_example' # str | 
+
+    try:
+        # Moves the specified table from the staging schema to the openlattice schema in organization's external database
+        api_instance.promote_staging_table(organization_id, body)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->promote_staging_table: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**str**](.md)|  | 
+ **body** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: text/plain
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **refresh_data_changes**
 > refresh_data_changes(organization_id, entity_set_id)
 
@@ -3095,7 +3095,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: text/plain
  - **Accept**: Not defined
 
 ### HTTP response details

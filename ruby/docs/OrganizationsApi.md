@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**create_role**](OrganizationsApi.md#create_role) | **POST** /datastore/organizations/roles | Creates role
 [**delete_role**](OrganizationsApi.md#delete_role) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroy_organization**](OrganizationsApi.md#destroy_organization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
-[**destroy_transported_entity_set**](OrganizationsApi.md#destroy_transported_entity_set) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**get_all_users_of_role**](OrganizationsApi.md#get_all_users_of_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**get_auto_approved_email_domains**](OrganizationsApi.md#get_auto_approved_email_domains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**get_flagged_organization_entity_sets**](OrganizationsApi.md#get_flagged_organization_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -23,6 +22,7 @@ Method | HTTP request | Description
 [**get_organizations**](OrganizationsApi.md#get_organizations) | **GET** /datastore/organizations | Get all organizations
 [**get_role**](OrganizationsApi.md#get_role) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 [**get_roles**](OrganizationsApi.md#get_roles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
+[**promote_staging_table**](OrganizationsApi.md#promote_staging_table) | **POST** /datastore/organizations/promote/{organizationId} | Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
 [**refresh_data_changes**](OrganizationsApi.md#refresh_data_changes) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/refresh | Refreshes the requested materialized entity set with data changes in the organization.
 [**remove_auto_approved_email_domains**](OrganizationsApi.md#remove_auto_approved_email_domains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 [**remove_member**](OrganizationsApi.md#remove_member) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
@@ -414,62 +414,6 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | [**String**](.md)|  | 
-
-### Return type
-
-nil (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## destroy_transported_entity_set
-
-> destroy_transported_entity_set(organization_id, entity_set_id)
-
-Marks entity set for transporter for materialized views
-
-### Example
-
-```ruby
-# load the gem
-require 'openapi_client'
-# setup authorization
-OpenapiClient.configure do |config|
-  # Configure Bearer authorization (JWT): http_auth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-
-  # Configure API key authorization: openlattice_auth
-  config.api_key['Authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Authorization'] = 'Bearer'
-end
-
-api_instance = OpenapiClient::OrganizationsApi.new
-organization_id = 'organization_id_example' # String | 
-entity_set_id = 'entity_set_id_example' # String | 
-
-begin
-  #Marks entity set for transporter for materialized views
-  api_instance.destroy_transported_entity_set(organization_id, entity_set_id)
-rescue OpenapiClient::ApiError => e
-  puts "Exception when calling OrganizationsApi->destroy_transported_entity_set: #{e}"
-end
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organization_id** | [**String**](.md)|  | 
- **entity_set_id** | [**String**](.md)|  | 
 
 ### Return type
 
@@ -1092,6 +1036,62 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## promote_staging_table
+
+> promote_staging_table(organization_id, body)
+
+Moves the specified table from the staging schema to the openlattice schema in organization's external database
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure Bearer authorization (JWT): http_auth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure API key authorization: openlattice_auth
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::OrganizationsApi.new
+organization_id = 'organization_id_example' # String | 
+body = 'body_example' # String | 
+
+begin
+  #Moves the specified table from the staging schema to the openlattice schema in organization's external database
+  api_instance.promote_staging_table(organization_id, body)
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling OrganizationsApi->promote_staging_table: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | [**String**](.md)|  | 
+ **body** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: text/plain
+- **Accept**: Not defined
+
+
 ## refresh_data_changes
 
 > refresh_data_changes(organization_id, entity_set_id)
@@ -1370,7 +1370,7 @@ nil (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: text/plain
 - **Accept**: Not defined
 
 

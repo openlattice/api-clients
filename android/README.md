@@ -219,7 +219,6 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**createRole**](docs/OrganizationsApi.md#createRole) | **POST** /datastore/organizations/roles | Creates role
 *OrganizationsApi* | [**deleteRole**](docs/OrganizationsApi.md#deleteRole) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 *OrganizationsApi* | [**destroyOrganization**](docs/OrganizationsApi.md#destroyOrganization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
-*OrganizationsApi* | [**destroyTransportedEntitySet**](docs/OrganizationsApi.md#destroyTransportedEntitySet) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 *OrganizationsApi* | [**getAllUsersOfRole**](docs/OrganizationsApi.md#getAllUsersOfRole) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 *OrganizationsApi* | [**getAutoApprovedEmailDomains**](docs/OrganizationsApi.md#getAutoApprovedEmailDomains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 *OrganizationsApi* | [**getFlaggedOrganizationEntitySets**](docs/OrganizationsApi.md#getFlaggedOrganizationEntitySets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -231,6 +230,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**getOrganizations**](docs/OrganizationsApi.md#getOrganizations) | **GET** /datastore/organizations | Get all organizations
 *OrganizationsApi* | [**getRole**](docs/OrganizationsApi.md#getRole) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 *OrganizationsApi* | [**getRoles**](docs/OrganizationsApi.md#getRoles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
+*OrganizationsApi* | [**promoteStagingTable**](docs/OrganizationsApi.md#promoteStagingTable) | **POST** /datastore/organizations/promote/{organizationId} | Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
 *OrganizationsApi* | [**refreshDataChanges**](docs/OrganizationsApi.md#refreshDataChanges) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/refresh | Refreshes the requested materialized entity set with data changes in the organization.
 *OrganizationsApi* | [**removeAutoApprovedEmailDomains**](docs/OrganizationsApi.md#removeAutoApprovedEmailDomains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 *OrganizationsApi* | [**removeMember**](docs/OrganizationsApi.md#removeMember) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization

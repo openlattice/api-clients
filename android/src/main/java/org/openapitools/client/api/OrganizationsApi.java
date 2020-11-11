@@ -994,140 +994,6 @@ public class OrganizationsApi {
     }
   }
   /**
-  * Marks entity set for transporter for materialized views
-  * 
-   * @param organizationId 
-   * @param entitySetId 
-   * @return void
-  */
-  public void destroyTransportedEntitySet (UUID organizationId, UUID entitySetId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = null;
-    // verify the required parameter 'organizationId' is set
-    if (organizationId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling destroyTransportedEntitySet",
-        new ApiException(400, "Missing the required parameter 'organizationId' when calling destroyTransportedEntitySet"));
-    }
-    // verify the required parameter 'entitySetId' is set
-    if (entitySetId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'entitySetId' when calling destroyTransportedEntitySet",
-        new ApiException(400, "Missing the required parameter 'entitySetId' when calling destroyTransportedEntitySet"));
-    }
-
-    // create path and map variables
-    String path = "/datastore/organizations/{organizationId}/{entitySetId}/destroy".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString()));
-
-    // query params
-    List<Pair> queryParams = new ArrayList<Pair>();
-    // header params
-    Map<String, String> headerParams = new HashMap<String, String>();
-    // form params
-    Map<String, String> formParams = new HashMap<String, String>();
-    String[] contentTypes = {
-    };
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if (contentType.startsWith("multipart/form-data")) {
-      // file uploading
-      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      HttpEntity httpEntity = localVarBuilder.build();
-      postBody = httpEntity;
-    } else {
-      // normal form params
-    }
-
-    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
-
-    try {
-      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
-      if (localVarResponse != null) {
-         return ;
-      } else {
-         return ;
-      }
-    } catch (ApiException ex) {
-       throw ex;
-    } catch (InterruptedException ex) {
-       throw ex;
-    } catch (ExecutionException ex) {
-      if (ex.getCause() instanceof VolleyError) {
-        VolleyError volleyError = (VolleyError)ex.getCause();
-        if (volleyError.networkResponse != null) {
-          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-        }
-      }
-      throw ex;
-    } catch (TimeoutException ex) {
-      throw ex;
-    }
-  }
-
-      /**
-   * Marks entity set for transporter for materialized views
-   * 
-   * @param organizationId    * @param entitySetId 
-  */
-  public void destroyTransportedEntitySet (UUID organizationId, UUID entitySetId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = null;
-
-    // verify the required parameter 'organizationId' is set
-    if (organizationId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling destroyTransportedEntitySet",
-        new ApiException(400, "Missing the required parameter 'organizationId' when calling destroyTransportedEntitySet"));
-    }
-    // verify the required parameter 'entitySetId' is set
-    if (entitySetId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'entitySetId' when calling destroyTransportedEntitySet",
-        new ApiException(400, "Missing the required parameter 'entitySetId' when calling destroyTransportedEntitySet"));
-    }
-
-    // create path and map variables
-    String path = "/datastore/organizations/{organizationId}/{entitySetId}/destroy".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString())).replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString()));
-
-    // query params
-    List<Pair> queryParams = new ArrayList<Pair>();
-    // header params
-    Map<String, String> headerParams = new HashMap<String, String>();
-    // form params
-    Map<String, String> formParams = new HashMap<String, String>();
-
-
-
-    String[] contentTypes = {
-      
-    };
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if (contentType.startsWith("multipart/form-data")) {
-      // file uploading
-      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      
-
-      HttpEntity httpEntity = localVarBuilder.build();
-      postBody = httpEntity;
-    } else {
-      // normal form params
-          }
-
-    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
-
-    try {
-      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
-        new Response.Listener<String>() {
-          @Override
-          public void onResponse(String localVarResponse) {
-              responseListener.onResponse(localVarResponse);
-          }
-      }, new Response.ErrorListener() {
-          @Override
-          public void onErrorResponse(VolleyError error) {
-            errorListener.onErrorResponse(error);
-          }
-      });
-    } catch (ApiException ex) {
-      errorListener.onErrorResponse(new VolleyError(ex));
-    }
-  }
-  /**
   * Get members of a role for an organization from a roleId
   * 
    * @param organizationId 
@@ -2548,6 +2414,141 @@ public class OrganizationsApi {
     }
   }
   /**
+  * Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
+  * 
+   * @param organizationId 
+   * @param body 
+   * @return void
+  */
+  public void promoteStagingTable (UUID organizationId, String body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = body;
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling promoteStagingTable",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling promoteStagingTable"));
+    }
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'body' when calling promoteStagingTable",
+        new ApiException(400, "Missing the required parameter 'body' when calling promoteStagingTable"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organizations/promote/{organizationId}".replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "text/plain"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
+   * 
+   * @param organizationId    * @param body 
+  */
+  public void promoteStagingTable (UUID organizationId, String body, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = body;
+
+    // verify the required parameter 'organizationId' is set
+    if (organizationId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'organizationId' when calling promoteStagingTable",
+        new ApiException(400, "Missing the required parameter 'organizationId' when calling promoteStagingTable"));
+    }
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'body' when calling promoteStagingTable",
+        new ApiException(400, "Missing the required parameter 'body' when calling promoteStagingTable"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/organizations/promote/{organizationId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "organizationId" + "\\}", apiInvoker.escapeString(organizationId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "text/plain"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
   * Refreshes the requested materialized entity set with data changes in the organization.
   * 
    * @param organizationId 
@@ -3125,7 +3126,7 @@ public class OrganizationsApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     String[] contentTypes = {
-      "application/json"
+      "text/plain"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -3196,7 +3197,7 @@ public class OrganizationsApi {
 
 
     String[] contentTypes = {
-      "application/json"
+      "text/plain"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 

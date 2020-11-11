@@ -356,53 +356,6 @@ export default class OrganizationsApi {
     }
 
     /**
-     * Callback function to receive the result of the destroyTransportedEntitySet operation.
-     * @callback module:api/OrganizationsApi~destroyTransportedEntitySetCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Marks entity set for transporter for materialized views
-     * @param {String} organizationId 
-     * @param {String} entitySetId 
-     * @param {module:api/OrganizationsApi~destroyTransportedEntitySetCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    destroyTransportedEntitySet(organizationId, entitySetId, callback) {
-      let postBody = null;
-      // verify the required parameter 'organizationId' is set
-      if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling destroyTransportedEntitySet");
-      }
-      // verify the required parameter 'entitySetId' is set
-      if (entitySetId === undefined || entitySetId === null) {
-        throw new Error("Missing the required parameter 'entitySetId' when calling destroyTransportedEntitySet");
-      }
-
-      let pathParams = {
-        'organizationId': organizationId,
-        'entitySetId': entitySetId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['http_auth', 'openlattice_auth'];
-      let contentTypes = [];
-      let accepts = [];
-      let returnType = null;
-      return this.apiClient.callApi(
-        '/datastore/organizations/{organizationId}/{entitySetId}/destroy', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the getAllUsersOfRole operation.
      * @callback module:api/OrganizationsApi~getAllUsersOfRoleCallback
      * @param {String} error Error message, if any.
@@ -876,6 +829,52 @@ export default class OrganizationsApi {
     }
 
     /**
+     * Callback function to receive the result of the promoteStagingTable operation.
+     * @callback module:api/OrganizationsApi~promoteStagingTableCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Moves the specified table from the staging schema to the openlattice schema in organization's external database
+     * @param {String} organizationId 
+     * @param {String} body 
+     * @param {module:api/OrganizationsApi~promoteStagingTableCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    promoteStagingTable(organizationId, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling promoteStagingTable");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling promoteStagingTable");
+      }
+
+      let pathParams = {
+        'organizationId': organizationId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['text/plain'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/datastore/organizations/promote/{organizationId}', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the refreshDataChanges operation.
      * @callback module:api/OrganizationsApi~refreshDataChangesCallback
      * @param {String} error Error message, if any.
@@ -1104,7 +1103,7 @@ export default class OrganizationsApi {
       };
 
       let authNames = ['http_auth', 'openlattice_auth'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['text/plain'];
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(

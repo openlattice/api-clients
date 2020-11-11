@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**CreateRole**](OrganizationsApi.md#CreateRole) | **Post** /datastore/organizations/roles | Creates role
 [**DeleteRole**](OrganizationsApi.md#DeleteRole) | **Delete** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**DestroyOrganization**](OrganizationsApi.md#DestroyOrganization) | **Delete** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
-[**DestroyTransportedEntitySet**](OrganizationsApi.md#DestroyTransportedEntitySet) | **Get** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**GetAllUsersOfRole**](OrganizationsApi.md#GetAllUsersOfRole) | **Get** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**GetAutoApprovedEmailDomains**](OrganizationsApi.md#GetAutoApprovedEmailDomains) | **Get** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**GetFlaggedOrganizationEntitySets**](OrganizationsApi.md#GetFlaggedOrganizationEntitySets) | **Post** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -23,6 +22,7 @@ Method | HTTP request | Description
 [**GetOrganizations**](OrganizationsApi.md#GetOrganizations) | **Get** /datastore/organizations | Get all organizations
 [**GetRole**](OrganizationsApi.md#GetRole) | **Get** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 [**GetRoles**](OrganizationsApi.md#GetRoles) | **Get** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
+[**PromoteStagingTable**](OrganizationsApi.md#PromoteStagingTable) | **Post** /datastore/organizations/promote/{organizationId} | Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
 [**RefreshDataChanges**](OrganizationsApi.md#RefreshDataChanges) | **Post** /datastore/organizations/{organizationId}/{entitySetId}/refresh | Refreshes the requested materialized entity set with data changes in the organization.
 [**RemoveAutoApprovedEmailDomains**](OrganizationsApi.md#RemoveAutoApprovedEmailDomains) | **Delete** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 [**RemoveMember**](OrganizationsApi.md#RemoveMember) | **Delete** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
@@ -248,39 +248,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **organizationId** | [**string**](.md)|  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## DestroyTransportedEntitySet
-
-> DestroyTransportedEntitySet(ctx, organizationId, entitySetId)
-
-Marks entity set for transporter for materialized views
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**organizationId** | [**string**](.md)|  | 
-**entitySetId** | [**string**](.md)|  | 
 
 ### Return type
 
@@ -651,6 +618,39 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## PromoteStagingTable
+
+> PromoteStagingTable(ctx, organizationId, body)
+
+Moves the specified table from the staging schema to the openlattice schema in organization's external database
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**organizationId** | [**string**](.md)|  | 
+**body** | **string**|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: text/plain
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RefreshDataChanges
 
 > RefreshDataChanges(ctx, organizationId, entitySetId)
@@ -809,7 +809,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: text/plain
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

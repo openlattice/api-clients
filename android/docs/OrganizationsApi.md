@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**createRole**](OrganizationsApi.md#createRole) | **POST** /datastore/organizations/roles | Creates role
 [**deleteRole**](OrganizationsApi.md#deleteRole) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroyOrganization**](OrganizationsApi.md#destroyOrganization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
-[**destroyTransportedEntitySet**](OrganizationsApi.md#destroyTransportedEntitySet) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**getAllUsersOfRole**](OrganizationsApi.md#getAllUsersOfRole) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**getAutoApprovedEmailDomains**](OrganizationsApi.md#getAutoApprovedEmailDomains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**getFlaggedOrganizationEntitySets**](OrganizationsApi.md#getFlaggedOrganizationEntitySets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -23,6 +22,7 @@ Method | HTTP request | Description
 [**getOrganizations**](OrganizationsApi.md#getOrganizations) | **GET** /datastore/organizations | Get all organizations
 [**getRole**](OrganizationsApi.md#getRole) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 [**getRoles**](OrganizationsApi.md#getRoles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
+[**promoteStagingTable**](OrganizationsApi.md#promoteStagingTable) | **POST** /datastore/organizations/promote/{organizationId} | Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
 [**refreshDataChanges**](OrganizationsApi.md#refreshDataChanges) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/refresh | Refreshes the requested materialized entity set with data changes in the organization.
 [**removeAutoApprovedEmailDomains**](OrganizationsApi.md#removeAutoApprovedEmailDomains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 [**removeMember**](OrganizationsApi.md#removeMember) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
@@ -337,51 +337,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | [**UUID**](.md)|  | [default to null]
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## destroyTransportedEntitySet
-
-> destroyTransportedEntitySet(organizationId, entitySetId)
-
-Marks entity set for transporter for materialized views
-
-### Example
-
-```java
-// Import classes:
-//import org.openapitools.client.api.OrganizationsApi;
-
-OrganizationsApi apiInstance = new OrganizationsApi();
-UUID organizationId = null; // UUID | 
-UUID entitySetId = null; // UUID | 
-try {
-    apiInstance.destroyTransportedEntitySet(organizationId, entitySetId);
-} catch (ApiException e) {
-    System.err.println("Exception when calling OrganizationsApi#destroyTransportedEntitySet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | [**UUID**](.md)|  | [default to null]
- **entitySetId** | [**UUID**](.md)|  | [default to null]
 
 ### Return type
 
@@ -883,6 +838,51 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## promoteStagingTable
+
+> promoteStagingTable(organizationId, body)
+
+Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.OrganizationsApi;
+
+OrganizationsApi apiInstance = new OrganizationsApi();
+UUID organizationId = null; // UUID | 
+String body = "body_example"; // String | 
+try {
+    apiInstance.promoteStagingTable(organizationId, body);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrganizationsApi#promoteStagingTable");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**UUID**](.md)|  | [default to null]
+ **body** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: text/plain
+- **Accept**: Not defined
+
+
 ## refreshDataChanges
 
 > refreshDataChanges(organizationId, entitySetId)
@@ -1106,7 +1106,7 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: text/plain
 - **Accept**: Not defined
 
 

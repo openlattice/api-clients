@@ -237,6 +237,18 @@ describe 'OrganizationsApi' do
     end
   end
 
+  # unit tests for promote_staging_table
+  # Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
+  # @param organization_id 
+  # @param body 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'promote_staging_table test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for refresh_data_changes
   # Refreshes the requested materialized entity set with data changes in the organization.
   # @param organization_id 
@@ -317,6 +329,18 @@ describe 'OrganizationsApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'synchronize_edm_changes test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for transport_entity_set
+  # Marks entity set for transporter for materialized views
+  # @param organization_id 
+  # @param entity_set_id 
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'transport_entity_set test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

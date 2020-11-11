@@ -4466,7 +4466,7 @@ paths:
         style: simple
       requestBody:
         content:
-          application/json:
+          text/plain:
             schema:
               type: string
         required: true
@@ -4508,9 +4508,9 @@ paths:
       summary: Marks entity set for transporter for materialized views
       tags:
       - organizations
-  /datastore/organizations/{organizationId}/{entitySetId}/destroy:
-    get:
-      operationId: destroyTransportedEntitySet
+  /datastore/organizations/promote/{organizationId}:
+    post:
+      operationId: promoteStagingTable
       parameters:
       - explode: false
         in: path
@@ -4520,21 +4520,20 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: false
-        in: path
-        name: entitySetId
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
         required: true
-        schema:
-          format: uuid
-          type: string
-        style: simple
       responses:
         "200":
           description: Success
       security:
       - openlattice_auth: []
       - http_auth: []
-      summary: Marks entity set for transporter for materialized views
+      summary: Moves the specified table from the staging schema to the openlattice
+        schema in organization's external database
       tags:
       - organizations
   /linker/linkingfeedback:

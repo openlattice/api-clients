@@ -228,6 +228,16 @@
         done();
       });
     });
+    describe('promoteStagingTable', function() {
+      it('should call promoteStagingTable successfully', function(done) {
+        //uncomment below and update the code to test promoteStagingTable
+        //instance.promoteStagingTable(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('refreshDataChanges', function() {
       it('should call refreshDataChanges successfully', function(done) {
         //uncomment below and update the code to test refreshDataChanges
@@ -292,6 +302,16 @@
       it('should call synchronizeEdmChanges successfully', function(done) {
         //uncomment below and update the code to test synchronizeEdmChanges
         //instance.synchronizeEdmChanges(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('transportEntitySet', function() {
+      it('should call transportEntitySet successfully', function(done) {
+        //uncomment below and update the code to test transportEntitySet
+        //instance.transportEntitySet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

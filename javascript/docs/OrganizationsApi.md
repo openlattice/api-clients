@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**createRole**](OrganizationsApi.md#createRole) | **POST** /datastore/organizations/roles | Creates role
 [**deleteRole**](OrganizationsApi.md#deleteRole) | **DELETE** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Remove role for an organization
 [**destroyOrganization**](OrganizationsApi.md#destroyOrganization) | **DELETE** /datastore/organizations/{organizationId} | Remove an organization from the organizationId
-[**destroyTransportedEntitySet**](OrganizationsApi.md#destroyTransportedEntitySet) | **GET** /datastore/organizations/{organizationId}/{entitySetId}/destroy | Marks entity set for transporter for materialized views
 [**getAllUsersOfRole**](OrganizationsApi.md#getAllUsersOfRole) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/ | Get members of a role for an organization from a roleId
 [**getAutoApprovedEmailDomains**](OrganizationsApi.md#getAutoApprovedEmailDomains) | **GET** /datastore/organizations/{organizationId}/email-domains | Get auto-approved email domains
 [**getFlaggedOrganizationEntitySets**](OrganizationsApi.md#getFlaggedOrganizationEntitySets) | **POST** /datastore/organizations/{organizationId}/entity-sets | Get the entity sets for an organization for a certain flag
@@ -23,6 +22,7 @@ Method | HTTP request | Description
 [**getOrganizations**](OrganizationsApi.md#getOrganizations) | **GET** /datastore/organizations | Get all organizations
 [**getRole**](OrganizationsApi.md#getRole) | **GET** /datastore/organizations/{organizationId}/principals/roles/{roleId} | Get role for an organization from a roleId
 [**getRoles**](OrganizationsApi.md#getRoles) | **GET** /datastore/organizations/{organizationId}/principals/roles | Get roles for an organization
+[**promoteStagingTable**](OrganizationsApi.md#promoteStagingTable) | **POST** /datastore/organizations/promote/{organizationId} | Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
 [**refreshDataChanges**](OrganizationsApi.md#refreshDataChanges) | **POST** /datastore/organizations/{organizationId}/{entitySetId}/refresh | Refreshes the requested materialized entity set with data changes in the organization.
 [**removeAutoApprovedEmailDomains**](OrganizationsApi.md#removeAutoApprovedEmailDomains) | **DELETE** /datastore/organizations/{organizationId}/email-domains | Remove auto-approved email domains
 [**removeMember**](OrganizationsApi.md#removeMember) | **DELETE** /datastore/organizations/{organizationId}/principals/members/{userId} | Remove member from an organization
@@ -397,60 +397,6 @@ apiInstance.destroyOrganization(organizationId, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | [**String**](.md)|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## destroyTransportedEntitySet
-
-> destroyTransportedEntitySet(organizationId, entitySetId)
-
-Marks entity set for transporter for materialized views
-
-### Example
-
-```javascript
-import OpenLatticeApi from 'open_lattice_api';
-let defaultClient = OpenLatticeApi.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: http_auth
-let http_auth = defaultClient.authentications['http_auth'];
-http_auth.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: openlattice_auth
-let openlattice_auth = defaultClient.authentications['openlattice_auth'];
-openlattice_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//openlattice_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new OpenLatticeApi.OrganizationsApi();
-let organizationId = null; // String | 
-let entitySetId = null; // String | 
-apiInstance.destroyTransportedEntitySet(organizationId, entitySetId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | [**String**](.md)|  | 
- **entitySetId** | [**String**](.md)|  | 
 
 ### Return type
 
@@ -1040,6 +986,60 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## promoteStagingTable
+
+> promoteStagingTable(organizationId, body)
+
+Moves the specified table from the staging schema to the openlattice schema in organization&#39;s external database
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.OrganizationsApi();
+let organizationId = null; // String | 
+let body = "body_example"; // String | 
+apiInstance.promoteStagingTable(organizationId, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | [**String**](.md)|  | 
+ **body** | **String**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: text/plain
+- **Accept**: Not defined
+
+
 ## refreshDataChanges
 
 > refreshDataChanges(organizationId, entitySetId)
@@ -1308,7 +1308,7 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: text/plain
 - **Accept**: Not defined
 
 
