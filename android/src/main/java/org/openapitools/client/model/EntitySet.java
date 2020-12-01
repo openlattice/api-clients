@@ -39,7 +39,7 @@ public class EntitySet {
   @SerializedName("organizationId")
   private UUID organizationId = null;
   public enum List&lt;FlagsEnum&gt; {
-     ASSOCIATION,  AUDIT,  EXTERNAL,  LINKING, 
+     ASSOCIATION,  AUDIT,  EXTERNAL,  LINKING,  METADATA,  TRANSPORTED, 
   };
   @SerializedName("flags")
   private List<FlagsEnum> flags = null;

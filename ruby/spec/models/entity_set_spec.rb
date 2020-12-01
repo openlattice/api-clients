@@ -89,7 +89,7 @@ describe 'EntitySet' do
   describe 'test attribute "flags"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["ASSOCIATION", "AUDIT", "EXTERNAL", "LINKING"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["ASSOCIATION", "AUDIT", "EXTERNAL", "LINKING", "METADATA", "TRANSPORTED"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.flags = value }.not_to raise_error
       # end

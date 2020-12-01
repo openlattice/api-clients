@@ -310,7 +310,7 @@ class EntitySet(object):
         :param flags: The flags of this EntitySet.  # noqa: E501
         :type flags: list[str]
         """
-        allowed_values = ["ASSOCIATION", "AUDIT", "EXTERNAL", "LINKING"]  # noqa: E501
+        allowed_values = ["ASSOCIATION", "AUDIT", "EXTERNAL", "LINKING", "METADATA", "TRANSPORTED"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(flags).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
