@@ -29,6 +29,10 @@ Name | Type | Description | Notes
 
 * `LINKING` (value: `"LINKING"`)
 
+* `METADATA` (value: `"METADATA"`)
+
+* `TRANSPORTED` (value: `"TRANSPORTED"`)
+
 
 
 

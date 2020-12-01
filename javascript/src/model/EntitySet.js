@@ -175,7 +175,19 @@ EntitySet['FlagsEnum'] = {
      * value: "LINKING"
      * @const
      */
-    "LINKING": "LINKING"
+    "LINKING": "LINKING",
+
+    /**
+     * value: "METADATA"
+     * @const
+     */
+    "METADATA": "METADATA",
+
+    /**
+     * value: "TRANSPORTED"
+     * @const
+     */
+    "TRANSPORTED": "TRANSPORTED"
 };
 
 

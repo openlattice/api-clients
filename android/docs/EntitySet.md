@@ -27,6 +27,8 @@ ASSOCIATION | &quot;ASSOCIATION&quot;
 AUDIT | &quot;AUDIT&quot;
 EXTERNAL | &quot;EXTERNAL&quot;
 LINKING | &quot;LINKING&quot;
+METADATA | &quot;METADATA&quot;
+TRANSPORTED | &quot;TRANSPORTED&quot;
 
 
 

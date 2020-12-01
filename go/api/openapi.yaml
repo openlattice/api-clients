@@ -6817,6 +6817,8 @@ components:
             - AUDIT
             - EXTERNAL
             - LINKING
+            - METADATA
+            - TRANSPORTED
             type: string
           type: array
         partitions:
