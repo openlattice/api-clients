@@ -3,14 +3,33 @@ Connecting to Atlas DB
 Yue Li
 1/15/2021
 
-Atlas is a production server where all of the non-integrated data lives.
-This tutorial will walk through the steps of connecting to the Atlas
-database, uploading data to Atlas, and reading data from Atlas using R.
-Make sure to first have the `DBI` library and the RPostgres library
-installed. If this is your first time using DBI and RPostgres, uncomment
-and run the install.packages line. This tutorial will also be using
-tidyverse to create sample data to upload. To follow along, please also
-install tidyverse package as well.
+Atlas is a production PostgreSQL server where all of the unstandardized
+data lives. For any organizations with spatial data, the PostGIS
+extension is installed. This tutorial will walk through the steps of
+connecting to the Atlas database, uploading data to Atlas, and reading
+data from Atlas using R. Make sure to first have the `DBI` library and
+the RPostgres library installed. If this is your first time using DBI
+and RPostgres, uncomment and run the install.packages line. This
+tutorial will also be using tidyverse to create sample data to upload.
+To follow along, please also install tidyverse package as well.
+
+There are two different types of ways to log into Atlas to download and
+upload data. First, there is your own Atlas-specific user name and
+password that is unique only to you (not to be confused with your login
+to OpenLattice). Your ability to access datasets within Atlas depends on
+whether you have been granted permission to the datasets within Atlas.
+
+If you are an owner of an organization, you will also see additional
+details about a database when you go to the [Orgs
+page](https://staging.openlattice.com/orgs/#/orgs). Click on an
+organization and go to the database details. This will give you an
+additional user name and password you can use to log into Atlas. This is
+an owner-level login and you will be able to see all of the data that
+lives on Atlas in that specific organization’s database. Any owner of an
+organization will be able to access the database through the
+organization credentials.
+
+More detailed guide to setting up database connections is down below.
 
 ``` r
 # install.packages("DBI")
@@ -36,8 +55,11 @@ library(tidyverse)
 
 First, we set up the configuration. To find username and password, go to
 the [Orgs page](https://staging.openlattice.com/orgs/#/orgs) and go to
-account. There you will find “Atlas Username” and “Atlas Credential”.
-Copy and paste and set that as your username and password.
+account tab, located at the top of the navigation bar next to the logo.
+There you will find “Atlas Username” and “Atlas Credential”. Copy and
+paste and set that as your username and password.
+
+![Account page](/Users/yueli/Desktop/account_details.png)
 
 For the database name, search for the organization in the search bar,
 and click on the desired organization. This will lead you to a page that
@@ -50,7 +72,10 @@ dbname.
 
 For owners of an organization, you will also see additional information
 in the database details such as the database username and database
-credentials. You can use those credentials to log into Atlas as well.
+credentials as shown in the image below. You can use those credentials
+to log into Atlas.
+
+![Database details](/Users/yueli/Desktop/db_details.png)
 
 ``` r
 # CONNECT!
@@ -66,9 +91,13 @@ con <- dbConnect(
 
 ## Write data
 
-Now that the connection is set up, you can easily upload data. Here, the
-first argument is the connection, the second argument is the name of the
-table, and the third argument is the table to upload.
+Now that the connection is set up, you can easily upload data. Note,
+there are two schemas, openlattice and staging. Openlattice is generally
+for production-ready data, while staging can hold temporary datasets.
+The default schema is openlattice.
+
+Here, the first argument is the connection, the second argument is the
+name of the table, and the third argument is the table to upload.
 
 There are additional arguments that may be useful for uploading data:
 
