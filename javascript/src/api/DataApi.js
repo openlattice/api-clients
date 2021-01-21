@@ -19,6 +19,7 @@ import DataGraph from '../model/DataGraph';
 import DataGraphIds from '../model/DataGraphIds';
 import EntityNeighborsFilter from '../model/EntityNeighborsFilter';
 import EntitySetSelection from '../model/EntitySetSelection';
+import FilteredDataPageDefinition from '../model/FilteredDataPageDefinition';
 import InlineObject from '../model/InlineObject';
 
 /**
@@ -655,6 +656,53 @@ export default class DataApi {
       let returnType = [{'String': ['String']}];
       return this.apiClient.callApi(
         '/datastore/data/set/{entitySetId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the loadFilteredEntitySetData operation.
+     * @callback module:api/DataApi~loadFilteredEntitySetDataCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<{String: [String]}>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Loads data in multiple pages
+     * @param {String} entitySetId 
+     * @param {Array.<module:model/FilteredDataPageDefinition>} filteredDataPageDefinition 
+     * @param {module:api/DataApi~loadFilteredEntitySetDataCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<{String: [String]}>}
+     */
+    loadFilteredEntitySetData(entitySetId, filteredDataPageDefinition, callback) {
+      let postBody = filteredDataPageDefinition;
+      // verify the required parameter 'entitySetId' is set
+      if (entitySetId === undefined || entitySetId === null) {
+        throw new Error("Missing the required parameter 'entitySetId' when calling loadFilteredEntitySetData");
+      }
+      // verify the required parameter 'filteredDataPageDefinition' is set
+      if (filteredDataPageDefinition === undefined || filteredDataPageDefinition === null) {
+        throw new Error("Missing the required parameter 'filteredDataPageDefinition' when calling loadFilteredEntitySetData");
+      }
+
+      let pathParams = {
+        'entitySetId': entitySetId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [{'String': ['String']}];
+      return this.apiClient.callApi(
+        '/datastore/data/set/{entitySetId}/filtered', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

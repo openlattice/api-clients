@@ -120,6 +120,13 @@ class TestDataApi(unittest.TestCase):
         """
         pass
 
+    def test_load_filtered_entity_set_data(self):
+        """Test case for load_filtered_entity_set_data
+
+        Loads data in multiple pages  # noqa: E501
+        """
+        pass
+
     def test_load_linked_entity_set_breakdown(self):
         """Test case for load_linked_entity_set_breakdown
 

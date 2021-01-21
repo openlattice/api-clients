@@ -170,6 +170,7 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.DataApi* | [**getEntityPropertyValues**](docs/DataApi.md#getEntityPropertyValues) | **GET** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
 *OpenLatticeApi.DataApi* | [**getEntitySetSize**](docs/DataApi.md#getEntitySetSize) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 *OpenLatticeApi.DataApi* | [**loadEntitySetData**](docs/DataApi.md#loadEntitySetData) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
+*OpenLatticeApi.DataApi* | [**loadFilteredEntitySetData**](docs/DataApi.md#loadFilteredEntitySetData) | **POST** /datastore/data/set/{entitySetId}/filtered | Loads data in multiple pages
 *OpenLatticeApi.DataApi* | [**loadLinkedEntitySetBreakdown**](docs/DataApi.md#loadLinkedEntitySetBreakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
 *OpenLatticeApi.DataApi* | [**loadSelectedEntitySetData**](docs/DataApi.md#loadSelectedEntitySetData) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 *OpenLatticeApi.DataApi* | [**replaceAssociationData**](docs/DataApi.md#replaceAssociationData) | **PATCH** /datastore/data/association | Replaces Association Data
@@ -372,6 +373,8 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.EntityType](docs/EntityType.md)
  - [OpenLatticeApi.EntityTypeCollection](docs/EntityTypeCollection.md)
  - [OpenLatticeApi.EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
+ - [OpenLatticeApi.Filter](docs/Filter.md)
+ - [OpenLatticeApi.FilteredDataPageDefinition](docs/FilteredDataPageDefinition.md)
  - [OpenLatticeApi.Flight](docs/Flight.md)
  - [OpenLatticeApi.FlightPlanParameters](docs/FlightPlanParameters.md)
  - [OpenLatticeApi.FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)

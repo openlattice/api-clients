@@ -124,6 +124,7 @@ Class | Method | HTTP request | Description
 *DataApi* | [**getEntityPropertyValues**](docs/DataApi.md#getEntityPropertyValues) | **GET** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
 *DataApi* | [**getEntitySetSize**](docs/DataApi.md#getEntitySetSize) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 *DataApi* | [**loadEntitySetData**](docs/DataApi.md#loadEntitySetData) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
+*DataApi* | [**loadFilteredEntitySetData**](docs/DataApi.md#loadFilteredEntitySetData) | **POST** /datastore/data/set/{entitySetId}/filtered | Loads data in multiple pages
 *DataApi* | [**loadLinkedEntitySetBreakdown**](docs/DataApi.md#loadLinkedEntitySetBreakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
 *DataApi* | [**loadSelectedEntitySetData**](docs/DataApi.md#loadSelectedEntitySetData) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 *DataApi* | [**replaceAssociationData**](docs/DataApi.md#replaceAssociationData) | **PATCH** /datastore/data/association | Replaces Association Data
@@ -326,6 +327,8 @@ Class | Method | HTTP request | Description
  - [EntityType](docs/EntityType.md)
  - [EntityTypeCollection](docs/EntityTypeCollection.md)
  - [EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
+ - [Filter](docs/Filter.md)
+ - [FilteredDataPageDefinition](docs/FilteredDataPageDefinition.md)
  - [Flight](docs/Flight.md)
  - [FlightPlanParameters](docs/FlightPlanParameters.md)
  - [FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)

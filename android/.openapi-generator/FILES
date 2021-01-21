@@ -54,6 +54,8 @@ docs/EntitySetsApi.md
 docs/EntityType.md
 docs/EntityTypeCollection.md
 docs/EntityTypePropertyMetadata.md
+docs/Filter.md
+docs/FilteredDataPageDefinition.md
 docs/Flight.md
 docs/FlightPlanParameters.md
 docs/FlightPlanParametersUpdate.md
@@ -172,6 +174,8 @@ src/main/java/org/openapitools/client/model/EntitySetSelection.java
 src/main/java/org/openapitools/client/model/EntityType.java
 src/main/java/org/openapitools/client/model/EntityTypeCollection.java
 src/main/java/org/openapitools/client/model/EntityTypePropertyMetadata.java
+src/main/java/org/openapitools/client/model/Filter.java
+src/main/java/org/openapitools/client/model/FilteredDataPageDefinition.java
 src/main/java/org/openapitools/client/model/Flight.java
 src/main/java/org/openapitools/client/model/FlightPlanParameters.java
 src/main/java/org/openapitools/client/model/FlightPlanParametersUpdate.java

@@ -72,6 +72,8 @@ docs/EntitySetsApi.md
 docs/EntityType.md
 docs/EntityTypeCollection.md
 docs/EntityTypePropertyMetadata.md
+docs/Filter.md
+docs/FilteredDataPageDefinition.md
 docs/Flight.md
 docs/FlightPlanParameters.md
 docs/FlightPlanParametersUpdate.md
@@ -164,6 +166,8 @@ model_entity_set_selection.go
 model_entity_type.go
 model_entity_type_collection.go
 model_entity_type_property_metadata.go
+model_filter.go
+model_filtered_data_page_definition.go
 model_flight.go
 model_flight_plan_parameters.go
 model_flight_plan_parameters_update.go

@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**getEntityPropertyValues**](DataApi.md#getEntityPropertyValues) | **GET** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
 [**getEntitySetSize**](DataApi.md#getEntitySetSize) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 [**loadEntitySetData**](DataApi.md#loadEntitySetData) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
+[**loadFilteredEntitySetData**](DataApi.md#loadFilteredEntitySetData) | **POST** /datastore/data/set/{entitySetId}/filtered | Loads data in multiple pages
 [**loadLinkedEntitySetBreakdown**](DataApi.md#loadLinkedEntitySetBreakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
 [**loadSelectedEntitySetData**](DataApi.md#loadSelectedEntitySetData) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 [**replaceAssociationData**](DataApi.md#replaceAssociationData) | **PATCH** /datastore/data/association | Replaces Association Data
@@ -726,6 +727,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## loadFilteredEntitySetData
+
+> [{String: [String]}] loadFilteredEntitySetData(entitySetId, filteredDataPageDefinition)
+
+Loads data in multiple pages
+
+### Example
+
+```javascript
+import OpenLatticeApi from 'open_lattice_api';
+let defaultClient = OpenLatticeApi.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: http_auth
+let http_auth = defaultClient.authentications['http_auth'];
+http_auth.accessToken = "YOUR ACCESS TOKEN"
+// Configure API key authorization: openlattice_auth
+let openlattice_auth = defaultClient.authentications['openlattice_auth'];
+openlattice_auth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//openlattice_auth.apiKeyPrefix = 'Token';
+
+let apiInstance = new OpenLatticeApi.DataApi();
+let entitySetId = null; // String | 
+let filteredDataPageDefinition = [new OpenLatticeApi.FilteredDataPageDefinition()]; // [FilteredDataPageDefinition] | 
+apiInstance.loadFilteredEntitySetData(entitySetId, filteredDataPageDefinition, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entitySetId** | [**String**](.md)|  | 
+ **filteredDataPageDefinition** | [**[FilteredDataPageDefinition]**](FilteredDataPageDefinition.md)|  | 
+
+### Return type
+
+**[{String: [String]}]**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

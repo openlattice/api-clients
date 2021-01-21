@@ -430,6 +430,10 @@ conf = openlattice.Configuration(
                 'description': "Staging OpenLattice API",
             },
             {
+                'url': "https://integration.openlattice.com",
+                'description': "Integration OpenLattice API",
+            },
+            {
                 'url': "http://localhost:8080",
                 'description': "Local OpenLattice API",
             }

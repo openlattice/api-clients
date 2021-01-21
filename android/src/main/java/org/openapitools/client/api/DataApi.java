@@ -29,6 +29,7 @@ import org.openapitools.client.model.DataGraph;
 import org.openapitools.client.model.DataGraphIds;
 import org.openapitools.client.model.EntityNeighborsFilter;
 import org.openapitools.client.model.EntitySetSelection;
+import org.openapitools.client.model.FilteredDataPageDefinition;
 import org.openapitools.client.model.InlineObject;
 import java.util.*;
 import java.util.Map;
@@ -1857,6 +1858,145 @@ public class DataApi {
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((List<Map<String, List<String>>>) ApiInvoker.deserialize(localVarResponse,  "array", Map.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Loads data in multiple pages
+  * 
+   * @param entitySetId 
+   * @param filteredDataPageDefinition 
+   * @return List<Map<String, List<String>>>
+  */
+  public List<Map<String, List<String>>> loadFilteredEntitySetData (UUID entitySetId, List<FilteredDataPageDefinition> filteredDataPageDefinition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = filteredDataPageDefinition;
+    // verify the required parameter 'entitySetId' is set
+    if (entitySetId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'entitySetId' when calling loadFilteredEntitySetData",
+        new ApiException(400, "Missing the required parameter 'entitySetId' when calling loadFilteredEntitySetData"));
+    }
+    // verify the required parameter 'filteredDataPageDefinition' is set
+    if (filteredDataPageDefinition == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'filteredDataPageDefinition' when calling loadFilteredEntitySetData",
+        new ApiException(400, "Missing the required parameter 'filteredDataPageDefinition' when calling loadFilteredEntitySetData"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/data/set/{entitySetId}/filtered".replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (List<Map<String, List<String>>>) ApiInvoker.deserialize(localVarResponse, "array", Map.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Loads data in multiple pages
+   * 
+   * @param entitySetId    * @param filteredDataPageDefinition 
+  */
+  public void loadFilteredEntitySetData (UUID entitySetId, List<FilteredDataPageDefinition> filteredDataPageDefinition, final Response.Listener<List<Map<String, List<String>>>> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = filteredDataPageDefinition;
+
+    // verify the required parameter 'entitySetId' is set
+    if (entitySetId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'entitySetId' when calling loadFilteredEntitySetData",
+        new ApiException(400, "Missing the required parameter 'entitySetId' when calling loadFilteredEntitySetData"));
+    }
+    // verify the required parameter 'filteredDataPageDefinition' is set
+    if (filteredDataPageDefinition == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'filteredDataPageDefinition' when calling loadFilteredEntitySetData",
+        new ApiException(400, "Missing the required parameter 'filteredDataPageDefinition' when calling loadFilteredEntitySetData"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/data/set/{entitySetId}/filtered".replaceAll("\\{format\\}","json").replaceAll("\\{" + "entitySetId" + "\\}", apiInvoker.escapeString(entitySetId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
         new Response.Listener<String>() {
           @Override
           public void onResponse(String localVarResponse) {

@@ -162,6 +162,18 @@ test_that("load_entity_set_data", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("load_filtered_entity_set_data", {
+  # tests for load_filtered_entity_set_data
+  # base path: https://api.openlattice.com
+  # Loads data in multiple pages
+  # @param entity_set_id character 
+  # @param filtered_data_page_definition array[FilteredDataPageDefinition] 
+  # @return [array[list(array[character])]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("load_linked_entity_set_breakdown", {
   # tests for load_linked_entity_set_breakdown
   # base path: https://api.openlattice.com

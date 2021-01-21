@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**getEntityPropertyValues**](DataApi.md#getEntityPropertyValues) | **GET** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
 [**getEntitySetSize**](DataApi.md#getEntitySetSize) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 [**loadEntitySetData**](DataApi.md#loadEntitySetData) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
+[**loadFilteredEntitySetData**](DataApi.md#loadFilteredEntitySetData) | **POST** /datastore/data/set/{entitySetId}/filtered | Loads data in multiple pages
 [**loadLinkedEntitySetBreakdown**](DataApi.md#loadLinkedEntitySetBreakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
 [**loadSelectedEntitySetData**](DataApi.md#loadSelectedEntitySetData) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 [**replaceAssociationData**](DataApi.md#replaceAssociationData) | **PATCH** /datastore/data/association | Replaces Association Data
@@ -619,6 +620,52 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## loadFilteredEntitySetData
+
+> List&lt;Map&lt;String, List&lt;String&gt;&gt;&gt; loadFilteredEntitySetData(entitySetId, filteredDataPageDefinition)
+
+Loads data in multiple pages
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.DataApi;
+
+DataApi apiInstance = new DataApi();
+UUID entitySetId = null; // UUID | 
+List<FilteredDataPageDefinition> filteredDataPageDefinition = Arrays.asList(new FilteredDataPageDefinition()); // List<FilteredDataPageDefinition> | 
+try {
+    List<Map<String, List<String>>> result = apiInstance.loadFilteredEntitySetData(entitySetId, filteredDataPageDefinition);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DataApi#loadFilteredEntitySetData");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entitySetId** | [**UUID**](.md)|  | [default to null]
+ **filteredDataPageDefinition** | [**List&lt;FilteredDataPageDefinition&gt;**](FilteredDataPageDefinition.md)|  |
+
+### Return type
+
+[**List&lt;Map&lt;String, List&lt;String&gt;&gt;&gt;**](Map.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

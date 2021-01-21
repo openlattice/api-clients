@@ -239,6 +239,23 @@
 #' }
 #' }
 #'
+#' \strong{ load_filtered_entity_set_data } \emph{ Loads data in multiple pages }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } entity_set_id \link{character}
+#' \item \emph{ @param } filtered_data_page_definition list( \link{FilteredDataPageDefinition} )
+#'
+#'
+#' \item status code : 200 | A data search result object, containing the search results
+#'
+#' \item return type : array[list(array[character])] 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' \strong{ load_linked_entity_set_breakdown } \emph{ Loads a linked entity set breakdown with the selected linked entities and properties. }
 #' 
 #'
@@ -602,6 +619,27 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$load_entity_set_data(var.entity_set_id)
+#'
+#'
+#' ####################  load_filtered_entity_set_data  ####################
+#'
+#' library(openlattice)
+#' var.entity_set_id <- 'entity_set_id_example' # character | 
+#' var.filtered_data_page_definition <- list(FilteredDataPageDefinition$new()) # array[FilteredDataPageDefinition] | 
+#'
+#' #Loads data in multiple pages
+#' api.instance <- DataApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$load_filtered_entity_set_data(var.entity_set_id, var.filtered_data_page_definition)
 #'
 #'
 #' ####################  load_linked_entity_set_breakdown  ####################
@@ -1602,6 +1640,83 @@ DataApi <- R6::R6Class(
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "array[list(array[character])]", loadNamespace("openlattice")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    load_filtered_entity_set_data = function(entity_set_id, filtered_data_page_definition, ...){
+      apiResponse <- self$load_filtered_entity_set_dataWithHttpInfo(entity_set_id, filtered_data_page_definition, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    load_filtered_entity_set_dataWithHttpInfo = function(entity_set_id, filtered_data_page_definition, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`entity_set_id`)) {
+        stop("Missing required parameter `entity_set_id`.")
+      }
+
+      if (missing(`filtered_data_page_definition`)) {
+        stop("Missing required parameter `filtered_data_page_definition`.")
+      }
+
+      if (!missing(`filtered_data_page_definition`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`filtered_data_page_definition`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/data/set/{entitySetId}/filtered"
+      if (!missing(`entity_set_id`)) {
+        urlPath <- gsub(paste0("\\{", "entitySetId", "\\}"), URLencode(as.character(`entity_set_id`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
                                  queryParams = queryParams,
                                  headerParams = headerParams,
                                  body = body,
