@@ -56,6 +56,8 @@ import EntitySetSelection from './model/EntitySetSelection';
 import EntityType from './model/EntityType';
 import EntityTypeCollection from './model/EntityTypeCollection';
 import EntityTypePropertyMetadata from './model/EntityTypePropertyMetadata';
+import Filter from './model/Filter';
+import FilteredDataPageDefinition from './model/FilteredDataPageDefinition';
 import Flight from './model/Flight';
 import FlightPlanParameters from './model/FlightPlanParameters';
 import FlightPlanParametersUpdate from './model/FlightPlanParametersUpdate';
@@ -408,6 +410,18 @@ export {
      * @property {module:model/EntityTypePropertyMetadata}
      */
     EntityTypePropertyMetadata,
+
+    /**
+     * The Filter model constructor.
+     * @property {module:model/Filter}
+     */
+    Filter,
+
+    /**
+     * The FilteredDataPageDefinition model constructor.
+     * @property {module:model/FilteredDataPageDefinition}
+     */
+    FilteredDataPageDefinition,
 
     /**
      * The Flight model constructor.

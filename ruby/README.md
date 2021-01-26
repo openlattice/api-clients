@@ -127,6 +127,7 @@ Class | Method | HTTP request | Description
 *OpenapiClient::DataApi* | [**get_entity_property_values**](docs/DataApi.md#get_entity_property_values) | **GET** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
 *OpenapiClient::DataApi* | [**get_entity_set_size**](docs/DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 *OpenapiClient::DataApi* | [**load_entity_set_data**](docs/DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
+*OpenapiClient::DataApi* | [**load_filtered_entity_set_data**](docs/DataApi.md#load_filtered_entity_set_data) | **POST** /datastore/data/set/{entitySetId}/filtered | Loads data in multiple pages
 *OpenapiClient::DataApi* | [**load_linked_entity_set_breakdown**](docs/DataApi.md#load_linked_entity_set_breakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
 *OpenapiClient::DataApi* | [**load_selected_entity_set_data**](docs/DataApi.md#load_selected_entity_set_data) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 *OpenapiClient::DataApi* | [**replace_association_data**](docs/DataApi.md#replace_association_data) | **PATCH** /datastore/data/association | Replaces Association Data
@@ -329,6 +330,8 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::EntityType](docs/EntityType.md)
  - [OpenapiClient::EntityTypeCollection](docs/EntityTypeCollection.md)
  - [OpenapiClient::EntityTypePropertyMetadata](docs/EntityTypePropertyMetadata.md)
+ - [OpenapiClient::Filter](docs/Filter.md)
+ - [OpenapiClient::FilteredDataPageDefinition](docs/FilteredDataPageDefinition.md)
  - [OpenapiClient::Flight](docs/Flight.md)
  - [OpenapiClient::FlightPlanParameters](docs/FlightPlanParameters.md)
  - [OpenapiClient::FlightPlanParametersUpdate](docs/FlightPlanParametersUpdate.md)

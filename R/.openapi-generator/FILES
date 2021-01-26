@@ -58,6 +58,8 @@ R/entity_sets_api.R
 R/entity_type.R
 R/entity_type_collection.R
 R/entity_type_property_metadata.R
+R/filter.R
+R/filtered_data_page_definition.R
 R/flight.R
 R/flight_plan_parameters.R
 R/flight_plan_parameters_update.R
@@ -157,6 +159,8 @@ docs/EntitySetsApi.md
 docs/EntityType.md
 docs/EntityTypeCollection.md
 docs/EntityTypePropertyMetadata.md
+docs/Filter.md
+docs/FilteredDataPageDefinition.md
 docs/Flight.md
 docs/FlightPlanParameters.md
 docs/FlightPlanParametersUpdate.md
@@ -257,6 +261,8 @@ tests/testthat/test_entity_sets_api.R
 tests/testthat/test_entity_type.R
 tests/testthat/test_entity_type_collection.R
 tests/testthat/test_entity_type_property_metadata.R
+tests/testthat/test_filter.R
+tests/testthat/test_filtered_data_page_definition.R
 tests/testthat/test_flight.R
 tests/testthat/test_flight_plan_parameters.R
 tests/testthat/test_flight_plan_parameters_update.R

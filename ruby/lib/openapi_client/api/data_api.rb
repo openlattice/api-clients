@@ -922,6 +922,74 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Loads data in multiple pages
+    # @param entity_set_id [String] 
+    # @param filtered_data_page_definition [Array<FilteredDataPageDefinition>] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<Hash<String, Array<String>>>]
+    def load_filtered_entity_set_data(entity_set_id, filtered_data_page_definition, opts = {})
+      data, _status_code, _headers = load_filtered_entity_set_data_with_http_info(entity_set_id, filtered_data_page_definition, opts)
+      data
+    end
+
+    # Loads data in multiple pages
+    # @param entity_set_id [String] 
+    # @param filtered_data_page_definition [Array<FilteredDataPageDefinition>] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<Hash<String, Array<String>>>, Integer, Hash)>] Array<Hash<String, Array<String>>> data, response status code and response headers
+    def load_filtered_entity_set_data_with_http_info(entity_set_id, filtered_data_page_definition, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DataApi.load_filtered_entity_set_data ...'
+      end
+      # verify the required parameter 'entity_set_id' is set
+      if @api_client.config.client_side_validation && entity_set_id.nil?
+        fail ArgumentError, "Missing the required parameter 'entity_set_id' when calling DataApi.load_filtered_entity_set_data"
+      end
+      # verify the required parameter 'filtered_data_page_definition' is set
+      if @api_client.config.client_side_validation && filtered_data_page_definition.nil?
+        fail ArgumentError, "Missing the required parameter 'filtered_data_page_definition' when calling DataApi.load_filtered_entity_set_data"
+      end
+      # resource path
+      local_var_path = '/datastore/data/set/{entitySetId}/filtered'.sub('{' + 'entitySetId' + '}', CGI.escape(entity_set_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] || @api_client.object_to_http_body(filtered_data_page_definition) 
+
+      # return_type
+      return_type = opts[:return_type] || 'Array<Hash<String, Array<String>>>' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DataApi#load_filtered_entity_set_data\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Loads a linked entity set breakdown with the selected linked entities and properties.
     # @param linked_entity_set_id [String] 
     # @param entity_set_selection [Array<EntitySetSelection>] 

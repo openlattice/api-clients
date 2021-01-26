@@ -54,6 +54,8 @@ docs/EntitySetsApi.md
 docs/EntityType.md
 docs/EntityTypeCollection.md
 docs/EntityTypePropertyMetadata.md
+docs/Filter.md
+docs/FilteredDataPageDefinition.md
 docs/Flight.md
 docs/FlightPlanParameters.md
 docs/FlightPlanParametersUpdate.md
@@ -163,6 +165,8 @@ src/model/EntitySetSelection.js
 src/model/EntityType.js
 src/model/EntityTypeCollection.js
 src/model/EntityTypePropertyMetadata.js
+src/model/Filter.js
+src/model/FilteredDataPageDefinition.js
 src/model/Flight.js
 src/model/FlightPlanParameters.js
 src/model/FlightPlanParametersUpdate.js
@@ -261,6 +265,8 @@ test/model/EntitySetSelection.spec.js
 test/model/EntityType.spec.js
 test/model/EntityTypeCollection.spec.js
 test/model/EntityTypePropertyMetadata.spec.js
+test/model/Filter.spec.js
+test/model/FilteredDataPageDefinition.spec.js
 test/model/Flight.spec.js
 test/model/FlightPlanParameters.spec.js
 test/model/FlightPlanParametersUpdate.spec.js

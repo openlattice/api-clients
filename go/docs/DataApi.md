@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**GetEntityPropertyValues**](DataApi.md#GetEntityPropertyValues) | **Get** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
 [**GetEntitySetSize**](DataApi.md#GetEntitySetSize) | **Get** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 [**LoadEntitySetData**](DataApi.md#LoadEntitySetData) | **Get** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
+[**LoadFilteredEntitySetData**](DataApi.md#LoadFilteredEntitySetData) | **Post** /datastore/data/set/{entitySetId}/filtered | Loads data in multiple pages
 [**LoadLinkedEntitySetBreakdown**](DataApi.md#LoadLinkedEntitySetBreakdown) | **Post** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
 [**LoadSelectedEntitySetData**](DataApi.md#LoadSelectedEntitySetData) | **Post** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 [**ReplaceAssociationData**](DataApi.md#ReplaceAssociationData) | **Patch** /datastore/data/association | Replaces Association Data
@@ -448,6 +449,39 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## LoadFilteredEntitySetData
+
+> []map[string][]string LoadFilteredEntitySetData(ctx, entitySetId, filteredDataPageDefinition)
+
+Loads data in multiple pages
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**entitySetId** | [**string**](.md)|  | 
+**filteredDataPageDefinition** | [**[]FilteredDataPageDefinition**](FilteredDataPageDefinition.md)|  | 
+
+### Return type
+
+[**[]map[string][]string**](map.md)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

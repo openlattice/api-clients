@@ -97,6 +97,10 @@ func NewConfiguration() *Configuration {
 				Description: "Staging OpenLattice API",
 			},
 			{
+				Url: "https://integration.openlattice.com",
+				Description: "Integration OpenLattice API",
+			},
+			{
 				Url: "http://localhost:8080",
 				Description: "Local OpenLattice API",
 			},

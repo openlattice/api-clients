@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**get_entity_property_values**](DataApi.md#get_entity_property_values) | **GET** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
 [**get_entity_set_size**](DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 [**load_entity_set_data**](DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
+[**load_filtered_entity_set_data**](DataApi.md#load_filtered_entity_set_data) | **POST** /datastore/data/set/{entitySetId}/filtered | Loads data in multiple pages
 [**load_linked_entity_set_breakdown**](DataApi.md#load_linked_entity_set_breakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
 [**load_selected_entity_set_data**](DataApi.md#load_selected_entity_set_data) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 [**replace_association_data**](DataApi.md#replace_association_data) | **PATCH** /datastore/data/association | Replaces Association Data
@@ -646,6 +647,54 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | An Entity Set definition |  -  |
+
+# **load_filtered_entity_set_data**
+> array[list(array[character])] load_filtered_entity_set_data(entity_set_id, filtered_data_page_definition)
+
+Loads data in multiple pages
+
+### Example
+```R
+library(openlattice)
+
+var.entity_set_id <- 'entity_set_id_example' # character | 
+var.filtered_data_page_definition <- list(FilteredDataPageDefinition$new(123, "bookmarkId_example", "propertyTypeId_example", TODO)) # array[FilteredDataPageDefinition] | 
+
+#Loads data in multiple pages
+api.instance <- DataApi$new()
+# Configure HTTP basic authorization: http_auth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+# Configure API key authorization: openlattice_auth
+api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+result <- api.instance$load_filtered_entity_set_data(var.entity_set_id, var.filtered_data_page_definition)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity_set_id** | [**character**](.md)|  | 
+ **filtered_data_page_definition** | list( [**FilteredDataPageDefinition**](FilteredDataPageDefinition.md) )|  | 
+
+### Return type
+
+**array[list(array[character])]**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A data search result object, containing the search results |  -  |
 
 # **load_linked_entity_set_breakdown**
 > list(list(list(list(array[character])))) load_linked_entity_set_breakdown(linked_entity_set_id, entity_set_selection)

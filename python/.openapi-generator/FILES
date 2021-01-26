@@ -55,6 +55,8 @@ docs/EntitySetsApi.md
 docs/EntityType.md
 docs/EntityTypeCollection.md
 docs/EntityTypePropertyMetadata.md
+docs/Filter.md
+docs/FilteredDataPageDefinition.md
 docs/Flight.md
 docs/FlightPlanParameters.md
 docs/FlightPlanParametersUpdate.md
@@ -166,6 +168,8 @@ openlattice/models/entity_set_selection.py
 openlattice/models/entity_type.py
 openlattice/models/entity_type_collection.py
 openlattice/models/entity_type_property_metadata.py
+openlattice/models/filter.py
+openlattice/models/filtered_data_page_definition.py
 openlattice/models/flight.py
 openlattice/models/flight_plan_parameters.py
 openlattice/models/flight_plan_parameters_update.py
@@ -264,6 +268,8 @@ test/test_entity_sets_api.py
 test/test_entity_type.py
 test/test_entity_type_collection.py
 test/test_entity_type_property_metadata.py
+test/test_filter.py
+test/test_filtered_data_page_definition.py
 test/test_flight.py
 test/test_flight_plan_parameters.py
 test/test_flight_plan_parameters_update.py

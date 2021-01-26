@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**get_entity_property_values**](DataApi.md#get_entity_property_values) | **GET** /datastore/data/{entitySetId}/{entityKeyId}/{propertyTypeId} | Loads property  values for a single entity by its entityKeyId, entitySetId and propertyTypeId
 [**get_entity_set_size**](DataApi.md#get_entity_set_size) | **GET** /datastore/data/{entitySetId}/count | Gets the number of entities in an entity set.
 [**load_entity_set_data**](DataApi.md#load_entity_set_data) | **GET** /datastore/data/set/{entitySetId} | Gets an iterable containing the entity data, using property type FQNs as key
+[**load_filtered_entity_set_data**](DataApi.md#load_filtered_entity_set_data) | **POST** /datastore/data/set/{entitySetId}/filtered | Loads data in multiple pages
 [**load_linked_entity_set_breakdown**](DataApi.md#load_linked_entity_set_breakdown) | **POST** /datastore/data/set/{linkedEntitySetId}/detailed | Loads a linked entity set breakdown with the selected linked entities and properties.
 [**load_selected_entity_set_data**](DataApi.md#load_selected_entity_set_data) | **POST** /datastore/data/set/{entitySetId} | Gets a list of entities by UUIDs
 [**replace_association_data**](DataApi.md#replace_association_data) | **PATCH** /datastore/data/association | Replaces Association Data
@@ -1708,6 +1709,136 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | An Entity Set definition |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **load_filtered_entity_set_data**
+> list[dict(str, list[str])] load_filtered_entity_set_data(entity_set_id, filtered_data_page_definition)
+
+Loads data in multiple pages
+
+### Example
+
+* Bearer (JWT) Authentication (http_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+filtered_data_page_definition = [openlattice.FilteredDataPageDefinition()] # list[FilteredDataPageDefinition] | 
+
+    try:
+        # Loads data in multiple pages
+        api_response = api_instance.load_filtered_entity_set_data(entity_set_id, filtered_data_page_definition)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->load_filtered_entity_set_data: %s\n" % e)
+```
+
+* Api Key Authentication (openlattice_auth):
+```python
+from __future__ import print_function
+import time
+import openlattice
+from openlattice.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.openlattice.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): http_auth
+configuration = openlattice.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Configure API key authorization: openlattice_auth
+configuration = openlattice.Configuration(
+    host = "https://api.openlattice.com",
+    api_key = {
+        'openlattice_auth': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['openlattice_auth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with openlattice.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openlattice.DataApi(api_client)
+    entity_set_id = 'entity_set_id_example' # str | 
+filtered_data_page_definition = [openlattice.FilteredDataPageDefinition()] # list[FilteredDataPageDefinition] | 
+
+    try:
+        # Loads data in multiple pages
+        api_response = api_instance.load_filtered_entity_set_data(entity_set_id, filtered_data_page_definition)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DataApi->load_filtered_entity_set_data: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity_set_id** | [**str**](.md)|  | 
+ **filtered_data_page_definition** | [**list[FilteredDataPageDefinition]**](FilteredDataPageDefinition.md)|  | 
+
+### Return type
+
+**list[dict(str, list[str])]**
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A data search result object, containing the search results |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -87,6 +87,8 @@ from openlattice.models.entity_set_selection import EntitySetSelection
 from openlattice.models.entity_type import EntityType
 from openlattice.models.entity_type_collection import EntityTypeCollection
 from openlattice.models.entity_type_property_metadata import EntityTypePropertyMetadata
+from openlattice.models.filter import Filter
+from openlattice.models.filtered_data_page_definition import FilteredDataPageDefinition
 from openlattice.models.flight import Flight
 from openlattice.models.flight_plan_parameters import FlightPlanParameters
 from openlattice.models.flight_plan_parameters_update import FlightPlanParametersUpdate

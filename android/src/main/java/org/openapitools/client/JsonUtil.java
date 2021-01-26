@@ -229,6 +229,14 @@ public class JsonUtil {
       return new TypeToken<List<EntityTypePropertyMetadata>>(){}.getType();
     }
     
+    if ("Filter".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Filter>>(){}.getType();
+    }
+    
+    if ("FilteredDataPageDefinition".equalsIgnoreCase(className)) {
+      return new TypeToken<List<FilteredDataPageDefinition>>(){}.getType();
+    }
+    
     if ("Flight".equalsIgnoreCase(className)) {
       return new TypeToken<List<Flight>>(){}.getType();
     }
@@ -565,6 +573,14 @@ public class JsonUtil {
     
     if ("EntityTypePropertyMetadata".equalsIgnoreCase(className)) {
       return new TypeToken<EntityTypePropertyMetadata>(){}.getType();
+    }
+    
+    if ("Filter".equalsIgnoreCase(className)) {
+      return new TypeToken<Filter>(){}.getType();
+    }
+    
+    if ("FilteredDataPageDefinition".equalsIgnoreCase(className)) {
+      return new TypeToken<FilteredDataPageDefinition>(){}.getType();
     }
     
     if ("Flight".equalsIgnoreCase(className)) {

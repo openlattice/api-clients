@@ -189,6 +189,18 @@ describe 'DataApi' do
     end
   end
 
+  # unit tests for load_filtered_entity_set_data
+  # Loads data in multiple pages
+  # @param entity_set_id 
+  # @param filtered_data_page_definition 
+  # @param [Hash] opts the optional parameters
+  # @return [Array<Hash<String, Array<String>>>]
+  describe 'load_filtered_entity_set_data test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for load_linked_entity_set_breakdown
   # Loads a linked entity set breakdown with the selected linked entities and properties.
   # @param linked_entity_set_id 

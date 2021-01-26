@@ -178,6 +178,16 @@
         done();
       });
     });
+    describe('loadFilteredEntitySetData', function() {
+      it('should call loadFilteredEntitySetData successfully', function(done) {
+        //uncomment below and update the code to test loadFilteredEntitySetData
+        //instance.loadFilteredEntitySetData(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('loadLinkedEntitySetBreakdown', function() {
       it('should call loadLinkedEntitySetBreakdown successfully', function(done) {
         //uncomment below and update the code to test loadLinkedEntitySetBreakdown

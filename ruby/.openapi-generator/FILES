@@ -58,6 +58,8 @@ docs/EntitySetsApi.md
 docs/EntityType.md
 docs/EntityTypeCollection.md
 docs/EntityTypePropertyMetadata.md
+docs/Filter.md
+docs/FilteredDataPageDefinition.md
 docs/Flight.md
 docs/FlightPlanParameters.md
 docs/FlightPlanParametersUpdate.md
@@ -168,6 +170,8 @@ lib/openapi_client/models/entity_set_selection.rb
 lib/openapi_client/models/entity_type.rb
 lib/openapi_client/models/entity_type_collection.rb
 lib/openapi_client/models/entity_type_property_metadata.rb
+lib/openapi_client/models/filter.rb
+lib/openapi_client/models/filtered_data_page_definition.rb
 lib/openapi_client/models/flight.rb
 lib/openapi_client/models/flight_plan_parameters.rb
 lib/openapi_client/models/flight_plan_parameters_update.rb
@@ -270,6 +274,8 @@ spec/models/entity_spec.rb
 spec/models/entity_type_collection_spec.rb
 spec/models/entity_type_property_metadata_spec.rb
 spec/models/entity_type_spec.rb
+spec/models/filter_spec.rb
+spec/models/filtered_data_page_definition_spec.rb
 spec/models/flight_plan_parameters_spec.rb
 spec/models/flight_plan_parameters_update_spec.rb
 spec/models/flight_spec.rb

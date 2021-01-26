@@ -17,6 +17,8 @@ servers:
   url: https://api.openlattice.com
 - description: Staging OpenLattice API
   url: https://api.staging.openlattice.com
+- description: Integration OpenLattice API
+  url: https://integration.openlattice.com
 - description: Local OpenLattice API
   url: http://localhost:8080
 tags:
@@ -2811,6 +2813,45 @@ paths:
       summary: Get entity key IDs
       tags:
       - data-integrations
+  /datastore/data/set/{entitySetId}/filtered:
+    post:
+      operationId: loadFilteredEntitySetData
+      parameters:
+      - explode: false
+        in: path
+        name: entitySetId
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/FilteredDataPageDefinition'
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  additionalProperties:
+                    items:
+                      type: string
+                    type: array
+                  type: object
+                type: array
+          description: A data search result object, containing the search results
+      security:
+      - openlattice_auth: []
+      - http_auth: []
+      summary: Loads data in multiple pages
+      tags:
+      - data
   /datastore/search/advanced/{entitySetId}:
     post:
       operationId: executeAdvancedEntitySetDataQuery
@@ -9156,6 +9197,61 @@ components:
         settings:
           additionalProperties:
             type: object
+          type: object
+      type: object
+    Filter:
+      example:
+        upperboundequal: true
+        '@class': '@class'
+        values:
+        - values
+        - values
+        lowerbound: lowerbound
+        upperbound: upperbound
+        lowerboundequal: true
+      properties:
+        '@class':
+          type: string
+        values:
+          items:
+            type: string
+          type: array
+        lowerbound:
+          type: string
+        upperbound:
+          type: string
+        lowerboundequal:
+          type: boolean
+        upperboundequal:
+          type: boolean
+      type: object
+    FilteredDataPageDefinition:
+      example:
+        filter:
+          key:
+            upperboundequal: true
+            '@class': '@class'
+            values:
+            - values
+            - values
+            lowerbound: lowerbound
+            upperbound: upperbound
+            lowerboundequal: true
+        bookmarkId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        propertyTypeId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        pageSize: 0.8008281904610115
+      properties:
+        pageSize:
+          type: number
+        bookmarkId:
+          format: uuid
+          type: string
+        propertyTypeId:
+          format: uuid
+          type: string
+        filter:
+          additionalProperties:
+            $ref: '#/components/Filter'
           type: object
       type: object
     inline_object:
