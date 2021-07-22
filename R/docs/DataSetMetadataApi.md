@@ -1,16 +1,16 @@
-# MetadataApi
+# DataSetMetadataApi
 
 All URIs are relative to *https://api.openlattice.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_data_set_column_metadata**](MetadataApi.md#get_data_set_column_metadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
-[**get_data_set_columns_metadata**](MetadataApi.md#get_data_set_columns_metadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
-[**get_data_set_metadata**](MetadataApi.md#get_data_set_metadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
-[**get_data_sets_metadata**](MetadataApi.md#get_data_sets_metadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
-[**get_organization_data_sets_metadata**](MetadataApi.md#get_organization_data_sets_metadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
-[**update_data_set_column_metadata**](MetadataApi.md#update_data_set_column_metadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
-[**update_data_set_metadata**](MetadataApi.md#update_data_set_metadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
+[**get_data_set_column_metadata**](DataSetMetadataApi.md#get_data_set_column_metadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
+[**get_data_set_columns_metadata**](DataSetMetadataApi.md#get_data_set_columns_metadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+[**get_data_set_metadata**](DataSetMetadataApi.md#get_data_set_metadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
+[**get_data_sets_metadata**](DataSetMetadataApi.md#get_data_sets_metadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
+[**get_organization_data_sets_metadata**](DataSetMetadataApi.md#get_organization_data_sets_metadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+[**update_data_set_column_metadata**](DataSetMetadataApi.md#update_data_set_column_metadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
+[**update_data_set_metadata**](DataSetMetadataApi.md#update_data_set_metadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 
 
 # **get_data_set_column_metadata**
@@ -26,7 +26,7 @@ var.data_id <- 'data_id_example' # character |
 var.column_id <- 'column_id_example' # character | 
 
 #Gets the dataset column metadata objects using data ID and column ID
-api.instance <- MetadataApi$new()
+api.instance <- DataSetMetadataApi$new()
 # Configure HTTP basic authorization: http_auth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
@@ -73,7 +73,7 @@ library(openlattice)
 var.request_body <- list("property_example") # array[character] | 
 
 #Gets all data set column metadata objects that caller has READ on that belong to given data set ids
-api.instance <- MetadataApi$new()
+api.instance <- DataSetMetadataApi$new()
 # Configure HTTP basic authorization: http_auth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
@@ -119,7 +119,7 @@ library(openlattice)
 var.data_id <- 'data_id_example' # character | 
 
 #Gets dataset metadata object with given data set ID
-api.instance <- MetadataApi$new()
+api.instance <- DataSetMetadataApi$new()
 # Configure HTTP basic authorization: http_auth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
@@ -165,7 +165,7 @@ library(openlattice)
 var.request_body <- list("property_example") # array[character] | 
 
 #Gets the dataset metadata objects given data set ids the caller has READ permissions on
-api.instance <- MetadataApi$new()
+api.instance <- DataSetMetadataApi$new()
 # Configure HTTP basic authorization: http_auth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
@@ -211,7 +211,7 @@ library(openlattice)
 var.organization_id <- 'organization_id_example' # character | 
 
 #Gets all data set column metadata objects that caller has READ on that belong to given data set ids
-api.instance <- MetadataApi$new()
+api.instance <- DataSetMetadataApi$new()
 # Configure HTTP basic authorization: http_auth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
@@ -259,7 +259,7 @@ var.column_id <- 'column_id_example' # character |
 var.securable_object_metadata_update <- SecurableObjectMetadataUpdate$new("title_example", "description_example", list("contacts_example"), list("flags_example"), list("metadata_example")) # SecurableObjectMetadataUpdate | 
 
 #Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
-api.instance <- MetadataApi$new()
+api.instance <- DataSetMetadataApi$new()
 # Configure HTTP basic authorization: http_auth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
@@ -307,7 +307,7 @@ var.data_id <- 'data_id_example' # character |
 var.securable_object_metadata_update <- SecurableObjectMetadataUpdate$new("title_example", "description_example", list("contacts_example"), list("flags_example"), list("metadata_example")) # SecurableObjectMetadataUpdate | 
 
 #Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
-api.instance <- MetadataApi$new()
+api.instance <- DataSetMetadataApi$new()
 # Configure HTTP basic authorization: http_auth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';

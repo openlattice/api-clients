@@ -35,6 +35,7 @@ docs/DataIntegrationsApi.md
 docs/DataSearchResult.md
 docs/DataSet.md
 docs/DataSetColumn.md
+docs/DataSetMetadataApi.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -74,7 +75,6 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
-docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md
@@ -116,11 +116,11 @@ src/api/AuthorizationsApi.js
 src/api/CollectionsApi.js
 src/api/DataApi.js
 src/api/DataIntegrationsApi.js
+src/api/DataSetMetadataApi.js
 src/api/DatasetApi.js
 src/api/EdmApi.js
 src/api/EntitySetsApi.js
 src/api/LinkingApi.js
-src/api/MetadataApi.js
 src/api/OrganizationsApi.js
 src/api/PermissionsApi.js
 src/api/PrincipalApi.js
@@ -221,11 +221,11 @@ test/api/AuthorizationsApi.spec.js
 test/api/CollectionsApi.spec.js
 test/api/DataApi.spec.js
 test/api/DataIntegrationsApi.spec.js
+test/api/DataSetMetadataApi.spec.js
 test/api/DatasetApi.spec.js
 test/api/EdmApi.spec.js
 test/api/EntitySetsApi.spec.js
 test/api/LinkingApi.spec.js
-test/api/MetadataApi.spec.js
 test/api/OrganizationsApi.spec.js
 test/api/PermissionsApi.spec.js
 test/api/PrincipalApi.spec.js

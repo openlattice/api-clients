@@ -1,16 +1,16 @@
-# \MetadataApi
+# \DataSetMetadataApi
 
 All URIs are relative to *https://api.openlattice.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDataSetColumnMetadata**](MetadataApi.md#GetDataSetColumnMetadata) | **Get** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
-[**GetDataSetColumnsMetadata**](MetadataApi.md#GetDataSetColumnsMetadata) | **Post** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
-[**GetDataSetMetadata**](MetadataApi.md#GetDataSetMetadata) | **Get** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
-[**GetDataSetsMetadata**](MetadataApi.md#GetDataSetsMetadata) | **Post** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
-[**GetOrganizationDataSetsMetadata**](MetadataApi.md#GetOrganizationDataSetsMetadata) | **Get** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
-[**UpdateDataSetColumnMetadata**](MetadataApi.md#UpdateDataSetColumnMetadata) | **Patch** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
-[**UpdateDataSetMetadata**](MetadataApi.md#UpdateDataSetMetadata) | **Patch** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
+[**GetDataSetColumnMetadata**](DataSetMetadataApi.md#GetDataSetColumnMetadata) | **Get** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
+[**GetDataSetColumnsMetadata**](DataSetMetadataApi.md#GetDataSetColumnsMetadata) | **Post** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+[**GetDataSetMetadata**](DataSetMetadataApi.md#GetDataSetMetadata) | **Get** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
+[**GetDataSetsMetadata**](DataSetMetadataApi.md#GetDataSetsMetadata) | **Post** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
+[**GetOrganizationDataSetsMetadata**](DataSetMetadataApi.md#GetOrganizationDataSetsMetadata) | **Get** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+[**UpdateDataSetColumnMetadata**](DataSetMetadataApi.md#UpdateDataSetColumnMetadata) | **Patch** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
+[**UpdateDataSetMetadata**](DataSetMetadataApi.md#UpdateDataSetMetadata) | **Patch** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 
 
 

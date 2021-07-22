@@ -9,11 +9,11 @@ api_authorizations.go
 api_collections.go
 api_data.go
 api_data_integrations.go
+api_data_set_metadata.go
 api_dataset.go
 api_edm.go
 api_entity_sets.go
 api_linking.go
-api_metadata.go
 api_organizations.go
 api_permissions.go
 api_principal.go
@@ -54,6 +54,7 @@ docs/DataIntegrationsApi.md
 docs/DataSearchResult.md
 docs/DataSet.md
 docs/DataSetColumn.md
+docs/DataSetMetadataApi.md
 docs/DatasetApi.md
 docs/EdMdiff.md
 docs/Edm.md
@@ -93,7 +94,6 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
-docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md

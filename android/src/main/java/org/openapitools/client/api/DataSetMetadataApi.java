@@ -39,7 +39,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
-public class MetadataApi {
+public class DataSetMetadataApi {
   String basePath = "https://api.openlattice.com";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 

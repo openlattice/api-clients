@@ -107,11 +107,11 @@ import AuthorizationsApi from './api/AuthorizationsApi';
 import CollectionsApi from './api/CollectionsApi';
 import DataApi from './api/DataApi';
 import DataIntegrationsApi from './api/DataIntegrationsApi';
+import DataSetMetadataApi from './api/DataSetMetadataApi';
 import DatasetApi from './api/DatasetApi';
 import EdmApi from './api/EdmApi';
 import EntitySetsApi from './api/EntitySetsApi';
 import LinkingApi from './api/LinkingApi';
-import MetadataApi from './api/MetadataApi';
 import OrganizationsApi from './api/OrganizationsApi';
 import PermissionsApi from './api/PermissionsApi';
 import PrincipalApi from './api/PrincipalApi';
@@ -722,6 +722,12 @@ export {
     DataIntegrationsApi,
 
     /**
+    * The DataSetMetadataApi service constructor.
+    * @property {module:api/DataSetMetadataApi}
+    */
+    DataSetMetadataApi,
+
+    /**
     * The DatasetApi service constructor.
     * @property {module:api/DatasetApi}
     */
@@ -744,12 +750,6 @@ export {
     * @property {module:api/LinkingApi}
     */
     LinkingApi,
-
-    /**
-    * The MetadataApi service constructor.
-    * @property {module:api/MetadataApi}
-    */
-    MetadataApi,
 
     /**
     * The OrganizationsApi service constructor.

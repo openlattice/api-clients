@@ -13,7 +13,7 @@ OpenAPI Generator version: 5.0.0-SNAPSHOT
 require 'cgi'
 
 module OpenapiClient
-  class MetadataApi
+  class DataSetMetadataApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -36,15 +36,15 @@ module OpenapiClient
     # @return [Array<(DataSetColumn, Integer, Hash)>] DataSetColumn data, response status code and response headers
     def get_data_set_column_metadata_with_http_info(data_id, column_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetadataApi.get_data_set_column_metadata ...'
+        @api_client.config.logger.debug 'Calling API: DataSetMetadataApi.get_data_set_column_metadata ...'
       end
       # verify the required parameter 'data_id' is set
       if @api_client.config.client_side_validation && data_id.nil?
-        fail ArgumentError, "Missing the required parameter 'data_id' when calling MetadataApi.get_data_set_column_metadata"
+        fail ArgumentError, "Missing the required parameter 'data_id' when calling DataSetMetadataApi.get_data_set_column_metadata"
       end
       # verify the required parameter 'column_id' is set
       if @api_client.config.client_side_validation && column_id.nil?
-        fail ArgumentError, "Missing the required parameter 'column_id' when calling MetadataApi.get_data_set_column_metadata"
+        fail ArgumentError, "Missing the required parameter 'column_id' when calling DataSetMetadataApi.get_data_set_column_metadata"
       end
       # resource path
       local_var_path = '/datastore/metadata/columns/{dataId}/{columnId}'.sub('{' + 'dataId' + '}', CGI.escape(data_id.to_s)).sub('{' + 'columnId' + '}', CGI.escape(column_id.to_s))
@@ -80,7 +80,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetadataApi#get_data_set_column_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DataSetMetadataApi#get_data_set_column_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -100,7 +100,7 @@ module OpenapiClient
     # @return [Array<(Hash<String, Array<DataSetColumn>>, Integer, Hash)>] Hash<String, Array<DataSetColumn>> data, response status code and response headers
     def get_data_set_columns_metadata_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetadataApi.get_data_set_columns_metadata ...'
+        @api_client.config.logger.debug 'Calling API: DataSetMetadataApi.get_data_set_columns_metadata ...'
       end
       # resource path
       local_var_path = '/datastore/metadata/columns'
@@ -138,7 +138,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetadataApi#get_data_set_columns_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DataSetMetadataApi#get_data_set_columns_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -158,11 +158,11 @@ module OpenapiClient
     # @return [Array<(DataSet, Integer, Hash)>] DataSet data, response status code and response headers
     def get_data_set_metadata_with_http_info(data_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetadataApi.get_data_set_metadata ...'
+        @api_client.config.logger.debug 'Calling API: DataSetMetadataApi.get_data_set_metadata ...'
       end
       # verify the required parameter 'data_id' is set
       if @api_client.config.client_side_validation && data_id.nil?
-        fail ArgumentError, "Missing the required parameter 'data_id' when calling MetadataApi.get_data_set_metadata"
+        fail ArgumentError, "Missing the required parameter 'data_id' when calling DataSetMetadataApi.get_data_set_metadata"
       end
       # resource path
       local_var_path = '/datastore/metadata/datasets/{dataId}'.sub('{' + 'dataId' + '}', CGI.escape(data_id.to_s))
@@ -198,7 +198,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetadataApi#get_data_set_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DataSetMetadataApi#get_data_set_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -218,7 +218,7 @@ module OpenapiClient
     # @return [Array<(Hash<String, DataSet>, Integer, Hash)>] Hash<String, DataSet> data, response status code and response headers
     def get_data_sets_metadata_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetadataApi.get_data_sets_metadata ...'
+        @api_client.config.logger.debug 'Calling API: DataSetMetadataApi.get_data_sets_metadata ...'
       end
       # resource path
       local_var_path = '/datastore/metadata/datasets'
@@ -256,7 +256,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetadataApi#get_data_sets_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DataSetMetadataApi#get_data_sets_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -276,11 +276,11 @@ module OpenapiClient
     # @return [Array<(Hash<String, DataSet>, Integer, Hash)>] Hash<String, DataSet> data, response status code and response headers
     def get_organization_data_sets_metadata_with_http_info(organization_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetadataApi.get_organization_data_sets_metadata ...'
+        @api_client.config.logger.debug 'Calling API: DataSetMetadataApi.get_organization_data_sets_metadata ...'
       end
       # verify the required parameter 'organization_id' is set
       if @api_client.config.client_side_validation && organization_id.nil?
-        fail ArgumentError, "Missing the required parameter 'organization_id' when calling MetadataApi.get_organization_data_sets_metadata"
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling DataSetMetadataApi.get_organization_data_sets_metadata"
       end
       # resource path
       local_var_path = '/datastore/metadata/datasets/organizations/{organizationId}'.sub('{' + 'organizationId' + '}', CGI.escape(organization_id.to_s))
@@ -316,7 +316,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetadataApi#get_organization_data_sets_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DataSetMetadataApi#get_organization_data_sets_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -340,15 +340,15 @@ module OpenapiClient
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_data_set_column_metadata_with_http_info(data_id, column_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetadataApi.update_data_set_column_metadata ...'
+        @api_client.config.logger.debug 'Calling API: DataSetMetadataApi.update_data_set_column_metadata ...'
       end
       # verify the required parameter 'data_id' is set
       if @api_client.config.client_side_validation && data_id.nil?
-        fail ArgumentError, "Missing the required parameter 'data_id' when calling MetadataApi.update_data_set_column_metadata"
+        fail ArgumentError, "Missing the required parameter 'data_id' when calling DataSetMetadataApi.update_data_set_column_metadata"
       end
       # verify the required parameter 'column_id' is set
       if @api_client.config.client_side_validation && column_id.nil?
-        fail ArgumentError, "Missing the required parameter 'column_id' when calling MetadataApi.update_data_set_column_metadata"
+        fail ArgumentError, "Missing the required parameter 'column_id' when calling DataSetMetadataApi.update_data_set_column_metadata"
       end
       # resource path
       local_var_path = '/datastore/metadata/update/{dataId}/{columnId}'.sub('{' + 'dataId' + '}', CGI.escape(data_id.to_s)).sub('{' + 'columnId' + '}', CGI.escape(column_id.to_s))
@@ -384,7 +384,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetadataApi#update_data_set_column_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DataSetMetadataApi#update_data_set_column_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -406,11 +406,11 @@ module OpenapiClient
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_data_set_metadata_with_http_info(data_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MetadataApi.update_data_set_metadata ...'
+        @api_client.config.logger.debug 'Calling API: DataSetMetadataApi.update_data_set_metadata ...'
       end
       # verify the required parameter 'data_id' is set
       if @api_client.config.client_side_validation && data_id.nil?
-        fail ArgumentError, "Missing the required parameter 'data_id' when calling MetadataApi.update_data_set_metadata"
+        fail ArgumentError, "Missing the required parameter 'data_id' when calling DataSetMetadataApi.update_data_set_metadata"
       end
       # resource path
       local_var_path = '/datastore/metadata/update/{dataId}'.sub('{' + 'dataId' + '}', CGI.escape(data_id.to_s))
@@ -446,7 +446,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MetadataApi#update_data_set_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DataSetMetadataApi#update_data_set_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

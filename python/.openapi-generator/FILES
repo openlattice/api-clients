@@ -36,6 +36,7 @@ docs/DataIntegrationsApi.md
 docs/DataSearchResult.md
 docs/DataSet.md
 docs/DataSetColumn.md
+docs/DataSetMetadataApi.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -75,7 +76,6 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
-docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md
@@ -116,11 +116,11 @@ openlattice/api/authorizations_api.py
 openlattice/api/collections_api.py
 openlattice/api/data_api.py
 openlattice/api/data_integrations_api.py
+openlattice/api/data_set_metadata_api.py
 openlattice/api/dataset_api.py
 openlattice/api/edm_api.py
 openlattice/api/entity_sets_api.py
 openlattice/api/linking_api.py
-openlattice/api/metadata_api.py
 openlattice/api/organizations_api.py
 openlattice/api/permissions_api.py
 openlattice/api/principal_api.py
@@ -257,6 +257,7 @@ test/test_data_integrations_api.py
 test/test_data_search_result.py
 test/test_data_set.py
 test/test_data_set_column.py
+test/test_data_set_metadata_api.py
 test/test_dataset_api.py
 test/test_ed_mdiff.py
 test/test_edm.py
@@ -296,7 +297,6 @@ test/test_integration_update.py
 test/test_linking_api.py
 test/test_linking_feedback.py
 test/test_materialized_view_account.py
-test/test_metadata_api.py
 test/test_metadata_update.py
 test/test_neighbor_entity_details.py
 test/test_neighbor_entity_ids.py

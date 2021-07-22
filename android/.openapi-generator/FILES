@@ -35,6 +35,7 @@ docs/DataIntegrationsApi.md
 docs/DataSearchResult.md
 docs/DataSet.md
 docs/DataSetColumn.md
+docs/DataSetMetadataApi.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -74,7 +75,6 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
-docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md
@@ -123,11 +123,11 @@ src/main/java/org/openapitools/client/api/AuthorizationsApi.java
 src/main/java/org/openapitools/client/api/CollectionsApi.java
 src/main/java/org/openapitools/client/api/DataApi.java
 src/main/java/org/openapitools/client/api/DataIntegrationsApi.java
+src/main/java/org/openapitools/client/api/DataSetMetadataApi.java
 src/main/java/org/openapitools/client/api/DatasetApi.java
 src/main/java/org/openapitools/client/api/EdmApi.java
 src/main/java/org/openapitools/client/api/EntitySetsApi.java
 src/main/java/org/openapitools/client/api/LinkingApi.java
-src/main/java/org/openapitools/client/api/MetadataApi.java
 src/main/java/org/openapitools/client/api/OrganizationsApi.java
 src/main/java/org/openapitools/client/api/PermissionsApi.java
 src/main/java/org/openapitools/client/api/PrincipalApi.java

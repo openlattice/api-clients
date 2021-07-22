@@ -39,6 +39,7 @@ docs/DataIntegrationsApi.md
 docs/DataSearchResult.md
 docs/DataSet.md
 docs/DataSetColumn.md
+docs/DataSetMetadataApi.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -78,7 +79,6 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
-docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md
@@ -118,11 +118,11 @@ lib/openapi_client/api/authorizations_api.rb
 lib/openapi_client/api/collections_api.rb
 lib/openapi_client/api/data_api.rb
 lib/openapi_client/api/data_integrations_api.rb
+lib/openapi_client/api/data_set_metadata_api.rb
 lib/openapi_client/api/dataset_api.rb
 lib/openapi_client/api/edm_api.rb
 lib/openapi_client/api/entity_sets_api.rb
 lib/openapi_client/api/linking_api.rb
-lib/openapi_client/api/metadata_api.rb
 lib/openapi_client/api/organizations_api.rb
 lib/openapi_client/api/permissions_api.rb
 lib/openapi_client/api/principal_api.rb
@@ -228,11 +228,11 @@ spec/api/authorizations_api_spec.rb
 spec/api/collections_api_spec.rb
 spec/api/data_api_spec.rb
 spec/api/data_integrations_api_spec.rb
+spec/api/data_set_metadata_api_spec.rb
 spec/api/dataset_api_spec.rb
 spec/api/edm_api_spec.rb
 spec/api/entity_sets_api_spec.rb
 spec/api/linking_api_spec.rb
-spec/api/metadata_api_spec.rb
 spec/api/organizations_api_spec.rb
 spec/api/permissions_api_spec.rb
 spec/api/principal_api_spec.rb

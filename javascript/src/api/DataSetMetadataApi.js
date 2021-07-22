@@ -18,15 +18,15 @@ import DataSetColumn from '../model/DataSetColumn';
 import SecurableObjectMetadataUpdate from '../model/SecurableObjectMetadataUpdate';
 
 /**
-* Metadata service.
-* @module api/MetadataApi
+* DataSetMetadata service.
+* @module api/DataSetMetadataApi
 * @version 0.0.1
 */
-export default class MetadataApi {
+export default class DataSetMetadataApi {
 
     /**
-    * Constructs a new MetadataApi. 
-    * @alias module:api/MetadataApi
+    * Constructs a new DataSetMetadataApi. 
+    * @alias module:api/DataSetMetadataApi
     * @class
     * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
@@ -38,7 +38,7 @@ export default class MetadataApi {
 
     /**
      * Callback function to receive the result of the getDataSetColumnMetadata operation.
-     * @callback module:api/MetadataApi~getDataSetColumnMetadataCallback
+     * @callback module:api/DataSetMetadataApi~getDataSetColumnMetadataCallback
      * @param {String} error Error message, if any.
      * @param {module:model/DataSetColumn} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -48,7 +48,7 @@ export default class MetadataApi {
      * Gets the dataset column metadata objects using data ID and column ID
      * @param {String} dataId 
      * @param {String} columnId 
-     * @param {module:api/MetadataApi~getDataSetColumnMetadataCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DataSetMetadataApi~getDataSetColumnMetadataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DataSetColumn}
      */
     getDataSetColumnMetadata(dataId, columnId, callback) {
@@ -86,7 +86,7 @@ export default class MetadataApi {
 
     /**
      * Callback function to receive the result of the getDataSetColumnsMetadata operation.
-     * @callback module:api/MetadataApi~getDataSetColumnsMetadataCallback
+     * @callback module:api/DataSetMetadataApi~getDataSetColumnsMetadataCallback
      * @param {String} error Error message, if any.
      * @param {Object.<String, {String: [DataSetColumn]}>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -96,7 +96,7 @@ export default class MetadataApi {
      * Gets all data set column metadata objects that caller has READ on that belong to given data set ids
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.requestBody 
-     * @param {module:api/MetadataApi~getDataSetColumnsMetadataCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DataSetMetadataApi~getDataSetColumnsMetadataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object.<String, {String: [DataSetColumn]}>}
      */
     getDataSetColumnsMetadata(opts, callback) {
@@ -125,7 +125,7 @@ export default class MetadataApi {
 
     /**
      * Callback function to receive the result of the getDataSetMetadata operation.
-     * @callback module:api/MetadataApi~getDataSetMetadataCallback
+     * @callback module:api/DataSetMetadataApi~getDataSetMetadataCallback
      * @param {String} error Error message, if any.
      * @param {module:model/DataSet} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -134,7 +134,7 @@ export default class MetadataApi {
     /**
      * Gets dataset metadata object with given data set ID
      * @param {String} dataId 
-     * @param {module:api/MetadataApi~getDataSetMetadataCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DataSetMetadataApi~getDataSetMetadataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DataSet}
      */
     getDataSetMetadata(dataId, callback) {
@@ -167,7 +167,7 @@ export default class MetadataApi {
 
     /**
      * Callback function to receive the result of the getDataSetsMetadata operation.
-     * @callback module:api/MetadataApi~getDataSetsMetadataCallback
+     * @callback module:api/DataSetMetadataApi~getDataSetsMetadataCallback
      * @param {String} error Error message, if any.
      * @param {Object.<String, module:model/{String: DataSet}>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -177,7 +177,7 @@ export default class MetadataApi {
      * Gets the dataset metadata objects given data set ids the caller has READ permissions on
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.requestBody 
-     * @param {module:api/MetadataApi~getDataSetsMetadataCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DataSetMetadataApi~getDataSetsMetadataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object.<String, module:model/{String: DataSet}>}
      */
     getDataSetsMetadata(opts, callback) {
@@ -206,7 +206,7 @@ export default class MetadataApi {
 
     /**
      * Callback function to receive the result of the getOrganizationDataSetsMetadata operation.
-     * @callback module:api/MetadataApi~getOrganizationDataSetsMetadataCallback
+     * @callback module:api/DataSetMetadataApi~getOrganizationDataSetsMetadataCallback
      * @param {String} error Error message, if any.
      * @param {Object.<String, module:model/{String: DataSet}>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -215,7 +215,7 @@ export default class MetadataApi {
     /**
      * Gets all data set column metadata objects that caller has READ on that belong to given data set ids
      * @param {String} organizationId 
-     * @param {module:api/MetadataApi~getOrganizationDataSetsMetadataCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DataSetMetadataApi~getOrganizationDataSetsMetadataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object.<String, module:model/{String: DataSet}>}
      */
     getOrganizationDataSetsMetadata(organizationId, callback) {
@@ -248,7 +248,7 @@ export default class MetadataApi {
 
     /**
      * Callback function to receive the result of the updateDataSetColumnMetadata operation.
-     * @callback module:api/MetadataApi~updateDataSetColumnMetadataCallback
+     * @callback module:api/DataSetMetadataApi~updateDataSetColumnMetadataCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
@@ -260,7 +260,7 @@ export default class MetadataApi {
      * @param {String} columnId 
      * @param {Object} opts Optional parameters
      * @param {module:model/SecurableObjectMetadataUpdate} opts.securableObjectMetadataUpdate 
-     * @param {module:api/MetadataApi~updateDataSetColumnMetadataCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DataSetMetadataApi~updateDataSetColumnMetadataCallback} callback The callback function, accepting three arguments: error, data, response
      */
     updateDataSetColumnMetadata(dataId, columnId, opts, callback) {
       opts = opts || {};
@@ -298,7 +298,7 @@ export default class MetadataApi {
 
     /**
      * Callback function to receive the result of the updateDataSetMetadata operation.
-     * @callback module:api/MetadataApi~updateDataSetMetadataCallback
+     * @callback module:api/DataSetMetadataApi~updateDataSetMetadataCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
@@ -309,7 +309,7 @@ export default class MetadataApi {
      * @param {String} dataId 
      * @param {Object} opts Optional parameters
      * @param {module:model/SecurableObjectMetadataUpdate} opts.securableObjectMetadataUpdate 
-     * @param {module:api/MetadataApi~updateDataSetMetadataCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DataSetMetadataApi~updateDataSetMetadataCallback} callback The callback function, accepting three arguments: error, data, response
      */
     updateDataSetMetadata(dataId, opts, callback) {
       opts = opts || {};

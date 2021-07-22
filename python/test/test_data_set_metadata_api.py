@@ -16,15 +16,15 @@ from __future__ import absolute_import
 import unittest
 
 import openlattice
-from openlattice.api.metadata_api import MetadataApi  # noqa: E501
+from openlattice.api.data_set_metadata_api import DataSetMetadataApi  # noqa: E501
 from openlattice.rest import ApiException
 
 
-class TestMetadataApi(unittest.TestCase):
-    """MetadataApi unit test stubs"""
+class TestDataSetMetadataApi(unittest.TestCase):
+    """DataSetMetadataApi unit test stubs"""
 
     def setUp(self):
-        self.api = openlattice.api.metadata_api.MetadataApi()  # noqa: E501
+        self.api = openlattice.api.data_set_metadata_api.DataSetMetadataApi()  # noqa: E501
 
     def tearDown(self):
         pass

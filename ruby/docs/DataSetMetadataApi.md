@@ -1,16 +1,16 @@
-# OpenapiClient::MetadataApi
+# OpenapiClient::DataSetMetadataApi
 
 All URIs are relative to *https://api.openlattice.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_data_set_column_metadata**](MetadataApi.md#get_data_set_column_metadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
-[**get_data_set_columns_metadata**](MetadataApi.md#get_data_set_columns_metadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
-[**get_data_set_metadata**](MetadataApi.md#get_data_set_metadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
-[**get_data_sets_metadata**](MetadataApi.md#get_data_sets_metadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
-[**get_organization_data_sets_metadata**](MetadataApi.md#get_organization_data_sets_metadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
-[**update_data_set_column_metadata**](MetadataApi.md#update_data_set_column_metadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
-[**update_data_set_metadata**](MetadataApi.md#update_data_set_metadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
+[**get_data_set_column_metadata**](DataSetMetadataApi.md#get_data_set_column_metadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
+[**get_data_set_columns_metadata**](DataSetMetadataApi.md#get_data_set_columns_metadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+[**get_data_set_metadata**](DataSetMetadataApi.md#get_data_set_metadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
+[**get_data_sets_metadata**](DataSetMetadataApi.md#get_data_sets_metadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
+[**get_organization_data_sets_metadata**](DataSetMetadataApi.md#get_organization_data_sets_metadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+[**update_data_set_column_metadata**](DataSetMetadataApi.md#update_data_set_column_metadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
+[**update_data_set_metadata**](DataSetMetadataApi.md#update_data_set_metadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 
 
 
@@ -36,7 +36,7 @@ OpenapiClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::MetadataApi.new
+api_instance = OpenapiClient::DataSetMetadataApi.new
 data_id = 'data_id_example' # String | 
 column_id = 'column_id_example' # String | 
 
@@ -45,7 +45,7 @@ begin
   result = api_instance.get_data_set_column_metadata(data_id, column_id)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling MetadataApi->get_data_set_column_metadata: #{e}"
+  puts "Exception when calling DataSetMetadataApi->get_data_set_column_metadata: #{e}"
 end
 ```
 
@@ -93,7 +93,7 @@ OpenapiClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::MetadataApi.new
+api_instance = OpenapiClient::DataSetMetadataApi.new
 opts = {
   request_body: ['request_body_example'] # Array<String> | 
 }
@@ -103,7 +103,7 @@ begin
   result = api_instance.get_data_set_columns_metadata(opts)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling MetadataApi->get_data_set_columns_metadata: #{e}"
+  puts "Exception when calling DataSetMetadataApi->get_data_set_columns_metadata: #{e}"
 end
 ```
 
@@ -150,7 +150,7 @@ OpenapiClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::MetadataApi.new
+api_instance = OpenapiClient::DataSetMetadataApi.new
 data_id = 'data_id_example' # String | 
 
 begin
@@ -158,7 +158,7 @@ begin
   result = api_instance.get_data_set_metadata(data_id)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling MetadataApi->get_data_set_metadata: #{e}"
+  puts "Exception when calling DataSetMetadataApi->get_data_set_metadata: #{e}"
 end
 ```
 
@@ -205,7 +205,7 @@ OpenapiClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::MetadataApi.new
+api_instance = OpenapiClient::DataSetMetadataApi.new
 opts = {
   request_body: ['request_body_example'] # Array<String> | 
 }
@@ -215,7 +215,7 @@ begin
   result = api_instance.get_data_sets_metadata(opts)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling MetadataApi->get_data_sets_metadata: #{e}"
+  puts "Exception when calling DataSetMetadataApi->get_data_sets_metadata: #{e}"
 end
 ```
 
@@ -262,7 +262,7 @@ OpenapiClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::MetadataApi.new
+api_instance = OpenapiClient::DataSetMetadataApi.new
 organization_id = 'organization_id_example' # String | 
 
 begin
@@ -270,7 +270,7 @@ begin
   result = api_instance.get_organization_data_sets_metadata(organization_id)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling MetadataApi->get_organization_data_sets_metadata: #{e}"
+  puts "Exception when calling DataSetMetadataApi->get_organization_data_sets_metadata: #{e}"
 end
 ```
 
@@ -317,7 +317,7 @@ OpenapiClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::MetadataApi.new
+api_instance = OpenapiClient::DataSetMetadataApi.new
 data_id = 'data_id_example' # String | 
 column_id = 'column_id_example' # String | 
 opts = {
@@ -328,7 +328,7 @@ begin
   #Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
   api_instance.update_data_set_column_metadata(data_id, column_id, opts)
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling MetadataApi->update_data_set_column_metadata: #{e}"
+  puts "Exception when calling DataSetMetadataApi->update_data_set_column_metadata: #{e}"
 end
 ```
 
@@ -377,7 +377,7 @@ OpenapiClient.configure do |config|
   #config.api_key_prefix['Authorization'] = 'Bearer'
 end
 
-api_instance = OpenapiClient::MetadataApi.new
+api_instance = OpenapiClient::DataSetMetadataApi.new
 data_id = 'data_id_example' # String | 
 opts = {
   securable_object_metadata_update: OpenapiClient::SecurableObjectMetadataUpdate.new # SecurableObjectMetadataUpdate | 
@@ -387,7 +387,7 @@ begin
   #Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
   api_instance.update_data_set_metadata(data_id, opts)
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling MetadataApi->update_data_set_metadata: #{e}"
+  puts "Exception when calling DataSetMetadataApi->update_data_set_metadata: #{e}"
 end
 ```
 

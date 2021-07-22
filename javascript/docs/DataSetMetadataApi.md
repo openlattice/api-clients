@@ -1,16 +1,16 @@
-# OpenLatticeApi.MetadataApi
+# OpenLatticeApi.DataSetMetadataApi
 
 All URIs are relative to *https://api.openlattice.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getDataSetColumnMetadata**](MetadataApi.md#getDataSetColumnMetadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
-[**getDataSetColumnsMetadata**](MetadataApi.md#getDataSetColumnsMetadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
-[**getDataSetMetadata**](MetadataApi.md#getDataSetMetadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
-[**getDataSetsMetadata**](MetadataApi.md#getDataSetsMetadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
-[**getOrganizationDataSetsMetadata**](MetadataApi.md#getOrganizationDataSetsMetadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
-[**updateDataSetColumnMetadata**](MetadataApi.md#updateDataSetColumnMetadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
-[**updateDataSetMetadata**](MetadataApi.md#updateDataSetMetadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
+[**getDataSetColumnMetadata**](DataSetMetadataApi.md#getDataSetColumnMetadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
+[**getDataSetColumnsMetadata**](DataSetMetadataApi.md#getDataSetColumnsMetadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+[**getDataSetMetadata**](DataSetMetadataApi.md#getDataSetMetadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
+[**getDataSetsMetadata**](DataSetMetadataApi.md#getDataSetsMetadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
+[**getOrganizationDataSetsMetadata**](DataSetMetadataApi.md#getOrganizationDataSetsMetadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+[**updateDataSetColumnMetadata**](DataSetMetadataApi.md#updateDataSetColumnMetadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
+[**updateDataSetMetadata**](DataSetMetadataApi.md#updateDataSetMetadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 
 
 
@@ -34,7 +34,7 @@ openlattice_auth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //openlattice_auth.apiKeyPrefix = 'Token';
 
-let apiInstance = new OpenLatticeApi.MetadataApi();
+let apiInstance = new OpenLatticeApi.DataSetMetadataApi();
 let dataId = null; // String | 
 let columnId = null; // String | 
 apiInstance.getDataSetColumnMetadata(dataId, columnId, (error, data, response) => {
@@ -88,7 +88,7 @@ openlattice_auth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //openlattice_auth.apiKeyPrefix = 'Token';
 
-let apiInstance = new OpenLatticeApi.MetadataApi();
+let apiInstance = new OpenLatticeApi.DataSetMetadataApi();
 let opts = {
   'requestBody': ["null"] // [String] | 
 };
@@ -142,7 +142,7 @@ openlattice_auth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //openlattice_auth.apiKeyPrefix = 'Token';
 
-let apiInstance = new OpenLatticeApi.MetadataApi();
+let apiInstance = new OpenLatticeApi.DataSetMetadataApi();
 let dataId = null; // String | 
 apiInstance.getDataSetMetadata(dataId, (error, data, response) => {
   if (error) {
@@ -194,7 +194,7 @@ openlattice_auth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //openlattice_auth.apiKeyPrefix = 'Token';
 
-let apiInstance = new OpenLatticeApi.MetadataApi();
+let apiInstance = new OpenLatticeApi.DataSetMetadataApi();
 let opts = {
   'requestBody': ["null"] // [String] | 
 };
@@ -248,7 +248,7 @@ openlattice_auth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //openlattice_auth.apiKeyPrefix = 'Token';
 
-let apiInstance = new OpenLatticeApi.MetadataApi();
+let apiInstance = new OpenLatticeApi.DataSetMetadataApi();
 let organizationId = null; // String | 
 apiInstance.getOrganizationDataSetsMetadata(organizationId, (error, data, response) => {
   if (error) {
@@ -300,7 +300,7 @@ openlattice_auth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //openlattice_auth.apiKeyPrefix = 'Token';
 
-let apiInstance = new OpenLatticeApi.MetadataApi();
+let apiInstance = new OpenLatticeApi.DataSetMetadataApi();
 let dataId = null; // String | 
 let columnId = null; // String | 
 let opts = {
@@ -358,7 +358,7 @@ openlattice_auth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //openlattice_auth.apiKeyPrefix = 'Token';
 
-let apiInstance = new OpenLatticeApi.MetadataApi();
+let apiInstance = new OpenLatticeApi.DataSetMetadataApi();
 let dataId = null; // String | 
 let opts = {
   'securableObjectMetadataUpdate': new OpenLatticeApi.SecurableObjectMetadataUpdate() // SecurableObjectMetadataUpdate | 

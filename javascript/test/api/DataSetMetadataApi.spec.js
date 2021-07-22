@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new OpenLatticeApi.MetadataApi();
+    instance = new OpenLatticeApi.DataSetMetadataApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,7 +47,7 @@
       object[property] = value;
   }
 
-  describe('MetadataApi', function() {
+  describe('DataSetMetadataApi', function() {
     describe('getDataSetColumnMetadata', function() {
       it('should call getDataSetColumnMetadata successfully', function(done) {
         //uncomment below and update the code to test getDataSetColumnMetadata

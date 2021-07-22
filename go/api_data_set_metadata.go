@@ -25,8 +25,8 @@ var (
 	_ _context.Context
 )
 
-// MetadataApiService MetadataApi service
-type MetadataApiService service
+// DataSetMetadataApiService DataSetMetadataApi service
+type DataSetMetadataApiService service
 
 /*
 GetDataSetColumnMetadata Gets the dataset column metadata objects using data ID and column ID
@@ -35,7 +35,7 @@ GetDataSetColumnMetadata Gets the dataset column metadata objects using data ID 
  * @param columnId
 @return DataSetColumn
 */
-func (a *MetadataApiService) GetDataSetColumnMetadata(ctx _context.Context, dataId string, columnId string) (DataSetColumn, *_nethttp.Response, error) {
+func (a *DataSetMetadataApiService) GetDataSetColumnMetadata(ctx _context.Context, dataId string, columnId string) (DataSetColumn, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -133,7 +133,7 @@ GetDataSetColumnsMetadata Gets all data set column metadata objects that caller 
  * @param "RequestBody" (optional.Interface of []string) - 
 @return map[string][]DataSetColumn
 */
-func (a *MetadataApiService) GetDataSetColumnsMetadata(ctx _context.Context, localVarOptionals *GetDataSetColumnsMetadataOpts) (map[string][]DataSetColumn, *_nethttp.Response, error) {
+func (a *DataSetMetadataApiService) GetDataSetColumnsMetadata(ctx _context.Context, localVarOptionals *GetDataSetColumnsMetadataOpts) (map[string][]DataSetColumn, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -230,7 +230,7 @@ GetDataSetMetadata Gets dataset metadata object with given data set ID
  * @param dataId
 @return DataSet
 */
-func (a *MetadataApiService) GetDataSetMetadata(ctx _context.Context, dataId string) (DataSet, *_nethttp.Response, error) {
+func (a *DataSetMetadataApiService) GetDataSetMetadata(ctx _context.Context, dataId string) (DataSet, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -326,7 +326,7 @@ GetDataSetsMetadata Gets the dataset metadata objects given data set ids the cal
  * @param "RequestBody" (optional.Interface of []string) - 
 @return map[string]DataSet
 */
-func (a *MetadataApiService) GetDataSetsMetadata(ctx _context.Context, localVarOptionals *GetDataSetsMetadataOpts) (map[string]DataSet, *_nethttp.Response, error) {
+func (a *DataSetMetadataApiService) GetDataSetsMetadata(ctx _context.Context, localVarOptionals *GetDataSetsMetadataOpts) (map[string]DataSet, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -423,7 +423,7 @@ GetOrganizationDataSetsMetadata Gets all data set column metadata objects that c
  * @param organizationId
 @return map[string]DataSet
 */
-func (a *MetadataApiService) GetOrganizationDataSetsMetadata(ctx _context.Context, organizationId string) (map[string]DataSet, *_nethttp.Response, error) {
+func (a *DataSetMetadataApiService) GetOrganizationDataSetsMetadata(ctx _context.Context, organizationId string) (map[string]DataSet, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -520,7 +520,7 @@ UpdateDataSetColumnMetadata Applies the given metadata updates to the data set c
  * @param optional nil or *UpdateDataSetColumnMetadataOpts - Optional Parameters:
  * @param "SecurableObjectMetadataUpdate" (optional.Interface of SecurableObjectMetadataUpdate) - 
 */
-func (a *MetadataApiService) UpdateDataSetColumnMetadata(ctx _context.Context, dataId string, columnId string, localVarOptionals *UpdateDataSetColumnMetadataOpts) (*_nethttp.Response, error) {
+func (a *DataSetMetadataApiService) UpdateDataSetColumnMetadata(ctx _context.Context, dataId string, columnId string, localVarOptionals *UpdateDataSetColumnMetadataOpts) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
@@ -617,7 +617,7 @@ UpdateDataSetMetadata Applies the given metadata updates to the data set given d
  * @param optional nil or *UpdateDataSetMetadataOpts - Optional Parameters:
  * @param "SecurableObjectMetadataUpdate" (optional.Interface of SecurableObjectMetadataUpdate) - 
 */
-func (a *MetadataApiService) UpdateDataSetMetadata(ctx _context.Context, dataId string, localVarOptionals *UpdateDataSetMetadataOpts) (*_nethttp.Response, error) {
+func (a *DataSetMetadataApiService) UpdateDataSetMetadata(ctx _context.Context, dataId string, localVarOptionals *UpdateDataSetMetadataOpts) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
