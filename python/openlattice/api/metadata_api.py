@@ -63,7 +63,7 @@ class MetadataApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: DataSetColumnMetadata
+        :rtype: DataSetColumn
         """
         kwargs['_return_http_data_only'] = True
         return self.get_data_set_column_metadata_with_http_info(data_id, column_id, **kwargs)  # noqa: E501
@@ -101,7 +101,7 @@ class MetadataApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(DataSetColumnMetadata, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(DataSetColumn, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -168,7 +168,7 @@ class MetadataApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DataSetColumnMetadata',  # noqa: E501
+            response_type='DataSetColumn',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -201,7 +201,7 @@ class MetadataApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: dict(str, list[DataSetColumnMetadata])
+        :rtype: dict(str, list[DataSetColumn])
         """
         kwargs['_return_http_data_only'] = True
         return self.get_data_set_columns_metadata_with_http_info(**kwargs)  # noqa: E501
@@ -237,7 +237,7 @@ class MetadataApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(dict(str, list[DataSetColumnMetadata]), status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(dict(str, list[DataSetColumn]), status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -297,7 +297,7 @@ class MetadataApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='dict(str, list[DataSetColumnMetadata])',  # noqa: E501
+            response_type='dict(str, list[DataSetColumn])',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -330,7 +330,7 @@ class MetadataApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: DataSetMetadata
+        :rtype: DataSet
         """
         kwargs['_return_http_data_only'] = True
         return self.get_data_set_metadata_with_http_info(data_id, **kwargs)  # noqa: E501
@@ -366,7 +366,7 @@ class MetadataApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(DataSetMetadata, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(DataSet, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -426,7 +426,7 @@ class MetadataApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DataSetMetadata',  # noqa: E501
+            response_type='DataSet',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -459,7 +459,7 @@ class MetadataApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: dict(str, DataSetMetadata)
+        :rtype: dict(str, DataSet)
         """
         kwargs['_return_http_data_only'] = True
         return self.get_data_sets_metadata_with_http_info(**kwargs)  # noqa: E501
@@ -495,7 +495,7 @@ class MetadataApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(dict(str, DataSetMetadata), status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(dict(str, DataSet), status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -555,7 +555,7 @@ class MetadataApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='dict(str, DataSetMetadata)',  # noqa: E501
+            response_type='dict(str, DataSet)',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -588,7 +588,7 @@ class MetadataApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: dict(str, DataSetMetadata)
+        :rtype: dict(str, DataSet)
         """
         kwargs['_return_http_data_only'] = True
         return self.get_organization_data_sets_metadata_with_http_info(organization_id, **kwargs)  # noqa: E501
@@ -624,7 +624,7 @@ class MetadataApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(dict(str, DataSetMetadata), status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(dict(str, DataSet), status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -684,7 +684,7 @@ class MetadataApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='dict(str, DataSetMetadata)',  # noqa: E501
+            response_type='dict(str, DataSet)',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -706,8 +706,8 @@ class MetadataApi(object):
         :type data_id: str
         :param column_id: (required)
         :type column_id: str
-        :param data_metadata:
-        :type data_metadata: DataMetadata
+        :param securable_object_metadata_update:
+        :type securable_object_metadata_update: SecurableObjectMetadataUpdate
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -739,8 +739,8 @@ class MetadataApi(object):
         :type data_id: str
         :param column_id: (required)
         :type column_id: str
-        :param data_metadata:
-        :type data_metadata: DataMetadata
+        :param securable_object_metadata_update:
+        :type securable_object_metadata_update: SecurableObjectMetadataUpdate
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -769,7 +769,7 @@ class MetadataApi(object):
         all_params = [
             'data_id',
             'column_id',
-            'data_metadata'
+            'securable_object_metadata_update'
         ]
         all_params.extend(
             [
@@ -814,8 +814,8 @@ class MetadataApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data_metadata' in local_var_params:
-            body_params = local_var_params['data_metadata']
+        if 'securable_object_metadata_update' in local_var_params:
+            body_params = local_var_params['securable_object_metadata_update']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -851,8 +851,8 @@ class MetadataApi(object):
 
         :param data_id: (required)
         :type data_id: str
-        :param data_metadata:
-        :type data_metadata: DataMetadata
+        :param securable_object_metadata_update:
+        :type securable_object_metadata_update: SecurableObjectMetadataUpdate
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -882,8 +882,8 @@ class MetadataApi(object):
 
         :param data_id: (required)
         :type data_id: str
-        :param data_metadata:
-        :type data_metadata: DataMetadata
+        :param securable_object_metadata_update:
+        :type securable_object_metadata_update: SecurableObjectMetadataUpdate
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -911,7 +911,7 @@ class MetadataApi(object):
 
         all_params = [
             'data_id',
-            'data_metadata'
+            'securable_object_metadata_update'
         ]
         all_params.extend(
             [
@@ -950,8 +950,8 @@ class MetadataApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data_metadata' in local_var_params:
-            body_params = local_var_params['data_metadata']
+        if 'securable_object_metadata_update' in local_var_params:
+            body_params = local_var_params['securable_object_metadata_update']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501

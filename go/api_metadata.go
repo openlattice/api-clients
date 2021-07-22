@@ -33,16 +33,16 @@ GetDataSetColumnMetadata Gets the dataset column metadata objects using data ID 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param dataId
  * @param columnId
-@return DataSetColumnMetadata
+@return DataSetColumn
 */
-func (a *MetadataApiService) GetDataSetColumnMetadata(ctx _context.Context, dataId string, columnId string) (DataSetColumnMetadata, *_nethttp.Response, error) {
+func (a *MetadataApiService) GetDataSetColumnMetadata(ctx _context.Context, dataId string, columnId string) (DataSetColumn, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  DataSetColumnMetadata
+		localVarReturnValue  DataSetColumn
 	)
 
 	// create path and map variables
@@ -131,16 +131,16 @@ GetDataSetColumnsMetadata Gets all data set column metadata objects that caller 
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *GetDataSetColumnsMetadataOpts - Optional Parameters:
  * @param "RequestBody" (optional.Interface of []string) - 
-@return map[string][]DataSetColumnMetadata
+@return map[string][]DataSetColumn
 */
-func (a *MetadataApiService) GetDataSetColumnsMetadata(ctx _context.Context, localVarOptionals *GetDataSetColumnsMetadataOpts) (map[string][]DataSetColumnMetadata, *_nethttp.Response, error) {
+func (a *MetadataApiService) GetDataSetColumnsMetadata(ctx _context.Context, localVarOptionals *GetDataSetColumnsMetadataOpts) (map[string][]DataSetColumn, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string][]DataSetColumnMetadata
+		localVarReturnValue  map[string][]DataSetColumn
 	)
 
 	// create path and map variables
@@ -228,16 +228,16 @@ func (a *MetadataApiService) GetDataSetColumnsMetadata(ctx _context.Context, loc
 GetDataSetMetadata Gets dataset metadata object with given data set ID
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param dataId
-@return DataSetMetadata
+@return DataSet
 */
-func (a *MetadataApiService) GetDataSetMetadata(ctx _context.Context, dataId string) (DataSetMetadata, *_nethttp.Response, error) {
+func (a *MetadataApiService) GetDataSetMetadata(ctx _context.Context, dataId string) (DataSet, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  DataSetMetadata
+		localVarReturnValue  DataSet
 	)
 
 	// create path and map variables
@@ -324,16 +324,16 @@ GetDataSetsMetadata Gets the dataset metadata objects given data set ids the cal
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *GetDataSetsMetadataOpts - Optional Parameters:
  * @param "RequestBody" (optional.Interface of []string) - 
-@return map[string]DataSetMetadata
+@return map[string]DataSet
 */
-func (a *MetadataApiService) GetDataSetsMetadata(ctx _context.Context, localVarOptionals *GetDataSetsMetadataOpts) (map[string]DataSetMetadata, *_nethttp.Response, error) {
+func (a *MetadataApiService) GetDataSetsMetadata(ctx _context.Context, localVarOptionals *GetDataSetsMetadataOpts) (map[string]DataSet, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]DataSetMetadata
+		localVarReturnValue  map[string]DataSet
 	)
 
 	// create path and map variables
@@ -421,16 +421,16 @@ func (a *MetadataApiService) GetDataSetsMetadata(ctx _context.Context, localVarO
 GetOrganizationDataSetsMetadata Gets all data set column metadata objects that caller has READ on that belong to given data set ids
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param organizationId
-@return map[string]DataSetMetadata
+@return map[string]DataSet
 */
-func (a *MetadataApiService) GetOrganizationDataSetsMetadata(ctx _context.Context, organizationId string) (map[string]DataSetMetadata, *_nethttp.Response, error) {
+func (a *MetadataApiService) GetOrganizationDataSetsMetadata(ctx _context.Context, organizationId string) (map[string]DataSet, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]DataSetMetadata
+		localVarReturnValue  map[string]DataSet
 	)
 
 	// create path and map variables
@@ -509,7 +509,7 @@ func (a *MetadataApiService) GetOrganizationDataSetsMetadata(ctx _context.Contex
 
 // UpdateDataSetColumnMetadataOpts Optional parameters for the method 'UpdateDataSetColumnMetadata'
 type UpdateDataSetColumnMetadataOpts struct {
-    DataMetadata optional.Interface
+    SecurableObjectMetadataUpdate optional.Interface
 }
 
 /*
@@ -518,7 +518,7 @@ UpdateDataSetColumnMetadata Applies the given metadata updates to the data set c
  * @param dataId
  * @param columnId
  * @param optional nil or *UpdateDataSetColumnMetadataOpts - Optional Parameters:
- * @param "DataMetadata" (optional.Interface of DataMetadata) - 
+ * @param "SecurableObjectMetadataUpdate" (optional.Interface of SecurableObjectMetadataUpdate) - 
 */
 func (a *MetadataApiService) UpdateDataSetColumnMetadata(ctx _context.Context, dataId string, columnId string, localVarOptionals *UpdateDataSetColumnMetadataOpts) (*_nethttp.Response, error) {
 	var (
@@ -557,12 +557,12 @@ func (a *MetadataApiService) UpdateDataSetColumnMetadata(ctx _context.Context, d
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	if localVarOptionals != nil && localVarOptionals.DataMetadata.IsSet() {
-		localVarOptionalDataMetadata, localVarOptionalDataMetadataok := localVarOptionals.DataMetadata.Value().(DataMetadata)
-		if !localVarOptionalDataMetadataok {
-			return nil, reportError("dataMetadata should be DataMetadata")
+	if localVarOptionals != nil && localVarOptionals.SecurableObjectMetadataUpdate.IsSet() {
+		localVarOptionalSecurableObjectMetadataUpdate, localVarOptionalSecurableObjectMetadataUpdateok := localVarOptionals.SecurableObjectMetadataUpdate.Value().(SecurableObjectMetadataUpdate)
+		if !localVarOptionalSecurableObjectMetadataUpdateok {
+			return nil, reportError("securableObjectMetadataUpdate should be SecurableObjectMetadataUpdate")
 		}
-		localVarPostBody = &localVarOptionalDataMetadata
+		localVarPostBody = &localVarOptionalSecurableObjectMetadataUpdate
 	}
 
 	if ctx != nil {
@@ -607,7 +607,7 @@ func (a *MetadataApiService) UpdateDataSetColumnMetadata(ctx _context.Context, d
 
 // UpdateDataSetMetadataOpts Optional parameters for the method 'UpdateDataSetMetadata'
 type UpdateDataSetMetadataOpts struct {
-    DataMetadata optional.Interface
+    SecurableObjectMetadataUpdate optional.Interface
 }
 
 /*
@@ -615,7 +615,7 @@ UpdateDataSetMetadata Applies the given metadata updates to the data set given d
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param dataId
  * @param optional nil or *UpdateDataSetMetadataOpts - Optional Parameters:
- * @param "DataMetadata" (optional.Interface of DataMetadata) - 
+ * @param "SecurableObjectMetadataUpdate" (optional.Interface of SecurableObjectMetadataUpdate) - 
 */
 func (a *MetadataApiService) UpdateDataSetMetadata(ctx _context.Context, dataId string, localVarOptionals *UpdateDataSetMetadataOpts) (*_nethttp.Response, error) {
 	var (
@@ -652,12 +652,12 @@ func (a *MetadataApiService) UpdateDataSetMetadata(ctx _context.Context, dataId 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	if localVarOptionals != nil && localVarOptionals.DataMetadata.IsSet() {
-		localVarOptionalDataMetadata, localVarOptionalDataMetadataok := localVarOptionals.DataMetadata.Value().(DataMetadata)
-		if !localVarOptionalDataMetadataok {
-			return nil, reportError("dataMetadata should be DataMetadata")
+	if localVarOptionals != nil && localVarOptionals.SecurableObjectMetadataUpdate.IsSet() {
+		localVarOptionalSecurableObjectMetadataUpdate, localVarOptionalSecurableObjectMetadataUpdateok := localVarOptionals.SecurableObjectMetadataUpdate.Value().(SecurableObjectMetadataUpdate)
+		if !localVarOptionalSecurableObjectMetadataUpdateok {
+			return nil, reportError("securableObjectMetadataUpdate should be SecurableObjectMetadataUpdate")
 		}
-		localVarPostBody = &localVarOptionalDataMetadata
+		localVarPostBody = &localVarOptionalSecurableObjectMetadataUpdate
 	}
 
 	if ctx != nil {

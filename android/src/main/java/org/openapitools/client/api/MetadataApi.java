@@ -23,10 +23,10 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import org.openapitools.client.model.DataMetadata;
-import org.openapitools.client.model.DataSetColumnMetadata;
-import org.openapitools.client.model.DataSetMetadata;
+import org.openapitools.client.model.DataSet;
+import org.openapitools.client.model.DataSetColumn;
 import java.util.*;
+import org.openapitools.client.model.SecurableObjectMetadataUpdate;
 import java.util.UUID;
 
 import org.apache.http.HttpEntity;
@@ -64,9 +64,9 @@ public class MetadataApi {
   * 
    * @param dataId 
    * @param columnId 
-   * @return DataSetColumnMetadata
+   * @return DataSetColumn
   */
-  public DataSetColumnMetadata getDataSetColumnMetadata (UUID dataId, UUID columnId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public DataSetColumn getDataSetColumnMetadata (UUID dataId, UUID columnId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'dataId' is set
     if (dataId == null) {
@@ -106,7 +106,7 @@ public class MetadataApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (DataSetColumnMetadata) ApiInvoker.deserialize(localVarResponse, "", DataSetColumnMetadata.class);
+         return (DataSetColumn) ApiInvoker.deserialize(localVarResponse, "", DataSetColumn.class);
       } else {
          return null;
       }
@@ -132,7 +132,7 @@ public class MetadataApi {
    * 
    * @param dataId    * @param columnId 
   */
-  public void getDataSetColumnMetadata (UUID dataId, UUID columnId, final Response.Listener<DataSetColumnMetadata> responseListener, final Response.ErrorListener errorListener) {
+  public void getDataSetColumnMetadata (UUID dataId, UUID columnId, final Response.Listener<DataSetColumn> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'dataId' is set
@@ -182,7 +182,7 @@ public class MetadataApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((DataSetColumnMetadata) ApiInvoker.deserialize(localVarResponse,  "", DataSetColumnMetadata.class));
+              responseListener.onResponse((DataSetColumn) ApiInvoker.deserialize(localVarResponse,  "", DataSetColumn.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -201,9 +201,9 @@ public class MetadataApi {
   * Gets all data set column metadata objects that caller has READ on that belong to given data set ids
   * 
    * @param requestBody 
-   * @return Map<String, List<DataSetColumnMetadata>>
+   * @return Map<String, List<DataSetColumn>>
   */
-  public Map<String, List<DataSetColumnMetadata>> getDataSetColumnsMetadata (List<String> requestBody) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Map<String, List<DataSetColumn>> getDataSetColumnsMetadata (List<String> requestBody) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = requestBody;
 
     // create path and map variables
@@ -234,7 +234,7 @@ public class MetadataApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Map<String, List<DataSetColumnMetadata>>) ApiInvoker.deserialize(localVarResponse, "map", List.class);
+         return (Map<String, List<DataSetColumn>>) ApiInvoker.deserialize(localVarResponse, "map", List.class);
       } else {
          return null;
       }
@@ -260,7 +260,7 @@ public class MetadataApi {
    * 
    * @param requestBody 
   */
-  public void getDataSetColumnsMetadata (List<String> requestBody, final Response.Listener<Map<String, List<DataSetColumnMetadata>>> responseListener, final Response.ErrorListener errorListener) {
+  public void getDataSetColumnsMetadata (List<String> requestBody, final Response.Listener<Map<String, List<DataSetColumn>>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = requestBody;
 
 
@@ -300,7 +300,7 @@ public class MetadataApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Map<String, List<DataSetColumnMetadata>>) ApiInvoker.deserialize(localVarResponse,  "map", List.class));
+              responseListener.onResponse((Map<String, List<DataSetColumn>>) ApiInvoker.deserialize(localVarResponse,  "map", List.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -319,9 +319,9 @@ public class MetadataApi {
   * Gets dataset metadata object with given data set ID
   * 
    * @param dataId 
-   * @return DataSetMetadata
+   * @return DataSet
   */
-  public DataSetMetadata getDataSetMetadata (UUID dataId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public DataSet getDataSetMetadata (UUID dataId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'dataId' is set
     if (dataId == null) {
@@ -356,7 +356,7 @@ public class MetadataApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (DataSetMetadata) ApiInvoker.deserialize(localVarResponse, "", DataSetMetadata.class);
+         return (DataSet) ApiInvoker.deserialize(localVarResponse, "", DataSet.class);
       } else {
          return null;
       }
@@ -382,7 +382,7 @@ public class MetadataApi {
    * 
    * @param dataId 
   */
-  public void getDataSetMetadata (UUID dataId, final Response.Listener<DataSetMetadata> responseListener, final Response.ErrorListener errorListener) {
+  public void getDataSetMetadata (UUID dataId, final Response.Listener<DataSet> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'dataId' is set
@@ -427,7 +427,7 @@ public class MetadataApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((DataSetMetadata) ApiInvoker.deserialize(localVarResponse,  "", DataSetMetadata.class));
+              responseListener.onResponse((DataSet) ApiInvoker.deserialize(localVarResponse,  "", DataSet.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -446,9 +446,9 @@ public class MetadataApi {
   * Gets the dataset metadata objects given data set ids the caller has READ permissions on
   * 
    * @param requestBody 
-   * @return Map<String, DataSetMetadata>
+   * @return Map<String, DataSet>
   */
-  public Map<String, DataSetMetadata> getDataSetsMetadata (List<String> requestBody) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Map<String, DataSet> getDataSetsMetadata (List<String> requestBody) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = requestBody;
 
     // create path and map variables
@@ -479,7 +479,7 @@ public class MetadataApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Map<String, DataSetMetadata>) ApiInvoker.deserialize(localVarResponse, "map", DataSetMetadata.class);
+         return (Map<String, DataSet>) ApiInvoker.deserialize(localVarResponse, "map", DataSet.class);
       } else {
          return null;
       }
@@ -505,7 +505,7 @@ public class MetadataApi {
    * 
    * @param requestBody 
   */
-  public void getDataSetsMetadata (List<String> requestBody, final Response.Listener<Map<String, DataSetMetadata>> responseListener, final Response.ErrorListener errorListener) {
+  public void getDataSetsMetadata (List<String> requestBody, final Response.Listener<Map<String, DataSet>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = requestBody;
 
 
@@ -545,7 +545,7 @@ public class MetadataApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Map<String, DataSetMetadata>) ApiInvoker.deserialize(localVarResponse,  "map", DataSetMetadata.class));
+              responseListener.onResponse((Map<String, DataSet>) ApiInvoker.deserialize(localVarResponse,  "map", DataSet.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -564,9 +564,9 @@ public class MetadataApi {
   * Gets all data set column metadata objects that caller has READ on that belong to given data set ids
   * 
    * @param organizationId 
-   * @return Map<String, DataSetMetadata>
+   * @return Map<String, DataSet>
   */
-  public Map<String, DataSetMetadata> getOrganizationDataSetsMetadata (UUID organizationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Map<String, DataSet> getOrganizationDataSetsMetadata (UUID organizationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'organizationId' is set
     if (organizationId == null) {
@@ -601,7 +601,7 @@ public class MetadataApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Map<String, DataSetMetadata>) ApiInvoker.deserialize(localVarResponse, "map", DataSetMetadata.class);
+         return (Map<String, DataSet>) ApiInvoker.deserialize(localVarResponse, "map", DataSet.class);
       } else {
          return null;
       }
@@ -627,7 +627,7 @@ public class MetadataApi {
    * 
    * @param organizationId 
   */
-  public void getOrganizationDataSetsMetadata (UUID organizationId, final Response.Listener<Map<String, DataSetMetadata>> responseListener, final Response.ErrorListener errorListener) {
+  public void getOrganizationDataSetsMetadata (UUID organizationId, final Response.Listener<Map<String, DataSet>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'organizationId' is set
@@ -672,7 +672,7 @@ public class MetadataApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Map<String, DataSetMetadata>) ApiInvoker.deserialize(localVarResponse,  "map", DataSetMetadata.class));
+              responseListener.onResponse((Map<String, DataSet>) ApiInvoker.deserialize(localVarResponse,  "map", DataSet.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -692,11 +692,11 @@ public class MetadataApi {
   * 
    * @param dataId 
    * @param columnId 
-   * @param dataMetadata 
+   * @param securableObjectMetadataUpdate 
    * @return void
   */
-  public void updateDataSetColumnMetadata (UUID dataId, UUID columnId, DataMetadata dataMetadata) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = dataMetadata;
+  public void updateDataSetColumnMetadata (UUID dataId, UUID columnId, SecurableObjectMetadataUpdate securableObjectMetadataUpdate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = securableObjectMetadataUpdate;
     // verify the required parameter 'dataId' is set
     if (dataId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'dataId' when calling updateDataSetColumnMetadata",
@@ -760,10 +760,10 @@ public class MetadataApi {
       /**
    * Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
    * 
-   * @param dataId    * @param columnId    * @param dataMetadata 
+   * @param dataId    * @param columnId    * @param securableObjectMetadataUpdate 
   */
-  public void updateDataSetColumnMetadata (UUID dataId, UUID columnId, DataMetadata dataMetadata, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = dataMetadata;
+  public void updateDataSetColumnMetadata (UUID dataId, UUID columnId, SecurableObjectMetadataUpdate securableObjectMetadataUpdate, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = securableObjectMetadataUpdate;
 
     // verify the required parameter 'dataId' is set
     if (dataId == null) {
@@ -827,11 +827,11 @@ public class MetadataApi {
   * Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
   * 
    * @param dataId 
-   * @param dataMetadata 
+   * @param securableObjectMetadataUpdate 
    * @return void
   */
-  public void updateDataSetMetadata (UUID dataId, DataMetadata dataMetadata) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = dataMetadata;
+  public void updateDataSetMetadata (UUID dataId, SecurableObjectMetadataUpdate securableObjectMetadataUpdate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = securableObjectMetadataUpdate;
     // verify the required parameter 'dataId' is set
     if (dataId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'dataId' when calling updateDataSetMetadata",
@@ -890,10 +890,10 @@ public class MetadataApi {
       /**
    * Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
    * 
-   * @param dataId    * @param dataMetadata 
+   * @param dataId    * @param securableObjectMetadataUpdate 
   */
-  public void updateDataSetMetadata (UUID dataId, DataMetadata dataMetadata, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = dataMetadata;
+  public void updateDataSetMetadata (UUID dataId, SecurableObjectMetadataUpdate securableObjectMetadataUpdate, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = securableObjectMetadataUpdate;
 
     // verify the required parameter 'dataId' is set
     if (dataId == null) {

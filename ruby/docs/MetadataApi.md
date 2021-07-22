@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## get_data_set_column_metadata
 
-> DataSetColumnMetadata get_data_set_column_metadata(data_id, column_id)
+> DataSetColumn get_data_set_column_metadata(data_id, column_id)
 
 Gets the dataset column metadata objects using data ID and column ID
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetColumnMetadata**](DataSetColumnMetadata.md)
+[**DataSetColumn**](DataSetColumn.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ## get_data_set_columns_metadata
 
-> Hash&lt;String, Array&lt;DataSetColumnMetadata&gt;&gt; get_data_set_columns_metadata(opts)
+> Hash&lt;String, Array&lt;DataSetColumn&gt;&gt; get_data_set_columns_metadata(opts)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Hash&lt;String, Array&lt;DataSetColumnMetadata&gt;&gt;**
+**Hash&lt;String, Array&lt;DataSetColumn&gt;&gt;**
 
 ### Authorization
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ## get_data_set_metadata
 
-> DataSetMetadata get_data_set_metadata(data_id)
+> DataSet get_data_set_metadata(data_id)
 
 Gets dataset metadata object with given data set ID
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetMetadata**](DataSetMetadata.md)
+[**DataSet**](DataSet.md)
 
 ### Authorization
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ## get_data_sets_metadata
 
-> Hash&lt;String, DataSetMetadata&gt; get_data_sets_metadata(opts)
+> Hash&lt;String, DataSet&gt; get_data_sets_metadata(opts)
 
 Gets the dataset metadata objects given data set ids the caller has READ permissions on
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Hash&lt;String, DataSetMetadata&gt;**](DataSetMetadata.md)
+[**Hash&lt;String, DataSet&gt;**](DataSet.md)
 
 ### Authorization
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ## get_organization_data_sets_metadata
 
-> Hash&lt;String, DataSetMetadata&gt; get_organization_data_sets_metadata(organization_id)
+> Hash&lt;String, DataSet&gt; get_organization_data_sets_metadata(organization_id)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Hash&lt;String, DataSetMetadata&gt;**](DataSetMetadata.md)
+[**Hash&lt;String, DataSet&gt;**](DataSet.md)
 
 ### Authorization
 
@@ -321,7 +321,7 @@ api_instance = OpenapiClient::MetadataApi.new
 data_id = 'data_id_example' # String | 
 column_id = 'column_id_example' # String | 
 opts = {
-  data_metadata: OpenapiClient::DataMetadata.new # DataMetadata | 
+  securable_object_metadata_update: OpenapiClient::SecurableObjectMetadataUpdate.new # SecurableObjectMetadataUpdate | 
 }
 
 begin
@@ -339,7 +339,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data_id** | [**String**](.md)|  | 
  **column_id** | [**String**](.md)|  | 
- **data_metadata** | [**DataMetadata**](DataMetadata.md)|  | [optional] 
+ **securable_object_metadata_update** | [**SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | [optional] 
 
 ### Return type
 
@@ -380,7 +380,7 @@ end
 api_instance = OpenapiClient::MetadataApi.new
 data_id = 'data_id_example' # String | 
 opts = {
-  data_metadata: OpenapiClient::DataMetadata.new # DataMetadata | 
+  securable_object_metadata_update: OpenapiClient::SecurableObjectMetadataUpdate.new # SecurableObjectMetadataUpdate | 
 }
 
 begin
@@ -397,7 +397,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data_id** | [**String**](.md)|  | 
- **data_metadata** | [**DataMetadata**](DataMetadata.md)|  | [optional] 
+ **securable_object_metadata_update** | [**SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | [optional] 
 
 ### Return type
 

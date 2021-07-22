@@ -13,9 +13,9 @@
 
 
 import ApiClient from "../ApiClient";
-import DataMetadata from '../model/DataMetadata';
-import DataSetColumnMetadata from '../model/DataSetColumnMetadata';
-import DataSetMetadata from '../model/DataSetMetadata';
+import DataSet from '../model/DataSet';
+import DataSetColumn from '../model/DataSetColumn';
+import SecurableObjectMetadataUpdate from '../model/SecurableObjectMetadataUpdate';
 
 /**
 * Metadata service.
@@ -40,7 +40,7 @@ export default class MetadataApi {
      * Callback function to receive the result of the getDataSetColumnMetadata operation.
      * @callback module:api/MetadataApi~getDataSetColumnMetadataCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/DataSetColumnMetadata} data The data returned by the service call.
+     * @param {module:model/DataSetColumn} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -49,7 +49,7 @@ export default class MetadataApi {
      * @param {String} dataId 
      * @param {String} columnId 
      * @param {module:api/MetadataApi~getDataSetColumnMetadataCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/DataSetColumnMetadata}
+     * data is of type: {@link module:model/DataSetColumn}
      */
     getDataSetColumnMetadata(dataId, columnId, callback) {
       let postBody = null;
@@ -76,7 +76,7 @@ export default class MetadataApi {
       let authNames = ['http_auth', 'openlattice_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = DataSetColumnMetadata;
+      let returnType = DataSetColumn;
       return this.apiClient.callApi(
         '/datastore/metadata/columns/{dataId}/{columnId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -88,7 +88,7 @@ export default class MetadataApi {
      * Callback function to receive the result of the getDataSetColumnsMetadata operation.
      * @callback module:api/MetadataApi~getDataSetColumnsMetadataCallback
      * @param {String} error Error message, if any.
-     * @param {Object.<String, {String: [DataSetColumnMetadata]}>} data The data returned by the service call.
+     * @param {Object.<String, {String: [DataSetColumn]}>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -97,7 +97,7 @@ export default class MetadataApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.requestBody 
      * @param {module:api/MetadataApi~getDataSetColumnsMetadataCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object.<String, {String: [DataSetColumnMetadata]}>}
+     * data is of type: {@link Object.<String, {String: [DataSetColumn]}>}
      */
     getDataSetColumnsMetadata(opts, callback) {
       opts = opts || {};
@@ -115,7 +115,7 @@ export default class MetadataApi {
       let authNames = ['http_auth', 'openlattice_auth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = {'String': [DataSetColumnMetadata]};
+      let returnType = {'String': [DataSetColumn]};
       return this.apiClient.callApi(
         '/datastore/metadata/columns', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -127,7 +127,7 @@ export default class MetadataApi {
      * Callback function to receive the result of the getDataSetMetadata operation.
      * @callback module:api/MetadataApi~getDataSetMetadataCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/DataSetMetadata} data The data returned by the service call.
+     * @param {module:model/DataSet} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -135,7 +135,7 @@ export default class MetadataApi {
      * Gets dataset metadata object with given data set ID
      * @param {String} dataId 
      * @param {module:api/MetadataApi~getDataSetMetadataCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/DataSetMetadata}
+     * data is of type: {@link module:model/DataSet}
      */
     getDataSetMetadata(dataId, callback) {
       let postBody = null;
@@ -157,7 +157,7 @@ export default class MetadataApi {
       let authNames = ['http_auth', 'openlattice_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = DataSetMetadata;
+      let returnType = DataSet;
       return this.apiClient.callApi(
         '/datastore/metadata/datasets/{dataId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -169,7 +169,7 @@ export default class MetadataApi {
      * Callback function to receive the result of the getDataSetsMetadata operation.
      * @callback module:api/MetadataApi~getDataSetsMetadataCallback
      * @param {String} error Error message, if any.
-     * @param {Object.<String, module:model/{String: DataSetMetadata}>} data The data returned by the service call.
+     * @param {Object.<String, module:model/{String: DataSet}>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -178,7 +178,7 @@ export default class MetadataApi {
      * @param {Object} opts Optional parameters
      * @param {Array.<String>} opts.requestBody 
      * @param {module:api/MetadataApi~getDataSetsMetadataCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object.<String, module:model/{String: DataSetMetadata}>}
+     * data is of type: {@link Object.<String, module:model/{String: DataSet}>}
      */
     getDataSetsMetadata(opts, callback) {
       opts = opts || {};
@@ -196,7 +196,7 @@ export default class MetadataApi {
       let authNames = ['http_auth', 'openlattice_auth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = {'String': DataSetMetadata};
+      let returnType = {'String': DataSet};
       return this.apiClient.callApi(
         '/datastore/metadata/datasets', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -208,7 +208,7 @@ export default class MetadataApi {
      * Callback function to receive the result of the getOrganizationDataSetsMetadata operation.
      * @callback module:api/MetadataApi~getOrganizationDataSetsMetadataCallback
      * @param {String} error Error message, if any.
-     * @param {Object.<String, module:model/{String: DataSetMetadata}>} data The data returned by the service call.
+     * @param {Object.<String, module:model/{String: DataSet}>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -216,7 +216,7 @@ export default class MetadataApi {
      * Gets all data set column metadata objects that caller has READ on that belong to given data set ids
      * @param {String} organizationId 
      * @param {module:api/MetadataApi~getOrganizationDataSetsMetadataCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object.<String, module:model/{String: DataSetMetadata}>}
+     * data is of type: {@link Object.<String, module:model/{String: DataSet}>}
      */
     getOrganizationDataSetsMetadata(organizationId, callback) {
       let postBody = null;
@@ -238,7 +238,7 @@ export default class MetadataApi {
       let authNames = ['http_auth', 'openlattice_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = {'String': DataSetMetadata};
+      let returnType = {'String': DataSet};
       return this.apiClient.callApi(
         '/datastore/metadata/datasets/organizations/{organizationId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -259,12 +259,12 @@ export default class MetadataApi {
      * @param {String} dataId 
      * @param {String} columnId 
      * @param {Object} opts Optional parameters
-     * @param {module:model/DataMetadata} opts.dataMetadata 
+     * @param {module:model/SecurableObjectMetadataUpdate} opts.securableObjectMetadataUpdate 
      * @param {module:api/MetadataApi~updateDataSetColumnMetadataCallback} callback The callback function, accepting three arguments: error, data, response
      */
     updateDataSetColumnMetadata(dataId, columnId, opts, callback) {
       opts = opts || {};
-      let postBody = opts['dataMetadata'];
+      let postBody = opts['securableObjectMetadataUpdate'];
       // verify the required parameter 'dataId' is set
       if (dataId === undefined || dataId === null) {
         throw new Error("Missing the required parameter 'dataId' when calling updateDataSetColumnMetadata");
@@ -308,12 +308,12 @@ export default class MetadataApi {
      * Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
      * @param {String} dataId 
      * @param {Object} opts Optional parameters
-     * @param {module:model/DataMetadata} opts.dataMetadata 
+     * @param {module:model/SecurableObjectMetadataUpdate} opts.securableObjectMetadataUpdate 
      * @param {module:api/MetadataApi~updateDataSetMetadataCallback} callback The callback function, accepting three arguments: error, data, response
      */
     updateDataSetMetadata(dataId, opts, callback) {
       opts = opts || {};
-      let postBody = opts['dataMetadata'];
+      let postBody = opts['securableObjectMetadataUpdate'];
       // verify the required parameter 'dataId' is set
       if (dataId === undefined || dataId === null) {
         throw new Error("Missing the required parameter 'dataId' when calling updateDataSetMetadata");

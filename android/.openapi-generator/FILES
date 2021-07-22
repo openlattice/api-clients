@@ -32,10 +32,9 @@ docs/DataEdgeKey.md
 docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
-docs/DataMetadata.md
 docs/DataSearchResult.md
-docs/DataSetColumnMetadata.md
-docs/DataSetMetadata.md
+docs/DataSet.md
+docs/DataSetColumn.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -101,6 +100,7 @@ docs/SearchDetails.md
 docs/SearchResult.md
 docs/SearchResultHits.md
 docs/SearchTerm.md
+docs/SecurableObjectMetadataUpdate.md
 docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
@@ -160,10 +160,9 @@ src/main/java/org/openapitools/client/model/DataEdgeData.java
 src/main/java/org/openapitools/client/model/DataEdgeKey.java
 src/main/java/org/openapitools/client/model/DataGraph.java
 src/main/java/org/openapitools/client/model/DataGraphIds.java
-src/main/java/org/openapitools/client/model/DataMetadata.java
 src/main/java/org/openapitools/client/model/DataSearchResult.java
-src/main/java/org/openapitools/client/model/DataSetColumnMetadata.java
-src/main/java/org/openapitools/client/model/DataSetMetadata.java
+src/main/java/org/openapitools/client/model/DataSet.java
+src/main/java/org/openapitools/client/model/DataSetColumn.java
 src/main/java/org/openapitools/client/model/EDM.java
 src/main/java/org/openapitools/client/model/EDMdiff.java
 src/main/java/org/openapitools/client/model/EdmRequest.java
@@ -220,6 +219,7 @@ src/main/java/org/openapitools/client/model/SearchDetails.java
 src/main/java/org/openapitools/client/model/SearchResult.java
 src/main/java/org/openapitools/client/model/SearchResultHits.java
 src/main/java/org/openapitools/client/model/SearchTerm.java
+src/main/java/org/openapitools/client/model/SecurableObjectMetadataUpdate.java
 src/main/java/org/openapitools/client/model/SecurablePrincipal.java
 src/main/java/org/openapitools/client/model/SmsEntitySetInformation.java
 src/main/java/org/openapitools/client/model/SortDefinition.java

@@ -69,10 +69,9 @@ from openlattice.models.data_edge_data import DataEdgeData
 from openlattice.models.data_edge_key import DataEdgeKey
 from openlattice.models.data_graph import DataGraph
 from openlattice.models.data_graph_ids import DataGraphIds
-from openlattice.models.data_metadata import DataMetadata
 from openlattice.models.data_search_result import DataSearchResult
-from openlattice.models.data_set_column_metadata import DataSetColumnMetadata
-from openlattice.models.data_set_metadata import DataSetMetadata
+from openlattice.models.data_set import DataSet
+from openlattice.models.data_set_column import DataSetColumn
 from openlattice.models.edm import EDM
 from openlattice.models.ed_mdiff import EDMdiff
 from openlattice.models.edm_request import EdmRequest
@@ -129,6 +128,7 @@ from openlattice.models.search_details import SearchDetails
 from openlattice.models.search_result import SearchResult
 from openlattice.models.search_result_hits import SearchResultHits
 from openlattice.models.search_term import SearchTerm
+from openlattice.models.securable_object_metadata_update import SecurableObjectMetadataUpdate
 from openlattice.models.securable_principal import SecurablePrincipal
 from openlattice.models.sms_entity_set_information import SmsEntitySetInformation
 from openlattice.models.sort_definition import SortDefinition

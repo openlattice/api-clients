@@ -37,7 +37,7 @@ describe 'MetadataApi' do
   # @param data_id 
   # @param column_id 
   # @param [Hash] opts the optional parameters
-  # @return [DataSetColumnMetadata]
+  # @return [DataSetColumn]
   describe 'get_data_set_column_metadata test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -48,7 +48,7 @@ describe 'MetadataApi' do
   # Gets all data set column metadata objects that caller has READ on that belong to given data set ids
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :request_body 
-  # @return [Hash<String, Array<DataSetColumnMetadata>>]
+  # @return [Hash<String, Array<DataSetColumn>>]
   describe 'get_data_set_columns_metadata test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -59,7 +59,7 @@ describe 'MetadataApi' do
   # Gets dataset metadata object with given data set ID
   # @param data_id 
   # @param [Hash] opts the optional parameters
-  # @return [DataSetMetadata]
+  # @return [DataSet]
   describe 'get_data_set_metadata test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -70,7 +70,7 @@ describe 'MetadataApi' do
   # Gets the dataset metadata objects given data set ids the caller has READ permissions on
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :request_body 
-  # @return [Hash<String, DataSetMetadata>]
+  # @return [Hash<String, DataSet>]
   describe 'get_data_sets_metadata test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -81,7 +81,7 @@ describe 'MetadataApi' do
   # Gets all data set column metadata objects that caller has READ on that belong to given data set ids
   # @param organization_id 
   # @param [Hash] opts the optional parameters
-  # @return [Hash<String, DataSetMetadata>]
+  # @return [Hash<String, DataSet>]
   describe 'get_organization_data_sets_metadata test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -93,7 +93,7 @@ describe 'MetadataApi' do
   # @param data_id 
   # @param column_id 
   # @param [Hash] opts the optional parameters
-  # @option opts [DataMetadata] :data_metadata 
+  # @option opts [SecurableObjectMetadataUpdate] :securable_object_metadata_update 
   # @return [nil]
   describe 'update_data_set_column_metadata test' do
     it 'should work' do
@@ -105,7 +105,7 @@ describe 'MetadataApi' do
   # Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
   # @param data_id 
   # @param [Hash] opts the optional parameters
-  # @option opts [DataMetadata] :data_metadata 
+  # @option opts [SecurableObjectMetadataUpdate] :securable_object_metadata_update 
   # @return [nil]
   describe 'update_data_set_metadata test' do
     it 'should work' do

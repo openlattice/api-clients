@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## getDataSetColumnMetadata
 
-> DataSetColumnMetadata getDataSetColumnMetadata(dataId, columnId)
+> DataSetColumn getDataSetColumnMetadata(dataId, columnId)
 
 Gets the dataset column metadata objects using data ID and column ID
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetColumnMetadata**](DataSetColumnMetadata.md)
+[**DataSetColumn**](DataSetColumn.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ## getDataSetColumnsMetadata
 
-> {String: [DataSetColumnMetadata]} getDataSetColumnsMetadata(opts)
+> {String: [DataSetColumn]} getDataSetColumnsMetadata(opts)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**{String: [DataSetColumnMetadata]}**
+**{String: [DataSetColumn]}**
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 ## getDataSetMetadata
 
-> DataSetMetadata getDataSetMetadata(dataId)
+> DataSet getDataSetMetadata(dataId)
 
 Gets dataset metadata object with given data set ID
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetMetadata**](DataSetMetadata.md)
+[**DataSet**](DataSet.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ## getDataSetsMetadata
 
-> {String: DataSetMetadata} getDataSetsMetadata(opts)
+> {String: DataSet} getDataSetsMetadata(opts)
 
 Gets the dataset metadata objects given data set ids the caller has READ permissions on
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**{String: DataSetMetadata}**](DataSetMetadata.md)
+[**{String: DataSet}**](DataSet.md)
 
 ### Authorization
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## getOrganizationDataSetsMetadata
 
-> {String: DataSetMetadata} getOrganizationDataSetsMetadata(organizationId)
+> {String: DataSet} getOrganizationDataSetsMetadata(organizationId)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**{String: DataSetMetadata}**](DataSetMetadata.md)
+[**{String: DataSet}**](DataSet.md)
 
 ### Authorization
 
@@ -304,7 +304,7 @@ let apiInstance = new OpenLatticeApi.MetadataApi();
 let dataId = null; // String | 
 let columnId = null; // String | 
 let opts = {
-  'dataMetadata': new OpenLatticeApi.DataMetadata() // DataMetadata | 
+  'securableObjectMetadataUpdate': new OpenLatticeApi.SecurableObjectMetadataUpdate() // SecurableObjectMetadataUpdate | 
 };
 apiInstance.updateDataSetColumnMetadata(dataId, columnId, opts, (error, data, response) => {
   if (error) {
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dataId** | [**String**](.md)|  | 
  **columnId** | [**String**](.md)|  | 
- **dataMetadata** | [**DataMetadata**](DataMetadata.md)|  | [optional] 
+ **securableObjectMetadataUpdate** | [**SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | [optional] 
 
 ### Return type
 
@@ -361,7 +361,7 @@ openlattice_auth.apiKey = 'YOUR API KEY';
 let apiInstance = new OpenLatticeApi.MetadataApi();
 let dataId = null; // String | 
 let opts = {
-  'dataMetadata': new OpenLatticeApi.DataMetadata() // DataMetadata | 
+  'securableObjectMetadataUpdate': new OpenLatticeApi.SecurableObjectMetadataUpdate() // SecurableObjectMetadataUpdate | 
 };
 apiInstance.updateDataSetMetadata(dataId, opts, (error, data, response) => {
   if (error) {
@@ -378,7 +378,7 @@ apiInstance.updateDataSetMetadata(dataId, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dataId** | [**String**](.md)|  | 
- **dataMetadata** | [**DataMetadata**](DataMetadata.md)|  | [optional] 
+ **securableObjectMetadataUpdate** | [**SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | [optional] 
 
 ### Return type
 

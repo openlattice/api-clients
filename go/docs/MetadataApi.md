@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## GetDataSetColumnMetadata
 
-> DataSetColumnMetadata GetDataSetColumnMetadata(ctx, dataId, columnId)
+> DataSetColumn GetDataSetColumnMetadata(ctx, dataId, columnId)
 
 Gets the dataset column metadata objects using data ID and column ID
 
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetColumnMetadata**](DataSetColumnMetadata.md)
+[**DataSetColumn**](DataSetColumn.md)
 
 ### Authorization
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ## GetDataSetColumnsMetadata
 
-> map[string][]DataSetColumnMetadata GetDataSetColumnsMetadata(ctx, optional)
+> map[string][]DataSetColumn GetDataSetColumnsMetadata(ctx, optional)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string][]DataSetColumnMetadata**](array.md)
+[**map[string][]DataSetColumn**](array.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## GetDataSetMetadata
 
-> DataSetMetadata GetDataSetMetadata(ctx, dataId)
+> DataSet GetDataSetMetadata(ctx, dataId)
 
 Gets dataset metadata object with given data set ID
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetMetadata**](DataSetMetadata.md)
+[**DataSet**](DataSet.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ## GetDataSetsMetadata
 
-> map[string]DataSetMetadata GetDataSetsMetadata(ctx, optional)
+> map[string]DataSet GetDataSetsMetadata(ctx, optional)
 
 Gets the dataset metadata objects given data set ids the caller has READ permissions on
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]DataSetMetadata**](DataSetMetadata.md)
+[**map[string]DataSet**](DataSet.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ## GetOrganizationDataSetsMetadata
 
-> map[string]DataSetMetadata GetOrganizationDataSetsMetadata(ctx, organizationId)
+> map[string]DataSet GetOrganizationDataSetsMetadata(ctx, organizationId)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]DataSetMetadata**](DataSetMetadata.md)
+[**map[string]DataSet**](DataSet.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **dataMetadata** | [**optional.Interface of DataMetadata**](DataMetadata.md)|  | 
+ **securableObjectMetadataUpdate** | [**optional.Interface of SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | 
 
 ### Return type
 
@@ -261,7 +261,7 @@ Optional parameters are passed through a pointer to a UpdateDataSetMetadataOpts 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **dataMetadata** | [**optional.Interface of DataMetadata**](DataMetadata.md)|  | 
+ **securableObjectMetadataUpdate** | [**optional.Interface of SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | 
 
 ### Return type
 

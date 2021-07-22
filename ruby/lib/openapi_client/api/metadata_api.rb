@@ -23,7 +23,7 @@ module OpenapiClient
     # @param data_id [String] 
     # @param column_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [DataSetColumnMetadata]
+    # @return [DataSetColumn]
     def get_data_set_column_metadata(data_id, column_id, opts = {})
       data, _status_code, _headers = get_data_set_column_metadata_with_http_info(data_id, column_id, opts)
       data
@@ -33,7 +33,7 @@ module OpenapiClient
     # @param data_id [String] 
     # @param column_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(DataSetColumnMetadata, Integer, Hash)>] DataSetColumnMetadata data, response status code and response headers
+    # @return [Array<(DataSetColumn, Integer, Hash)>] DataSetColumn data, response status code and response headers
     def get_data_set_column_metadata_with_http_info(data_id, column_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetadataApi.get_data_set_column_metadata ...'
@@ -64,7 +64,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'DataSetColumnMetadata' 
+      return_type = opts[:return_type] || 'DataSetColumn' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
@@ -88,7 +88,7 @@ module OpenapiClient
     # Gets all data set column metadata objects that caller has READ on that belong to given data set ids
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :request_body 
-    # @return [Hash<String, Array<DataSetColumnMetadata>>]
+    # @return [Hash<String, Array<DataSetColumn>>]
     def get_data_set_columns_metadata(opts = {})
       data, _status_code, _headers = get_data_set_columns_metadata_with_http_info(opts)
       data
@@ -97,7 +97,7 @@ module OpenapiClient
     # Gets all data set column metadata objects that caller has READ on that belong to given data set ids
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :request_body 
-    # @return [Array<(Hash<String, Array<DataSetColumnMetadata>>, Integer, Hash)>] Hash<String, Array<DataSetColumnMetadata>> data, response status code and response headers
+    # @return [Array<(Hash<String, Array<DataSetColumn>>, Integer, Hash)>] Hash<String, Array<DataSetColumn>> data, response status code and response headers
     def get_data_set_columns_metadata_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetadataApi.get_data_set_columns_metadata ...'
@@ -122,7 +122,7 @@ module OpenapiClient
       post_body = opts[:body] || @api_client.object_to_http_body(opts[:'request_body']) 
 
       # return_type
-      return_type = opts[:return_type] || 'Hash<String, Array<DataSetColumnMetadata>>' 
+      return_type = opts[:return_type] || 'Hash<String, Array<DataSetColumn>>' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
@@ -146,7 +146,7 @@ module OpenapiClient
     # Gets dataset metadata object with given data set ID
     # @param data_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [DataSetMetadata]
+    # @return [DataSet]
     def get_data_set_metadata(data_id, opts = {})
       data, _status_code, _headers = get_data_set_metadata_with_http_info(data_id, opts)
       data
@@ -155,7 +155,7 @@ module OpenapiClient
     # Gets dataset metadata object with given data set ID
     # @param data_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(DataSetMetadata, Integer, Hash)>] DataSetMetadata data, response status code and response headers
+    # @return [Array<(DataSet, Integer, Hash)>] DataSet data, response status code and response headers
     def get_data_set_metadata_with_http_info(data_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetadataApi.get_data_set_metadata ...'
@@ -182,7 +182,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'DataSetMetadata' 
+      return_type = opts[:return_type] || 'DataSet' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
@@ -206,7 +206,7 @@ module OpenapiClient
     # Gets the dataset metadata objects given data set ids the caller has READ permissions on
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :request_body 
-    # @return [Hash<String, DataSetMetadata>]
+    # @return [Hash<String, DataSet>]
     def get_data_sets_metadata(opts = {})
       data, _status_code, _headers = get_data_sets_metadata_with_http_info(opts)
       data
@@ -215,7 +215,7 @@ module OpenapiClient
     # Gets the dataset metadata objects given data set ids the caller has READ permissions on
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :request_body 
-    # @return [Array<(Hash<String, DataSetMetadata>, Integer, Hash)>] Hash<String, DataSetMetadata> data, response status code and response headers
+    # @return [Array<(Hash<String, DataSet>, Integer, Hash)>] Hash<String, DataSet> data, response status code and response headers
     def get_data_sets_metadata_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetadataApi.get_data_sets_metadata ...'
@@ -240,7 +240,7 @@ module OpenapiClient
       post_body = opts[:body] || @api_client.object_to_http_body(opts[:'request_body']) 
 
       # return_type
-      return_type = opts[:return_type] || 'Hash<String, DataSetMetadata>' 
+      return_type = opts[:return_type] || 'Hash<String, DataSet>' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
@@ -264,7 +264,7 @@ module OpenapiClient
     # Gets all data set column metadata objects that caller has READ on that belong to given data set ids
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, DataSetMetadata>]
+    # @return [Hash<String, DataSet>]
     def get_organization_data_sets_metadata(organization_id, opts = {})
       data, _status_code, _headers = get_organization_data_sets_metadata_with_http_info(organization_id, opts)
       data
@@ -273,7 +273,7 @@ module OpenapiClient
     # Gets all data set column metadata objects that caller has READ on that belong to given data set ids
     # @param organization_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, DataSetMetadata>, Integer, Hash)>] Hash<String, DataSetMetadata> data, response status code and response headers
+    # @return [Array<(Hash<String, DataSet>, Integer, Hash)>] Hash<String, DataSet> data, response status code and response headers
     def get_organization_data_sets_metadata_with_http_info(organization_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MetadataApi.get_organization_data_sets_metadata ...'
@@ -300,7 +300,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'Hash<String, DataSetMetadata>' 
+      return_type = opts[:return_type] || 'Hash<String, DataSet>' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['http_auth', 'openlattice_auth']
@@ -325,7 +325,7 @@ module OpenapiClient
     # @param data_id [String] 
     # @param column_id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [DataMetadata] :data_metadata 
+    # @option opts [SecurableObjectMetadataUpdate] :securable_object_metadata_update 
     # @return [nil]
     def update_data_set_column_metadata(data_id, column_id, opts = {})
       update_data_set_column_metadata_with_http_info(data_id, column_id, opts)
@@ -336,7 +336,7 @@ module OpenapiClient
     # @param data_id [String] 
     # @param column_id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [DataMetadata] :data_metadata 
+    # @option opts [SecurableObjectMetadataUpdate] :securable_object_metadata_update 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_data_set_column_metadata_with_http_info(data_id, column_id, opts = {})
       if @api_client.config.debugging
@@ -365,7 +365,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'data_metadata']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'securable_object_metadata_update']) 
 
       # return_type
       return_type = opts[:return_type] 
@@ -392,7 +392,7 @@ module OpenapiClient
     # Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
     # @param data_id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [DataMetadata] :data_metadata 
+    # @option opts [SecurableObjectMetadataUpdate] :securable_object_metadata_update 
     # @return [nil]
     def update_data_set_metadata(data_id, opts = {})
       update_data_set_metadata_with_http_info(data_id, opts)
@@ -402,7 +402,7 @@ module OpenapiClient
     # Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
     # @param data_id [String] 
     # @param [Hash] opts the optional parameters
-    # @option opts [DataMetadata] :data_metadata 
+    # @option opts [SecurableObjectMetadataUpdate] :securable_object_metadata_update 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def update_data_set_metadata_with_http_info(data_id, opts = {})
       if @api_client.config.debugging
@@ -427,7 +427,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'data_metadata']) 
+      post_body = opts[:body] || @api_client.object_to_http_body(opts[:'securable_object_metadata_update']) 
 
       # return_type
       return_type = opts[:return_type] 

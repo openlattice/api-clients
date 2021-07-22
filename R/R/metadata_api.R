@@ -20,12 +20,12 @@
 #' \itemize{
 #' \item \emph{ @param } data_id \link{character}
 #' \item \emph{ @param } column_id \link{character}
-#' \item \emph{ @returnType } \link{DataSetColumnMetadata} \cr
+#' \item \emph{ @returnType } \link{DataSetColumn} \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : DataSetColumnMetadata 
+#' \item return type : DataSetColumn 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -42,7 +42,7 @@
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : list(array[DataSetColumnMetadata]) 
+#' \item return type : list(array[DataSetColumn]) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -54,12 +54,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } data_id \link{character}
-#' \item \emph{ @returnType } \link{DataSetMetadata} \cr
+#' \item \emph{ @returnType } \link{DataSet} \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : DataSetMetadata 
+#' \item return type : DataSet 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -71,12 +71,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } request_body list( character )
-#' \item \emph{ @returnType } named list( \link{DataSetMetadata} ) \cr
+#' \item \emph{ @returnType } named list( \link{DataSet} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : list(DataSetMetadata) 
+#' \item return type : list(DataSet) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -88,12 +88,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } organization_id \link{character}
-#' \item \emph{ @returnType } named list( \link{DataSetMetadata} ) \cr
+#' \item \emph{ @returnType } named list( \link{DataSet} ) \cr
 #'
 #'
 #' \item status code : 200 | Success
 #'
-#' \item return type : list(DataSetMetadata) 
+#' \item return type : list(DataSet) 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -106,7 +106,7 @@
 #' \itemize{
 #' \item \emph{ @param } data_id \link{character}
 #' \item \emph{ @param } column_id \link{character}
-#' \item \emph{ @param } data_metadata \link{DataMetadata}
+#' \item \emph{ @param } securable_object_metadata_update \link{SecurableObjectMetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -123,7 +123,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } data_id \link{character}
-#' \item \emph{ @param } data_metadata \link{DataMetadata}
+#' \item \emph{ @param } securable_object_metadata_update \link{SecurableObjectMetadataUpdate}
 #'
 #'
 #' \item status code : 200 | Success
@@ -246,7 +246,7 @@
 #' library(openlattice)
 #' var.data_id <- 'data_id_example' # character | 
 #' var.column_id <- 'column_id_example' # character | 
-#' var.data_metadata <- DataMetadata$new() # DataMetadata | 
+#' var.securable_object_metadata_update <- SecurableObjectMetadataUpdate$new() # SecurableObjectMetadataUpdate | 
 #'
 #' #Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
 #' api.instance <- MetadataApi$new()
@@ -260,14 +260,14 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_data_set_column_metadata(var.data_id, var.column_id, data_metadata=var.data_metadata)
+#' result <- api.instance$update_data_set_column_metadata(var.data_id, var.column_id, securable_object_metadata_update=var.securable_object_metadata_update)
 #'
 #'
 #' ####################  update_data_set_metadata  ####################
 #'
 #' library(openlattice)
 #' var.data_id <- 'data_id_example' # character | 
-#' var.data_metadata <- DataMetadata$new() # DataMetadata | 
+#' var.securable_object_metadata_update <- SecurableObjectMetadataUpdate$new() # SecurableObjectMetadataUpdate | 
 #'
 #' #Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 #' api.instance <- MetadataApi$new()
@@ -281,7 +281,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$update_data_set_metadata(var.data_id, data_metadata=var.data_metadata)
+#' result <- api.instance$update_data_set_metadata(var.data_id, securable_object_metadata_update=var.securable_object_metadata_update)
 #'
 #'
 #' }
@@ -350,7 +350,7 @@ MetadataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "DataSetColumnMetadata", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "DataSetColumn", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -415,7 +415,7 @@ MetadataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "list(array[DataSetColumnMetadata])", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(array[DataSetColumn])", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -471,7 +471,7 @@ MetadataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "DataSetMetadata", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "DataSet", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -536,7 +536,7 @@ MetadataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "list(DataSetMetadata)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(DataSet)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -592,7 +592,7 @@ MetadataApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "list(DataSetMetadata)", loadNamespace("openlattice")),
+          self$apiClient$deserialize(resp, "list(DataSet)", loadNamespace("openlattice")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -606,8 +606,8 @@ MetadataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_data_set_column_metadata = function(data_id, column_id, data_metadata=NULL, ...){
-      apiResponse <- self$update_data_set_column_metadataWithHttpInfo(data_id, column_id, data_metadata, ...)
+    update_data_set_column_metadata = function(data_id, column_id, securable_object_metadata_update=NULL, ...){
+      apiResponse <- self$update_data_set_column_metadataWithHttpInfo(data_id, column_id, securable_object_metadata_update, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -620,7 +620,7 @@ MetadataApi <- R6::R6Class(
       }
     },
 
-    update_data_set_column_metadataWithHttpInfo = function(data_id, column_id, data_metadata=NULL, ...){
+    update_data_set_column_metadataWithHttpInfo = function(data_id, column_id, securable_object_metadata_update=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -633,15 +633,15 @@ MetadataApi <- R6::R6Class(
         stop("Missing required parameter `column_id`.")
       }
 
-      if (!missing(`data_metadata`)) {
+      if (!missing(`securable_object_metadata_update`)) {
         body <- sprintf(
         '
           %s
         ',
-                  if ('toJSONString' %in% names(`data_metadata`)) {
-                  `data_metadata`$toJSONString()
+                  if ('toJSONString' %in% names(`securable_object_metadata_update`)) {
+                  `securable_object_metadata_update`$toJSONString()
                   } else {
-                    jsonlite::toJSON(`data_metadata`$toJSON(), auto_unbox=FALSE, digits = NA)
+                    jsonlite::toJSON(`securable_object_metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
         )
       } else {
@@ -679,8 +679,8 @@ MetadataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    update_data_set_metadata = function(data_id, data_metadata=NULL, ...){
-      apiResponse <- self$update_data_set_metadataWithHttpInfo(data_id, data_metadata, ...)
+    update_data_set_metadata = function(data_id, securable_object_metadata_update=NULL, ...){
+      apiResponse <- self$update_data_set_metadataWithHttpInfo(data_id, securable_object_metadata_update, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -693,7 +693,7 @@ MetadataApi <- R6::R6Class(
       }
     },
 
-    update_data_set_metadataWithHttpInfo = function(data_id, data_metadata=NULL, ...){
+    update_data_set_metadataWithHttpInfo = function(data_id, securable_object_metadata_update=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -702,15 +702,15 @@ MetadataApi <- R6::R6Class(
         stop("Missing required parameter `data_id`.")
       }
 
-      if (!missing(`data_metadata`)) {
+      if (!missing(`securable_object_metadata_update`)) {
         body <- sprintf(
         '
           %s
         ',
-                  if ('toJSONString' %in% names(`data_metadata`)) {
-                  `data_metadata`$toJSONString()
+                  if ('toJSONString' %in% names(`securable_object_metadata_update`)) {
+                  `securable_object_metadata_update`$toJSONString()
                   } else {
-                    jsonlite::toJSON(`data_metadata`$toJSON(), auto_unbox=FALSE, digits = NA)
+                    jsonlite::toJSON(`securable_object_metadata_update`$toJSON(), auto_unbox=FALSE, digits = NA)
                   }
         )
       } else {

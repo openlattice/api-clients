@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## getDataSetColumnMetadata
 
-> DataSetColumnMetadata getDataSetColumnMetadata(dataId, columnId)
+> DataSetColumn getDataSetColumnMetadata(dataId, columnId)
 
 Gets the dataset column metadata objects using data ID and column ID
 
@@ -30,7 +30,7 @@ MetadataApi apiInstance = new MetadataApi();
 UUID dataId = null; // UUID | 
 UUID columnId = null; // UUID | 
 try {
-    DataSetColumnMetadata result = apiInstance.getDataSetColumnMetadata(dataId, columnId);
+    DataSetColumn result = apiInstance.getDataSetColumnMetadata(dataId, columnId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetadataApi#getDataSetColumnMetadata");
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetColumnMetadata**](DataSetColumnMetadata.md)
+[**DataSetColumn**](DataSetColumn.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ## getDataSetColumnsMetadata
 
-> Map&lt;String, List&lt;DataSetColumnMetadata&gt;&gt; getDataSetColumnsMetadata(requestBody)
+> Map&lt;String, List&lt;DataSetColumn&gt;&gt; getDataSetColumnsMetadata(requestBody)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -75,7 +75,7 @@ Gets all data set column metadata objects that caller has READ on that belong to
 MetadataApi apiInstance = new MetadataApi();
 List<String> requestBody = Arrays.asList("requestBody_example"); // List<String> | 
 try {
-    Map<String, List<DataSetColumnMetadata>> result = apiInstance.getDataSetColumnsMetadata(requestBody);
+    Map<String, List<DataSetColumn>> result = apiInstance.getDataSetColumnsMetadata(requestBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetadataApi#getDataSetColumnsMetadata");
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map&lt;String, List&lt;DataSetColumnMetadata&gt;&gt;**](List.md)
+[**Map&lt;String, List&lt;DataSetColumn&gt;&gt;**](List.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ## getDataSetMetadata
 
-> DataSetMetadata getDataSetMetadata(dataId)
+> DataSet getDataSetMetadata(dataId)
 
 Gets dataset metadata object with given data set ID
 
@@ -119,7 +119,7 @@ Gets dataset metadata object with given data set ID
 MetadataApi apiInstance = new MetadataApi();
 UUID dataId = null; // UUID | 
 try {
-    DataSetMetadata result = apiInstance.getDataSetMetadata(dataId);
+    DataSet result = apiInstance.getDataSetMetadata(dataId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetadataApi#getDataSetMetadata");
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetMetadata**](DataSetMetadata.md)
+[**DataSet**](DataSet.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ## getDataSetsMetadata
 
-> Map&lt;String, DataSetMetadata&gt; getDataSetsMetadata(requestBody)
+> Map&lt;String, DataSet&gt; getDataSetsMetadata(requestBody)
 
 Gets the dataset metadata objects given data set ids the caller has READ permissions on
 
@@ -163,7 +163,7 @@ Gets the dataset metadata objects given data set ids the caller has READ permiss
 MetadataApi apiInstance = new MetadataApi();
 List<String> requestBody = Arrays.asList("requestBody_example"); // List<String> | 
 try {
-    Map<String, DataSetMetadata> result = apiInstance.getDataSetsMetadata(requestBody);
+    Map<String, DataSet> result = apiInstance.getDataSetsMetadata(requestBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetadataApi#getDataSetsMetadata");
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map&lt;String, DataSetMetadata&gt;**](DataSetMetadata.md)
+[**Map&lt;String, DataSet&gt;**](DataSet.md)
 
 ### Authorization
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ## getOrganizationDataSetsMetadata
 
-> Map&lt;String, DataSetMetadata&gt; getOrganizationDataSetsMetadata(organizationId)
+> Map&lt;String, DataSet&gt; getOrganizationDataSetsMetadata(organizationId)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -207,7 +207,7 @@ Gets all data set column metadata objects that caller has READ on that belong to
 MetadataApi apiInstance = new MetadataApi();
 UUID organizationId = null; // UUID | 
 try {
-    Map<String, DataSetMetadata> result = apiInstance.getOrganizationDataSetsMetadata(organizationId);
+    Map<String, DataSet> result = apiInstance.getOrganizationDataSetsMetadata(organizationId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetadataApi#getOrganizationDataSetsMetadata");
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map&lt;String, DataSetMetadata&gt;**](DataSetMetadata.md)
+[**Map&lt;String, DataSet&gt;**](DataSet.md)
 
 ### Authorization
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ## updateDataSetColumnMetadata
 
-> updateDataSetColumnMetadata(dataId, columnId, dataMetadata)
+> updateDataSetColumnMetadata(dataId, columnId, securableObjectMetadataUpdate)
 
 Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
 
@@ -251,9 +251,9 @@ Applies the given metadata updates to the data set column given dataset and colu
 MetadataApi apiInstance = new MetadataApi();
 UUID dataId = null; // UUID | 
 UUID columnId = null; // UUID | 
-DataMetadata dataMetadata = new DataMetadata(); // DataMetadata | 
+SecurableObjectMetadataUpdate securableObjectMetadataUpdate = new SecurableObjectMetadataUpdate(); // SecurableObjectMetadataUpdate | 
 try {
-    apiInstance.updateDataSetColumnMetadata(dataId, columnId, dataMetadata);
+    apiInstance.updateDataSetColumnMetadata(dataId, columnId, securableObjectMetadataUpdate);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetadataApi#updateDataSetColumnMetadata");
     e.printStackTrace();
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dataId** | [**UUID**](.md)|  | [default to null]
  **columnId** | [**UUID**](.md)|  | [default to null]
- **dataMetadata** | [**DataMetadata**](DataMetadata.md)|  | [optional]
+ **securableObjectMetadataUpdate** | [**SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | [optional]
 
 ### Return type
 
@@ -285,7 +285,7 @@ null (empty response body)
 
 ## updateDataSetMetadata
 
-> updateDataSetMetadata(dataId, dataMetadata)
+> updateDataSetMetadata(dataId, securableObjectMetadataUpdate)
 
 Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 
@@ -297,9 +297,9 @@ Applies the given metadata updates to the data set given data set id. Must be OW
 
 MetadataApi apiInstance = new MetadataApi();
 UUID dataId = null; // UUID | 
-DataMetadata dataMetadata = new DataMetadata(); // DataMetadata | 
+SecurableObjectMetadataUpdate securableObjectMetadataUpdate = new SecurableObjectMetadataUpdate(); // SecurableObjectMetadataUpdate | 
 try {
-    apiInstance.updateDataSetMetadata(dataId, dataMetadata);
+    apiInstance.updateDataSetMetadata(dataId, securableObjectMetadataUpdate);
 } catch (ApiException e) {
     System.err.println("Exception when calling MetadataApi#updateDataSetMetadata");
     e.printStackTrace();
@@ -312,7 +312,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dataId** | [**UUID**](.md)|  | [default to null]
- **dataMetadata** | [**DataMetadata**](DataMetadata.md)|  | [optional]
+ **securableObjectMetadataUpdate** | [**SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | [optional]
 
 ### Return type
 

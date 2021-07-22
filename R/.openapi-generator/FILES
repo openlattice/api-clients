@@ -36,10 +36,9 @@ R/data_edge_key.R
 R/data_graph.R
 R/data_graph_ids.R
 R/data_integrations_api.R
-R/data_metadata.R
 R/data_search_result.R
-R/data_set_column_metadata.R
-R/data_set_metadata.R
+R/data_set.R
+R/data_set_column.R
 R/dataset_api.R
 R/ed_mdiff.R
 R/edm.R
@@ -105,6 +104,7 @@ R/search_details.R
 R/search_result.R
 R/search_result_hits.R
 R/search_term.R
+R/securable_object_metadata_update.R
 R/securable_principal.R
 R/shuttle_api.R
 R/sms_entity_set_information.R
@@ -141,10 +141,9 @@ docs/DataEdgeKey.md
 docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
-docs/DataMetadata.md
 docs/DataSearchResult.md
-docs/DataSetColumnMetadata.md
-docs/DataSetMetadata.md
+docs/DataSet.md
+docs/DataSetColumn.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -210,6 +209,7 @@ docs/SearchDetails.md
 docs/SearchResult.md
 docs/SearchResultHits.md
 docs/SearchTerm.md
+docs/SecurableObjectMetadataUpdate.md
 docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
@@ -247,10 +247,9 @@ tests/testthat/test_data_edge_key.R
 tests/testthat/test_data_graph.R
 tests/testthat/test_data_graph_ids.R
 tests/testthat/test_data_integrations_api.R
-tests/testthat/test_data_metadata.R
 tests/testthat/test_data_search_result.R
-tests/testthat/test_data_set_column_metadata.R
-tests/testthat/test_data_set_metadata.R
+tests/testthat/test_data_set.R
+tests/testthat/test_data_set_column.R
 tests/testthat/test_dataset_api.R
 tests/testthat/test_ed_mdiff.R
 tests/testthat/test_edm.R
@@ -316,6 +315,7 @@ tests/testthat/test_search_details.R
 tests/testthat/test_search_result.R
 tests/testthat/test_search_result_hits.R
 tests/testthat/test_search_term.R
+tests/testthat/test_securable_object_metadata_update.R
 tests/testthat/test_securable_principal.R
 tests/testthat/test_shuttle_api.R
 tests/testthat/test_sms_entity_set_information.R

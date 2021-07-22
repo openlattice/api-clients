@@ -37,10 +37,9 @@ import DataEdgeData from './model/DataEdgeData';
 import DataEdgeKey from './model/DataEdgeKey';
 import DataGraph from './model/DataGraph';
 import DataGraphIds from './model/DataGraphIds';
-import DataMetadata from './model/DataMetadata';
 import DataSearchResult from './model/DataSearchResult';
-import DataSetColumnMetadata from './model/DataSetColumnMetadata';
-import DataSetMetadata from './model/DataSetMetadata';
+import DataSet from './model/DataSet';
+import DataSetColumn from './model/DataSetColumn';
 import EDM from './model/EDM';
 import EDMdiff from './model/EDMdiff';
 import EdmRequest from './model/EdmRequest';
@@ -97,6 +96,7 @@ import SearchDetails from './model/SearchDetails';
 import SearchResult from './model/SearchResult';
 import SearchResultHits from './model/SearchResultHits';
 import SearchTerm from './model/SearchTerm';
+import SecurableObjectMetadataUpdate from './model/SecurableObjectMetadataUpdate';
 import SecurablePrincipal from './model/SecurablePrincipal';
 import SmsEntitySetInformation from './model/SmsEntitySetInformation';
 import SortDefinition from './model/SortDefinition';
@@ -302,28 +302,22 @@ export {
     DataGraphIds,
 
     /**
-     * The DataMetadata model constructor.
-     * @property {module:model/DataMetadata}
-     */
-    DataMetadata,
-
-    /**
      * The DataSearchResult model constructor.
      * @property {module:model/DataSearchResult}
      */
     DataSearchResult,
 
     /**
-     * The DataSetColumnMetadata model constructor.
-     * @property {module:model/DataSetColumnMetadata}
+     * The DataSet model constructor.
+     * @property {module:model/DataSet}
      */
-    DataSetColumnMetadata,
+    DataSet,
 
     /**
-     * The DataSetMetadata model constructor.
-     * @property {module:model/DataSetMetadata}
+     * The DataSetColumn model constructor.
+     * @property {module:model/DataSetColumn}
      */
-    DataSetMetadata,
+    DataSetColumn,
 
     /**
      * The EDM model constructor.
@@ -660,6 +654,12 @@ export {
      * @property {module:model/SearchTerm}
      */
     SearchTerm,
+
+    /**
+     * The SecurableObjectMetadataUpdate model constructor.
+     * @property {module:model/SecurableObjectMetadataUpdate}
+     */
+    SecurableObjectMetadataUpdate,
 
     /**
      * The SecurablePrincipal model constructor.

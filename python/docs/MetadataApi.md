@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **get_data_set_column_metadata**
-> DataSetColumnMetadata get_data_set_column_metadata(data_id, column_id)
+> DataSetColumn get_data_set_column_metadata(data_id, column_id)
 
 Gets the dataset column metadata objects using data ID and column ID
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetColumnMetadata**](DataSetColumnMetadata.md)
+[**DataSetColumn**](DataSetColumn.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_data_set_columns_metadata**
-> dict(str, list[DataSetColumnMetadata]) get_data_set_columns_metadata(request_body=request_body)
+> dict(str, list[DataSetColumn]) get_data_set_columns_metadata(request_body=request_body)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**dict(str, list[DataSetColumnMetadata])**
+**dict(str, list[DataSetColumn])**
 
 ### Authorization
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_data_set_metadata**
-> DataSetMetadata get_data_set_metadata(data_id)
+> DataSet get_data_set_metadata(data_id)
 
 Gets dataset metadata object with given data set ID
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetMetadata**](DataSetMetadata.md)
+[**DataSet**](DataSet.md)
 
 ### Authorization
 
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_data_sets_metadata**
-> dict(str, DataSetMetadata) get_data_sets_metadata(request_body=request_body)
+> dict(str, DataSet) get_data_sets_metadata(request_body=request_body)
 
 Gets the dataset metadata objects given data set ids the caller has READ permissions on
 
@@ -506,7 +506,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**dict(str, DataSetMetadata)**](DataSetMetadata.md)
+[**dict(str, DataSet)**](DataSet.md)
 
 ### Authorization
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_data_sets_metadata**
-> dict(str, DataSetMetadata) get_organization_data_sets_metadata(organization_id)
+> dict(str, DataSet) get_organization_data_sets_metadata(organization_id)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**dict(str, DataSetMetadata)**](DataSetMetadata.md)
+[**dict(str, DataSet)**](DataSet.md)
 
 ### Authorization
 
@@ -652,7 +652,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_data_set_column_metadata**
-> update_data_set_column_metadata(data_id, column_id, data_metadata=data_metadata)
+> update_data_set_column_metadata(data_id, column_id, securable_object_metadata_update=securable_object_metadata_update)
 
 Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
 
@@ -697,11 +697,11 @@ with openlattice.ApiClient(configuration) as api_client:
     api_instance = openlattice.MetadataApi(api_client)
     data_id = 'data_id_example' # str | 
 column_id = 'column_id_example' # str | 
-data_metadata = openlattice.DataMetadata() # DataMetadata |  (optional)
+securable_object_metadata_update = openlattice.SecurableObjectMetadataUpdate() # SecurableObjectMetadataUpdate |  (optional)
 
     try:
         # Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
-        api_instance.update_data_set_column_metadata(data_id, column_id, data_metadata=data_metadata)
+        api_instance.update_data_set_column_metadata(data_id, column_id, securable_object_metadata_update=securable_object_metadata_update)
     except ApiException as e:
         print("Exception when calling MetadataApi->update_data_set_column_metadata: %s\n" % e)
 ```
@@ -745,11 +745,11 @@ with openlattice.ApiClient(configuration) as api_client:
     api_instance = openlattice.MetadataApi(api_client)
     data_id = 'data_id_example' # str | 
 column_id = 'column_id_example' # str | 
-data_metadata = openlattice.DataMetadata() # DataMetadata |  (optional)
+securable_object_metadata_update = openlattice.SecurableObjectMetadataUpdate() # SecurableObjectMetadataUpdate |  (optional)
 
     try:
         # Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
-        api_instance.update_data_set_column_metadata(data_id, column_id, data_metadata=data_metadata)
+        api_instance.update_data_set_column_metadata(data_id, column_id, securable_object_metadata_update=securable_object_metadata_update)
     except ApiException as e:
         print("Exception when calling MetadataApi->update_data_set_column_metadata: %s\n" % e)
 ```
@@ -760,7 +760,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data_id** | [**str**](.md)|  | 
  **column_id** | [**str**](.md)|  | 
- **data_metadata** | [**DataMetadata**](DataMetadata.md)|  | [optional] 
+ **securable_object_metadata_update** | [**SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | [optional] 
 
 ### Return type
 
@@ -783,7 +783,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_data_set_metadata**
-> update_data_set_metadata(data_id, data_metadata=data_metadata)
+> update_data_set_metadata(data_id, securable_object_metadata_update=securable_object_metadata_update)
 
 Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 
@@ -827,11 +827,11 @@ with openlattice.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openlattice.MetadataApi(api_client)
     data_id = 'data_id_example' # str | 
-data_metadata = openlattice.DataMetadata() # DataMetadata |  (optional)
+securable_object_metadata_update = openlattice.SecurableObjectMetadataUpdate() # SecurableObjectMetadataUpdate |  (optional)
 
     try:
         # Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
-        api_instance.update_data_set_metadata(data_id, data_metadata=data_metadata)
+        api_instance.update_data_set_metadata(data_id, securable_object_metadata_update=securable_object_metadata_update)
     except ApiException as e:
         print("Exception when calling MetadataApi->update_data_set_metadata: %s\n" % e)
 ```
@@ -874,11 +874,11 @@ with openlattice.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openlattice.MetadataApi(api_client)
     data_id = 'data_id_example' # str | 
-data_metadata = openlattice.DataMetadata() # DataMetadata |  (optional)
+securable_object_metadata_update = openlattice.SecurableObjectMetadataUpdate() # SecurableObjectMetadataUpdate |  (optional)
 
     try:
         # Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
-        api_instance.update_data_set_metadata(data_id, data_metadata=data_metadata)
+        api_instance.update_data_set_metadata(data_id, securable_object_metadata_update=securable_object_metadata_update)
     except ApiException as e:
         print("Exception when calling MetadataApi->update_data_set_metadata: %s\n" % e)
 ```
@@ -888,7 +888,7 @@ data_metadata = openlattice.DataMetadata() # DataMetadata |  (optional)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data_id** | [**str**](.md)|  | 
- **data_metadata** | [**DataMetadata**](DataMetadata.md)|  | [optional] 
+ **securable_object_metadata_update** | [**SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | [optional] 
 
 ### Return type
 

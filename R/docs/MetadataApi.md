@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **get_data_set_column_metadata**
-> DataSetColumnMetadata get_data_set_column_metadata(data_id, column_id)
+> DataSetColumn get_data_set_column_metadata(data_id, column_id)
 
 Gets the dataset column metadata objects using data ID and column ID
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetColumnMetadata**](DataSetColumnMetadata.md)
+[**DataSetColumn**](DataSetColumn.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_data_set_columns_metadata**
-> list(array[DataSetColumnMetadata]) get_data_set_columns_metadata(request_body=var.request_body)
+> list(array[DataSetColumn]) get_data_set_columns_metadata(request_body=var.request_body)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(array[DataSetColumnMetadata])**](array.md)
+[**list(array[DataSetColumn])**](array.md)
 
 ### Authorization
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_data_set_metadata**
-> DataSetMetadata get_data_set_metadata(data_id)
+> DataSet get_data_set_metadata(data_id)
 
 Gets dataset metadata object with given data set ID
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataSetMetadata**](DataSetMetadata.md)
+[**DataSet**](DataSet.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_data_sets_metadata**
-> list(DataSetMetadata) get_data_sets_metadata(request_body=var.request_body)
+> list(DataSet) get_data_sets_metadata(request_body=var.request_body)
 
 Gets the dataset metadata objects given data set ids the caller has READ permissions on
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(DataSetMetadata)**](DataSetMetadata.md)
+[**list(DataSet)**](DataSet.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **get_organization_data_sets_metadata**
-> list(DataSetMetadata) get_organization_data_sets_metadata(organization_id)
+> list(DataSet) get_organization_data_sets_metadata(organization_id)
 
 Gets all data set column metadata objects that caller has READ on that belong to given data set ids
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list(DataSetMetadata)**](DataSetMetadata.md)
+[**list(DataSet)**](DataSet.md)
 
 ### Authorization
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 | **200** | Success |  -  |
 
 # **update_data_set_column_metadata**
-> update_data_set_column_metadata(data_id, column_id, data_metadata=var.data_metadata)
+> update_data_set_column_metadata(data_id, column_id, securable_object_metadata_update=var.securable_object_metadata_update)
 
 Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
 
@@ -256,7 +256,7 @@ library(openlattice)
 
 var.data_id <- 'data_id_example' # character | 
 var.column_id <- 'column_id_example' # character | 
-var.data_metadata <- DataMetadata$new("title_example", "description_example", list("contacts_example"), list("flags_example"), list("metadata_example")) # DataMetadata | 
+var.securable_object_metadata_update <- SecurableObjectMetadataUpdate$new("title_example", "description_example", list("contacts_example"), list("flags_example"), list("metadata_example")) # SecurableObjectMetadataUpdate | 
 
 #Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
 api.instance <- MetadataApi$new()
@@ -265,7 +265,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_data_set_column_metadata(var.data_id, var.column_id, data_metadata=var.data_metadata)
+api.instance$update_data_set_column_metadata(var.data_id, var.column_id, securable_object_metadata_update=var.securable_object_metadata_update)
 ```
 
 ### Parameters
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data_id** | [**character**](.md)|  | 
  **column_id** | [**character**](.md)|  | 
- **data_metadata** | [**DataMetadata**](DataMetadata.md)|  | [optional] 
+ **securable_object_metadata_update** | [**SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | [optional] 
 
 ### Return type
 
@@ -295,7 +295,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **update_data_set_metadata**
-> update_data_set_metadata(data_id, data_metadata=var.data_metadata)
+> update_data_set_metadata(data_id, securable_object_metadata_update=var.securable_object_metadata_update)
 
 Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 
@@ -304,7 +304,7 @@ Applies the given metadata updates to the data set given data set id. Must be OW
 library(openlattice)
 
 var.data_id <- 'data_id_example' # character | 
-var.data_metadata <- DataMetadata$new("title_example", "description_example", list("contacts_example"), list("flags_example"), list("metadata_example")) # DataMetadata | 
+var.securable_object_metadata_update <- SecurableObjectMetadataUpdate$new("title_example", "description_example", list("contacts_example"), list("flags_example"), list("metadata_example")) # SecurableObjectMetadataUpdate | 
 
 #Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 api.instance <- MetadataApi$new()
@@ -313,7 +313,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$update_data_set_metadata(var.data_id, data_metadata=var.data_metadata)
+api.instance$update_data_set_metadata(var.data_id, securable_object_metadata_update=var.securable_object_metadata_update)
 ```
 
 ### Parameters
@@ -321,7 +321,7 @@ api.instance$update_data_set_metadata(var.data_id, data_metadata=var.data_metada
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data_id** | [**character**](.md)|  | 
- **data_metadata** | [**DataMetadata**](DataMetadata.md)|  | [optional] 
+ **securable_object_metadata_update** | [**SecurableObjectMetadataUpdate**](SecurableObjectMetadataUpdate.md)|  | [optional] 
 
 ### Return type
 

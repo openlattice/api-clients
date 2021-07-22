@@ -5606,7 +5606,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSetMetadata'
+                $ref: '#/components/schemas/DataSet'
           description: Success
       security:
       - openlattice_auth: []
@@ -5630,7 +5630,7 @@ paths:
             application/json:
               schema:
                 additionalProperties:
-                  $ref: '#/components/schemas/DataSetMetadata'
+                  $ref: '#/components/schemas/DataSet'
                 type: object
           description: Success
       security:
@@ -5665,7 +5665,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DataSetColumnMetadata'
+                $ref: '#/components/schemas/DataSetColumn'
           description: Success
       security:
       - openlattice_auth: []
@@ -5690,7 +5690,7 @@ paths:
               schema:
                 additionalProperties:
                   items:
-                    $ref: '#/components/schemas/DataSetColumnMetadata'
+                    $ref: '#/components/schemas/DataSetColumn'
                   type: array
                 type: object
           description: Success
@@ -5719,7 +5719,7 @@ paths:
             application/json:
               schema:
                 additionalProperties:
-                  $ref: '#/components/schemas/DataSetMetadata'
+                  $ref: '#/components/schemas/DataSet'
                 type: object
           description: Success
       security:
@@ -5745,7 +5745,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataMetadata'
+              $ref: '#/components/schemas/SecurableObjectMetadataUpdate'
       responses:
         "200":
           description: Success
@@ -5780,7 +5780,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DataMetadata'
+              $ref: '#/components/schemas/SecurableObjectMetadataUpdate'
       responses:
         "200":
           description: Success
@@ -9472,7 +9472,7 @@ components:
             $ref: '#/components/schemas/Filter'
           type: object
       type: object
-    DataMetadata:
+    SecurableObjectMetadataUpdate:
       example:
         metadata:
         - metadata
@@ -9503,7 +9503,7 @@ components:
             type: string
           type: array
       type: object
-    DataSetMetadata:
+    DataSet:
       example:
         organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         metadata:
@@ -9539,9 +9539,9 @@ components:
           - ExternalTable
           type: string
         metadata:
-          $ref: '#/components/schemas/DataMetadata'
+          $ref: '#/components/schemas/SecurableObjectMetadataUpdate'
       type: object
-    DataSetColumnMetadata:
+    DataSetColumn:
       example:
         organizationId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         metadata:
@@ -9578,7 +9578,7 @@ components:
         dataType:
           type: string
         metadata:
-          $ref: '#/components/schemas/DataMetadata'
+          $ref: '#/components/schemas/SecurableObjectMetadataUpdate'
         aclKey:
           items:
             format: uuid

@@ -32,10 +32,9 @@ docs/DataEdgeKey.md
 docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
-docs/DataMetadata.md
 docs/DataSearchResult.md
-docs/DataSetColumnMetadata.md
-docs/DataSetMetadata.md
+docs/DataSet.md
+docs/DataSetColumn.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -101,6 +100,7 @@ docs/SearchDetails.md
 docs/SearchResult.md
 docs/SearchResultHits.md
 docs/SearchTerm.md
+docs/SecurableObjectMetadataUpdate.md
 docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
@@ -151,10 +151,9 @@ src/model/DataEdgeData.js
 src/model/DataEdgeKey.js
 src/model/DataGraph.js
 src/model/DataGraphIds.js
-src/model/DataMetadata.js
 src/model/DataSearchResult.js
-src/model/DataSetColumnMetadata.js
-src/model/DataSetMetadata.js
+src/model/DataSet.js
+src/model/DataSetColumn.js
 src/model/EDM.js
 src/model/EDMdiff.js
 src/model/EdmRequest.js
@@ -211,6 +210,7 @@ src/model/SearchDetails.js
 src/model/SearchResult.js
 src/model/SearchResultHits.js
 src/model/SearchTerm.js
+src/model/SecurableObjectMetadataUpdate.js
 src/model/SecurablePrincipal.js
 src/model/SmsEntitySetInformation.js
 src/model/SortDefinition.js
@@ -255,10 +255,9 @@ test/model/DataEdgeData.spec.js
 test/model/DataEdgeKey.spec.js
 test/model/DataGraph.spec.js
 test/model/DataGraphIds.spec.js
-test/model/DataMetadata.spec.js
 test/model/DataSearchResult.spec.js
-test/model/DataSetColumnMetadata.spec.js
-test/model/DataSetMetadata.spec.js
+test/model/DataSet.spec.js
+test/model/DataSetColumn.spec.js
 test/model/EDM.spec.js
 test/model/EDMdiff.spec.js
 test/model/EdmRequest.spec.js
@@ -315,6 +314,7 @@ test/model/SearchDetails.spec.js
 test/model/SearchResult.spec.js
 test/model/SearchResultHits.spec.js
 test/model/SearchTerm.spec.js
+test/model/SecurableObjectMetadataUpdate.spec.js
 test/model/SecurablePrincipal.spec.js
 test/model/SmsEntitySetInformation.spec.js
 test/model/SortDefinition.spec.js
