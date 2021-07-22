@@ -32,7 +32,10 @@ docs/DataEdgeKey.md
 docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
+docs/DataMetadata.md
 docs/DataSearchResult.md
+docs/DataSetColumnMetadata.md
+docs/DataSetMetadata.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -72,6 +75,7 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
+docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md
@@ -123,6 +127,7 @@ src/main/java/org/openapitools/client/api/DatasetApi.java
 src/main/java/org/openapitools/client/api/EdmApi.java
 src/main/java/org/openapitools/client/api/EntitySetsApi.java
 src/main/java/org/openapitools/client/api/LinkingApi.java
+src/main/java/org/openapitools/client/api/MetadataApi.java
 src/main/java/org/openapitools/client/api/OrganizationsApi.java
 src/main/java/org/openapitools/client/api/PermissionsApi.java
 src/main/java/org/openapitools/client/api/PrincipalApi.java
@@ -155,7 +160,10 @@ src/main/java/org/openapitools/client/model/DataEdgeData.java
 src/main/java/org/openapitools/client/model/DataEdgeKey.java
 src/main/java/org/openapitools/client/model/DataGraph.java
 src/main/java/org/openapitools/client/model/DataGraphIds.java
+src/main/java/org/openapitools/client/model/DataMetadata.java
 src/main/java/org/openapitools/client/model/DataSearchResult.java
+src/main/java/org/openapitools/client/model/DataSetColumnMetadata.java
+src/main/java/org/openapitools/client/model/DataSetMetadata.java
 src/main/java/org/openapitools/client/model/EDM.java
 src/main/java/org/openapitools/client/model/EDMdiff.java
 src/main/java/org/openapitools/client/model/EdmRequest.java

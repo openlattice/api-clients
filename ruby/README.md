@@ -216,6 +216,13 @@ Class | Method | HTTP request | Description
 *OpenapiClient::LinkingApi* | [**get_all_linking_feedback_with_features**](docs/LinkingApi.md#get_all_linking_feedback_with_features) | **GET** /linker/linkingfeedback/features/all | Returns all feedback submitted walong with the features of pairwise entities
 *OpenapiClient::LinkingApi* | [**get_linking_feedback_with_features**](docs/LinkingApi.md#get_linking_feedback_with_features) | **POST** /linker/linkingfeedback/features | Returns the feedback on the given entity pair along with their features
 *OpenapiClient::LinkingApi* | [**get_linking_feedbacks_on_entity**](docs/LinkingApi.md#get_linking_feedbacks_on_entity) | **POST** /linker/linkingfeedback/entity | Returns positive/negative/all linking feedbacks on the given entity.
+*OpenapiClient::MetadataApi* | [**get_data_set_column_metadata**](docs/MetadataApi.md#get_data_set_column_metadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
+*OpenapiClient::MetadataApi* | [**get_data_set_columns_metadata**](docs/MetadataApi.md#get_data_set_columns_metadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*OpenapiClient::MetadataApi* | [**get_data_set_metadata**](docs/MetadataApi.md#get_data_set_metadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
+*OpenapiClient::MetadataApi* | [**get_data_sets_metadata**](docs/MetadataApi.md#get_data_sets_metadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
+*OpenapiClient::MetadataApi* | [**get_organization_data_sets_metadata**](docs/MetadataApi.md#get_organization_data_sets_metadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*OpenapiClient::MetadataApi* | [**update_data_set_column_metadata**](docs/MetadataApi.md#update_data_set_column_metadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
+*OpenapiClient::MetadataApi* | [**update_data_set_metadata**](docs/MetadataApi.md#update_data_set_metadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 *OpenapiClient::OrganizationsApi* | [**add_member**](docs/OrganizationsApi.md#add_member) | **PUT** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
 *OpenapiClient::OrganizationsApi* | [**add_role_to_user**](docs/OrganizationsApi.md#add_role_to_user) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
 *OpenapiClient::OrganizationsApi* | [**assemble_entity_sets**](docs/OrganizationsApi.md#assemble_entity_sets) | **POST** /datastore/organizations/{organizationId}/entity-sets/assemble | Materializes entity sets into the organization database.
@@ -311,7 +318,10 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::DataEdgeKey](docs/DataEdgeKey.md)
  - [OpenapiClient::DataGraph](docs/DataGraph.md)
  - [OpenapiClient::DataGraphIds](docs/DataGraphIds.md)
+ - [OpenapiClient::DataMetadata](docs/DataMetadata.md)
  - [OpenapiClient::DataSearchResult](docs/DataSearchResult.md)
+ - [OpenapiClient::DataSetColumnMetadata](docs/DataSetColumnMetadata.md)
+ - [OpenapiClient::DataSetMetadata](docs/DataSetMetadata.md)
  - [OpenapiClient::EDM](docs/EDM.md)
  - [OpenapiClient::EDMdiff](docs/EDMdiff.md)
  - [OpenapiClient::EdmRequest](docs/EdmRequest.md)

@@ -13,6 +13,7 @@ from openlattice.api.dataset_api import DatasetApi
 from openlattice.api.edm_api import EdmApi
 from openlattice.api.entity_sets_api import EntitySetsApi
 from openlattice.api.linking_api import LinkingApi
+from openlattice.api.metadata_api import MetadataApi
 from openlattice.api.organizations_api import OrganizationsApi
 from openlattice.api.permissions_api import PermissionsApi
 from openlattice.api.principal_api import PrincipalApi

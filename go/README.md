@@ -163,6 +163,13 @@ Class | Method | HTTP request | Description
 *LinkingApi* | [**GetAllLinkingFeedbackWithFeatures**](docs/LinkingApi.md#getalllinkingfeedbackwithfeatures) | **Get** /linker/linkingfeedback/features/all | Returns all feedback submitted walong with the features of pairwise entities
 *LinkingApi* | [**GetLinkingFeedbackWithFeatures**](docs/LinkingApi.md#getlinkingfeedbackwithfeatures) | **Post** /linker/linkingfeedback/features | Returns the feedback on the given entity pair along with their features
 *LinkingApi* | [**GetLinkingFeedbacksOnEntity**](docs/LinkingApi.md#getlinkingfeedbacksonentity) | **Post** /linker/linkingfeedback/entity | Returns positive/negative/all linking feedbacks on the given entity.
+*MetadataApi* | [**GetDataSetColumnMetadata**](docs/MetadataApi.md#getdatasetcolumnmetadata) | **Get** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
+*MetadataApi* | [**GetDataSetColumnsMetadata**](docs/MetadataApi.md#getdatasetcolumnsmetadata) | **Post** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*MetadataApi* | [**GetDataSetMetadata**](docs/MetadataApi.md#getdatasetmetadata) | **Get** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
+*MetadataApi* | [**GetDataSetsMetadata**](docs/MetadataApi.md#getdatasetsmetadata) | **Post** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
+*MetadataApi* | [**GetOrganizationDataSetsMetadata**](docs/MetadataApi.md#getorganizationdatasetsmetadata) | **Get** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*MetadataApi* | [**UpdateDataSetColumnMetadata**](docs/MetadataApi.md#updatedatasetcolumnmetadata) | **Patch** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
+*MetadataApi* | [**UpdateDataSetMetadata**](docs/MetadataApi.md#updatedatasetmetadata) | **Patch** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 *OrganizationsApi* | [**AddMember**](docs/OrganizationsApi.md#addmember) | **Put** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
 *OrganizationsApi* | [**AddRoleToUser**](docs/OrganizationsApi.md#addroletouser) | **Put** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
 *OrganizationsApi* | [**AssembleEntitySets**](docs/OrganizationsApi.md#assembleentitysets) | **Post** /datastore/organizations/{organizationId}/entity-sets/assemble | Materializes entity sets into the organization database.
@@ -258,7 +265,10 @@ Class | Method | HTTP request | Description
  - [DataEdgeKey](docs/DataEdgeKey.md)
  - [DataGraph](docs/DataGraph.md)
  - [DataGraphIds](docs/DataGraphIds.md)
+ - [DataMetadata](docs/DataMetadata.md)
  - [DataSearchResult](docs/DataSearchResult.md)
+ - [DataSetColumnMetadata](docs/DataSetColumnMetadata.md)
+ - [DataSetMetadata](docs/DataSetMetadata.md)
  - [EdMdiff](docs/EdMdiff.md)
  - [Edm](docs/Edm.md)
  - [EdmRequest](docs/EdmRequest.md)

@@ -251,7 +251,7 @@ null (empty response body)
 
 ## deleteEntities
 
-> Integer deleteEntities(entitySetId, type, UUID)
+> Integer deleteEntities(entitySetId, type, UUID, block)
 
 Deletes multiple entities from an entity set.
 
@@ -265,8 +265,9 @@ DataApi apiInstance = new DataApi();
 UUID entitySetId = null; // UUID | 
 String type = null; // String | 
 List<UUID> UUID = Arrays.asList(new UUID()); // List<UUID> | 
+Boolean block = null; // Boolean | 
 try {
-    Integer result = apiInstance.deleteEntities(entitySetId, type, UUID);
+    Integer result = apiInstance.deleteEntities(entitySetId, type, UUID, block);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DataApi#deleteEntities");
@@ -282,6 +283,7 @@ Name | Type | Description  | Notes
  **entitySetId** | [**UUID**](.md)|  | [default to null]
  **type** | **String**|  | [default to null] [enum: Soft, Hard]
  **UUID** | [**List&lt;UUID&gt;**](UUID.md)|  |
+ **block** | **Boolean**|  | [optional] [default to null]
 
 ### Return type
 
@@ -347,7 +349,7 @@ Name | Type | Description  | Notes
 
 ## deleteEntity
 
-> deleteEntity(entitySetId, entityKeyId, type)
+> deleteEntity(entitySetId, entityKeyId, type, block)
 
 Deletes a single entity from an entity set.
 
@@ -361,8 +363,9 @@ DataApi apiInstance = new DataApi();
 UUID entitySetId = null; // UUID | 
 UUID entityKeyId = null; // UUID | 
 String type = null; // String | 
+Boolean block = null; // Boolean | 
 try {
-    apiInstance.deleteEntity(entitySetId, entityKeyId, type);
+    apiInstance.deleteEntity(entitySetId, entityKeyId, type, block);
 } catch (ApiException e) {
     System.err.println("Exception when calling DataApi#deleteEntity");
     e.printStackTrace();
@@ -377,6 +380,7 @@ Name | Type | Description  | Notes
  **entitySetId** | [**UUID**](.md)|  | [default to null]
  **entityKeyId** | [**UUID**](.md)|  | [default to null]
  **type** | **String**|  | [default to null] [enum: Soft, Hard]
+ **block** | **Boolean**|  | [optional] [default to null]
 
 ### Return type
 

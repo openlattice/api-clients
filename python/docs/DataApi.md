@@ -665,7 +665,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_entities**
-> int delete_entities(entity_set_id, type, request_body)
+> int delete_entities(entity_set_id, type, request_body, block=block)
 
 Deletes multiple entities from an entity set.
 
@@ -711,10 +711,11 @@ with openlattice.ApiClient(configuration) as api_client:
     entity_set_id = 'entity_set_id_example' # str | 
 type = 'type_example' # str | 
 request_body = ['request_body_example'] # list[str] | 
+block = True # bool |  (optional)
 
     try:
         # Deletes multiple entities from an entity set.
-        api_response = api_instance.delete_entities(entity_set_id, type, request_body)
+        api_response = api_instance.delete_entities(entity_set_id, type, request_body, block=block)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DataApi->delete_entities: %s\n" % e)
@@ -760,10 +761,11 @@ with openlattice.ApiClient(configuration) as api_client:
     entity_set_id = 'entity_set_id_example' # str | 
 type = 'type_example' # str | 
 request_body = ['request_body_example'] # list[str] | 
+block = True # bool |  (optional)
 
     try:
         # Deletes multiple entities from an entity set.
-        api_response = api_instance.delete_entities(entity_set_id, type, request_body)
+        api_response = api_instance.delete_entities(entity_set_id, type, request_body, block=block)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DataApi->delete_entities: %s\n" % e)
@@ -776,6 +778,7 @@ Name | Type | Description  | Notes
  **entity_set_id** | [**str**](.md)|  | 
  **type** | **str**|  | 
  **request_body** | [**list[str]**](str.md)|  | 
+ **block** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -931,7 +934,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_entity**
-> delete_entity(entity_set_id, entity_key_id, type)
+> delete_entity(entity_set_id, entity_key_id, type, block=block)
 
 Deletes a single entity from an entity set.
 
@@ -977,10 +980,11 @@ with openlattice.ApiClient(configuration) as api_client:
     entity_set_id = 'entity_set_id_example' # str | 
 entity_key_id = 'entity_key_id_example' # str | 
 type = 'type_example' # str | 
+block = True # bool |  (optional)
 
     try:
         # Deletes a single entity from an entity set.
-        api_instance.delete_entity(entity_set_id, entity_key_id, type)
+        api_instance.delete_entity(entity_set_id, entity_key_id, type, block=block)
     except ApiException as e:
         print("Exception when calling DataApi->delete_entity: %s\n" % e)
 ```
@@ -1025,10 +1029,11 @@ with openlattice.ApiClient(configuration) as api_client:
     entity_set_id = 'entity_set_id_example' # str | 
 entity_key_id = 'entity_key_id_example' # str | 
 type = 'type_example' # str | 
+block = True # bool |  (optional)
 
     try:
         # Deletes a single entity from an entity set.
-        api_instance.delete_entity(entity_set_id, entity_key_id, type)
+        api_instance.delete_entity(entity_set_id, entity_key_id, type, block=block)
     except ApiException as e:
         print("Exception when calling DataApi->delete_entity: %s\n" % e)
 ```
@@ -1040,6 +1045,7 @@ Name | Type | Description  | Notes
  **entity_set_id** | [**str**](.md)|  | 
  **entity_key_id** | [**str**](.md)|  | 
  **type** | **str**|  | 
+ **block** | **bool**|  | [optional] 
 
 ### Return type
 

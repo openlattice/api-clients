@@ -271,10 +271,13 @@ export default class DataApi {
      * @param {String} entitySetId 
      * @param {module:model/String} type 
      * @param {Array.<String>} requestBody 
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.block 
      * @param {module:api/DataApi~deleteEntitiesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Number}
      */
-    deleteEntities(entitySetId, type, requestBody, callback) {
+    deleteEntities(entitySetId, type, requestBody, opts, callback) {
+      opts = opts || {};
       let postBody = requestBody;
       // verify the required parameter 'entitySetId' is set
       if (entitySetId === undefined || entitySetId === null) {
@@ -293,7 +296,8 @@ export default class DataApi {
         'entitySetId': entitySetId
       };
       let queryParams = {
-        'type': type
+        'type': type,
+        'block': opts['block']
       };
       let headerParams = {
       };
@@ -377,9 +381,12 @@ export default class DataApi {
      * @param {String} entitySetId 
      * @param {String} entityKeyId 
      * @param {module:model/String} type 
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.block 
      * @param {module:api/DataApi~deleteEntityCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteEntity(entitySetId, entityKeyId, type, callback) {
+    deleteEntity(entitySetId, entityKeyId, type, opts, callback) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'entitySetId' is set
       if (entitySetId === undefined || entitySetId === null) {
@@ -399,7 +406,8 @@ export default class DataApi {
         'entityKeyId': entityKeyId
       };
       let queryParams = {
-        'type': type
+        'type': type,
+        'block': opts['block']
       };
       let headerParams = {
       };

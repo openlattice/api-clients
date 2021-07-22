@@ -259,6 +259,13 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.LinkingApi* | [**getAllLinkingFeedbackWithFeatures**](docs/LinkingApi.md#getAllLinkingFeedbackWithFeatures) | **GET** /linker/linkingfeedback/features/all | Returns all feedback submitted walong with the features of pairwise entities
 *OpenLatticeApi.LinkingApi* | [**getLinkingFeedbackWithFeatures**](docs/LinkingApi.md#getLinkingFeedbackWithFeatures) | **POST** /linker/linkingfeedback/features | Returns the feedback on the given entity pair along with their features
 *OpenLatticeApi.LinkingApi* | [**getLinkingFeedbacksOnEntity**](docs/LinkingApi.md#getLinkingFeedbacksOnEntity) | **POST** /linker/linkingfeedback/entity | Returns positive/negative/all linking feedbacks on the given entity.
+*OpenLatticeApi.MetadataApi* | [**getDataSetColumnMetadata**](docs/MetadataApi.md#getDataSetColumnMetadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
+*OpenLatticeApi.MetadataApi* | [**getDataSetColumnsMetadata**](docs/MetadataApi.md#getDataSetColumnsMetadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*OpenLatticeApi.MetadataApi* | [**getDataSetMetadata**](docs/MetadataApi.md#getDataSetMetadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
+*OpenLatticeApi.MetadataApi* | [**getDataSetsMetadata**](docs/MetadataApi.md#getDataSetsMetadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
+*OpenLatticeApi.MetadataApi* | [**getOrganizationDataSetsMetadata**](docs/MetadataApi.md#getOrganizationDataSetsMetadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*OpenLatticeApi.MetadataApi* | [**updateDataSetColumnMetadata**](docs/MetadataApi.md#updateDataSetColumnMetadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
+*OpenLatticeApi.MetadataApi* | [**updateDataSetMetadata**](docs/MetadataApi.md#updateDataSetMetadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 *OpenLatticeApi.OrganizationsApi* | [**addMember**](docs/OrganizationsApi.md#addMember) | **PUT** /datastore/organizations/{organizationId}/principals/members/{userId} | Add member to an organization
 *OpenLatticeApi.OrganizationsApi* | [**addRoleToUser**](docs/OrganizationsApi.md#addRoleToUser) | **PUT** /datastore/organizations/{organizationId}/principals/roles/{roleId}/members/{userId} | Add a role to a user
 *OpenLatticeApi.OrganizationsApi* | [**assembleEntitySets**](docs/OrganizationsApi.md#assembleEntitySets) | **POST** /datastore/organizations/{organizationId}/entity-sets/assemble | Materializes entity sets into the organization database.
@@ -354,7 +361,10 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.DataEdgeKey](docs/DataEdgeKey.md)
  - [OpenLatticeApi.DataGraph](docs/DataGraph.md)
  - [OpenLatticeApi.DataGraphIds](docs/DataGraphIds.md)
+ - [OpenLatticeApi.DataMetadata](docs/DataMetadata.md)
  - [OpenLatticeApi.DataSearchResult](docs/DataSearchResult.md)
+ - [OpenLatticeApi.DataSetColumnMetadata](docs/DataSetColumnMetadata.md)
+ - [OpenLatticeApi.DataSetMetadata](docs/DataSetMetadata.md)
  - [OpenLatticeApi.EDM](docs/EDM.md)
  - [OpenLatticeApi.EDMdiff](docs/EDMdiff.md)
  - [OpenLatticeApi.EdmRequest](docs/EdmRequest.md)

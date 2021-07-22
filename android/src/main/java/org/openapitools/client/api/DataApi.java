@@ -732,9 +732,10 @@ public class DataApi {
    * @param entitySetId 
    * @param type 
    * @param UUID 
+   * @param block 
    * @return Integer
   */
-  public Integer deleteEntities (UUID entitySetId, String type, List<UUID> UUID) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Integer deleteEntities (UUID entitySetId, String type, List<UUID> UUID, Boolean block) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = UUID;
     // verify the required parameter 'entitySetId' is set
     if (entitySetId == null) {
@@ -762,6 +763,7 @@ public class DataApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "block", block));
     String[] contentTypes = {
       "application/json"
     };
@@ -805,9 +807,9 @@ public class DataApi {
       /**
    * Deletes multiple entities from an entity set.
    * 
-   * @param entitySetId    * @param type    * @param UUID 
+   * @param entitySetId    * @param type    * @param UUID    * @param block 
   */
-  public void deleteEntities (UUID entitySetId, String type, List<UUID> UUID, final Response.Listener<Integer> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteEntities (UUID entitySetId, String type, List<UUID> UUID, Boolean block, final Response.Listener<Integer> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = UUID;
 
     // verify the required parameter 'entitySetId' is set
@@ -837,6 +839,7 @@ public class DataApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "block", block));
 
 
     String[] contentTypes = {
@@ -1036,9 +1039,10 @@ public class DataApi {
    * @param entitySetId 
    * @param entityKeyId 
    * @param type 
+   * @param block 
    * @return void
   */
-  public void deleteEntity (UUID entitySetId, UUID entityKeyId, String type) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteEntity (UUID entitySetId, UUID entityKeyId, String type, Boolean block) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'entitySetId' is set
     if (entitySetId == null) {
@@ -1066,6 +1070,7 @@ public class DataApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "block", block));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -1108,9 +1113,9 @@ public class DataApi {
       /**
    * Deletes a single entity from an entity set.
    * 
-   * @param entitySetId    * @param entityKeyId    * @param type 
+   * @param entitySetId    * @param entityKeyId    * @param type    * @param block 
   */
-  public void deleteEntity (UUID entitySetId, UUID entityKeyId, String type, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteEntity (UUID entitySetId, UUID entityKeyId, String type, Boolean block, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'entitySetId' is set
@@ -1140,6 +1145,7 @@ public class DataApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "type", type));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "block", block));
 
 
     String[] contentTypes = {

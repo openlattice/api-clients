@@ -36,7 +36,10 @@ R/data_edge_key.R
 R/data_graph.R
 R/data_graph_ids.R
 R/data_integrations_api.R
+R/data_metadata.R
 R/data_search_result.R
+R/data_set_column_metadata.R
+R/data_set_metadata.R
 R/dataset_api.R
 R/ed_mdiff.R
 R/edm.R
@@ -76,6 +79,7 @@ R/integration_update.R
 R/linking_api.R
 R/linking_feedback.R
 R/materialized_view_account.R
+R/metadata_api.R
 R/metadata_update.R
 R/neighbor_entity_details.R
 R/neighbor_entity_ids.R
@@ -137,7 +141,10 @@ docs/DataEdgeKey.md
 docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
+docs/DataMetadata.md
 docs/DataSearchResult.md
+docs/DataSetColumnMetadata.md
+docs/DataSetMetadata.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -177,6 +184,7 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
+docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md
@@ -239,7 +247,10 @@ tests/testthat/test_data_edge_key.R
 tests/testthat/test_data_graph.R
 tests/testthat/test_data_graph_ids.R
 tests/testthat/test_data_integrations_api.R
+tests/testthat/test_data_metadata.R
 tests/testthat/test_data_search_result.R
+tests/testthat/test_data_set_column_metadata.R
+tests/testthat/test_data_set_metadata.R
 tests/testthat/test_dataset_api.R
 tests/testthat/test_ed_mdiff.R
 tests/testthat/test_edm.R
@@ -279,6 +290,7 @@ tests/testthat/test_integration_update.R
 tests/testthat/test_linking_api.R
 tests/testthat/test_linking_feedback.R
 tests/testthat/test_materialized_view_account.R
+tests/testthat/test_metadata_api.R
 tests/testthat/test_metadata_update.R
 tests/testthat/test_neighbor_entity_details.R
 tests/testthat/test_neighbor_entity_ids.R

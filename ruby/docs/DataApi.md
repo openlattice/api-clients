@@ -306,7 +306,7 @@ nil (empty response body)
 
 ## delete_entities
 
-> Integer delete_entities(entity_set_id, type, request_body)
+> Integer delete_entities(entity_set_id, type, request_body, opts)
 
 Deletes multiple entities from an entity set.
 
@@ -330,10 +330,13 @@ api_instance = OpenapiClient::DataApi.new
 entity_set_id = 'entity_set_id_example' # String | 
 type = 'type_example' # String | 
 request_body = ['request_body_example'] # Array<String> | 
+opts = {
+  block: true # Boolean | 
+}
 
 begin
   #Deletes multiple entities from an entity set.
-  result = api_instance.delete_entities(entity_set_id, type, request_body)
+  result = api_instance.delete_entities(entity_set_id, type, request_body, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling DataApi->delete_entities: #{e}"
@@ -348,6 +351,7 @@ Name | Type | Description  | Notes
  **entity_set_id** | [**String**](.md)|  | 
  **type** | **String**|  | 
  **request_body** | [**Array&lt;String&gt;**](String.md)|  | 
+ **block** | **Boolean**|  | [optional] 
 
 ### Return type
 
@@ -424,7 +428,7 @@ Name | Type | Description  | Notes
 
 ## delete_entity
 
-> delete_entity(entity_set_id, entity_key_id, type)
+> delete_entity(entity_set_id, entity_key_id, type, opts)
 
 Deletes a single entity from an entity set.
 
@@ -448,10 +452,13 @@ api_instance = OpenapiClient::DataApi.new
 entity_set_id = 'entity_set_id_example' # String | 
 entity_key_id = 'entity_key_id_example' # String | 
 type = 'type_example' # String | 
+opts = {
+  block: true # Boolean | 
+}
 
 begin
   #Deletes a single entity from an entity set.
-  api_instance.delete_entity(entity_set_id, entity_key_id, type)
+  api_instance.delete_entity(entity_set_id, entity_key_id, type, opts)
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling DataApi->delete_entity: #{e}"
 end
@@ -465,6 +472,7 @@ Name | Type | Description  | Notes
  **entity_set_id** | [**String**](.md)|  | 
  **entity_key_id** | [**String**](.md)|  | 
  **type** | **String**|  | 
+ **block** | **Boolean**|  | [optional] 
 
 ### Return type
 

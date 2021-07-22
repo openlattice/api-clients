@@ -37,7 +37,10 @@ import DataEdgeData from './model/DataEdgeData';
 import DataEdgeKey from './model/DataEdgeKey';
 import DataGraph from './model/DataGraph';
 import DataGraphIds from './model/DataGraphIds';
+import DataMetadata from './model/DataMetadata';
 import DataSearchResult from './model/DataSearchResult';
+import DataSetColumnMetadata from './model/DataSetColumnMetadata';
+import DataSetMetadata from './model/DataSetMetadata';
 import EDM from './model/EDM';
 import EDMdiff from './model/EDMdiff';
 import EdmRequest from './model/EdmRequest';
@@ -108,6 +111,7 @@ import DatasetApi from './api/DatasetApi';
 import EdmApi from './api/EdmApi';
 import EntitySetsApi from './api/EntitySetsApi';
 import LinkingApi from './api/LinkingApi';
+import MetadataApi from './api/MetadataApi';
 import OrganizationsApi from './api/OrganizationsApi';
 import PermissionsApi from './api/PermissionsApi';
 import PrincipalApi from './api/PrincipalApi';
@@ -298,10 +302,28 @@ export {
     DataGraphIds,
 
     /**
+     * The DataMetadata model constructor.
+     * @property {module:model/DataMetadata}
+     */
+    DataMetadata,
+
+    /**
      * The DataSearchResult model constructor.
      * @property {module:model/DataSearchResult}
      */
     DataSearchResult,
+
+    /**
+     * The DataSetColumnMetadata model constructor.
+     * @property {module:model/DataSetColumnMetadata}
+     */
+    DataSetColumnMetadata,
+
+    /**
+     * The DataSetMetadata model constructor.
+     * @property {module:model/DataSetMetadata}
+     */
+    DataSetMetadata,
 
     /**
      * The EDM model constructor.
@@ -722,6 +744,12 @@ export {
     * @property {module:api/LinkingApi}
     */
     LinkingApi,
+
+    /**
+    * The MetadataApi service constructor.
+    * @property {module:api/MetadataApi}
+    */
+    MetadataApi,
 
     /**
     * The OrganizationsApi service constructor.

@@ -13,6 +13,7 @@ api_dataset.go
 api_edm.go
 api_entity_sets.go
 api_linking.go
+api_metadata.go
 api_organizations.go
 api_permissions.go
 api_principal.go
@@ -50,7 +51,10 @@ docs/DataEdgeKey.md
 docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
+docs/DataMetadata.md
 docs/DataSearchResult.md
+docs/DataSetColumnMetadata.md
+docs/DataSetMetadata.md
 docs/DatasetApi.md
 docs/EdMdiff.md
 docs/Edm.md
@@ -90,6 +94,7 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
+docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md
@@ -147,7 +152,10 @@ model_data_edge_data.go
 model_data_edge_key.go
 model_data_graph.go
 model_data_graph_ids.go
+model_data_metadata.go
 model_data_search_result.go
+model_data_set_column_metadata.go
+model_data_set_metadata.go
 model_ed_mdiff.go
 model_edm.go
 model_edm_request.go

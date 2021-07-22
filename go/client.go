@@ -69,6 +69,8 @@ type APIClient struct {
 
 	LinkingApi *LinkingApiService
 
+	MetadataApi *MetadataApiService
+
 	OrganizationsApi *OrganizationsApiService
 
 	PermissionsApi *PermissionsApiService
@@ -106,6 +108,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.EdmApi = (*EdmApiService)(&c.common)
 	c.EntitySetsApi = (*EntitySetsApiService)(&c.common)
 	c.LinkingApi = (*LinkingApiService)(&c.common)
+	c.MetadataApi = (*MetadataApiService)(&c.common)
 	c.OrganizationsApi = (*OrganizationsApiService)(&c.common)
 	c.PermissionsApi = (*PermissionsApiService)(&c.common)
 	c.PrincipalApi = (*PrincipalApiService)(&c.common)

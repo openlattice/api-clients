@@ -36,7 +36,10 @@ docs/DataEdgeKey.md
 docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
+docs/DataMetadata.md
 docs/DataSearchResult.md
+docs/DataSetColumnMetadata.md
+docs/DataSetMetadata.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -76,6 +79,7 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
+docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md
@@ -118,6 +122,7 @@ lib/openapi_client/api/dataset_api.rb
 lib/openapi_client/api/edm_api.rb
 lib/openapi_client/api/entity_sets_api.rb
 lib/openapi_client/api/linking_api.rb
+lib/openapi_client/api/metadata_api.rb
 lib/openapi_client/api/organizations_api.rb
 lib/openapi_client/api/permissions_api.rb
 lib/openapi_client/api/principal_api.rb
@@ -151,7 +156,10 @@ lib/openapi_client/models/data_edge_data.rb
 lib/openapi_client/models/data_edge_key.rb
 lib/openapi_client/models/data_graph.rb
 lib/openapi_client/models/data_graph_ids.rb
+lib/openapi_client/models/data_metadata.rb
 lib/openapi_client/models/data_search_result.rb
+lib/openapi_client/models/data_set_column_metadata.rb
+lib/openapi_client/models/data_set_metadata.rb
 lib/openapi_client/models/ed_mdiff.rb
 lib/openapi_client/models/edm.rb
 lib/openapi_client/models/edm_request.rb
@@ -224,6 +232,7 @@ spec/api/dataset_api_spec.rb
 spec/api/edm_api_spec.rb
 spec/api/entity_sets_api_spec.rb
 spec/api/linking_api_spec.rb
+spec/api/metadata_api_spec.rb
 spec/api/organizations_api_spec.rb
 spec/api/permissions_api_spec.rb
 spec/api/principal_api_spec.rb
@@ -255,7 +264,10 @@ spec/models/data_edge_key_spec.rb
 spec/models/data_edge_spec.rb
 spec/models/data_graph_ids_spec.rb
 spec/models/data_graph_spec.rb
+spec/models/data_metadata_spec.rb
 spec/models/data_search_result_spec.rb
+spec/models/data_set_column_metadata_spec.rb
+spec/models/data_set_metadata_spec.rb
 spec/models/ed_mdiff_spec.rb
 spec/models/edm_request_spec.rb
 spec/models/edm_spec.rb

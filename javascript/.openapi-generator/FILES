@@ -32,7 +32,10 @@ docs/DataEdgeKey.md
 docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
+docs/DataMetadata.md
 docs/DataSearchResult.md
+docs/DataSetColumnMetadata.md
+docs/DataSetMetadata.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -72,6 +75,7 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
+docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md
@@ -116,6 +120,7 @@ src/api/DatasetApi.js
 src/api/EdmApi.js
 src/api/EntitySetsApi.js
 src/api/LinkingApi.js
+src/api/MetadataApi.js
 src/api/OrganizationsApi.js
 src/api/PermissionsApi.js
 src/api/PrincipalApi.js
@@ -146,7 +151,10 @@ src/model/DataEdgeData.js
 src/model/DataEdgeKey.js
 src/model/DataGraph.js
 src/model/DataGraphIds.js
+src/model/DataMetadata.js
 src/model/DataSearchResult.js
+src/model/DataSetColumnMetadata.js
+src/model/DataSetMetadata.js
 src/model/EDM.js
 src/model/EDMdiff.js
 src/model/EdmRequest.js
@@ -217,6 +225,7 @@ test/api/DatasetApi.spec.js
 test/api/EdmApi.spec.js
 test/api/EntitySetsApi.spec.js
 test/api/LinkingApi.spec.js
+test/api/MetadataApi.spec.js
 test/api/OrganizationsApi.spec.js
 test/api/PermissionsApi.spec.js
 test/api/PrincipalApi.spec.js
@@ -246,7 +255,10 @@ test/model/DataEdgeData.spec.js
 test/model/DataEdgeKey.spec.js
 test/model/DataGraph.spec.js
 test/model/DataGraphIds.spec.js
+test/model/DataMetadata.spec.js
 test/model/DataSearchResult.spec.js
+test/model/DataSetColumnMetadata.spec.js
+test/model/DataSetMetadata.spec.js
 test/model/EDM.spec.js
 test/model/EDMdiff.spec.js
 test/model/EdmRequest.spec.js

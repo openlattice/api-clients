@@ -259,7 +259,7 @@ void (empty response body)
 | **200** | Success |  -  |
 
 # **delete_entities**
-> integer delete_entities(entity_set_id, type, request_body)
+> integer delete_entities(entity_set_id, type, request_body, block=var.block)
 
 Deletes multiple entities from an entity set.
 
@@ -270,6 +270,7 @@ library(openlattice)
 var.entity_set_id <- 'entity_set_id_example' # character | 
 var.type <- 'type_example' # character | 
 var.request_body <- list("property_example") # array[character] | 
+var.block <- 'block_example' # character | 
 
 #Deletes multiple entities from an entity set.
 api.instance <- DataApi$new()
@@ -278,7 +279,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$delete_entities(var.entity_set_id, var.type, var.request_body)
+result <- api.instance$delete_entities(var.entity_set_id, var.type, var.request_body, block=var.block)
 dput(result)
 ```
 
@@ -289,6 +290,7 @@ Name | Type | Description  | Notes
  **entity_set_id** | [**character**](.md)|  | 
  **type** | Enum [Soft, Hard] |  | 
  **request_body** | list( **character** )|  | 
+ **block** | **character**|  | [optional] 
 
 ### Return type
 
@@ -359,7 +361,7 @@ Name | Type | Description  | Notes
 | **200** | A long |  -  |
 
 # **delete_entity**
-> delete_entity(entity_set_id, entity_key_id, type)
+> delete_entity(entity_set_id, entity_key_id, type, block=var.block)
 
 Deletes a single entity from an entity set.
 
@@ -370,6 +372,7 @@ library(openlattice)
 var.entity_set_id <- 'entity_set_id_example' # character | 
 var.entity_key_id <- 'entity_key_id_example' # character | 
 var.type <- 'type_example' # character | 
+var.block <- 'block_example' # character | 
 
 #Deletes a single entity from an entity set.
 api.instance <- DataApi$new()
@@ -378,7 +381,7 @@ api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
 # Configure API key authorization: openlattice_auth
 api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
-api.instance$delete_entity(var.entity_set_id, var.entity_key_id, var.type)
+api.instance$delete_entity(var.entity_set_id, var.entity_key_id, var.type, block=var.block)
 ```
 
 ### Parameters
@@ -388,6 +391,7 @@ Name | Type | Description  | Notes
  **entity_set_id** | [**character**](.md)|  | 
  **entity_key_id** | [**character**](.md)|  | 
  **type** | Enum [Soft, Hard] |  | 
+ **block** | **character**|  | [optional] 
 
 ### Return type
 

@@ -33,7 +33,10 @@ docs/DataEdgeKey.md
 docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
+docs/DataMetadata.md
 docs/DataSearchResult.md
+docs/DataSetColumnMetadata.md
+docs/DataSetMetadata.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -73,6 +76,7 @@ docs/IntegrationUpdate.md
 docs/LinkingApi.md
 docs/LinkingFeedback.md
 docs/MaterializedViewAccount.md
+docs/MetadataApi.md
 docs/MetadataUpdate.md
 docs/NeighborEntityDetails.md
 docs/NeighborEntityIds.md
@@ -116,6 +120,7 @@ openlattice/api/dataset_api.py
 openlattice/api/edm_api.py
 openlattice/api/entity_sets_api.py
 openlattice/api/linking_api.py
+openlattice/api/metadata_api.py
 openlattice/api/organizations_api.py
 openlattice/api/permissions_api.py
 openlattice/api/principal_api.py
@@ -149,7 +154,10 @@ openlattice/models/data_edge_data.py
 openlattice/models/data_edge_key.py
 openlattice/models/data_graph.py
 openlattice/models/data_graph_ids.py
+openlattice/models/data_metadata.py
 openlattice/models/data_search_result.py
+openlattice/models/data_set_column_metadata.py
+openlattice/models/data_set_metadata.py
 openlattice/models/ed_mdiff.py
 openlattice/models/edm.py
 openlattice/models/edm_request.py
@@ -246,7 +254,10 @@ test/test_data_edge_key.py
 test/test_data_graph.py
 test/test_data_graph_ids.py
 test/test_data_integrations_api.py
+test/test_data_metadata.py
 test/test_data_search_result.py
+test/test_data_set_column_metadata.py
+test/test_data_set_metadata.py
 test/test_dataset_api.py
 test/test_ed_mdiff.py
 test/test_edm.py
@@ -286,6 +297,7 @@ test/test_integration_update.py
 test/test_linking_api.py
 test/test_linking_feedback.py
 test/test_materialized_view_account.py
+test/test_metadata_api.py
 test/test_metadata_update.py
 test/test_neighbor_entity_details.py
 test/test_neighbor_entity_ids.py

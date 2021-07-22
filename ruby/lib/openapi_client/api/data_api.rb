@@ -349,6 +349,7 @@ module OpenapiClient
     # @param type [String] 
     # @param request_body [Array<String>] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :block 
     # @return [Integer]
     def delete_entities(entity_set_id, type, request_body, opts = {})
       data, _status_code, _headers = delete_entities_with_http_info(entity_set_id, type, request_body, opts)
@@ -360,6 +361,7 @@ module OpenapiClient
     # @param type [String] 
     # @param request_body [Array<String>] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :block 
     # @return [Array<(Integer, Integer, Hash)>] Integer data, response status code and response headers
     def delete_entities_with_http_info(entity_set_id, type, request_body, opts = {})
       if @api_client.config.debugging
@@ -388,6 +390,7 @@ module OpenapiClient
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'type'] = type
+      query_params[:'block'] = opts[:'block'] if !opts[:'block'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -509,6 +512,7 @@ module OpenapiClient
     # @param entity_key_id [String] 
     # @param type [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :block 
     # @return [nil]
     def delete_entity(entity_set_id, entity_key_id, type, opts = {})
       delete_entity_with_http_info(entity_set_id, entity_key_id, type, opts)
@@ -520,6 +524,7 @@ module OpenapiClient
     # @param entity_key_id [String] 
     # @param type [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :block 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_entity_with_http_info(entity_set_id, entity_key_id, type, opts = {})
       if @api_client.config.debugging
@@ -548,6 +553,7 @@ module OpenapiClient
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'type'] = type
+      query_params[:'block'] = opts[:'block'] if !opts[:'block'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

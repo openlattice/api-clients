@@ -28,6 +28,7 @@ from openlattice.api.dataset_api import DatasetApi
 from openlattice.api.edm_api import EdmApi
 from openlattice.api.entity_sets_api import EntitySetsApi
 from openlattice.api.linking_api import LinkingApi
+from openlattice.api.metadata_api import MetadataApi
 from openlattice.api.organizations_api import OrganizationsApi
 from openlattice.api.permissions_api import PermissionsApi
 from openlattice.api.principal_api import PrincipalApi
@@ -68,7 +69,10 @@ from openlattice.models.data_edge_data import DataEdgeData
 from openlattice.models.data_edge_key import DataEdgeKey
 from openlattice.models.data_graph import DataGraph
 from openlattice.models.data_graph_ids import DataGraphIds
+from openlattice.models.data_metadata import DataMetadata
 from openlattice.models.data_search_result import DataSearchResult
+from openlattice.models.data_set_column_metadata import DataSetColumnMetadata
+from openlattice.models.data_set_metadata import DataSetMetadata
 from openlattice.models.edm import EDM
 from openlattice.models.ed_mdiff import EDMdiff
 from openlattice.models.edm_request import EdmRequest

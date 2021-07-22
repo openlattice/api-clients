@@ -292,7 +292,7 @@ null (empty response body)
 
 ## deleteEntities
 
-> Number deleteEntities(entitySetId, type, requestBody)
+> Number deleteEntities(entitySetId, type, requestBody, opts)
 
 Deletes multiple entities from an entity set.
 
@@ -314,7 +314,10 @@ let apiInstance = new OpenLatticeApi.DataApi();
 let entitySetId = null; // String | 
 let type = "type_example"; // String | 
 let requestBody = ["null"]; // [String] | 
-apiInstance.deleteEntities(entitySetId, type, requestBody, (error, data, response) => {
+let opts = {
+  'block': true // Boolean | 
+};
+apiInstance.deleteEntities(entitySetId, type, requestBody, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -331,6 +334,7 @@ Name | Type | Description  | Notes
  **entitySetId** | [**String**](.md)|  | 
  **type** | **String**|  | 
  **requestBody** | [**[String]**](String.md)|  | 
+ **block** | **Boolean**|  | [optional] 
 
 ### Return type
 
@@ -404,7 +408,7 @@ Name | Type | Description  | Notes
 
 ## deleteEntity
 
-> deleteEntity(entitySetId, entityKeyId, type)
+> deleteEntity(entitySetId, entityKeyId, type, opts)
 
 Deletes a single entity from an entity set.
 
@@ -426,7 +430,10 @@ let apiInstance = new OpenLatticeApi.DataApi();
 let entitySetId = null; // String | 
 let entityKeyId = null; // String | 
 let type = "type_example"; // String | 
-apiInstance.deleteEntity(entitySetId, entityKeyId, type, (error, data, response) => {
+let opts = {
+  'block': true // Boolean | 
+};
+apiInstance.deleteEntity(entitySetId, entityKeyId, type, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -443,6 +450,7 @@ Name | Type | Description  | Notes
  **entitySetId** | [**String**](.md)|  | 
  **entityKeyId** | [**String**](.md)|  | 
  **type** | **String**|  | 
+ **block** | **Boolean**|  | [optional] 
 
 ### Return type
 

@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ## DeleteEntities
 
-> int32 DeleteEntities(ctx, entitySetId, type_, requestBody)
+> int32 DeleteEntities(ctx, entitySetId, type_, requestBody, optional)
 
 Deletes multiple entities from an entity set.
 
@@ -203,6 +203,19 @@ Name | Type | Description  | Notes
 **entitySetId** | [**string**](.md)|  | 
 **type_** | **string**|  | 
 **requestBody** | [**[]string**](string.md)|  | 
+ **optional** | ***DeleteEntitiesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a DeleteEntitiesOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **block** | **optional.Bool**|  | 
 
 ### Return type
 
@@ -258,7 +271,7 @@ Name | Type | Description  | Notes
 
 ## DeleteEntity
 
-> DeleteEntity(ctx, entitySetId, entityKeyId, type_)
+> DeleteEntity(ctx, entitySetId, entityKeyId, type_, optional)
 
 Deletes a single entity from an entity set.
 
@@ -271,6 +284,19 @@ Name | Type | Description  | Notes
 **entitySetId** | [**string**](.md)|  | 
 **entityKeyId** | [**string**](.md)|  | 
 **type_** | **string**|  | 
+ **optional** | ***DeleteEntityOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a DeleteEntityOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **block** | **optional.Bool**|  | 
 
 ### Return type
 
