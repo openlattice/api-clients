@@ -69,6 +69,7 @@ test_that("delete_entities", {
   # @param entity_set_id character 
   # @param type character 
   # @param request_body array[character] 
+  # @param block character  (optional)
   # @return [integer]
 
   # uncomment below to test the operation
@@ -95,6 +96,7 @@ test_that("delete_entity", {
   # @param entity_set_id character 
   # @param entity_key_id character 
   # @param type character 
+  # @param block character  (optional)
   # @return [Void]
 
   # uncomment below to test the operation

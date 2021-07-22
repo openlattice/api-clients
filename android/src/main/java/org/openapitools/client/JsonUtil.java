@@ -157,6 +157,14 @@ public class JsonUtil {
       return new TypeToken<List<DataSearchResult>>(){}.getType();
     }
     
+    if ("DataSet".equalsIgnoreCase(className)) {
+      return new TypeToken<List<DataSet>>(){}.getType();
+    }
+    
+    if ("DataSetColumn".equalsIgnoreCase(className)) {
+      return new TypeToken<List<DataSetColumn>>(){}.getType();
+    }
+    
     if ("EDM".equalsIgnoreCase(className)) {
       return new TypeToken<List<EDM>>(){}.getType();
     }
@@ -381,6 +389,10 @@ public class JsonUtil {
       return new TypeToken<List<SearchTerm>>(){}.getType();
     }
     
+    if ("SecurableObjectMetadataUpdate".equalsIgnoreCase(className)) {
+      return new TypeToken<List<SecurableObjectMetadataUpdate>>(){}.getType();
+    }
+    
     if ("SecurablePrincipal".equalsIgnoreCase(className)) {
       return new TypeToken<List<SecurablePrincipal>>(){}.getType();
     }
@@ -501,6 +513,14 @@ public class JsonUtil {
     
     if ("DataSearchResult".equalsIgnoreCase(className)) {
       return new TypeToken<DataSearchResult>(){}.getType();
+    }
+    
+    if ("DataSet".equalsIgnoreCase(className)) {
+      return new TypeToken<DataSet>(){}.getType();
+    }
+    
+    if ("DataSetColumn".equalsIgnoreCase(className)) {
+      return new TypeToken<DataSetColumn>(){}.getType();
     }
     
     if ("EDM".equalsIgnoreCase(className)) {
@@ -725,6 +745,10 @@ public class JsonUtil {
     
     if ("SearchTerm".equalsIgnoreCase(className)) {
       return new TypeToken<SearchTerm>(){}.getType();
+    }
+    
+    if ("SecurableObjectMetadataUpdate".equalsIgnoreCase(className)) {
+      return new TypeToken<SecurableObjectMetadataUpdate>(){}.getType();
     }
     
     if ("SecurablePrincipal".equalsIgnoreCase(className)) {

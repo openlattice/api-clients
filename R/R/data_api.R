@@ -105,6 +105,7 @@
 #' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @param } type Enum < [Soft, Hard] > 
 #' \item \emph{ @param } request_body list( character )
+#' \item \emph{ @param } block character
 #'
 #'
 #' \item status code : 200 | Success
@@ -141,6 +142,7 @@
 #' \item \emph{ @param } entity_set_id \link{character}
 #' \item \emph{ @param } entity_key_id \link{character}
 #' \item \emph{ @param } type Enum < [Soft, Hard] > 
+#' \item \emph{ @param } block character
 #'
 #'
 #' \item status code : 200 | Success
@@ -455,6 +457,7 @@
 #' var.entity_set_id <- 'entity_set_id_example' # character | 
 #' var.type <- 'type_example' # character | 
 #' var.request_body <- list('request_body_example') # array[character] | 
+#' var.block <- 'block_example' # character | 
 #'
 #' #Deletes multiple entities from an entity set.
 #' api.instance <- DataApi$new()
@@ -468,7 +471,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_entities(var.entity_set_id, var.type, var.request_body)
+#' result <- api.instance$delete_entities(var.entity_set_id, var.type, var.request_body, block=var.block)
 #'
 #'
 #' ####################  delete_entities_and_neighbors  ####################
@@ -499,6 +502,7 @@
 #' var.entity_set_id <- 'entity_set_id_example' # character | 
 #' var.entity_key_id <- 'entity_key_id_example' # character | 
 #' var.type <- 'type_example' # character | 
+#' var.block <- 'block_example' # character | 
 #'
 #' #Deletes a single entity from an entity set.
 #' api.instance <- DataApi$new()
@@ -512,7 +516,7 @@
 #' #Configure API key authorization: openlattice_auth
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
-#' result <- api.instance$delete_entity(var.entity_set_id, var.entity_key_id, var.type)
+#' result <- api.instance$delete_entity(var.entity_set_id, var.entity_key_id, var.type, block=var.block)
 #'
 #'
 #' ####################  delete_entity_properties  ####################
@@ -1098,8 +1102,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_entities = function(entity_set_id, type, request_body, ...){
-      apiResponse <- self$delete_entitiesWithHttpInfo(entity_set_id, type, request_body, ...)
+    delete_entities = function(entity_set_id, type, request_body, block=NULL, ...){
+      apiResponse <- self$delete_entitiesWithHttpInfo(entity_set_id, type, request_body, block, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1112,7 +1116,7 @@ DataApi <- R6::R6Class(
       }
     },
 
-    delete_entitiesWithHttpInfo = function(entity_set_id, type, request_body, ...){
+    delete_entitiesWithHttpInfo = function(entity_set_id, type, request_body, block=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1130,6 +1134,8 @@ DataApi <- R6::R6Class(
       }
 
       queryParams['type'] <- type
+
+      queryParams['block'] <- block
 
       if (!missing(`request_body`)) {
         body <- sprintf(
@@ -1264,8 +1270,8 @@ DataApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    delete_entity = function(entity_set_id, entity_key_id, type, ...){
-      apiResponse <- self$delete_entityWithHttpInfo(entity_set_id, entity_key_id, type, ...)
+    delete_entity = function(entity_set_id, entity_key_id, type, block=NULL, ...){
+      apiResponse <- self$delete_entityWithHttpInfo(entity_set_id, entity_key_id, type, block, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1278,7 +1284,7 @@ DataApi <- R6::R6Class(
       }
     },
 
-    delete_entityWithHttpInfo = function(entity_set_id, entity_key_id, type, ...){
+    delete_entityWithHttpInfo = function(entity_set_id, entity_key_id, type, block=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1296,6 +1302,8 @@ DataApi <- R6::R6Class(
       }
 
       queryParams['type'] <- type
+
+      queryParams['block'] <- block
 
       urlPath <- "/datastore/data/set/{entitySetId}/{entityKeyId}"
       if (!missing(`entity_set_id`)) {

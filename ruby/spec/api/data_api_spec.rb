@@ -95,6 +95,7 @@ describe 'DataApi' do
   # @param type 
   # @param request_body 
   # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :block 
   # @return [Integer]
   describe 'delete_entities test' do
     it 'should work' do
@@ -121,6 +122,7 @@ describe 'DataApi' do
   # @param entity_key_id 
   # @param type 
   # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :block 
   # @return [nil]
   describe 'delete_entity test' do
     it 'should work' do

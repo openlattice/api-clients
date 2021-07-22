@@ -178,6 +178,13 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.DataApi* | [**updateEntitiesInEntitySet**](docs/DataApi.md#updateEntitiesInEntitySet) | **PUT** /datastore/data/set/{entitySetId} | Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
 *OpenLatticeApi.DataIntegrationsApi* | [**getEntityKeyIds**](docs/DataIntegrationsApi.md#getEntityKeyIds) | **POST** /datastore/integration/entityKeyIds | Get entity key IDs
 *OpenLatticeApi.DataIntegrationsApi* | [**integrateEntityAndAssociationData**](docs/DataIntegrationsApi.md#integrateEntityAndAssociationData) | **POST** /datastore/integration | Integrate entity and association data
+*OpenLatticeApi.DataSetMetadataApi* | [**getDataSetColumnMetadata**](docs/DataSetMetadataApi.md#getDataSetColumnMetadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
+*OpenLatticeApi.DataSetMetadataApi* | [**getDataSetColumnsMetadata**](docs/DataSetMetadataApi.md#getDataSetColumnsMetadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*OpenLatticeApi.DataSetMetadataApi* | [**getDataSetMetadata**](docs/DataSetMetadataApi.md#getDataSetMetadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
+*OpenLatticeApi.DataSetMetadataApi* | [**getDataSetsMetadata**](docs/DataSetMetadataApi.md#getDataSetsMetadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
+*OpenLatticeApi.DataSetMetadataApi* | [**getOrganizationDataSetsMetadata**](docs/DataSetMetadataApi.md#getOrganizationDataSetsMetadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*OpenLatticeApi.DataSetMetadataApi* | [**updateDataSetColumnMetadata**](docs/DataSetMetadataApi.md#updateDataSetColumnMetadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
+*OpenLatticeApi.DataSetMetadataApi* | [**updateDataSetMetadata**](docs/DataSetMetadataApi.md#updateDataSetMetadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 *OpenLatticeApi.DatasetApi* | [**deleteExternalDatabaseColumn**](docs/DatasetApi.md#deleteExternalDatabaseColumn) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Deletes an OrganizationExternalDatabaseColumn object, which represents an organization&#39;s column in an external database. This deletes both the object and the column in the database. It is a hard delete.
 *OpenLatticeApi.DatasetApi* | [**deleteExternalDatabaseColumns**](docs/DatasetApi.md#deleteExternalDatabaseColumns) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/external-database-column | Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization&#39;s table in an external database. It is a hard delete
 *OpenLatticeApi.DatasetApi* | [**deleteExternalDatabaseTable**](docs/DatasetApi.md#deleteExternalDatabaseTable) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Deletes an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database. This deletes both the object and the table in the database. It is a hard delete.
@@ -355,6 +362,8 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.DataGraph](docs/DataGraph.md)
  - [OpenLatticeApi.DataGraphIds](docs/DataGraphIds.md)
  - [OpenLatticeApi.DataSearchResult](docs/DataSearchResult.md)
+ - [OpenLatticeApi.DataSet](docs/DataSet.md)
+ - [OpenLatticeApi.DataSetColumn](docs/DataSetColumn.md)
  - [OpenLatticeApi.EDM](docs/EDM.md)
  - [OpenLatticeApi.EDMdiff](docs/EDMdiff.md)
  - [OpenLatticeApi.EdmRequest](docs/EdmRequest.md)
@@ -411,6 +420,7 @@ Class | Method | HTTP request | Description
  - [OpenLatticeApi.SearchResult](docs/SearchResult.md)
  - [OpenLatticeApi.SearchResultHits](docs/SearchResultHits.md)
  - [OpenLatticeApi.SearchTerm](docs/SearchTerm.md)
+ - [OpenLatticeApi.SecurableObjectMetadataUpdate](docs/SecurableObjectMetadataUpdate.md)
  - [OpenLatticeApi.SecurablePrincipal](docs/SecurablePrincipal.md)
  - [OpenLatticeApi.SmsEntitySetInformation](docs/SmsEntitySetInformation.md)
  - [OpenLatticeApi.SortDefinition](docs/SortDefinition.md)

@@ -38,6 +38,8 @@ import DataEdgeKey from './model/DataEdgeKey';
 import DataGraph from './model/DataGraph';
 import DataGraphIds from './model/DataGraphIds';
 import DataSearchResult from './model/DataSearchResult';
+import DataSet from './model/DataSet';
+import DataSetColumn from './model/DataSetColumn';
 import EDM from './model/EDM';
 import EDMdiff from './model/EDMdiff';
 import EdmRequest from './model/EdmRequest';
@@ -94,6 +96,7 @@ import SearchDetails from './model/SearchDetails';
 import SearchResult from './model/SearchResult';
 import SearchResultHits from './model/SearchResultHits';
 import SearchTerm from './model/SearchTerm';
+import SecurableObjectMetadataUpdate from './model/SecurableObjectMetadataUpdate';
 import SecurablePrincipal from './model/SecurablePrincipal';
 import SmsEntitySetInformation from './model/SmsEntitySetInformation';
 import SortDefinition from './model/SortDefinition';
@@ -104,6 +107,7 @@ import AuthorizationsApi from './api/AuthorizationsApi';
 import CollectionsApi from './api/CollectionsApi';
 import DataApi from './api/DataApi';
 import DataIntegrationsApi from './api/DataIntegrationsApi';
+import DataSetMetadataApi from './api/DataSetMetadataApi';
 import DatasetApi from './api/DatasetApi';
 import EdmApi from './api/EdmApi';
 import EntitySetsApi from './api/EntitySetsApi';
@@ -302,6 +306,18 @@ export {
      * @property {module:model/DataSearchResult}
      */
     DataSearchResult,
+
+    /**
+     * The DataSet model constructor.
+     * @property {module:model/DataSet}
+     */
+    DataSet,
+
+    /**
+     * The DataSetColumn model constructor.
+     * @property {module:model/DataSetColumn}
+     */
+    DataSetColumn,
 
     /**
      * The EDM model constructor.
@@ -640,6 +656,12 @@ export {
     SearchTerm,
 
     /**
+     * The SecurableObjectMetadataUpdate model constructor.
+     * @property {module:model/SecurableObjectMetadataUpdate}
+     */
+    SecurableObjectMetadataUpdate,
+
+    /**
      * The SecurablePrincipal model constructor.
      * @property {module:model/SecurablePrincipal}
      */
@@ -698,6 +720,12 @@ export {
     * @property {module:api/DataIntegrationsApi}
     */
     DataIntegrationsApi,
+
+    /**
+    * The DataSetMetadataApi service constructor.
+    * @property {module:api/DataSetMetadataApi}
+    */
+    DataSetMetadataApi,
 
     /**
     * The DatasetApi service constructor.

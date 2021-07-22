@@ -135,6 +135,13 @@ Class | Method | HTTP request | Description
 *OpenapiClient::DataApi* | [**update_entities_in_entity_set**](docs/DataApi.md#update_entities_in_entity_set) | **PUT** /datastore/data/set/{entitySetId} | Perform one of the following bulk update operations on entities (type = Merge) adds new properties without affecting existing data, (type = PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type = Replace) replaces all entity data with the supplied properties.
 *OpenapiClient::DataIntegrationsApi* | [**get_entity_key_ids**](docs/DataIntegrationsApi.md#get_entity_key_ids) | **POST** /datastore/integration/entityKeyIds | Get entity key IDs
 *OpenapiClient::DataIntegrationsApi* | [**integrate_entity_and_association_data**](docs/DataIntegrationsApi.md#integrate_entity_and_association_data) | **POST** /datastore/integration | Integrate entity and association data
+*OpenapiClient::DataSetMetadataApi* | [**get_data_set_column_metadata**](docs/DataSetMetadataApi.md#get_data_set_column_metadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
+*OpenapiClient::DataSetMetadataApi* | [**get_data_set_columns_metadata**](docs/DataSetMetadataApi.md#get_data_set_columns_metadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*OpenapiClient::DataSetMetadataApi* | [**get_data_set_metadata**](docs/DataSetMetadataApi.md#get_data_set_metadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
+*OpenapiClient::DataSetMetadataApi* | [**get_data_sets_metadata**](docs/DataSetMetadataApi.md#get_data_sets_metadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
+*OpenapiClient::DataSetMetadataApi* | [**get_organization_data_sets_metadata**](docs/DataSetMetadataApi.md#get_organization_data_sets_metadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*OpenapiClient::DataSetMetadataApi* | [**update_data_set_column_metadata**](docs/DataSetMetadataApi.md#update_data_set_column_metadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
+*OpenapiClient::DataSetMetadataApi* | [**update_data_set_metadata**](docs/DataSetMetadataApi.md#update_data_set_metadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 *OpenapiClient::DatasetApi* | [**delete_external_database_column**](docs/DatasetApi.md#delete_external_database_column) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Deletes an OrganizationExternalDatabaseColumn object, which represents an organization's column in an external database. This deletes both the object and the column in the database. It is a hard delete.
 *OpenapiClient::DatasetApi* | [**delete_external_database_columns**](docs/DatasetApi.md#delete_external_database_columns) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/external-database-column | Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization's table in an external database. It is a hard delete
 *OpenapiClient::DatasetApi* | [**delete_external_database_table**](docs/DatasetApi.md#delete_external_database_table) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Deletes an OrganizationExternalDatabaseTable object, which represents an organization's table in an external database. This deletes both the object and the table in the database. It is a hard delete.
@@ -312,6 +319,8 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::DataGraph](docs/DataGraph.md)
  - [OpenapiClient::DataGraphIds](docs/DataGraphIds.md)
  - [OpenapiClient::DataSearchResult](docs/DataSearchResult.md)
+ - [OpenapiClient::DataSet](docs/DataSet.md)
+ - [OpenapiClient::DataSetColumn](docs/DataSetColumn.md)
  - [OpenapiClient::EDM](docs/EDM.md)
  - [OpenapiClient::EDMdiff](docs/EDMdiff.md)
  - [OpenapiClient::EdmRequest](docs/EdmRequest.md)
@@ -368,6 +377,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::SearchResult](docs/SearchResult.md)
  - [OpenapiClient::SearchResultHits](docs/SearchResultHits.md)
  - [OpenapiClient::SearchTerm](docs/SearchTerm.md)
+ - [OpenapiClient::SecurableObjectMetadataUpdate](docs/SecurableObjectMetadataUpdate.md)
  - [OpenapiClient::SecurablePrincipal](docs/SecurablePrincipal.md)
  - [OpenapiClient::SmsEntitySetInformation](docs/SmsEntitySetInformation.md)
  - [OpenapiClient::SortDefinition](docs/SortDefinition.md)

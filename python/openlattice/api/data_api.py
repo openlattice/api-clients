@@ -731,6 +731,8 @@ class DataApi(object):
         :type type: str
         :param request_body: (required)
         :type request_body: list[str]
+        :param block:
+        :type block: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -764,6 +766,8 @@ class DataApi(object):
         :type type: str
         :param request_body: (required)
         :type request_body: list[str]
+        :param block:
+        :type block: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -792,7 +796,8 @@ class DataApi(object):
         all_params = [
             'entity_set_id',
             'type',
-            'request_body'
+            'request_body',
+            'block'
         ]
         all_params.extend(
             [
@@ -834,6 +839,8 @@ class DataApi(object):
         query_params = []
         if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
             query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'block' in local_var_params and local_var_params['block'] is not None:  # noqa: E501
+            query_params.append(('block', local_var_params['block']))  # noqa: E501
 
         header_params = {}
 
@@ -1041,6 +1048,8 @@ class DataApi(object):
         :type entity_key_id: str
         :param type: (required)
         :type type: str
+        :param block:
+        :type block: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1074,6 +1083,8 @@ class DataApi(object):
         :type entity_key_id: str
         :param type: (required)
         :type type: str
+        :param block:
+        :type block: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -1102,7 +1113,8 @@ class DataApi(object):
         all_params = [
             'entity_set_id',
             'entity_key_id',
-            'type'
+            'type',
+            'block'
         ]
         all_params.extend(
             [
@@ -1146,6 +1158,8 @@ class DataApi(object):
         query_params = []
         if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
             query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if 'block' in local_var_params and local_var_params['block'] is not None:  # noqa: E501
+            query_params.append(('block', local_var_params['block']))  # noqa: E501
 
         header_params = {}
 

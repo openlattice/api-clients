@@ -37,6 +37,9 @@ docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
 docs/DataSearchResult.md
+docs/DataSet.md
+docs/DataSetColumn.md
+docs/DataSetMetadataApi.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -101,6 +104,7 @@ docs/SearchDetails.md
 docs/SearchResult.md
 docs/SearchResultHits.md
 docs/SearchTerm.md
+docs/SecurableObjectMetadataUpdate.md
 docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
@@ -114,6 +118,7 @@ lib/openapi_client/api/authorizations_api.rb
 lib/openapi_client/api/collections_api.rb
 lib/openapi_client/api/data_api.rb
 lib/openapi_client/api/data_integrations_api.rb
+lib/openapi_client/api/data_set_metadata_api.rb
 lib/openapi_client/api/dataset_api.rb
 lib/openapi_client/api/edm_api.rb
 lib/openapi_client/api/entity_sets_api.rb
@@ -152,6 +157,8 @@ lib/openapi_client/models/data_edge_key.rb
 lib/openapi_client/models/data_graph.rb
 lib/openapi_client/models/data_graph_ids.rb
 lib/openapi_client/models/data_search_result.rb
+lib/openapi_client/models/data_set.rb
+lib/openapi_client/models/data_set_column.rb
 lib/openapi_client/models/ed_mdiff.rb
 lib/openapi_client/models/edm.rb
 lib/openapi_client/models/edm_request.rb
@@ -208,6 +215,7 @@ lib/openapi_client/models/search_details.rb
 lib/openapi_client/models/search_result.rb
 lib/openapi_client/models/search_result_hits.rb
 lib/openapi_client/models/search_term.rb
+lib/openapi_client/models/securable_object_metadata_update.rb
 lib/openapi_client/models/securable_principal.rb
 lib/openapi_client/models/sms_entity_set_information.rb
 lib/openapi_client/models/sort_definition.rb
@@ -220,6 +228,7 @@ spec/api/authorizations_api_spec.rb
 spec/api/collections_api_spec.rb
 spec/api/data_api_spec.rb
 spec/api/data_integrations_api_spec.rb
+spec/api/data_set_metadata_api_spec.rb
 spec/api/dataset_api_spec.rb
 spec/api/edm_api_spec.rb
 spec/api/entity_sets_api_spec.rb
@@ -256,6 +265,8 @@ spec/models/data_edge_spec.rb
 spec/models/data_graph_ids_spec.rb
 spec/models/data_graph_spec.rb
 spec/models/data_search_result_spec.rb
+spec/models/data_set_column_spec.rb
+spec/models/data_set_spec.rb
 spec/models/ed_mdiff_spec.rb
 spec/models/edm_request_spec.rb
 spec/models/edm_spec.rb
@@ -312,6 +323,7 @@ spec/models/search_result_hits_spec.rb
 spec/models/search_result_spec.rb
 spec/models/search_spec.rb
 spec/models/search_term_spec.rb
+spec/models/securable_object_metadata_update_spec.rb
 spec/models/securable_principal_spec.rb
 spec/models/sms_entity_set_information_spec.rb
 spec/models/sort_definition_spec.rb

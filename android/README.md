@@ -132,6 +132,13 @@ Class | Method | HTTP request | Description
 *DataApi* | [**updateEntitiesInEntitySet**](docs/DataApi.md#updateEntitiesInEntitySet) | **PUT** /datastore/data/set/{entitySetId} | Perform one of the following bulk update operations on entities (type &#x3D; Merge) adds new properties without affecting existing data, (type &#x3D; PartialReplace) replaces all values for supplied property types, but does not not affect other property types for an entity, (type &#x3D; Replace) replaces all entity data with the supplied properties.
 *DataIntegrationsApi* | [**getEntityKeyIds**](docs/DataIntegrationsApi.md#getEntityKeyIds) | **POST** /datastore/integration/entityKeyIds | Get entity key IDs
 *DataIntegrationsApi* | [**integrateEntityAndAssociationData**](docs/DataIntegrationsApi.md#integrateEntityAndAssociationData) | **POST** /datastore/integration | Integrate entity and association data
+*DataSetMetadataApi* | [**getDataSetColumnMetadata**](docs/DataSetMetadataApi.md#getDataSetColumnMetadata) | **GET** /datastore/metadata/columns/{dataId}/{columnId} | Gets the dataset column metadata objects using data ID and column ID
+*DataSetMetadataApi* | [**getDataSetColumnsMetadata**](docs/DataSetMetadataApi.md#getDataSetColumnsMetadata) | **POST** /datastore/metadata/columns | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*DataSetMetadataApi* | [**getDataSetMetadata**](docs/DataSetMetadataApi.md#getDataSetMetadata) | **GET** /datastore/metadata/datasets/{dataId} | Gets dataset metadata object with given data set ID
+*DataSetMetadataApi* | [**getDataSetsMetadata**](docs/DataSetMetadataApi.md#getDataSetsMetadata) | **POST** /datastore/metadata/datasets | Gets the dataset metadata objects given data set ids the caller has READ permissions on
+*DataSetMetadataApi* | [**getOrganizationDataSetsMetadata**](docs/DataSetMetadataApi.md#getOrganizationDataSetsMetadata) | **GET** /datastore/metadata/datasets/organizations/{organizationId} | Gets all data set column metadata objects that caller has READ on that belong to given data set ids
+*DataSetMetadataApi* | [**updateDataSetColumnMetadata**](docs/DataSetMetadataApi.md#updateDataSetColumnMetadata) | **PATCH** /datastore/metadata/update/{dataId}/{columnId} | Applies the given metadata updates to the data set column given dataset and column Ids. Must be OWNER of the column.
+*DataSetMetadataApi* | [**updateDataSetMetadata**](docs/DataSetMetadataApi.md#updateDataSetMetadata) | **PATCH** /datastore/metadata/update/{dataId} | Applies the given metadata updates to the data set given data set id. Must be OWNER of the dataset.
 *DatasetApi* | [**deleteExternalDatabaseColumn**](docs/DatasetApi.md#deleteExternalDatabaseColumn) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/{columnName}/external-database-column | Deletes an OrganizationExternalDatabaseColumn object, which represents an organization&#39;s column in an external database. This deletes both the object and the column in the database. It is a hard delete.
 *DatasetApi* | [**deleteExternalDatabaseColumns**](docs/DatasetApi.md#deleteExternalDatabaseColumns) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/external-database-column | Deletes multiple OrganizationExternalDatabaseColumn objects and the columns they represent within an organization&#39;s table in an external database. It is a hard delete
 *DatasetApi* | [**deleteExternalDatabaseTable**](docs/DatasetApi.md#deleteExternalDatabaseTable) | **DELETE** /datastore/organization-database/{organizationId}/{tableName}/external-database-table | Deletes an OrganizationExternalDatabaseTable object, which represents an organization&#39;s table in an external database. This deletes both the object and the table in the database. It is a hard delete.
@@ -309,6 +316,8 @@ Class | Method | HTTP request | Description
  - [DataGraph](docs/DataGraph.md)
  - [DataGraphIds](docs/DataGraphIds.md)
  - [DataSearchResult](docs/DataSearchResult.md)
+ - [DataSet](docs/DataSet.md)
+ - [DataSetColumn](docs/DataSetColumn.md)
  - [EDM](docs/EDM.md)
  - [EDMdiff](docs/EDMdiff.md)
  - [EdmRequest](docs/EdmRequest.md)
@@ -365,6 +374,7 @@ Class | Method | HTTP request | Description
  - [SearchResult](docs/SearchResult.md)
  - [SearchResultHits](docs/SearchResultHits.md)
  - [SearchTerm](docs/SearchTerm.md)
+ - [SecurableObjectMetadataUpdate](docs/SecurableObjectMetadataUpdate.md)
  - [SecurablePrincipal](docs/SecurablePrincipal.md)
  - [SmsEntitySetInformation](docs/SmsEntitySetInformation.md)
  - [SortDefinition](docs/SortDefinition.md)

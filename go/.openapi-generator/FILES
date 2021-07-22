@@ -9,6 +9,7 @@ api_authorizations.go
 api_collections.go
 api_data.go
 api_data_integrations.go
+api_data_set_metadata.go
 api_dataset.go
 api_edm.go
 api_entity_sets.go
@@ -51,6 +52,9 @@ docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
 docs/DataSearchResult.md
+docs/DataSet.md
+docs/DataSetColumn.md
+docs/DataSetMetadataApi.md
 docs/DatasetApi.md
 docs/EdMdiff.md
 docs/Edm.md
@@ -115,6 +119,7 @@ docs/SearchDetails.md
 docs/SearchResult.md
 docs/SearchResultHits.md
 docs/SearchTerm.md
+docs/SecurableObjectMetadataUpdate.md
 docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
@@ -148,6 +153,8 @@ model_data_edge_key.go
 model_data_graph.go
 model_data_graph_ids.go
 model_data_search_result.go
+model_data_set.go
+model_data_set_column.go
 model_ed_mdiff.go
 model_edm.go
 model_edm_request.go
@@ -204,6 +211,7 @@ model_search_details.go
 model_search_result.go
 model_search_result_hits.go
 model_search_term.go
+model_securable_object_metadata_update.go
 model_securable_principal.go
 model_sms_entity_set_information.go
 model_sort_definition.go

@@ -34,6 +34,9 @@ docs/DataGraph.md
 docs/DataGraphIds.md
 docs/DataIntegrationsApi.md
 docs/DataSearchResult.md
+docs/DataSet.md
+docs/DataSetColumn.md
+docs/DataSetMetadataApi.md
 docs/DatasetApi.md
 docs/EDM.md
 docs/EDMdiff.md
@@ -98,6 +101,7 @@ docs/SearchDetails.md
 docs/SearchResult.md
 docs/SearchResultHits.md
 docs/SearchTerm.md
+docs/SecurableObjectMetadataUpdate.md
 docs/SecurablePrincipal.md
 docs/ShuttleApi.md
 docs/SmsEntitySetInformation.md
@@ -112,6 +116,7 @@ openlattice/api/authorizations_api.py
 openlattice/api/collections_api.py
 openlattice/api/data_api.py
 openlattice/api/data_integrations_api.py
+openlattice/api/data_set_metadata_api.py
 openlattice/api/dataset_api.py
 openlattice/api/edm_api.py
 openlattice/api/entity_sets_api.py
@@ -150,6 +155,8 @@ openlattice/models/data_edge_key.py
 openlattice/models/data_graph.py
 openlattice/models/data_graph_ids.py
 openlattice/models/data_search_result.py
+openlattice/models/data_set.py
+openlattice/models/data_set_column.py
 openlattice/models/ed_mdiff.py
 openlattice/models/edm.py
 openlattice/models/edm_request.py
@@ -206,6 +213,7 @@ openlattice/models/search_details.py
 openlattice/models/search_result.py
 openlattice/models/search_result_hits.py
 openlattice/models/search_term.py
+openlattice/models/securable_object_metadata_update.py
 openlattice/models/securable_principal.py
 openlattice/models/sms_entity_set_information.py
 openlattice/models/sort_definition.py
@@ -247,6 +255,9 @@ test/test_data_graph.py
 test/test_data_graph_ids.py
 test/test_data_integrations_api.py
 test/test_data_search_result.py
+test/test_data_set.py
+test/test_data_set_column.py
+test/test_data_set_metadata_api.py
 test/test_dataset_api.py
 test/test_ed_mdiff.py
 test/test_edm.py
@@ -311,6 +322,7 @@ test/test_search_details.py
 test/test_search_result.py
 test/test_search_result_hits.py
 test/test_search_term.py
+test/test_securable_object_metadata_update.py
 test/test_securable_principal.py
 test/test_shuttle_api.py
 test/test_sms_entity_set_information.py

@@ -17,6 +17,7 @@ import (
 	_neturl "net/url"
 	_bytes "bytes"
 	"strings"
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -470,15 +471,22 @@ func (a *DataApiService) DeleteAllEntitiesFromEntitySet(ctx _context.Context, en
 	return localVarHTTPResponse, nil
 }
 
+// DeleteEntitiesOpts Optional parameters for the method 'DeleteEntities'
+type DeleteEntitiesOpts struct {
+    Block optional.Bool
+}
+
 /*
 DeleteEntities Deletes multiple entities from an entity set.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param entitySetId
  * @param type_
  * @param requestBody
+ * @param optional nil or *DeleteEntitiesOpts - Optional Parameters:
+ * @param "Block" (optional.Bool) - 
 @return int32
 */
-func (a *DataApiService) DeleteEntities(ctx _context.Context, entitySetId string, type_ string, requestBody []string) (int32, *_nethttp.Response, error) {
+func (a *DataApiService) DeleteEntities(ctx _context.Context, entitySetId string, type_ string, requestBody []string, localVarOptionals *DeleteEntitiesOpts) (int32, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -497,6 +505,9 @@ func (a *DataApiService) DeleteEntities(ctx _context.Context, entitySetId string
 	localVarFormParams := _neturl.Values{}
 
 	localVarQueryParams.Add("type", parameterToString(type_, ""))
+	if localVarOptionals != nil && localVarOptionals.Block.IsSet() {
+		localVarQueryParams.Add("block", parameterToString(localVarOptionals.Block.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -660,14 +671,21 @@ func (a *DataApiService) DeleteEntitiesAndNeighbors(ctx _context.Context, entity
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+// DeleteEntityOpts Optional parameters for the method 'DeleteEntity'
+type DeleteEntityOpts struct {
+    Block optional.Bool
+}
+
 /*
 DeleteEntity Deletes a single entity from an entity set.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param entitySetId
  * @param entityKeyId
  * @param type_
+ * @param optional nil or *DeleteEntityOpts - Optional Parameters:
+ * @param "Block" (optional.Bool) - 
 */
-func (a *DataApiService) DeleteEntity(ctx _context.Context, entitySetId string, entityKeyId string, type_ string) (*_nethttp.Response, error) {
+func (a *DataApiService) DeleteEntity(ctx _context.Context, entitySetId string, entityKeyId string, type_ string, localVarOptionals *DeleteEntityOpts) (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -687,6 +705,9 @@ func (a *DataApiService) DeleteEntity(ctx _context.Context, entitySetId string, 
 	localVarFormParams := _neturl.Values{}
 
 	localVarQueryParams.Add("type", parameterToString(type_, ""))
+	if localVarOptionals != nil && localVarOptionals.Block.IsSet() {
+		localVarQueryParams.Add("block", parameterToString(localVarOptionals.Block.Value(), ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

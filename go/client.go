@@ -61,6 +61,8 @@ type APIClient struct {
 
 	DataIntegrationsApi *DataIntegrationsApiService
 
+	DataSetMetadataApi *DataSetMetadataApiService
+
 	DatasetApi *DatasetApiService
 
 	EdmApi *EdmApiService
@@ -102,6 +104,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CollectionsApi = (*CollectionsApiService)(&c.common)
 	c.DataApi = (*DataApiService)(&c.common)
 	c.DataIntegrationsApi = (*DataIntegrationsApiService)(&c.common)
+	c.DataSetMetadataApi = (*DataSetMetadataApiService)(&c.common)
 	c.DatasetApi = (*DatasetApiService)(&c.common)
 	c.EdmApi = (*EdmApiService)(&c.common)
 	c.EntitySetsApi = (*EntitySetsApiService)(&c.common)
