@@ -68,6 +68,16 @@
         done();
       });
     });
+    describe('updateAcls', function() {
+      it('should call updateAcls successfully', function(done) {
+        //uncomment below and update the code to test updateAcls
+        //instance.updateAcls(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

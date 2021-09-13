@@ -47,6 +47,22 @@
 #' }
 #' }
 #'
+#' \strong{ update_acls } \emph{ Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys. }
+#' 
+#'
+#' \itemize{
+#' \item \emph{ @param } acl_data list( \link{AclData} )
+#'
+#'
+#' \item status code : 200 | Success
+#'
+#'
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
 #' }
 #'
 #'
@@ -90,6 +106,26 @@
 #' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
 #'
 #' result <- api.instance$update_acl(var.acl_data)
+#'
+#'
+#' ####################  update_acls  ####################
+#'
+#' library(openlattice)
+#' var.acl_data <- list(AclData$new()) # array[AclData] | 
+#'
+#' #Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
+#' api.instance <- PermissionsApi$new()
+#'
+#' #Configure HTTP basic authorization: http_auth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' #Configure API key authorization: openlattice_auth
+#' api.instance$apiClient$apiKeys['Authorization'] <- 'TODO_YOUR_API_KEY';
+#'
+#' result <- api.instance$update_acls(var.acl_data)
 #'
 #'
 #' }
@@ -216,6 +252,69 @@ PermissionsApi <- R6::R6Class(
       }
 
       urlPath <- "/datastore/permissions"
+      # API key authentication
+      if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
+        headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')
+      }
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "PATCH",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    update_acls = function(acl_data, ...){
+      apiResponse <- self$update_aclsWithHttpInfo(acl_data, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    update_aclsWithHttpInfo = function(acl_data, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`acl_data`)) {
+        stop("Missing required parameter `acl_data`.")
+      }
+
+      if (!missing(`acl_data`)) {
+        body <- sprintf(
+        '
+            [%s]
+',
+              paste(sapply(`acl_data`, function(x) {
+                    if ('toJSONString' %in% names(x)) {
+                        x$toJSONString()
+                    } else {
+                        jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, digits = NA)
+                    }
+                    }), collapse=",")
+        )
+      } else {
+        body <- NULL
+      }
+
+      urlPath <- "/datastore/update"
       # API key authentication
       if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
         headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')

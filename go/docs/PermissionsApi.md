@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetAcl**](PermissionsApi.md#GetAcl) | **Post** /datastore/permissions | Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 [**UpdateAcl**](PermissionsApi.md#UpdateAcl) | **Patch** /datastore/permissions | Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
+[**UpdateAcls**](PermissionsApi.md#UpdateAcls) | **Patch** /datastore/update | Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
 
 
 
@@ -54,6 +55,38 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **aclData** | [**AclData**](AclData.md)|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[http_auth](../README.md#http_auth), [openlattice_auth](../README.md#openlattice_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateAcls
+
+> UpdateAcls(ctx, aclData)
+
+Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**aclData** | [**[]AclData**](AclData.md)|  | 
 
 ### Return type
 

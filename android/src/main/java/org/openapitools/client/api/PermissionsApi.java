@@ -309,4 +309,128 @@ public class PermissionsApi {
       errorListener.onErrorResponse(new VolleyError(ex));
     }
   }
+  /**
+  * Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
+  * 
+   * @param aclData 
+   * @return void
+  */
+  public void updateAcls (List<AclData> aclData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = aclData;
+    // verify the required parameter 'aclData' is set
+    if (aclData == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'aclData' when calling updateAcls",
+        new ApiException(400, "Missing the required parameter 'aclData' when calling updateAcls"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/update";
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "PATCH", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
+   * 
+   * @param aclData 
+  */
+  public void updateAcls (List<AclData> aclData, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = aclData;
+
+    // verify the required parameter 'aclData' is set
+    if (aclData == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'aclData' when calling updateAcls",
+        new ApiException(400, "Missing the required parameter 'aclData' when calling updateAcls"));
+    }
+
+    // create path and map variables
+    String path = "/datastore/update".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/json"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] { "http_auth", "openlattice_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "PATCH", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
 }

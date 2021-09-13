@@ -116,5 +116,45 @@ export default class PermissionsApi {
       );
     }
 
+    /**
+     * Callback function to receive the result of the updateAcls operation.
+     * @callback module:api/PermissionsApi~updateAclsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
+     * @param {Array.<module:model/AclData>} aclData 
+     * @param {module:api/PermissionsApi~updateAclsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    updateAcls(aclData, callback) {
+      let postBody = aclData;
+      // verify the required parameter 'aclData' is set
+      if (aclData === undefined || aclData === null) {
+        throw new Error("Missing the required parameter 'aclData' when calling updateAcls");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['http_auth', 'openlattice_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/datastore/update', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
 
 }

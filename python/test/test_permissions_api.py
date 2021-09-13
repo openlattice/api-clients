@@ -43,6 +43,13 @@ class TestPermissionsApi(unittest.TestCase):
         """
         pass
 
+    def test_update_acls(self):
+        """Test case for update_acls
+
+        Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

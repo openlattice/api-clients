@@ -27,3 +27,14 @@ test_that("update_acl", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("update_acls", {
+  # tests for update_acls
+  # base path: https://api.openlattice.com
+  # Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
+  # @param acl_data array[AclData] 
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+

@@ -227,6 +227,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**update_title**](docs/OrganizationsApi.md#update_title) | **PUT** /datastore/organizations/{organizationId}/title | Update the organization title
 *PermissionsApi* | [**get_acl**](docs/PermissionsApi.md#get_acl) | **POST** /datastore/permissions | Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 *PermissionsApi* | [**update_acl**](docs/PermissionsApi.md#update_acl) | **PATCH** /datastore/permissions | Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
+*PermissionsApi* | [**update_acls**](docs/PermissionsApi.md#update_acls) | **PATCH** /datastore/update | Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
 *PrincipalApi* | [**get_all_users**](docs/PrincipalApi.md#get_all_users) | **GET** /datastore/principals/users/ | Get all users.
 *PrincipalApi* | [**get_current_roles**](docs/PrincipalApi.md#get_current_roles) | **GET** /datastore/principals/roles/current/ | Get current roles.
 *PrincipalApi* | [**get_materialized_view_account**](docs/PrincipalApi.md#get_materialized_view_account) | **GET** /datastore/principals/db | Get the db access credentials.
