@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetAcl**](PermissionsApi.md#GetAcl) | **Post** /datastore/permissions | Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 [**UpdateAcl**](PermissionsApi.md#UpdateAcl) | **Patch** /datastore/permissions | Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
-[**UpdateAcls**](PermissionsApi.md#UpdateAcls) | **Patch** /datastore/update | Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
+[**UpdateAcls**](PermissionsApi.md#UpdateAcls) | **Patch** /datastore/permissions/update | Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
 
 
 

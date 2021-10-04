@@ -163,7 +163,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'acl_data' when calling PermissionsApi.update_acls"
       end
       # resource path
-      local_var_path = '/datastore/update'
+      local_var_path = '/datastore/permissions/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

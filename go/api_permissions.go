@@ -210,7 +210,7 @@ func (a *PermissionsApiService) UpdateAcls(ctx _context.Context, aclData []AclDa
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/datastore/update"
+	localVarPath := a.client.cfg.BasePath + "/datastore/permissions/update"
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}

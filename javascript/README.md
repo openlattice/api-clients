@@ -299,7 +299,7 @@ Class | Method | HTTP request | Description
 *OpenLatticeApi.OrganizationsApi* | [**updateTitle**](docs/OrganizationsApi.md#updateTitle) | **PUT** /datastore/organizations/{organizationId}/title | Update the organization title
 *OpenLatticeApi.PermissionsApi* | [**getAcl**](docs/PermissionsApi.md#getAcl) | **POST** /datastore/permissions | Get the ACL for the given ACL Key, only if the user is the owner of the ACL Key.
 *OpenLatticeApi.PermissionsApi* | [**updateAcl**](docs/PermissionsApi.md#updateAcl) | **PATCH** /datastore/permissions | Updates the ACL for a particular ACL Key, only if the user is the owner of the ACL Key.
-*OpenLatticeApi.PermissionsApi* | [**updateAcls**](docs/PermissionsApi.md#updateAcls) | **PATCH** /datastore/update | Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
+*OpenLatticeApi.PermissionsApi* | [**updateAcls**](docs/PermissionsApi.md#updateAcls) | **PATCH** /datastore/permissions/update | Adds, removes, or sets the ace for a particular set of acl keys. Successful only if user is the owner of all acl keys.
 *OpenLatticeApi.PrincipalApi* | [**getAllUsers**](docs/PrincipalApi.md#getAllUsers) | **GET** /datastore/principals/users/ | Get all users.
 *OpenLatticeApi.PrincipalApi* | [**getCurrentRoles**](docs/PrincipalApi.md#getCurrentRoles) | **GET** /datastore/principals/roles/current/ | Get current roles.
 *OpenLatticeApi.PrincipalApi* | [**getMaterializedViewAccount**](docs/PrincipalApi.md#getMaterializedViewAccount) | **GET** /datastore/principals/db | Get the db access credentials.

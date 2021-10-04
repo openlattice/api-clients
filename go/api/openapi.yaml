@@ -3600,7 +3600,7 @@ paths:
         the ACL Key.
       tags:
       - permissions
-  /datastore/update:
+  /datastore/permissions/update:
     patch:
       operationId: updateAcls
       requestBody:

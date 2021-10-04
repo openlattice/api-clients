@@ -324,7 +324,7 @@ public class PermissionsApi {
     }
 
     // create path and map variables
-    String path = "/datastore/update";
+    String path = "/datastore/permissions/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -387,7 +387,7 @@ public class PermissionsApi {
     }
 
     // create path and map variables
-    String path = "/datastore/update".replaceAll("\\{format\\}","json");
+    String path = "/datastore/permissions/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -314,7 +314,7 @@ PermissionsApi <- R6::R6Class(
         body <- NULL
       }
 
-      urlPath <- "/datastore/update"
+      urlPath <- "/datastore/permissions/update"
       # API key authentication
       if ("Authorization" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["Authorization"]) > 0) {
         headerParams['Authorization'] <- paste(unlist(self$apiClient$apiKeys["Authorization"]), collapse='')

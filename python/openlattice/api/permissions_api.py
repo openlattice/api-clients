@@ -412,7 +412,7 @@ class PermissionsApi(object):
         auth_settings = ['http_auth', 'openlattice_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/datastore/update', 'PATCH',
+            '/datastore/permissions/update', 'PATCH',
             path_params,
             query_params,
             header_params,
