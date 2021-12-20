@@ -21,7 +21,7 @@ as well.
 
 There are two different types of ways to log into Atlas to download and upload data. First, there is your own Atlas-specific user name and password that is unique only to you (not to be confused with your login to OpenLattice). Your ability to access datasets within Atlas depends on whether you have been granted permission to the datasets within Atlas. 
 
-If you are an owner of an organization, you will also see additional details about a database when you go to the [Orgs page](https://staging.openlattice.com/orgs/#/orgs). Click on an organization and go to the database details. This will give you an additional user name and password you can use to log into Atlas. This is an owner-level login and you will be able to see all of the data that lives on Atlas in that specific organization's database. Any owner of an organization will be able to access the database through the organization credentials. 
+If you are an owner of an organization, you will also see additional details about a database when you go to the [Orgs page](https://openlattice.com/orgs/#/orgs). Click on an organization and go to the database details. This will give you an additional user name and password you can use to log into Atlas. This is an owner-level login and you will be able to see all of the data that lives on Atlas in that specific organization's database. Any owner of an organization will be able to access the database through the organization credentials. 
 
 More detailed guide to setting up database connections is down below.
 
@@ -49,12 +49,16 @@ For the database name, search for the organization in the search bar,
 and click on the desired organization. This will lead you to a page that
 looks something like this.
 
-![Organization main page](/Users/yueli/Desktop/ss_org_page.png)
+![Organization main page](/Users/yueli/Desktop/screen.png)
 Go to Database details. This will give you information such as the organization ID and the database name. The database name will go under dbname.
 
-For owners of an organization, you will also see additional information in the database details such as the database username and database credentials as shown in the image below. You can use those credentials to log into Atlas.
-
 ![Database details](/Users/yueli/Desktop/db_details.png)
+```{r, echo=FALSE}
+# change here
+user <- "***"
+password <- "***"
+dbname <- "***"
+```
 
 
 ```{r}

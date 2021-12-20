@@ -21,13 +21,12 @@ whether you have been granted permission to the datasets within Atlas.
 
 If you are an owner of an organization, you will also see additional
 details about a database when you go to the [Orgs
-page](https://staging.openlattice.com/orgs/#/orgs). Click on an
-organization and go to the database details. This will give you an
-additional user name and password you can use to log into Atlas. This is
-an owner-level login and you will be able to see all of the data that
-lives on Atlas in that specific organization’s database. Any owner of an
-organization will be able to access the database through the
-organization credentials.
+page](https://openlattice.com/orgs/#/orgs). Click on an organization and
+go to the database details. This will give you an additional user name
+and password you can use to log into Atlas. This is an owner-level login
+and you will be able to see all of the data that lives on Atlas in that
+specific organization’s database. Any owner of an organization will be
+able to access the database through the organization credentials.
 
 More detailed guide to setting up database connections is down below.
 
@@ -40,14 +39,19 @@ library(RPostgres)
 library(tidyverse)
 ```
 
-    ## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+    ## Registered S3 methods overwritten by 'tibble':
+    ##   method     from  
+    ##   format.tbl pillar
+    ##   print.tbl  pillar
+
+    ## ── Attaching packages ─────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
 
     ## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-    ## ✓ tibble  3.0.1     ✓ dplyr   1.0.0
+    ## ✓ tibble  3.0.1     ✓ dplyr   1.0.7
     ## ✓ tidyr   1.1.0     ✓ stringr 1.4.0
     ## ✓ readr   1.3.1     ✓ forcats 0.5.0
 
-    ## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ── Conflicts ────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
     ## x dplyr::filter() masks stats::filter()
     ## x dplyr::lag()    masks stats::lag()
 
@@ -65,15 +69,10 @@ For the database name, search for the organization in the search bar,
 and click on the desired organization. This will lead you to a page that
 looks something like this.
 
-![Organization main page](/Users/yueli/Desktop/ss_org_page.png) Go to
+![Organization main page](/Users/yueli/Desktop/screen.png) Go to
 Database details. This will give you information such as the
 organization ID and the database name. The database name will go under
 dbname.
-
-For owners of an organization, you will also see additional information
-in the database details such as the database username and database
-credentials as shown in the image below. You can use those credentials
-to log into Atlas.
 
 ![Database details](/Users/yueli/Desktop/db_details.png)
 
